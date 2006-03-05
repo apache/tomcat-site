@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <title>Apache Tomcat -- Subversion Repository Access</title>
+  </properties>
+
+<body>
+
+<section name="Subversion">
+
+<p>All of the Apache Tomcat source code, documentation and this web site are
+managed under version control using Subversion. This page explains the structure
+of the Apache Tomcat Subversion repository. The page assumes you are familiar
+with the general
+<a href="http://www.apache.org/dev/version-control.html#anon-svn">Apache
+guidance for Subversion</a>.</p>
+
+<p>All Subversion links in this page use anonymous access.</p>
+
+</section>
+
+
+<section name="Repository Structure">
+
+<p>The root of the repository is
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>.</p>
+
+<p>The directories below this level are:</p>
+<table>
+  <tr>
+    <th>Directory</th><th>Contents</th>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/archive">
+        <code>/archive/</code></a></td>
+    <td>Modules that are no longer maintained</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/build">
+        <code>/build/</code></a></td>
+    <td>Resources used to build the distributions for TC5.x onwards</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/container">
+        <code>/container/</code></a></td>
+    <td>The core Tomcat code</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/current">
+        <code>/current/</code></a></td>
+    <td>Single directory checkouts for each major version</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/connectors">
+        <code>/connectors/</code></a></td>
+    <td>The HTTP and AJP implementation code</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/jasper">
+        <code>/jasper/</code></a></td>
+    <td>Apache Tomcat's JSP engine</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/servletapi">
+        <code>/servletapi/</code></a></td>
+    <td>The Servlet and JSP APIs</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/site">
+        <code>/site/</code></a></td>
+    <td>The Apache Tomcat website</td>
+  </tr>
+  <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/watchdog">
+        <code>/watchdog/</code></a></td>
+    <td>Specification compliance test harness for Apache Tomcat 3.x and 4.x</td>
+  </tr>
+</table>
+
+</section>
+
+<section name="Convenience directories">
+<p>To simplify checkouts of the latest sources for each major version of Apache
+Tomcat, a Subversion feature called externals has been used. This groups all 
+the modules for a major Apache Tomcat release as sub-directories of a single
+directory and enables them to be checked out in a single command. The modules
+included for each version are listed in the section below.</p>
+
+<p>There are some caveats to remember. Since all the subdirectories are still
+really different slices from the repository, relative paths won't always work
+as expected, for example. See the
+<a href="http://svnbook.red-bean.com/en/1.1/ch07s04.html">Externals
+Definitions</a> section of the <a href="http://svnbook.red-bean.com/">
+Subversion Book</a> for details.</p>
+
+<p>The URLs to use to checkout each version are:</p>
+<table>
+  <tr>
+    <th>Apache Tomcat Version</th><th>URL</th>
+  </tr>
+  <tr>
+    <td>5.5.x</td>
+    <td>http://svn.apache.org/repos/asf/tomcat/current/tc5.5.x</td>
+  </tr>
+  <tr>
+    <td>4.1.x</td>
+    <td>http://svn.apache.org/repos/asf/tomcat/current/tc4.1.x</td>
+  </tr>
+  <tr>
+    <td>3.3.x</td>
+    <td>http://svn.apache.org/repos/asf/tomcat/current/tc3.3.x</td>
+  </tr>
+</table>
+
+<p>Note that if you view these directories in your browser they will
+appear to be empty.</p>
+</section>
+
+<section name="Sources by major version">
+<p>Tomcat 5.5.x is built from the following modules under
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>:</p>
+<ul>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/build/tc5.5.x">
+        <code>/build/tc5.5.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/container/tc5.5.x">
+        <code>/container/tc5.5.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
+        <code>/connectors/trunk</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/jasper/tc5.5.x">
+        <code>/jasper/tc5.5.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/servletapi/servlet2.4-jsp2.0-tc5.x">
+        <code>/servletapi/servlet2.4-jsp2.0-tc5.x</code></a></li>
+</ul>
+
+<p>Tomcat 4.1.x is built from the following modules under
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>:</p>
+<ul>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/container/branches/tc4.1.x">
+        <code>/container/branches/tc4.1.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
+        <code>/connectors/trunk</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/jasper/branches/tc4.1.x">
+        <code>/jasper/branches/tc4.1.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/servletapi/branches/servlet2.3-jsp1.2-tc4.x">
+        <code>/servletapi/branches/servlet2.3-jsp1.2-tc4.x</code></a></li>
+</ul>
+
+<p>Tomcat 3.3.x is built from the following modules under
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>:</p>
+<ul>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/container/branches/tc3.3.x">
+        <code>/container/branches/tc3.3.x</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
+        <code>/connectors/trunk</code></a></li>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/servletapi/branches/servlet2.2-jsp1.1-tc3.x">
+        <code>/servletapi/branches/servlet2.2-jsp1.1-tc3.x</code></a></li>
+</ul>
+
+<p>The Tomcat JK native connectors are built from the following module under
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>:</p>
+<ul>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
+        <code>/connectors/trunk</code></a></li>
+</ul>
+
+
+</section>
+
+<section name="Principles">
+<p>The Subversion repository has been structured using the following principles:</p>
+
+<ul>
+  <li>Each current module should appear directly under the 
+      <code>tomcat</code> directory.</li>
+  <li>Modules no longer used (eg tools service) should be clearly marked as
+      archived.</li>
+  <li>The <code>trunk</code> for each module should be the the development
+      branch of the latest Apache Tomcat version. Since there are always
+      several active versions at any one time, rather than be called
+      <code>trunk
+</code> this directory should be named using the Apache Tomcat
+      version it represents, eg <code>tc5.5.x</code>.</li>
+  <li>The development branches for the other Apache Tomcat versions
+      will be placed in the <code>branches</code> directory for each
+      component.</li>
+  <li>Other (non-development) branches will be placed in the
+      <code>branches/other</code> directory in sub-directories that group the
+      other branches by the
+ Apache Tomcat version from which they were
+      created.</li>
+  <li>Tags will be treated in exactly the same way as branches.</li> 
+
+</ul>
+
+</section>
+
+</body>
+</document>
