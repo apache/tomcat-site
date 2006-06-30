@@ -75,10 +75,6 @@
           <font face="arial,helvetica,sanserif">
             <h1><xsl:value-of select="$project/title"/></h1>
           </font>
-          <xsl:comment>Support ApacheCon EU</xsl:comment>
-            <a href="http://www.eu.apachecon.com" title="ApacheCon EU">
-              <img src="http://people.apache.org/~lars/apachecon/ac2006eu_250x92trans.gif" alt="ApacheCon EU" border="0" />
-            </a>
         </td>
         <td>
           <xsl:comment>APACHE LOGO</xsl:comment>
