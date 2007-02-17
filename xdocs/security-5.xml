@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Apache Tomcat 5.x vulnerabilities</title>
+  </properties>
+
+<body>
+
+  <section name="Apache Tomcat 5.x vulnerabilities">
+    <p>This page lists all security vulnerabilities fixed in released versions
+       of Apache Tomcat 5.x. Each vulnerability is given a
+       <a href="security-impact.html">security impact rating</a> by the Apache
+       Tomcat security team - please note that this rating may vary from
+       platform to platform. We also list the versions of Apache Tomcat the flaw
+       is known to affect, and where a flaw has not been verified list the
+       version with a question mark.</p>
+
+    <p>This page has been created from a review of the Apache Tomcat archives
+       and the CVE list. Please send comments or corrections for these
+       vulnerabilities to the <a href="mailto:security@tomcat.apache.org">Tomcat
+       Security Team</a>.</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 5.5.13, 5.0.HEAD">
+    <p><strong>low: Directory listing</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3835">
+       CVE-2006-3835</a></p>
+
+    <p>This is expected behaviour when directory listings are enabled. The
+       semicolon (;) is the separator for path parameters so inserting one
+       before a file name changes the request into a request for a directory
+       with a path parameter. If directory listings are enabled, a diretcory
+       listing will be shown. In response to this and other directory listing
+       issues, directory listings were changed to be disabled by default.</p>
+
+    <p>Affects: 5.0.0-5.5.30, 5.5.0-5.5.12</p>
+  </section>
+</body>
+</document>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Apache Tomcat 4.x vulnerabilities</title>
+  </properties>
+
+<body>
+
+  <section name="Apache Tomcat 4.x vulnerabilities">
+    <p>This page lists all security vulnerabilities fixed in released versions
+       of Apache Tomcat 4.x. Each vulnerability is given a
+       <a href="security-impact.html">security impact rating</a> by the Apache
+       Tomcat security team - please note that this rating may vary from
+       platform to platform. We also list the versions of Apache Tomcat the flaw
+       is known to affect, and where a flaw has not been verified list the
+       version with a question mark.</p>
+
+    <p>This page has been created from a review of the Apache Tomcat archives
+       and the CVE list. Please send comments or corrections for these
+       vulnerabilities to the <a href="mailto:security@tomcat.apache.org">Tomcat
+       Security Team</a>.</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 4.1.32">
+    <p><strong>low: Directory listing</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3835">
+       CVE-2006-3835</a></p>
+
+    <p>This is expected behaviour when directory listings are enabled. The
+       semicolon (;) is the separator for path parameters so inserting one
+       before a file name changes the request into a request for a directory
+       with a path parameter. If directory listings are enabled, a diretcory
+       listing will be shown. In response to this and other directory listing
+       issues, directory listings were changed to be disabled by default.</p>
+
+    <p>Affects: 4.0.0-4.0.6, 4.1.0-4.1.31</p>
+  </section>
+
+  <section name="Unverified">
+    <p><strong>low: Installation path disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4703">
+       CVE-2005-4703</a></p>
+    <p>This issue only affects Windows operating systems. It can not be
+       reproduced on Windows XP Home with JDKs 1.3.1, 1.4.2, 1.5.0 or 1.6.0.
+       Further investigation is required to determine the Windows operating
+       system and JDK combinations that do exhibit this issue.</p>
+
+    <p>Affects: 4.0.3?</p>
+  </section>
+</body>
+</document>
+
