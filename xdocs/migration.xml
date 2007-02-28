@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <author>Remy Maucherat</author>
+    <title>Apache Tomcat -- Migration Guide</title>
+  </properties>
+
+<body>
+
+<section name="Before upgrading">
+
+<p>When updating from one Apache Tomcat branch to a newer one, please make sure
+the JVM that is installed on your system supports at least the required Java
+version. It is also possible that older versions of Tomcat may not be compatible
+with newer JVMs.</p>
+
+<p>The Apache Tomcat configuration sometimes needs to be adjusted when upgrading,
+and the lists below compile all changes which may cause backwards
+compatibility problems.</p>
+
+</section>
+
+<section name="5.5.x to 6.0.x">
+
+  <subsection name="Java 5 required">
+
+    <p>Apache Tomcat 6.0.x requires Java 5, unlike Apache Tomcat 5.5.x which
+    could use a compatibility package to run on JRE 1.4.</p>
+
+  </subsection>
+
+  <subsection name="Modified directory structure">
+
+    <p>Apache Tomcat 5.5.x used, by default, a directory structure including
+    common, shared and server. Apache Tomcat 6.0.x merges these repositories
+    into a single lib folder. The <code>conf/catalina.properties</code> file
+    can be used to modify the directory structure. In addition, all of the
+    default web applications are located in the <code>webapps</code> folder.
+    When using a shared webhosting environment, it is recommended that usage
+    of context.xml inside a WAR is forbidden (using the <code>deployXML</code>
+    attribute of the Host element).</p>
+
+  </subsection>
+
+  <subsection name="Modified classloading">
+
+    <p>As a result of the modification of the directory structure, the
+    common, shared and server classloaders have been merged into one.
+    The lib folder accepts both exploded class hierarchies and JARs.
+    This behavior and structure can be modified using the 
+    <code>conf/catalina.properties</code> file.</p>
+
+  </subsection>
+
+  <subsection name="Logging API package renaming">
+
+    <p>Commons-logging was package renamed to <code>org.apache.juli.logging</code>
+    so that application logging can be as independent as possible from the
+    container, while wtill having the possibility of being unified. This change is
+    transparent when using java.logging, but requires compilation of the extra
+    components when using log4j for Tomcat's logging. See the logging and extras
+    documentation for more details.</p>
+
+  </subsection>
+
+  <subsection name="SSLEnabled attribute on Connector">
+
+    <p>For all SSL enabled connectors, the <code>SSLEnabled</code> flag must be set
+    to <code>true</code> to enable encryption. Tomcat no longer relies on using
+    the protocol and other parameters to determine if the transport should be
+    encrypted, to give maximum flexibility in proxied scenarios.</p>
+
+  </subsection>
+
+  <subsection name="Clustering configuration changes">
+
+    <p>Clustering confoguration was refactored. See the clustering documentation
+    for more details.</p>
+
+  </subsection>
+
+</section>
+
+</body>
+</document>

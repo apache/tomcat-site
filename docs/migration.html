@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>Apache Tomcat - Apache Tomcat -- Security Impact Levels</title>
-<meta name="author" value="Apache Tomcat Project"/>
+<title>Apache Tomcat - Apache Tomcat -- Migration Guide</title>
+<meta name="author" value="Remy Maucherat"/>
 <meta name="email" value=""/>
 <link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet"/>
 </head>
@@ -174,8 +174,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Summary of security impact levels for Apache Tomcat">
-<strong>Summary of security impact levels for Apache Tomcat</strong>
+<a name="Before upgrading">
+<strong>Before upgrading</strong>
 </a>
 </font>
 </td>
@@ -184,22 +184,59 @@
 <td>
 <p>
 <blockquote>
-    <p>The Apache Tomcat Security Team rates the impact of each security flaw
-       that affects Tomcat. We've chosen a rating scale quite similar to those
-       used by other major vendors in order to be consistent. Basically the goal
-       of the rating system is to answer the question "How worried should I be
-       about this vulnerability?".</p>
 
-    <p>Note that the rating chosen for each flaw is the worst possible case
-       across all architectures. To determine the exact impact of a particular
-       vulnerability on your own systems you will still need to read the security
-       advisories to find out more about the flaw.</p>
+<p>When updating from one Apache Tomcat branch to a newer one, please make sure
+the JVM that is installed on your system supports at least the required Java
+version. It is also possible that older versions of Tomcat may not be compatible
+with newer JVMs.</p>
 
-    <p>We use the following descriptions to decide on the impact rating to give
-       each vulnerability:</p>
+<p>The Apache Tomcat configuration sometimes needs to be adjusted when upgrading,
+and the lists below compile all changes which may cause backwards
+compatibility problems.</p>
+
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="5.5.x to 6.0.x">
+<strong>5.5.x to 6.0.x</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Java 5 required">
+<strong>Java 5 required</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    <p>Apache Tomcat 6.0.x requires Java 5, unlike Apache Tomcat 5.5.x which
+    could use a compatibility package to run on JRE 1.4.</p>
 
   </blockquote>
-</p>
 </td>
 </tr>
 <tr>
@@ -208,27 +245,31 @@
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
+<td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Critical">
-<strong>Critical</strong>
+<a name="Modified directory structure">
+<strong>Modified directory structure</strong>
 </a>
 </font>
 </td>
 </tr>
 <tr>
 <td>
-<p>
 <blockquote>
-    <p>A vulnerability rated with a Critical impact is one which could
-       potentially be exploited by a remote attacker to get Tomcat to execute
-       arbitrary code (either as the user the server is running as, or root).
-       These are the sorts of vulnerabilities that could be exploited
-       automatically by worms.</p>
+
+    <p>Apache Tomcat 5.5.x used, by default, a directory structure including
+    common, shared and server. Apache Tomcat 6.0.x merges these repositories
+    into a single lib folder. The <code>conf/catalina.properties</code> file
+    can be used to modify the directory structure. In addition, all of the
+    default web applications are located in the <code>webapps</code> folder.
+    When using a shared webhosting environment, it is recommended that usage
+    of context.xml inside a WAR is forbidden (using the <code>deployXML</code>
+    attribute of the Host element).</p>
+
   </blockquote>
-</p>
 </td>
 </tr>
 <tr>
@@ -237,28 +278,28 @@
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
+<td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Important">
-<strong>Important</strong>
+<a name="Modified classloading">
+<strong>Modified classloading</strong>
 </a>
 </font>
 </td>
 </tr>
 <tr>
 <td>
-<p>
 <blockquote>
-    <p>A vulnerability rated as Important impact is one which could result in
-       the compromise of data or availability of the server. For Tomcat this
-       includes issues that allow an easy remote denial of service (something
-       that is out of proportion to the attack or with a lasting consequence),
-       access to arbitrary files outside of the context root, or access to files
-       that should be otherwise prevented by limits or authentication.</p>
+
+    <p>As a result of the modification of the directory structure, the
+    common, shared and server classloaders have been merged into one.
+    The lib folder accepts both exploded class hierarchies and JARs.
+    This behavior and structure can be modified using the 
+    <code>conf/catalina.properties</code> file.</p>
+
   </blockquote>
-</p>
 </td>
 </tr>
 <tr>
@@ -267,29 +308,29 @@
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
+<td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Moderate">
-<strong>Moderate</strong>
+<a name="Logging API package renaming">
+<strong>Logging API package renaming</strong>
 </a>
 </font>
 </td>
 </tr>
 <tr>
 <td>
-<p>
 <blockquote>
-    <p>A vulnerability is likely to be rated as Moderate if there is significant
-       mitigation to make the issue less of an impact. This might be because the
-       flaw does not affect likely configurations, or it is a configuration that
-       isn't widely used, or where a remote user must be authenticated in order
-       to exploit the issue. Flaws that allow Tomcat to serve directory listings
-       instead of index files and cross-site scripting issues are included here.
-       </p>
+
+    <p>Commons-logging was package renamed to <code>org.apache.juli.logging</code>
+    so that application logging can be as independent as possible from the
+    container, while wtill having the possibility of being unified. This change is
+    transparent when using java.logging, but requires compilation of the extra
+    components when using log4j for Tomcat's logging. See the logging and extras
+    documentation for more details.</p>
+
   </blockquote>
-</p>
 </td>
 </tr>
 <tr>
@@ -298,24 +339,64 @@
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
+<td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Low">
-<strong>Low</strong>
+<a name="SSLEnabled attribute on Connector">
+<strong>SSLEnabled attribute on Connector</strong>
 </a>
 </font>
 </td>
 </tr>
 <tr>
 <td>
-<p>
 <blockquote>
-    <p>All other security flaws are classed as a Low impact. This rating is used
-       for issues that are believed to be extremely hard to exploit, or where an
-       exploit gives minimal consequences.</p>
+
+    <p>For all SSL enabled connectors, the <code>SSLEnabled</code> flag must be set
+    to <code>true</code> to enable encryption. Tomcat no longer relies on using
+    the protocol and other parameters to determine if the transport should be
+    encrypted, to give maximum flexibility in proxied scenarios.</p>
+
   </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Clustering configuration changes">
+<strong>Clustering configuration changes</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    <p>Clustering confoguration was refactored. See the clustering documentation
+    for more details.</p>
+
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+
+</blockquote>
 </p>
 </td>
 </tr>
