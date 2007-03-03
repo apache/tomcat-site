@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>Apache Tomcat - Apache Tomcat -- Reporting Security Problems</title>
+<title>Apache Tomcat - Apache Tomcat 6.x vulnerabilities</title>
 <meta name="author" value="Apache Tomcat Project"/>
 <meta name="email" value=""/>
 <link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet"/>
@@ -103,9 +103,6 @@
 <li>
 <a href="./connectors-doc">Tomcat Connectors</a>
 </li>
-<li>
-<a href="./migration.html">Migration Guide</a>
-</li>
 </ul>
 <p>
 <strong>Problems?</strong>
@@ -174,8 +171,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Security Updates">
-<strong>Security Updates</strong>
+<a name="Apache Tomcat JK Connectors vulnerabilities">
+<strong>Apache Tomcat JK Connectors vulnerabilities</strong>
 </a>
 </font>
 </td>
@@ -184,32 +181,19 @@
 <td>
 <p>
 <blockquote>
-    <p>These pages are a work in progress. Additional information will be added
-       as it is identified.</p>
-    <p>Lists of security problems fixed in released versions of Apache Tomcat
-       are available:</p>
-    <ul>
-      <li>
-<a href="security-6.html">Apache Tomcat 6.x Security Vulnerabilitites
-          </a>
-</li>
-      <li>
-<a href="security-5.html">Apache Tomcat 5.x Security Vulnerabilitites
-          </a>
-</li>
-      <li>
-<a href="security-4.html">Apache Tomcat 4.x Security Vulnerabilitites
-          </a>
-</li>
-      <li>
-<a href="security-3.html">Apache Tomcat 3.x Security Vulnerabilitites
-          </a>
-</li>
-      <li>
-<a href="security-jk.html">Apache Tomcat JK Connectors Security
-          Vulnerabilitites</a>
-</li>
-    </ul>
+    <p>This page lists all security vulnerabilities fixed in released versions
+       of Apache Tomcat Jk Connectors. Each vulnerability is given a
+       <a href="security-impact.html">security impact rating</a> by the Apache
+       Tomcat security team - please note that this rating may vary from
+       platform to platform. We also list the versions of Apache Tomcat JK
+       Connectors the flaw is known to affect, and where a flaw has not been
+       verified list the version with a question mark.</p>
+
+    <p>This page has been created from a review of the Apache Tomcat archives
+       and the CVE list. Please send comments or corrections for these
+       vulnerabilities to the <a href="mailto:security@tomcat.apache.org">Tomcat
+       Security Team</a>.</p>
+
   </blockquote>
 </p>
 </td>
@@ -224,8 +208,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Reporting New Security Problems with Apache Tomcat">
-<strong>Reporting New Security Problems with Apache Tomcat</strong>
+<a name="Fixed in Apache Tomcat JK Connector 1.2.21">
+<strong>Fixed in Apache Tomcat JK Connector 1.2.21</strong>
 </a>
 </font>
 </td>
@@ -234,29 +218,18 @@
 <td>
 <p>
 <blockquote>
-    <p>The Apache Software Foundation takes a very active stance in eliminating
-       security problems and denial of service attacks against Apache Tomcat.
-       </p>
-    <p>We strongly encourage folks to report such problems to our private
-       security mailing list first, before disclosing them in a public forum.</p>
-
     <p>
-<strong>We cannot accept regular bug reports or other queries at this
-       address, we ask that you use our <a href="bugreport.html">bug reporting
-       page</a> for those. All mail sent to this address that does not relate to
-       security problems in the Apache Tomcat source code will be ignored.
-       </strong>
-</p>
-    <p>The mailing address is: <a href="mailto:security@tomcat.apache.org">
-       security@tomcat.apache.org</a>
+<strong>critical: Arbitary code execution and denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0774">
+       CVE-2007-0774</a>
 </p>
 
-    <p>Note that all networked servers are subject to denial of service attacks,
-       and we cannot promise magic workarounds to generic problems (such as a
-       client streaming lots of data to your server, or re-requesting the same
-       URL repeatedly). In general our philosophy is to avoid any attacks which
-       can cause the server to consume resources in a non-linear relationship to
-       the size of inputs.</p>
+    <p>An unsafe memory copy in the URI handler for the native JK connector
+       could result in a stackoverflow condition which could be leveraged to
+       execute arbitary code or crash the web server.</p>
+
+    <p>Affects: JK 1.2.19-1.2.20<br/>
+       Source shipped with: Tomcat 4.1.34, 5.5.20</p>
 
   </blockquote>
 </p>
