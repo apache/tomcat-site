@@ -211,6 +211,61 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in Apache Tomcat 4.1.35">
+<strong>Fixed in Apache Tomcat 4.1.35</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+    <p>
+<strong>important: Directory traversal</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450">
+       CVE-2007-0450</a>
+</p>
+
+    <p>Tomcat permits both '\' and '%5C' as path delimiters. A HTTP request
+       containing strings like "/\../" allow attackers to break out of the given
+       context. Additionally, when using Tomcat behind a proxy configured to
+       only proxy some contexts this permits access to non-proxied contexts.
+       When used behind a proxy it is recommended that Tomcat is secured as if
+       the proxy were not present.</p>
+
+    <p>The following Java startup options have been added to Tomcat to provide
+       additional control of the handling of '\' and '%5c' in URLs:
+       <ul>
+         <li>
+<code>
+           -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true|false
+         </code>
+</li>
+         <li>
+<code>
+           -Dorg.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH=true|false
+         </code>
+</li>
+       </ul>
+       These options default to false.
+    </p>
+
+    <p>Affects: 4.0.0-4.0.6, 4.1.0-4.1.34</p>
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
 <a name="Fixed in Apache Tomcat 4.1.32">
 <strong>Fixed in Apache Tomcat 4.1.32</strong>
 </a>

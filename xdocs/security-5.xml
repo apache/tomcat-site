@@ -24,6 +24,34 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 5.5.22, 5.0.HEAD">
+    <p><strong>important: Directory traversal</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450">
+       CVE-2007-0450</a></p>
+
+    <p>Tomcat permits both '\' and '%5C' as path delimiters. A HTTP request
+       containing strings like "/\../" allow attackers to break out of the given
+       context. Additionally, when using Tomcat behind a proxy configured to
+       only proxy some contexts this permits access to non-proxied contexts.
+       When used behind a proxy it is recommended that Tomcat is secured as if
+       the proxy were not present.</p>
+
+    <p>The following Java startup options have been added to Tomcat to provide
+       additional control of the handling of '\' and '%5c' in URLs:
+       <ul>
+         <li><code>
+           -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true|false
+         </code></li>
+         <li><code>
+           -Dorg.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH=true|false
+         </code></li>
+       </ul>
+       These options default to false.
+    </p>
+
+    <p>Affects: 5.5.0-5.5.21, 5.0.0-5.0.30</p>
+  </section>
+
   <section name="Fixed in Apache Tomcat 5.5.13, 5.0.HEAD">
     <p><strong>low: Directory listing</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3835">
