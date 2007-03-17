@@ -24,6 +24,25 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 6.0.HEAD">
+    <p><strong>important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2090">
+       CVE-2005-2090</a></p>
+
+    <p>Requests with multiple content-length headers should be rejected as
+       invalid. When multiple components (firewalls, caches, proxies and Tomcat)
+       process a sequence of requests where one or more requests contain
+       multiple content-length headers and several components accept do not
+       reject the request and make different decisions as to which
+       content-length leader to use an attacker can poision a web-cache, perform
+       an XSS attack and obtain senstive information from requests other then
+       their own. Tomcat now returns 400 for requests with multiple
+       content-length headers.
+       </p>
+
+    <p>Affects: 6.0.0-6.0.10</p>
+  </section>
+
   <section name="Fixed in Apache Tomcat 6.0.10">
     <p><strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450">
@@ -51,6 +70,7 @@
 
     <p>Affects: 6.0.0-6.0.9</p>
   </section>
+
 </body>
 </document>
 
