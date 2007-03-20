@@ -246,15 +246,16 @@
        CVE-2007-0450</a>
 </p>
 
-    <p>Tomcat permits both '\' and '%5C' as path delimiters. A HTTP request
-       containing strings like "/\../" allow attackers to break out of the given
-       context. Additionally, when using Tomcat behind a proxy configured to
-       only proxy some contexts this permits access to non-proxied contexts.
-       When used behind a proxy it is recommended that Tomcat is secured as if
-       the proxy were not present.</p>
+    <p>Tomcat permits both '\' and '%5C' as path delimiters. When Tomcat is used 
+       behind a proxy (including, but not limited to, Apache HTTP server with 
+       mod_proxy and mod_jk) configured to only proxy some contexts, a HTTP request 
+       containing strings like "/\../" may allow attackers to work around the context 
+       restriction of the proxy, and access the non-proxied contexts.
+    </p>
 
-    <p>The following Java startup options have been added to Tomcat to provide
-       additional control of the handling of '\' and '%5c' in URLs:
+    <p>The following Java startup options have been added to Tomcat to provide 
+       additional control of the handling of '\' and '%5c' in URLs (both options 
+       default to false):
        <ul>
          <li>
 <code>
@@ -267,7 +268,11 @@
          </code>
 </li>
        </ul>
-       These options default to false.
+    </p>
+
+    <p>Due to the impossibility to guarantee that all URLs are handled by Tomcat as 
+       they are in proxy servers, Tomcat should always be secured as if no proxy 
+       restricting context access was used.
     </p>
 
     <p>Affects: 4.0.0-4.0.6, 4.1.0-4.1.34</p>
