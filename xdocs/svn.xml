@@ -20,18 +20,6 @@ guidance for Subversion</a>.</p>
 
 </section>
 
-
-<section name="Repository Structure for Tomcat 6">
-
-<p>The root of the repository is
-<a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x">
-http://svn.apache.org/repos/asf/tomcat/tc6.0.x/</a>. Unlike
-previous releases, Tomcat 6 has a unified source repository.</p>
-
-<p><b>Note: The rest of this page only applies to Tomcat 3, 4 and 5.</b></p>
-
-</section>
-
 <section name="Repository Structure">
 
 <p>The root of the repository is
@@ -51,32 +39,32 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/build">
         <code>/build/</code></a></td>
-    <td>Resources used to build the distributions for TC5.x onwards</td>
+    <td>Resources used to build the distributions for Tomcat 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/container">
         <code>/container/</code></a></td>
-    <td>The core Tomcat code</td>
+    <td>The core Tomcat code for Tomcat 3.x, 4.x and 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/current">
         <code>/current/</code></a></td>
-    <td>Single directory checkouts for each major version</td>
+    <td>Single directory checkouts for Tomcat 3.x, 4.x and 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/connectors">
         <code>/connectors/</code></a></td>
-    <td>The HTTP and AJP implementation code</td>
+    <td>The HTTP and AJP implementation code for Tomcat 3.x, 4.x and 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/jasper">
         <code>/jasper/</code></a></td>
-    <td>Apache Tomcat's JSP engine</td>
+    <td>The JSP engine implmentation for Tomcat 4.x and 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/servletapi">
         <code>/servletapi/</code></a></td>
-    <td>The Servlet and JSP APIs</td>
+    <td>The Servlet and JSP APIs for Tomcat 3.x, 4.x and 5.x</td>
   </tr>
   <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/site">
@@ -84,20 +72,27 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
     <td>The Apache Tomcat website</td>
   </tr>
   <tr>
+    <td><a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x">
+        <code>/tc6.0.x/</code></a></td>
+    <td>All modules for Tomcat 6.0.x in a single unified tree</td>
+  </tr>
+  <tr>
     <td><a href="http://svn.apache.org/repos/asf/tomcat/watchdog">
         <code>/watchdog/</code></a></td>
-    <td>Specification compliance test harness for Apache Tomcat 3.x and 4.x</td>
+    <td>Specification compliance test harness for Tomcat 3.x and 4.x</td>
   </tr>
 </table>
 
 </section>
 
 <section name="Convenience directories">
-<p>To simplify checkouts of the latest sources for each major version of Apache
-Tomcat, a Subversion feature called externals has been used. This groups all 
-the modules for a major Apache Tomcat release as sub-directories of a single
-directory and enables them to be checked out in a single command. The modules
-included for each version are listed in the section below.</p>
+<p>Sources for Tomcat 6 are available from a single module.</p>
+<p>Tomcat 3, 4 and 5 each requires sources from multiple modules. To simplify
+checkouts of the latest sources for Tomcat 3, 4 and 5, a Subversion feature
+called externals has been used. This groups all the modules for these major
+Tomcat versions as sub-directories of a single directory and enables them to
+be checked out in a single command. The modules included for each version are
+listed in the section below.</p>
 
 <p>There are some caveats to remember. Since all the subdirectories are still
 really different slices from the repository, relative paths won't always work
@@ -110,6 +105,10 @@ Subversion Book</a> for details.</p>
 <table>
   <tr>
     <th>Apache Tomcat Version</th><th>URL</th>
+  </tr>
+  <tr>
+    <td>6.0.x</td>
+    <td>http://svn.apache.org/repos/asf/tomcat/tc6.0.x</td>
   </tr>
   <tr>
     <td>5.5.x</td>
@@ -125,11 +124,19 @@ Subversion Book</a> for details.</p>
   </tr>
 </table>
 
-<p>Note that if you view these directories in your browser they will
-appear to be empty.</p>
+<p>Note that if you view the directories for Tomcat 3, 4 or 5 in your browser
+they will appear to be empty due to the use of externals.</p>
 </section>
 
 <section name="Sources by major version">
+<p>Tomcat 6.0.x is built from the following modules under
+<a href="http://svn.apache.org/repos/asf/tomcat">
+http://svn.apache.org/repos/asf/tomcat</a>:</p>
+<ul>
+  <li><a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x">
+        <code>/tc6.0.x</code></a></li>
+</ul>
+
 <p>Tomcat 5.5.x is built from the following modules under
 <a href="http://svn.apache.org/repos/asf/tomcat">
 http://svn.apache.org/repos/asf/tomcat</a>:</p>
@@ -187,6 +194,8 @@ http://svn.apache.org/repos/asf/tomcat</a>:</p>
 <p>The Subversion repository has been structured using the following principles:</p>
 
 <ul>
+  <li>New major versions (after Tomcat 5.x) should use a single integraeted
+      source repository.</li>
   <li>Each current module should appear directly under the 
       <code>tomcat</code> directory.</li>
   <li>Modules no longer used (eg tools service) should be clearly marked as
