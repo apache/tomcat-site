@@ -496,8 +496,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Fixed in Apache Tomcat 3.2.1">
-<strong>Fixed in Apache Tomcat 3.2.1</strong>
+<a name="Fixed in Apache Tomcat 3.2">
+<strong>Fixed in Apache Tomcat 3.2</strong>
 </a>
 </font>
 </td>
@@ -515,6 +515,20 @@
 
     <p>Requesting a JSP that does not exist results in an error page that
        includes the full file system page of the current context.</p>
+
+    <p>Affects: 3.1</p>
+
+    <p>
+<strong>important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-0672">
+       CVE-2000-0672</a>
+<br/>
+</p>
+
+    <p>Access to the admin context is not protected. This context allows an
+       attacker to mount an arbitary file system path as a context. Any files
+       accessible from this file sytem path to the account under which Tomcat
+       is running are then visible to the attacker.</p>
 
     <p>Affects: 3.1</p>
   </blockquote>
@@ -544,12 +558,12 @@
     <p>
 <strong>important: Information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-1210">
-       CVE-2001-0590</a>
+       CVE-2000-1210</a>
 <br/>
 </p>
 
     <p>source.jsp, provided as part of the examples, allows an attacker to read
-       arbitary files via a .. (dot dot) in the argument to source.jsp.</p>
+       arbitrary files via a .. (dot dot) in the argument to source.jsp.</p>
 
     <p>Affects: 3.0</p>
   </blockquote>
