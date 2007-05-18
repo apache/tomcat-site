@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>Apache Tomcat - Apache Tomcat 6.x vulnerabilities</title>
+<title>Apache Tomcat - Apache Tomcat JK Connectors vulnerabilities</title>
 <meta name="author" value="Apache Tomcat Project"/>
 <meta name="email" value=""/>
 <link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet"/>
@@ -196,6 +196,62 @@
        and the CVE list. Please send comments or corrections for these
        vulnerabilities to the <a href="mailto:security@tomcat.apache.org">Tomcat
        Security Team</a>.</p>
+
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in Apache Tomcat JK Connector 1.2.23">
+<strong>Fixed in Apache Tomcat JK Connector 1.2.23</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+    <p>
+<strong>important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1860">
+       CVE-2007-1860 (patch for CVE-2007-0450 was insufficient)</a>
+</p>
+
+    <p>When multiple components (firewalls, caches, proxies and Tomcat)
+       process a request, the request URL should not get decoded multiple times
+       in an iterative way by these components. Otherwise it might be possible
+       to pass access control rules implemented on front of the last component
+       by applying multiple URL encoding to the request.
+       </p>
+
+    <p>mod_jk before version 1.2.23 by default decoded request URLs inside Apache
+       httpd and forwarded the encoded URL to Tomcat, which itself did a second
+       decoding. This made it possible to pass a prefix JkMount for /someapp,
+       but actually access /otherapp on Tomcat. Starting with version 1.2.23
+       by default mod_jk forwards the original unchanged request URL to Tomcat.
+       You can achieve the same level of security for older versions by setting
+       the forwarding option "JkOption ForwardURICompatUnparsed".
+       </p>
+
+    <p>Please note, that your configuration might contain a different forwarding
+       JkOption. In this case, please consult the
+       <a href="http://tomcat.apache.org/connectors-doc/reference/apache.html#Forwarding">
+       forwarding documentation</a> concerning the security implications.
+       The new default setting is more secure than before, but it breaks
+       interoperability with mod_rwrite.
+       </p>
+
+    <p>Affects: All versions of JK, but only the Apache httpd mod_jk module</p>
 
   </blockquote>
 </p>
