@@ -27,7 +27,11 @@
   <section name="Fixed in Apache Tomcat JK Connector 1.2.23">
     <p><strong>important: Information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1860">
-       CVE-2007-1860 (patch for CVE-2007-0450 was insufficient)</a></p>
+       CVE-2007-1860</a></p>
+
+    <p>The issue is related to
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450">
+       CVE-2007-0450</a>, the patch for which was insufficient.</p>
 
     <p>When multiple components (firewalls, caches, proxies and Tomcat)
        process a request, the request URL should not get decoded multiple times
@@ -53,7 +57,9 @@
        interoperability with mod_rewrite.
        </p>
 
-    <p>Affects: All versions of JK, but only the Apache httpd mod_jk module</p>
+    <p>Affects: JK 1.2.0-1.2.22 (httpd mod_jk module only)<br/>
+       Source shipped with Tomcat 4.0.1-4.0.6, 4.1.0-4.1.36, 5.0.0-5.0.30,
+       5.5.0-5.5.23</p>
 
   </section>
 
