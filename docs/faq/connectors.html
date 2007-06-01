@@ -13,7 +13,11 @@
 
   </p>
   <p>
-    <a href="http://tomcat.apache.org/connectors-doc/">JK docs.</a>
+    Here is a link to the <a href="http://tomcat.apache.org/connectors-doc/">JK Connectors.</a> It contains
+    more configuration and installation information.
+  </p>
+  <p>
+    <strong>Please note, jk2 is no longer supported. Please use mod_jk instead.</strong>
   </p>
 </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Questions"><strong>Questions</strong></a></font></td></tr><tr><td><blockquote>
 <p>
@@ -36,14 +40,6 @@
     <li>
       <a href="#boot">
         At boot, is order of start up (Apache vs Tomcat) important?
-      </a>
-    </li>
-    <li>
-      <a href="#jkloc">
-     JK2 doesn't seem to be using my settings in my
-     <code>workers2.properties</code> file
-     such as creating the shm file or mapping the URIs listed to Tomcat,
-     what's wrong?
       </a>
     </li>
 
@@ -111,12 +107,14 @@
         The alternative is mod_jk or mod_proxy_ajp.
       </li>
       <li>
-        <b>mod_jk is great and should be used for production. It is getting
-        fixes as needed (which is now rare). </b>
+        <strong>mod_jk is great and should be used for production. </strong>
+        It is still under active
+        development and also works for the apache 2.X series for cases where
+        you do not want to use mod_proxy_ajp.
       </li>
       <li>mod_proxy. A cheap way to proxy without the hassles of configuring JK.
         This solution lacks sticky session load balancing. If you don't
-        need some of the features of jk, jk2 - this is a very simple
+        need some of the features of jk - this is a very simple
         alternative.
       </li>
       <li>mod_proxy_ajp. With apache 2.2, mod_proxy was rewritten to support
@@ -137,7 +135,7 @@
     reasons why it
     should not be done too. Needless to say, everyone will disagree with
     the opinions here.
-    With the upcoming performance of Tomcat 5, performance reasons
+    With the performance of Tomcat 5 and 6, performance reasons
     become harder to justify. So here are the issues to discuss in
     integrating vs not.
    <br><br>
@@ -202,11 +200,6 @@
        packets, invalid requests from invalid IP's, Apache does a better job
        at dropping these error conditions than JVM based program. (YMMV)
     </li>
-    <li>
-    <a href="http://marc.theaimsgroup.com/?l=tomcat-user&m=104874913017036&w=2">Here </a>
-    is a great response from Craig R. McClanahan. If you have free time,
-    read emails by him in any of the list archives. You'll learn a lot.
-    </li>
     </ul>
   </div><br>
 
@@ -219,30 +212,6 @@
     No. This way - either apache or tomcat can be restarted at any time
     independent of one another.
   </div><br>
-
-  <b style="font-size: larger">
-    <a name="jkloc">
-     JK2 doesn't seem to be using my settings in my
-     <code>workers2.properties</code> file
-     such as creating the shm file or mapping the URIs listed to Tomcat,
-     what's wrong?
-    </a>
-  </b>
-  <div style="padding-left : 20px;">
-    JK2 is not finding your <code>workers2.properties</code> file.
-    Specify it's location in your <code>httpd.conf</code> file by adding:
-
-    <br><br>
-    <code>
-        JkSet config.file /full/system/path/to/workers2.properties
-    </code>
-    <br><br>
-    <a href="http://marc.theaimsgroup.com/?t=105784893200003&r=1&w=2">
-        Thread which spawned this question.
-    </a> <br>
-    <b>Please note the JK2 is unsupported.</b>
-  </div><br>
-
 
   <b style="font-size: larger">
     <a name="generated">
@@ -303,7 +272,7 @@
     </a>
   </b>
   <div style="padding-left : 20px;">
-    In tomcat 5 - does your connector have Connector declaration have
+    Since tomcat 5 - does your connector have Connector declaration have
     <tt>URIEncoding="UTF-8"</tt>. For example:
     <pre>
 &lt;Connector port="80"
