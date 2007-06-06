@@ -94,6 +94,23 @@
     <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.21</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 5.5.21, 5.0.HEAD">
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1358">
+       CVE-2007-1358</a></p>
+
+    <p>Web pages that display the Accept-Language header value sent by the
+       client are susceptible to a cross-site scripting attack if they assume
+       the Accept-Language header value conforms to RFC 2616. Under normal
+       circumstances this would not be possible to exploit, however older
+       versions of Flash player were known to allow carefully crafted malicious
+       Flash files to make requests with such custom headers. Tomcat now ignores
+       invalid values for Accept-Language headers that do not conform to RFC
+       2616.</p>
+
+    <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.20</p>
+  </section>
+
   <section name="Fixed in Apache Tomcat 5.5.18, 5.0.HEAD">
     <p><strong>moderate: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7195">
