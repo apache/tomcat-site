@@ -25,6 +25,35 @@
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.HEAD, 5.0.HEAD">
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2449">
+       CVE-2007-2449</a></p>
+
+    <p>JSPs within the examples web application did not escape user provided
+       data before including it in the output. This enabled a XSS attack. These
+       JSPs now filter the data before use. This issue may be mitigated by
+       undeploying the examples web application. Note that it is recommended
+       that the examples web application is not installed on a production
+       system.
+       </p>
+
+    <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.24</p>
+
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2450">
+       CVE-2007-2450</a></p>
+
+    <p>The Manager and Host Manager web applications did not escape user
+       provided data before including it in the output. This enabled a XSS
+       attack. These applciations now filter the data before use. This issue may
+       be mitigated by logging out (closing the browser) of the application once
+       the management tasks have been completed.</p>
+
+    <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.24</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 5.5.24, 5.0.HEAD">
     <p><strong>moderate: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1355">
        CVE-2007-1355</a></p>
@@ -35,6 +64,7 @@
        simplified not to use any user provided data in the output.</p>
 
     <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.23</p>
+
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.23, 5.0.HEAD">
