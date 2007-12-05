@@ -56,6 +56,7 @@
 
     <!-- YS 20051102: Add a stylesheet -->
     <link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet" />
+    <link type="text/css" href="stylesheets/tomcat-printer.css" rel="stylesheet" media="print" />
     </head>
 
     <body bgcolor="{$body-bg}" text="{$body-fg}" link="{$body-link}"
@@ -87,7 +88,7 @@
     </table>
 
     <!-- Search box: uses CSS positioning -->
-    <div class="searchbox">
+    <div class="searchbox noPrint">
       <form action="http://www.google.com/search" method="get">
         <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
         <input value="Search the Site" size="25" name="q" id="query" type="text" />
@@ -106,14 +107,13 @@
       </tr>
 
       <tr>
-
         <xsl:comment>LEFT SIDE NAVIGATION</xsl:comment>
-        <td width="20%" valign="top" nowrap="true">
+        <td width="20%" valign="top" nowrap="true" class="noPrint">
           <xsl:apply-templates select="$project/body/menu"/>
         </td>
 
         <xsl:comment>RIGHT SIDE MAIN BODY</xsl:comment>
-        <td width="80%" valign="top" align="left">
+        <td width="80%" valign="top" align="left" id="mainBody">
           <xsl:apply-templates select="body/section"/>
         </td>
 
