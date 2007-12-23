@@ -29,28 +29,6 @@
             <param name="relative-path" expression="."/>
         </style>
 
-        <!-- Transform the "faq" subdirectory -->
-        <mkdir  dir="${docs.dest}/faq" />
-        <echo message="Transforming the FAQ documents..." />
-        <style  basedir="${faq.src}"
-                destdir="${faq.dest}"
-                extension=".html"
-                style="${faq.src}/tomcat-faq.xsl"
-                excludes="project.xml,build.xml"
-                includes="*.xml">
-            <param name="relative-path" expression=".."/>
-        </style>
-        <mkdir  dir="${docs.dest}/faq/printer" />
-        <style  basedir="${faq.src}"
-                destdir="${faq.dest}/printer"
-                extension=".html"
-                style="${faq.src}/tomcat-faq.xsl"
-                excludes="project.xml,build.xml"
-                includes="*.xml">
-            <param name="relative-path" expression="../.."/>
-            <param name="project-menu" expression="nomenu"/>
-        </style>
-
         <!-- Copy static resource files -->
         <echo message="Copying static resource files..." />
         <copy todir="${docs.dest}/images" filtering="no">
