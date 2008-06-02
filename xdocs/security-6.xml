@@ -22,6 +22,20 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 6.0.SVN">
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1947">
+       CVE-2008-1947</a></p>
+
+    <p>The Host Manager web application did not escape user provided data before
+       including it in the output. This enabled a XSS attack. This application
+       now filters the data before use. This issue may be mitigated by logging
+       out (closing the browser) of the application once the management tasks
+       have been completed.</p>
+
+    <p>Affects: 6.0.0-6.0.16</p>
+  </section>
+
   <section name="Fixed in Apache Tomcat 6.0.16">
     <p><strong>low: Session hi-jacking</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5333">
@@ -101,7 +115,7 @@
 
     <p>The Manager and Host Manager web applications did not escape user
        provided data before including it in the output. This enabled a XSS
-       attack. These applciations now filter the data before use. This issue may
+       attack. These applications now filter the data before use. This issue may
        be mitigated by logging out (closing the browser) of the application once
        the management tasks have been completed.</p>
 
