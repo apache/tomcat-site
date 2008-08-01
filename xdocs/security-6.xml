@@ -22,7 +22,21 @@
 
   </section>
 
-  <section name="Fixed in Apache Tomcat 6.0.SVN">
+  <section name="Fixed in Apache Tomcat 6.0.18">
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1232">
+       CVE-2008-1232</a></p>
+
+    <p>The message argument of HttpServletResponse.sendError() call is not only
+       displayed on the error page, but is also used for the reason-phrase of
+       HTTP response. This may include characters that are illegal in HTTP
+       headers. It is possible for a specially crafted message to result in
+       arbitrary content being injected into the HTTP response. For a successful
+       XSS attack, unfiltered user supplied data must be included in the message
+       argument.</p>
+
+    <p>Affects: 6.0.0-6.0.16</p>
+
     <p><strong>low: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1947">
        CVE-2008-1947</a></p>
@@ -34,7 +48,20 @@
        have been completed.</p>
 
     <p>Affects: 6.0.0-6.0.16</p>
+
+    <p><strong>important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2370">
+       CVE-2008-2370</a></p>
+
+    <p>When using a RequestDispatcher the target path was normalised before the 
+	   query string was removed. A request that included a specially crafted 
+       request parameter could be used to access content that would otherwise be 
+	   protected by a security constraint or by locating it in under the WEB-INF 
+       directory.</p>
+
+    <p>Affects: 6.0.0-6.0.16</p>
   </section>
+
 
   <section name="Fixed in Apache Tomcat 6.0.16">
     <p><strong>low: Session hi-jacking</strong>
