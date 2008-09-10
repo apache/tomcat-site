@@ -282,6 +282,10 @@
        transmitted to any content that is - by purpose or error - requested via
        http from the same server. </p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=684900&amp;view=rev">
+       revision 684900</a>.</p>
+
     <p>Affects: 4.1.0-4.1.37</p>
 
     <p>
@@ -298,6 +302,10 @@
        XSS attack, unfiltered user supplied data must be included in the message
        argument.</p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=680947&amp;view=rev">
+       revision 680947</a>.</p>
+
     <p>Affects: 4.1.0-4.1.37</p>
 
     <p>
@@ -307,15 +315,19 @@
 </p>
 
     <p>When using a RequestDispatcher the target path was normalised before the 
-	   query string was removed. A request that included a specially crafted 
+       query string was removed. A request that included a specially crafted 
        request parameter could be used to access content that would otherwise be 
-	   protected by a security constraint or by locating it in under the WEB-INF 
+       protected by a security constraint or by locating it in under the WEB-INF 
        directory.</p>
+
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=680950&amp;view=rev">
+       revision 680950</a>.</p>
 
     <p>Affects: 4.1.0-4.1.37</p>
     
     <p>
-<strong>moderate: Directory traversal</strong>
+<strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
        CVE-2008-2938</a>
 </p>
@@ -323,7 +335,16 @@
     <p>If a context is configured with <code>allowLinking="true"</code> and the
        connector is configured with <code>URIEncoding="UTF-8"</code> then a
        malformed request may be used to access arbitrary files on the server.
-       </p>
+       If the connector is configured with <code>URIEncoding="UTF-8"</code> then
+       a malformed request may be used to access arbitrary files within the
+       docBase of a context such as web.xml. It should also be noted that
+       setting <code>useBodyEncodingForURI="true"</code> has the same effect as
+       setting <code>URIEncoding="UTF-8"</code> when processing requests with
+       bodies encoded with UTF-8.</p>
+
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=681065&amp;view=rev">
+       revision 681065</a>.</p>
 
     <p>Affects: 4.1.0-4.1.37</p>
 

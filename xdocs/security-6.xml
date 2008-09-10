@@ -35,6 +35,10 @@
        XSS attack, unfiltered user supplied data must be included in the message
        argument.</p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=673834&amp;view=rev">
+       revision 673834</a>.</p>
+
     <p>Affects: 6.0.0-6.0.16</p>
 
     <p><strong>low: Cross-site scripting</strong>
@@ -47,26 +51,45 @@
        out (closing the browser) of the application once the management tasks
        have been completed.</p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=662585&amp;view=rev">
+       revision 662585</a>.</p>
+
+    <p>Affects: 6.0.0-6.0.16</p>
+
     <p><strong>important: Information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2370">
        CVE-2008-2370</a></p>
 
     <p>When using a RequestDispatcher the target path was normalised before the 
-	   query string was removed. A request that included a specially crafted 
+       query string was removed. A request that included a specially crafted 
        request parameter could be used to access content that would otherwise be 
-	   protected by a security constraint or by locating it in under the WEB-INF 
+       protected by a security constraint or by locating it in under the WEB-INF 
        directory.</p>
+       
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=673839&amp;view=rev">
+       revision 673839</a>.</p>
 
     <p>Affects: 6.0.0-6.0.16</p>
 
-    <p><strong>moderate: Directory traversal</strong>
+    <p><strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
        CVE-2008-2938</a></p>
 
     <p>If a context is configured with <code>allowLinking="true"</code> and the
        connector is configured with <code>URIEncoding="UTF-8"</code> then a
        malformed request may be used to access arbitrary files on the server.
-       </p>
+       If the connector is configured with <code>URIEncoding="UTF-8"</code> then
+       a malformed request may be used to access arbitrary files within the
+       docBase of a context such as web.xml. It should also be noted that
+       setting <code>useBodyEncodingForURI="true"</code> has the same effect as
+       setting <code>URIEncoding="UTF-8"</code> when processing requests with
+       bodies encoded with UTF-8.</p>
+
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=678137&amp;view=rev">
+       revision 678137</a>.</p>
 
     <p>Affects: 6.0.0-6.0.16</p>
 

@@ -222,8 +222,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Fixed in Apache Tomcat 5.5.SVN">
-<strong>Fixed in Apache Tomcat 5.5.SVN</strong>
+<a name="Fixed in Apache Tomcat 5.5.27">
+<strong>Fixed in Apache Tomcat 5.5.27</strong>
 </a>
 </font>
 </td>
@@ -246,6 +246,10 @@
        XSS attack, unfiltered user supplied data must be included in the message
        argument.</p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=680947&amp;view=rev">
+       revision 680947</a>.</p>
+
     <p>Affects: 5.5.0-5.5.26</p>
 
     <p>
@@ -260,6 +264,10 @@
        out (closing the browser) of the application once the management tasks
        have been completed.</p>
 
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=662583&amp;view=rev">
+       revision 662583</a>.</p>
+
     <p>Affects: 5.5.9-5.5.26</p>
     
     <p>
@@ -269,15 +277,19 @@
 </p>
 
     <p>When using a RequestDispatcher the target path was normalised before the 
-	   query string was removed. A request that included a specially crafted 
+       query string was removed. A request that included a specially crafted 
        request parameter could be used to access content that would otherwise be 
-	   protected by a security constraint or by locating it in under the WEB-INF 
+       protected by a security constraint or by locating it in under the WEB-INF 
        directory.</p>
+
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=680949&amp;view=rev">
+       revision 680949</a>.</p>
 
     <p>Affects: 5.5.0-5.5.26</p>
     
     <p>
-<strong>moderate: Directory traversal</strong>
+<strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
        CVE-2008-2938</a>
 </p>
@@ -285,8 +297,17 @@
     <p>If a context is configured with <code>allowLinking="true"</code> and the
        connector is configured with <code>URIEncoding="UTF-8"</code> then a
        malformed request may be used to access arbitrary files on the server.
-       </p>
+       If the connector is configured with <code>URIEncoding="UTF-8"</code> then
+       a malformed request may be used to access arbitrary files within the
+       docBase of a context such as web.xml. It should also be noted that
+       setting <code>useBodyEncodingForURI="true"</code> has the same effect as
+       setting <code>URIEncoding="UTF-8"</code> when processing requests with
+       bodies encoded with UTF-8.</p>
 
+       <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=681029&amp;view=rev">
+       revision 681029</a>.</p>
+       
     <p>Affects: 5.5.0-5.5.26</p>
 
   </blockquote>
