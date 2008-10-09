@@ -385,6 +385,21 @@
     <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.6</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 5.5.1">
+    <p><strong>low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3271">
+       CVE-2008-3271</a></p>
+
+    <p><a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=25835">
+    Bug 25835</a> can, in rare circumstances - this has only been reproduced
+    using a debugger to force a particular processing sequence for two threads -
+    allow a user from a non-premitted IP address to gain access to a context
+    that is protected with a valve that extends RemoteFilterValve. This includes
+    the standard RemoteAddrValve and RemoteHostValve implementations.</p>
+
+    <p>Affects: 5.5.0 (5.0.x unknown)</p>
+  </section>
+
   <section name="Not a vulnerability in Tomcat">
     <p><strong>JavaMail information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1754">
