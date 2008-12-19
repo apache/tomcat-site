@@ -326,28 +326,6 @@
 
     <p>Affects: 4.1.0-4.1.37</p>
     
-    <p>
-<strong>important: Directory traversal</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
-       CVE-2008-2938</a>
-</p>
-
-    <p>If a context is configured with <code>allowLinking="true"</code> and the
-       connector is configured with <code>URIEncoding="UTF-8"</code> then a
-       malformed request may be used to access arbitrary files on the server.
-       If the connector is configured with <code>URIEncoding="UTF-8"</code> then
-       a malformed request may be used to access arbitrary files within the
-       docBase of a context such as web.xml. It should also be noted that
-       setting <code>useBodyEncodingForURI="true"</code> has the same effect as
-       setting <code>URIEncoding="UTF-8"</code> when processing requests with
-       bodies encoded with UTF-8.</p>
-
-       <p>This was fixed in
-       <a href="http://svn.apache.org/viewvc?rev=681065&amp;view=rev">
-       revision 681065</a>.</p>
-
-    <p>Affects: 4.1.0-4.1.37</p>
-
   </blockquote>
 </p>
 </td>
@@ -1071,6 +1049,39 @@
        already compromised. In this case an attacker could just as easily add a
        page that called System.exit(1) rather than relying on a bug in an
        internal Sun class.</p>
+
+    <p>
+<strong>important: Directory traversal</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
+       CVE-2008-2938</a>
+</p>
+
+    <p>Originally reported as a Tomcat vulnerability the root cause of this
+       issue is that the JVM does not correctly decode UTF-8 encoded URLs to
+       UTF-8. This exposes a directory traversal vulnerability when the
+       connector uses <code>URIEncoding="UTF-8"</code>. This directory traversal
+       is limited to the docBase of the web application.</p>
+       
+    <p>If a context is configured with <code>allowLinking="true"</code> then the
+       directory traversal vulnerability is extended to the entire file system
+       of the host server.</p>
+       
+    <p>It should also be noted that setting
+       <code>useBodyEncodingForURI="true"</code> has the same effect as setting
+       <code>URIEncoding="UTF-8"</code> when processing requests with bodies
+       encoded with UTF-8.</p>
+
+    <p>Although the root cause was quickly identified as a JVM issue and that it
+       affected multiple JVMs from multiple vendors, it was decided to report
+       this as a Tomcat vulnerability until such time as the JVM vendors
+       provided updates to resolve this issue. For further information on the
+       status of this issue for your JVM, contact your JVM vendor.</p>
+       
+    <p>A workaround was implemented in
+       <a href="http://svn.apache.org/viewvc?rev=681065&amp;view=rev">
+       revision 681065</a> that protects against this and any similar character
+       encoding issues that may still exist in the JVM. This work around is
+       included in Tomcat 4.1.39 onwards.</p>
 
   </blockquote>
 </p>
