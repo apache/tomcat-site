@@ -284,6 +284,19 @@
        http from the same server. </p>
 
     <p>Affects: 5.0.0-5.0.SVN, 5.5.0-5.5.20</p>
+
+    <p><strong>low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4308">
+       CVE-2008-4308</a></p>
+
+    <p><a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=40771">Bug
+    40711</a> may result in the disclosure of POSTed content from a previous
+    request. For a vulnerability to exist, the content read from the input
+    stream must be disclosed, eg via writing it to the response and committing
+    the response, before the ArrayIndexOutOfBoundsException occurs which will
+    halt processing of the request.</p>
+
+    <p>Affects: 5.5.10-5.5.20 (5.0.x unknown)</p>
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.18, 5.0.SVN">

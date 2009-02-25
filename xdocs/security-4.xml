@@ -274,6 +274,22 @@
     <p>Affects: 4.0.0-4.0.6, 4.1.0-4.1.34</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 4.1.35">
+
+    <p><strong>low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4308">
+       CVE-2008-4308</a></p>
+
+    <p><a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=40771">Bug
+    40711</a> may result in the disclosure of POSTed content from a previous
+    request. For a vulnerability to exist, the content read from the input
+    stream must be disclosed, eg via writing it to the response and committing
+    the response, before the ArrayIndexOutOfBoundsException occurs which will
+    halt processing of the request.</p>
+
+    <p>Affects: 4.1.32-4.1.34 (4.0.x unknown)</p>
+  </section>
+
   <section name="Fixed in Apache Tomcat 4.1.32">
 
     <p><strong>low: Information disclosure</strong>
