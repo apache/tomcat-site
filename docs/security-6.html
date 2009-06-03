@@ -216,8 +216,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Fixed in Apache Tomcat 6.0.SVN">
-<strong>Fixed in Apache Tomcat 6.0.SVN</strong>
+<a name="Fixed in Apache Tomcat 6.0.20">
+<strong>Fixed in Apache Tomcat 6.0.20</strong>
 </a>
 </font>
 </td>
@@ -226,6 +226,32 @@
 <td>
 <p>
 <blockquote>
+    <p>
+<i>Note: These issues were fixed in Apache Tomcat 6.0.19 but the release
+       vote for that release candidate did not pass. Therefore, although users
+       must download 6.0.20 to obtain a version that includes fixes for these
+       issues, 6.0.19 is not included in the list of affected versions.</i>
+</p>
+
+    <p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0033">
+       CVE-2009-0033</a>
+</p>
+
+    <p>If Tomcat receives a request with invalid headers via the Java AJP
+       connector, it does not return an error and instead closes the AJP
+       connection. In case this connector is member of a mod_jk load balancing
+       worker, this member will be put into an error state and will be blocked
+       from use for approximately one minute. Thus the behaviour can be used for
+       a denial of service attack using a carefully crafted request.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=742915&amp;view=rev">
+       revision 742915</a>.</p>
+
+    <p>Affects: 6.0.0-6.0.18</p>
+
     <p>
 <strong>low: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0781">
@@ -241,7 +267,7 @@
        revision 750924</a>.</p>
 
     <p>Affects: 6.0.0-6.0.18</p>
-
+       
   </blockquote>
 </p>
 </td>

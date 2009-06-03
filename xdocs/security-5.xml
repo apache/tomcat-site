@@ -29,6 +29,23 @@
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.SVN">
+    <p><strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0033">
+       CVE-2009-0033</a></p>
+
+    <p>If Tomcat receives a request with invalid headers via the Java AJP
+       connector, it does not return an error and instead closes the AJP
+       connection. In case this connector is member of a mod_jk load balancing
+       worker, this member will be put into an error state and will be blocked
+       from use for approximately one minute. Thus the behaviour can be used for
+       a denial of service attack using a carefully crafted request.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=781362&amp;view=rev">
+       revision 781362</a>.</p>
+
+    <p>Affects: 5.5.0-5.5.27</p>
+ 
     <p><strong>low: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0781">
        CVE-2009-0781</a></p>
