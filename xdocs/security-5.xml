@@ -29,6 +29,22 @@
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.SVN">
+    <p><strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5515">
+       CVE-2009-5515</a></p>
+
+    <p>When using a RequestDispatcher obtained from the Request, the target path
+       was normalised before the query string was removed. A request that
+       included a specially crafted request parameter could be used to access
+       content that would otherwise be protected by a security constraint or by
+       locating it in under the WEB-INF directory.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=782757&amp;view=rev">
+       revision 782757</a>.</p>
+
+    <p>Affects: 5.5.0-5.5.27</p>
+
     <p><strong>Important: Denial of Service</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0033">
        CVE-2009-0033</a></p>
