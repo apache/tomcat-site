@@ -260,14 +260,16 @@
     <p>Due to insufficient error checking in some authentication classes, Tomcat
        allows for the enumeration (brute force testing) of user names by
        supplying illegally URL encoded passwords. The attack is possible if FORM
-       based authenticiaton (j_security_check) with either the MemoryRealm,
-       DataSourceRealm or JDBCRealm.</p>
+       based authentication (j_security_check) is used with the MemoryRealm.
+       Note that in early versions, the DataSourceRealm and JDBCRealm were also
+       affected.</p>
 
     <p>This was fixed in
        <a href="http://svn.apache.org/viewvc?rev=781379&amp;view=rev">
        revision 781379</a>.</p>
 
-    <p>Affects: 5.5.0-5.5.27</p>
+    <p>Affects: 5.5.0-5.5.27 (Memory Realm), 5.5.0-5.5.5 (DataSource and JDBC
+       Realms)</p>
        
     <p>
 <strong>low: Cross-site scripting</strong>
