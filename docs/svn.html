@@ -244,60 +244,28 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
   </tr>
   <tr>
     <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/build">
-        <code>/build/</code>
+<a href="http://svn.apache.org/repos/asf/tomcat/jk">
+        <code>/jk/</code>
 </a>
 </td>
-    <td>Resources used to build the distributions for Tomcat 5.x</td>
+    <td>The native source code for the Tomcat Connectors. This includes
+        mod_jk, isapi and nsapi.</td>
   </tr>
   <tr>
     <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/container">
-        <code>/container/</code>
+<a href="http://svn.apache.org/repos/asf/tomcat/native">
+        <code>/native/</code>
 </a>
 </td>
-    <td>The core Tomcat code for Tomcat 5.x</td>
+    <td>The native source code for the Tomcat Native/APR Connector.</td>
   </tr>
   <tr>
     <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/current">
-        <code>/current/</code>
+<a href="http://svn.apache.org/repos/asf/tomcat/sandbox">
+        <code>/sandbox/</code>
 </a>
 </td>
-    <td>Single directory checkout for Tomcat 5.x</td>
-  </tr>
-  <tr>
-    <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/current-svn15">
-        <code>/current-svn15</code>
-</a>
-</td>
-    <td>Single directory checkout for Tomcat 5.x using svn 1.5+
-        style relative links for the externals</td>
-  </tr>
-  <tr>
-    <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/connectors">
-        <code>/connectors/</code>
-</a>
-</td>
-    <td>The HTTP and AJP implementation code for Tomcat 5.x</td>
-  </tr>
-  <tr>
-    <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/jasper">
-        <code>/jasper/</code>
-</a>
-</td>
-    <td>The JSP engine implmentation for Tomcat 5.x</td>
-  </tr>
-  <tr>
-    <td>
-<a href="http://svn.apache.org/repos/asf/tomcat/servletapi">
-        <code>/servletapi/</code>
-</a>
-</td>
-    <td>The Servlet and JSP APIs for Tomcat 5.x</td>
+    <td>An area where Tomcat committers can experiment with new ideas.</td>
   </tr>
   <tr>
     <td>
@@ -305,7 +273,24 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
         <code>/site/</code>
 </a>
 </td>
-    <td>The Apache Tomcat website</td>
+    <td>The Apache Tomcat website.</td>
+  </tr>
+  <tr>
+    <td>
+<a href="http://svn.apache.org/repos/asf/tomcat/tags">
+        <code>/tags/</code>
+</a>
+</td>
+    <td>Tags for the primary development branch. Mainly used for modules.</td>
+  </tr>
+  <tr>
+    <td>
+<a href="http://svn.apache.org/repos/asf/tomcat/tc5.5.x">
+        <code>/tc5.5.x/</code>
+</a>
+</td>
+    <td>The stable 5.5.x release branch, with separate modules but
+        no use of externals.</td>
   </tr>
   <tr>
     <td>
@@ -314,7 +299,7 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
 </a>
 </td>
     <td>The stable 6.0.x release branch, with all modules in a single
-        unified tree</td>
+        unified tree.</td>
   </tr>
   <tr>
     <td>
@@ -327,197 +312,6 @@ http://svn.apache.org/repos/asf/tomcat</a>.</p>
         release branches using Review-then-Commit.</td>
   </tr>
 </table>
-
-</blockquote>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<br/>
-</td>
-</tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Convenience directories">
-<strong>Convenience directories</strong>
-</a>
-</font>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-<blockquote>
-<p>Sources for Tomcat 6 are available from a single module.</p>
-<p>Tomcat 5 requires sources from multiple modules. To simplify
-checkouts of the latest sources for Tomcat 5, a Subversion feature
-called externals has been used. This groups all the modules for this major
-Tomcat version as sub-directories of a single directory and enables them to
-be checked out in a single command. The modules included for each version are
-listed in the section below.</p>
-
-<p>There are some caveats to remember. Since all the subdirectories are still
-really different slices from the repository, relative paths won't always work
-as expected, for example. See the
-<a href="http://svnbook.red-bean.com/en/1.1/ch07s04.html">Externals
-Definitions</a> section of the <a href="http://svnbook.red-bean.com/">
-Subversion Book</a> for details.</p>
-
-<p>The URLs to use to checkout each version are:</p>
-<table>
-  <tr>
-    <th>Apache Tomcat Version</th>
-<th>URL</th>
-  </tr>
-  <tr>
-    <td>Current development</td>
-    <td>http://svn.apache.org/repos/asf/tomcat/trunk</td>
-  </tr>
-  <tr>
-    <td>6.0.x</td>
-    <td>http://svn.apache.org/repos/asf/tomcat/tc6.0.x</td>
-  </tr>
-  <tr>
-    <td>5.5.x (pre svn 1.5)</td>
-    <td>http://svn.apache.org/repos/asf/tomcat/current/tc5.5.x</td>
-  </tr>
-  <tr>
-    <td>5.5.x (svn 1.5+)</td>
-    <td>http://svn.apache.org/repos/asf/tomcat/current-svn15/tc5.5.x</td>
-  </tr>
-</table>
-
-<p>Note that if you view the directory for Tomcat 5 in your browser
-it will appear to be empty due to the use of externals.</p>
-</blockquote>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<br/>
-</td>
-</tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Sources by major version">
-<strong>Sources by major version</strong>
-</a>
-</font>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-<blockquote>
-<p>Tomcat 6.0.x is built from the following modules under
-<a href="http://svn.apache.org/repos/asf/tomcat">
-http://svn.apache.org/repos/asf/tomcat</a>:</p>
-<ul>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x">
-        <code>/tc6.0.x</code>
-</a>
-</li>
-</ul>
-
-<p>Tomcat 5.5.x is built from the following modules under
-<a href="http://svn.apache.org/repos/asf/tomcat">
-http://svn.apache.org/repos/asf/tomcat</a>:</p>
-<ul>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/build/tc5.5.x">
-        <code>/build/tc5.5.x</code>
-</a>
-</li>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/container/tc5.5.x">
-        <code>/container/tc5.5.x</code>
-</a>
-</li>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
-        <code>/connectors/trunk</code>
-</a>
-</li>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/jasper/tc5.5.x">
-        <code>/jasper/tc5.5.x</code>
-</a>
-</li>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/servletapi/servlet2.4-jsp2.0-tc5.x">
-        <code>/servletapi/servlet2.4-jsp2.0-tc5.x</code>
-</a>
-</li>
-</ul>
-
-<p>The Tomcat JK native connectors are built from the following module under
-<a href="http://svn.apache.org/repos/asf/tomcat">
-http://svn.apache.org/repos/asf/tomcat</a>:</p>
-<ul>
-  <li>
-<a href="http://svn.apache.org/repos/asf/tomcat/connectors/trunk">
-        <code>/connectors/trunk</code>
-</a>
-</li>
-</ul>
-
-
-</blockquote>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<br/>
-</td>
-</tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Principles">
-<strong>Principles</strong>
-</a>
-</font>
-</td>
-</tr>
-<tr>
-<td>
-<p>
-<blockquote>
-<p>The Subversion repository has been structured using the following principles:</p>
-
-<ul>
-  <li>New major versions (after Tomcat 5.x) should use a single integrated
-      source repository.</li>
-  <li>Each current module should appear directly under the 
-      <code>tomcat</code> directory.</li>
-  <li>Modules no longer used (eg tools service) should be clearly marked as
-      archived.</li>
-  <li>The <code>trunk</code> for each module should be the the branch of the
-      latest Apache Tomcat version that uses that module. Since there are always
-      several active versions at any one time, rather than be called
-      <code>trunk</code> this directory should be named using the Apache Tomcat
-      version it represents, eg <code>tc5.5.x</code>.</li>
-  <li>The branches for the other Apache Tomcat versions that use that module
-      will be placed in the <code>branches</code> directory for each component.
-      </li>
-  <li>Other (non-development) branches will be placed in the
-      <code>branches/other</code> directory in sub-directories that group the
-      other branches by the Apache Tomcat version from which they were
-      created.</li>
-  <li>Tags will be treated in exactly the same way as branches.</li> 
-</ul>
 
 </blockquote>
 </p>
