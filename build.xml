@@ -20,14 +20,14 @@
 
         <!-- Transform the top-level directory -->
         <echo message="Transforming the site documents..." />
-        <style  basedir="${docs.src}"
+        <xslt  basedir="${docs.src}"
                 destdir="${docs.dest}"
                 extension=".html"
                 style="${docs.src}/stylesheets/tomcat-site.xsl"
                 excludes="project.xml"
                 includes="*.xml">
             <param name="relative-path" expression="."/>
-        </style>
+        </xslt>
 
         <!-- Copy static resource files -->
         <echo message="Copying static resource files..." />
