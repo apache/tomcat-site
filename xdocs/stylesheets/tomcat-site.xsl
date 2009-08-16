@@ -47,8 +47,10 @@
       <xsl:variable name="email">
         <xsl:value-of select="@email"/>
       </xsl:variable>
-      <meta name="author" value="{$name}"/>
-      <meta name="email" value="{$email}"/>
+      <meta name="author" content="{$name}"/>
+      <!-- Don't publish e-mail addresses
+      <meta name="email" content="{$email}"/>
+       -->
     </xsl:for-each>
     <xsl:if test="properties/base">
       <base href="{properties/base/@href}"/>
