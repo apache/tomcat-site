@@ -71,7 +71,7 @@
         <td>
           <xsl:comment>PROJECT LOGO</xsl:comment>
           <a href="http://tomcat.apache.org/">
-            <img src="./images/tomcat.gif" align="left" alt="Tomcat Logo" border="0"/>
+            <img src="./images/tomcat10.jpg" align="left" alt="Tomcat Logo" border="0"/>
           </a>
         </td>
         <td>
@@ -133,7 +133,7 @@
         <div align="center"><font color="{$body-link}" size="-1"><em>
         Copyright &#169; 1999-2009, The Apache Software Foundation
         <br/>
-        &quot;Apache&quot;, the Apache feather, and the Apache Tomcat logo are 
+        &quot;Apache&quot;, the Apache feather, and the Apache Tomcat logo are
         trademarks of the Apache Software Foundation for our open source
         software.
         </em></font></div>
@@ -167,7 +167,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$relative-path"/><xsl:value-of select="@href"/>
-            </xsl:otherwise>    
+            </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <li><a href="{$href}"><xsl:value-of select="@name"/></a></li>
@@ -269,7 +269,7 @@
         </font>
     </td>
   </xsl:template>
-  
+
   <!-- handle th ala site.vsl -->
   <xsl:template match="table[@class='detail-table']/tr/th">
     <td bgcolor="{$table-th-bg}" valign="top">
@@ -280,7 +280,7 @@
         </font>
     </td>
   </xsl:template>
-  
+
   <!-- Process everything else by just passing it through -->
   <xsl:template match="*|@*">
     <xsl:copy>
