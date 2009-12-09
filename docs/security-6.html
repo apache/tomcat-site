@@ -842,7 +842,40 @@
 <td>
 <p>
 <blockquote>
-      <p>
+  
+    <p>
+<strong>TLS SSL Man In The Middle</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555">
+       CVE-2009-3555</a>
+</p>
+
+    <p>A vulnerability exists in the TLS protocol that allows an attacker to
+       inject arbitrary requests into an TLS stream during renegotiation.</p>
+    
+    <p>The TLS implementation used by Tomcat varies with connector. The blocking
+       IO (BIO) and non-blocking (NIO) connectors use the JSSE implementation
+       provided by the JVM. The APR/native connector uses OpenSSL.</p>
+       
+    <p>The BIO connector is vulnerable if the JSSE version used is vulnerable.
+       To workaround this until a fix is available in JSSE, a new connector
+       attribute <code>allowUnsafeLegacyRenegotiation</code> has been added to
+       the BIO connector. It should be set to <code>false</code> (the default)
+       to protect against this vulnerability. The attribute will be available in
+       Tomcat 6.0.21 onwards.</p>
+       
+    <p>The NIO connector is not vulnerable as it does not support
+       renegotiation.</p>
+       
+    <p>The APR/native connector is vulnerable if the OpenSSL version used is
+       vulnerable. Building with OpenSSL 0.9.8l will disable all renegotiation
+       and protect against this vulernability.</p>
+       
+    <p>Users should be aware that the impact of disabling renegotiation will
+       vary with both application and client. In some circumstances disabling
+       renegotiation may result in some clients being unable to access the
+       application.</p>
+
+    <p>
 <strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938">
        CVE-2008-2938</a>
