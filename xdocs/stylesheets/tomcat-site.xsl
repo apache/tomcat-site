@@ -131,7 +131,7 @@
       <xsl:comment>PAGE FOOTER</xsl:comment>
       <tr><td colspan="2">
         <div align="center"><font color="{$body-link}" size="-1"><em>
-        Copyright &#169; 1999-2009, The Apache Software Foundation
+        Copyright &#169; 1999-2010, The Apache Software Foundation
         <br/>
         &quot;Apache&quot;, the Apache feather, and the Apache Tomcat logo are
         trademarks of the Apache Software Foundation for our open source
