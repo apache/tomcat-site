@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Apache Tomcat APR/native Connector vulnerabilities</title>
+  </properties>
+
+<body>
+
+  <section name="Apache Tomcat APR/native Connector vulnerabilities">
+    <p>This page lists all security vulnerabilities fixed in released versions
+       of Apache Tomcat APR/native Connector. Each vulnerability is given a
+       <a href="security-impact.html">security impact rating</a> by the Apache
+       Tomcat security team - please note that this rating may vary from
+       platform to platform. We also list the versions of Apache Tomcat APR/native
+       Connectors the flaw is known to affect, and where a flaw has not been
+       verified list the version with a question mark.</p>
+
+    <p>This page has been created from a review of the Apache Tomcat archives
+       and the CVE list. Please send comments or corrections for these
+       vulnerabilities to the <a href="mailto:security@tomcat.apache.org">Tomcat
+       Security Team</a>.</p>
+
+  </section>
+
+  <section name="Not a vulnerability in the Apache Tomcat APR/native Connector">
+    <p><strong>TLS SSL Man In The Middle</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555">
+       CVE-2009-3555</a></p>
+
+    <p>A vulnerability exists in the TLS protocol that allows an attacker to
+       inject arbitrary requests into an TLS stream during renegotiation.</p>
+    
+    <p>The TLS implementation used by Tomcat varies with connector. The
+       APR/native connector uses OpenSSL.</p>
+       
+    <p>The APR/native connector is vulnerable if the OpenSSL version used is
+       vulnerable. Note: Building with OpenSSL 0.9.8l will disable all
+       renegotiation and protect against this vulnerability.</p>
+
+    <p>From 1.1.18 onwards, client initiated renegotiations are rejected to
+       provide partial protection against this vulnerability with any OpenSSL
+       version.</p>
+       
+    <p>Users should be aware that the impact of disabling renegotiation will
+       vary with both application and client. In some circumstances disabling
+       renegotiation may result in some clients being unable to access the
+       application.</p>
+  </section>
+
+</body>
+</document>
+
