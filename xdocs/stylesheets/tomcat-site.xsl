@@ -185,7 +185,14 @@
           <font color="{$banner-fg}" face="arial,helvetica,sanserif">
           <a name="{$name}">
           <strong><xsl:value-of select="@name"/></strong></a></font>
-      </td></tr>
+          </td>
+      <xsl:if test="@rtext">
+          <td align="right" bgcolor="{$banner-bg}">
+          <font color="{$banner-fg}" face="arial,helvetica.sanserif">
+          <strong><xsl:value-of select="@rtext"/></strong></font>
+          </td>
+      </xsl:if>
+      </tr>
       <!-- Section body -->
       <tr><td>
       <p><blockquote>
