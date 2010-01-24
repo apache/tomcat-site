@@ -47,6 +47,62 @@
 
   </section>
 
+  <section name="Fixed in subversion for Apache Tomcat 5.5.x">
+  
+    <p><i>Note: These issues will be fixed in 5.5.29 but that version has not yet
+       been released.</i></p>
+       
+    <p><strong>Low: Arbitrary file deletion and/or alteration on deploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2693">
+       CVE-2009-2693</a></p>
+
+    <p>When deploying WAR files, the WAR files were not checked for directory
+       traversal attempts. This allows an attacker to create arbitrary content
+       outside of the web root by including entries such as
+       <code>../../bin/catalina.sh</code> in the WAR.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=902650&amp;view=rev">
+       revision 902650</a>.</p>
+       
+    <p>Affects: 5.5.0-5.5.28</p>
+
+    <p><strong>Low: Insecure partial deploy after failed deploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2901">
+       CVE-2009-2901</a></p>
+
+    <p>By default, Tomcat automatically deploys any directories placed in a
+       host's appBase. This behaviour is controlled by the autoDeploy attribute
+       of a host which defaults to true. After a failed undeploy, the remaining
+       files will be deployed as a result of the autodeployment process.
+       Depending on circumstances, files normally protected by one or more
+       security constraints may be deployed without those security constraints,
+       making them accessible without authentication.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=902650&amp;view=rev">
+       revision 902650</a>.</p>
+       
+    <p>Affects: 5.5.0-5.5.28</p>
+    
+    <p><strong>Low: Unexpected file deletion in work directory</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2902">
+       CVE-2009-2902</a></p>
+
+    <p>When deploying WAR files, the WAR file names were not checked for
+       directory traversal attempts. For example, deploying and undeploying
+       <code>...war</code> allows an attacker to cause the deletion of the
+       current contents of the host's work directory which may cause problems
+       for currently running applications.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=902650&amp;view=rev">
+       revision 902650</a>.</p>
+       
+    <p>Affects: 5.5.0-5.5.28</p>
+    
+  </section>
+
   <section name="Fixed in Apache Tomcat 5.5.28">
     <p><strong>Important: Information Disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5515">

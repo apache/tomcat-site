@@ -212,8 +212,8 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Not fixed in Apache Tomcat 6.0.x">
-<strong>Not fixed in Apache Tomcat 6.0.x</strong>
+<a name="Fixed in Apache Tomcat 6.0.24">
+<strong>Fixed in Apache Tomcat 6.0.24</strong>
 </a>
 </font>
 </td>
@@ -222,13 +222,69 @@
 <td>
 <p>
 <blockquote>
-  
-    <p>
-<i>Note: It is expected that this issue will be fixed in 6.0.21 but the
-       patch has not yet received the necessary votes to be applied to the 6.0.x
-       code base.</i>
+      <p>
+<i>Note: These issues were fixed in Apache Tomcat 6.0.21 but the
+         release votes for the 6.0.21, 6.0.22 and 6.0.23 release candidates did
+         not pass. Therefore, although users must download 6.0.24 to obtain a
+         version that includes fixes for these issues, versions 6.0.21 onwards
+         are not included in the list of affected versions.</i>
 </p>
        
+    <p>
+<strong>Low: Arbitrary file deletion and/or alteration on deploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2693">
+       CVE-2009-2693</a>
+</p>
+
+    <p>When deploying WAR files, the WAR files were not checked for directory
+       traversal attempts. This allows an attacker to create arbitrary content
+       outside of the web root by including entries such as
+       <code>../../bin/catalina.sh</code> in the WAR.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=892815&amp;view=rev">
+       revision 892815</a>.</p>
+       
+    <p>Affects: 6.0.0-6.0.20</p>
+
+    <p>
+<strong>Low: Insecure partial deploy after failed deploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2901">
+       CVE-2009-2901</a>
+</p>
+
+    <p>By default, Tomcat automatically deploys any directories placed in a
+       host's appBase. This behaviour is controlled by the autoDeploy attribute
+       of a host which defaults to true. After a failed undeploy, the remaining
+       files will be deployed as a result of the autodeployment process.
+       Depending on circumstances, files normally protected by one or more
+       security constraints may be deployed without those security constraints,
+       making them accessible without authentication.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=892815&amp;view=rev">
+       revision 892815</a>.</p>
+       
+    <p>Affects: 6.0.0-6.0.20</p>
+    
+    <p>
+<strong>Low: Unexpected file deletion in work directory</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2902">
+       CVE-2009-2902</a>
+</p>
+
+    <p>When deploying WAR files, the WAR file names were not checked for
+       directory traversal attempts. For example, deploying and undeploying
+       <code>...war</code> allows an attacker to cause the deletion of the
+       current contents of the host's work directory which may cause problems
+       for currently running applications.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=892815&amp;view=rev">
+       revision 892815</a>.</p>
+       
+    <p>Affects: 6.0.0-6.0.20</p>
+    
     <p>
 <strong>Low: Insecure default password</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3548">
@@ -239,6 +295,10 @@
        user. If this is not changed during the install process, then by default
        a user is created with the name admin, roles admin and manager and a
        blank password.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=881771&amp;view=rev">
+       revision 881771</a>.</p>
 
     <p>Affects: 6.0.0-6.0.20</p>
 
