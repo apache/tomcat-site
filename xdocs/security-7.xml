@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Apache Tomcat 6.x vulnerabilities</title>
+  </properties>
+
+<body>
+
+  <section name="Apache Tomcat 7.x vulnerabilities">
+    <p>This page lists all security vulnerabilities fixed in released versions
+       of Apache Tomcat 7.x. Each vulnerability is given a
+       <a href="security-impact.html">security impact rating</a> by the Apache
+       Tomcat security team - please note that this rating may vary from
+       platform to platform. We also list the versions of Apache Tomcat the flaw
+       is known to affect, and where a flaw has not been verified list the
+       version with a question mark.</p>
+
+    <p>Please send comments or corrections for these vulnerabilities to the
+       <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
+
+    <p><i>Note: Apache Tomcat 7.0.0 has yet to be released.</i></p>
+  </section>
+
+  <section name="Not a vulnerability in Tomcat">
+  
+    <p><strong>moderate: TLS SSL Man In The Middle</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555">
+       CVE-2009-3555</a></p>
+
+    <p>A vulnerability exists in the TLS protocol that allows an attacker to
+       inject arbitrary requests into an TLS stream during renegotiation.</p>
+    
+    <p>The TLS implementation used by Tomcat varies with connector. The blocking
+       IO (BIO) and non-blocking (NIO) connectors use the JSSE implementation
+       provided by the JVM. The APR/native connector uses OpenSSL.</p>
+       
+    <p>The BIO connector is vulnerable if the JSSE version used is vulnerable.
+       To workaround this until a fix is available in JSSE, use the connector
+       attribute <code>allowUnsafeLegacyRenegotiation</code>. It should be set
+       to <code>false</code> (the default) to protect against this
+       vulnerability.</p>
+       
+    <p>The NIO connector is not vulnerable as it does not support
+       renegotiation.</p>
+       
+    <p>The APR/native workarounds are detailed on the
+       <a href="security-native.html">APR/native connector security page</a>.
+       </p>
+       
+    <p>Users should be aware that the impact of disabling renegotiation will
+       vary with both application and client. In some circumstances disabling
+       renegotiation may result in some clients being unable to access the
+       application.</p>
+
+    <p>This was worked-around in
+       <a href="http://svn.apache.org/viewvc?rev=882320&amp;view=rev">
+       revision 891292</a>.</p>
+
+  </section>
+  
+</body>
+</document>
+
