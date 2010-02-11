@@ -581,8 +581,7 @@
        To workaround this until a fix is available in JSSE, a new connector
        attribute <code>allowUnsafeLegacyRenegotiation</code> has been added to
        the BIO connector. It should be set to <code>false</code> (the default)
-       to protect against this vulnerability. The attribute will be available in
-       Tomcat 5.5.29 onwards.</p>
+       to protect against this vulnerability.</p>
        
     <p>The NIO connector is not vulnerable as it does not support
        renegotiation.</p>
@@ -596,9 +595,10 @@
        renegotiation may result in some clients being unable to access the
        application.</p>
 
-    <p>This was worked-around in
-       <a href="http://svn.eu.apache.org/viewvc?view=revision&amp;revision=904851">
-       revision 881774</a>.</p>
+    <p>A workaround was implemented in
+       <a href="http://svn.apache.org/viewvc?view=revision&amp;revision=904851">
+       revision 904851</a> that provided the new allowUnsafeLegacyRenegotiation
+       attribute. This work around will be included in Tomcat 5.5.29 onwards.</p>
 
     <p><strong>JavaMail information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1754">

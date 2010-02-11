@@ -925,8 +925,7 @@
        To workaround this until a fix is available in JSSE, a new connector
        attribute <code>allowUnsafeLegacyRenegotiation</code> has been added to
        the BIO connector. It should be set to <code>false</code> (the default)
-       to protect against this vulnerability. The attribute will be available in
-       Tomcat 6.0.21 onwards.</p>
+       to protect against this vulnerability.</p>
        
     <p>The NIO connector is not vulnerable as it does not support
        renegotiation.</p>
@@ -940,9 +939,12 @@
        renegotiation may result in some clients being unable to access the
        application.</p>
 
-    <p>This was worked-around in
+    <p>A workaround was implemented in
+       <a href="http://svn.apache.org/viewvc?rev=881774&amp;view=rev">
+       revision 881774</a> and 
        <a href="http://svn.apache.org/viewvc?rev=891292&amp;view=rev">
-       revision 881774</a>.</p>
+       revision 891292</a> that provided the new allowUnsafeLegacyRenegotiation
+       attribute. This work around is included in Tomcat 6.0.21 onwards.</p>
        
     <p>
 <strong>important: Directory traversal</strong>
