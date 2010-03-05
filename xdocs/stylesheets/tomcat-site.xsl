@@ -207,6 +207,11 @@
   <!-- Process a documentation subsection -->
   <xsl:template match="subsection">
     <xsl:variable name="name">
+      <xsl:if test="
+          count(//*[(local-name()='section' or local-name()='subsection') and @name=current()/@name]) &gt; 1
+          ">
+        <xsl:value-of select="concat(ancestor::section/@name, '/')"/>
+      </xsl:if>
       <xsl:value-of select="@name"/>
     </xsl:variable>
     <table border="0" cellspacing="0" cellpadding="2" width="100%">
@@ -222,6 +227,28 @@
       </blockquote></td></tr>
       <tr><td><br/></td></tr>
     </table>
+  </xsl:template>
+
+
+  <!-- Generate table of contents -->
+  <xsl:template match="toc">
+    <ul><xsl:apply-templates mode="toc" select="following::section"/></ul>
+  </xsl:template>
+
+  <xsl:template mode="toc" match="section|subsection">
+    <xsl:variable name="name">
+      <xsl:if test="local-name()='subsection' and 
+          count(//*[(local-name()='section' or local-name()='subsection') and @name=current()/@name]) &gt; 1
+          ">
+        <xsl:value-of select="concat(ancestor::section/@name, '/')"/>
+      </xsl:if>
+      <xsl:value-of select="@name"/>
+    </xsl:variable>
+    <li><a href="#{$name}"><xsl:value-of select="@name"/></a>
+    <xsl:if test="subsection">
+      <ol><xsl:apply-templates mode="toc" select="subsection"/></ol>
+    </xsl:if>
+    </li>
   </xsl:template>
 
 
