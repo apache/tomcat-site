@@ -195,6 +195,9 @@
       </tr>
       <!-- Section body -->
       <tr><td>
+      <xsl:if test="@rtext">
+          <xsl:attribute name="colspan">2</xsl:attribute>
+      </xsl:if>
       <p><blockquote>
         <xsl:apply-templates/>
       </blockquote></p>
