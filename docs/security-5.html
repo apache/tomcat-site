@@ -192,6 +192,9 @@
 <a href="#Apache Tomcat 5.x vulnerabilities">Apache Tomcat 5.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed in subversion for Apache Tomcat 5.5.x">Fixed in subversion for Apache Tomcat 5.5.x</a>
+</li>
+<li>
 <a href="#Fixed in Apache Tomcat 5.5.29">Fixed in Apache Tomcat 5.5.29</a>
 </li>
 <li>
@@ -288,6 +291,56 @@
        in Tomcat 5.5.26 onwards have not been assessed to determine if they are
        present in the 5.0.x branch.</p>
 
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in subversion for Apache Tomcat 5.5.x">
+<strong>Fixed in subversion for Apache Tomcat 5.5.x</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+  
+    <p>
+<i>Note: These issues will be fixed in 5.5.30 but that version has not
+       yet been released.</i>
+</p>
+
+    <p>
+<strong>Low: Information disclosure in authentication headers</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157">
+       CVE-2010-1157</a>
+</p>
+
+    <p>The <code>WWW-Authenticate</code> HTTP header for BASIC and DIGEST
+       authentication includes a realm name. If a
+       <code>&lt;realm-name&gt;</code> element is specified for the application
+       in web.xml it will be used. However, a <code>&lt;realm-name&gt;</code>
+       is not specified then Tomcat will generate realm name using the code
+       snippet <code>request.getServerName() + ":" +
+       request.getServerPort()</code>. In some circumstances this can expose
+       the local host name or IP address of the machine running Tomcat.
+    </p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=936541&amp;view=rev">
+       revision 936541</a>.</p>
+       
   </blockquote>
 </p>
 </td>
