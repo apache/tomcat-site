@@ -21,22 +21,41 @@ wide variety of reasons, and almost all of them do this on their own time.</p>
 
 <p>Many bugs reported end up not being a bug in the Apache Tomcat code, but are
 due to misconfiguration, problems caused by installed applications, the
-operating system, etc.
+operating system, etc.</p>
+
 <ul>
 <b>Before reporting a bug please make every effort to resolve the problem
 yourself.</b>
 </ul>
-The remainder of this document points you toward resources you can use to
+
+<p>The remainder of this document points you toward resources you can use to
 resolve the problem you are having.
 </p>
+
+  <subsection name="Bugzilla is not a support forum">
+  <p>Bugzilla is a tool to track bug reports and feature requests. It is used
+    to organize work on Apache Tomcat projects, so that such issues are not
+    forgotten and to document how they were resolved.
+  </p>
+
+  <p>Bugzilla is not a place to ask questions on how to configure your own
+    system, or how to interpret some error message that you do not understand.
+  </p>
+
+  <p>If you have any such questions, please use available
+    <a href="findhelp.html">support</a> channels. The most popular one is the
+    <b>users</b> <a href="lists.html">mailing list</a>.
+  </p>
+
+  <p>When you have gathered enough information to diagnose your problem,
+    and it is indeed a bug that <em>can</em> be fixed in Apache Tomcat, feel
+    free to create (or reopen) a Bugzilla issue for it. If you discussed the
+    issue on a mailing list, you can add a link to your discussion that can be
+    found in <a href="lists.html">mailing list</a> archives.
+  </p>
+  </subsection>
 </section>
 
-<section name="Bugzilla is not a support forum">
-<p>Support questions should not be sent to Bugzilla. If you cannot diagnose
-your problem, or if the problem is in your configuration, use the
-<a href="lists.html">mailing lists</a>.
-</p>
-</section>
 
 <section name="Resources to help resolve Apache Tomcat problems">
 <p>Here are some resources you can use to help you resolve the
@@ -46,7 +65,8 @@ problem you are having before reporting a bug.</p>
     <p>
     <li><b>Documentation</b> &#150; Review the documentation for the version
       of Apache Tomcat that you are using.  The problem that you are
-      facing may already be addressed in the docs.</li>
+      facing may already be addressed in the docs.  Note, that documentation
+      is searchable.</li>
     <li><b>Logs</b> &#150; The logs which Apache Tomcat generates can be a valuable
       resource when trying to diagnose a problem.  Please review them.
       You may want to enable debug output in your Apache Tomcat configuration
@@ -58,7 +78,7 @@ problem you are having before reporting a bug.</p>
 
   <subsection name="Apache Tomcat discussion lists">
     <p>It is very likely you are not the first to run into a problem.
-      Others may have already found a solution.  The <b>tomcat-user</b>,
+      Others may have already found a solution.  The <b>tomcat-users</b>,
       <b>taglibs-user</b> or <b>tomcat-dev</b> list archives may contain
       discussions which will help you resolve the problem.
     </p>
@@ -106,6 +126,7 @@ problem you are having before reporting a bug.</p>
 
     <ul>
       <li>
+        <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">Tomcat 7.0</a>,
         <a href="http://tomcat.apache.org/tomcat-6.0-doc/changelog.html">Tomcat 6.0</a>,
         <a href="http://tomcat.apache.org/tomcat-5.5-doc/changelog.html">Tomcat 5.5</a>
       </li>
@@ -123,6 +144,7 @@ problem you are having before reporting a bug.</p>
 
     <ul>
       <li>
+        <a href="http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/changelog.xml">Tomcat 7.0 (trunk)</a>,
         <a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk/webapps/docs/changelog.xml">Tomcat 6.0</a>,
         <a href="http://svn.apache.org/repos/asf/tomcat/tc5.5.x/trunk/container/webapps/docs/changelog.xml">Tomcat 5.5</a>
       </li>
@@ -145,66 +167,6 @@ problem you are having before reporting a bug.</p>
 <p>Please make sure the problem is a bug in Apache Tomcat and not a
 bug in your web application.</p>
 
-<p>Please provide as much information as possible. It is
-very hard to fix a bug if the person looking into the problem cannot
-reproduce it.  Here is a listing of information which should be included:</p>
-<ul>
-  <li>Environment details:
-    <ul>
-      <li><b>Version</b> &#150; Apache Tomcat version, if from a nightly build,
-      version and date of build. Please not only select the version from a
-      list, but also repeat it in the text of your bug report.</li>
-      <li><b>Platform</b> and <b>OS</b> &#150; Hardware platform and operating system
-      Tomcat is running on.</li>
-      <li><b>Java version</b> &#150; Vendor and version of your Java Runtime
-      Environment used to run Tomcat.</li>
-    </ul>
-  </li>
-  <li>Configuration:
-    <ul>
-      <li><b>Component</b> &#150; Apache Tomcat component which has the bug.
-      If you do not know, just guess.</li>
-      <li><b>Web Server</b> &#150; Web Server and version, Apache Tomcat Connector
-      and version.</li>
-      <li><b>Configuration</b> &#150; Attach configuration files if they would
-      help to track down the bug.</li>
-    </ul>
-  </li>
-  <li>Evidences:
-    <ul>
-      <li><b>Log file excerpts</b> &#150; Review your logs files, reproduce the bug
-      with debugging enabled in your Apache Tomcat configuration.  Then submit
-      any relevant sections of the log which help to document the bug.</li>
-      <li><b>Stack Traces</b> &#150; Any stack traces generated by the bug.</li>
-    </ul>
-  </li>
-  <li><b>Example</b> &#150; Example configuration files or web applications which
-    demonstrate the bug.  When submitting an example which reproduces the bug,
-    please try to make it as simple as possible.</li>
-  <li><b>Bug Fix Patch</b> &#150; A patch that fixes the issue, if you know
-    how to fix it.</li>
-  <li><b>Miscellaneous</b> &#150; Any other information that you feel will help
-    to track down the problem.  For example other Java API's and versions being
-    used with Apache Tomcat.</li>
-</ul>
-
-<p>
-Enhancements for Tomcat are submitted using the same procedure, but in the
-<b>Severity</b> field you will select the value "<code>enhancement</code>".
-</p>
-
-<p>
-Any patches are welcome, but we prefer the ones that use the
-<a href="http://en.wikipedia.org/wiki/Diff#Unified_format">Unified Diff</a>
-format. Those can be generated using <code>diff -u</code> command, or, if you
-have obtained the Tomcat sources from the <a href="svn.html">Subversion
-repository</a>, using the <code>svn diff</code> command.
-For more information on Subversion and how to use it, see
-<a href="http://svnbook.red-bean.com/"> the Subversion Book.</a>
-When providing a patch, please mention to which version of the sources it
-applies.
-</p>
-
 <p>
 Report an Apache Tomcat 7 bug
 <a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%207">
@@ -225,7 +187,84 @@ Report an Apache Taglibs bug
 <a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Taglibs">
 here</a>.<br />
 </p>
-<p></p>
+
+  <subsection name="How to write a bug report">
+  <p>Please provide as much information as possible. It is
+    very hard to fix a bug if the person looking into the problem cannot
+    reproduce it.
+  </p>
+
+  <p>See also
+    <a href="https://issues.apache.org/bugzilla/page.cgi?id=bug-writing.html">Bug Writing Guidelines</a>.
+  </p>
+
+  <p>You can include the following information in your bug report:</p>
+  <ul>
+    <li>Attribution:
+      <ul>
+        <li><b>Version</b> &#150; Apache Tomcat version.<br />
+          Please not only select it from the list, but also mention it in
+          your text.</li>
+        <li><b>Component</b> &#150; The component which has the bug.<br />
+          If you do not know, just guess.</li>
+      </ul>
+    </li>
+    <li>Environment details:
+      <ul>
+        <li><b>Platform</b> and <b>OS</b> &#150; Hardware platform and
+          operating system Tomcat is running on.</li>
+        <li><b>Java version</b> &#150; Vendor and version of your Java
+          Runtime Environment used to run Tomcat.</li>
+        <li><b>Web Server</b> &#150; Web Server and version, Apache Tomcat
+          Connector that you are using, if you are running Tomcat behind
+          another web server, such as
+          <a href="http://httpd.apache.org/">Apache HTTP Server</a>.</li>
+      </ul>
+    </li>
+    <li>Configuration:
+      <ul>
+        <li>Attach configuration files if they would help to track down the
+          bug.</li>
+      </ul>
+    </li>
+    <li>Evidences:
+      <ul>
+        <li>Log file excerpts, stack traces, messages</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Please describe how to reproduce your problem on a clean Tomcat
+    installation.  It is easier to reproduce an issue if you can prepare a
+    sample simple web application that demonstrates it.</p>
+  </subsection>
+
+  <subsection name="Patches and enhancement requests">
+  <p>Enhancement requests for Tomcat are submitted using the same procedure
+    as bug reports, but in the <b>Severity</b> field you will select the value
+    "<em>enhancement</em>".
+  </p>
+
+  <p>To propose a patch, attach it to a Bugzilla issue. Any patches are welcome,
+    but we prefer the ones that use the
+    <a href="http://en.wikipedia.org/wiki/Diff#Unified_format">Unified Diff</a>
+    format. Those can be generated using <code>diff -u</code> command or
+    <code>svn diff</code> command.
+  </p>
+
+  <p>When providing a patch, please mention to which version of the sources it
+    applies.</p>
+
+  <p>The following references may be useful:</p>
+  <ul>
+    <li>Tomcat <a href="svn.html">SVN repository structure</a></li>
+    <li>BUILDING.txt in your version of Tomcat</li>
+    <li>General <a href="http://www.apache.org/dev/version-control.html#anon-svn">Apache
+      guidance for Subversion</a></li>
+    <li><a href="http://svnbook.red-bean.com/">the Subversion Book</a></li>
+  </ul>
+  </subsection>
+
 <subsection name="Security Issues">
 <p>Security-related bugs are of special concern.  If you have a verified
 security bug to report please neither post it
