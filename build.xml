@@ -7,6 +7,8 @@
     <property file="build.properties"/>
     <property file="${user.home}/build.properties"/>
 
+	<property name="force" value="false" />
+	
     <property name="docs.src" location="xdocs"/>
     <property name="docs.dest" location="docs"/>
     <property name="faq.src" location="xdocs-faq"/>
@@ -25,13 +27,14 @@
                 extension=".html"
                 style="${docs.src}/stylesheets/tomcat-site.xsl"
                 excludes="project.xml"
-                includes="*.xml">
+                includes="*.xml"
+        	    force="${force}">
             <param name="relative-path" expression="."/>
         </xslt>
 
         <!-- Copy static resource files -->
         <echo message="Copying static resource files..." />
-        <copy todir="${docs.dest}/images" filtering="no">
+        <copy todir="${docs.dest}/images" filtering="no" overwrite="${force}">
             <fileset dir="${docs.src}/images">
                 <include name="**/*.gif"/>
                 <include name="**/*.jpeg"/>
@@ -41,7 +44,7 @@
 
         <!-- Copy static PDFs -->
         <echo message="Copying PDFs..." />
-        <copy todir="${docs.dest}" filtering="no">
+        <copy todir="${docs.dest}" filtering="no" overwrite="${force}">
             <fileset dir="${docs.src}">
                 <include name="**/*.pdf"/>
             </fileset>
@@ -49,7 +52,7 @@
 
         <!-- Copy DOAP -->
         <echo message="Copying DOAP..." />
-        <copy todir="${docs.dest}" filtering="no">
+        <copy todir="${docs.dest}" filtering="no" overwrite="${force}">
             <fileset dir="${docs.src}">
                 <include name="**/*.rdf"/>
             </fileset>
@@ -57,13 +60,12 @@
 
         <!-- Copy CSS stylesheets and download CGI -->
         <echo message="Copying CSS and CGI files..." />
-        <copy todir="${docs.dest}" filtering="no">
+        <copy todir="${docs.dest}" filtering="no" overwrite="${force}">
             <fileset dir="${docs.src}">
                 <include name="**/*.css"/>
                 <include name="**/*.cgi"/>
             </fileset>
         </copy>
-
 
   </target>
 
