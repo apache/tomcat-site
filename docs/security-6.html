@@ -3,18 +3,18 @@
 <html>
 <head>
 <title>Apache Tomcat - Apache Tomcat 6.x vulnerabilities</title>
-<meta name="author" content="Apache Tomcat Project"/>
-<link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet"/>
-<link type="text/css" href="stylesheets/tomcat-printer.css" rel="stylesheet" media="print"/>
+<meta content="Apache Tomcat Project" name="author" />
+<link rel="stylesheet" href="stylesheets/tomcat.css" type="text/css" />
+<link media="print" rel="stylesheet" href="stylesheets/tomcat-printer.css" type="text/css" />
 </head>
-<body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76">
-<table border="0" width="100%" cellspacing="0">
+<body vlink="#525D76" alink="#525D76" link="#525D76" text="#000000" bgcolor="#ffffff">
+<table cellspacing="0" width="100%" border="0">
 <!--PAGE HEADER-->
 <tr>
 <td>
 <!--PROJECT LOGO-->
 <a href="http://tomcat.apache.org/">
-<img src="./images/tomcat10.jpg" align="left" alt="Tomcat Logo" border="0"/>
+<img border="0" alt="Tomcat Logo" align="left" src="./images/tomcat.gif" />
 </a>
 </td>
 <td>
@@ -25,28 +25,28 @@
 <td>
 <!--APACHE LOGO-->
 <a href="http://www.apache.org/">
-<img src="http://www.apache.org/images/asf-logo.gif" align="right" alt="Apache Logo" border="0"/>
+<img border="0" alt="Apache Logo" align="right" src="http://www.apache.org/images/asf-logo.gif" />
 </a>
 </td>
 </tr>
 </table>
 <div class="searchbox noPrint">
-<form action="http://www.google.com/search" method="get">
-<input value="tomcat.apache.org" name="sitesearch" type="hidden"/>
-<input value="Search the Site" size="25" name="q" id="query" type="text"/>
-<input name="Search" value="Search Site" type="submit"/>
+<form method="get" action="http://www.google.com/search">
+<input type="hidden" name="sitesearch" value="tomcat.apache.org" />
+<input type="text" id="query" name="q" size="25" value="Search the Site" />
+<input type="submit" value="Search Site" name="Search" />
 </form>
 </div>
-<table border="0" width="100%" cellspacing="4">
+<table cellspacing="4" width="100%" border="0">
 <!--HEADER SEPARATOR-->
 <tr>
 <td colspan="2">
-<hr noshade="" size="1"/>
+<hr size="1" noshade="" />
 </td>
 </tr>
 <tr>
 <!--LEFT SIDE NAVIGATION-->
-<td width="20%" valign="top" nowrap="true" class="noPrint">
+<td class="noPrint" nowrap="true" valign="top" width="20%">
 <p>
 <strong>Apache Tomcat</strong>
 </p>
@@ -178,11 +178,11 @@
 </ul>
 </td>
 <!--RIGHT SIDE MAIN BODY-->
-<td width="80%" valign="top" align="left" id="mainBody">
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<td id="mainBody" align="left" valign="top" width="80%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Table of Contents">
 <!--()-->
 </a>
@@ -201,7 +201,7 @@
 <a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
 </li>
 <li>
-<a href="#Fixed_in_subversion_for_Apache_Tomcat_6.0.x">Fixed in subversion for Apache Tomcat 6.0.x</a>
+<a href="#Fixed_in_Apache_Tomcat_6.0.28">Fixed in Apache Tomcat 6.0.28</a>
 </li>
 <li>
 <a href="#Fixed_in_Apache_Tomcat_6.0.24">Fixed in Apache Tomcat 6.0.24</a>
@@ -240,14 +240,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Apache Tomcat 6.x vulnerabilities">
 <!--()-->
 </a>
@@ -282,19 +282,19 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Fixed in subversion for Apache Tomcat 6.0.x">
+<font face="arial,helvetica,sanserif" color="#ffffff">
+<a name="Fixed in Apache Tomcat 6.0.28">
 <!--()-->
 </a>
-<a name="Fixed_in_subversion_for_Apache_Tomcat_6.0.x">
-<strong>Fixed in subversion for Apache Tomcat 6.0.x</strong>
+<a name="Fixed_in_Apache_Tomcat_6.0.28">
+<strong>Fixed in Apache Tomcat 6.0.28</strong>
 </a>
 </font>
 </td>
@@ -305,9 +305,20 @@
 <blockquote>
   
     <p>
-<i>Note: These issues will be fixed in 6.0.27 but that version has not
-       yet been released.</i>
+<strong>High: Transfer-Encoding denial of service vulnerability</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227">
+       CVE-2010-2227</a>
 </p>
+
+    <p>A flaw in the handling of the 'Transfer-Encoding' header was found.  A
+       remote attacker could trigger this flaw which would cause subsequent
+       requests to fail or information to leak between requests.  This flaw
+       is mitigated if Tomcat is behind a proxy as the proxy should reject
+       the invalid transfer encoding header.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=958977&amp;view=rev">
+       revision 958977</a>.</p>
 
     <p>
 <strong>Low: Information disclosure in authentication headers</strong>
@@ -335,14 +346,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.24">
 <!--()-->
 </a>
@@ -443,14 +454,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.20">
 <!--()-->
 </a>
@@ -570,14 +581,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.18">
 <!--()-->
 </a>
@@ -660,14 +671,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.16">
 <!--()-->
 </a>
@@ -752,14 +763,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.14">
 <!--()-->
 </a>
@@ -844,14 +855,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.11">
 <!--()-->
 </a>
@@ -902,14 +913,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.10">
 <!--()-->
 </a>
@@ -961,14 +972,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.9">
 <!--()-->
 </a>
@@ -1000,14 +1011,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Fixed in Apache Tomcat 6.0.6">
 <!--()-->
 </a>
@@ -1043,14 +1054,14 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
 <tr>
 <td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
+<font face="arial,helvetica,sanserif" color="#ffffff">
 <a name="Not a vulnerability in Tomcat">
 <!--()-->
 </a>
@@ -1142,7 +1153,7 @@
 </tr>
 <tr>
 <td>
-<br/>
+<br />
 </td>
 </tr>
 </table>
@@ -1151,17 +1162,17 @@
 <!--FOOTER SEPARATOR-->
 <tr>
 <td colspan="2">
-<hr noshade="" size="1"/>
+<hr size="1" noshade="" />
 </td>
 </tr>
 <!--PAGE FOOTER-->
 <tr>
 <td colspan="2">
 <div align="center">
-<font color="#525D76" size="-1">
+<font size="-1" color="#525D76">
 <em>
         Copyright © 1999-2010, The Apache Software Foundation
-        <br/>
+        <br />
         "Apache", the Apache feather, and the Apache Tomcat logo are
         trademarks of the Apache Software Foundation for our open source
         software.
