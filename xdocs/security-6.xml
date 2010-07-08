@@ -30,10 +30,21 @@
 
   </section>
 
-  <section name="Fixed in subversion for Apache Tomcat 6.0.x">
+  <section name="Fixed in Apache Tomcat 6.0.28">
   
-    <p><i>Note: These issues will be fixed in 6.0.27 but that version has not
-       yet been released.</i></p>
+    <p><strong>High: Transfer-Encoding denial of service vulnerability</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227">
+       CVE-2010-2227</a></p>
+
+    <p>A flaw in the handling of the 'Transfer-Encoding' header was found.  A
+       remote attacker could trigger this flaw which would cause subsequent
+       requests to fail or information to leak between requests.  This flaw
+       is mitigated if Tomcat is behind a proxy as the proxy should reject
+       the invalid transfer encoding header.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=958977&amp;view=rev">
+       revision 958977</a>.</p>
 
     <p><strong>Low: Information disclosure in authentication headers</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157">

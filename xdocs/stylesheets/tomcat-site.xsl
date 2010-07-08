@@ -71,7 +71,7 @@
         <td>
           <xsl:comment>PROJECT LOGO</xsl:comment>
           <a href="http://tomcat.apache.org/">
-            <img src="./images/tomcat10.jpg" align="left" alt="Tomcat Logo" border="0"/>
+            <img src="./images/tomcat.gif" align="left" alt="Tomcat Logo" border="0"/>
           </a>
         </td>
         <td>
