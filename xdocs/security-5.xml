@@ -3,7 +3,7 @@
 
   <properties>
     <author>Apache Tomcat Project</author>
-    <title>Apache Tomcat 5.x vulnerabilities</title>
+    <title>Apache Tomcat 5 vulnerabilities</title>
   </properties>
 
 <body>
@@ -39,17 +39,32 @@
 <!--
   <section name="Not fixed in Apache Tomcat 5.5.x">
   
-    <p><i>Note: It is expected that this issue will be fixed in 5.5.29 but the
+    <p><i>Note: It is expected that this issue will be fixed in 5.5.31 but the
        patch has not yet received the necessary votes to be applied to the 5.5.x
        code base.</i></p>
        
   </section>
  -->
 
-  <section name="Fixed in subversion for Apache Tomcat 5.5.x">
+  <section name="Fixed in Apache Tomcat 5.5.30">
   
-    <p><i>Note: These issues will be fixed in 5.5.30 but that version has not
-       yet been released.</i></p>
+    <p><strong>Important: Remote Denial Of Service and Information Disclosure
+       Vulnerability</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227">
+       CVE-2010-2227</a></p>
+
+    <p>Several flaws in the handling of the 'Transfer-Encoding' header were
+       found that prevented the recycling of a buffer. A remote attacker could
+       trigger this flaw which would cause subsequent requests to fail and/or
+       information to leak between requests. This flaw is mitigated if Tomcat is
+       behind a reverse proxy (such as Apache httpd 2.2) as the proxy should
+       reject the invalid transfer encoding header.</p>
+       
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=959428&amp;view=rev">
+       revision 959428</a>.</p>
+       
+    <p>Affects: 5.5.0-5.5.29</p>
 
     <p><strong>Low: Information disclosure in authentication headers</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157">
@@ -69,6 +84,8 @@
        <a href="http://svn.apache.org/viewvc?rev=936541&amp;view=rev">
        revision 936541</a>.</p>
        
+    <p>Affects: 5.5.0-5.5.29</p>
+
   </section>
 
   <section name="Fixed in Apache Tomcat 5.5.29">

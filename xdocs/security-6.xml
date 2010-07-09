@@ -3,7 +3,7 @@
 
   <properties>
     <author>Apache Tomcat Project</author>
-    <title>Apache Tomcat 6.x vulnerabilities</title>
+    <title>Apache Tomcat 6 vulnerabilities</title>
   </properties>
 
 <body>
@@ -32,20 +32,30 @@
 
   <section name="Fixed in Apache Tomcat 6.0.28">
   
-    <p><strong>High: Transfer-Encoding denial of service vulnerability</strong>
+    <p><strong>Important: Remote Denial Of Service and Information Disclosure
+       Vulnerability</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227">
        CVE-2010-2227</a></p>
 
-    <p>A flaw in the handling of the 'Transfer-Encoding' header was found.  A
-       remote attacker could trigger this flaw which would cause subsequent
-       requests to fail or information to leak between requests.  This flaw
-       is mitigated if Tomcat is behind a proxy as the proxy should reject
-       the invalid transfer encoding header.</p>
-
+    <p>Several flaws in the handling of the 'Transfer-Encoding' header were
+       found that prevented the recycling of a buffer. A remote attacker could
+       trigger this flaw which would cause subsequent requests to fail and/or
+       information to leak between requests. This flaw is mitigated if Tomcat is
+       behind a reverse proxy (such as Apache httpd 2.2) as the proxy should
+       reject the invalid transfer encoding header.</p>
+       
     <p>This was fixed in
        <a href="http://svn.apache.org/viewvc?rev=958977&amp;view=rev">
        revision 958977</a>.</p>
+       
+    <p>Affects: 6.0.0-6.0.27</p>
 
+    <p><i>Note: The issue below was fixed in Apache Tomcat 6.0.27 but the
+       release vote for the 6.0.27 release candidate did not pass. Therefore,
+       although users must download 6.0.28 to obtain a version that includes a
+       fix for this issue, version 6.0.27 is not included in the list of
+       affected versions.</i></p>
+         
     <p><strong>Low: Information disclosure in authentication headers</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157">
        CVE-2010-1157</a></p>
@@ -63,6 +73,8 @@
     <p>This was fixed in
        <a href="http://svn.apache.org/viewvc?rev=936540&amp;view=rev">
        revision 936540</a>.</p>
+
+    <p>Affects: 6.0.0-6.0.26</p>
        
   </section>
 
