@@ -80,6 +80,17 @@ compatibility problems.</p>
 
   </subsection>
 
+  <subsection name="Connector thread pools">
+
+    <p>The <strong>Connector</strong> thread pools have been simplified. They
+    now grow to the maximum size specified but never shrink. The attributes
+    associated with shrinking the thread pool (e.g. <code>minSpareThreads</code>
+    will be ignored. If you require a thread pool that grows and shrinks with
+    demand you'll need to configure an <strong>Executor</strong> and then
+    configure your <strong>Connector</strong> to use it.</p>
+
+  </subsection>
+
 </section>
 
 <section name="6.0.x to 7.0.x">
