@@ -133,9 +133,8 @@
         <div align="center"><font color="{$body-link}" size="-1"><em>
         Copyright &#169; 1999-2010, The Apache Software Foundation
         <br/>
-        &quot;Apache&quot;, the Apache feather, and the Apache Tomcat logo are
-        trademarks of the Apache Software Foundation for our open source
-        software.
+        Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+        project logo are trademarks of the Apache Software Foundation.
         </em></font></div>
       </td></tr>
 
