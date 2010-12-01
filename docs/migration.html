@@ -687,6 +687,49 @@ compatibility problems.</p>
 <tr>
 <td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Session manager configuration">
+<!--()-->
+</a>
+<a name="Session_manager_configuration">
+<strong>Session manager configuration</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+    <p>A number of changes have been made to the session manager to improve the
+    performance of session generation and destruction including changes to
+    session ID generation. The session ID generation changes take advantages of
+    improvements in <code>java.secure.SecureRandom</code> since the session ID
+    generation was first written. The configuration changes are:</p>
+    
+    <ul>
+      <li>
+<tt>randomClass</tt> has changed to <tt>secureRandomClass</tt> and
+      the provided class must extend <code>java.secure.SecureRandom</code>
+</li>
+      <li>Two new properties <tt>secureRandomAlgoithm</tt> and
+      <tt>secureRandomProvider</tt> have been added to enable the selection of
+      a SecureRandom implementation.</li>
+      <li>The <tt>algorithm</tt> attribute has been removed</li>
+      <li>The <tt>entropy</tt> attribute has been removed</li>
+    </ul>
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+  
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
 <a name="Session cookie configuration">
 <!--()-->
 </a>
@@ -827,6 +870,8 @@ compatibility problems.</p>
     <code>true</code>, setting the individual system properties will always take
     priority.</p>
 
+    <p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
+    is replaced by the maxTrailerSize attribute of the Connector.</p>
   </blockquote>
 </td>
 </tr>
