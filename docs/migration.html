@@ -219,10 +219,10 @@
 <a href="#SSLEnabled_attribute_on_Connector">SSLEnabled attribute on Connector</a>
 </li>
 <li>
-<a href="#Clustering_configuration_changes">Clustering configuration changes</a>
+<a href="#Connector_thread_pools">Connector thread pools</a>
 </li>
 <li>
-<a href="#Connector_thread_pools">Connector thread pools</a>
+<a href="#Clustering_configuration_changes">Clustering configuration changes</a>
 </li>
 </ol>
 </li>
@@ -341,7 +341,7 @@ compatibility problems.</p>
 <td>
 <blockquote>
 
-    <p>Apache Tomcat 6.0.x requires Java 5, unlike Apache Tomcat 5.5.x which
+    <p>Apache Tomcat 6.0.x requires Java 5 or later, unlike Apache Tomcat 5.5.x which
     could use a compatibility package to run on JRE 1.4.</p>
 
   </blockquote>
@@ -372,13 +372,18 @@ compatibility problems.</p>
 <blockquote>
 
     <p>Apache Tomcat 5.5.x used, by default, a directory structure including
-    common, shared and server. Apache Tomcat 6.0.x merges these repositories
-    into a single lib folder. The <code>conf/catalina.properties</code> file
-    can be used to modify the directory structure. In addition, all of the
-    default web applications are located in the <code>webapps</code> folder.
-    When using a shared webhosting environment, it is recommended that usage
-    of context.xml inside a WAR is forbidden (using the <code>deployXML</code>
-    attribute of the Host element).</p>
+    <code>common</code>, <code>shared</code> and <code>server</code> subdirectories.
+    Apache Tomcat 6.0.x merges these into a single <code>lib</code> directory.
+    The <code>conf/catalina.properties</code> file can be used to modify
+    the directory structure.</p>
+
+    <p>In addition, all of the default web applications are located in the
+    <code>webapps</code> folder.</p>
+
+    <p>When using a shared webhosting environment, it is recommended to forbid
+    the use of context.xml inside the WAR files (using the <code>deployXML</code>
+    attribute of the <strong>Host</strong> element).
+    (This option is also available in Tomcat 5.5).</p>
 
   </blockquote>
 </td>
@@ -447,6 +452,10 @@ compatibility problems.</p>
     components when using log4j for Tomcat's logging. See the logging and extras
     documentation for more details.</p>
 
+    <p>The <code>commons-logging-api.jar</code> library is no longer provided
+    by Tomcat. The web applications have to provide their own copy of that
+    library, if needed</p>
+
   </blockquote>
 </td>
 </tr>
@@ -493,36 +502,6 @@ compatibility problems.</p>
 <tr>
 <td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Clustering configuration changes">
-<!--()-->
-</a>
-<a name="Clustering_configuration_changes">
-<strong>Clustering configuration changes</strong>
-</a>
-</font>
-</td>
-</tr>
-<tr>
-<td>
-<blockquote>
-
-    <p>Clustering configuration was refactored. See the clustering documentation
-    for more details.</p>
-
-  </blockquote>
-</td>
-</tr>
-<tr>
-<td>
-<br/>
-</td>
-</tr>
-</table>
-
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
 <a name="Connector thread pools">
 <!--()-->
 </a>
@@ -538,10 +517,40 @@ compatibility problems.</p>
 
     <p>The <strong>Connector</strong> thread pools have been simplified. They
     now grow to the maximum size specified but never shrink. The attributes
-    associated with shrinking the thread pool (e.g. <code>minSpareThreads</code>
+    associated with shrinking the thread pool (e.g. <code>minSpareThreads</code>)
     will be ignored. If you require a thread pool that grows and shrinks with
     demand you'll need to configure an <strong>Executor</strong> and then
     configure your <strong>Connector</strong> to use it.</p>
+
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Clustering configuration changes">
+<!--()-->
+</a>
+<a name="Clustering_configuration_changes">
+<strong>Clustering configuration changes</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    <p>Clustering configuration was refactored. See the clustering documentation
+    for more details.</p>
 
   </blockquote>
 </td>
@@ -628,7 +637,7 @@ compatibility problems.</p>
     <p>XML context descriptors are no longer extracted from deployed WARs and
     directories and copied to the host's <code>xmlBase</code>. The default
     Tomcat 6 behavior can be enabled by setting the <code>copyXML</code>
-    attribute of the host to <code>true</code>.</p>
+    attribute of the <strong>Host</strong> element to <code>true</code>.</p>
     
   </blockquote>
 </td>
@@ -910,7 +919,7 @@ compatibility problems.</p>
 <td>
 <blockquote>
   
-    <p>The configuration of XMl validation has been simplified. The
+    <p>The configuration of XML validation has been simplified. The
     <code>xmlValidation</code> and <code>xmlNamespaceAware</code> attributes
     have been removed from the <code>&lt;Host&gt;</code> element. These
     attributes, along with <code>tldValidation</code> and
