@@ -228,22 +228,35 @@ compatibility problems.</p>
     <p>With the addition of <code>SessionCookieConfig</code> in the Servlet 3.0
     specification, a number of session cookie configuration options have been
     removed to reduce configuration and code complexity.</p>
-    
+
     <ul>
-      <li>Connector.emptySessionPath: This has been removed. An equivalent
+      <li><strong>Connector</strong><code>.emptySessionPath</code>: This has been removed. An equivalent
       effect can be obtained by configuring sessionCookiePath="/" in the global
       context.xml (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
 
-      <li>org.apache.catalina.SESSION_COOKIE_NAME system property: This has been
+      <li><code>org.apache.catalina.SESSION_COOKIE_NAME</code> system property: This has been
       removed. An equivalent effect can be obtained by configuring the
-      sessionCookieName attribute for the global context.xml
+      <code>sessionCookieName</code> attribute for the global context.xml
       (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
 
-      <li>org.apache.catalina.SESSION_PARAMETER_NAME system property: This has
+      <li><code>org.apache.catalina.SESSION_PARAMETER_NAME</code> system property: This has
       been removed. An equivalent effect can be obtained by configuring the
-      sessionCookieName attribute for the global context.xml
+      <code>sessionCookieName</code> attribute for the global context.xml
       (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
+
+      <li><strong>Context</strong><code>.disableURLRewriting</code>: This has
+      been removed. An equivalent effect can be obtained by configuring the
+      <code>session-config/tracking-mode</code> elements in a web application
+      or in the global <conf>CATALINA_BASE/conf/web.xml</conf> file.</li>
     </ul>
+
+    <p>The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
+    flag by default, to instruct browsers to prevent access to those cookies
+    from JavaScript.
+    (This can be enabled in Tomcat 6.0 and 5.5 by setting
+    <code>useHttpOnly="true"</code> on <strong>Context</strong> element in
+    a web application or in the global
+    <code>CATALINA_BASE/conf/context.xml</code> file).</p>
 
   </subsection>
 
