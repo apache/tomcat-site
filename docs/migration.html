@@ -262,6 +262,9 @@
 <li>
 <a href="#System_properties">System properties</a>
 </li>
+<li>
+<a href="#Internal_APIs">Internal APIs</a>
+</li>
 </ol>
 </li>
 </ul>
@@ -1080,6 +1083,46 @@ compatibility problems.</p>
 
     <p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
     is replaced by the maxTrailerSize attribute of the Connector.</p>
+
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Internal APIs">
+<!--()-->
+</a>
+<a name="Internal_APIs">
+<strong>Internal APIs</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+  
+    <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
+    there have been many changes at the detai level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat's
+    internals should review the JavaDoc for the relevant API. Of particular note
+    are:</p>
+    <ul>
+      <li>Use of generics.</li>
+      <li>A standard implementation of the Lifecycle interface that all
+      components extend.</li>
+      <li>The use of Context name rather than Context path as the unique
+      identifier for a Context within a Host.</li>
+    </ul>
 
   </blockquote>
 </td>

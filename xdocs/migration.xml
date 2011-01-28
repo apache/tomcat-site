@@ -341,6 +341,23 @@ compatibility problems.</p>
 
   </subsection>
 
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
+    there have been many changes at the detai level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API. Of particular note
+    are:</p>
+    <ul>
+      <li>Use of generics.</li>
+      <li>A standard implementation of the Lifecycle interface that all
+      components extend.</li>
+      <li>The use of Context name rather than Context path as the unique
+      identifier for a Context within a Host.</li>
+    </ul>
+
+  </subsection>
+
 </section>
 
 </body>
