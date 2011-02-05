@@ -25,9 +25,58 @@
        <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.8 (released 5 Feb 2011)">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.7 but the
+       release vote for the 7.0.7 release candidate did not pass. Therefore,
+       although users must download 7.0.8 to obtain a version that includes a
+       fix for this issue, version 7.0.7 is not included in the list of
+       affected versions.</i></p>
+
+    <p><strong>Important: Remote Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0534">
+       CVE-2011-0534</a></p>
+
+    <p>The NIO connector expands its buffer endlessly during request line
+       processing. That behaviour can be used for a denial of service attack
+       using a carefully crafted request.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1066313&amp;view=rev">
+       revision 1066313</a>.</p>
+
+    <p>This was identified by the Tomcat security team on 27 Feb 2011 and
+       made public on 5 Feb 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.6</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.6 (released 14 Jan 2011)">
+  
+    <p><strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013">
+       CVE-2011-0013</a></p>
+
+    <p>The HTML Manager interface displayed web applciation provided data, such
+       as display names, without filtering. A malicious web application could
+       trigger script execution by an administartive user when viewing the
+       manager pages.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1057279&amp;view=rev">
+       revision 1057279</a>.</p>
+
+    <p>This was identified by the Tomcat security team on 12 Nov 2010 and
+       made public on 5 Feb 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.5</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.5 (released 1 Dec 2010)">
   
-      <p><strong>low: Cross-site scripting</strong>
+    <p><strong>low: Cross-site scripting</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4172">
        CVE-2010-4172</a></p>
 
@@ -44,6 +93,37 @@
        made public on 22 Nov 2010.</p>
 
     <p>Affects: 7.0.0-7.0.4</p>
+  
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.4 (released 21 Oct 2010)">
+
+    <p><strong>low: SecurityManager file permission bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718">
+       CVE-2010-3718</a></p>
+
+    <p>When running under a SecurityManager, access to the file system is
+       limited but web applications are granted read/write permissions to the
+       work directory. This directory is used for a variety of temporary files
+       such as the intermediate files generated when compiling JSPs to Servlets.
+       The location of the work directory is specified by a ServletContect
+       attribute that is meant to be read-only to web applications. However,
+       due to a coding error, the read-only setting was not applied. Therefore,
+       a malicious web application may modify the attribute before Tomcat
+       applies the file permissions. This can be used to grant read/write
+       permissions to any area on the file system which a malicious web
+       application may then take advantage of. This vulnerability is only
+       applicable when hosting web applications from untrusted sources such as
+       shared hosting environments.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1022134&amp;view=rev">
+       revision 1022134</a>.</p>
+
+    <p>This was discovered by the Tomcat security team on 12 Oct 2010 and
+       made public on 5 Feb 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.3</p>
   
   </section>
 
@@ -80,6 +160,26 @@
 
   <section name="Not a vulnerability in Tomcat">
   
+    <p><strong>Important: Remote Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-XXXX">
+       CVE-2011-XXXX</a></p>
+
+    <p>A JVM bug could cause Double conversion to hang JVM when accessing to a
+       form based security constrained page or any page that calls
+       javax.servlet.ServletRequest.getLocale() or
+       javax.servlet.ServletRequest.getLocales(). A specially crafted request
+       can be used to trigger a denial of service.
+    </p>
+
+    <p>A work-around for this JVM bug was provided in 
+       <a href="http://svn.apache.org/viewvc?rev=1066244&amp;view=rev">
+       revision 1066244</a>.</p>
+
+    <p>This was first reported to the Tomcat security team on 01 Feb 2011 and
+       made public on 31 Jan 2011.</p>
+
+    <p>Affects: 6.0.0-6.0.31</p>
+
     <p><strong>moderate: TLS SSL Man In The Middle</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555">
        CVE-2009-3555</a></p>

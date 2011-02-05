@@ -201,6 +201,9 @@
 <a href="#Apache_Tomcat_5.x_vulnerabilities">Apache Tomcat 5.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_5.5.32">Fixed in Apache Tomcat 5.5.32</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_5.5.30">Fixed in Apache Tomcat 5.5.30</a>
 </li>
 <li>
@@ -317,6 +320,59 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in Apache Tomcat 5.5.32">
+<!--()-->
+</a>
+<a name="Fixed_in_Apache_Tomcat_5.5.32">
+<strong>Fixed in Apache Tomcat 5.5.32</strong>
+</a>
+</font>
+</td>
+<td align="right" bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica.sanserif">
+<strong>released 1 Feb 2011</strong>
+</font>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p>
+<blockquote>
+  
+    <p>
+<strong>low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013">
+       CVE-2011-0013</a>
+</p>
+
+    <p>The HTML Manager interface displayed web applciation provided data, such
+       as display names, without filtering. A malicious web application could
+       trigger script execution by an administartive user when viewing the
+       manager pages.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1057279&amp;view=rev">
+       revision 1057279</a>.</p>
+
+    <p>This was identified by the Tomcat security team on 12 Nov 2010 and
+       made public on 5 Feb 2011.</p>
+
+    <p>Affects: 5.5.0-5.5.31</p>
+
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
 <a name="Fixed in Apache Tomcat 5.5.30">
 <!--()-->
 </a>
@@ -336,6 +392,35 @@
 <p>
 <blockquote>
   
+    <p>
+<strong>low: SecurityManager file permission bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718">
+       CVE-2010-3718</a>
+</p>
+
+    <p>When running under a SecurityManager, access to the file system is
+       limited but web applications are granted read/write permissions to the
+       work directory. This directory is used for a variety of temporary files
+       such as the intermediate files generated when compiling JSPs to Servlets.
+       The location of the work directory is specified by a ServletContect
+       attribute that is meant to be read-only to web applications. However,
+       due to a coding error, the read-only setting was not applied. Therefore,
+       a malicious web application may modify the attribute before Tomcat
+       applies the file permissions. This can be used to grant read/write
+       permissions to any area on the file system which a malicious web
+       application may then take advantage of. This vulnerability is only
+       applicable when hosting web applications from untrusted sources such as
+       shared hosting environments.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1027610&amp;view=rev">
+       revision 1027610</a>.</p>
+
+    <p>This was discovered by the Tomcat security team on 12 Oct 2010 and
+       made public on 5 Feb 2011.</p>
+
+    <p>Affects: 5.5.0-5.5.29</p>
+    
     <p>
 <strong>Important: Remote Denial Of Service and Information Disclosure
        Vulnerability</strong>
@@ -1489,6 +1574,28 @@
 <td>
 <p>
 <blockquote>
+
+    <p>
+<strong>Important: Remote Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-XXXX">
+       CVE-2011-XXXX</a>
+</p>
+
+    <p>A JVM bug could cause Double conversion to hang JVM when accessing to a
+       form based security constrained page or any page that calls
+       javax.servlet.ServletRequest.getLocale() or
+       javax.servlet.ServletRequest.getLocales(). A specially crafted request
+       can be used to trigger a denial of service.
+    </p>
+
+    <p>A work-around for this JVM bug was provided in 
+       <a href="http://svn.apache.org/viewvc?rev=1066318&amp;view=rev">
+       revision 1066318</a>.</p>
+
+    <p>This was first reported to the Tomcat security team on 01 Feb 2011 and
+       made public on 31 Jan 2011.</p>
+
+    <p>Affects: 5.5.0-5.5.32</p>
 
     <p>
 <strong>moderate: TLS SSL Man In The Middle</strong>
