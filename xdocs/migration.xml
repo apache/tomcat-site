@@ -108,18 +108,39 @@ problems.</p>
 
   </subsection>
 
-  <subsection name="Logging API package renaming">
+  <subsection name="Internal Logging API package renaming">
 
-    <p>Commons-logging was package renamed to <code>org.apache.juli.logging</code>
-    so that application logging can be as independent as possible from the
-    container, while still having the possibility of being unified. This change is
-    transparent when using java.logging, but requires compilation of the extra
-    components when using log4j for Tomcat's logging. See the logging and extras
+    <p>Apache Tomcat 5.5.x relied on the
+    <a href="http://commons.apache.org/logging/">Apache Commons Logging</a>
+    library for its internal logging. Apache Tomcat 6.0.x and later no more
+    uses the library directly, but uses a private copy of it. The classes are
+    in the <code>org.apache.juli.logging</code> package.
+    </p>
+
+    <p>The rationale behind this change is that so that application logging
+    can be as independent as possible from the container, while still having
+    the possibility of being unified.</p>
+
+    <p>By default only a subset of Apache Commons Logging classes that are
+    needed to perform logging to <code>java.util.logging</code> is included
+    with Tomcat. If you want to configure Tomcat to redirect its logging into
+    <a href="http://logging.apache.org/log4j/">Log4J</a>, or any other logging
+    framework supported by the full Apache Commons Logging library, you will
+    have to replace one of Tomcat JARs with the full implementation. The JAR
+    is available as an extras component. See the logging and extras
     documentation for more details.</p>
 
-    <p>The <code>commons-logging-api.jar</code> library is no longer provided
-    by Tomcat. The web applications have to provide their own copy of that
-    library, if needed</p>
+  </subsection>
+
+  <subsection name="commons-logging.jar">
+
+    <p>As Apache Tomcat no longer directly uses the
+    <a href="http://commons.apache.org/logging/">Apache Commons Logging</a>
+    library, the <code>commons-logging-api.jar</code> library is no longer
+    provided for the web applications. The web applications that use
+    Apache Commons Logging have to provide their own copy of that library.
+    It is recommended to put it into their <code>WEB-INF/lib</code> directory,
+    like any other JAR.</p>
 
   </subsection>
 
