@@ -43,19 +43,56 @@ problems.</p>
 
   <subsection name="Modified directory structure">
 
+    <subsection name="Shared libraries">
+
     <p>Apache Tomcat 5.5.x used, by default, a directory structure including
     <code>common</code>, <code>shared</code> and <code>server</code> subdirectories.
-    Apache Tomcat 6.0.x merges these into a single <code>lib</code> directory.
-    The <code>conf/catalina.properties</code> file can be used to modify
+    Apache Tomcat 6.0.x uses a single <code>lib</code> directory.</p>
+
+    <p>The <code>lib</code> directory is the direct replacement for both
+    <code>common/lib</code> and <code>common/classes</code> subdirectories:
+    it accepts both JARs and exploded class hierarchies.</p>
+
+    <p>The <code>conf/catalina.properties</code> file can be used to modify
     the directory structure.</p>
 
-    <p>In addition, all of the default web applications are located in the
-    <code>webapps</code> folder.</p>
+    <p>Starting with version 6.0.21, Apache Tomcat supports both the
+    <code>$CATALINA_BASE/lib</code> and <code>$CATALINA_HOME/lib</code>
+    directories. The jars and classes in <code>$CATALINA_BASE/lib</code>
+    are earlier on the class path and thus take precedence.</p>
+
+    </subsection>
+
+    <subsection name="Endorsed libraries">
+
+    <p>The <code>$CATALINA_HOME/common/endorsed</code> subdirectory is replaced
+    by the <code>$CATALINA_HOME/endorsed</code> directory. This directory is
+    absent by default.</p>
+
+    <p>The <code>JAVA_ENDORSED_DIRS</code> environment variable can be used
+    with catalina.bat|sh scripts to provide alternative location of this
+    directory.</p>
+    </subsection>
+
+    <subsection name="Default web applications">
+
+    <p>The Manager and Host Manager web applications are no longer in
+    <code>server/webapps</code>. All of the default web applications
+    are now located in the <code>webapps</code> directory.</p>
+
+    <p>Note, that if <code>deployOnStartup</code> or <code>autoDeploy</code>
+    options on the <strong>Host</strong> are enabled, the
+    <code>META-INF/context.xml</code> files of manager and host-manager
+    applications will be copied into the
+    <code>$CATALINA_BASE/conf/[engine_name]/[host_name]</code>
+    directory when Tomcat starts for the first time.</p>
 
     <p>When using a shared webhosting environment, it is recommended to forbid
-    the use of context.xml inside the WAR files (using the <code>deployXML</code>
-    attribute of the <strong>Host</strong> element).
+    the use of context.xml inside the web applications (using the
+    <code>deployXML</code> attribute of the <strong>Host</strong> element).
     (This option is also available in Tomcat 5.5).</p>
+
+    </subsection>
 
   </subsection>
 
@@ -63,8 +100,10 @@ problems.</p>
 
     <p>As a result of the modification of the directory structure, the
     common, shared and server classloaders have been merged into one.
-    The lib folder accepts both exploded class hierarchies and JARs.
-    This behavior and structure can be modified using the 
+    Effectively, the shared and server classloaders are not configured by
+    default and the common classloader is mapped to the <code>lib</code>
+    directory, as described above.</p>
+    <p>This behavior and structure can be modified using the 
     <code>conf/catalina.properties</code> file.</p>
 
   </subsection>
