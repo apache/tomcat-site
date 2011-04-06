@@ -215,6 +215,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.12_(released_6_Apr_2011)">Fixed in Apache Tomcat 7.0.12 (released 6 Apr 2011)</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.11_(released_11_Mar_2011)">Fixed in Apache Tomcat 7.0.11 (released 11 Mar 2011)</a>
 </li>
 <li>
@@ -273,6 +276,79 @@
 
     <p>Please send comments or corrections for these vulnerabilities to the
        <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in Apache Tomcat 7.0.12 (released 6 Apr 2011)">
+<!--()-->
+</a>
+<a name="Fixed_in_Apache_Tomcat_7.0.12_(released_6_Apr_2011)">
+<strong>Fixed in Apache Tomcat 7.0.12 (released 6 Apr 2011)</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+
+    <p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1475">
+       CVE-2011-1475</a>
+</p>
+
+    <p>Changes introduced to the HTTP BIO connector to support Servlet 3.0
+       asynchronous requests did not fully account for HTTP pipelining. As a
+       result, when using HTTP pipelining a range of unexpected behaviours
+       occurred including the mixing up of responses between requests. While
+       the mix-up in responses was only observed between requests from the same
+       user, a mix-up of responses for requests from different users may also be
+       possible.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1086349&amp;view=rev">
+       revision 1086349</a> and
+       <a href="http://svn.apache.org/viewvc?rev=1086352&amp;view=rev">
+       revision 1086352</a>. (Note: HTTP pipelined requests are still likely to
+       fail with the HTTP BIO connector but will do so in a secure manner.)</p>
+
+    <p>This was reported publicly on the Tomcat Bugzilla issue tracker on 22 Mar
+       2011.</p>
+
+    <p>Affects: 7.0.10</p>
+
+    <p>
+<strong>Important: Security constraint bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1183">
+       CVE-2011-1183</a>
+</p>
+
+    <p>A regression in the fix for CVE-2011-1088 meant that security constraints
+       were ignored when no login configuration was present in the web.xml and
+       the web application was marked as meta-data complete.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1087643&amp;view=rev">
+       revision 1087643</a>.</p>
+
+    <p>This was identified by the Tomcat security team on 17 March 2011 and
+       made public on 6 April 2011.</p>
+
+    <p>Affects: 7.0.10</p>
+
   </blockquote>
 </p>
 </td>
