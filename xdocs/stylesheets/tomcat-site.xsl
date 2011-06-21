@@ -52,6 +52,9 @@
       <meta name="email" content="{$email}"/>
        -->
     </xsl:for-each>
+    <xsl:for-each select="properties/google-site-verification">
+      <meta name="google-site-verification" content="{.}"/>
+    </xsl:for-each>
     <xsl:if test="properties/base">
       <base href="{properties/base/@href}"/>
     </xsl:if>
