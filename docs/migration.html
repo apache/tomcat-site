@@ -255,6 +255,14 @@
 </ol>
 </li>
 <li>
+<a href="#Upgrading_6.0.x">Upgrading 6.0.x</a>
+<ol>
+<li>
+<a href="#Tomcat_6.0.x_configuration_file_differences">Tomcat 6.0.x configuration file differences</a>
+</li>
+</ol>
+</li>
+<li>
 <a href="#Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</a>
 <ol>
 <li>
@@ -766,6 +774,154 @@ accordingly.</p>
 </tr>
 </table>
 
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Upgrading 6.0.x">
+<!--()-->
+</a>
+<a name="Upgrading_6.0.x">
+<strong>Upgrading 6.0.x</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 6 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 6.</p>
+  
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Tomcat 6.0.x configuration file differences">
+<!--()-->
+</a>
+<a name="Tomcat_6.0.x_configuration_file_differences">
+<strong>Tomcat 6.0.x configuration file differences</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click "View differences" to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <script type="text/javascript" language="JavaScript">
+      function updateTc6ActionUrl() {
+        document.tc6Versions.action = document.tc6Files.filename.value;
+        return true;
+      }
+    </script>
+
+    <form name="tc6Files" action="not-used">
+    <p>Configuration file:
+    <select name="filename">
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/catalina.policy">
+      catalina.policy</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/catalina.properties">
+      catalina.properties</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/context.xml">
+      context.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/logging.properties">
+      logging.properties</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/server.xml">
+      server.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/tomcat-users.xml">
+      tomcat-users.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/web.xml">
+      web.xml</option>
+    </select>
+    </p>
+    </form>
+    <form name="tc6Versions" action="to-be-replaced" method="get" target="_blank">
+    <p>Old version:
+    <input type="hidden" name="diff_format" value="h"/>
+    <select name="r1">
+    <option value="466306">6.0.0</option>
+    <option value="472328">6.0.1</option>
+    <option value="475489">6.0.2</option>
+    <option value="483285">6.0.4</option>
+    <option value="487720">6.0.6</option>
+    <option value="489812">6.0.7</option>
+    <option value="496554">6.0.8</option>
+    <option value="502060">6.0.9</option>
+    <option value="506975">6.0.10</option>
+    <option value="535436">6.0.13</option>
+    <option value="557842">6.0.14</option>
+    <option value="616101">6.0.16</option>
+    <option value="751136">6.0.19</option>
+    <option value="802250">6.0.20</option>
+    <option value="900772">6.0.24</option>
+    <option value="920929">6.0.26</option>
+    <option value="958987">6.0.28</option>
+    <option value="965461">6.0.29</option>
+    <option value="1057276">6.0.30</option>
+    <option value="1066582">6.0.32</option>
+    </select>
+    </p>
+    <p>New version:
+    <select name="r2">
+    <option value="466306">6.0.0</option>
+    <option value="472328">6.0.1</option>
+    <option value="475489">6.0.2</option>
+    <option value="483285">6.0.4</option>
+    <option value="487720">6.0.6</option>
+    <option value="489812">6.0.7</option>
+    <option value="496554">6.0.8</option>
+    <option value="502060">6.0.9</option>
+    <option value="506975">6.0.10</option>
+    <option value="535436">6.0.13</option>
+    <option value="557842">6.0.14</option>
+    <option value="616101">6.0.16</option>
+    <option value="751136">6.0.19</option>
+    <option value="802250">6.0.20</option>
+    <option value="900772">6.0.24</option>
+    <option value="920929">6.0.26</option>
+    <option value="958987">6.0.28</option>
+    <option value="965461">6.0.29</option>
+    <option value="1057276">6.0.30</option>
+    <option value="1066582">6.0.32</option>
+    </select>
+    </p>
+    <p>
+    <input type="submit" value="View Differences" onClick="return updateTc6ActionUrl();"/>
+    </p>
+    </form>
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+  
 </blockquote>
 </p>
 </td>
