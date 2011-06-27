@@ -212,10 +212,10 @@
 <blockquote>
 <ul>
 <li>
-<a href="#Before_upgrading">Before upgrading</a>
+<a href="#Before_upgrading_or_migrating">Before upgrading or migrating</a>
 </li>
 <li>
-<a href="#5.5.x_to_6.0.x">5.5.x to 6.0.x</a>
+<a href="#Migrating_from_5.5.x_to_6.0.x">Migrating from 5.5.x to 6.0.x</a>
 <ol>
 <li>
 <a href="#Java_5_required">Java 5 required</a>
@@ -255,7 +255,7 @@
 </ol>
 </li>
 <li>
-<a href="#6.0.x_to_7.0.x">6.0.x to 7.0.x</a>
+<a href="#Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</a>
 <ol>
 <li>
 <a href="#Java_6_required">Java 6 required</a>
@@ -295,6 +295,14 @@
 </li>
 </ol>
 </li>
+<li>
+<a href="#Upgrading_7.0.x">Upgrading 7.0.x</a>
+<ol>
+<li>
+<a href="#Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</a>
+</li>
+</ol>
+</li>
 </ul>
 </blockquote>
 </p>
@@ -310,11 +318,11 @@
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Before upgrading">
+<a name="Before upgrading or migrating">
 <!--()-->
 </a>
-<a name="Before_upgrading">
-<strong>Before upgrading</strong>
+<a name="Before_upgrading_or_migrating">
+<strong>Before upgrading or migrating</strong>
 </a>
 </font>
 </td>
@@ -354,11 +362,11 @@ accordingly.</p>
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="5.5.x to 6.0.x">
+<a name="Migrating from 5.5.x to 6.0.x">
 <!--()-->
 </a>
-<a name="5.5.x_to_6.0.x">
-<strong>5.5.x to 6.0.x</strong>
+<a name="Migrating_from_5.5.x_to_6.0.x">
+<strong>Migrating from 5.5.x to 6.0.x</strong>
 </a>
 </font>
 </td>
@@ -772,11 +780,11 @@ accordingly.</p>
 <tr>
 <td bgcolor="#525D76">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="6.0.x to 7.0.x">
+<a name="Migrating from 6.0.x to 7.0.x">
 <!--()-->
 </a>
-<a name="6.0.x_to_7.0.x">
-<strong>6.0.x to 7.0.x</strong>
+<a name="Migrating_from_6.0.x_to_7.0.x">
+<strong>Migrating from 6.0.x to 7.0.x</strong>
 </a>
 </font>
 </td>
@@ -1328,6 +1336,135 @@ accordingly.</p>
 </tr>
 </table>
 
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Upgrading 7.0.x">
+<!--()-->
+</a>
+<a name="Upgrading_7.0.x">
+<strong>Upgrading 7.0.x</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 7.</p>
+  
+  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Tomcat 7.0.x configuration file differences">
+<!--()-->
+</a>
+<a name="Tomcat_7.0.x_configuration_file_differences">
+<strong>Tomcat 7.0.x configuration file differences</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click "View differences" to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <script type="text/javascript" language="JavaScript">
+      function updateTc7ActionUrl() {
+        document.tc7Versions.action = document.tc7Files.filename.value;
+        return true;
+      }
+    </script>
+
+    <form name="tc7Files" action="not-used">
+    <p>Configuration file:
+    <select name="filename">
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/catalina.policy">
+      catalina.policy</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/catalina.properties">
+      catalina.properties</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/context.xml">
+      context.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/logging.properties">
+      logging.properties</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/server.xml">
+      server.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/tomcat-users.xml">
+      tomcat-users.xml</option>
+    <option value="http://svn.apache.org/viewvc/tomcat/trunk/conf/web.xml">
+      web.xml</option>
+    </select>
+    </p>
+    </form>
+    <form name="tc7Versions" action="to-be-replaced" method="get" target="_blank">
+    <p>Old version:
+    <input type="hidden" name="diff_format" value="h"/>
+    <select name="r1">
+    <option value="954232">7.0.0</option>
+    <option value="982035">7.0.2</option>
+    <option value="1022637">7.0.4</option>
+    <option value="1038717">7.0.5</option>
+    <option value="1057288">7.0.6</option>
+    <option value="1067169">7.0.8</option>
+    <option value="1078282">7.0.10</option>
+    <option value="1080182">7.0.11</option>
+    <option value="1087797">7.0.12</option>
+    <option value="1101230">7.0.14</option>
+    <option value="1134562">7.0.16</option>
+    </select>
+    </p>
+    <p>New version:
+    <select name="r2">
+    <option value="954232">7.0.0</option>
+    <option value="982035">7.0.2</option>
+    <option value="1022637">7.0.4</option>
+    <option value="1038717">7.0.5</option>
+    <option value="1057288">7.0.6</option>
+    <option value="1067169">7.0.8</option>
+    <option value="1078282">7.0.10</option>
+    <option value="1080182">7.0.11</option>
+    <option value="1087797">7.0.12</option>
+    <option value="1101230">7.0.14</option>
+    <option value="1134562">7.0.16</option>
+    </select>
+    </p>
+    <p>
+    <input type="submit" value="View Differences" onClick="return updateTc7ActionUrl();"/>
+    </p>
+    </form>
+  </blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+  
 </blockquote>
 </p>
 </td>

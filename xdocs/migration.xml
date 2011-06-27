@@ -12,7 +12,7 @@
 <toc/>
 </section>
 
-<section name="Before upgrading">
+<section name="Before upgrading or migrating">
 
 <p>When updating from one major Apache Tomcat version a newer one, please make
 sure that the JVM that is installed on your system supports at least the
@@ -32,7 +32,7 @@ and/or if any new elements have been added and adjust your configuration files
 accordingly.</p>
 </section>
 
-<section name="5.5.x to 6.0.x">
+<section name="Migrating from 5.5.x to 6.0.x">
 
   <p> This section lists all the known changes between 5.5.x and 6.0.x which may
   cause backwards compatibility problems when upgrading.</p>
@@ -176,7 +176,7 @@ accordingly.</p>
 
 </section>
 
-<section name="6.0.x to 7.0.x">
+<section name="Migrating from 6.0.x to 7.0.x">
 
   <p> This section lists all the known changes between 6.0.x and 7.0.x which may
   cause backwards compatibility problems when upgrading.</p>
@@ -435,6 +435,97 @@ accordingly.</p>
 
   </subsection>
 
+</section>
+
+<section name="Upgrading 7.0.x">
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 7.</p>
+  
+  <subsection name="Tomcat 7.0.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <script type="text/javascript" language="JavaScript">
+      function updateTc7ActionUrl() {
+        document.tc7Versions.action = document.tc7Files.filename.value;
+        return true;
+      }
+    </script>
+
+    <form name="tc7Files" action="not-used">
+    <p>Configuration file:
+    <select name="filename">
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/catalina.policy">
+      catalina.policy</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/catalina.properties">
+      catalina.properties</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/context.xml">
+      context.xml</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/logging.properties">
+      logging.properties</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/server.xml">
+      server.xml</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/tomcat-users.xml">
+      tomcat-users.xml</option>
+    <option
+      value="http://svn.apache.org/viewvc/tomcat/trunk/conf/web.xml">
+      web.xml</option>
+    </select>
+    </p>
+    </form>
+    <form name="tc7Versions" action="to-be-replaced" method="get"
+          target="_blank">
+    <p>Old version:
+    <input type="hidden" name="diff_format" value="h"/>
+    <select name="r1">
+    <option value="954232">7.0.0</option>
+    <option value="982035">7.0.2</option>
+    <option value="1022637">7.0.4</option>
+    <option value="1038717">7.0.5</option>
+    <option value="1057288">7.0.6</option>
+    <option value="1067169">7.0.8</option>
+    <option value="1078282">7.0.10</option>
+    <option value="1080182">7.0.11</option>
+    <option value="1087797">7.0.12</option>
+    <option value="1101230">7.0.14</option>
+    <option value="1134562">7.0.16</option>
+    </select>
+    </p>
+    <p>New version:
+    <select name="r2">
+    <option value="954232">7.0.0</option>
+    <option value="982035">7.0.2</option>
+    <option value="1022637">7.0.4</option>
+    <option value="1038717">7.0.5</option>
+    <option value="1057288">7.0.6</option>
+    <option value="1067169">7.0.8</option>
+    <option value="1078282">7.0.10</option>
+    <option value="1080182">7.0.11</option>
+    <option value="1087797">7.0.12</option>
+    <option value="1101230">7.0.14</option>
+    <option value="1134562">7.0.16</option>
+    </select>
+    </p>
+    <p>
+    <input type="submit" value="View Differences"
+           onClick="return updateTc7ActionUrl();"/>
+    </p>
+    </form>
+  </subsection>
+  
 </section>
 
 </body>
