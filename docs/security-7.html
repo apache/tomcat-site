@@ -215,6 +215,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.17_(not_yet_released)">Fixed in Apache Tomcat 7.0.17 (not yet released)</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.14_(released_12_May_2011)">Fixed in Apache Tomcat 7.0.14 (released 12 May 2011)</a>
 </li>
 <li>
@@ -279,6 +282,58 @@
 
     <p>Please send comments or corrections for these vulnerabilities to the
        <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
+  </blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br/>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="Fixed in Apache Tomcat 7.0.17 (not yet released)">
+<!--()-->
+</a>
+<a name="Fixed_in_Apache_Tomcat_7.0.17_(not_yet_released)">
+<strong>Fixed in Apache Tomcat 7.0.17 (not yet released)</strong>
+</a>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<blockquote>
+
+    <p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204">
+       CVE-2011-2204</a>
+</p>
+
+    <p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
+       creating users via JMX, an exception during the user creation process may
+       trigger an error message in the JMX client that includes the user's
+       password. This error message is also written to the Tomcat logs. User
+       passwords are visible to administrators with JMX access and/or
+       administrators with read access to the tomcat-users.xml file. Users that
+       do not have these permissions but are able to read log files may be able
+       to discover a user's password.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1140070&amp;view=rev">
+       revision 1140070</a>.</p>
+
+    <p>This was identified by Polina Genova on 14 June 2011 and
+       made public on 27 June 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.16</p>
+  
   </blockquote>
 </p>
 </td>

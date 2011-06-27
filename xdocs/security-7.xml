@@ -25,6 +25,32 @@
        <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.17 (not yet released)">
+
+    <p><strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204">
+       CVE-2011-2204</a></p>
+
+    <p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
+       creating users via JMX, an exception during the user creation process may
+       trigger an error message in the JMX client that includes the user&apos;s
+       password. This error message is also written to the Tomcat logs. User
+       passwords are visible to administrators with JMX access and/or
+       administrators with read access to the tomcat-users.xml file. Users that
+       do not have these permissions but are able to read log files may be able
+       to discover a user&apos;s password.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1140070&amp;view=rev">
+       revision 1140070</a>.</p>
+
+    <p>This was identified by Polina Genova on 14 June 2011 and
+       made public on 27 June 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.16</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.14 (released 12 May 2011)">
 
     <p><strong>Important: Security constraint bypass</strong>
