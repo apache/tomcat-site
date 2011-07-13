@@ -30,6 +30,45 @@
 
   </section>
 
+  <section name="To be fixed in Apache Tomcat 6.0.33 (not yet released)">
+
+    <p><strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2526"
+       rel="nofollow">CVE-2011-2526</a></p>
+
+    <p>Tomcat provides support for sendfile with the HTTP NIO and HTTP APR
+       connectors. sendfile is used automatically for content served via the
+       DefaultServlet and deployed web applications may use it directly via
+       setting request attributes. These request attributes were not validated.
+       When running under a security manager, this lack of validation allowed a
+       malicious web application to do one or more of the following that would
+       normally be prevented by a security manager:
+       <ul>
+         <li>return files to users that the security manager should make
+             inaccessible</li>
+         <li>terminate (via a crash) the JVM</li>
+       </ul>
+       Additionally, these vulnerabilities only occur when all of the following
+       are true:
+       <ul>
+         <li>untrusted web applications are being used</li>
+         <li>the SecurityManager is used to limit the untrusted web applications
+             </li>
+         <li>the HTTP NIO or HTTP APR connector is used</li>
+         <li>sendfile is enabled for the connector (this is the default)</li>
+       </ul>
+    </p>
+
+    <p>There is a <a href="http://people.apache.org/~markt/patches/2011-07-13-cve-2011-2526-tc6.patch">
+       proposed patch</a> for this issue.</p>
+
+    <p>This was identified by the Tomcat security team on 7 July 2011 and
+       made public on 13 July 2011.</p>
+
+    <p>Affects: 6.0.0-6.0.32</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 6.0.33 (not yet released)">
 
     <p><strong>Low: Information disclosure</strong>
