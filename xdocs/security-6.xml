@@ -30,8 +30,30 @@
 
   </section>
 
-  <section name="To be fixed in Apache Tomcat 6.0.33 (not yet released)">
+  <section name="Fixed in Apache Tomcat 6.0.33 (not yet released)">
 
+    <p><strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204"
+       rel="nofollow">CVE-2011-2204</a></p>
+
+    <p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
+       creating users via JMX, an exception during the user creation process may
+       trigger an error message in the JMX client that includes the user&apos;s
+       password. This error message is also written to the Tomcat logs. User
+       passwords are visible to administrators with JMX access and/or
+       administrators with read access to the tomcat-users.xml file. Users that
+       do not have these permissions but are able to read log files may be able
+       to discover a user&apos;s password.</p>
+
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1140071&amp;view=rev">
+       revision 1140071</a>.</p>
+
+    <p>This was identified by Polina Genova on 14 June 2011 and
+       made public on 27 June 2011.</p>
+
+    <p>Affects: 6.0.0-6.0.32</p>
+  
     <p><strong>Low: Information disclosure</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2526"
        rel="nofollow">CVE-2011-2526</a></p>
@@ -59,40 +81,15 @@
        </ul>
     </p>
 
-    <p>There is a <a href="http://people.apache.org/~markt/patches/2011-07-13-cve-2011-2526-tc6.patch">
-       proposed patch</a> for this issue.</p>
+    <p>This was fixed in
+       <a href="http://svn.apache.org/viewvc?rev=1146703&amp;view=rev">
+       revision 1146703</a>.</p>
 
     <p>This was identified by the Tomcat security team on 7 July 2011 and
        made public on 13 July 2011.</p>
 
     <p>Affects: 6.0.0-6.0.32</p>
 
-  </section>
-
-  <section name="Fixed in Apache Tomcat 6.0.33 (not yet released)">
-
-    <p><strong>Low: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204"
-       rel="nofollow">CVE-2011-2204</a></p>
-
-    <p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
-       creating users via JMX, an exception during the user creation process may
-       trigger an error message in the JMX client that includes the user&apos;s
-       password. This error message is also written to the Tomcat logs. User
-       passwords are visible to administrators with JMX access and/or
-       administrators with read access to the tomcat-users.xml file. Users that
-       do not have these permissions but are able to read log files may be able
-       to discover a user&apos;s password.</p>
-
-    <p>This was fixed in
-       <a href="http://svn.apache.org/viewvc?rev=1140071&amp;view=rev">
-       revision 1140071</a>.</p>
-
-    <p>This was identified by Polina Genova on 14 June 2011 and
-       made public on 27 June 2011.</p>
-
-    <p>Affects: 6.0.0-6.0.32</p>
-  
   </section>
 
   <section name="Fixed in Apache Tomcat 6.0.32" rtext="released 03 Feb 2011">
