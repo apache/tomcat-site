@@ -90,6 +90,33 @@
 
     <p>Affects: 6.0.0-6.0.32</p>
 
+    <p><strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2729"
+       rel="nofollow">CVE-2011-2729</a></p>
+
+    <p>Due to a bug in the capabilities code, jsvc (the service wrapper for
+       Linux that is part of the Commons Daemon project) does not drop
+       capabilities allowing the application to access files and directories
+       owned by superuser. This vulnerability only occurs when all of the
+       following are true:
+       <ul>
+         <li>Tomcat is running on a Linux operating system</li>
+         <li>jsvc was compiled with libcap</li>
+         <li>-user parameter is used</li>
+       </ul>
+       Affected Tomcat versions shipped with source files for jsvc that included
+       this vulnerability.
+    </p>
+
+    <p>This was fixed in revision
+       <a href="http://svn.apache.org/viewvc?rev=1153824&amp;view=rev">
+       1153824</a>.</p>
+
+    <p>This was identified by Wilfried Weissmann on 20 July 2011 and made public
+       on 12 August 2011.</p>
+
+    <p>Affects: 6.0.30-6.0.32</p>
+
   </section>
 
   <section name="Fixed in Apache Tomcat 6.0.32" rtext="released 03 Feb 2011">
