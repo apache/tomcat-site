@@ -25,6 +25,41 @@
        <a href="mailto:security@tomcat.apache.org">Tomcat Security Team</a>.</p>
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.21 (not yet released)">
+
+    <p><strong>Important: Authentication bypass and information disclosure
+       </strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3190"
+       rel="nofollow">CVE-2011-3190</a></p>
+
+    <p>Apache Tomcat supports the AJP protocol which is used with reverse
+       proxies to pass requests and associated data about the request from the
+       reverse proxy to Tomcat. The AJP protocol is designed so that when a
+       request includes a request body, an unsolicited AJP message is sent to
+       Tomcat that includes the first part (or possibly all) of the request
+       body. In certain circumstances, Tomcat did not process this message as a
+       request body but as a new request. This permitted an attacker to have
+       full control over the AJP message permitting authentication bypass and
+       information disclosure. This vulnerability only occurs when all of the
+       following are true:
+       <ul>
+         <li>The org.apache.jk.server.JkCoyoteHandler AJP connector is not used
+         </li>
+         <li>POST requests are accepted</li>
+         <li>The request body is not processed</li>
+       </ul>
+    </p>
+
+    <p>This was fixed in revision
+       <a href="http://svn.apache.org/viewvc?rev=1162958&amp;view=rev">
+       1162958</a>.</p>
+
+    <p>This was reported publicly on 20th August 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.20</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.20">
 
     <p><strong>Important: Information disclosure</strong>
