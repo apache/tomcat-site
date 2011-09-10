@@ -168,7 +168,12 @@
     <ul>
       <li>Upgrade to Tomcat 5.5.34</li>
       <li>Apply the appropriate <a href=" http://svn.apache.org/viewvc?rev=1162960&amp;view=rev">patch</a></li>
-      <li>Configure both Tomcat and the reverse proxy to use a shared secret ("request.secret" attribute in &lt;Connector&gt;; "worker.<i>workername</i>.secret" for mod_jk; mod_proxy_ajp currently does not support shared secrets)</li>
+      <li>Configure both Tomcat and the reverse proxy to use a shared secret
+      ("request.secret" attribute in
+      <a href="/tomcat-5.5-doc/config/ajp.html">&lt;Connector&gt;</a>;
+      "worker.<i>workername</i>.secret" directive for
+      <a href="/connectors-doc/reference/workers.html">mod_jk</a>;
+      mod_proxy_ajp currently does not support shared secrets)</li>
       <li>Use the org.apache.jk.server.JkCoyoteHandler (BIO) AJP connector</li>
     </ul>
   </section>
