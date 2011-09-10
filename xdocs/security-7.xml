@@ -58,6 +58,12 @@
 
     <p>Affects: 7.0.0-7.0.20</p>
   
+    <p>Mitigation options:</p>  
+    <ul>
+      <li>Upgrade to Tomcat 7.0.21</li>
+      <li>Apply the appropriate <a href="http://svn.apache.org/viewvc?rev=1162958&amp;view=rev">patch</a></li>
+      <li>Configure both Tomcat and the reverse proxy to use a shared secret ("request.secret" attribute in &lt;Connector&gt;; "worker.<i>workername</i>.secret" for mod_jk; mod_proxy_ajp currently does not support shared secrets)</li>
+    </ul>
   </section>
 
   <section name="Fixed in Apache Tomcat 7.0.20">
