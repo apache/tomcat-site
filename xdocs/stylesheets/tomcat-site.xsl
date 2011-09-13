@@ -17,7 +17,9 @@
 
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
+  <xsl:param    name="buglink"       select="'https://issues.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
+  <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
 
   <!-- Defined variables (non-overrideable) -->
   <xsl:variable name="body-bg"       select="'#ffffff'"/>
@@ -334,11 +336,29 @@
     </div>
   </xsl:template>
 
+  <!-- Link to a bug report -->
+  <xsl:template match="bug">
+      <xsl:variable name="link"><xsl:value-of select="$buglink"/><xsl:value-of select="text()"/></xsl:variable>
+      <a href="{$link}"><xsl:apply-templates/></a>
+  </xsl:template>
+
   <!-- Link to a SVN revision report -->
-  <!-- It is similar to <rev> tag in tomcat-docs.xsl, but allows arbitrary text inside -->
+  <xsl:template match="rev">
+      <xsl:variable name="link"><xsl:value-of select="$revlink"/><xsl:value-of select="text()"/></xsl:variable>
+      <a href="{$link}">r<xsl:apply-templates/></a>
+  </xsl:template>
+
+  <!-- Link to a SVN revision report -->
+  <!-- It is similat to <rev> tag, but allows arbitrary text inside -->
   <xsl:template match="revlink">
       <xsl:variable name="link"><xsl:value-of select="$revlink"/><xsl:value-of select="@rev"/></xsl:variable>
       <a href="{$link}"><xsl:apply-templates/></a>
+  </xsl:template>
+
+  <!-- Link to a CVE report -->
+  <xsl:template match="cve">
+      <xsl:variable name="link"><xsl:value-of select="$cvelink"/><xsl:value-of select="text()"/></xsl:variable>
+      <a href="{$link}" rel="nofollow"><xsl:apply-templates/></a>
   </xsl:template>
 
   <!-- specially process td tags ala site.vsl -->
