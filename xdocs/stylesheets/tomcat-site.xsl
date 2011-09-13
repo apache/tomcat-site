@@ -17,6 +17,7 @@
 
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
+  <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
 
   <!-- Defined variables (non-overrideable) -->
   <xsl:variable name="body-bg"       select="'#ffffff'"/>
@@ -331,6 +332,13 @@
         </tr>
       </table>
     </div>
+  </xsl:template>
+
+  <!-- Link to a SVN revision report -->
+  <!-- It is similar to <rev> tag in tomcat-docs.xsl, but allows arbitrary text inside -->
+  <xsl:template match="revlink">
+      <xsl:variable name="link"><xsl:value-of select="$revlink"/><xsl:value-of select="@rev"/></xsl:variable>
+      <a href="{$link}"><xsl:apply-templates/></a>
   </xsl:template>
 
   <!-- specially process td tags ala site.vsl -->
