@@ -7,40 +7,153 @@
 
 <body>
 
-<section name="Continuous Integration">
+<section name="Table of Contents">
+<toc/>
+</section>
 
-<p>Resources:</p>
+<section name="Overview">
+<p>Apache Tomcat project uses several
+<a href="http://ci.apache.org/">automated build services</a> provided by
+Apache Software Foundation. In short, those are:</p>
 
 <ul>
-  <li>Documentation published by Buildbot:
-    <ul>
-      <li><a href="http://ci.apache.org/projects/tomcat/tomcat6/docs/index.html">Tomcat 6.0.x-dev</a></li>
-      <li><a href="http://ci.apache.org/projects/tomcat/tomcat7/docs/index.html">Tomcat 7.0.x-dev</a></li>
-    </ul>
-  </li>
+  <li><a href="http://gump.apache.org/">Apache Gump</a></li>
+  <li><a href="http://ci.apache.org/buildbot.html">Buildbot</a></li>
+  <li><a href="https://builds.apache.org/">Jenkins</a></li>
 </ul>
 
-<p>Links:</p>
+<p>Apache Gump is used to test integration of Tomcat with latest versions
+of libraries it depends on. It also runs the automated tests. Buildbot
+and Jenkins are used to perform the usual nighty builds. The Buildbot also
+builds and publishes documentation snapshots for the currently developed
+not yet released versions of Tomcat.</p>
+</section>
+
+<section name="Documentation snapshots">
+<p>The following are links to snapshots of Apache Tomcat documentation,
+prepared and published by ASF Buildbot, using the latest source code.</p>
 
 <ul>
-  <li><a href="http://ci.apache.org/">ASF Build Services</a> overview.</li>
-  <li>Buildbot:
+  <li><a href="http://ci.apache.org/projects/tomcat/tomcat6/docs/index.html">Tomcat 6.0.x</a></li>
+  <li><a href="http://ci.apache.org/projects/tomcat/tomcat7/docs/index.html">Tomcat 8.0.x</a></li>
+</ul>
+
+<p>FIXME: In August 2011 the "stable branch" of Tomcat 7 was created
+(<code>/tc7.0.x/trunk</code>), but buildbot configuration has not been
+updated yet. Documentation that it builds is actually for "Tomcat 8",
+but there is not much difference between it and Tomcat 7 yet.</p>
+
+</section>
+
+<section name="Build results">
+
+<subsection name="Buildbot">
+<p>The following are projects built by ASF Buildbot:</p>
+
+<table>
+<tbody>
+<tr>
+  <th>Name</th>
+  <th>Source</th>
+  <th>Links</th>
+</tr>
+<tr>
+  <td><code>tomcat-trunk</code></td>
+  <td><code>/tomcat/trunk</code></td>
+  <td>
     <ul>
-      <li><a href="http://ci.apache.org/buildbot.html">Overview</a></li>
-      <li>Build runs:
+      <li><a href="http://ci.apache.org/builders/tomcat-trunk">Status page</a></li>
+    </ul>
+  </td>
+</tr>
+<tr>
+  <td><code>tomcat-6-trunk</code></td>
+  <td><code>/tomcat/tc6.0.x/trunk</code></td>
+  <td>
+    <ul>
+      <li><a href="http://ci.apache.org/builders/tomcat-6-trunk">Status page</a></li>
+    </ul>
+  </td>
+</tr>
+</tbody>
+</table>
+</subsection>
+
+<subsection name="Gump">
+<p>The following are projects built by Apache Gump:</p>
+<table>
+<tbody>
+<tr>
+  <th>Module</th>
+  <th>Source</th>
+  <th>Links</th>
+</tr>
+<tr>
+  <td><code>tomcat-trunk</code></td>
+  <td><code>/tomcat/trunk</code></td>
+  <td>
+    <ul>
+      <li><a href="http://vmgump.apache.org/gump/public/tomcat-trunk/">Module</a></li>
+      <li><strong>Projects:</strong>
         <ul>
-          <li><a href="http://ci.apache.org/builders/tomcat-trunk">tomcat-trunk</a></li>
-          <li><a href="http://ci.apache.org/builders/tomcat-6-trunk">tomcat-6-trunk</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-trunk/tomcat-trunk/">tomcat-trunk</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-trunk/tomcat-trunk-dbcp/">tomcat-trunk-dbcp</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-trunk/tomcat-trunk-validate/">tomcat-trunk-validate</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-trunk/tomcat-trunk-test/">tomcat-trunk-test</a></li>
         </ul>
       </li>
     </ul>
-  </li>
-  <li>Gump:
+  </td>
+</tr>
+<tr>
+  <td><code>tomcat-7.0.x</code></td>
+  <td><code>/tomcat/tc7.0.x/trunk</code></td>
+  <td>
     <ul>
-      <li><a href="http://gump.apache.org/">Overview</a></li>
+      <li><a href="http://vmgump.apache.org/gump/public/tomcat-7.0.x/">Module</a></li>
+      <li><strong>Projects:</strong>
+        <ul>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-7.0.x/tomcat-tc7.0.x/">tomcat-tc7.0.x</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-7.0.x/tomcat-tc7.0.x-dbcp/">tomcat-tc7.0.x-dbcp</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-7.0.x/tomcat-tc7.0.x-validate/">tomcat-tc7.0.x-validate</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-7.0.x/tomcat-tc7.0.x-test/">tomcat-tc7.0.x-test</a></li>
+        </ul>
+      </li>
     </ul>
-  </li>
+  </td>
+</tr>
+<tr>
+  <td><code>tomcat-tc6</code></td>
+  <td><code>/tomcat/tc6.0.x/trunk</code></td>
+  <td>
+    <ul>
+      <li><a href="http://vmgump.apache.org/gump/public/tomcat-tc6/">Module</a></li>
+      <li><strong>Projects:</strong>
+        <ul>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-tc6/tomcat-tc6/">tomcat-tc6</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-tc6/javax.servlet/">javax.servlet</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-tc6/javax.servlet.jsp/">javax.servlet.jsp</a></li>
+          <li><a href="http://vmgump.apache.org/gump/public/tomcat-tc6/javax.el/">javax.el</a></li>
+        </ul>
+      </li>
+    </ul>
+  </td>
+</tr>
+</tbody>
+</table>
+
+<p>FIXME: There are other Tomcat-related modules build by Gump that are
+not yet listed here.</p>
+
+</subsection>
+
+<subsection name="Jenkins">
+<p>The following are projects built by Jenkins:</p>
+<ul>
+  <li><a href="https://builds.apache.org/job/Tomcat-7.x/">Tomcat-7.x</a></li>
+  <li><a href="https://builds.apache.org/job/TomcatMavenPlugin/">TomcatMavenPlugin</a></li>
 </ul>
+</subsection>
 
 </section>
 
