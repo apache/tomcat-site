@@ -164,17 +164,27 @@
 
     <p>Affects: 5.5.0-5.5.33</p>
     
-    <p>Mitigation options:</p>  
+    <p>Mitigation options:</p>
     <ul>
-      <li>Upgrade to Tomcat 5.5.34</li>
-      <li>Apply the appropriate <a href=" http://svn.apache.org/viewvc?rev=1162960&amp;view=rev">patch</a></li>
-      <li>Configure both Tomcat and the reverse proxy to use a shared secret
-      ("request.secret" attribute in
-      <a href="/tomcat-5.5-doc/config/ajp.html">&lt;Connector&gt;</a>;
-      "worker.<i>workername</i>.secret" directive for
-      <a href="/connectors-doc/reference/workers.html">mod_jk</a>;
-      mod_proxy_ajp currently does not support shared secrets)</li>
-      <li>Use the org.apache.jk.server.JkCoyoteHandler (BIO) AJP connector</li>
+      <li>Upgrade to Tomcat 5.5.34.</li>
+      <li>Apply the appropriate <revlink rev="1162960">patch</revlink>.</li>
+      <li>Configure both Tomcat and the reverse proxy to use a shared secret.<br />
+        (It is "<code>request.secret</code>" attribute in AJP &lt;Connector&gt;,
+        "<code>worker.<i>workername</i>.secret</code>" directive for mod_jk.
+        The mod_proxy_ajp module currently does not support shared secrets).
+      </li>
+      <li>Use the org.apache.jk.server.JkCoyoteHandler (BIO) AJP connector
+        implementation.<br />
+        (It is automatically selected if you do not have Tomcat-Native library
+        installed. It can be also selected explicitly:
+        <code>&lt;Connector protocol="org.apache.jk.server.JkCoyoteHandler"&gt;</code>).
+      </li>
+    </ul>
+
+    <p>References:</p>
+    <ul>
+      <li><a href="/tomcat-5.5-doc/config/ajp.html">AJP Connector documentation (Tomcat 5.5)</a></li>
+      <li><a href="/connectors-doc/reference/workers.html">workers.properties configuration (mod_jk)</a></li>
     </ul>
   </section>
 
