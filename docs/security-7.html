@@ -359,12 +359,20 @@
       <li>Upgrade to Tomcat 7.0.21</li>
       <li>Apply the appropriate <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1162958">patch</a>
 </li>
-      <li>Configure both Tomcat and the reverse proxy to use a shared secret
-       ("requiredSecret" attribute in
-       <a href="/tomcat-7.0-doc/config/ajp.html">&lt;Connector&gt;</a>;
-       "worker.<i>workername</i>.secret" directive for
-       <a href="/connectors-doc/reference/workers.html">mod_jk</a>;
-       mod_proxy_ajp currently does not support shared secrets)</li>
+      <li>Configure both Tomcat and the reverse proxy to use a shared secret.<br/>
+       (It is "<code>requiredSecret</code>" attribute in AJP &lt;Connector&gt;,
+       "<code>worker.<i>workername</i>.secret</code>" directive for mod_jk.
+       The mod_proxy_ajp module currently does not support shared secrets).</li>
+    </ul>
+
+    <p>References:</p>
+    <ul>
+      <li>
+<a href="/tomcat-7.0-doc/config/ajp.html">AJP Connector documentation (Tomcat 7.0)</a>
+</li>
+      <li>
+<a href="/connectors-doc/reference/workers.html">workers.properties configuration (mod_jk)</a>
+</li>
     </ul>
   </blockquote>
 </p>
