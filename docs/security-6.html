@@ -1547,7 +1547,23 @@
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=891292">revision 891292</a>
        that provided the new <code>allowUnsafeLegacyRenegotiation</code>
        attribute. This work around is included in Tomcat 6.0.21 onwards.</p>
-       
+
+    <p>Support for the new TLS renegotiation protocol (RFC 5746) that does not
+       have this security issue:</p>
+
+    <ul>
+      <li>For connectors using JSSE implementation provided by JVM:
+        Added in Tomcat 6.0.32.<br/>
+        Requires JRE that supports RFC 5746. For Oracle JRE that is
+        <a rel="nofollow" href="http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html">known</a>
+        to be 6u22 or later.
+      </li>
+      <li>For connectors using APR and OpenSSL:<br/>
+        Not implemented. See
+        <a href="security-native.html">APR/native connector security page</a>.
+      </li>
+    </ul>
+
     <p>
 <strong>important: Directory traversal</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938" rel="nofollow">CVE-2008-2938</a>
