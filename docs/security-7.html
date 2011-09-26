@@ -665,6 +665,32 @@
     <p>Affects: 7.0.0-7.0.11</p>
 
     <p>
+<strong>Moderate: Multiple weaknesses in HTTP DIGEST authentication</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1184" rel="nofollow">CVE-2011-1184</a>
+</p>
+
+    <p>The implementation of HTTP DIGEST authentication was discovered to have
+       several weaknesses:
+       <ul>
+         <li>replay attacks were permitted</li>
+         <li>server nonces were not checked</li>
+         <li>client nonce counts were not checked</li>
+         <li>qop values were not checked</li>
+         <li>realm values were not checked</li>
+         <li>the server secret was hard-coded to a known string</li>
+       </ul>
+       The result of these weaknesses is that DIGEST authentication was only as
+       secure as BASIC authentication.
+    </p>
+
+    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1087655">revision 1087655</a>.</p>
+
+    <p>This was identified by the Tomcat security team on 16 March 2011 and
+       made public on 26 September 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.11</p>
+
+    <p>
 <strong>Important: Security constraint bypass</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1183" rel="nofollow">CVE-2011-1183</a>
 </p>
