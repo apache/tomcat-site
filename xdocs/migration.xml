@@ -194,95 +194,116 @@ accordingly.</p>
 
     <script type="text/javascript" language="JavaScript">
       function updateTc6ActionUrl() {
-        document.tc6Versions.action = document.tc6Files.filename.value;
+        var revisions = {
+          "HEAD":"HEAD",
+          "6.0.0":"466306",
+          "6.0.1":"472328",
+          "6.0.2":"475489",
+          "6.0.4":"483285",
+          "6.0.6":"487720",
+          "6.0.7":"489812",
+          "6.0.8":"496554",
+          "6.0.9":"502060",
+          "6.0.10":"506975",
+          "6.0.13":"535436",
+          "6.0.14":"557842",
+          "6.0.16":"616101",
+          "6.0.19":"751136",
+          "6.0.20":"802250",
+          "6.0.24":"900772",
+          "6.0.26":"920929",
+          "6.0.28":"958987",
+          "6.0.29":"965461",
+          "6.0.30":"1057276",
+          "6.0.32":"1066582",
+          "6.0.33":"1158221"
+        };
+        var formSubmit= document.getElementById('tc6Submit');
+        var elementsSelect= document.getElementById('tc6Select').elements;
+        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/" +
+          elementsSelect['filename'].value;
+        formSubmit.elements['r1'].value = revisions[elementsSelect['r1'].value]; 
+        formSubmit.elements['r2'].value = revisions[elementsSelect['r2'].value]; 
         return true;
       }
     </script>
 
-    <form name="tc6Files" action="not-used">
+    <form id="tc6Select" action="not-used">
     <p>Configuration file:
     <select name="filename">
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/catalina.policy">
-      catalina.policy</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/catalina.properties">
-      catalina.properties</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/context.xml">
-      context.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/logging.properties">
-      logging.properties</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/server.xml">
-      server.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/tomcat-users.xml">
-      tomcat-users.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/conf/web.xml">
-      web.xml</option>
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
     </select>
     </p>
-    </form>
-    <form name="tc6Versions" action="to-be-replaced" method="get"
-          target="_blank">
     <p>Old version:
-    <input type="hidden" name="diff_format" value="h"/>
     <select name="r1">
-    <option value="466306">6.0.0</option>
-    <option value="472328">6.0.1</option>
-    <option value="475489">6.0.2</option>
-    <option value="483285">6.0.4</option>
-    <option value="487720">6.0.6</option>
-    <option value="489812">6.0.7</option>
-    <option value="496554">6.0.8</option>
-    <option value="502060">6.0.9</option>
-    <option value="506975">6.0.10</option>
-    <option value="535436">6.0.13</option>
-    <option value="557842">6.0.14</option>
-    <option value="616101">6.0.16</option>
-    <option value="751136">6.0.19</option>
-    <option value="802250">6.0.20</option>
-    <option value="900772">6.0.24</option>
-    <option value="920929">6.0.26</option>
-    <option value="958987">6.0.28</option>
-    <option value="965461">6.0.29</option>
-    <option value="1057276">6.0.30</option>
-    <option value="1066582" selected="selected">6.0.32</option>
-    <option value="1158221">6.0.33</option>
+    <option value="6.0.0">6.0.0</option>
+    <option value="6.0.1">6.0.1</option>
+    <option value="6.0.2">6.0.2</option>
+    <option value="6.0.4">6.0.4</option>
+    <option value="6.0.6">6.0.6</option>
+    <option value="6.0.7">6.0.7</option>
+    <option value="6.0.8">6.0.8</option>
+    <option value="6.0.9">6.0.9</option>
+    <option value="6.0.10">6.0.10</option>
+    <option value="6.0.13">6.0.13</option>
+    <option value="6.0.14">6.0.14</option>
+    <option value="6.0.16">6.0.16</option>
+    <option value="6.0.19">6.0.19</option>
+    <option value="6.0.20">6.0.20</option>
+    <option value="6.0.24">6.0.24</option>
+    <option value="6.0.26">6.0.26</option>
+    <option value="6.0.28">6.0.28</option>
+    <option value="6.0.29">6.0.29</option>
+    <option value="6.0.30">6.0.30</option>
+    <option value="6.0.32" selected="selected">6.0.32</option>
+    <option value="6.0.33">6.0.33</option>
     </select>, new version:
     <select name="r2">
-    <option value="466306">6.0.0</option>
-    <option value="472328">6.0.1</option>
-    <option value="475489">6.0.2</option>
-    <option value="483285">6.0.4</option>
-    <option value="487720">6.0.6</option>
-    <option value="489812">6.0.7</option>
-    <option value="496554">6.0.8</option>
-    <option value="502060">6.0.9</option>
-    <option value="506975">6.0.10</option>
-    <option value="535436">6.0.13</option>
-    <option value="557842">6.0.14</option>
-    <option value="616101">6.0.16</option>
-    <option value="751136">6.0.19</option>
-    <option value="802250">6.0.20</option>
-    <option value="900772">6.0.24</option>
-    <option value="920929">6.0.26</option>
-    <option value="958987">6.0.28</option>
-    <option value="965461">6.0.29</option>
-    <option value="1057276">6.0.30</option>
-    <option value="1066582">6.0.32</option>
-    <option value="1158221" selected="selected">6.0.33</option>
+    <option value="6.0.0">6.0.0</option>
+    <option value="6.0.1">6.0.1</option>
+    <option value="6.0.2">6.0.2</option>
+    <option value="6.0.4">6.0.4</option>
+    <option value="6.0.6">6.0.6</option>
+    <option value="6.0.7">6.0.7</option>
+    <option value="6.0.8">6.0.8</option>
+    <option value="6.0.9">6.0.9</option>
+    <option value="6.0.10">6.0.10</option>
+    <option value="6.0.13">6.0.13</option>
+    <option value="6.0.14">6.0.14</option>
+    <option value="6.0.16">6.0.16</option>
+    <option value="6.0.19">6.0.19</option>
+    <option value="6.0.20">6.0.20</option>
+    <option value="6.0.24">6.0.24</option>
+    <option value="6.0.26">6.0.26</option>
+    <option value="6.0.28">6.0.28</option>
+    <option value="6.0.29">6.0.29</option>
+    <option value="6.0.30">6.0.30</option>
+    <option value="6.0.32">6.0.32</option>
+    <option value="6.0.33" selected="selected">6.0.33</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select>
     </p>
+    </form>
+    <form id="tc6Submit" action="to-be-replaced" method="get"
+          target="_blank">
     <p>
+    <input type="hidden" name="diff_format" value="h"/>
+    <input type="hidden" name="r1"/><input type="hidden" name="r2"/>
     <input type="submit" value="View Differences"
            onClick="return updateTc6ActionUrl();"/>
     </p>
     </form>
+    <p>You can also use Subversion command similar to the following (all on one line):</p>
+    <pre>  svn diff
+    --old=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_32/conf/
+    --new=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_33/conf/
+    </pre>
   </subsection>
   
 </section>
@@ -575,83 +596,98 @@ accordingly.</p>
 
     <script type="text/javascript" language="JavaScript">
       function updateTc7ActionUrl() {
-        document.tc7Versions.action = document.tc7Files.filename.value;
+        var revisions = {
+          "HEAD":"HEAD",
+          "7.0.0":"954232",
+          "7.0.2":"982035",
+          "7.0.4":"1022637",
+          "7.0.5":"1038717",
+          "7.0.6":"1057288",
+          "7.0.8":"1067169",
+          "7.0.10":"1078282",
+          "7.0.11":"1080182",
+          "7.0.12":"1087797",
+          "7.0.14":"1101230",
+          "7.0.16":"1134562",
+          "7.0.19":"1146504",
+          "7.0.20":"1155255",
+          "7.0.21":"1162976",
+          "7.0.22":"1176599"
+        };
+        var formSubmit= document.getElementById('tc7Submit');
+        var elementsSelect= document.getElementById('tc7Select').elements;
+        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/" +
+          elementsSelect['filename'].value;
+        formSubmit.elements['r1'].value = revisions[elementsSelect['r1'].value]; 
+        formSubmit.elements['r2'].value = revisions[elementsSelect['r2'].value]; 
         return true;
       }
     </script>
 
-    <form name="tc7Files" action="not-used">
+    <form id="tc7Select" action="not-used">
     <p>Configuration file:
     <select name="filename">
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/catalina.policy">
-      catalina.policy</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/catalina.properties">
-      catalina.properties</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/context.xml">
-      context.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/logging.properties">
-      logging.properties</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/server.xml">
-      server.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/tomcat-users.xml">
-      tomcat-users.xml</option>
-    <option
-      value="http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/conf/web.xml">
-      web.xml</option>
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
     </select>
     </p>
-    </form>
-    <form name="tc7Versions" action="to-be-replaced" method="get"
-          target="_blank">
     <p>Old version:
-    <input type="hidden" name="diff_format" value="h"/>
     <select name="r1">
-    <option value="954232">7.0.0</option>
-    <option value="982035">7.0.2</option>
-    <option value="1022637">7.0.4</option>
-    <option value="1038717">7.0.5</option>
-    <option value="1057288">7.0.6</option>
-    <option value="1067169">7.0.8</option>
-    <option value="1078282">7.0.10</option>
-    <option value="1080182">7.0.11</option>
-    <option value="1087797">7.0.12</option>
-    <option value="1101230">7.0.14</option>
-    <option value="1134562">7.0.16</option>
-    <option value="1146504">7.0.19</option>
-    <option value="1155255">7.0.20</option>
-    <option value="1162976" selected="selected">7.0.21</option>
-    <option value="1176599">7.0.22</option>
+    <option value="7.0.0">7.0.0</option>
+    <option value="7.0.2">7.0.2</option>
+    <option value="7.0.4">7.0.4</option>
+    <option value="7.0.5">7.0.5</option>
+    <option value="7.0.6">7.0.6</option>
+    <option value="7.0.8">7.0.8</option>
+    <option value="7.0.10">7.0.10</option>
+    <option value="7.0.11">7.0.11</option>
+    <option value="7.0.12">7.0.12</option>
+    <option value="7.0.14">7.0.14</option>
+    <option value="7.0.16">7.0.16</option>
+    <option value="7.0.19">7.0.19</option>
+    <option value="7.0.20">7.0.20</option>
+    <option value="7.0.21" selected="selected">7.0.21</option>
+    <option value="7.0.22">7.0.22</option>
     </select>, new version:
     <select name="r2">
-    <option value="954232">7.0.0</option>
-    <option value="982035">7.0.2</option>
-    <option value="1022637">7.0.4</option>
-    <option value="1038717">7.0.5</option>
-    <option value="1057288">7.0.6</option>
-    <option value="1067169">7.0.8</option>
-    <option value="1078282">7.0.10</option>
-    <option value="1080182">7.0.11</option>
-    <option value="1087797">7.0.12</option>
-    <option value="1101230">7.0.14</option>
-    <option value="1134562">7.0.16</option>
-    <option value="1146504">7.0.19</option>
-    <option value="1155255">7.0.20</option>
-    <option value="1162976">7.0.21</option>
-    <option value="1176599" selected="selected">7.0.22</option>
+    <option value="7.0.0">7.0.0</option>
+    <option value="7.0.2">7.0.2</option>
+    <option value="7.0.4">7.0.4</option>
+    <option value="7.0.5">7.0.5</option>
+    <option value="7.0.6">7.0.6</option>
+    <option value="7.0.8">7.0.8</option>
+    <option value="7.0.10">7.0.10</option>
+    <option value="7.0.11">7.0.11</option>
+    <option value="7.0.12">7.0.12</option>
+    <option value="7.0.14">7.0.14</option>
+    <option value="7.0.16">7.0.16</option>
+    <option value="7.0.19">7.0.19</option>
+    <option value="7.0.20">7.0.20</option>
+    <option value="7.0.21">7.0.21</option>
+    <option value="7.0.22" selected="selected">7.0.22</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select>
     </p>
+    </form>
+    <form id="tc7Submit" action="to-be-replaced" method="get"
+          target="_blank">
     <p>
+    <input type="hidden" name="diff_format" value="h"/>
+    <input type="hidden" name="r1" /><input type="hidden" name="r2" />
     <input type="submit" value="View Differences"
            onClick="return updateTc7ActionUrl();"/>
     </p>
     </form>
+    <p>You can also use Subversion command similar to the following (all on one line):</p>
+    <pre>  svn diff
+    --old=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_21/conf/
+    --new=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_22/conf/
+    </pre>
   </subsection>
   
 </section>
