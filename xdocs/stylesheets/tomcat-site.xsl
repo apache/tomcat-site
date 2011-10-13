@@ -8,7 +8,7 @@
 
 
   <!-- Output method -->
-  <xsl:output method="xml"
+  <xsl:output method="html"
               encoding="iso-8859-1"
               doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
               doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"

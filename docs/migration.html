@@ -1,47 +1,33 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Apache Tomcat - Migration Guide</title>
-<meta name="author" content="Remy Maucherat"/>
-<link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet"/>
-<link type="text/css" href="stylesheets/tomcat-printer.css" rel="stylesheet" media="print"/>
+<meta name="author" content="Remy Maucherat">
+<link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet">
+<link type="text/css" href="stylesheets/tomcat-printer.css" rel="stylesheet" media="print">
 </head>
 <body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76">
 <table border="0" width="100%" cellspacing="0">
 <!--PAGE HEADER-->
 <tr>
 <td>
-<!--PROJECT LOGO-->
-<a href="http://tomcat.apache.org/">
-<img src="./images/tomcat.gif" align="left" alt="Tomcat Logo" border="0"/>
-</a>
-</td>
-<td>
-<font face="arial,helvetica,sanserif">
+<!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="left" alt="Tomcat Logo" border="0"></a></td><td><font face="arial,helvetica,sanserif">
 <h1>Apache Tomcat</h1>
-</font>
-</td>
-<td>
-<!--APACHE LOGO-->
-<a href="http://www.apache.org/">
-<img src="http://www.apache.org/images/asf-logo.gif" align="right" alt="Apache Logo" border="0"/>
-</a>
-</td>
+</font></td><td>
+<!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td>
 </tr>
 </table>
 <div class="searchbox noPrint">
 <form action="http://www.google.com/search" method="get">
-<input value="tomcat.apache.org" name="sitesearch" type="hidden"/>
-<input value="Search the Site" size="25" name="q" id="query" type="text"/>
-<input name="Search" value="Search Site" type="submit"/>
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input value="Search the Site" size="25" name="q" id="query" type="text"><input name="Search" value="Search Site" type="submit">
 </form>
 </div>
 <table border="0" width="100%" cellspacing="4">
 <!--HEADER SEPARATOR-->
 <tr>
 <td colspan="2">
-<hr noshade="" size="1"/>
+<hr noshade size="1">
 </td>
 </tr>
 <tr>
@@ -194,25 +180,17 @@
 </li>
 </ul>
 </td>
-<!--RIGHT SIDE MAIN BODY-->
-<td width="80%" valign="top" align="left" id="mainBody">
+<!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody">
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Table of Contents">
-<!--()-->
-</a>
-<a name="Table_of_Contents">
-<strong>Table of Contents</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Table of Contents">
+<!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
+
 <ul>
 <li>
 <a href="#Before_upgrading_or_migrating">Before upgrading or migrating</a>
@@ -318,33 +296,27 @@
 </ol>
 </li>
 </ul>
+
 </blockquote>
 </p>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Before upgrading or migrating">
-<!--()-->
-</a>
-<a name="Before_upgrading_or_migrating">
-<strong>Before upgrading or migrating</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Before upgrading or migrating">
+<!--()--></a><a name="Before_upgrading_or_migrating"><strong>Before upgrading or migrating</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
+
 
 <p>When updating from one major Apache Tomcat version a newer one, please make
 sure that the JVM that is installed on your system supports at least the
@@ -352,288 +324,256 @@ required Java version. While it is possible that older versions of Tomcat may
 not be compatible with newer JVMs, all the currently supported Apache Tomcat
 versions (5.5.x, 6.0.x and 7.0.x) are known to run correctly on Java 6 JVMs.</p>
 
+
 <p>When migrating from one major Tomcat version to another (e.g. from Tomcat 6
 to Tomcat 7), you should not blindly copy the configuration files from the old
 version. The recommended approach is to start with the default configuration of
 the new version of Apache Tomcat and to adjust it as necessary.</p>
+
 
 <p>When migrating from one minor release to another minor release within the
 same major release (e.g. from Tomcat 7.0.14 to Tomcat 7.0.16) you can retain the
 configuration files, but you should check to see if any defaults have changed
 and/or if any new elements have been added and adjust your configuration files
 accordingly.</p>
+
 </blockquote>
 </p>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Migrating from 5.5.x to 6.0.x">
-<!--()-->
-</a>
-<a name="Migrating_from_5.5.x_to_6.0.x">
-<strong>Migrating from 5.5.x to 6.0.x</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Migrating from 5.5.x to 6.0.x">
+<!--()--></a><a name="Migrating_from_5.5.x_to_6.0.x"><strong>Migrating from 5.5.x to 6.0.x</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
 
-  <p> This section lists all the known changes between 5.5.x and 6.0.x which may
+  
+<p> This section lists all the known changes between 5.5.x and 6.0.x which may
   cause backwards compatibility problems when upgrading.</p>
   
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Java 5 required">
-<!--()-->
-</a>
-<a name="Java_5_required">
-<strong>Java 5 required</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Java 5 required">
+<!--()--></a><a name="Java_5_required"><strong>Java 5 required</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Apache Tomcat 6.0.x requires Java 5 or later, unlike Apache Tomcat 5.5.x which
+    
+<p>Apache Tomcat 6.0.x requires Java 5 or later, unlike Apache Tomcat 5.5.x which
     could use a compatibility package to run on JRE 1.4.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Modified directory structure">
-<!--()-->
-</a>
-<a name="Modified_directory_structure">
-<strong>Modified directory structure</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Modified directory structure">
+<!--()--></a><a name="Modified_directory_structure"><strong>Modified directory structure</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <table border="0" cellspacing="0" cellpadding="2" width="100%">
+    
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Shared libraries">
-<!--()-->
-</a>
-<a name="Shared_libraries">
-<strong>Shared libraries</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Shared libraries">
+<!--()--></a><a name="Shared_libraries"><strong>Shared libraries</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Apache Tomcat 5.5.x used, by default, a directory structure including
+    
+<p>Apache Tomcat 5.5.x used, by default, a directory structure including
     <code>common</code>, <code>shared</code> and <code>server</code> subdirectories.
     Apache Tomcat 6.0.x uses a single <code>lib</code> directory.</p>
 
-    <p>The <code>lib</code> directory is the direct replacement for both
+    
+<p>The <code>lib</code> directory is the direct replacement for both
     <code>common/lib</code> and <code>common/classes</code> subdirectories:
     it accepts both JARs and exploded class hierarchies.</p>
 
-    <p>The <code>conf/catalina.properties</code> file can be used to modify
+    
+<p>The <code>conf/catalina.properties</code> file can be used to modify
     the directory structure.</p>
 
-    <p>Starting with version 6.0.21, Apache Tomcat supports both the
+    
+<p>Starting with version 6.0.21, Apache Tomcat supports both the
     <code>$CATALINA_BASE/lib</code> and <code>$CATALINA_HOME/lib</code>
     directories. The jars and classes in <code>$CATALINA_BASE/lib</code>
     are earlier on the class path and thus take precedence.</p>
 
-    </blockquote>
+    
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-    <table border="0" cellspacing="0" cellpadding="2" width="100%">
+    
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Endorsed libraries">
-<!--()-->
-</a>
-<a name="Endorsed_libraries">
-<strong>Endorsed libraries</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Endorsed libraries">
+<!--()--></a><a name="Endorsed_libraries"><strong>Endorsed libraries</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>The <code>$CATALINA_HOME/common/endorsed</code> subdirectory is replaced
+    
+<p>The <code>$CATALINA_HOME/common/endorsed</code> subdirectory is replaced
     by the <code>$CATALINA_HOME/endorsed</code> directory. This directory is
     absent by default.</p>
 
-    <p>The <code>JAVA_ENDORSED_DIRS</code> environment variable can be used
+    
+<p>The <code>JAVA_ENDORSED_DIRS</code> environment variable can be used
     with <code>setenv.bat</code>|<code>sh</code> scripts to provide alternative
     location of this directory.</p>
-    </blockquote>
+    
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-    <table border="0" cellspacing="0" cellpadding="2" width="100%">
+    
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Default web applications">
-<!--()-->
-</a>
-<a name="Default_web_applications">
-<strong>Default web applications</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Default web applications">
+<!--()--></a><a name="Default_web_applications"><strong>Default web applications</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>The Manager and Host Manager web applications are no longer in
+    
+<p>The Manager and Host Manager web applications are no longer in
     <code>server/webapps</code>. All of the default web applications
     are now located in the <code>webapps</code> directory.</p>
 
-    <p>Note, that if <code>deployOnStartup</code> or <code>autoDeploy</code>
+    
+<p>Note, that if <code>deployOnStartup</code> or <code>autoDeploy</code>
     options on the <strong>Host</strong> are enabled, the
     <code>META-INF/context.xml</code> files of manager and host-manager
     applications will be copied into the
     <code>$CATALINA_BASE/conf/[engine_name]/[host_name]</code>
     directory when Tomcat starts for the first time.</p>
 
-    <p>When using a shared webhosting environment, it is recommended to forbid
+    
+<p>When using a shared webhosting environment, it is recommended to forbid
     the use of context.xml inside the web applications (using the
     <code>deployXML</code> attribute of the <strong>Host</strong> element).
     (This option is also available in Tomcat 5.5).</p>
 
-    </blockquote>
+    
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Modified classloading">
-<!--()-->
-</a>
-<a name="Modified_classloading">
-<strong>Modified classloading</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Modified classloading">
+<!--()--></a><a name="Modified_classloading"><strong>Modified classloading</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>As a result of the modification of the directory structure, the
+    
+<p>As a result of the modification of the directory structure, the
     common, shared and server classloaders have been merged into one.
     Effectively, the shared and server classloaders are not configured by
     default and the common classloader is mapped to the <code>lib</code>
     directory, as described above.</p>
-    <p>This behavior and structure can be modified using the 
+    
+<p>This behavior and structure can be modified using the 
     <code>conf/catalina.properties</code> file.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Internal Logging API package renaming">
-<!--()-->
-</a>
-<a name="Internal_Logging_API_package_renaming">
-<strong>Internal Logging API package renaming</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Internal Logging API package renaming">
+<!--()--></a><a name="Internal_Logging_API_package_renaming"><strong>Internal Logging API package renaming</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Apache Tomcat 5.5.x relied on the
+    
+<p>Apache Tomcat 5.5.x relied on the
     <a href="http://commons.apache.org/logging/">Apache Commons Logging</a>
     library for its internal logging. Apache Tomcat 6.0.x and later no more
     uses the library directly, but uses a private copy of it. The classes are
     in the <code>org.apache.juli.logging</code> package.
     </p>
 
-    <p>The rationale behind this change is that so that application logging
+    
+<p>The rationale behind this change is that so that application logging
     can be as independent as possible from the container, while still having
     the possibility of being unified.</p>
 
-    <p>By default only a subset of Apache Commons Logging classes that are
+    
+<p>By default only a subset of Apache Commons Logging classes that are
     needed to perform logging to <code>java.util.logging</code> is included
     with Tomcat. If you want to configure Tomcat to redirect its logging into
     <a href="http://logging.apache.org/log4j/">Log4J</a>, or any other logging
@@ -642,31 +582,28 @@ accordingly.</p>
     is available as an extras component. See the logging and extras
     documentation for more details.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="commons-logging.jar">
-<strong>commons-logging.jar</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="commons-logging.jar"><strong>commons-logging.jar</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>As Apache Tomcat no longer directly uses the
+    
+<p>As Apache Tomcat no longer directly uses the
     <a href="http://commons.apache.org/logging/">Apache Commons Logging</a>
     library, the <code>commons-logging-api.jar</code> library is no longer
     provided for the web applications. The web applications that use
@@ -674,111 +611,98 @@ accordingly.</p>
     It is recommended to put it into their <code>WEB-INF/lib</code> directory,
     like any other JAR.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="SSLEnabled attribute on Connector">
-<!--()-->
-</a>
-<a name="SSLEnabled_attribute_on_Connector">
-<strong>SSLEnabled attribute on Connector</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="SSLEnabled attribute on Connector">
+<!--()--></a><a name="SSLEnabled_attribute_on_Connector"><strong>SSLEnabled attribute on Connector</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>For all SSL enabled connectors, the <code>SSLEnabled</code> flag must be set
+    
+<p>For all SSL enabled connectors, the <code>SSLEnabled</code> flag must be set
     to <code>true</code> to enable encryption. Tomcat no longer relies on using
     the protocol and other parameters to determine if the transport should be
     encrypted, to give maximum flexibility in proxied scenarios.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Connector thread pools">
-<!--()-->
-</a>
-<a name="Connector_thread_pools">
-<strong>Connector thread pools</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Connector thread pools">
+<!--()--></a><a name="Connector_thread_pools"><strong>Connector thread pools</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>The <strong>Connector</strong> thread pools have been simplified. They
+    
+<p>The <strong>Connector</strong> thread pools have been simplified. They
     now grow to the maximum size specified but never shrink. The attributes
     associated with shrinking the thread pool (e.g. <code>minSpareThreads</code>)
     will be ignored. If you require a thread pool that grows and shrinks with
     demand you'll need to configure an <strong>Executor</strong> and then
     configure your <strong>Connector</strong> to use it.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Clustering configuration changes">
-<!--()-->
-</a>
-<a name="Clustering_configuration_changes">
-<strong>Clustering configuration changes</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Clustering configuration changes">
+<!--()--></a><a name="Clustering_configuration_changes"><strong>Clustering configuration changes</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Clustering configuration was refactored. See the clustering documentation
+    
+<p>Clustering configuration was refactored. See the clustering documentation
     for more details.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
+
 
 </blockquote>
 </p>
@@ -786,29 +710,22 @@ accordingly.</p>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Upgrading 6.0.x">
-<!--()-->
-</a>
-<a name="Upgrading_6.0.x">
-<strong>Upgrading 6.0.x</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Upgrading 6.0.x">
+<!--()--></a><a name="Upgrading_6.0.x"><strong>Upgrading 6.0.x</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
 
-  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 6 to
+  
+<p>When upgrading instances of Apache Tomcat from one version of Tomcat 6 to
   another, particularly when using separate locations for $CATALINA_HOME and
   $CATALINA_BASE, it is necessary to ensure that any changes in the
   configuration files such as new attributes and changes to defaults are applied
@@ -816,28 +733,23 @@ accordingly.</p>
   the form below may be used to view the differences between the configuration
   files in different versions of Tomcat 6.</p>
   
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Tomcat 6.0.x configuration file differences">
-<!--()-->
-</a>
-<a name="Tomcat_6.0.x_configuration_file_differences">
-<strong>Tomcat 6.0.x configuration file differences</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 6.0.x configuration file differences">
+<!--()--></a><a name="Tomcat_6.0.x_configuration_file_differences"><strong>Tomcat 6.0.x configuration file differences</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Select a configuration file, old version and new version from the boxes
+    
+<p>Select a configuration file, old version and new version from the boxes
     below and then click "View differences" to see the differences.
     The differences will be shown in a new tab/window.</p>
 
-    <script type="text/javascript" language="JavaScript">
+    
+<script type="text/javascript" language="JavaScript">
       function updateTc6ActionUrl() {
         var revisions = {
           "HEAD":"HEAD",
@@ -873,8 +785,10 @@ accordingly.</p>
       }
     </script>
 
-    <form id="tc6Select" action="not-used">
-    <p>Configuration file:
+    
+<form id="tc6Select" action="not-used">
+    
+<p>Configuration file:
     <select name="filename">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
@@ -884,8 +798,10 @@ accordingly.</p>
     <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
     <option value="conf/web.xml">web.xml</option>
     </select>
-    </p>
-    <p>Old version:
+    
+</p>
+    
+<p>Old version:
     <select name="r1">
     <option value="6.0.0">6.0.0</option>
     <option value="6.0.1">6.0.1</option>
@@ -906,7 +822,7 @@ accordingly.</p>
     <option value="6.0.28">6.0.28</option>
     <option value="6.0.29">6.0.29</option>
     <option value="6.0.30">6.0.30</option>
-    <option value="6.0.32" selected="selected">6.0.32</option>
+    <option value="6.0.32" selected>6.0.32</option>
     <option value="6.0.33">6.0.33</option>
     </select>, new version:
     <select name="r2">
@@ -930,408 +846,430 @@ accordingly.</p>
     <option value="6.0.29">6.0.29</option>
     <option value="6.0.30">6.0.30</option>
     <option value="6.0.32">6.0.32</option>
-    <option value="6.0.33" selected="selected">6.0.33</option>
+    <option value="6.0.33" selected>6.0.33</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select>
-    </p>
-    </form>
-    <form id="tc6Submit" action="to-be-replaced" method="get" target="_blank">
-    <p>
-    <input type="hidden" name="diff_format" value="h"/>
-    <input type="hidden" name="r1"/>
-<input type="hidden" name="r2"/>
-    <input type="submit" value="View Differences" onClick="return updateTc6ActionUrl();"/>
-    </p>
-    </form>
-    <p>You can also use Subversion command similar to the following (all on one line):</p>
-    <pre>  svn diff
+    
+</p>
+    
+</form>
+    
+<form id="tc6Submit" action="to-be-replaced" method="get" target="_blank">
+    
+<p>
+    
+<input type="hidden" name="diff_format" value="h">
+    <input type="hidden" name="r1"><input type="hidden" name="r2">
+    <input type="submit" value="View Differences" onClick="return updateTc6ActionUrl();">
+    
+</p>
+    
+</form>
+    
+<p>You can also use Subversion command similar to the following (all on one line):</p>
+    
+<pre>  svn diff
     --old=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_32/conf/
     --new=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_33/conf/
     </pre>
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
   
+
 </blockquote>
 </p>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Migrating from 6.0.x to 7.0.x">
-<!--()-->
-</a>
-<a name="Migrating_from_6.0.x_to_7.0.x">
-<strong>Migrating from 6.0.x to 7.0.x</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Migrating from 6.0.x to 7.0.x">
+<!--()--></a><a name="Migrating_from_6.0.x_to_7.0.x"><strong>Migrating from 6.0.x to 7.0.x</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
 
-  <p> This section lists all the known changes between 6.0.x and 7.0.x which may
+  
+<p> This section lists all the known changes between 6.0.x and 7.0.x which may
   cause backwards compatibility problems when upgrading.</p>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Java 6 required">
-<!--()-->
-</a>
-<a name="Java_6_required">
-<strong>Java 6 required</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Java 6 required">
+<!--()--></a><a name="Java_6_required"><strong>Java 6 required</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Apache Tomcat 7.0.x requires Java 6. Apache Tomcat 6.0.x required Java
+    
+<p>Apache Tomcat 7.0.x requires Java 6. Apache Tomcat 6.0.x required Java
     5.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="General configuration">
-<!--()-->
-</a>
-<a name="General_configuration">
-<strong>General configuration</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="General configuration">
+<!--()--></a><a name="General_configuration"><strong>General configuration</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>All configuration options that use regular expression now require a
+    
+<p>All configuration options that use regular expression now require a
     single regular expression (using <code>java.util.regex</code>) rather than a
     list of comma-separated or semi-colon-separated expressions.</p>
 
-    <p>This concerns the following:</p>
+    
+<p>This concerns the following:</p>
 
-    <ul>
-      <li>
+    
+<ul>
+      
+<li>
 <code>allow</code> and <code>deny</code> attributes in
         RemoteAddrFilter, RemoteHostFilter
         <a href="/tomcat-7.0-doc/config/filter.html">filters</a>
         and in RemoteAddrValve, RemoteHostValve
         <a href="/tomcat-7.0-doc/config/valve.html">valves</a>;
       </li>
-      <li>
+      
+<li>
 <code>internalProxies</code>, <code>trustedProxies</code> attributes in
         <a href="/tomcat-7.0-doc/config/filter.html">RemoteIpFilter</a>,
         <a href="/tomcat-7.0-doc/config/valve.html">RemoteIpValve</a>;
       </li>
-      <li>
+      
+<li>
 <code>filter</code> attribute in
         <a href="/tomcat-7.0-doc/config/cluster-valve.html">ReplicationValve</a>;</li>
-      <li>
+      
+<li>
 <code>restrictedUserAgents</code>, <code>noCompressionUserAgents</code>
         attributes in
         <a href="/tomcat-7.0-doc/config/http.html">HTTP connectors</a>.</li>
-    </ul>
+    
+</ul>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Deployment">
-<strong>Deployment</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Deployment"><strong>Deployment</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>XML context descriptors are no longer extracted from deployed WARs and
+    
+<p>XML context descriptors are no longer extracted from deployed WARs and
     directories and copied to the host's <code>xmlBase</code>. The default
     Tomcat 6 behavior can be enabled by setting the <code>copyXML</code>
     attribute of the <strong>Host</strong> element to <code>true</code>.</p>
     
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
   
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Manager application">
-<!--()-->
-</a>
-<a name="Manager_application">
-<strong>Manager application</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Manager application">
+<!--()--></a><a name="Manager_application"><strong>Manager application</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>The Manager application has been re-structured for Tomcat 7 onwards and
+    
+<p>The Manager application has been re-structured for Tomcat 7 onwards and
     some URLs have changed. All URLs used to access the Manager application
     should now start with one of the following options:</p>
     
-    <ul>
-      <li>&lt;ContextPath&gt;/html for the HTML GUI</li>
-      <li>&lt;ContextPath&gt;/text for the text interface</li>
-      <li>&lt;ContextPath&gt;/jmxproxy for the JMX proxy</li>
-      <li>&lt;ContextPath&gt;/status for the status pages</li>
-    </ul>
     
-   <p>Note that the URL for the text interface has changed from
+<ul>
+      
+<li>&lt;ContextPath&gt;/html for the HTML GUI</li>
+      
+<li>&lt;ContextPath&gt;/text for the text interface</li>
+      
+<li>&lt;ContextPath&gt;/jmxproxy for the JMX proxy</li>
+      
+<li>&lt;ContextPath&gt;/status for the status pages</li>
+    
+</ul>
+    
+   
+<p>Note that the URL for the text interface has changed from
    "&lt;ContextPath&gt;" to "&lt;ContextPath&gt;/text".</p>
 
-    <p>The roles required to use the Manager application were changed from the
+    
+<p>The roles required to use the Manager application were changed from the
     single <tt>manager</tt> role to the following four roles. You will need to
     assign the role(s) required for the functionality you wish to access.</p>
     
-    <ul>
-      <li>
+    
+<ul>
+      
+<li>
 <tt>manager-gui</tt> - allows access to the HTML GUI and the status
           pages</li>
-      <li>
+      
+<li>
 <tt>manager-script</tt> - allows access to the text interface and the
           status pages</li>
-      <li>
+      
+<li>
 <tt>manager-jmx</tt> - allows access to the JMX proxy and the status
           pages</li>
-      <li>
+      
+<li>
 <tt>manager-status</tt> - allows access to the status pages only</li>
-    </ul>
+    
+</ul>
 
-    <p>The HTML interface is protected against CSRF but the text and JMX
+    
+<p>The HTML interface is protected against CSRF but the text and JMX
     interfaces are not. To maintain the CSRF protection:</p>
     
-    <ul>
-      <li>users with the <tt>manager-gui</tt> role should not be granted
+    
+<ul>
+      
+<li>users with the <tt>manager-gui</tt> role should not be granted
           either the <tt>manager-script</tt> or <tt>manager-jmx</tt> roles.</li>
-      <li>if the text or jmx interfaces are accessed through a browser (e.g. for
+      
+<li>if the text or jmx interfaces are accessed through a browser (e.g. for
           testing since these interfaces are intended for tools not humans) then
           the browser must be closed afterwards to terminate the session.</li>
-    </ul>
+    
+</ul>
 
-    <p>The roles command has been removed from the Manager application since it
+    
+<p>The roles command has been removed from the Manager application since it
     did not work with the default configuration and most Realms do not support
     providing a list of roles.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Host Manager application">
-<!--()-->
-</a>
-<a name="Host_Manager_application">
-<strong>Host Manager application</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Host Manager application">
+<!--()--></a><a name="Host_Manager_application"><strong>Host Manager application</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>The Host Manager application has been re-structured for Tomcat 7 onwards
+    
+<p>The Host Manager application has been re-structured for Tomcat 7 onwards
     and some URLs have changed. All URLs used to access the Host Manager
     application should now start with one of the following options:</p>
     
-    <ul>
-      <li>&lt;ContextPath&gt;/html for the HTML GUI</li>
-      <li>&lt;ContextPath&gt;/text for the text interface</li>
-    </ul>
     
-   <p>Note that the URL for the text interface has changed from
+<ul>
+      
+<li>&lt;ContextPath&gt;/html for the HTML GUI</li>
+      
+<li>&lt;ContextPath&gt;/text for the text interface</li>
+    
+</ul>
+    
+   
+<p>Note that the URL for the text interface has changed from
    "&lt;ContextPath&gt;" to "&lt;ContextPath&gt;/text".</p>
 
-    <p>The roles required to use the Host Manager application were changed from
+    
+<p>The roles required to use the Host Manager application were changed from
     the single <tt>admin</tt> role to the following two roles. You will need to
     assign the role(s) required for the functionality you wish to access.</p>
     
-    <ul>
-      <li>
+    
+<ul>
+      
+<li>
 <tt>admin-gui</tt> - allows access to the HTML GUI and the status
           pages</li>
-      <li>
+      
+<li>
 <tt>admin-script</tt> - allows access to the text interface and the
           status pages</li>
-    </ul>
+    
+</ul>
 
-    <p>The HTML interface is protected against CSRF but the text interface is
+    
+<p>The HTML interface is protected against CSRF but the text interface is
     not. To maintain the CSRF protection:</p>
     
-    <ul>
-      <li>users with the <tt>admin-gui</tt> role should not be granted the
+    
+<ul>
+      
+<li>users with the <tt>admin-gui</tt> role should not be granted the
           <tt>admin-script</tt> role.</li>
-      <li>if the text interface is accessed through a browser (e.g. for testing
+      
+<li>if the text interface is accessed through a browser (e.g. for testing
           since this inteface is intended for tools not humans) then the browser
           must be closed afterwards to terminate the session.</li>
-    </ul>
+    
+</ul>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Session manager configuration">
-<!--()-->
-</a>
-<a name="Session_manager_configuration">
-<strong>Session manager configuration</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Session manager configuration">
+<!--()--></a><a name="Session_manager_configuration"><strong>Session manager configuration</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
-    <p>A number of changes have been made to the session manager to improve the
+    
+<p>A number of changes have been made to the session manager to improve the
     performance of session generation and destruction including changes to
     session ID generation. The session ID generation changes take advantages of
     improvements in <code>java.secure.SecureRandom</code> since the session ID
     generation was first written. The configuration changes are:</p>
     
-    <ul>
-      <li>
+    
+<ul>
+      
+<li>
 <tt>randomClass</tt> has changed to <tt>secureRandomClass</tt> and
       the provided class must extend <code>java.secure.SecureRandom</code>
 </li>
-      <li>Two new properties <tt>secureRandomAlgoithm</tt> and
+      
+<li>Two new properties <tt>secureRandomAlgoithm</tt> and
       <tt>secureRandomProvider</tt> have been added to enable the selection of
       a SecureRandom implementation.</li>
-      <li>The <tt>algorithm</tt> attribute has been removed</li>
-      <li>The <tt>entropy</tt> attribute has been removed</li>
-    </ul>
-  </blockquote>
+      
+<li>The <tt>algorithm</tt> attribute has been removed</li>
+      
+<li>The <tt>entropy</tt> attribute has been removed</li>
+    
+</ul>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
   
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Session cookie configuration">
-<!--()-->
-</a>
-<a name="Session_cookie_configuration">
-<strong>Session cookie configuration</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Session cookie configuration">
+<!--()--></a><a name="Session_cookie_configuration"><strong>Session cookie configuration</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>With the addition of <code>SessionCookieConfig</code> in the Servlet 3.0
+    
+<p>With the addition of <code>SessionCookieConfig</code> in the Servlet 3.0
     specification, a number of session cookie configuration options have been
     removed to reduce configuration and code complexity.</p>
 
-    <ul>
-      <li>
-<strong>Connector</strong>
-<code>.emptySessionPath</code>: This has been removed. An equivalent
+    
+<ul>
+      
+<li>
+<strong>Connector</strong><code>.emptySessionPath</code>: This has been removed. An equivalent
       effect can be obtained by configuring sessionCookiePath="/" in the global
       context.xml (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
 
-      <li>
+      
+<li>
 <code>org.apache.catalina.SESSION_COOKIE_NAME</code> system property: This has been
       removed. An equivalent effect can be obtained by configuring the
       <code>sessionCookieName</code> attribute for the global context.xml
       (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
 
-      <li>
+      
+<li>
 <code>org.apache.catalina.SESSION_PARAMETER_NAME</code> system property: This has
       been removed. An equivalent effect can be obtained by configuring the
       <code>sessionCookieName</code> attribute for the global context.xml
       (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
 
-      <li>
-<strong>Context</strong>
-<code>.disableURLRewriting</code>: This has
+      
+<li>
+<strong>Context</strong><code>.disableURLRewriting</code>: This has
       been removed. An equivalent effect can be obtained by configuring the
       <code>session-config/tracking-mode</code> elements in a web application
       or in the global <conf>CATALINA_BASE/conf/web.xml</conf> file.</li>
-    </ul>
+    
+</ul>
 
-    <p>The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
+    
+<p>The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
     flag by default, to instruct browsers to prevent access to those cookies
     from JavaScript.
     (This can be enabled in Tomcat 6.0 and 5.5 by setting
@@ -1339,126 +1277,110 @@ accordingly.</p>
     a web application or in the global
     <code>CATALINA_BASE/conf/context.xml</code> file).</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Cookies">
-<strong>Cookies</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Cookies"><strong>Cookies</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>Tomcat no longer accepts non-specification compliant name only cookies by
+    
+<p>Tomcat no longer accepts non-specification compliant name only cookies by
     default. However, a new system property has been added,
     <code>org.apache.tomcat.util.http.ServerCookie.ALLOW_NAME_ONLY</code>, that
     can be used to accept name only cookies.</p>
   
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Request attributes">
-<!--()-->
-</a>
-<a name="Request_attributes">
-<strong>Request attributes</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Request attributes">
+<!--()--></a><a name="Request_attributes"><strong>Request attributes</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>The custom request attribute
+    
+<p>The custom request attribute
     <code>javax.servlet.request.ssl_session</code> provided to access the SSL
     session ID has been deprecated in favour of the new, specification defined
     request attribute <code>javax.servlet.request.ssl_session_id</code>. Support
     for the custom attribute will be removed in Tomcat 8.</p>
     
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Comet">
-<strong>Comet</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Comet"><strong>Comet</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>To enable Comet to work correctly when running under a security manager,
+    
+<p>To enable Comet to work correctly when running under a security manager,
     the Comet classes have been moved from the <code>org.apache.catalina</code>
     package to the <code>org.apache.catalina.comet</code> package. Code using
     Comet will need to be updated and recompiled to reflect the new package
     name.</p>
     
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="XML validation">
-<!--()-->
-</a>
-<a name="XML_validation">
-<strong>XML validation</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="XML validation">
+<!--()--></a><a name="XML_validation"><strong>XML validation</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>The configuration of XML validation has been simplified. The
+    
+<p>The configuration of XML validation has been simplified. The
     <code>xmlValidation</code> and <code>xmlNamespaceAware</code> attributes
     have been removed from the <code>&lt;Host&gt;</code> element. These
     attributes, along with <code>tldValidation</code> and
@@ -1470,34 +1392,29 @@ accordingly.</p>
     property is set to <code>true</code>, XML validation and namespace
     awareness will be enabled by default.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="System properties">
-<!--()-->
-</a>
-<a name="System_properties">
-<strong>System properties</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="System properties">
+<!--()--></a><a name="System_properties"><strong>System properties</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>The <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> system
+    
+<p>The <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> system
     property has been modified to provide greater control over its effects. Each
     behavioural change is now controlled by a dedicated system property. The
     default behaviour is unchanged. The
@@ -1508,58 +1425,61 @@ accordingly.</p>
     <code>true</code>, setting the individual system properties will always take
     priority.</p>
 
-    <p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
+    
+<p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
     is replaced by the maxTrailerSize attribute of the Connector.</p>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Internal APIs">
-<!--()-->
-</a>
-<a name="Internal_APIs">
-<strong>Internal APIs</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Internal APIs">
+<!--()--></a><a name="Internal_APIs"><strong>Internal APIs</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
   
-    <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
+    
+<p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
     there have been many changes at the detail level and they are not binary
     compatible. Developers of custom components that interact with Tomcat's
     internals should review the JavaDoc for the relevant API. Of particular note
     are:</p>
-    <ul>
-      <li>Use of generics.</li>
-      <li>A standard implementation of the Lifecycle interface that all
+    
+<ul>
+      
+<li>Use of generics.</li>
+      
+<li>A standard implementation of the Lifecycle interface that all
       components extend.</li>
-      <li>The use of Context name rather than Context path as the unique
+      
+<li>The use of Context name rather than Context path as the unique
       identifier for a Context within a Host.</li>
-    </ul>
+    
+</ul>
 
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
+
 
 </blockquote>
 </p>
@@ -1567,28 +1487,21 @@ accordingly.</p>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Upgrading 7.0.x">
-<!--()-->
-</a>
-<a name="Upgrading_7.0.x">
-<strong>Upgrading 7.0.x</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Upgrading 7.0.x">
+<!--()--></a><a name="Upgrading_7.0.x"><strong>Upgrading 7.0.x</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <p>
 <blockquote>
-  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+  
+<p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
   another, particularly when using separate locations for $CATALINA_HOME and
   $CATALINA_BASE, it is necessary to ensure that any changes in the
   configuration files such as new attributes and changes to defaults are applied
@@ -1596,28 +1509,23 @@ accordingly.</p>
   the form below may be used to view the differences between the configuration
   files in different versions of Tomcat 7.</p>
   
-  <table border="0" cellspacing="0" cellpadding="2" width="100%">
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6">
-<font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="Tomcat 7.0.x configuration file differences">
-<!--()-->
-</a>
-<a name="Tomcat_7.0.x_configuration_file_differences">
-<strong>Tomcat 7.0.x configuration file differences</strong>
-</a>
-</font>
-</td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 7.0.x configuration file differences">
+<!--()--></a><a name="Tomcat_7.0.x_configuration_file_differences"><strong>Tomcat 7.0.x configuration file differences</strong></a></font></td>
 </tr>
 <tr>
 <td>
 <blockquote>
 
-    <p>Select a configuration file, old version and new version from the boxes
+    
+<p>Select a configuration file, old version and new version from the boxes
     below and then click "View differences" to see the differences.
     The differences will be shown in a new tab/window.</p>
 
-    <script type="text/javascript" language="JavaScript">
+    
+<script type="text/javascript" language="JavaScript">
       function updateTc7ActionUrl() {
         var revisions = {
           "HEAD":"HEAD",
@@ -1647,8 +1555,10 @@ accordingly.</p>
       }
     </script>
 
-    <form id="tc7Select" action="not-used">
-    <p>Configuration file:
+    
+<form id="tc7Select" action="not-used">
+    
+<p>Configuration file:
     <select name="filename">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
@@ -1658,8 +1568,10 @@ accordingly.</p>
     <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
     <option value="conf/web.xml">web.xml</option>
     </select>
-    </p>
-    <p>Old version:
+    
+</p>
+    
+<p>Old version:
     <select name="r1">
     <option value="7.0.0">7.0.0</option>
     <option value="7.0.2">7.0.2</option>
@@ -1674,7 +1586,7 @@ accordingly.</p>
     <option value="7.0.16">7.0.16</option>
     <option value="7.0.19">7.0.19</option>
     <option value="7.0.20">7.0.20</option>
-    <option value="7.0.21" selected="selected">7.0.21</option>
+    <option value="7.0.21" selected>7.0.21</option>
     <option value="7.0.22">7.0.22</option>
     </select>, new version:
     <select name="r2">
@@ -1692,41 +1604,51 @@ accordingly.</p>
     <option value="7.0.19">7.0.19</option>
     <option value="7.0.20">7.0.20</option>
     <option value="7.0.21">7.0.21</option>
-    <option value="7.0.22" selected="selected">7.0.22</option>
+    <option value="7.0.22" selected>7.0.22</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select>
-    </p>
-    </form>
-    <form id="tc7Submit" action="to-be-replaced" method="get" target="_blank">
-    <p>
-    <input type="hidden" name="diff_format" value="h"/>
-    <input type="hidden" name="r1"/>
-<input type="hidden" name="r2"/>
-    <input type="submit" value="View Differences" onClick="return updateTc7ActionUrl();"/>
-    </p>
-    </form>
-    <p>You can also use Subversion command similar to the following (all on one line):</p>
-    <pre>  svn diff
+    
+</p>
+    
+</form>
+    
+<form id="tc7Submit" action="to-be-replaced" method="get" target="_blank">
+    
+<p>
+    
+<input type="hidden" name="diff_format" value="h">
+    <input type="hidden" name="r1"><input type="hidden" name="r2">
+    <input type="submit" value="View Differences" onClick="return updateTc7ActionUrl();">
+    
+</p>
+    
+</form>
+    
+<p>You can also use Subversion command similar to the following (all on one line):</p>
+    
+<pre>  svn diff
     --old=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_21/conf/
     --new=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_22/conf/
     </pre>
-  </blockquote>
+  
+</blockquote>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
   
+
 </blockquote>
 </p>
 </td>
 </tr>
 <tr>
 <td>
-<br/>
+<br>
 </td>
 </tr>
 </table>
@@ -1735,21 +1657,19 @@ accordingly.</p>
 <!--FOOTER SEPARATOR-->
 <tr>
 <td colspan="2">
-<hr noshade="" size="1"/>
+<hr noshade size="1">
 </td>
 </tr>
 <!--PAGE FOOTER-->
 <tr>
 <td colspan="2">
 <div align="center">
-<font color="#525D76" size="-1">
-<em>
-        Copyright © 1999-2011, The Apache Software Foundation
-        <br/>
+<font color="#525D76" size="-1"><em>
+        Copyright &copy; 1999-2011, The Apache Software Foundation
+        <br>
         Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
         project logo are trademarks of the Apache Software Foundation.
-        </em>
-</font>
+        </em></font>
 </div>
 </td>
 </tr>
