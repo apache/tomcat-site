@@ -195,6 +195,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.22">Fixed in Apache Tomcat 7.0.22</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.21">Fixed in Apache Tomcat 7.0.21</a>
 </li>
 <li>
@@ -293,6 +296,54 @@
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
 
+  
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Fixed in Apache Tomcat 7.0.22">
+<!--()--></a><a name="Fixed_in_Apache_Tomcat_7.0.22"><strong>Fixed in Apache Tomcat 7.0.22</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>released 1 Oct 2011</strong></font></td>
+</tr>
+<tr>
+<td colspan="2">
+<p>
+<blockquote>
+
+    
+<p>
+<strong>Low: Privilege Escalation</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3376" rel="nofollow">CVE-2011-3376</a>
+</p>
+
+    
+<p>This issue only affects environments running web applications that are
+       not trusted (e.g. shared hosting environments). The Servlets that
+       implement the functionality of the Manager application that ships with
+       Apache Tomcat should only be available to Contexts (web applications)
+       that are marked as privileged. However, this check was not being made.
+       This allowed an untrusted web application to use the functionality of the
+       Manager application. This could be used to obtain information on running
+       web applications as well as deploying additional web applications.
+    </p>
+
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1176588">revision 1176588</a>.</p>
+
+    
+<p>This was identified by Ate Douma on 27 September 2011 and made public
+       on 8 November 2011.</p>
+
+    
+<p>Affects: 7.0.0-7.0.21</p>
+  
   
 </blockquote>
 </p>

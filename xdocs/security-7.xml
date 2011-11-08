@@ -50,6 +50,30 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.22" rtext="released 1 Oct 2011">
+
+    <p><strong>Low: Privilege Escalation</strong>
+       <cve>CVE-2011-3376</cve></p>
+
+    <p>This issue only affects environments running web applications that are
+       not trusted (e.g. shared hosting environments). The Servlets that
+       implement the functionality of the Manager application that ships with
+       Apache Tomcat should only be available to Contexts (web applications)
+       that are marked as privileged. However, this check was not being made.
+       This allowed an untrusted web application to use the functionality of the
+       Manager application. This could be used to obtain information on running
+       web applications as well as deploying additional web applications.
+    </p>
+
+    <p>This was fixed in <revlink rev="1176588">revision 1176588</revlink>.</p>
+
+    <p>This was identified by Ate Douma on 27 September 2011 and made public
+       on 8 November 2011.</p>
+
+    <p>Affects: 7.0.0-7.0.21</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.21" rtext="released 1 Sep 2011">
 
     <p><strong>Important: Authentication bypass and information disclosure
