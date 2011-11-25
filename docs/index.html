@@ -230,8 +230,8 @@ project logo are trademarks of the Apache Software Foundation.</p>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 7.0.22 Released">
-<!--()--></a><a name="Tomcat_7.0.22_Released"><strong>Tomcat 7.0.22 Released</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2011-10-01</strong></font></td>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 7.0.23 Released">
+<!--()--></a><a name="Tomcat_7.0.23_Released"><strong>Tomcat 7.0.23 Released</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2011-11-25</strong></font></td>
 </tr>
 <tr>
 <td colspan="2">
@@ -239,19 +239,23 @@ project logo are trademarks of the Apache Software Foundation.</p>
 <blockquote>
 
 <p>
-The Apache Tomcat Project is proud to announce the release of version 7.0.22 of
-Apache Tomcat. This release includes bug fixes and new features compared to
-version 7.0.21 including:
+The Apache Tomcat Project is proud to announce the release of version 7.0.23 of
+Apache Tomcat. This release includes numerous bug fixes and several new features
+compared to version 7.0.22. The notable new features include:
 <ul>
 
-<li>Further improvements to the memory leak detection and prevention
-    features.</li>
+<li>The ability to start and stop child containers (primarily Contexts - i.e.
+    web applications) in parallel which can significantly improve start times.
+    This is disabled by default but can be enabled by setting the
+    <code>startStopThreads</code> attribute of a <strong>Host</strong> to a
+    value greater than one.</li>
 
-<li>Fix issue that prevented using SSL with the HTTP BIO connector and Java 7.
-    </li>
+<li>Cache the results of parsing the global and host level context.xml files to
+    improve start times.</li>
 
-<li>Add support for controlling which session attributes are replicated when
-    using session replication (a.k.a clustering).</li>
+<li>Improve the handling of failed deployments so that a broken application
+    can be fixed (e.g. via JMX) and another attempt made to start it rather than
+    it having to be removed.</li>
 
 </ul>
 Full details of these changes, and all the other changes, are available in the
@@ -262,7 +266,7 @@ Full details of these changes, and all the other changes, are available in the
 <p align="center">
 
 <a href="download-70.cgi">Download</a> |
-<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.22</a>
+<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.23</a>
 
 </p>
 
