@@ -23,10 +23,13 @@ wide variety of reasons, and almost all of them do this on their own time.</p>
 due to misconfiguration, problems caused by installed applications, the
 operating system, etc.</p>
 
-<ul>
-<b>Before reporting a bug please make every effort to resolve the problem
-yourself.</b>
-</ul>
+<div style="margin-left: 2em">
+  <p><b>Before reporting a bug please make every effort to resolve the problem
+  yourself.</b></p>
+
+  <p>If you need help, ask on the <b>users</b>
+   <a href="lists.html">mailing list</a>.</p>
+</div>
 
 <p>The remainder of this document points you toward resources you can use to
 resolve the problem you are having.
@@ -58,7 +61,7 @@ resolve the problem you are having.
 <p>Here are some resources you can use to help you resolve the
 problem you are having before reporting a bug.</p>
 
-  <subsection name="Problem trouble shooting">
+  <subsection name="Problem troubleshooting">
     <p>
     <li><b>Documentation</b> &#x2013; Review the documentation for the version
       of Apache Tomcat that you are using.  The problem that you are
@@ -67,46 +70,35 @@ problem you are having before reporting a bug.</p>
     <li><b>Logs</b> &#x2013; The logs which Apache Tomcat generates can be a valuable
       resource when trying to diagnose a problem.  Please review them.
       You may want to enable debug output in your Apache Tomcat configuration
-      so that you have more information to help diagnose the problem.</li>
+      so that you have more information to help diagnose the problem.
+      You may want to configure an Access Log (a valve) to log what requests
+      reached Tomcat and what was Tomcat's response to them.
+    </li>
+    <li><b>Wiki</b> &#x2013; Search the
+      <a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>.
+      That is unofficial documentation to which everyone can contribute.
+    </li>
     <li><b>FAQ's</b> &#x2013; Search the <a href="http://wiki.apache.org/tomcat/FAQ">
-      Tomcat Frequently Asked Questions</a>.</li>
+      Tomcat Frequently Asked Questions</a> that is part of the Wiki.</li>
     </p>
   </subsection>
 
   <subsection name="Apache Tomcat discussion lists">
     <p>It is very likely you are not the first to run into a problem.
-      Others may have already found a solution.  The <b>tomcat-users</b>,
-      <b>taglibs-user</b> or <b>tomcat-dev</b> list archives may contain
-      discussions which will help you resolve the problem.
+      Others may have already found a solution. The mailing list archives may
+      contain discussions which will help you resolve the problem.
     </p>
     <p>See the <a href="lists.html">mailing lists</a> page for the further
     information on the lists.</p>
+    <p>See also the <a href="findhelp.html">Find help</a> page.</p>
   </subsection>
 
-  <subsection name="Apache Tomcat on IRC">
-    <p>An <a href="irc.html">IRC channel</a> dedicated to Apache Tomcat
-    exists on Freenode.net.</p>
-  </subsection>
-
-  <subsection name="Bug Database">
-    <p>Please <a href="https://issues.apache.org/bugzilla/query.cgi?product=Tomcat%205&amp;product=Tomcat%206&amp;product=Tomcat%207&amp;product=Tomcat%20Connectors&amp;product=Tomcat%20Native">search
-      the bug database</a> to see if the bug you are
-      seeing has already been reported.
+  <subsection name="Known issues">
+    <p>Please search the bug database to see if the bug you are seeing has
+       already been reported. Please look at the changelog page for the bugs
+       that have already been fixed. The changelogs for not-yet-released
+       versions of Tomcat are also available. More details are below.
     </p>
-    <ul>
-      <li>The bug may have already been fixed and is available in a later
-      version or nightly build.</li>
-      <li>Someone else may have reported the bug, you could add supporting
-      information to help reproduce and resolve the bug.</li>
-    </ul>
-    <p>Supported Tomcat projects:</p>
-    <ul>
-      <li><b>Tomcat 7</b>, <b>Tomcat 6</b> and <b>Tomcat 5</b> &#x2013; Tomcat 7.0.x,
-      6.0.x and 5.5.x, respectively</li>
-      <li><b>Tomcat Connectors</b> &#x2013; Integration of Tomcat with other Web servers</li>
-      <li><b>Tomcat Native</b> &#x2013; APR based native HTTP and AJP connectors for Tomcat</li>
-      <li><b>Taglibs</b> &#x2013; Apache <a href="/taglibs/">Taglibs</a></li>
-    </ul>
   </subsection>
 
   <subsection name="Recent version">
@@ -116,134 +108,315 @@ problem you are having before reporting a bug.</p>
   </subsection>
 </section>
 
-<section name="Recently fixed issues">
+<section name="Looking for known issues">
 
-    <p>The <em>Changelog</em> pages list the problems fixed in released
-    versions of Tomcat. They can be found in Documentation:</p>
+  <subsection name="Search the bug database">
+    <p>Please search the bug database to see if the bug you are
+      seeing has already been reported.
+    </p>
+    <ul>
+      <li>The bug may have already been fixed and is available in a later
+      version or nightly build.</li>
+      <li>Someone else may have reported the bug, you could add supporting
+      information to help reproduce and resolve the bug.</li>
+    </ul>
+    <p>The search page is
+      <a href="https://issues.apache.org/bugzilla/query.cgi">here</a>.
+      There is also
+      <a href="https://issues.apache.org/bugzilla/query.cgi?format=advanced">advanced</a>
+      search page.
+    </p>
+    <p>Here are some search tips.</p>
+    <ol>
+      <li><p>Search for closed bugs as well as for the open ones.</p>
+        <p>On the advanced search page you can clear the "Status" field to
+        avoid filtering by status.</p>
+      </li>
+      <li><p>Select across different versions of Tomcat.</p>
+        <p>In the bug database Tomcat is represented by several "products".
+        The same problem should be reported only once, but while the fix is
+        being applied to different Tomcat versions the same bug report is moved
+        between different products.</p>
+
+        <p>So a bug that is originally reported against Tomcat 7 is usually
+        moved to Tomcat 6 and later to Tomcat 5, to apply the fix to those
+        version as well.</p>
+
+        <p>Here is a quick list of supported products:</p>
+        <ul>
+         <li><b>Tomcat 7</b>, <b>Tomcat 6</b> and <b>Tomcat 5</b> &#x2013; Tomcat 7.0.x,
+          6.0.x and 5.5.x</li>
+         <li><b>Tomcat Connectors</b> &#x2013; Integration of Tomcat with other Web servers</li>
+         <li><b>Tomcat Native</b> &#x2013; APR based native HTTP and AJP connectors for Tomcat</li>
+         <li><b>Tomcat Modules</b> &#x2013; Additional Tomcat components</li>
+         <li><b>Taglibs</b> &#x2013; Apache <a href="/taglibs/">Taglibs</a> subproject</li>
+       </ul>
+
+      </li>
+      <li><p>Search not only Summary field, but also the Comment one</p>
+        <p>On the advanced search page open "Detailed Bug Information",
+          then type your query into the "Comment" field.
+        </p>
+      </li>
+      <li><p>You can limit results to the issues that were changed recently.</p>
+        <p>On the advanced search page open "Search by Change History",
+        then type "<code>-2m</code>" into the first field in the pair of
+        "between" fields to limit results to the issues changed in the last
+        2 months.</p>
+      </li>
+      <li><p>Some bugs do not belong to Tomcat.</p>
+        <p>Tomcat bundles libraries from several other projects. You can see
+        README file in your distribution for details. More details are
+        in a separate section below.</p>
+      </li>
+    </ol>
+  </subsection>
+
+  <subsection name="Changelog">
+
+    <p>If you are looking for the recently fixed issues there are several
+       places to look at.</p>
 
     <ul>
-      <li>
-        <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">Tomcat 7.0</a>
+      <li><p>Changelog files for released versions</p>
+        <p>These are published on the Tomcat website.</p>
       </li>
-      <li>
-        <a href="http://tomcat.apache.org/tomcat-6.0-doc/changelog.html">Tomcat 6.0</a>
+      <li><p>Changelog files for <em>not-yet-released</em> versions</p>
+        <p>These are available in the source code.</p>
+        <p>They are in XML format with style sheets attached. Thus
+          modern web browsers can display them nicely.</p>
+        <p>The files are also available in nightly documentation builds.
+          See <a href="ci.html">Buildbot</a> page for details.</p>
       </li>
-      <li>
-        <a href="http://tomcat.apache.org/tomcat-5.5-doc/changelog.html">Tomcat 5.5</a>
-      </li>
-      <li>
-        <a href="http://tomcat.apache.org/connectors-doc/miscellaneous/changelog.html">Tomcat Connectors</a>
-      </li>
-      <li>
-        <a href="http://tomcat.apache.org/native-doc/miscellaneous/changelog.html">Tomcat Native</a>
+      <li><p>STATUS files for Tomcat 6 and 5.5</p>
+        <p>These are available in the source code. These files are
+          used in Review-Then-Commit development process to propose and then
+          vote for the proposed patches.</p>
       </li>
     </ul>
 
-    <p>The <em>Changelog</em> files for <em>not yet released versions</em> can be found
-    in the sources repository. Those files are in XML format, but if you are
-    using a fairly modern browser it will render them for you:</p>
+    <p>Links:</p>
 
+    <table class="detail-table">
+    <tr>
+      <th><strong>Product</strong></th>
+      <th><strong>Changelog (released)</strong></th>
+      <th><strong>Changelog (unreleased)</strong></th>
+      <th><strong>STATUS</strong></th>
+    </tr>
+
+    <tr>
+      <td>Tomcat 8.0 (trunk)</td>
+      <td><i>none</i></td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/changelog.xml">changelog.xml</a>
+      </td>
+      <td><i>none</i></td>
+    </tr>
+
+    <tr>
+      <td>Tomcat 7.0</td>
+      <td>
+        <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">changelog.html</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/tc7.0.x/trunk/webapps/docs/changelog.xml">changelog.xml</a>
+      </td>
+      <td><i>none</i></td>
+    </tr>
+
+    <tr>
+      <td>Tomcat 6.0</td>
+      <td>
+        <a href="http://tomcat.apache.org/tomcat-6.0-doc/changelog.html">changelog.html</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk/webapps/docs/changelog.xml">changelog.xml</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/STATUS.txt?view=markup">STATUS.txt</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Tomcat 5.5</td>
+      <td>
+        <a href="http://tomcat.apache.org/tomcat-5.5-doc/changelog.html">changelog.html</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/tc5.5.x/trunk/container/webapps/docs/changelog.xml">changelog.xml</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/viewvc/tomcat/tc5.5.x/trunk/STATUS.txt?view=markup">STATUS.txt</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Tomcat Connectors</td>
+      <td>
+        <a href="http://tomcat.apache.org/connectors-doc/miscellaneous/changelog.html">changelog.html</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/jk/trunk/xdocs/miscellaneous/changelog.xml">changelog.xml</a>
+      </td>
+      <td><i>none</i></td>
+    </tr>
+
+    <tr>
+      <td>Tomcat Native</td>
+      <td>
+        <a href="http://tomcat.apache.org/native-doc/miscellaneous/changelog.html">changelog.html</a>
+      </td>
+      <td>
+        <a href="http://svn.apache.org/repos/asf/tomcat/native/branches/1.1.x/xdocs/miscellaneous/changelog.xml">changelog.xml</a>
+      </td>
+      <td><i>none</i></td>
+    </tr>
+    </table>
+  </subsection>
+
+  <subsection name="Third party components">
+    <p>Tomcat bundles libraries from several other projects. See
+    RELEASE-NOTES and NOTICE files in your distribution for details. The
+    versions of the components that were used to build Tomcat are defined
+    in the <code>build.properties.default</code> file in the source
+    distribution.</p>
+
+    <p>Notable components are:</p>
     <ul>
-      <li><a href="http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/changelog.xml">Tomcat 8.0 (trunk)</a></li>
-      <li><a href="http://svn.apache.org/repos/asf/tomcat/tc7.0.x/trunk/webapps/docs/changelog.xml">Tomcat 7.0</a></li>
-      <li><a href="http://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk/webapps/docs/changelog.xml">Tomcat 6.0</a></li>
-      <li><a href="http://svn.apache.org/repos/asf/tomcat/tc5.5.x/trunk/container/webapps/docs/changelog.xml">Tomcat 5.5</a></li>
-    </ul>
-
-    <p>The <em>Status</em> files are used by committers to review and vote for
-    the patches that are proposed for the versions of Tomcat that use
-    review-then-commit development policy. The issues
-    mentioned there already have patches, but have not yet gathered enough
-    votes for those to be applied:</p>
-
-    <ul>
-      <li>
-        <a href="http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/STATUS.txt?view=markup">Tomcat 6.0</a>,
-        <a href="http://svn.apache.org/viewvc/tomcat/tc5.5.x/trunk/STATUS.txt?view=markup">Tomcat 5.5</a>
+      <li><p>Tomcat service launcher &#x2013;
+          <code>commons-daemon-*</code>, <code>tomcatN.exe</code>,
+          <code>tomcatNw.exe</code>
+        </p>
+        <p>The service launcher is provided by
+          <a href="http://commons.apache.org/daemon/">Apache Commons Daemon</a>
+          project.</p>
+        <p>Using the terminology from that project, the *nixes launcher is
+          called <code>jsvc</code> and the Windows launcher is called
+         <code>procrun</code>. The <code>tomcatN.exe</code> and
+         <code>tomcatNw.exe</code> programs in Tomcat distributions
+         are just renamed <code>prunsrv.exe</code> and <code>prunmgr.exe</code>
+         from Apache Commons Daemon binaries distribution.
+      </p>
       </li>
-    </ul>
+
+      <li><p>DBCP Database Pool implementation &#x2013;
+          <code>tomcat-dbcp.jar</code>.
+        </p>
+        <p>This pool implementation is provided by
+          <a href="http://commons.apache.org/pool/">Apache Commons Pool</a>
+          and
+          <a href="http://commons.apache.org/dbcp/">Apache Commons DBCP</a>
+          projects.</p>
+        <p>The classes from these two projects are renamed into a different
+          package, to avoid conflicts if the same libraries are used by web
+          applications, recompiled and packed into a single JAR file.</p></li>
+
+      <li><p>JDBC Database Pool implementation &#x2013;
+          <code>tomcat-jdbc.jar</code>.
+        </p>
+        <p>This pool implementation is available with Tomcat 7 and
+          it comes from <b>jdbc-pool</b> project that
+          is part of <b>Tomcat Modules</b>.
+          This library is developed alongside the main Tomcat.
+        </p>
+      </li>
+
+      <li><p>Tomcat
+        <a href="http://tomcat.apache.org/maven-plugin.html">Maven plugin</a>
+        subproject tracks its issues in
+        <a href="https://issues.apache.org/jira/browse/MTOMCAT">JIRA database</a>.
+        </p>
+       </li>
+
+<!-- Maybe mention these later. I am not sure about wording.
+       <li><p>Tomcat redistributions by various Linux vendors</p>
+         <p>Some of them provide notably outdated versions of Apache Tomcat.</p>
+       </li>
+ -->
+     </ul>
+  </subsection>
+
 </section>
 
 <section name="Reporting Apache Tomcat bugs">
 <p>Please make sure the problem is a bug in Apache Tomcat and not a
 bug in your web application.</p>
-
-<p>
-Report an Apache Tomcat 7 bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%207">
-here</a>.<br />
-Report an Apache Tomcat 6 bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%206">
-here</a>.<br />
-Report an Apache Tomcat 5 bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%205">
-here</a>.<br />
-Report an Apache Tomcat Connectors bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%20Connectors">
-here</a>.<br />
-Report an Apache Tomcat Native bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Tomcat%20Native">
-here</a>.<br />
-Report an Apache Taglibs bug
-<a href="https://issues.apache.org/bugzilla/enter_bug.cgi?product=Taglibs">
-here</a>.<br />
-</p>
+<p>Note, that <a href="security.html">security-related</a> issues should
+<b>not</b> be reported through Bugzilla.</p>
 
   <subsection name="How to write a bug report">
   <p>Please provide as much information as possible. It is
     very hard to fix a bug if the person looking into the problem cannot
-    reproduce it.
-  </p>
-
-  <p>See also
+    reproduce it. See also
     <a href="https://issues.apache.org/bugzilla/page.cgi?id=bug-writing.html">Bug Writing Guidelines</a>.
   </p>
 
-  <p>You can include the following information in your bug report:</p>
+  <p>Bug submission starts
+    <a href="https://issues.apache.org/bugzilla/enter_bug.cgi">here</a>.
+    You have to include the following information in your bug report:</p>
   <ul>
-    <li>Attribution:
-      <ul>
-        <li><b>Version</b> &#x2013; Apache Tomcat version.<br />
-          Please not only select it from the list, but also mention it in
-          your text.</li>
-        <li><b>Component</b> &#x2013; The component which has the bug.<br />
-          If you do not know, just guess.</li>
-      </ul>
+    <li><p><b>Product</b>. Here is a list of supported products:</p>
+    <ul>
+     <li><b>Tomcat 7</b> &#x2013; Tomcat 7.0.x and tomcat.apache.org web site</li>
+     <li><b>Tomcat 6</b> &#x2013; Tomcat 6.0.x</li>
+     <li><b>Tomcat 5</b> &#x2013; Tomcat 5.5.x</li>
+     <li><b>Tomcat Connectors</b> &#x2013; Integration of Tomcat with other Web servers.
+       The <b>mod_jk</b> module for <a href="http://httpd.apache.org/">Apache HTTPD</a>
+       and other web servers.</li>
+     <li><b>Tomcat Native</b> &#x2013; HTTP and AJP connectors for Tomcat
+       using native code and linked with Apache APR and OpenSSL libraries</li>
+     <li><b>Tomcat Modules</b> &#x2013; Additional Tomcat components, such as <b>jdbc-pool</b></li>
+     <li><b>Taglibs</b> &#x2013; Apache <a href="/taglibs/">Taglibs</a> subproject</li>
+   </ul>
     </li>
-    <li>Environment details:
+    <li><p><b>Version</b> &#x2013; Apache Tomcat version.</p>
+      <p>Please not only select it from the list, but also mention it in
+      your text. The bug description can be updated, so it is important
+      to mention the version in the text as well.
+      </p></li>
+    <li><p><b>Component</b> &#x2013; The component which has the bug.</p>
+      <p>If you do not know, just guess.</p></li>
+    <li><p><b>Platform</b> and <b>OS</b> &#x2013; Hardware platform and
+      operating system Tomcat is running on.</p></li>
+    <li><p><b>Severity</b> &#x2013; This is <code>normal</code> for usual
+      bug reports and <code>enhancement</code> for enhancement requests.</p>
+      <p>If you tend to mark it as <code>critical</code>, you are probably
+      doing it wrong. It is likely that the issue is already known and fixed,
+      or it is not an issue at all.</p>
+    </li>
+    <li><p>Configuration details</p>
+      <p>Please mention these in your text:</p>
       <ul>
-        <li><b>Platform</b> and <b>OS</b> &#x2013; Hardware platform and
-          operating system Tomcat is running on.</li>
-        <li><b>Java version</b> &#x2013; Vendor and version of your Java
+        <li>Java version &#x2013; Vendor and version of your Java
           Runtime Environment used to run Tomcat.</li>
-        <li><b>Web Server</b> &#x2013; Web Server and version, Apache Tomcat
-          Connector that you are using, if you are running Tomcat behind
-          another web server, such as
-          <a href="http://httpd.apache.org/">Apache HTTP Server</a>.</li>
+        <li>If Tomcat is used behind
+          <a href="http://httpd.apache.org/">Apache HTTPD</a> or other web
+          server &#x2013; its version and how it is configured.</li>
+        <li>Tomcat Connector that is being used.
+          There are several implementations of Connectors in Tomcat.
+          Which one is being used is shown in the logs during Tomcat startup.
+        </li>
       </ul>
     </li>
-    <li>Configuration:
-      <ul>
-        <li>Attach configuration files if they would help to track down the
-          bug.</li>
-      </ul>
+    <li><p>Attachments</p>
+      <p>Attach configuration files and Tomcat log files if they would help
+         to track down the bug.</p>
     </li>
-    <li>Evidences:
-      <ul>
-        <li>Log file excerpts, stack traces, messages</li>
-      </ul>
+    <li><p>Reproducer</p>
+      <p>Please describe how to reproduce your problem on a clean Tomcat
+         installation.
+         If you can please provide a <b>simple</b> sample web application
+         that demonstrates the issue.
+      </p>
     </li>
   </ul>
-
-  <p>Please describe how to reproduce your problem on a clean Tomcat
-    installation.  It is easier to reproduce an issue if you can prepare a
-    sample simple web application that demonstrates it.</p>
   </subsection>
 
-  <subsection name="Patches and enhancement requests">
+  <subsection name="How to submit patches and enhancement requests">
   <p>Enhancement requests for Tomcat are submitted using the same procedure
     as bug reports, but in the <b>Severity</b> field you will select the value
-    "<em>enhancement</em>".
+    "<code>enhancement</code>".
   </p>
 
   <p>To propose a patch, attach it to a Bugzilla issue. Any patches are welcome,
@@ -256,13 +429,27 @@ here</a>.<br />
   <p>When providing a patch, please mention to which version of the sources it
     applies.</p>
 
-  <p>The following references may be useful:</p>
+  <p>Here are some references:</p>
   <ul>
-    <li>Tomcat <a href="svn.html">SVN repository structure</a></li>
-    <li>BUILDING.txt in your version of Tomcat</li>
-    <li>General <a href="http://www.apache.org/dev/version-control.html#anon-svn">Apache
-      guidance for Subversion</a></li>
-    <li><a href="http://svnbook.red-bean.com/">the Subversion Book</a></li>
+    <li><p>Regarding Apache Tomcat:</p>
+      <ul>
+        <li><a href="svn.html">Subversion repository structure</a> of Apache Tomcat</li>
+        <li>Read BUILDING.txt in the source distribution</li>
+      </ul>
+    </li>
+    <li><p>Apache Software Foundation guildelines:</p>
+      <ul>
+        <li>General <a href="http://www.apache.org/dev/version-control.html#anon-svn">Apache
+        guidance for Subversion</a></li>
+        <li>Sending in Patches chapter of
+        <a href="http://www.apache.org/dev/contributors.html#patches">Contributors Tech Guide</a></li>
+      </ul>
+    </li>
+    <li><p>General Subversion documentation:</p>
+      <ul>
+        <li>The <a href="http://svnbook.red-bean.com/index.en.html">Subversion Book</a></li>
+      </ul>
+    </li>
   </ul>
   </subsection>
 
