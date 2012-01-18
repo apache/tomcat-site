@@ -201,7 +201,10 @@
 <a href="#Java_6_required">Java 6 required</a>
 </li>
 <li>
-<a href="#General_configuration">General configuration</a>
+<a href="#Servlet_3.0_API">Servlet 3.0 API</a>
+</li>
+<li>
+<a href="#Regular_expressions">Regular expressions</a>
 </li>
 <li>
 <a href="#Deployment">Deployment</a>
@@ -308,8 +311,8 @@ of Apache Tomcat.</p>
 <blockquote>
 
     
-<p>Apache Tomcat 7.0.x requires Java 6. Apache Tomcat 6.0.x required Java
-    5.</p>
+<p>Apache Tomcat 7.0.x requires Java 6 or later. Apache Tomcat 6.0.x
+    required Java 5.</p>
 
   
 </blockquote>
@@ -325,8 +328,68 @@ of Apache Tomcat.</p>
   
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
-<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="General configuration">
-<!--()--></a><a name="General_configuration"><strong>General configuration</strong></a></font></td>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Servlet 3.0 API">
+<!--()--></a><a name="Servlet_3.0_API"><strong>Servlet 3.0 API</strong></a></font></td>
+</tr>
+<tr>
+<td>
+<blockquote>
+
+    
+<p>Apache Tomcat 7 supports Java Servlet 3.0, JavaServer Pages 2.2 and
+    Expression Language 2.2
+    <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
+    The changes between versions of specifications may be found in the
+    <em>Changes</em> appendix in each of specification documents.
+    </p>
+
+    
+<p>In JSP pages that use wildcard import syntax the new classes added in
+    Servlet API may conflict with ones in web applications.
+    For example, if package <code>"a"</code> contains class <code>Part</code>,
+    the following JSP page will cease to compile in Tomcat 7:</p>
+
+    
+<div align="left">
+<table cellspacing="4" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1">
+<pre>
+&lt;%@page import="a.*"%&gt;
+&lt;% Part page = new Part(); %&gt;</pre>
+</td><td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"></td>
+</tr>
+</table>
+</div>
+
+    
+<p>That happens because implicit import of <code>javax.servlet.http.*</code>
+    and explicit import of <code>a.*</code> will provide conflicting
+    definitions of class <code>Part</code> that was added in Servlet 3.0.
+    The solution is to use explicit import, <code>import="a.Part"</code>.</p>
+
+  
+</blockquote>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
+</tr>
+</table>
+
+  
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Regular expressions">
+<!--()--></a><a name="Regular_expressions"><strong>Regular expressions</strong></a></font></td>
 </tr>
 <tr>
 <td>
@@ -367,6 +430,11 @@ of Apache Tomcat.</p>
         <a href="/tomcat-7.0-doc/config/http.html">HTTP connectors</a>.</li>
     
 </ul>
+
+    
+<p>Note that separate regular expressions can be concatenated using the
+     "<code>|</code>" operator (or). Using "<code>|</code>" works both in this
+     and in earlier Tomcat versions.</p>
 
   
 </blockquote>
@@ -439,26 +507,27 @@ of Apache Tomcat.</p>
 
     
 <p>The roles required to use the Manager application were changed from the
-    single <tt>manager</tt> role to the following four roles. You will need to
+    single <code>manager</code> role to the following four roles. You will need to
     assign the role(s) required for the functionality you wish to access.</p>
     
     
 <ul>
       
 <li>
-<tt>manager-gui</tt> - allows access to the HTML GUI and the status
-          pages</li>
+<code>manager-gui</code> - allows access to the HTML GUI
+          and the status pages</li>
       
 <li>
-<tt>manager-script</tt> - allows access to the text interface and the
-          status pages</li>
+<code>manager-script</code> - allows access to the text interface
+          and the status pages</li>
       
 <li>
-<tt>manager-jmx</tt> - allows access to the JMX proxy and the status
-          pages</li>
+<code>manager-jmx</code> - allows access to the JMX proxy
+          and the status pages</li>
       
 <li>
-<tt>manager-status</tt> - allows access to the status pages only</li>
+<code>manager-status</code> - allows access to
+          the status pages only</li>
     
 </ul>
 
@@ -472,9 +541,11 @@ of Apache Tomcat.</p>
 <li>users with the <tt>manager-gui</tt> role should not be granted
           either the <tt>manager-script</tt> or <tt>manager-jmx</tt> roles.</li>
       
-<li>if the text or jmx interfaces are accessed through a browser (e.g. for
-          testing since these interfaces are intended for tools not humans) then
-          the browser must be closed afterwards to terminate the session.</li>
+<li>if the Manager application is accessed through a browser by a user
+          who has <tt>manager-script</tt> or <tt>manager-jmx</tt> roles
+          (e.g. for testing the text or jmx interfaces since these interfaces
+          are intended for tools not humans) then all browser windows
+          must be closed afterwards to terminate the session.</li>
     
 </ul>
 
@@ -524,19 +595,19 @@ of Apache Tomcat.</p>
 
     
 <p>The roles required to use the Host Manager application were changed from
-    the single <tt>admin</tt> role to the following two roles. You will need to
+    the single <code>admin</code> role to the following two roles. You will need to
     assign the role(s) required for the functionality you wish to access.</p>
     
     
 <ul>
       
 <li>
-<tt>admin-gui</tt> - allows access to the HTML GUI and the status
-          pages</li>
+<code>admin-gui</code> - allows access to the HTML GUI
+          and the status pages</li>
       
 <li>
-<tt>admin-script</tt> - allows access to the text interface and the
-          status pages</li>
+<code>admin-script</code> - allows access to the text interface
+          and the status pages</li>
     
 </ul>
 
@@ -550,8 +621,10 @@ of Apache Tomcat.</p>
 <li>users with the <tt>admin-gui</tt> role should not be granted the
           <tt>admin-script</tt> role.</li>
       
-<li>if the text interface is accessed through a browser (e.g. for testing
-          since this inteface is intended for tools not humans) then the browser
+<li>if the Host Manager application is accessed through a browser
+          by a user who has <tt>admin-script</tt> role (e.g. for testing
+          the text interface since this inteface is intended for tools
+          not humans) then all browser windows
           must be closed afterwards to terminate the session.</li>
     
 </ul>
@@ -587,17 +660,18 @@ of Apache Tomcat.</p>
 <ul>
       
 <li>
-<tt>randomClass</tt> has changed to <tt>secureRandomClass</tt> and
-      the provided class must extend <code>java.secure.SecureRandom</code>
+<code>randomClass</code> attribute of <strong>Manager</strong>
+      has changed to <code>secureRandomClass</code> and the provided class
+      must extend <code>java.secure.SecureRandom</code>
 </li>
       
-<li>Two new properties <tt>secureRandomAlgoithm</tt> and
-      <tt>secureRandomProvider</tt> have been added to enable the selection of
-      a SecureRandom implementation.</li>
+<li>Two new properties <code>secureRandomAlgoithm</code> and
+      <code>secureRandomProvider</code> have been added to enable the selection
+      of a SecureRandom implementation.</li>
       
-<li>The <tt>algorithm</tt> attribute has been removed</li>
+<li>The <code>algorithm</code> attribute has been removed</li>
       
-<li>The <tt>entropy</tt> attribute has been removed</li>
+<li>The <code>entropy</code> attribute has been removed</li>
     
 </ul>
   
@@ -653,15 +727,19 @@ of Apache Tomcat.</p>
 <strong>Context</strong><code>.disableURLRewriting</code>: This has
       been removed. An equivalent effect can be obtained by configuring the
       <code>session-config/tracking-mode</code> elements in a web application
-      or in the global <conf>CATALINA_BASE/conf/web.xml</conf> file.</li>
+      or in the global <code>CATALINA_BASE/conf/web.xml</code> file.</li>
     
 </ul>
 
     
 <p>The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
     flag by default, to instruct browsers to prevent access to those cookies
-    from JavaScript.
-    (This can be enabled in Tomcat 6.0 and 5.5 by setting
+    from JavaScript. This is considered more secure, but it will prevent
+    JavaScripts from accessing the value of the cookie.
+    This feature can be controlled by <code>useHttpOnly</code> attribute
+    on the <strong>Context</strong> element.
+    (This feature is also implemented in latest versions of Tomcat 6.0 and 5.5,
+    but is off by default. It can be enabled by setting
     <code>useHttpOnly="true"</code> on <strong>Context</strong> element in
     a web application or in the global
     <code>CATALINA_BASE/conf/context.xml</code> file).</p>
@@ -685,13 +763,13 @@ of Apache Tomcat.</p>
 <tr>
 <td>
 <blockquote>
-  
+
     
-<p>Tomcat no longer accepts non-specification compliant name only cookies by
+<p>Tomcat no longer accepts non-specification compliant name-only cookies by
     default. However, a new system property has been added,
     <code>org.apache.tomcat.util.http.ServerCookie.ALLOW_NAME_ONLY</code>, that
-    can be used to accept name only cookies.</p>
-  
+    can be used to accept name-only cookies.</p>
+
   
 </blockquote>
 </td>
@@ -716,8 +794,9 @@ of Apache Tomcat.</p>
     
 <p>The custom request attribute
     <code>javax.servlet.request.ssl_session</code> provided to access the SSL
-    session ID has been deprecated in favour of the new, specification defined
-    request attribute <code>javax.servlet.request.ssl_session_id</code>. Support
+    session ID has been deprecated in favour of the new standard request
+    attribute that is defined in the Servlet specification,
+    <code>javax.servlet.request.ssl_session_id</code>. Support
     for the custom attribute will be removed in Tomcat 8.</p>
     
   
@@ -743,10 +822,10 @@ of Apache Tomcat.</p>
     
 <p>To enable Comet to work correctly when running under a security manager,
     the Comet classes have been moved from the <code>org.apache.catalina</code>
-    package to the <code>org.apache.catalina.comet</code> package. Code using
-    Comet will need to be updated and recompiled to reflect the new package
-    name.</p>
-    
+    package to the <code>org.apache.catalina.comet</code> package. Code that
+    uses Comet will need to be updated and recompiled to reflect the new
+    package name.</p>
+
   
 </blockquote>
 </td>
@@ -771,9 +850,9 @@ of Apache Tomcat.</p>
     
 <p>The configuration of XML validation has been simplified. The
     <code>xmlValidation</code> and <code>xmlNamespaceAware</code> attributes
-    have been removed from the <code>&lt;Host&gt;</code> element. These
+    have been removed from the <strong>Host</strong> element. These
     attributes, along with <code>tldValidation</code> and
-    <code>tldNamespaceAware</code>, are now set per <code>&lt;Context&gt;</code>
+    <code>tldNamespaceAware</code>, are now set per <strong>Context</strong>
     element. The defaults (<code>false</code> for each attribute) have not been
     changed. However, in line with the requirements of the Servlet
     specification, if the
@@ -816,7 +895,8 @@ of Apache Tomcat.</p>
 
     
 <p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
-    is replaced by the maxTrailerSize attribute of the Connector.</p>
+    is replaced by the maxTrailerSize attribute of the
+    <strong>Connector</strong>.</p>
 
   
 </blockquote>
@@ -843,15 +923,17 @@ of Apache Tomcat.</p>
 <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
     there have been many changes at the detail level and they are not binary
     compatible. Developers of custom components that interact with Tomcat's
-    internals should review the JavaDoc for the relevant API. Of particular note
-    are:</p>
+    internals should review the JavaDoc for the relevant API.</p>
+
+    
+<p>Of particular note are:</p>
     
 <ul>
       
-<li>Use of generics.</li>
-      
 <li>A standard implementation of the Lifecycle interface that all
       components extend.</li>
+      
+<li>Use of generics.</li>
       
 <li>The use of Context name rather than Context path as the unique
       identifier for a Context within a Host.</li>
