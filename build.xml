@@ -26,12 +26,20 @@
                 destdir="${docs.dest}"
                 extension=".html"
                 style="${docs.src}/stylesheets/tomcat-site.xsl"
-                excludes="project.xml"
+                excludes="project.xml,sitemap.xml,sitemap-main.xml"
                 includes="*.xml"
         	    force="${force}">
             <param name="relative-path" expression="."/>
         </xslt>
 
+        <!-- Copy static sitemap files -->
+        <echo message="Copying sitemap files..." />
+        <copy todir="${docs.dest}" filtering="no" overwrite="${force}">
+            <fileset dir="${docs.src}">
+                <include name="sitemap*.xml"/>
+            </fileset>
+        </copy>
+    		
         <!-- Copy static resource files -->
         <echo message="Copying static resource files..." />
         <copy todir="${docs.dest}/images" filtering="no" overwrite="${force}">
