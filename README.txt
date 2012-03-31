@@ -43,26 +43,29 @@ svn up
 
 to have the changes reflected on the Tomcat web site.
 
+
+
+To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x
+
+1. Set the version numbers in build.properties.default
+2. cd into your tomcat-site directory and execute:
+   ant release
+3. Check in the changes. Remember there may be deleted / missing files.
+4. In the /www/tomcat.apache.org/ directory on people.a.o execute:
+   umask 002
+   svn up
+
+
+
+To update the documentation for Tomcat Native or the 
 Merging connectors documentation
 
-Tomcat Native and JK connector have their own documentation that
-needs to get updated on release. Beside updating release notes and
-download page that should reflect the current stable, it is needed
-to copy those documents as well.
-Currently this is manual procedure that involves copying connector
-documentation and modifying symbolic links
-
-When releasing Tomcat native create a new native-doc-x.y.z directory
-and upload the documentation created with calling ant inside
-native's xdoc directory.
-Once you have done that update the symlink to point to that new location.
-Inside  /www/tomcat.apache.org/ directory, execute:
-
-ln -sf native-doc-x.y.x native-doc
-
-Similar should be done for JK connector documentation with the exception
-that all symbolic link for the connectors-doc should point to the
-connectors-doc-x.y.z
-
-ln -sf connectors-doc-x.y.x connectors-doc
-
+1. Update the svn-external for tomcat-site to point to the correct revision.
+   This *must* match the tag for the latest released version.
+2. cd into your tomcat-site directory and execute:
+   svn up
+   ant release
+3. Check in the changes. Remember there may be deleted / missing files.
+4. In the /www/tomcat.apache.org/ directory on people.a.o execute:
+   umask 002
+   svn up
