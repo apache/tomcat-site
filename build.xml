@@ -120,13 +120,19 @@
 
     <!-- Copy the latest versions -->
     <copy todir="${docs.dest}/tomcat-5.5-doc" >
-      <fileset dir="${tomcat55.home}/tomcat-5.5-doc" />
+      <fileset dir="${tomcat55.home}/tomcat-5.5-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
     </copy>
     <copy todir="${docs.dest}/tomcat-6.0-doc" >
-      <fileset dir="${tomcat60.home}/tomcat-6.0-doc" />
+      <fileset dir="${tomcat60.home}/tomcat-6.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
     </copy>
     <copy todir="${docs.dest}/tomcat-7.0-doc" >
-      <fileset dir="${tomcat70.home}/tomcat-7.0-doc" />
+      <fileset dir="${tomcat70.home}/tomcat-7.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
     </copy>
 
     <!-- Update the JK connectors docs -->
