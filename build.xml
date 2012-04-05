@@ -86,66 +86,98 @@
 
   </target>
 
-  <target name="release"
+  <target name="release-5"
           depends="docs"
-          description="Used after a release to update the version specific docs">
+          description="Used after a release to update the docs for Tomcat 5.5">
 
-    <!-- NOTE: This task only updates the docs for the currently supported
-               versions. The older releases (3.2, 3.3, 4.0 & 4.1) will not
-               be updated. -->
-
-    <!-- Download the latest versions -->
+    <!-- Download the latest version -->
     <antcall target="downloadgz">
       <param name="sourcefile" value="${tomcat55.loc}"/>
       <param name="destfile" value="${tomcat55.home}/tomcat-5.5-doc/index.html"/>
       <param name="destdir" value="${tomcat55.home}"/>
     </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-5.5-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-5.5-doc" >
+      <fileset dir="${tomcat55.home}/tomcat-5.5-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="release-6"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 6.0">
+
+    <!-- Download the latest version -->
     <antcall target="downloadgz">
       <param name="sourcefile" value="${tomcat60.loc}"/>
       <param name="destfile" value="${tomcat60.home}/tomcat-6.0-doc/index.html"/>
       <param name="destdir" value="${tomcat60.home}"/>
     </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-6.0-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-6.0-doc" >
+      <fileset dir="${tomcat60.home}/tomcat-6.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="release-7"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 7.0">
+
+    <!-- Download the latest version -->
     <antcall target="downloadgz">
       <param name="sourcefile" value="${tomcat70.loc}"/>
       <param name="destfile" value="${tomcat70.home}/tomcat-7.0-doc/index.html"/>
       <param name="destdir" value="${tomcat70.home}"/>
     </antcall>
 
-    <!-- Delete the old versions -->
-    <delete dir="${docs.dest}/tomcat-5.5-doc"/>
-    <delete dir="${docs.dest}/tomcat-6.0-doc"/>
+    <!-- Delete the old version -->
     <delete dir="${docs.dest}/tomcat-7.0-doc"/>
-    <delete dir="${docs.dest}/native-doc"/>
-    <delete dir="${docs.dest}/connectors-doc"/>
 
-    <!-- Copy the latest versions -->
-    <copy todir="${docs.dest}/tomcat-5.5-doc" >
-      <fileset dir="${tomcat55.home}/tomcat-5.5-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
-    <copy todir="${docs.dest}/tomcat-6.0-doc" >
-      <fileset dir="${tomcat60.home}/tomcat-6.0-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
+    <!-- Copy the latest version -->
     <copy todir="${docs.dest}/tomcat-7.0-doc" >
       <fileset dir="${tomcat70.home}/tomcat-7.0-doc" >
         <exclude name="/WEB-INF/**" />
       </fileset>
     </copy>
+  </target>
+
+  <target name="release-native"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat Native">
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/native-doc"/>
+
+    <!-- Update the Tomcat native docs -->
+    <ant dir="native-xdocs" antfile="build.xml" target="build-main">
+      <property name="build.dir" value="../docs" />
+      <property name="dist.name" value="native-doc" />
+    </ant>
+  </target>
+
+  <target name="release-jk"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat Connectors">
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/connectors-doc"/>
 
     <!-- Update the JK connectors docs -->
     <ant dir="jk-xdocs" antfile="build.xml" target="build-main">
       <property name="build.dir" value="../docs" />
       <property name="dist.name" value="connectors-doc" />
     </ant>
-    <!-- Update the Tomcat native docs -->
-    <ant dir="native-xdocs" antfile="build.xml" target="build-main">
-      <property name="build.dir" value="../docs" />
-      <property name="dist.name" value="native-doc" />
-    </ant>
-
   </target>
 
   <!-- =============== Utility Targets to support downloads ================ -->
