@@ -46,24 +46,33 @@ to have the changes reflected on the Tomcat web site.
 To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
 ==========================================================================
 
-1. Set the version numbers in build.properties.default
-2. cd into your tomcat-site directory and execute one of the following
+1. Create build.properties file if you have not done so yet and set
+   "base.path" property in it. E.g.
+
+      base.path=..
+
+   The documentation bundles will be downloaded and untarred into
+   "${base.path}/tomcat-site-docs/"
+
+2. Set the version numbers in build.properties.default
+
+3. cd into your tomcat-site directory and execute one of the following
    commands:
 
    ant release-5
    ant release-6
    ant release-7
 
-3. Check the changes with "svn status" command.
+4. Check the changes with "svn status" command.
 
    Remember there may be deleted / missing files (shown with '!')
    and new files (shown with '?').
 
    Apply "svn delete" and "svn add" on those files as needed.
 
-4. Commit the changes. 
+5. Commit the changes. 
 
-5. In the /www/tomcat.apache.org/ directory on people.a.o execute:
+6. In the /www/tomcat.apache.org/ directory on people.a.o execute:
 
    umask 002
    svn up
