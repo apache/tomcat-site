@@ -313,6 +313,22 @@ of Apache Tomcat.</p>
 
   </subsection>
 
+  <subsection name="Processing of conf/web.xml file">
+
+  <p>Servlet 3.0 specification defines how web.xml file of an application
+  can be combined from web fragments and annotations. Processing of the
+  global <code>conf/web.xml</code> file that defines server-wide defaults
+  was changed as a result of implementing those rules. One noticeable
+  difference is that Filters defined in the global <code>conf/web.xml</code>
+  now follow the ones defined in a web application, instead of preceding
+  them. See issues
+  <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=51754#c1">51754</a>
+  and
+  <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=52138#c4">52138</a>
+  for clarifications.</p>
+
+  </subsection>
+
   <subsection name="Internal APIs">
   
     <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
