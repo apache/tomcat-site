@@ -82,11 +82,27 @@ To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
 To update the documentation for Tomcat Native or Tomcat Connectors:
 ====================================================================
 
-1. Update the svn-external for tomcat-site to point to the correct revision.
-   This *must* match the tag for the latest released version.
-2. cd into your tomcat-site directory and execute:
+One way to update documentation is to:
 
-   svn up
+ - Build it in those projects, e.g. as a part of release process,
+   and to replace docs/native-doc or docs/connectors-doc with the docs
+   that you have built.
+
+Another way is to call the bring the sources into this project and build
+them here.
+
+For the latter:
+
+1. Use "svn switch" command to switch jk-xdocs or native-1.1-xdocs
+   directories to xdocs directory of trunk or tag in those projects.
+
+
+   Or just copy "xdocs" directory from source distributive of released
+   version.
+
+2. cd into your tomcat-site directory and execute one of the following
+commands:
+
    ant release-native
    ant release-jk
 
