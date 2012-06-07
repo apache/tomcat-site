@@ -93,12 +93,41 @@ them here.
 
 For the latter:
 
-1. Use "svn switch" command to switch jk-xdocs or native-1.1-xdocs
+1. One of two variants:
+
+A)
+
+   Use "svn switch" command to switch jk-xdocs or native-1.1-xdocs
    directories to xdocs directory of trunk or tag in those projects.
 
+   The command looks like the following:
 
-   Or just copy "xdocs" directory from source distributive of released
-   version.
+   To switch to current development versions:
+
+      svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
+      svn switch "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
+
+   To switch to tags for released versions:
+
+      svn switch "^/tomcat/jk/tags/JK_1_2_37/xdocs" jk-xdocs
+      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_23/xdocs" native-1.1-xdocs
+
+   To switch back to empty directories:
+
+      svn switch "^/tomcat/site/trunk/jk-xdocs" jk-xdocs
+      svn switch "^/tomcat/site/trunk/native-1.1-xdocs" native-1.1-xdocs
+
+
+   To check to what URLs switched directories are mapped:
+
+      svn info jk-xdocs
+      svn info native-1.1-xdocs
+
+B)
+
+   Or just copy the contents of "xdocs" directory from source
+   distributive of released version into empty jk-xdocs or native-1.1-xdocs
+   directories.
 
 2. cd into your tomcat-site directory and execute one of the following
 commands:
@@ -108,7 +137,7 @@ commands:
 
 3. Check the changes with "svn status" command.
 
-   Remember there may be deleted / missing files or new files.
+ - Remember that there may be deleted / missing files or new files.
 
 4. Commit the changes.
 5. In the /www/tomcat.apache.org/ directory on people.a.o execute:
