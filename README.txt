@@ -109,8 +109,8 @@ A)
 
    To switch to tags for released versions:
 
-      svn switch "^/tomcat/jk/tags/JK_1_2_37/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_23/xdocs" native-1.1-xdocs
+      svn switch "^/tomcat/jk/tags/JK_1_2_xx/xdocs" jk-xdocs
+      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_xx/xdocs" native-1.1-xdocs
 
    To switch back to empty directories:
 
