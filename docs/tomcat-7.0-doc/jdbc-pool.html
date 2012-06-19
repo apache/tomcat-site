@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.27) - The Tomcat JDBC Connection Pool</title><meta name="author" content="Filip Hanik"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.28) - The Tomcat JDBC Connection Pool</title><meta name="author" content="Filip Hanik"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -6,7 +6,9 @@
             code.attributeName, code.propertyName {background-color:transparent;}
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.27, Mar 31 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Tomcat JDBC Connection Pool</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.28, Jun 15 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Tomcat JDBC Connection Pool</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#How_to_use">How to use</a><ol><li><a href="#Additional_features">Additional features</a></li><li><a href="#Inside_the_Apache_Tomcat_Container">Inside the Apache Tomcat Container</a></li><li><a href="#Standalone">Standalone</a></li><li><a href="#JMX">JMX</a></li></ol></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#JNDI_Factory_and_Type">JNDI Factory and Type</a></li><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Tomcat_JDBC_Enhanced_Attributes">Tomcat JDBC Enhanced Attributes</a></li></ol></li><li><a href="#Advanced_usage">Advanced usage</a><ol><li><a href="#JDBC_interceptors">JDBC interceptors</a></li><li><a href="#Configuring_JDBC_interceptors">Configuring JDBC interceptors</a></li><li><a href="#org.apache.tomcat.jdbc.pool.JdbcInterceptor">org.apache.tomcat.jdbc.pool.JdbcInterceptor</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.ConnectionState">org.apache.tomcat.jdbc.pool.interceptor.ConnectionState</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer">org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.StatementDecoratorInterceptor">org.apache.tomcat.jdbc.pool.interceptor.StatementDecoratorInterceptor</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.QueryTimeoutInterceptor">org.apache.tomcat.jdbc.pool.interceptor.QueryTimeoutInterceptor</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport">org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx">org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx</a></li><li><a href="#org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer">org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer</a></li></ol></li><li><a href="#Code_Example">Code Example</a><ol><li><a href="#Plain_Ol'_Java">Plain Ol' Java</a></li><li><a href="#As_a_Resource">As a Resource</a></li><li><a href="#Asynchronous_Connection_Retrieval">Asynchronous Connection Retrieval</a></li><li><a href="#Interceptors">Interceptors</a></li><li><a href="#Getting_the_actual_JDBC_connection">Getting the actual JDBC connection</a></li></ol></li><li><a href="#Building">Building</a><ol><li><a href="#Building_from_source">Building from source</a></li></ol></li></ul>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>The <strong>JDBC Connection Pool <code>org.apache.tomcat.jdbc.pool</code></strong>
   is a replacement or an alternative to the <a href="http://commons.apache.org/dbcp/">commons-dbcp</a>
@@ -153,11 +155,17 @@
       </p>
     </td></tr><tr><td align="left" valign="center"><strong><code class="attributeName">username</code></strong></td><td align="left" valign="center">
       <p>(String) The connection username to be passed to our JDBC driver to establish a connection.
-         Note, at this point, <code>DataSource.getConnection(username,password)</code> is not using the credentials passed into the method.
+         Note that method <code>DataSource.getConnection(username,password)</code>
+         by default will not use credentials passed into the method,
+         but will use the ones configured here. See <code>alternateUsernameAllowed</code>
+         property for more details.
       </p>
     </td></tr><tr><td align="left" valign="center"><strong><code class="attributeName">password</code></strong></td><td align="left" valign="center">
       <p>(String) The connection password to be passed to our JDBC driver to establish a connection.
-         Note, at this point, <code>DataSource.getConnection(username,password)</code> is not using the credentials passed into the method.
+         Note that method <code>DataSource.getConnection(username,password)</code>
+         by default will not use credentials passed into the method,
+         but will use the ones configured here. See <code>alternateUsernameAllowed</code>
+         property for more details.
       </p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">maxActive</code></td><td align="left" valign="center">
       <p>(int) The maximum number of active connections that can be allocated from this pool at the same time.
@@ -263,13 +271,26 @@
       <p>(String) A custom query to be run when a connection is first created.
          The default value is <code>null</code>.</p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">jdbcInterceptors</code></td><td align="left" valign="center">
-      <p>(String) A semicolon separated list of classnames extending <code>org.apache.tomcat.jdbc.pool.JdbcInterceptor</code> class.
-         These interceptors will be inserted as an interceptor into the chain of operations on a <code>java.sql.Connection</code> object.
-         The default value is <code>null</code>.<br>
+      <p>(String) A semicolon separated list of classnames extending
+         <code>org.apache.tomcat.jdbc.pool.JdbcInterceptor</code> class.
+         See <a href="#Configuring_JDBC_interceptors">Configuring JDBC interceptors</a>
+         below for more detailed description of syntaz and examples.
+      </p>
+      <p>
+         These interceptors will be inserted as an interceptor into the chain
+         of operations on a <code>java.sql.Connection</code> object.
+         The default value is <code>null</code>.
+      </p>
+      <p>
          Predefined interceptors:<br>
-         <code>org.apache.tomcat.jdbc.pool.interceptor.ConnectionState</code> - keeps track of auto commit, read only, catalog and transaction isolation level.<br>
-         <code>org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer</code> - keeps track of opened statements, and closes them when the connection is returned to the pool.<br>
-         More predefined interceptors are described in detail in the <a href="#JDBC_interceptors">JDBC Interceptors section</a>.<br>
+         <code>org.apache.tomcat.jdbc.pool.interceptor.<br>ConnectionState</code>
+          - keeps track of auto commit, read only, catalog and transaction isolation level.<br>
+         <code>org.apache.tomcat.jdbc.pool.interceptor.<br>StatementFinalizer</code>
+          - keeps track of opened statements, and closes them when the connection is returned to the pool.
+      </p>
+      <p>
+         More predefined interceptors are described in detail in the
+         <a href="#JDBC_interceptors">JDBC Interceptors section</a>.
       </p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">validationInterval</code></td><td align="left" valign="center">
       <p>(long) avoid excess validation, only run validation at most at this frequency - time in milliseconds.
@@ -329,13 +350,19 @@
       </p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">alternateUsernameAllowed</code></td><td align="left" valign="center">
       <p>(boolean) By default, the jdbc-pool will ignore the
-         <a href="http://download.oracle.com/javase/6/docs/api/javax/sql/DataSource.html#getConnection(java.lang.String,%20java.lang.String)"><code>DataSource.getConnection(username,password)</code></a>
+         <a href="http://docs.oracle.com/javase/6/docs/api/javax/sql/DataSource.html#getConnection(java.lang.String,%20java.lang.String)"><code>DataSource.getConnection(username,password)</code></a>
          call, and simply return a previously pooled connection under the globally configured properties <code>username</code> and <code>password</code>, for performance reasons.
-         The pool can however be used with different credentials each time a connection is used. Should you request a connection with the credentials user1/password1 and the connection
-         was previously connected using user2/password2, the connection will be closed, and reopened with the requested credentials. This way, the pool size is still managed
-         on a global level, and not on a per schema level. To enable the functionality described in the
-         <a href="http://download.oracle.com/javase/6/docs/api/javax/sql/DataSource.html#getConnection(java.lang.String,%20java.lang.String)"><code>DataSource.getConnection(username,password)</code></a>
-         call, simply set the property <code>alternateUsernameAllowed</code> to true. <br>
+      </p>
+      <p>
+         The pool can however be configured to allow use of different credentials
+         each time a connection is requested.  To enable the functionality described in the
+         <a href="http://docs.oracle.com/javase/6/docs/api/javax/sql/DataSource.html#getConnection(java.lang.String,%20java.lang.String)"><code>DataSource.getConnection(username,password)</code></a>
+         call, simply set the property <code>alternateUsernameAllowed</code>
+         to <code>true</code>.<br>
+         Should you request a connection with the credentials user1/password1 and the connection
+         was previously connected using different user2/password2, the connection will be closed,
+         and reopened with the requested credentials. This way, the pool size is still managed
+         on a global level, and not on a per schema level. <br>
          The default value is <code>false</code>.<br>
          This property was added as an enhancement to <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=50025">bug 50025</a>.
       </p>
@@ -372,21 +399,33 @@
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuring JDBC interceptors"><!--()--></a><a name="Configuring_JDBC_interceptors"><strong>Configuring JDBC interceptors</strong></a></font></td></tr><tr><td><blockquote>
     <p>Configuring JDBC interceptors is done using the <b>jdbcInterceptors</b> property.
-    The property contains a list of semi colon separated class names. If the classname is not fully qualified it will be prefixed with the
-    <code>org.apache.tomcat.jdbc.pool.interceptor.</code> prefix.<br>
-    Example:<br>
+    The property contains a list of semicolon separated class names. If the
+    classname is not fully qualified it will be prefixed with the
+    <code>org.apache.tomcat.jdbc.pool.interceptor.</code> prefix.
+    </p>
+    <p>Example:<br>
       <code>
-      jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
+      jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+        org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
       </code>
       <br>
       is the same as
       <br>
-      <code> jdbcInterceptors="ConnectionState;StatementFinalizer"</code><br>
-    Interceptors can have properties as well. These would be configured within the paranthesis of the class names.
-    Example:<br>
+      <code> jdbcInterceptors="ConnectionState;StatementFinalizer"</code>
+    </p>
+    <p>
+    Interceptors can have properties as well. Properties for an interceptor
+    are specified within parentheses after the class name. Several properties
+    are separated by commas.
+    </p>
+    <p>Example:<br>
     <code>
       jdbcInterceptors="ConnectionState;StatementFinalizer(useEquals=true)"
-    </code><br>
+    </code>
+    </p>
+    <p>
+    Extra whitespace characters around class names, property names and values
+    are ignored.
     </p>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="org.apache.tomcat.jdbc.pool.JdbcInterceptor"><strong>org.apache.tomcat.jdbc.pool.JdbcInterceptor</strong></a></font></td></tr><tr><td><blockquote>
@@ -469,93 +508,92 @@
   <p>Other examples of Tomcat configuration for JDBC usage can be found <a href="http://tomcat.apache.org/tomcat-6.0-doc/jndi-datasource-examples-howto.html">in the Tomcat documentation</a>. </p>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Plain Ol' Java"><!--()--></a><a name="Plain_Ol'_Java"><strong>Plain Ol' Java</strong></a></font></td></tr><tr><td><blockquote>
     <p>Here is a simple example of how to create and use a data source.</p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        import java.sql.Connection;
-        import java.sql.ResultSet;
-        import java.sql.Statement;
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  import java.sql.Connection;
+  import java.sql.ResultSet;
+  import java.sql.Statement;
 
-        import org.apache.tomcat.jdbc.pool.DataSource;
-        import org.apache.tomcat.jdbc.pool.PoolProperties;
+  import org.apache.tomcat.jdbc.pool.DataSource;
+  import org.apache.tomcat.jdbc.pool.PoolProperties;
 
-        public class SimplePOJOExample {
+  public class SimplePOJOExample {
 
-            public static void main(String[] args) throws Exception {
-                PoolProperties p = new PoolProperties();
-                p.setUrl("jdbc:mysql://localhost:3306/mysql");
-                p.setDriverClassName("com.mysql.jdbc.Driver");
-                p.setUsername("root");
-                p.setPassword("password");
-                p.setJmxEnabled(true);
-                p.setTestWhileIdle(false);
-                p.setTestOnBorrow(true);
-                p.setValidationQuery("SELECT 1");
-                p.setTestOnReturn(false);
-                p.setValidationInterval(30000);
-                p.setTimeBetweenEvictionRunsMillis(30000);
-                p.setMaxActive(100);
-                p.setInitialSize(10);
-                p.setMaxWait(10000);
-                p.setRemoveAbandonedTimeout(60);
-                p.setMinEvictableIdleTimeMillis(30000);
-                p.setMinIdle(10);
-                p.setLogAbandoned(true);
-                p.setRemoveAbandoned(true);
-                p.setJdbcInterceptors("org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;"+
-                  "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
-                DataSource datasource = new DataSource();
-                datasource.setPoolProperties(p);
+      public static void main(String[] args) throws Exception {
+          PoolProperties p = new PoolProperties();
+          p.setUrl("jdbc:mysql://localhost:3306/mysql");
+          p.setDriverClassName("com.mysql.jdbc.Driver");
+          p.setUsername("root");
+          p.setPassword("password");
+          p.setJmxEnabled(true);
+          p.setTestWhileIdle(false);
+          p.setTestOnBorrow(true);
+          p.setValidationQuery("SELECT 1");
+          p.setTestOnReturn(false);
+          p.setValidationInterval(30000);
+          p.setTimeBetweenEvictionRunsMillis(30000);
+          p.setMaxActive(100);
+          p.setInitialSize(10);
+          p.setMaxWait(10000);
+          p.setRemoveAbandonedTimeout(60);
+          p.setMinEvictableIdleTimeMillis(30000);
+          p.setMinIdle(10);
+          p.setLogAbandoned(true);
+          p.setRemoveAbandoned(true);
+          p.setJdbcInterceptors(
+            "org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;"+
+            "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
+          DataSource datasource = new DataSource();
+          datasource.setPoolProperties(p);
 
-                Connection con = null;
-                try {
-                  con = datasource.getConnection();
-                  Statement st = con.createStatement();
-                  ResultSet rs = st.executeQuery("select * from user");
-                  int cnt = 1;
-                  while (rs.next()) {
-                      System.out.println((cnt++)+". Host:" +rs.getString("Host")+
-                        " User:"+rs.getString("User")+" Password:"+rs.getString("Password"));
-                  }
-                  rs.close();
-                  st.close();
-                } finally {
-                  if (con!=null) try {con.close();}catch (Exception ignore) {}
-                }
+          Connection con = null;
+          try {
+            con = datasource.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from user");
+            int cnt = 1;
+            while (rs.next()) {
+                System.out.println((cnt++)+". Host:" +rs.getString("Host")+
+                  " User:"+rs.getString("User")+" Password:"+rs.getString("Password"));
             }
+            rs.close();
+            st.close();
+          } finally {
+            if (con!=null) try {con.close();}catch (Exception ignore) {}
+          }
+      }
 
-        }
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+  }
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="As a Resource"><!--()--></a><a name="As_a_Resource"><strong>As a Resource</strong></a></font></td></tr><tr><td><blockquote>
     <p>And here is an example on how to configure a resource for JNDI lookups</p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-    &lt;Resource name="jdbc/TestDB"
-              auth="Container"
-              type="javax.sql.DataSource"
-              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-              testWhileIdle="true"
-              testOnBorrow="true"
-              testOnReturn="false"
-              validationQuery="SELECT 1"
-              validationInterval="30000"
-              timeBetweenEvictionRunsMillis="30000"
-              maxActive="100"
-              minIdle="10"
-              maxWait="10000"
-              initialSize="10"
-              removeAbandonedTimeout="60"
-              removeAbandoned="true"
-              logAbandoned="true"
-              minEvictableIdleTimeMillis="30000"
-              jmxEnabled="true"
-              jdbcInterceptors=
-"org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-              username="root"
-              password="password"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/mysql"/&gt;
-
-
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+&lt;Resource name="jdbc/TestDB"
+          auth="Container"
+          type="javax.sql.DataSource"
+          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+          testWhileIdle="true"
+          testOnBorrow="true"
+          testOnReturn="false"
+          validationQuery="SELECT 1"
+          validationInterval="30000"
+          timeBetweenEvictionRunsMillis="30000"
+          maxActive="100"
+          minIdle="10"
+          maxWait="10000"
+          initialSize="10"
+          removeAbandonedTimeout="60"
+          removeAbandoned="true"
+          logAbandoned="true"
+          minEvictableIdleTimeMillis="30000"
+          jmxEnabled="true"
+          jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+            org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
+          username="root"
+          password="password"
+          driverClassName="com.mysql.jdbc.Driver"
+          url="jdbc:mysql://localhost:3306/mysql"/&gt;
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
 
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Asynchronous Connection Retrieval"><!--()--></a><a name="Asynchronous_Connection_Retrieval"><strong>Asynchronous Connection Retrieval</strong></a></font></td></tr><tr><td><blockquote>
@@ -567,23 +605,22 @@
           <li>You will have to cast the data source to <code>org.apache.tomcat.jdbc.pool.DataSource</code></li>
         </ol>
         An example of using the async feature is show below.
-      <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-        Connection con = null;
-        try {
-          Future&lt;Connection&gt; future = datasource.getConnectionAsync();
-          while (!future.isDone()) {
-              System.out.println("Connection is not yet available. Do some background work");
-              try {
-                  Thread.sleep(100); //simulate work
-              }catch (InterruptedException x) {
-                  Thread.currentThread().interrupted();
-              }
-          }
-          con = future.get(); //should return instantly
-          Statement st = con.createStatement();
-          ResultSet rs = st.executeQuery("select * from user");
-      </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  Connection con = null;
+  try {
+    Future&lt;Connection&gt; future = datasource.getConnectionAsync();
+    while (!future.isDone()) {
+      System.out.println("Connection is not yet available. Do some background work");
+      try {
+        Thread.sleep(100); //simulate work
+      }catch (InterruptedException x) {
+        Thread.currentThread().interrupt();
+      }
+    }
+    con = future.get(); //should return instantly
+    Statement st = con.createStatement();
+    ResultSet rs = st.executeQuery("select * from user");
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     </p>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Interceptors"><strong>Interceptors</strong></a></font></td></tr><tr><td><blockquote>
@@ -594,82 +631,79 @@
        the pool itself will not reset them.</p>
     <p>An interceptor has to extend the <code>org.apache.tomcat.jdbc.pool.JdbcInterceptor</code> class. This class is fairly simple,
        You will need to have a no arg constructor</p>
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-         public JdbcInterceptor() {
-         }
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  public JdbcInterceptor() {
+  }
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     <p>
        When a connection is borrowed from the pool, the interceptor can initialize or in some other way react to the event by implementing the
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-         public abstract void reset(ConnectionPool parent, PooledConnection con);
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  public abstract void reset(ConnectionPool parent, PooledConnection con);
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
        method. This method gets called with two parameters, a reference to the connection pool itself <code>ConnectionPool parent</code>
        and a reference to the underlying connection <code>PooledConnection con</code>.
     </p>
     <p>
        When a method on the <code>java.sql.Connection</code> object is invoked, it will cause the
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
        method to get invoked. The <code>Method method</code> is the actual method invoked, and <code>Object[] args</code> are the arguments.
        To look at a very simple example, where we demonstrate how to make the invokation to <code>java.sql.Connection.close()</code> a noop
        if the connection has been closed
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-        if (CLOSE_VAL==method.getName()) {
-            if (isClosed()) return null; //noop for already closed.
-        }
-        return super.invoke(proxy,method,args);
-        </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  if (CLOSE_VAL==method.getName()) {
+      if (isClosed()) return null; //noop for already closed.
+  }
+  return super.invoke(proxy,method,args);
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
         There is an observation being made. It is the comparison of the method name. One way to do this would be to do
         <code>"close".equals(method.getName())</code>.
         Above we see a direct reference comparison between the method name and <code>static final String</code> reference.
         According to the JVM spec, method names and static final String end up in a shared constant pool, so the reference comparison should work.
         One could of course do this as well:
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-        if (compare(CLOSE_VAL,method)) {
-            if (isClosed()) return null; //noop for already closed.
-        }
-        return super.invoke(proxy,method,args);
-        </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  if (compare(CLOSE_VAL,method)) {
+      if (isClosed()) return null; //noop for already closed.
+  }
+  return super.invoke(proxy,method,args);
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
         The <code>compare(String,Method)</code> will use the <code>useEquals</code> flag on an interceptor and do either reference comparison or
         a string value comparison when the <code>useEquals=true</code> flag is set.
     </p>
     <p>Pool start/stop<br>
        When the connection pool is started or closed, you can be notifed. You will only be notified once per interceptor class
        even though it is an instance method. and you will be notified using an interceptor currently not attached to a pool.
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-       public void poolStarted(ConnectionPool pool) {
-       }
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  public void poolStarted(ConnectionPool pool) {
+  }
 
-       public void poolClosed(ConnectionPool pool) {
-       }
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+  public void poolClosed(ConnectionPool pool) {
+  }
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
        When overriding these methods, don't forget to call super if you are extending a class other than <code>JdbcInterceptor</code>
     </p>
     <p>Configuring interceptors<br>
        Interceptors are configured using the <code>jdbcInterceptors</code> property or the <code>setJdbcInterceptors</code> method.
        An interceptor can have properties, and would be configured like this
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-       String jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState(useEquals=true,fast=yes)"
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  String jdbcInterceptors=
+    "org.apache.tomcat.jdbc.pool.interceptor.ConnectionState(useEquals=true,fast=yes)"
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     </p>
     <p>Interceptor properties<br>
        Since interceptors can have properties, you need to be able to read the values of these properties within your
        interceptor. Taking an example like the one above, you can override the <code>setProperties</code> method.
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-       public void setProperties(Map&lt;String, InterceptorProperty&gt; properties) {
-           super.setProperties(properties);
-           final String myprop = "myprop";
-           InterceptorProperty p1 = properties.get(myprop);
-           if (p1!=null) {
-               setMyprop(Long.parseLong(p1.getValue()));
-           }
-       }
-        </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  public void setProperties(Map&lt;String, InterceptorProperty&gt; properties) {
+     super.setProperties(properties);
+     final String myprop = "myprop";
+     InterceptorProperty p1 = properties.get(myprop);
+     if (p1!=null) {
+         setMyprop(Long.parseLong(p1.getValue()));
+     }
+  }
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     </p>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Getting the actual JDBC connection"><!--()--></a><a name="Getting_the_actual_JDBC_connection"><strong>Getting the actual JDBC connection</strong></a></font></td></tr><tr><td><blockquote>
@@ -677,10 +711,10 @@
        We also create interceptors in these wrappers to be able to perform certain functions.
        If there is a need to retrieve the actual connection, one can do so using the <code>javax.sql.PooledConnection</code>
        interface.
-       <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          Connection con = datasource.getConnection();
-          Connection actual = ((javax.sql.PooledConnection)con).getConnection();
-       </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  Connection con = datasource.getConnection();
+  Connection actual = ((javax.sql.PooledConnection)con).getConnection();
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     </p>
   </blockquote></td></tr></table>
 
@@ -689,24 +723,24 @@
   <p>Other examples of Tomcat configuration for JDBC usage can be found <a href="http://tomcat.apache.org/tomcat-6.0-doc/jndi-datasource-examples-howto.html">in the Tomcat documentation</a>. </p>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Building from source"><!--()--></a><a name="Building_from_source"><strong>Building from source</strong></a></font></td></tr><tr><td><blockquote>
     <p>Building is pretty simple. The pool has a dependency on <code>tomcat-juli.jar</code> and in case you want the <code>SlowQueryReportJmx</code></p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-       javac -classpath tomcat-juli.jar \
-             -d . \
-             org/apache/tomcat/jdbc/pool/*.java \
-             org/apache/tomcat/jdbc/pool/interceptor/*.java \
-             org/apache/tomcat/jdbc/pool/jmx/*.java
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  javac -classpath tomcat-juli.jar \
+        -d . \
+        org/apache/tomcat/jdbc/pool/*.java \
+        org/apache/tomcat/jdbc/pool/interceptor/*.java \
+        org/apache/tomcat/jdbc/pool/jmx/*.java
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     <p>
        A build file can be found in the Tomcat <a href="http://svn.apache.org/viewvc/tomcat/trunk/modules/jdbc-pool/">source repository</a>.
     </p>
     <p>
       As a convenience, a build file is also included where a simple build command will generate all files needed.
-      <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        ant download  (downloads dependencies)
-        ant build     (compiles and generates .jar files)
-        ant dist      (creates a release package)
-        ant test      (runs tests, expects a test database to be setup)
-      </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
+  ant download  (downloads dependencies)
+  ant build     (compiles and generates .jar files)
+  ant dist      (creates a release package)
+  ant test      (runs tests, expects a test database to be setup)
+</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
     </p>
     <p>
       The system is structured for a Maven build, but does generate release artifacts. Just the library itself.
