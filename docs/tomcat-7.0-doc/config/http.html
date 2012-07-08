@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.28) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.29) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -6,8 +6,8 @@
             code.attributeName, code.propertyName {background-color:transparent;}
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.28, Jun 15 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The HTTP Connector</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#BIO_specific_configuration">BIO specific configuration</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.29, Jul 3 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The HTTP Connector</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#BIO_specific_configuration">BIO specific configuration</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a><ol><li><a href="#SSL_Support_-_BIO_and_NIO">SSL Support - BIO and NIO</a></li><li><a href="#SSL_Support_-_APR/Native">SSL Support - APR/Native</a></li></ol></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>The <strong>HTTP Connector</strong> element represents a
@@ -22,8 +22,8 @@
 
   <p>If you wish to configure the <strong>Connector</strong> that is used
   for connections to web servers using the AJP protocol (such as the
-  <code>mod_jk 1.2.x</code> connector for Apache 1.3), see
-  <a href="ajp.html">here</a> instead.</p>
+  <code>mod_jk 1.2.x</code> connector for Apache 1.3), please refer to the
+  <a href="ajp.html">AJP Connector</a> documentation.</p>
 
   <p>Each incoming request requires
   a thread for the duration of that request.  If more simultaneous requests
@@ -689,10 +689,15 @@
   attributes to the values <code>https</code> and <code>true</code>
   respectively, to pass correct information to the servlets.</p>
 
-  <p>The BIO and NIO connectors used the JSSE SSL whereas the APR/native
+  <p>The BIO and NIO connectors use the JSSE SSL whereas the APR/native
   connector uses OpenSSL. Therefore, in addition to using different attributes
   to configure SSL, the APR/native connector also requires keys and certificates
   to be provided in a different format.</p>
+
+  <p>For more information, see the
+  <a href="../ssl-howto.html">SSL Configuration HOW-TO</a>.</p>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="SSL Support - BIO and NIO"><!--()--></a><a name="SSL_Support_-_BIO_and_NIO"><strong>SSL Support - BIO and NIO</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>The BIO and NIO connectors use the following attributes to configure SSL:
   </p>
@@ -833,6 +838,10 @@
       the default.</p>
      </td></tr></table>
 
+  </blockquote></td></tr></table>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="SSL Support - APR/Native"><!--()--></a><a name="SSL_Support_-_APR/Native"><strong>SSL Support - APR/Native</strong></a></font></td></tr><tr><td><blockquote>
+
   <p>When APR/native is enabled, the HTTPS connector will use a socket poller
   for keep-alive, increasing scalability of the server. It also uses OpenSSL,
   which may be more optimized than JSSE depending on the processor being used,
@@ -910,15 +919,14 @@
       "10".</p>
     </td></tr></table>
 
-  <p>For more information, see the
-  <a href="../ssl-howto.html">SSL Configuration HOW-TO</a>.</p>
+  </blockquote></td></tr></table>
 
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Connector Comparison"><!--()--></a><a name="Connector_Comparison"><strong>Connector Comparison</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>Below is a small chart that shows how the connectors differentiate.</p>
     <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="../images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="../images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="../images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="../images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-                       Java Blocking Connector   Java Nio Blocking Connector   APR/native Connector
+                       Java Blocking Connector   Java Non Blocking Connector   APR/native Connector
                                  BIO                         NIO                       APR
     Classname              Http11Protocol             Http11NioProtocol         Http11AprProtocol
     Tomcat Version           3.x onwards                 6.x onwards              5.5.x onwards

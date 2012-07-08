@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.28) - The Realm Component</title><meta name="author" content="Craig R. McClanahan"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.29) - The Realm Component</title><meta name="author" content="Craig R. McClanahan"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -6,8 +6,8 @@
             code.attributeName, code.propertyName {background-color:transparent;}
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.28, Jun 15 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Realm Component</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a></li></ul>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.29, Jul 3 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Realm Component</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#JDBC_Database_Realm_-_org.apache.catalina.realm.JDBCRealm">JDBC Database Realm - org.apache.catalina.realm.JDBCRealm</a></li><li><a href="#DataSource_Database_Realm_-_org.apache.catalina.realm.DataSourceRealm">DataSource Database Realm - org.apache.catalina.realm.DataSourceRealm</a></li><li><a href="#JNDI_Directory_Realm_-_org.apache.catalina.realm.JNDIRealm">JNDI Directory Realm - org.apache.catalina.realm.JNDIRealm</a></li><li><a href="#UserDatabase_Realm_-_org.apache.catalina.realm.UserDatabaseRealm">UserDatabase Realm - org.apache.catalina.realm.UserDatabaseRealm</a></li><li><a href="#Memory_Based_Realm_-_org.apache.catalina.realm.MemoryRealm">Memory Based Realm - org.apache.catalina.realm.MemoryRealm</a></li><li><a href="#JAAS_Realm_-_org.apache.catalina.realm.JAASRealm">JAAS Realm - org.apache.catalina.realm.JAASRealm</a></li><li><a href="#Combined_Realm_-_org.apache.catalina.realm.CombinedRealm">Combined Realm - org.apache.catalina.realm.CombinedRealm</a></li><li><a href="#LockOut_Realm_-_org.apache.catalina.realm.LockOutRealm">LockOut Realm - org.apache.catalina.realm.LockOutRealm</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>A <strong>Realm</strong> element represents a "database" of usernames,
@@ -50,19 +50,17 @@
         implement the <code>org.apache.catalina.Realm</code> interface.</p>
       </td></tr></table>
 
-  </blockquote></td></tr></table>
-
-
-  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Standard Implementation"><!--()--></a><a name="Standard_Implementation"><strong>Standard Implementation</strong></a></font></td></tr><tr><td><blockquote>
-
     <p>Unlike most Catalina components, there are several standard
     <strong>Realm</strong> implementations available.  As a result,
     the <code>className</code> attribute MUST be used to select the
     implementation you wish to use.</p>
 
-    <h3>JDBC Database Realm (org.apache.catalina.realm.JDBCRealm)</h3>
+  </blockquote></td></tr></table>
 
-    <p>The <strong>JDBC Database Realm</strong> connects Catalina to
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JDBC Database Realm - org.apache.catalina.realm.JDBCRealm"><!--()--></a><a name="JDBC_Database_Realm_-_org.apache.catalina.realm.JDBCRealm"><strong>JDBC Database Realm - org.apache.catalina.realm.JDBCRealm</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The <strong>JDBC Database Realm</strong> connects Tomcat to
     a relational database, accessed through an appropriate JDBC driver,
     to perform lookups of usernames, passwords, and their associated
     roles.  Because the lookup is done each time that it is required,
@@ -112,7 +110,7 @@
         name. If not specified, the default is <code>true</code>.</p>
       </td></tr><tr><td align="left" valign="center"><strong><code class="attributeName">userCredCol</code></strong></td><td align="left" valign="center">
         <p>Name of the column, in the "users" table, which contains
-        the user's credentials (i.e. password(.  If a value for the
+        the user's credentials (i.e. password).  If a value for the
         <code>digest</code> attribute is specified, this component
         will assume that the passwords have been encoded with the
         specified algorithm.  Otherwise, they will be assumed to be
@@ -141,12 +139,12 @@
     information on setting up container managed security using the
     JDBC Database Realm component.</p>
 
+  </blockquote></td></tr></table>
 
-    <h3>
-      DataSource Database Realm (org.apache.catalina.realm.DataSourceRealm)
-    </h3>
 
-    <p>The <strong>DataSource Database Realm</strong> connects Catalina to
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="DataSource Database Realm - org.apache.catalina.realm.DataSourceRealm"><!--()--></a><a name="DataSource_Database_Realm_-_org.apache.catalina.realm.DataSourceRealm"><strong>DataSource Database Realm - org.apache.catalina.realm.DataSourceRealm</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The <strong>DataSource Database Realm</strong> connects Tomcat to
     a relational database, accessed through a JNDI named JDBC DataSource
     to perform lookups of usernames, passwords, and their associated
     roles.  Because the lookup is done each time that it is required,
@@ -197,7 +195,7 @@
         name. If not specified, the default is <code>true</code>.</p>
       </td></tr><tr><td align="left" valign="center"><strong><code class="attributeName">userCredCol</code></strong></td><td align="left" valign="center">
         <p>Name of the column, in the "users" table, which contains
-        the user's credentials (i.e. password(.  If a value for the
+        the user's credentials (i.e. password).  If a value for the
         <code>digest</code> attribute is specified, this component
         will assume that the passwords have been encoded with the
         specified algorithm.  Otherwise, they will be assumed to be
@@ -226,11 +224,12 @@
     DataSource Realm HOW-TO</a> for more information on setting up container
     managed security using the DataSource Database Realm component.</p>
 
+  </blockquote></td></tr></table>
 
-    <h3>JNDI Directory Realm (org.apache.catalina.realm.JNDIRealm)</h3>
 
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JNDI Directory Realm - org.apache.catalina.realm.JNDIRealm"><!--()--></a><a name="JNDI_Directory_Realm_-_org.apache.catalina.realm.JNDIRealm"><strong>JNDI Directory Realm - org.apache.catalina.realm.JNDIRealm</strong></a></font></td></tr><tr><td><blockquote>
 
-    <p>The <strong>JNDI Directory Realm</strong> connects Catalina to
+    <p>The <strong>JNDI Directory Realm</strong> connects Tomcat to
     an LDAP Directory, accessed through an appropriate JNDI driver,
     that stores usernames, passwords, and their associated
     roles. Changes to the directory are immediately reflected in the
@@ -343,7 +342,7 @@
         <p>The base directory entry for performing role searches. If not
         specified the top-level element in the directory context will be used.
         If specified it may optionally include pattern replacements
-        "{0}".."{n}" corrosponding to the name parts of the
+        "{0}".."{n}" corresponding to the name parts of the
         user's distinguished name (as returned by
         <code>javax.naming.Name.get()</code>).</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">roleName</code></td><td align="left" valign="center">
@@ -351,21 +350,45 @@
         directory entries found by a role search. In addition you can
         use the <code>userRoleName</code> property to specify the name
         of an attribute, in the user's entry, containing additional
-        role names.  If <code>roleName</code> is not specified a role
+        role names.</p>
+        <p>If <code>roleName</code> is not specified a role
         search does not take place, and roles are taken only from the
         user's entry.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">roleNested</code></td><td align="left" valign="center">
+        <p>Set to <code>true</code> if you want to nest roles into roles.
+        When a role search is performed and the value of this property is
+        <code>true</code>, the search will be repeated recursively to find
+        all the roles that belong to the user either directly or indirectly.
+        If not specified, the default value of <code>false</code> is used.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">roleSearch</code></td><td align="left" valign="center">
         <p>The LDAP filter expression used for performing role
-        searches.  Use <code>{0}</code> to substitute the
-        distinguished name (DN) of the user, and/or <code>{1}</code> to
-        substitute the username. If not specified a role search does
-        not take place and roles are taken only from the attribute in
-        the user's entry specified by the <code>userRoleName</code>
-        property.</p>
+        searches.</p>
+
+        <p>Use <code>{0}</code> to substitute the distinguished name (DN)
+        of the user, and/or <code>{1}</code> to substitute the username,
+        and/or <code>{2}</code> for the value of an attribute from the
+        user's directory entry, of the authenticated user.
+        The name of the attribute that provides the value for <code>{2}</code>
+        is configured by the <code>userRoleAttribute</code> property.</p>
+
+        <p>When <code>roleNested</code> property is <code>true</code>,
+        this filter expression will be also used to recursively search for
+        other roles, which indirectly belong to this user. To find the
+        roles that match the newly found role, the following values
+        are used:
+        <code>{0}</code> is substituted by the distinguished name of the newly
+        found role, and both <code>{1}</code> and <code>{2}</code> are
+        substituted by the name of the role (see the <code>roleName</code>
+        property). The <code>userRoleAttribute</code> property is not
+        applicable to this search.</p>
+
+        <p>If this property is not specified, a role search does not take
+        place and roles are taken only from the attribute in the user's entry
+        specified by the <code>userRoleName</code> property.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">roleSearchAsUser</code></td><td align="left" valign="center">
         <p> When searching for user roles, should the search be performed as the
         user currently being authenticated? If false,
-        <code>connectionName</code>} and <code>connectionPassword</code> will be
+        <code>connectionName</code> and <code>connectionPassword</code> will be
         used if specified, else an anonymous. If not specified, the default
         value of <code>false</code> is used. Note that when accessing the
         directory using delegated credentials, this attribute is always ignored
@@ -432,6 +455,14 @@
         by searching the directory. If <code>userRoleName</code> is
         not specified all the roles for a user derive from the role
         search.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">userRoleAttribute</code></td><td align="left" valign="center">
+        <p>The name of an attribute in the user's directory entry
+        containing the value that you wish to use when you search for
+        roles. This is especially useful for RFC 2307 where
+        the role memberUid can be the <code>uid</code> or the
+        <code>uidNumber</code> of the user. This value will be
+        marked as <code>{2}</code> in your role search filter expression.
+        This value will NOT be available for nested role searches.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">userSearch</code></td><td align="left" valign="center">
         <p>The LDAP filter expression to use when searching for a
         user's directory entry, with <code>{0}</code> marking where
@@ -460,14 +491,16 @@
     information on setting up container managed security using the
     JNDI Directory Realm component.</p>
 
+  </blockquote></td></tr></table>
 
-    <h3>UserDatabase Realm (org.apache.catalina.realm.UserDatabaseRealm)</h3>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="UserDatabase Realm - org.apache.catalina.realm.UserDatabaseRealm"><!--()--></a><a name="UserDatabase_Realm_-_org.apache.catalina.realm.UserDatabaseRealm"><strong>UserDatabase Realm - org.apache.catalina.realm.UserDatabaseRealm</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>The <strong>UserDatabase Realm</strong> is a Realm implementation
     that is based on a UserDatabase resource made available through the global
     JNDI resources configured for this Tomcat instance.</p>
 
-    <p>The Memory Based Realm implementation supports the following
+    <p>The UserDatabase Realm implementation supports the following
     additional attributes:</p>
 
     <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Attribute</font></th><th width="85%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code class="attributeName">allRolesMode</code></td><td align="left" valign="center">
@@ -482,8 +515,8 @@
         are defined in web.xml in which case the user must be assigned at least
         one of those roles.</p>
       </td></tr><tr><td align="left" valign="center"><strong><code class="attributeName">resourceName</code></strong></td><td align="left" valign="center">
-        <p>The name of the resource that this realm will use for user, password
-        and role information.</p>
+        <p>The name of the global <code>UserDatabase</code> resource
+        that this realm will use for user, password and role information.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">X509UsernameRetrieverClassName</code></td><td align="left" valign="center">
         <p>When using X509 client certificates, this specifies the class name
         that will be used to retrieve the user name from the certificate.
@@ -500,7 +533,10 @@
     <a href="../jndi-resources-howto.html">JNDI resources how-to</a> for more
     information on how to configure a UserDatabase resource.</p>
 
-    <h3>Memory Based Realm (org.apache.catalina.realm.MemoryRealm)</h3>
+  </blockquote></td></tr></table>
+
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Memory Based Realm - org.apache.catalina.realm.MemoryRealm"><!--()--></a><a name="Memory_Based_Realm_-_org.apache.catalina.realm.MemoryRealm"><strong>Memory Based Realm - org.apache.catalina.realm.MemoryRealm</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>The <strong>Memory Based Realm</strong> is a simple Realm implementation
     that reads user information from an XML format, and represents it as a
@@ -570,7 +606,10 @@
     information on setting up container managed security using the
     Memory Based Realm component.</p>
 
-    <h3>JAAS Realm (org.apache.catalina.realm.JAASRealm)</h3>
+  </blockquote></td></tr></table>
+
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JAAS Realm - org.apache.catalina.realm.JAASRealm"><!--()--></a><a name="JAAS_Realm_-_org.apache.catalina.realm.JAASRealm"><strong>JAAS Realm - org.apache.catalina.realm.JAASRealm</strong></a></font></td></tr><tr><td><blockquote>
 
     <p><strong>JAASRealm</strong> is an implementation of the Tomcat
     <code>Realm</code> interface that authenticates users through the Java
@@ -640,7 +679,10 @@
     Guide</a> for more information on setting up container managed security
     using the JAAS Realm component.</p>
 
-    <h3>Combined Realm (org.apache.catalina.realm.CombinedRealm)</h3>
+  </blockquote></td></tr></table>
+
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Combined Realm - org.apache.catalina.realm.CombinedRealm"><!--()--></a><a name="Combined_Realm_-_org.apache.catalina.realm.CombinedRealm"><strong>Combined Realm - org.apache.catalina.realm.CombinedRealm</strong></a></font></td></tr><tr><td><blockquote>
 
     <p><strong>CombinedRealm</strong> is an implementation of the Tomcat
     <code>Realm</code> interface that authenticates users through one or more
@@ -664,7 +706,10 @@
     Guide</a> for more information on setting up container managed security
     using the CombinedRealm component.</p>
 
-    <h3>LockOut Realm (org.apache.catalina.realm.LockOutRealm)</h3>
+  </blockquote></td></tr></table>
+
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="LockOut Realm - org.apache.catalina.realm.LockOutRealm"><!--()--></a><a name="LockOut_Realm_-_org.apache.catalina.realm.LockOutRealm"><strong>LockOut Realm - org.apache.catalina.realm.LockOutRealm</strong></a></font></td></tr><tr><td><blockquote>
 
     <p><strong>LockOutRealm</strong> is an implementation of the Tomcat
     <code>Realm</code> interface that extends the CombinedRealm to provide lock
@@ -711,7 +756,6 @@
     using the LockOutRealm component.</p>
 
   </blockquote></td></tr></table>
-
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Nested Components"><!--()--></a><a name="Nested_Components"><strong>Nested Components</strong></a></font></td></tr><tr><td><blockquote>
 
