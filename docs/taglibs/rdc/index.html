@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Apache RDC Taglib - Reusable Dialog Components Tag Library</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          <meta name="author" content="dev.AT.tomcat.apache.org" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="http://tomcat.apache.org/" id="bannerLeft">
+    
+                                    <img src="http://tomcat.apache.org/images/tomcat.gif" alt="" />
+    
+            </a>
+                        <a href="http://tomcat.apache.org/taglibs/" id="bannerRight">
+    
+                                    <img src="http://tomcat.apache.org/taglibs/images/taglibs.gif" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 19 August 2009
+                      </div>
+            <div class="xright">            <a href="http://www.apachecon.com/" class="externalLink">ApacheCon</a>
+            |
+                <a href="http://www.apache.org" class="externalLink">Apache</a>
+            |
+                <a href="http://tomcat.apache.org" class="externalLink">Tomcat</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Apache RDC Taglib</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="">RDC Home</a>
+          </li>
+              
+    <li class="none">
+                    <a href="taglibs-rdc/">RDC Taglib</a>
+          </li>
+              
+    <li class="none">
+                    <a href="taglibs-rdc-examples/">RDC Examples</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://wiki.apache.org/jakarta-taglibs/ReusableDialogComponents" class="externalLink">RDC Wiki</a>
+          </li>
+          </ul>
+              <h5>Digging into Apache Taglibs</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/mail-lists.html" class="externalLink">Mailing Lists</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/issue-tracking.html" class="externalLink">Bugs</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/building.html" class="externalLink">Building</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/integration.html" class="externalLink">CI</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="Reusable_Dialog_Components_RDC__Tag_Library"></a>
+Reusable Dialog Components (RDC)  Tag Library</h2>
+<p>
+        JSP 2.0 Reusable Dialog Components (RDC) is
+        a framework for creating JSP taglibs that
+        aid in rapid development of voice and multimodal applications. 
+    </p>
+<h2>Project Motivation</h2><p>
+  Server-side generation of HTML has proven an effective way of
+  generating the user interface for visual Web applications that
+  are implemented using server-side application frameworks such
+  as Struts. Over time, the effort involved in such HTML
+  generation has been reduced by the availability of various JSP
+  tag libraries that abstract away the minutiae of HTML
+  markup. The goal of the RDC project is to achieve for voice
+  applications what JSP tag libraries have already achieved in
+  the world of visual Web applications.</p>
+<p>
+  The voice application space is seeing rapid growth with the
+  maturation of speech technologies along with the arrival of a
+  stable and robust voice programming model as defined in the 
+  <a href="http://www.w3.org/TR/voicexml20/" class="externalLink">W3C VoiceXML 2.0
+  REC</a>
+ few years ago.  A necessary next step in mainstreaming the
+  development of server-side voice applications within
+  environments like Tomcat is the availability of the appropriate
+  tag libraries that help isolate the JSP developer from the
+  intricacies of spoken interaction.  The goal is to help package
+  specialized speech design skills in the form of JSP tag
+  libraries that make it possible for JSP developers to easily
+  speech-enable Web applications.
+</p>
+<h2>Project Overview</h2><p>
+  The RDC taglib project provides the following pieces:
+
+<ol type="1"><li>A small collection of speech dialog components that aid in basic user interaction.</li>
+<li>An extensible JSP-2.0 framework for implementing additional speech components that can collaborate in producing complex spoken interaction.</li>
+<li> A collection of sample applications that demonstrate the use of these components.</li>
+</ol>
+
+
+All functionality is implemented either directly as JSP 2.0
+<i>tag</i>
+ or <i>tagx</i>
+ files, or as Java classes that implement
+the equivalent JSP 2.0 tag implementation interfaces.  Dialog
+components come with speech grammars authored as
+<i>srgs</i>
+ files, a set of default prompts, and the
+associated Java beans that implement validation of the data collected by that component.
+</p>
+<p>The code is under active development, and we are continuing to evolve and enrich the basic framework as we  exercise the presently available functionality by authoring new components and by using these components in real-world voice applications.
+</p>
+<p>All components in the RDC taglib produce VoiceXML 2.0 that can be served to any VoiceXML 2.0 compliant voice browser.
+The generated applications can be deployed to a standard Tomcat server and be accessed by a VoiceXML 2.0 compliant voice browser.
+</p>
+<h2>Requirements</h2><p>
+This tag library requires JSP 2.0 support and has been developed on Tomcat 5.5.
+It depends on the following libraries, many of which can be obtained from various Apache projects:
+<ul><li>jstl.jar and standard.jar (JSTL 1.1.2)</li>
+<li>jsp-api.jar (JSP 2.0) for building custom tags</li>
+<li>commons-el.jar (1.0) for delayed EL evaluation</li>
+<li>struts.jar (1.2.9), commons-digester.jar (1.8.1) and
+      commons-beanutils.jar (1.8.0) for struts examples and the
+      rule-based directed dialog</li>
+<li>commons-logging.jar (1.1.1) for logging in taglib and sample
+      applications</li>
+<li>commons-scxml.jar (0.9) needed for the SCXML dialog management
+      strategy of the RDC group container</li>
+</ul>
+
+It may be possible to use Commons library versions lesser than the ones quoted here.
+</p>
+<p>
+A majority of the tags implemented by this tag library have been
+created as <i>.tag</i>
+ files. 
+Tag handlers implemented in Java extend JSP 2.0's
+<i>SimpleTagSupport</i>
+.
+</p>
+</div>
+<div class="section"><h2><a name="Documentation"></a>
+Documentation</h2>
+<p>For more information about the Reusable Dialog Components (RDC) Tag Library,
+    look at the on-line documentation:
+  <ul><li>
+    View the current release <a href="1.0/index.html">
+    RDC 1.0 Taglib Documentation</a>
+</li>
+<li>
+    View the development version of the <a href="taglibs-rdc/tlddoc.html">
+    RDC Taglib Documentation</a>
+</li>
+</ul>
+</p>
+</div>
+<div class="section"><h2><a name="Download"></a>
+Download</h2>
+<p>Download a binary distribution of the Reusable Dialog
+  Components (RDC) Tag Library:
+  <ul><li>
+    Download the RDC Tag Library 1.0 release from an
+    <a href="http://archive.apache.org/dist/jakarta/taglibs/rdc/" class="externalLink">
+    Apache Archives</a>
+</li>
+</ul>
+</p>
+<p>For information on how to use the distributions in the download section,
+    look at the following documentation:
+  <ul><li>Using the Jakarta-Taglibs
+      <a href="http://tomcat.apache.org/taglibs/site/using.html" class="externalLink">
+      Binary Distribution</a>
+</li>
+<li>Using the Jakarta-Taglibs
+      <a href="http://tomcat.apache.org/taglibs/site/building.html" class="externalLink">
+      Source Distribution</a>
+</li>
+</ul>
+</p>
+</div>
+<div class="section"><h2><a name="RDC_News"></a>
+RDC News</h2>
+<ul><li><b>01/12/2009</b>
+
+        The build has been moved to Maven2.
+      </li>
+<li><b>08/01/2006</b>
+
+        The SCXML code has been refactored as a generic engine into its own
+        sub-project <a href="http://commons.apache.org/scxml/" class="externalLink">Commons
+        SCXML</a>
+. The RDC taglib has a new dependency of Commons SCXML.
+      </li>
+<li><b>07/29/2005</b>
+
+        The RDC tag library has provided an alpha version of an SCXML engine, and a 
+        SCXML dialog management strategy for the RDC group container.
+      </li>
+<li><b>07/20/2005</b>
+
+        The RDC tag library has graduated out of Taglibs sandbox with a 1.0 release.
+      </li>
+<li><b>04/25/2005</b>
+
+        Internationalization support has been added to all component tags.
+      </li>
+<li><b>02/25/2005</b>
+
+        The Music Store sample application is now multi-channel (Speech + small device GUI)!
+      </li>
+<li><b>02/12/2005</b>
+
+        Check out the RDC based Music Store sample application (uses Amazon Web Services)!
+      </li>
+<li><b>01/24/2005</b>
+
+        Check out the new features in the RDC pre beta release!
+      </li>
+<li><b>09/10/2004</b>
+
+        Check out the new Reusable Dialog Components (RDC) taglib!
+      </li>
+</ul>
+</div>
+<div class="section"><h2><a name="Contributors"></a>
+Contributors</h2>
+<p>List of contributors:</p>
+<ul><li>Rahul Akolkar</li>
+</ul>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2004-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Apache RDC Taglib - </title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="http://tomcat.apache.org/" id="bannerLeft">
+    
+                                    <img src="http://tomcat.apache.org/images/tomcat.gif" alt="" />
+    
+            </a>
+                        <a href="http://tomcat.apache.org/taglibs/" id="bannerRight">
+    
+                                    <img src="http://tomcat.apache.org/taglibs/images/taglibs.gif" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 19 August 2009
+                      </div>
+            <div class="xright">            <a href="http://www.apachecon.com/" class="externalLink">ApacheCon</a>
+            |
+                <a href="http://www.apache.org" class="externalLink">Apache</a>
+            |
+                <a href="http://tomcat.apache.org" class="externalLink">Tomcat</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Apache RDC Taglib</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../">RDC Home</a>
+          </li>
+              
+    <li class="none">
+                    <a href="">RDC Taglib</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../taglibs-rdc-examples/">RDC Examples</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://wiki.apache.org/jakarta-taglibs/ReusableDialogComponents" class="externalLink">RDC Wiki</a>
+          </li>
+          </ul>
+              <h5>Digging into Apache Taglibs</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/mail-lists.html" class="externalLink">Mailing Lists</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/issue-tracking.html" class="externalLink">Bugs</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/building.html" class="externalLink">Building</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/integration.html" class="externalLink">CI</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <center><h1>Jakarta Project: Reusable Dialog Components (RDC) Tag library</h1><h3>Version: 1.1 Snapshot</h3></center><h3>Table of Contents</h3><ul><li><a href="#overview">Overview</a>
+</li>
+<li><a href="#requirements">Requirements</a>
+</li>
+<li><a href="#config">Configuration</a>
+</li>
+<li><a href="#summary">Tag Summary</a>
+</li>
+<li><a href="#reference">Tag Reference</a>
+</li>
+<li><a href="#examples">Examples</a>
+</li>
+<li><a href="#javadocs">Javadocs</a>
+</li>
+<li><a href="#history">Revision History</a>
+</li>
+</ul>
+<a name="overview"></a>
+<h3>Overview</h3><p><p>
+        JSP-2.0  Reusable Dialog Components (RDC) --- a framework for
+        creating JSP taglibs that aid in rapid development of voice
+        and multimodal applications. 
+      </p>
+<p>
+        Server-side generation of HTML has proven an effective way of
+        generating the user interface for visual Web applications that
+        are implemented using server-side application frameworks such
+        as Struts. Over time, the effort involved in such HTML
+        generation has been reduced by the availability of various JSP
+        tag libraries that abstract away the minutiae of HTML
+        markup. The goal of the RDC project is to achieve for voice
+        applications what JSP tag libraries have already achieved in
+        the world of visual Web applications.</p>
+<p>
+        The voice application space is seeing rapid growth with the
+        maturation of speech technologies along with the arrival of a
+        stable and robust voice programming model as defined in the 
+        <a href="http://www.w3.org/TR/voicexml20/" class="externalLink">W3C VoiceXML 2.0
+        REC</a>
+ few years ago.  A necessary next step in mainstreaming the
+        development of server-side voice applications within
+        environments like Tomcat is the availability of the appropriate
+        tag libraries that help isolate the JSP developer from the
+        intricacies of spoken interaction.  The goal is to help package
+        specialized speech design skills in the form of JSP tag
+        libraries that make it possible for JSP developers to easily
+        speech-enable Web applications.
+      </p>
+</p>
+<a name="requirements"></a>
+<h3>Requirements</h3><p>
+      This custom tag library requires a servlet container
+      that supports the JavaServer Pages Specification, version 2.0 or
+      higher. The dependencies are:
+      <ul><li>jstl.jar and standard.jar (JSTL 1.1.2)</li>
+<li>jsp-api.jar (JSP 2.0) for building custom tags</li>
+<li>commons-el.jar (1.0) for delayed EL evaluation</li>
+<li>struts.jar (1.2.9), commons-digester.jar (1.8.1) and
+        commons-beanutils.jar (1.8.0) for struts examples and the
+        rule-based directed dialog</li>
+<li>commons-logging.jar (1.1.1) for logging in taglib and sample
+        applications</li>
+<li>commons-scxml.jar (0.9) for the SCXML dialog management
+        strategy of the RDC group container</li>
+</ul>
+
+      It may be possible to use Commons library versions lesser than the
+      ones quoted here.
+    </p>
+<a name="config"></a>
+<h3>Configuration</h3><p>Follow these steps to configure your web application with this tag
+    library:</p>
+<ul><li>Use a servlet container that implements the JavaServer Pages
+      Specification, version 2.0 or higher (Example: Tomcat 5.x) or an
+      application server that supports J2EE 1.4 or higher (Example: 
+      Websphere Application Server 6.x)</li>
+<li>Use a Servlet 2.4 web application descriptor for your web
+      application.</li>
+<li>Copy the tag library JAR file 
+      (taglibs-rdc.jar)
+      to the /WEB-INF/lib subdirectory of your web application.</li>
+</ul>
+<p>To use the tags from this library in your JSP pages, add the following
+    directive at the top of each page: </p>
+<pre>
+      &lt;%@ taglib uri=&quot;http://tomcat.apache.org/taglibs/rdc-1.1&quot; prefix=&quot;rdc&quot; %&gt;
+    </pre><p>where &quot;<i>rdc</i>
+&quot; is the tag
+    name prefix you wish to use for tags from this library. You can change
+    this value to any prefix you like.</p>
+<a name="summary"></a>
+<h3>Tag Summary</h3><b>Atomic Components</b>
+<table class="bodyTable"><tr class="a"><td width="25%"><a href="#alpha">alpha</a>
+</td>
+<td width="75%">Collect a string of alphabets</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#alphanum">alphanum</a>
+</td>
+<td width="75%">Collect a alphanumeric string</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#color">color</a>
+</td>
+<td width="75%">Collects a color</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#country">country</a>
+</td>
+<td width="75%">Collect a country name</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#creditcardAmount">creditcardAmount</a>
+</td>
+<td width="75%">Collect a credit card bill amount</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#creditcardExpiry">creditcardExpiry</a>
+</td>
+<td width="75%">Collect a credit card expiry date</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#creditcardNumber">creditcardNumber</a>
+</td>
+<td width="75%">Collect a credit card number</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#creditcardType">creditcardType</a>
+</td>
+<td width="75%">Collect a credit card type</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#currency">currency</a>
+</td>
+<td width="75%">Collect a currency value</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#date">date</a>
+</td>
+<td width="75%">Collect a date</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#digits">digits</a>
+</td>
+<td width="75%">Collect a string of digits</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#duration">duration</a>
+</td>
+<td width="75%">Collect a duration</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#isbn">isbn</a>
+</td>
+<td width="75%">Collect a international standard book number</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#mortgageType">mortgageType</a>
+</td>
+<td width="75%">Collect a type of mortgage</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#number">number</a>
+</td>
+<td width="75%">Collect a numerical value</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#percent">percent</a>
+</td>
+<td width="75%">Collect a percentage</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#select1">select1</a>
+</td>
+<td width="75%">Collect one choice from a list of options</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#ssn">ssn</a>
+</td>
+<td width="75%">Collect a social security number</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#time">time</a>
+</td>
+<td width="75%">Collect a time</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#usMajorCity">usMajorCity</a>
+</td>
+<td width="75%">Collect a major US city name</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#usState">usState</a>
+</td>
+<td width="75%">Collect a US state name</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#zipCode">zipCode</a>
+</td>
+<td width="75%">Collect a zip code</td>
+</tr>
+<tr class="a"><td> </td>
+</tr>
+</table>
+<b>Composite Components</b>
+<table class="bodyTable"><tr class="b"><td width="25%"><a href="#creditcardInfo">creditcardInfo</a>
+</td>
+<td width="75%">Collect credit card information: includes type 
+        of card, card number, expiry date and security code</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#dateRange">dateRange</a>
+</td>
+<td width="75%">Collects a date range, denoting the start and end dates
+        of a time period.</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#mortgage">mortgage</a>
+</td>
+<td width="75%">Collect mortgage information: includes type 
+        of mortgage and percent down-payment</td>
+</tr>
+<tr class="a"><td> </td>
+</tr>
+</table>
+<b>Framework Tags</b>
+<table class="bodyTable"><tr class="b"><td width="25%"><a href="#group">group</a>
+</td>
+<td width="75%">Serve as a container for hosting multiple
+        RDCs and managing the dialog between them using pluggable dialog
+        management strategies</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#peek">peek</a>
+</td>
+<td width="75%">Peek at the top element of a stack.</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#pop">pop</a>
+</td>
+<td width="75%">Pop the top element off a stack.</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#push">push</a>
+</td>
+<td width="75%">Push element onto a stack.</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#task">task</a>
+</td>
+<td width="75%">Provide the scaffolding needed
+        for RDCs</td>
+</tr>
+<tr class="a"><td> </td>
+</tr>
+</table>
+<b>Helper Tags</b>
+<table class="bodyTable"><tr class="b"><td width="25%"><a href="#comment">comment</a>
+</td>
+<td width="75%">A RDC comment</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#configure">configure</a>
+</td>
+<td width="75%">Configure this component's
+        prompts, properties etc. In case the user does not supply
+        a configuration, a pre-specified default configuration is used.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#expand">expand</a>
+</td>
+<td width="75%">Evaluate text containing expressions that
+        use the custom syntax &quot;#{...}&quot; as a JSP 2.0 EL expression
+        </td>
+</tr>
+<tr class="a"><td width="25%"><a href="#extract-params">extract-params</a>
+</td>
+<td width="75%">Extract the necessary
+        parameters from the HTTP request sent by the browser.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#fsm-confirm">fsm-confirm</a>
+</td>
+<td width="75%">The helper tag that produces the 
+        VoiceXML for confirming the input for a component that
+        uses the default RDC FSM.
+        </td>
+</tr>
+<tr class="a"><td width="25%"><a href="#fsm-input">fsm-input</a>
+</td>
+<td width="75%">The helper tag that produces the 
+        VoiceXML for collecting input for a component that
+        uses the default RDC FSM.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#fsm-run">fsm-run</a>
+</td>
+<td width="75%">The helper tag that defines the
+        default RDC FSM.
+        </td>
+</tr>
+<tr class="a"><td width="25%"><a href="#get-configuration">get-configuration</a>
+</td>
+<td width="75%">Get the element corresponding to a given XPath from
+        this RDC's configuration file</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#get-default-config">get-default-config</a>
+</td>
+<td width="75%">Get the default configuration for this component.
+        </td>
+</tr>
+<tr class="a"><td width="25%"><a href="#get-resource">get-resource</a>
+</td>
+<td width="75%">Get the resource specified by the key from a
+        resource bundle.</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#hello">hello</a>
+</td>
+<td width="75%">A RDC hello world tag</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#include-fsm-fragment">include-fsm-fragment</a>
+</td>
+<td width="75%">Include tag fragment for this instance of 
+        the RDC template.</td>
+</tr>
+<tr class="b"><td width="25%"><a href="#pause">pause</a>
+</td>
+<td width="75%">A possible handler for pausing an application</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#set-config-composite">set-config-composite</a>
+</td>
+<td width="75%">Set the page context and
+        configuration in composite components.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#set-grammar">set-grammar</a>
+</td>
+<td width="75%">Set the grammar using the given property from the
+        resource bundle as the grammar URI.</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#setup-results">setup-results</a>
+</td>
+<td width="75%">Set this component's 
+        properties which influence the how and where the browser
+        submits the results.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#struts-errors">struts-errors</a>
+</td>
+<td width="75%">Play out all errors messages from the preceding 
+        struts action.
+        </td>
+</tr>
+<tr class="a"><td width="25%"><a href="#struts-submit">struts-submit</a>
+</td>
+<td width="75%">Submit the values of the RDCs specified in
+        the namelist to the struts layer.
+        </td>
+</tr>
+<tr class="b"><td width="25%"><a href="#subdialog-return">subdialog-return</a>
+</td>
+<td width="75%">Generate the appropriate VoiceXML return statement,
+        if called as a subdialog. The value of the RDC must be serialized
+        according to a standard public contract so meaningful deserialization
+        can take place in the host dialog (or caller).</td>
+</tr>
+<tr class="a"><td width="25%"><a href="#template">template</a>
+</td>
+<td width="75%">A template for rapid development of atomic RDCs</td>
+</tr>
+<tr class="b"><td> </td>
+</tr>
+</table>
+<a name="reference"></a>
+<h3>Tag Reference</h3><a name="alpha"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>alpha</strong> -
+            alpha</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a string of alphabets</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where resuls are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[a-zA-Z ']*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of alpha</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>pattern</b>
+</td>
+<td>regular-expression</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Pattern of acceptable values</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:alpha id=&quot;myAlpha&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See alpha-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="alphanum"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>alphanum</strong> -
+            alphanum</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a alphanumeric string</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where resuls are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[a-z0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of alphanum</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>pattern</b>
+</td>
+<td>regular-expression</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Pattern of acceptable values</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+              &lt;rdc:alphanum id=&quot;myAlphanum&quot; minLength=&quot;5&quot; maxLength=&quot;5&quot;
+               pattern=&quot;[0-9]*&quot; confirm=&quot;true&quot; echo=&quot;true&quot;/&gt;
+         
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See alphanum-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="color"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>color</strong> -
+            color</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collects a color</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where resuls are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>red</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default color</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:color id=&quot;myColor&quot; confirm=&quot;true&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See color-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="country"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>country</strong> -
+            country</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a country name</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>India</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of country</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:country id=&quot;myCountry&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See country-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="creditcardAmount"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>creditcardAmount</strong> -
+            credit card amount</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a credit card bill amount</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>balance</b>
+</td>
+<td>[0-9]*.[0-9]{2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Balance for this payment</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minAmount</b>
+</td>
+<td>[0-9]*.[0-9]{2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum amount due</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxAmount</b>
+</td>
+<td>[0-9]*.[0-9]{2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum payment that can be made</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxDenials</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum denied confirmations that will cause this RDC to exit</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>currencyCode</b>
+</td>
+<td>[A-Za-z][A-Za-z][A-Za-z]</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>ISO 4217 currency code</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>creditcard amount</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the credit card amount</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:creditcardAmount id=&quot;myCCAmount&quot; minAmount=&quot;USD20.00&quot; 
+                    balance=&quot;USD123.45&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See creditcardAmount-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="creditcardExpiry"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>creditcardExpiry</strong> -
+            credit card expiry</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a credit card expiry date</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>creditcard expiry date</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the credit card expiry</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxDenials</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum denied confirmations that will cause this RDC to exit</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:creditcardExpiry id=&quot;myCCExpiry&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See creditcardExpiry-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="creditcardNumber"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>creditcardNumber</strong> -
+            credit card number</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a credit card number</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>creditcard number</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the credit card number</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxDenials</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum denied confirmations that will cause this RDC to exit</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:creditcardNumber id=&quot;myCCNumber&quot; confirm=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See creditcardNumber-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="creditcardType"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>creditcardType</strong> -
+            credit card type</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a credit card type</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>creditcard-type</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the credit card type</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:creditcardType id=&quot;myCCType&quot; initial=&quot;Visa&quot; 
+                    echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See creditcardType-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="currency"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>currency</strong> -
+            currency</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a currency value</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minValue</b>
+</td>
+<td>[0-9]*.?[0-9]{0,2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable amount</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxValue</b>
+</td>
+<td>[0-9]*.?[0-9]{0,2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable amount</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>currencyCode</b>
+</td>
+<td>[A-Za-z][A-Za-z][A-Za-z]</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>ISO 4217 currency code</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>xxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default amount</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:currency id=&quot;myCurrency&quot; minValue=&quot;100&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See currency-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="date"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>date</strong> -
+            date</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a date</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minDate</b>
+</td>
+<td>xxxxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable date</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxDate</b>
+</td>
+<td>xxxxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable date</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>xxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of date</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>format</b>
+</td>
+<td>date-format</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>The format in which the date string is returned</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:date id=&quot;myDate&quot; minDate=&quot;01012004&quot;
+                    maxDate=&quot;12312005&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See date-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="digits"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>digits</strong> -
+            digits</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a string of digits</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable digit length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxLength</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable digit length</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of digit</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:digits id=&quot;myDigits&quot; minLength=&quot;3&quot; maxLength=&quot;7&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See digits-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="duration"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>duration</strong> -
+            duration</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a duration</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minDuration</b>
+</td>
+<td>P([0-9]{2}Y)?([0-9]{2}M)?([0-9]{2}D)?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable duration</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxDuration</b>
+</td>
+<td>P([0-9]{2}Y)?([0-9]{2}M)?([0-9]{2}D)?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable duration</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>P([0-9]{2}Y)?([0-9]{2}M)?([0-9]{2}D)?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of duration</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:duration id=&quot;myDuration&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See duration-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="isbn"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>isbn</strong> -
+            isbn</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a international standard book number</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>pattern</b>
+</td>
+<td>a-regular-expression</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>A regular expression representing the   set of valid international standard book numbers</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>xxxxxxxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default ISBN value</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>submit-uri</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>URI of the jsp page</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:isbn id=&quot;myISBN&quot; confirm=&quot;true&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See isbn-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="mortgageType"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>mortgageType</strong> -
+            mortgage type</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a type of mortgage</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minTerm</b>
+</td>
+<td>[0-9]{1,2}Y(fixed|adjustable)</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable mortgage type</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxTerm</b>
+</td>
+<td>[0-9]{1,2}Y(fixed|adjustable)</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable mortgage type</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[0-9]{1,2}Y(fixed|adjustable)</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of mortgage type</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:mortgageType id=&quot;myMortgageType&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See mortgageType-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="number"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>number</strong> -
+            number</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a numerical value</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where resuls are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[0-9]*.[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of alpha</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minValue</b>
+</td>
+<td>[0-9]*.[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable value</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxValue</b>
+</td>
+<td>[0-9]*.[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable value</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:number id=&quot;myNumber&quot; minValue=&quot;0&quot;
+                    maxValue=&quot;100&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See number-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="percent"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>percent</strong> -
+            percent</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a percentage</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minPercent</b>
+</td>
+<td>[0-9]{1,2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable percentage</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxPercent</b>
+</td>
+<td>[0-9]{1,2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable percentage</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>[0-9]{1,2}</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of percentage</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:percent id=&quot;myPercent&quot; minPercent=&quot;10&quot;
+                    maxPercent=&quot;75&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See percent-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="select1"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>select1</strong> -
+            select one</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect one choice from a list of options</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>optionList</b>
+</td>
+<td>*-opt.xml</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>List from which user will be asked to choose</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>some-option</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>The default choice</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>isubmit URL</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:select1 id=&quot;myChoice&quot; config=&quot;myConfig.xml&quot;
+                    optionsList=&quot;myOptions.xml&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See select1-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="ssn"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>ssn</strong> -
+            ssn</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a social security number</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>pattern</b>
+</td>
+<td>a-regular-expression</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>A regular expression representing the   set of valid social security numbers</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>xxxxxxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of SSN</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>submit-uri</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>URI of the jsp page</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:ssn id=&quot;mySSN&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See ssn-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="time"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>time</strong> -
+            time</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a time</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minTime</b>
+</td>
+<td>xxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum acceptable time</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxTime</b>
+</td>
+<td>xxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum acceptable time</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>xxxxxx</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of time</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:time id=&quot;myTime&quot; minTime=&quot;xx30x&quot;
+                    maxTime=&quot;xx60x&quot; confirm=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See time-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="usMajorCity"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>usMajorCity</strong> -
+            major US city</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a major US city name</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>a-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>US major city</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the city</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>submit-uri</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>URI of the jsp page</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:usMajorCity id=&quot;myCity&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See usMajorCity-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="usState"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>usState</strong> -
+            US state</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a US state name</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>a-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>US state</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the state</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>submit-uri</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>URI of the jsp page</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:usState id=&quot;myState&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See usState-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="zipCode"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>zipCode</strong> -
+            zip code</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect a zip code</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>a-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>Zip code</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value for the zipcode</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>length</b>
+</td>
+<td>a-positive-integer</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Number of digits in the zip code</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>pattern</b>
+</td>
+<td>a-regular-expression</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>A regular expression representing the set of valid zip codes</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>submit-uri</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>URI of the jsp page</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:zipCode id=&quot;myZip&quot; confirm=&quot;true&quot; echo=&quot;true&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See zipCode-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="creditcardInfo"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>creditcardInfo</strong> -
+            credit card information</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect credit card information: includes type 
+        of card, card number, expiry date and security code</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>mode</b>
+</td>
+<td>FULL</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>The mode under which this credit card information composite will operate</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>CreditCardData</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default credit card data</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for this composite</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:creditcardInfo id=&quot;myCCInfo&quot; mode=&quot;short&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See creditcardInfo-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="dateRange"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>dateRange</strong> -
+            Date Range</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collects a date range, denoting the start and end dates
+        of a time period.</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>DateRangeData</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default date range</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for this composite</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:dateRange id=&quot;myDateRange&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See dateRange-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="mortgage"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>mortgage</strong> -
+            mortgage</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Collect mortgage information: includes type 
+        of mortgage and percent down-payment</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>MortgageData</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default mortgage data</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for this composite</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:mortgage id=&quot;myMortgage&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See mortgage-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="group">group</a>
+</font></b>
+</td>
+</tr>
+<tr class="b"><td><p>Serve as a container for hosting multiple
+        RDCs and managing the dialog between them using pluggable dialog
+        management strategies</p>
+</td>
+</tr>
+<tr class="a"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">scriptless</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="b"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>id</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>The unique identifier for this group.</p>
+</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>strategy</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>The fully qualified class name for the
+          pluggable dialog management strategy.</p>
+</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>config</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>The strategy specific config attribute.</p>
+</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>submit</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>The URI where this container will submit its *intermediate*
+          results to.</p>
+</td>
+</tr>
+<tr class="a"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+             &lt;rdc:group id=&quot;myDateTime&quot; 
+              strategy=&quot;org.apache.taglibs.rdc.dm.SimpleDirectedDialog&quot;&gt;
+               &lt;rdc:date id=&quot;myDate&quot; /&gt;
+               &lt;rdc:time id=&quot;myTime&quot; /&gt;
+            &lt;/rdc:group&gt;
+           
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>The rdc-examples application provides multiple 
+              &lt;rdc:group&gt; examples. The following dialog management
+              strategies are included in the samples:
+              <ul><li>Simple Directed Dialog - Children execute in document
+                order. See:
+                  <ul><li>group-test.jsp</li>
+<li>nested-group-test.jsp</li>
+</ul>
+</li>
+<li>Rule Based Directed Dialog - Children execute
+                according to rules defined in XML navigation rule set. See:
+                  <ul><li>rulebased-nested.jsp</li>
+<li>rulebased-conditions.jsp</li>
+</ul>
+</li>
+</ul>
+</p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="peek">peek</a>
+</font></b>
+</td>
+</tr>
+<tr class="b"><td><p>Peek at the top element of a stack.</p>
+</td>
+</tr>
+<tr class="a"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="b"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>var</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>Variable holding result of the peek operation.</p>
+</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>stack</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>Variable holding target stack.</p>
+</td>
+</tr>
+<tr class="a"><td><b>Variables</b>
+</td>
+<td>Name</td>
+<td>Scope</td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td> <b>var</b>
+
+                  attribute value
+                  </td>
+<td> 
+                    Start of tag to end of page
+                  </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>Properties</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+          
+                   &lt;rdc:peek var=&quot;stateMap&quot;
+                    stack=&quot;${requestScope.rdcStack}&quot;/&gt;
+          
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="pop">pop</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Pop the top element off a stack.</p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>var</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>Variable holding value that will get popped.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>stack</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>Variable holding target stack.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>Name</td>
+<td>Scope</td>
+<td>Availability</td>
+</tr>
+<tr class="a"><td> </td>
+<td> <b>var</b>
+
+                  attribute value
+                  </td>
+<td> 
+                    Start of tag to end of page
+                  </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td></td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>Properties</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+          
+                   &lt;rdc:pop var=&quot;discard&quot;
+                    stack=&quot;${rdcStack}&quot;/&gt;
+          
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="push">push</a>
+</font></b>
+</td>
+</tr>
+<tr class="b"><td><p>Push element onto a stack.</p>
+</td>
+</tr>
+<tr class="a"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="b"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>stack</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>Variable holding target stack.</p>
+</td>
+</tr>
+<tr class="a"><td> </td>
+<td><b>element</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p>Variable holding value being pushed.</p>
+</td>
+</tr>
+<tr class="a"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+          
+                   &lt;rdc:push stack=&quot;${rdcStack}&quot;
+                   element=&quot;${dialogMap}&quot;/&gt;
+          
+        </i>
+</td>
+</tr>
+</table>
+<a name="task"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>task</strong> -
+            task tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Provide the scaffolding needed
+        for RDCs</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+             &lt;rdc:task map=&quot;${taskmap}&quot;&gt;
+                  &lt;rdc:date id=&quot;myDate&quot; confirm=&quot;true&quot; /&gt;
+             &lt;/rdc:task&gt;
+           
+          <tr class="b"><td><b>Examples</b>
+</td>
+<td><p>See task-test.jsp in the rdc-examples application.</p>
+ </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="expand">expand</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Evaluate text containing expressions that
+        use the custom syntax &quot;#{...}&quot; as a JSP 2.0 EL expression
+        </p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">scriptless</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:expand&gt;#{model.utterance}
+                   &lt;/rdc:expand&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="get-configuration">get-configuration</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Get the element corresponding to a given XPath from
+        this RDC's configuration file</p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>xml</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The parsed configuration file for this component.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locator</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The XPath to the element of interest.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:get-configuration xml=&quot;${parsedDoc}&quot;
+                    locator=&quot;/config/input/property-list/property&quot; /&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="get-default-config">get-default-config</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Get the default configuration for this component.
+        </p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>name</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The URI for the default configuration file for this component.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>model</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The data model of this component.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:get-default-config name=&quot;${defaultConfig}&quot;
+                    model=&quot;${model}&quot; /&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="get-resource">get-resource</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Get the resource specified by the key from a
+        resource bundle.</p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>bundle</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The ResourceBundle to look into.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>key</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The key for the property to be retrieved.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>var</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The variable which will hold the property value.
+          </p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>isGrammarURI</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The ability to escape the handling specific to RDC
+          grammar URIs.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:get-resource bundle=&quot;${rdcResourceBundle}&quot;
+                    key=&quot;my.property.key&quot; var=&quot;myResourceString&quot; /&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="include-fsm-fragment">include-fsm-fragment</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Include tag fragment for this instance of 
+        the RDC template.</p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>template</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The data model of this template instance.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>context</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The pageContext of the host tag file.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:include-fsm-fragment template=&quot;${model}&quot; 
+                    context=&quot;${pageContext}&quot; /&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="struts-errors">struts-errors</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Play out all errors messages from the preceding 
+        struts action.
+        </p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:struts-errors /&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="b"><td><b><font color="#ffffff" face="arial,helvetica,sanserif" size="+1"><a name="struts-submit">struts-submit</a>
+</font></b>
+</td>
+</tr>
+<tr class="a"><td><p>Submit the values of the RDCs specified in
+        the namelist to the struts layer.
+        </p>
+</td>
+</tr>
+<tr class="b"><td width="15%"><b>Tag Body</b>
+</td>
+<td width="17%">EMPTY</td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+<td width="17%"> </td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Required</td>
+<td>
+              Runtime Expression Evaluation
+            </td>
+<td>Availability</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The URI to submit the results to (a struts mapping).</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>context</b>
+</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The pageContext of the host JSP.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>namelist</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The list of the RDCs whose values should be submitted.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>clearlist</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The list of the RDCs whose values should be cleared. Item in the list
+          can be a component or container.</p>
+</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>dialogMap</b>
+</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td> </td>
+</tr>
+<tr class="a"><td> </td>
+<td><p>The RDC dialog map used by the host JSP.</p>
+</td>
+</tr>
+<tr class="b"><td><b>Variables</b>
+</td>
+<td>None</td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:struts-submit submit=${self}&quot; 
+                   context=&quot;${pageContext}&quot; namelist=&quot;myDate myTime&quot;/&gt;
+                     
+        </i>
+</td>
+</tr>
+</table>
+<a name="comment"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>comment</strong> -
+            comment tag</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>A RDC comment</p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:comment&gt;
+                   This is a RDC comment
+                   &lt;/rdc:comment&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="configure"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>configure</strong> -
+            configure tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Configure this component's
+        prompts, properties etc. In case the user does not supply
+        a configuration, a pre-specified default configuration is used.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:configure model=&quot;${model}&quot; config=&quot;${config}&quot; 
+      	        defaultConfig=&quot;META-INF/tags/rdc/config/date.xml&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="extract-params"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>extract-params</strong> -
+            extract params tag</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>Extract the necessary
+        parameters from the HTTP request sent by the browser.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:extract-params target=&quot;${model}&quot;
+                    parameters=&quot;${model.paramsMap}&quot;/&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="fsm-confirm"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>fsm-confirm</strong> -
+            fsm confirm tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>The helper tag that produces the 
+        VoiceXML for confirming the input for a component that
+        uses the default RDC FSM.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:fsm-confirm model=&quot;${model}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="fsm-input"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>fsm-input</strong> -
+            fsm input tag</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>The helper tag that produces the 
+        VoiceXML for collecting input for a component that
+        uses the default RDC FSM.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:fsm-input model=&quot;${model}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="fsm-run"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>fsm-run</strong> -
+            fsm run tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>The helper tag that defines the
+        default RDC FSM.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:fsm-run model=&quot;${model}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="hello"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>hello</strong> -
+            hello world tag</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>A RDC hello world tag</p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:hello name=&quot;whole wide world&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="pause"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>pause</strong> -
+            pause tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>A possible handler for pausing an application</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>locale</b>
+</td>
+<td>[language](-[country])?</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>RDC Locale</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:pause id=&quot;myPause&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="set-config-composite"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>set-config-composite</strong> -
+            set config composite tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Set the page context and
+        configuration in composite components.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                &lt;rdc:set-config-composite model=&quot;${model}&quot;
+                 context=&quot;${pageContext}&quot; config=&quot;${config}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="set-grammar"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>set-grammar</strong> -
+            set grammar tag</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>Set the grammar using the given property from the
+        resource bundle as the grammar URI.</p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                &lt;rdc:set-grammar model=&quot;${model}&quot; bundle=&quot;${rdcResourceBundle}&quot;
+                 key=&quot;my.property.key&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="setup-results"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>setup-results</strong> -
+            setup results tag</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>Set this component's 
+        properties which influence the how and where the browser
+        submits the results.
+        </p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                &lt;rdc:setup-results model=&quot;${model}&quot; submit=&quot;${submit}&quot; 
+                 minConfidence=&quot;${minConfidence}&quot; numNBest=&quot;${numNBest}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="subdialog-return"></a>
+<table class="bodyTable"><tr class="b"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>subdialog-return</strong> -
+            generate return statement if called as a subdialog</font></td>
+</tr>
+<tr class="a"><td><blockquote><p>Generate the appropriate VoiceXML return statement,
+        if called as a subdialog. The value of the RDC must be serialized
+        according to a standard public contract so meaningful deserialization
+        can take place in the host dialog (or caller).</p>
+</blockquote></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                &lt;rdc:subdialog-return model=&quot;${model}&quot; /&gt;
+                    
+        </i>
+</td>
+</tr>
+</table>
+<a name="template"></a>
+<table class="bodyTable"><tr class="a"><td><font color="#ffffff" face="arial,helvetica,sanserif"><strong>template</strong> -
+            RDC template</font></td>
+</tr>
+<tr class="b"><td><blockquote><p>A template for rapid development of atomic RDCs</p>
+</blockquote></td>
+</tr>
+<tr class="a"><td><b>Attributes</b>
+</td>
+<td>Name</td>
+<td>Value</td>
+<td>Required</td>
+<td> Runtime Expression Evaluation</td>
+<td>Summary</td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>id</b>
+</td>
+<td>some-name</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        No
+      </td>
+<td><em>Component ID</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>grammar</b>
+</td>
+<td>xxx.grxml or array of Grammar objects</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>One or more grammars needed by this instance, passed as a URI or array of Grammar objects</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>config</b>
+</td>
+<td>xxx-cfg.xml</td>
+<td> 
+        Yes
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Configuration file for the component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>constraints</b>
+</td>
+<td>instance specific map</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Constraints on the return value of this instance, passed as a Map</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>bean</b>
+</td>
+<td>fully qualified data model class</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Data model for this instance</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>data</b>
+</td>
+<td>instance specific object</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>External data needed by this instance</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>fsmFragment</b>
+</td>
+<td>URI to FSM fragment</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Custom FSM for this component</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>initial</b>
+</td>
+<td>instance specific</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Default value of this instance</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>confirm</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Confirmation option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>echo</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Playback options</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>numNBest</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Maximum number of N-best values requested</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>minConfidence</b>
+</td>
+<td>[0-9][0-9].[0-9]*F</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Minimum confidence value of the recognised output</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoInput</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on noinput</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>maxNoMatch</b>
+</td>
+<td>[0-9]*</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Graceful exit on nomatch</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>submit</b>
+</td>
+<td>self-URI</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Location where results are submitted</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td> </td>
+<td><b>subdialog</b>
+</td>
+<td>true/false</td>
+<td> 
+        No
+      </td>
+<td> 
+        Yes
+      </td>
+<td><em>Subdialog option</em></td>
+</tr>
+<tr class="a"><td></td>
+</tr>
+<tr class="b"><td><b>Usage:</b>
+</td>
+<td><i>
+           
+                   &lt;rdc:template id=&quot;myTemplate&quot; grammar=&quot;grammar/myGrammar.grxml&quot;
+                    config=&quot;config/myConfig.xml&quot; /&gt;
+          
+          <tr class="a"><td><b>Examples</b>
+</td>
+<td><p>
+                See simple-template-test.jsp in the rdc-examples application.
+              </p>
+ </td>
+</tr>
+<tr class="b"><td> </td>
+<td><p><pre></p>
+</td>
+</tr>
+</i>
+</td>
+</tr>
+</table>
+<a name="examples"><h3>Examples</h3></a>
+<p>See the example application
+      taglibs-rdc-examples.war for examples of the usage
+      of the tags from this custom tag library.</p>
+<a name="javadocs"><h3>Java Docs</h3></a>
+<p>Java programmers can view the java class documentation for this tag
+        library as <a href="apidocs/index.html">javadocs</a>
+.</p>
+<a name="history"><h3>Revision History</h3></a>
+<p>Review the complete <a href="changes-report.html">revision history</a>
+ of
+        this tag library.</p>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2004-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

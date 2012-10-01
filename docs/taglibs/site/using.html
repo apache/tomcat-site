@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Apache Taglibs - Using the JAKARTA-TAGLIBS Binary Distribution</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Craig R. McClanahan" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="http://tomcat.apache.org/" id="bannerLeft">
+    
+                                    <img src="http://tomcat.apache.org/images/tomcat.gif" alt="" />
+    
+            </a>
+                        <a href="http://tomcat.apache.org/taglibs/" id="bannerRight">
+    
+                                    <img src="http://tomcat.apache.org/taglibs/images/taglibs.gif" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 04 October 2009
+                      </div>
+            <div class="xright">            <a href="http://www.apachecon.com/" class="externalLink">ApacheCon</a>
+            |
+                <a href="http://www.apache.org" class="externalLink">Apache</a>
+            |
+                <a href="http://tomcat.apache.org/" class="externalLink">Tomcat</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Apache Taglibs</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/index.html" class="externalLink">Home</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/using.html" class="externalLink">Using</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/tutorial.html" class="externalLink">Taglib Tutorial</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/news.html" class="externalLink">News Archives</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://wiki.apache.org/jakarta-taglibs/FrontPage" class="externalLink">Wiki</a>
+          </li>
+          </ul>
+              <h5>Digging into Apache Taglibs</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/mail-lists.html" class="externalLink">Mailing Lists</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/issue-tracking.html" class="externalLink">Bugs</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/site/building.html" class="externalLink">Building</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/integration.html" class="externalLink">CI</a>
+          </li>
+          </ul>
+              <h5>The Taglibs</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/rdc/" class="externalLink">RDC</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://tomcat.apache.org/taglibs/standard/" class="externalLink">Standard</a>
+          </li>
+          </ul>
+              <h5>ASF</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://www.apache.org/foundation/sponsorship.html" class="externalLink">Sponsorship</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://www.apache.org/foundation/thanks.html" class="externalLink">Thanks</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="../project-info.html">Project Information</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="../images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="Download_and_Installation"></a>Download and Installation</h2>
+<p>Binary downloads of released versions of the Apache Taglibs distributions are available from each components website.
+</p>
+<p>Note that for now, these distributions are legacy versions from the Jakarta Taglibs days. While current development is built 
+using Maven, the binary builds were created, and the source builds require, an Ant build system. </p>
+</div>
+<div class="section"><h2><a name="Distribution_Directory_Structure"></a>Distribution Directory Structure</h2>
+<p>The distribution archive will contain the following file and directory
+structure:
+
+<ul><li><b>LICENSE</b> - A copy of the Apache Software Foundation
+    license under which all Jakarta project software is distributed.</li>
+<li><b>README</b> - A brief README file that contains pointers
+    to the documentation that is available.</li>
+<li><b>doc</b> - A directory containing documentation about the
+    JAKARTA-TAGLIBS project as a whole, including this file.  The following
+    documents are included:
+    <ul><li><a href="using.html">Using the JAKARTA-TAGLIBS Binary
+        Distribution</a> (this document)</li>
+<li><a href="legacybuilding.html">Building the old JAKARTA-TAGLIBS Source
+        Distributions</a></li>
+<li><a href="guidelines.html">Taglib Developer Guidelines</a></li>
+</ul>
+</li>
+<li>A directory for each custom tag library included in the JAKARTA-TAGLIBS
+    project, where the directory name matches the short name of that project.
+    Each directory will contain the following files, where
+    <code>{library}</code> represents that project's short name:
+    <ul><li><b>{library}.tld</b> - The <i>tag library descriptor</i> file for
+        this custom tag library.  This file will normally be copied to the
+        <code>/WEB-INF</code> subdirectory within your web application, and
+        referenced with a <code>&lt;taglib&gt;</code> element in the web
+        application deployment descriptor (<code>/WEB-INF/web.xml</code>) file.</li>
+<li><b>{library}.jar</b> - A JAR file containing the Java classes and
+        associated resources that comprise this custom tag library.  This file
+        will normally be copied to the <code>/WEB-INF/lib</code> subdirectory
+        within your web application, which makes these classes automatically
+        visible within your application.</li>
+<li><b>{library}-doc.war</b> - A web application containing developer
+        documentation describing how to use the tags in this custom tag library
+        in your own application.  This web application can be deployed and
+        executed on any servlet container that is compatible with the Servlet
+        API Specification, version 2.2 or later.</li>
+<li><b>{library}-examples.war</b> - A web application containing one or
+        more examples that illustrate the use of this custom tag library.
+        This web application can be deployed and executed on any servlet
+        container that is compatible with the Servlet API Specification,
+        version 2.2 or later.</li>
+</ul>
+</li>
+</ul>
+</p>
+</div>
+<div class="section"><h2><a name="Using_a_Custom_Tag_Library_in_Your_Application"></a>Using a Custom Tag Library in Your Application</h2>
+<p>To use one or more of the custom tag libraries included in JAKARTA-TAGLIBS
+in your own web applications, follow these steps:
+
+<ul><li>Copy the <code>{library}.tld</code> file to the <code>/WEB-INF</code>
+    subdirectory of your web application.</li>
+<li>Copy the <code>{library}.jar</code> file to the <code>/WEB-INF/lib</code>
+    subdirectory of your web application.</li>
+<li>Install additional JAR files for libraries required by the custom tag
+    library you wish to use (see the library documentation for information)
+    in the <code>/WEB-INF/lib</code> subdirectory of your web application.</li>
+<li>For each tag library you are going to use, add a
+    <code>&lt;taglib&gt;</code> element to your web application deployment
+    descriptor (<code>/WEB-INF/web.xml)</code>) file.  An example entry might
+    look like this:
+    <pre>
+    &lt;taglib&gt;
+	&lt;taglib-uri&gt;http://jakarta.apache.org/taglibs/{library}&lt;/taglib-uri&gt;
+	&lt;taglib-location&gt;/WEB-INF/{library}.tld&lt;/taglib-location&gt;
+    &lt;/taglib&gt;
+    </pre></li>
+<li>At the top of each JSP page in your application that needs to use one or
+    more tags from this custom tag library, add a
+    <code>&lt;%@ taglib %&gt;</code> directive identifying the URI of the library
+    you want to use (which must match the value you specified in the
+    <code>&lt;taglib-uri&gt;</code> element in the web application deployment
+    descriptor), and the tagname prefix you will use within this page to
+    identify tags from this library.  An example entry might look like this:
+    <pre>
+    &lt;%@ taglib uri=&quot;http://jakarta.apache.org/taglibs/{library}&quot; prefix=&quot;x&quot; %&gt;
+    </pre></li>
+<li>Whenever you wanted to use one of the tags from this library, you would
+    simply include it, prefixed as you described in the <code>taglib</code>
+    directive, and including attribute names and values as described in the
+    documentation for this tag library.  For example, if the library you are
+    using has a tag named <code>magic</code>, and you selected the &quot;x&quot;
+    prefix as described above, you would might include this custom tag:
+    <pre>
+    &lt;x:magic/&gt;
+    </pre>
+    or, if this tag required attributes and perhaps some body text:
+    <pre>
+    &lt;x:magic id=&quot;beanName&quot; name=&quot;xyz&quot;&gt;
+	... Some body text and/or nested tags ...
+    &lt;/x:magic&gt;
+    </pre></li>
+<li>See the documentation provided with each custom tag library for
+    detailed descriptions of the available tags within that library.</li>
+</ul>
+</p>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
