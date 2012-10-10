@@ -32,7 +32,7 @@
   If still more simultaneous requests are received, they are stacked up
   inside the server socket created by the <strong>Connector</strong>, up to
   the configured maximum (the value of the <code>acceptCount</code>
-  attribute.  Any further simultaneous requests will receive "connection
+  attribute).  Any further simultaneous requests will receive "connection
   refused" errors, until resources are available to process them.</p>
 
 </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Attributes"><strong>Attributes</strong></a></font></td></tr><tr><td><blockquote>
@@ -192,6 +192,11 @@
       allows either the servlet a longer amount of time to complete its
       execution, or a longer timeout during data upload. If not specified,
       this attribute is set to "true".</p>
+    </td></tr><tr><td valign="center" align="left"><code>maxHeaderCount</code></td><td valign="center" align="left">
+      <p>The maximum number of headers in a request that are allowed by the
+      container. A request that contains more headers than the specified limit
+      will be rejected. A value of less than 0 means no limit.
+      If not specified, a default of 100 is used.</p>
     </td></tr><tr><td valign="center" align="left"><code>maxHttpHeaderSize</code></td><td valign="center" align="left">
       <p>The maximum size of the request and response HTTP header, specified
       in bytes.

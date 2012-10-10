@@ -3,7 +3,95 @@
 			td#mainBody {width: 100%;}
 		</style></head><body vlink="#525D76" alink="#525D76" link="#525D76" text="#000000" bgcolor="#ffffff"><table cellspacing="0" width="100%" border="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img border="0" alt="
       The Apache Tomcat Servlet/JSP Container
-    " align="right" src="./../images/tomcat.gif"></a></td><td><h1><font face="arial,helvetica,sanserif">The Apache Tomcat 5.5 Servlet/JSP Container</font></h1></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img border="0" alt="Apache Logo" align="right" src="./../images/asf-logo.gif"></a></td></tr></table><table cellspacing="4" width="100%" border="0"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade="noshade"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td id="mainBody" align="left" valign="top" width="80%"><h1>The Apache Tomcat 5.5 Servlet/JSP Container</h1><h2>Changelog</h2><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.35 (jim)"><!--()--></a><a name="Tomcat_5.5.35_(jim)"><strong>Tomcat 5.5.35 (jim)</strong></a></font></td><td bgcolor="#525D76" align="right"><font face="arial,helvetica.sanserif" color="#ffffff"><strong></strong></font></td></tr><tr><td colspan="2"><blockquote>
+    " align="right" src="./../images/tomcat.gif"></a></td><td><h1><font face="arial,helvetica,sanserif">The Apache Tomcat 5.5 Servlet/JSP Container</font></h1></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img border="0" alt="Apache Logo" align="right" src="./../images/asf-logo.gif"></a></td></tr></table><table cellspacing="4" width="100%" border="0"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade="noshade"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td id="mainBody" align="left" valign="top" width="80%"><h1>The Apache Tomcat 5.5 Servlet/JSP Container</h1><h2>Changelog</h2><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)"><!--()--></a><a name="Tomcat_5.5.36_(markt)"><strong>Tomcat 5.5.36 (markt)</strong></a></font></td><td bgcolor="#525D76" align="right"><font face="arial,helvetica.sanserif" color="#ffffff"><strong></strong></font></td></tr><tr><td colspan="2"><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)/General"><!--()--></a><a name="Tomcat_5.5.36_(markt)/General"><strong>General</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./../images/update.gif" class="icon" alt="update"></td><td>
+        Update to Apache Commons Daemon 1.0.10. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/update.gif" class="icon" alt="update"></td><td>
+        Update to Apache Commons Pool 1.5.7. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/update.gif" class="icon" alt="update"></td><td>
+        Update to Apache Tomcat Native 1.1.24. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/update.gif" class="icon" alt="update"></td><td>
+        Update to Eclipse JDT 3.7.2. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)/Catalina"><!--()--></a><a name="Tomcat_5.5.36_(markt)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52677">52677</a>: The new <code>SetCharacterEncodingFilter</code> needs
+        to implement <code>Filter</code> to be useful. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53050">53050</a>: Fix XOR arithmetics and charset issue when calculating
+        entropy to initialize random numbers generator in session manager. Based
+        on a proposal by Andras Rozsa. (kkolinko/jim)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53531">53531</a>: Better checking and improved error messages for
+        directory creation during automatic deployment. (schultz/kkolinko)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        Various improvements to the DIGEST authenticator including
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52954">52954</a>, the disabling caching of an authenticated user in the
+        session by default, tracking server rather than client nonces and better
+        handling of stale nonce values. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/code.gif" class="icon" alt="code"></td><td>
+        Remove unneeded handling of FORM authentication in RealmBase. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53830">53830</a>: Better handling of Manager.randomFile default value on
+        Windows. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)/Coyote"><!--()--></a><a name="Tomcat_5.5.36_(markt)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        Ensure that the chunked input filter is correctly recycled between
+        requests. (kkolinko/jim)
+      </td></tr>
+      <tr><td><img src="./../images/add.gif" class="icon" alt="add"></td><td>
+        Implement the maxHeaderCount for the HTTP connectors. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=42181">42181</a>: Better handling of edge conditions in chunk header
+        processing. Improve chunk header parsing. Properly ignore
+        chunk-extension suffix, not trying to parse digits contained in it.
+        Reject chunks whose header is incorrect. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)/Webapps"><!--()--></a><a name="Tomcat_5.5.36_(markt)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52641">52641</a>: Remove mentioning of ldap.jar from docs.
+        Patch provided by Felix Schumacher. (rjung)
+      </td></tr>
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53158">53158</a>: Fix documented defaults for DBCP.
+        Patch provided by ph.dezanneau at gmail.com. (rjung)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.36 (markt)/Other"><!--()--></a><a name="Tomcat_5.5.36_(markt)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./../images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52640">52640</a>: Correct set the endorsed directory location when using
+        the Windows installer. (markt)
+      </td></tr>
+      <tr><td><img src="./../images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52579">52579</a>: Add a note about Sun's Charset.decode() bug to the
+        RELEASE-NOTES file. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.35 (jim)"><!--()--></a><a name="Tomcat_5.5.35_(jim)"><strong>Tomcat 5.5.35 (jim)</strong></a></font></td><td bgcolor="#525D76" align="right"><font face="arial,helvetica.sanserif" color="#ffffff"><strong>released 2012-01-16</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 5.5.35 (jim)/Catalina"><!--()--></a><a name="Tomcat_5.5.35_(jim)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./../images/add.gif" class="icon" alt="add"></td><td>

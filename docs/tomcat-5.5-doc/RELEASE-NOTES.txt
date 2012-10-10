@@ -16,11 +16,11 @@
 ================================================================================
 
 
-                     Apache Tomcat Version 5.5.35
+                     Apache Tomcat Version 5.5.36
                             Release Notes
 
 
-$Id: RELEASE-NOTES 1199157 2011-11-08 08:38:55Z kkolinko $
+$Id: RELEASE-NOTES 1392280 2012-10-01 11:25:48Z kkolinko $
 
 
 =============================
@@ -188,6 +188,21 @@ http://tomcat.apache.org/faq/misc.html#invoker.
 Viewing the Tomcat Change Log:
 ==============================
 See changelog.html in this directory.
+
+
+====================================================
+Multi-byte charset handling bug in Java 1.4 and 1.5:
+====================================================
+Public versions of Sun/Oracle Java 1.4 and 1.5 are known to have a nasty
+bug in implementation of Charset.decode() method for certain character
+sets.
+
+For details, test and a list of affected character sets see:
+
+http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6196991
+https://issues.apache.org/bugzilla/show_bug.cgi?id=52579
+
+The UTF-8 charset is not affected by this issue.
 
 
 =============================

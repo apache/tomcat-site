@@ -4,13 +4,20 @@
 		</style></head><body vlink="#525D76" alink="#525D76" link="#525D76" text="#000000" bgcolor="#ffffff"><table cellspacing="0" width="100%" border="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img border="0" alt="
       The Apache Tomcat Servlet/JSP Container
     " align="right" src="./images/tomcat.gif"></a></td><td><h1><font face="arial,helvetica,sanserif">The Apache Tomcat 5.5 Servlet/JSP Container</font></h1></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img border="0" alt="Apache Logo" align="right" src="./images/asf-logo.gif"></a></td></tr></table><table cellspacing="4" width="100%" border="0"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade="noshade"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td class="noPrint" nowrap="true" valign="top" width="20%"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://tomcat.apache.org/faq">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Apache Tomcat Configuration</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li><li><a href="servletapi/index.html">Servlet API Javadocs</a></li><li><a href="jspapi/index.html">JSP API Javadocs</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="status.html">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="catalina/funcspecs/index.html">Functional Specs.</a></li><li><a href="catalina/docs/api/index.html">Apache Tomcat Javadocs</a></li><li><a href="jasper/docs/api/index.html">Apache Jasper Javadocs</a></li><li><a href="architecture/index.html">Architecture</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td id="mainBody" align="left" valign="top" width="80%"><h1>The Apache Tomcat 5.5 Servlet/JSP Container</h1><h2>Monitoring and Managing Tomcat</h2><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Enabling_JMX_Remote">Enabling JMX Remote</a></li><li><a href="#Manage_Tomcat_with_JMX_remote_Ant_Tasks">Manage Tomcat with JMX remote Ant Tasks</a></li><li><a href="#JMXAccessorOpenTask_-_jmx_open_connection_task">JMXAccessorOpenTask - jmx open connection task</a></li><li><a href="#JMXAccessorGetTask:__get_attribute_value_ant_task">JMXAccessorGetTask:  get attribute value ant task</a></li><li><a href="#JMXAccessorSetTask:__set_attribute_value_ant_task">JMXAccessorSetTask:  set attribute value ant task</a></li><li><a href="#JMXAccessorInvokeTask:__invoke_Mbean_operation_ant_task">JMXAccessorInvokeTask:  invoke Mbean operation ant task</a></li><li><a href="#JMXAccessorQueryTask:__query_Mbean_ant_task">JMXAccessorQueryTask:  query Mbean ant task</a></li><li><a href="#JMXAccessorCreateTask:__remote_create_mbean_ant_task">JMXAccessorCreateTask:  remote create mbean ant task</a></li><li><a href="#JMXAccessorUnregisterTask:__remote_unregister_mbean_ant_task">JMXAccessorUnregisterTask:  remote unregister mbean ant task</a></li><li><a href="#JMXAccessorCondition:__express_condition">JMXAccessorCondition:  express condition</a></li><li><a href="#JMXAccessorEqualsCondition:__equals_Mbean_ant_condition">JMXAccessorEqualsCondition:  equals Mbean ant condition</a></li></ul>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Enabling_JMX_Local">Enabling JMX Local</a></li><li><a href="#Enabling_JMX_Remote">Enabling JMX Remote</a></li><li><a href="#Manage_Tomcat_with_JMX_remote_Ant_Tasks">Manage Tomcat with JMX remote Ant Tasks</a></li><li><a href="#JMXAccessorOpenTask_-_jmx_open_connection_task">JMXAccessorOpenTask - jmx open connection task</a></li><li><a href="#JMXAccessorGetTask:__get_attribute_value_ant_task">JMXAccessorGetTask:  get attribute value ant task</a></li><li><a href="#JMXAccessorSetTask:__set_attribute_value_ant_task">JMXAccessorSetTask:  set attribute value ant task</a></li><li><a href="#JMXAccessorInvokeTask:__invoke_Mbean_operation_ant_task">JMXAccessorInvokeTask:  invoke Mbean operation ant task</a></li><li><a href="#JMXAccessorQueryTask:__query_Mbean_ant_task">JMXAccessorQueryTask:  query Mbean ant task</a></li><li><a href="#JMXAccessorCreateTask:__remote_create_mbean_ant_task">JMXAccessorCreateTask:  remote create mbean ant task</a></li><li><a href="#JMXAccessorUnregisterTask:__remote_unregister_mbean_ant_task">JMXAccessorUnregisterTask:  remote unregister mbean ant task</a></li><li><a href="#JMXAccessorCondition:__express_condition">JMXAccessorCondition:  express condition</a></li><li><a href="#JMXAccessorEqualsCondition:__equals_Mbean_ant_condition">JMXAccessorEqualsCondition:  equals Mbean ant condition</a></li></ul>
 </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>Monitoring is a very important question today. Looking inside the running
         server, grab some statistic data or reconfigure some aspects are 
         daily administration tasks.</p>  
   
+  </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Enabling JMX Local"><!--()--></a><a name="Enabling_JMX_Local"><strong>Enabling JMX Local</strong></a></font></td></tr><tr><td><blockquote>
+    <p>To enable JMX access to Tomcat that runs on the same machine,
+    add the following parameter to your Tomcat startup script:
+    </p>
+    <div align="left"><table border="0" cellpadding="0" cellspacing="4"><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#ffffff"><pre>
+    set CATALINA_OPTS=-Dcom.sun.management.jmxremote
+    </pre></td><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr></table></div>
   </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Enabling JMX Remote"><!--()--></a><a name="Enabling_JMX_Remote"><strong>Enabling JMX Remote</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>The Sun website includes the list of options and how to configure JMX Remote on Java 5:
@@ -18,7 +25,7 @@
         http://java.sun.com/j2se/1.5.0/docs/guide/management/agent.html</a>.
     </p>
     <p>For quick installation you find here a short installation guide:</p>
-    <p>Add the following parameters to your tomcat startup script:
+    <p>Add the following parameters to your Tomcat startup script:
     <div align="left"><table border="0" cellpadding="0" cellspacing="4"><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#ffffff"><pre>
     set CATALINA_OPTS=-Dcom.sun.management.jmxremote \
     -Dcom.sun.management.jmxremote.port=%my.jmx.port% \
@@ -69,7 +76,7 @@ controlRole tomcat
     <ol>
       <li>Install the tomcat compat package</li>
       <li>Install the mx4j-tools.jar at common/lib. Please, use the same MX4j 
-          version as your tomcat release</li>
+          version as your Tomcat release</li>
       <li>Configure a MX4J JMX HTTP Adaptor at your AJP Connector
       <p>
       <div align="left"><table border="0" cellpadding="0" cellspacing="4"><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#ffffff"><pre>
@@ -86,16 +93,19 @@ controlRole tomcat
       <p><b>Note</b>: MX4J JSR 160 RMI Adaptor to support JDK 1.4 currently not integrated.
       </p>
       </li>
-      <li>Start your tomcat and look with a browser at http://${JMX.HOST}:${JMX.PORT}</li>
+      <li>Start your Tomcat and look with a browser at http://${JMX.HOST}:${JMX.PORT}</li>
       <li>With the mx connector parameter <code>mx.authMode="basic" mx.authUser="tomcat" mx.authPassword="strange"</code> 
           you can control the access!</li>
-      <li>A complete list of all tomcat core MBeans can you find at <a href="http://tomcat.apache.org/tomcat-5.5-doc/catalina/funcspecs/mbean-names.html">
+      <li>A complete list of all Tomcat core MBeans can you find at <a href="http://tomcat.apache.org/tomcat-5.5-doc/catalina/funcspecs/mbean-names.html">
         http://tomcat.apache.org/tomcat-5.5-doc/catalina/funcspecs/mbean-names.html</a>.</li>
     </ol>
     </p>
 
   </blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Manage Tomcat with JMX remote Ant Tasks"><!--()--></a><a name="Manage_Tomcat_with_JMX_remote_Ant_Tasks"><strong>Manage Tomcat with JMX remote Ant Tasks</strong></a></font></td></tr><tr><td><blockquote>
-   <p>For simple tomcat ant task usage with ant 1.6.x we have integrate import and antlib support.</p>   
+   <p>To simplify JMX usage with Apache Ant 1.6.x, a set of tasks is provided
+   that may be used with antlib. The tasks can also be defined explicitly. An
+   Ant project that defines the tasks is provided and can be imported into
+   your project.</p>
    <p><b>antlib support</b>: Copy your catalina-ant.jar from $CATALINA_HOME/server/lib to $ANT_HOME/lib.</p>
    <p>The following example shows the JMX Accessor usage:</p>
    <table border="1">
@@ -807,7 +817,7 @@ Example to create remote mbean<br>
 </pre></td><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr></table></div>
 </p>  
 <p>
-    <b>Warning</b>: A lot of tomcat mbeans can't be really create and connect with <br>
+    <b>Warning</b>: A lot of Tomcat mbeans can't be really create and connect with <br>
     the parent. The valve, cluster or realm Mbeans are not autconnect with there parent.<br> 
     Use <em>MBeanFacrory</em> create operation instead.
 </p>
@@ -855,7 +865,7 @@ Example to unregister remote mbean<br>
 </pre></td><td width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr><tr><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td><td height="1" width="1" bgcolor="#023264"><img border="0" hspace="0" vspace="0" height="1" width="1" alt="" src="./images/void.gif"></td></tr></table></div>
 </p>  
 <p>
-    <b>Warning</b>: A lot of tomcat mbeans can't be really unregister. <br>
+    <b>Warning</b>: A lot of Tomcat mbeans can't be really unregister. <br>
     The Mbeans are not deregister from parent. Use <em>MBeanFacrory</em> <br>
     remove operation instead.
 </p>
