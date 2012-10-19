@@ -15,10 +15,10 @@
   limitations under the License.
 ================================================================================
 
-$Id: RELEASE-NOTES 1178679 2011-10-04 04:25:20Z kkolinko $
+$Id: RELEASE-NOTES 1392285 2012-10-01 11:32:00Z kkolinko $
 
 
-                     Apache Tomcat Version 6.0.35
+                     Apache Tomcat Version 6.0.36
                             Release Notes
 
 
@@ -85,7 +85,7 @@ for use by web applications (by placing them in "lib"):
 * catalina-ant.jar (Tomcat Catalina Ant tasks)
 * catalina-ha.jar (High availability package)
 * catalina-tribes.jar (Group communication)
-* ecj-3.7.jar (Eclipse JDT Java compiler)
+* ecj-3.7.2.jar (Eclipse JDT Java compiler)
 * el-api.jar (EL 2.1 API)
 * jasper.jar (Jasper 2 Compiler and Runtime)
 * jasper-el.jar (Jasper 2 EL implementation)
@@ -183,6 +183,20 @@ http://tomcat.apache.org/faq/misc.html#invoker.
 Viewing the Tomcat Change Log:
 ==============================
 See changelog.html in this directory.
+
+
+============================================
+Multi-byte charset handling bug in Java 1.5:
+============================================
+Public versions of Sun/Oracle Java 1.5 are known to have a nasty bug in
+implementation of Charset.decode() method for certain character sets.
+
+For details, test and a list of affected character sets see:
+
+http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6196991
+https://issues.apache.org/bugzilla/show_bug.cgi?id=52579
+
+The UTF-8 charset is not affected by this issue.
 
 
 =============================

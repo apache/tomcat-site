@@ -1,9 +1,420 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.35) - Changelog</title><meta content="Remy Maucherat" name="author"><meta content="Yoav Shapira" name="author"><meta content="Filip Hanik" name="author"><meta content="Rainer Jung" name="author"><meta content="Peter Rossbach" name="author"><meta content="Konstantin Kolinko" name="author"><meta content="Jean-Frederic Clere" name="author"><meta content="Keiichi Fujino" name="author"><meta content="Mladen Turk" name="author"><meta content="Tim Whittington" name="author"><meta content="Sylvain Laurent" name="author"><meta content="Christopher Schultz" name="author"><style media="print" type="text/css">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.36) - Changelog</title><meta content="Remy Maucherat" name="author"><meta content="Yoav Shapira" name="author"><meta content="Filip Hanik" name="author"><meta content="Rainer Jung" name="author"><meta content="Peter Rossbach" name="author"><meta content="Konstantin Kolinko" name="author"><meta content="Jean-Frederic Clere" name="author"><meta content="Keiichi Fujino" name="author"><meta content="Mladen Turk" name="author"><meta content="Tim Whittington" name="author"><meta content="Sylvain Laurent" name="author"><meta content="Christopher Schultz" name="author"><style media="print" type="text/css">
 			.noPrint {display: none;}
 			td#mainBody {width: 100%;}
 		</style></head><body vlink="#525D76" alink="#525D76" link="#525D76" text="#000000" bgcolor="#ffffff"><table cellspacing="0" width="100%" border="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img border="0" alt="
       The Apache Tomcat Servlet/JSP Container
-    " align="right" src="./images/tomcat.gif"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.35, Nov 28 2011</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img border="0" alt="Apache Logo" align="right" src="./images/asf-logo.gif"></a></td></tr></table><table cellspacing="4" width="100%" border="0"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade></td></tr><tr><!--LEFT SIDE NAVIGATION--><td class="noPrint" nowrap valign="top" width="20%"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td id="mainBody" align="left" valign="top" width="80%"><h1>Apache Tomcat 6.0</h1><h2>Changelog</h2><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.35 (jfclere)"><!--()--></a><a name="Tomcat_6.0.35_(jfclere)"><strong>Tomcat 6.0.35 (jfclere)</strong></a></font></td></tr><tr><td><blockquote>
+    " align="right" src="./images/tomcat.gif"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.36, Oct 16 2012</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img border="0" alt="Apache Logo" align="right" src="./images/asf-logo.gif"></a></td></tr></table><table cellspacing="4" width="100%" border="0"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade></td></tr><tr><!--LEFT SIDE NAVIGATION--><td class="noPrint" nowrap valign="top" width="20%"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td id="mainBody" align="left" valign="top" width="80%"><h1>Apache Tomcat 6.0</h1><h2>Changelog</h2><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)"><strong>Tomcat 6.0.36 (jfclere)</strong></a></font></td><td bgcolor="#525D76" align="right"><font face="arial,helvetica.sanserif" color="#ffffff"><strong></strong></font></td></tr><tr><td colspan="2"><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Catalina"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=48692">48692</a>: Provide option to parse
+        <code>application/x-www-form-urlencoded</code> PUT requests. (schultz)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=50306">50306</a>: New StuckThreadDetectionValve to detect requests that
+        take a long time to process, which might indicate that their processing
+        threads are stuck. Based on a patch provided by TomLu. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=50570">50570</a>: Enable FIPS mode to be set in AprLifecycleListener.
+        Based upon a patch from Chris Beckey. Note that this mode requires
+        tomcat-native 1.1.23 or later linked to a FIPS-capable OpenSSL library,
+        which one has to build by themselves. (schultz/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Improve synchronization and error handling in AprLifecycleListener.
+        Do not allow to change SSL options if SSL has already been initialized.
+        (schultz/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52225">52225</a>: Fix ClassCastException when adding an alias for an
+        existing host via JMX. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52293">52293</a>: Correctly handle the case when
+        <code>antiResourceLocking</code> is enabled at the Context level when
+        <code>unpackWARs</code> is disabled at the Host level. Correctly
+        handle multi-level contexts when <code>antiResourceLocking</code>
+        is enabled. Patch by Justin Miller. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Do not throw IllegalArgumentException from parseParameters() call
+        when chunked POST request is too large, but treat it like an IO error.
+        The <code>FailedRequestFilter</code> filter can be used to detect this
+        condition. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52384">52384</a>: Do not fail with parameter parsing when debug logging
+        is enabled. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Do not flag extra '&amp;' characters in parameters as parse errors.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52488">52488</a>: Correct typos: exipre -&gt; expire. Based on a patch by
+        prockter. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Reduce log level for the message about hitting
+        <code>maxParameterCount</code> limit from WARN to INFO.
+        Fix limit comparison to allow exactly <code>maxParameterCount</code>
+        parameters, as documentation says, instead of
+        <code>(maxParameterCount-1)</code>. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Slightly improve performance of UDecoder.convert(). Align
+        <code>%2f</code> handling between implementations. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        Add <code>denyStatus</code> attribute to <code>RequestFilterValve</code>
+        (<code>RemoteAddrValve</code>, <code>RemoteHostValve</code> valves).
+        It allows to use different HTTP response code when rejecting denied
+        request. E.g. 404 instead of 403. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        Add <code>SetCharacterEncodingFilter</code> (similar to the one
+        contained in the examples web application) to the
+        <code>org.apache.catalina.filters</code> package so that it is
+        available for all web applications. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52500">52500</a>: Added configurable mechanism to retrieve user names
+        from X509 client certificates. Based on a patch provided by
+        Michael Furman. (schultz/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52719">52719</a>: Fix a theoretical resource leak in the JAR validation
+        that checks for non-permitted classes in web application JARs. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52830">52830</a>: Correct JNDI lookups when using
+        <code>javax.naming.Name</code> to identify the resource rather than a
+        <code>java.lang.String</code>. (markt)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52850">52850</a>: Extend memory leak prevention and detection code to
+        work with IBM as well as Oracle JVMs. Based on a patch provided by
+        Rohit Kelapure. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52996">52996</a>: In <code>StandardThreadExecutor</code>:
+        Add the ability to configure a job queue size
+        (<code>maxQueueSize</code> attribute).
+        Add a variant of execute method that allows to specify a timeout for
+        how long we want to try to add something to the queue.
+        Based on a patch by R&uuml;diger Pl&uuml;m. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53047">53047</a>: If a JDBCRealm or DataSourceRealm is configured for
+        an all roles mode that only requires authorization (and no roles) and no
+        role table or column is defined, don't populate the Principal's roles.
+        (markt/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53050">53050</a>: Fix handling of entropy value when initializing
+        session id generator in session manager. Based on proposal by
+        Andras Rozsa. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53056">53056</a>: Add APR version number to tcnative version INFO log
+        message. (schultz)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53057">53057</a>: Add OpenSSL version number INFO log message when
+        initializing. (schultz)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53071">53071</a>: Use the message from the Throwable for the error
+        report generated by the <code>ErrorReportValve</code> if none was
+        specified via <code>sendError()</code>. Use the standard text for HTTP
+        error codes. (markt/rjung)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53230">53230</a>: Change session managers to throw
+        TooManyActiveSessionsException instead of IllegalStateException
+        when the maximum number of sessions has been exceeded and a new
+        session will not be created. (schultz/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53267">53267</a>: Ensure that using the GC Daemon Protection feature of
+        the <code>JreMemoryLeakPreventionListener</code> does not trigger a
+        full GC every hour. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53531">53531</a>: Fix ExpandWar.expand to check the return value of
+        File.mkdir and File.mkdirs. (schultz)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Make the CSRF nonce cache in <code>CsrfPreventionFilter</code>
+        serializable so that it can be replicated across a cluster and/or
+        persisted across Tomcat restarts. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53584">53584</a>: Ignore path parameters when comparing URIs for FORM
+        authentication. This prevents users being prompted twice for passwords
+        when logging in when session IDs are being encoded as path parameters.
+        (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Various improvements to the DIGEST authenticator including
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52954">52954</a>, the disabling caching of an authenticated user in the
+        session by default, tracking server rather than client nonces and better
+        handling of stale nonce values. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Remove unneeded handling of FORM authentication in RealmBase. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53800">53800</a>: <code>FileDirContext.list()</code> did not provide
+        correct paths for subdirectories. Patch provided by Kevin Wooten.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53830">53830</a>: Better handling of <code>Manager.randomFile</code>
+        default value on Windows. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Improve session management in CsrfPreventionFilter. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Coyote"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=42181">42181</a>: Better handling of edge conditions in chunk header
+        processing. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=51477">51477</a>: Support all SSL protocol combinations in the APR/native
+        connector. This only works when using the native library version 1.1.21
+        or later. (rjung)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52055">52055</a> (comment 14): Correctly reset
+        <code>ChunkedInputFilter.needCRLFParse</code> flag when the filter
+        is recycled. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52606">52606</a>: Ensure replayed POST bodies are available when using
+        AJP. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52858">52858</a>: Fix high CPU load with SSL, NIO and sendfile when
+        client breaks the connection before reading all the requested data.
+        (fhanik/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53119">53119</a>: Prevent buffer overflow errors being reported when a
+        client disconnects before the response has been fully written from an
+        AJP connection using the APR/native connector. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Improve <code>InternalNioInputBuffer.parseHeaders()</code>. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        Implement <code>maxHeaderCount</code> attribute on Connector.
+        It is equivalent of LimitRequestFields directive of
+        <a href="http://httpd.apache.org/">Apache HTTPD</a>.
+        Default value is 100. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        In JkCoyoteHandler connector for AJP/1.3 protocol
+        (in <code>JkMain.setProperty()</code>):
+        Fix setting of properties when connector has already started for
+        properties that have aliases. E.g. it now allows to change
+        <code>maxHeaderCount</code> attribute on Connector MBean via JMX.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53725">53725</a>: Fix possible corruption of GZIP'd output. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Jasper"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=48097">48097</a> (comment 7), <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53366">53366</a> (comment 1):
+        If JSP page unexpectedly fails to initialize PageContext instance,
+        write exception to the logs instead of silent swallowing. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52335">52335</a>: Only handle <code>&lt;\%</code> and not
+        <code>\%</code> as escaped in template text. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52666">52666</a>: Correct coercion order in EL when processing the
+        equality and inequality operators. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53001">53001</a>: Revert the fix for <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=46915">46915</a> since the use case
+        described in the bug is invalid since it breaks the EL specification.
+        (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53032">53032</a>: Modify <code>JspC</code> so it extends
+        <code>org.apache.tools.ant.Task</code> enabling it to work with features
+        such as namespaces within build.xml files. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Cluster"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Cluster"><strong>Cluster</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Replicate principal in ClusterSingleSignOn. (kfujino)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53513">53513</a>: Fix race condition between the processing of session
+        sync message and transfer complete message. (kfujino)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53606">53606</a>: Fix potential NPE in <code>TcpPingInterceptor</code>.
+        Based on a patch by F. Arnoud. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53607">53607</a>: To avoid NPE, set TCP PING data to ChannelMessage.
+        Patch provided by F.Arnoud (kfujino)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Fix a behavior of TcpPingInterceptor#useThread.
+        Do not start a ping thread when useThread is set to false. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52243">52243</a>: Improve windows service documentation to clarify how
+        to include <code>#</code> and/or <code>;</code> in the value of an
+        environment variable that is passed to the service. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52515">52515</a>: Make it clear in the Realm how-to in the documentation
+        web application that digested password storage when using DIGEST
+        authentication requires that MD5 digests are used. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52641">52641</a>: Remove mentioning of ldap.jar from docs.
+        Patch provided by Felix Schumacher. (rjung)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Remove obsolete bug warning from windows service
+        documentation page. (rjung)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52983">52983</a>: Remove unnecessary code that makes switching to
+        other authentication methods difficult. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53158">53158</a>: Fix documented defaults for DBCP.
+        Patch provided by ph.dezanneau at gmail.com. (rjung)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Update JavaSE documentation links to point to the current
+        docs.oracle.com site, instead of obsolete ones (download.oracle.com,
+        java.sun.com). (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53289">53289</a>: Clarify <code>ResourceLink</code> example that
+        uses DataSource.getConnection(username, password) method. Not all
+        data source implementations support it. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Prevent the custom error pages for the Manager and Host Manager
+        applications from being accessed directly. Configure custom
+        pages for error codes 401 and 403 in Host Manager application.
+        (markt/kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Correct documentation for <code>enableLookups</code> attribute
+        of a Connector. By default DNS lookups are disabled. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Fix several HTML markup errors in servlets of examples web application.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Change the index page of ROOT webapp to mention "manager-gui" role
+        instead of "manager" one. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53473">53473</a>: Correct the allowed values for the SSI option
+        <code>isVirtualWebappRelative</code> which are <code>true</code> or
+        <code>false</code>. (markt)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53664">53664</a>: Minor JNDI Howto document enhancement concerning mail
+        properties. Patch provided by Mark Eggers. (schultz)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53601">53601</a>: Clarify that to build Apache Tomcat 6 from sources
+        a Java 5 JDK is recommended. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53793">53793</a>: Change links on the list of applications in the
+        Manager to point to <code>/appname/</code> instead of
+        <code>/appname</code>. (kkolinko)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.36 (jfclere)/Other"><!--()--></a><a name="Tomcat_6.0.36_(jfclere)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table cellspacing="2" cellpadding="2" border="0">
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=49402">49402</a>, <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52124">52124</a>: Fix Maven publishing script:
+        make sure it finds tomcat-juli.jar and use later version of
+        wagon-ssh. (jfclere)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        Update Apache Commons Daemon to 1.0.10. It resolves <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52548">52548</a>
+        which meant that services created with service.bat did not set the
+        <code>catalina.home</code> and <code>catalina.base</code> system
+        properties. (markt, kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Update Apache Commons Pool to 1.5.7. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52579">52579</a>: Add a note about Sun's Charset.decode() bug to the
+        RELEASE-NOTES file. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52805">52805</a>: Update to Eclipse JDT Compiler 3.7.2. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Update the native component of the APR/native connectors to 1.1.23
+        and take advantage of the simplified distribution. (kkolinko) 
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        When building a Windows installer do not copy whole "res" folder to
+        output/dist, but only the files that we need. Apply fixcrlf filter
+        only after the files are copied, so that <code>INSTALLLICENSE</code>
+        file had correct line ends. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Remove <code>res/License.rtf</code>. The file that is actually shown
+        by the Windows installer is <code>res/INSTALLLICENSE</code>.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Improve <code>RUNNING.txt</code>. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
+        Align the script that deploys Maven jars for Tomcat
+        (<code>res/maven/mvn-pub.xml</code>) with the Tomcat 7 version,
+        making full use of Nexus. (markt)
+      </td></tr>
+      <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53034">53034</a>: Add <code>project.url</code> and
+        <code>project.licenses</code> sections to the POMs for the Maven
+        artifacts. (kkolinko)
+      </td></tr>
+      <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53454">53454</a>: Return correct content-length header for HEAD requests
+        when content length is greater than 2GB. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#525D76"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.35 (jfclere)"><!--()--></a><a name="Tomcat_6.0.35_(jfclere)"><strong>Tomcat 6.0.35 (jfclere)</strong></a></font></td><td bgcolor="#525D76" align="right"><font face="arial,helvetica.sanserif" color="#ffffff"><strong>released 2011-12-05</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.35 (jfclere)/Catalina"><!--()--></a><a name="Tomcat_6.0.35_(jfclere)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
@@ -189,7 +600,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.34 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.34_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.34 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.34_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         Correct the documentation for the connectionLinger attribute of the HTTP
@@ -505,7 +916,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.33 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.33_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.33 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.33_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=41498">41498</a>: Add the allRolesMode attribute to the Realm
@@ -815,7 +1226,8 @@
       </td></tr>
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=49811">49811</a>: Add an option to disable URL rewriting on a per
-        Context basis. (markt)
+        Context basis. The option name is <code>disableURLRewriting</code>.
+        (markt)
       </td></tr>
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=49856">49856</a>: Expose the executor name for the connector via JMX.
@@ -1089,7 +1501,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.30 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.30_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.30 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.30_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=49585">49585</a>: Update JSVC documentation to reflect new packaging
@@ -1249,7 +1661,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.28 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.28_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.28 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.28_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=49213">49213</a>: Grant permissions required by manager application when
@@ -1480,7 +1892,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.27 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.27_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.27 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.27_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         Use underscores instead of spaces in anchor names in Tomcat
@@ -1583,7 +1995,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.26 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.26_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.26 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.26_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         Make changelog.xml be directly rendered as HTML by certain browsers.
@@ -1750,7 +2162,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.25 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.25_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.25 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.25_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         Add new "Find leaks" command to the Manager application. It allows to
@@ -1878,7 +2290,7 @@
     </td></tr>
   </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.23 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.23_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.23 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.23_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/add.gif" class="icon" alt="add"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=48530">48530</a>: Add information on the Manager Server Status page to
@@ -2507,7 +2919,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.21 (jfclere)/Webapps"><!--()--></a><a name="Tomcat_6.0.21_(jfclere)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.21 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.21_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=41564">41564</a>: Add some documentation on installing Tomcat as a
@@ -2757,7 +3169,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.20 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.20_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.20 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.20_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=46509">46509</a>: Use correct link on error page in JSP security
@@ -3273,7 +3685,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.19 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.19_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.19 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.19_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=45940">45940</a>: Correct name of username attribute for JDBC resources
@@ -3390,7 +3802,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.18 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.18_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.18 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.18_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=45323">45323</a>: Add note that context.xml files can only contain a
@@ -3727,7 +4139,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.17 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.17_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.17 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.17_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/update.gif" class="icon" alt="update"></td><td>
         Update documentation to use correct version number, correct file paths
@@ -4000,7 +4412,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.16 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.16_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.16 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.16_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=43173">43173</a>: Fix typo in logging documentation regarding location
@@ -4198,7 +4610,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.15 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.15_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.15 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.15_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         Fix WebDAV Servlet so it works correctly with MS clients. (markt)
@@ -4335,7 +4747,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.14 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.14_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.14 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.14_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         Don't write error on System.out, use log() instead. (rjung)
@@ -4414,7 +4826,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.13 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.13_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.13 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.13_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
          Some examples webapp fixes. Submitted by Frank McCown. (remm)
@@ -4480,7 +4892,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.12 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.12_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.12 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.12_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=42025">42025</a>: Update valve documentation to refer to correct regular
@@ -4667,7 +5079,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.11 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.11_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.11 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.11_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         Fix previous update to servlet 2.5 xsd to use correct declaration.
@@ -4903,7 +5315,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.8 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.8_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.8 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.8_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/docs.gif" class="icon" alt="docs"></td><td>
         Add a virtual hosting how-to contributed by Hassan Schroeder. (markt)
@@ -5092,7 +5504,7 @@
       </td></tr>
     </table>
   </blockquote></td></tr></table>
-  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.3 (remm)/Webapps"><!--()--></a><a name="Tomcat_6.0.3_(remm)/Webapps"><strong>Webapps</strong></a></font></td></tr><tr><td><blockquote>
+  <table cellpadding="2" cellspacing="0" border="0"><tr><td bgcolor="#828DA6"><font face="arial,helvetica.sanserif" color="#ffffff"><a name="Tomcat 6.0.3 (remm)/Web applications"><!--()--></a><a name="Tomcat_6.0.3_(remm)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
     <table cellspacing="2" cellpadding="2" border="0">
       <tr><td><img src="./images/fix.gif" class="icon" alt="fix"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=40677">40677</a>: Update SSL documentation to indicate that PKCS11
@@ -5226,5 +5638,5 @@
     </table>
   </blockquote></td></tr></table>
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr size="1" noshade></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font size="-1" color="#525D76"><em>
-        Copyright &copy; 1999-2011, Apache Software Foundation
+        Copyright &copy; 1999-2012, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>
