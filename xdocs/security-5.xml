@@ -64,6 +64,36 @@
   </section>
  -->
 
+  <section name="Fixed in Apache Tomcat 5.5.36" rtext="released 10 Oct 2012">
+  
+    <p><strong>Moderate: DIGEST authentication weakness</strong>
+       <cve>CVE-2012-3439</cve></p>
+
+    <p>Three weaknesses in Tomcat's implementation of DIGEST authentication
+       were identified and resolved:
+    </p>
+    <ol>
+      <li>Tomcat tracked client rather than server nonces and nonce count.</li>
+      <li>When a session ID was present, authentication was bypassed.</li>
+      <li>The user name and password were not checked before when indicating
+          that a nonce was stale.</li>
+    </ol>
+    <p>
+      These issues reduced the security of DIGEST authentication making
+      replay attacks possible in some circumstances.
+    </p>
+
+    <p>This was fixed in revision <revlink rev="1392248">1392248</revlink>.</p>
+
+    <p>The first issue was reported by Tilmann Kuhn to the Tomcat security team
+       on 19 July 2012. The second and third issues were discovered by the
+       Tomcat security team during the resulting code review. All three issues
+       were made public on 5 November 2012.</p>
+
+    <p>Affects: 5.5.0-5.5.35</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 5.5.35" rtext="released 16 Jan 2012">
 
     <p><strong>Important: Denial of service</strong>
