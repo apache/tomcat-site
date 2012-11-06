@@ -91,11 +91,17 @@ of Apache Tomcat.</p>
 
   <subsection name="Deployment">
   
-    <p>XML context descriptors are no longer extracted from deployed WARs and
-    directories and copied to the host's <code>xmlBase</code>. The default
+    <p>XML context descriptors (<code>META-INF/context.xml</code> files)
+    are no longer copied from deployed WARs and directories to the host's
+    <code>xmlBase</code>. The default
     Tomcat 6 behavior can be enabled by setting the <code>copyXML</code>
     attribute of the <strong>Host</strong> element to <code>true</code>.</p>
-    
+
+    <p>The WARs outside of the host's <code>appBase</code> are no longer
+    unpacked, regardless of the value of the <code>Host</code>'s
+    <code>unpackWARs</code> setting. See issue
+    <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=51294#c1">51294</a>.
+    </p>
   </subsection>
   
   <subsection name="Manager application">
@@ -205,6 +211,25 @@ of Apache Tomcat.</p>
       <li>The <code>algorithm</code> attribute has been removed</li>
       <li>The <code>entropy</code> attribute has been removed</li>
     </ul>
+
+    <p>One known issue with <code>java.secure.SecureRandom</code> is that
+    it initialization requires some random data from an entropy source. With
+    some entropy source implementations it may require some time to gather
+    enough random data. If initialization of session id generator takes
+    noticeable time (more than 100ms), a diagnostic message will be logged.
+    E.g.:</p>
+
+    <p>
+    <code><em>DATE</em> org.apache.catalina.util.SessionIdGenerator createSecureRandom</code><br />
+    <code>INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [406] milliseconds.</code>
+    </p>
+
+    <p>It is possible to change the entropy source used by JRE by defining
+    a system property. E.g.:<br />
+    <code>-Djava.security.egd=file:/dev/./urandom</code></p>
+
+    <p>The "/./" characters in the above value are to workaround
+    <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6202721">JRE issue #6202721</a>.</p>
   </subsection>
   
   <subsection name="Session cookie configuration">
@@ -318,7 +343,9 @@ of Apache Tomcat.</p>
   <p>Servlet 3.0 specification defines how web.xml file of an application
   can be combined from web fragments and annotations. Processing of the
   global <code>conf/web.xml</code> file that defines server-wide defaults
-  was changed as a result of implementing those rules. One noticeable
+  was changed as a result of implementing those rules.</p>
+
+  <p>One noticeable
   difference is that Filters defined in the global <code>conf/web.xml</code>
   now follow the ones defined in a web application, instead of preceding
   them. See issues
@@ -326,6 +353,68 @@ of Apache Tomcat.</p>
   and
   <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=52138#c4">52138</a>
   for clarifications.</p>
+
+  </subsection>
+
+  <subsection name="Welcome files processing">
+
+  <p>The welcome file processing was changed to follow clarifications in the
+  Servlet 3.0 specification. If your list of welcome files includes ones that
+  are processed by a servlet (such as *.jsp), you may observe the change in
+  behaviour. See the <code>resourceOnlyServlets</code> option on
+  <strong>Context</strong>.
+  </p>
+
+  </subsection>
+
+  <subsection name="Annotation scanning">
+
+  <p>The annotation scanning required by the Servlet 3.0 specification
+  may have impact on the startup time of your web application, as well as
+  increase requirements on the memory needed to load scanned classes.
+  Note, that upon clarification from the Servlet EG, even applications
+  using Servlet 2.4 and older versions of specification are being scanned.
+  See issue
+  <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=53619">53619</a>
+  and related discussions on the users mailing list.
+  </p>
+
+  <p>There are several ways to deal with this issue. The recommended way is
+  to mark those applications that do not require annotation scanning as such.
+  It can be done in the <code>WEB-INF/web.xml</code> of your application by
+  the following steps:</p>
+
+  <ul>
+    <li>
+      Update the <code>web-app</code> element to indicate that the web
+      application is using specification version 3.0. You may copy the values
+      for the <code>version</code>, <code>xsi:schemaLocation</code>,
+      <code>xmlns</code> and <code>xmlns:xsi</code> attributes from the default
+      <code>conf/web.xml</code> file.
+    </li>
+    <li>
+      Add <code>metadata-complete="true"</code> attribute to the
+      <code>web-app</code> element.
+    </li>
+    <li>
+      Add an empty <code><![CDATA[<absolute-ordering />]]></code> element.
+    </li>
+  </ul>
+
+  <p>The <code>metadata-complete</code> attribute is supported starting with
+  Servlet 2.5 specification. The <code>absolute-ordering</code> element
+  requires Servlet 3.0.</p>
+
+  <p>The second way is to configure JarScanner component to ignore certain JAR
+  files according to their names. This is usually configured in the
+  <code>conf/catalina.properties</code> file. See documentation on the
+  <code>jarsToSkip</code> properties in the
+  <a href="/tomcat-7.0-doc/config/systemprops.html">System properties</a>
+  chapter of the Configuration Reference for details.
+  Starting with Tomcat 7.0.30 it is possible to separately configure
+  which JARs are skipped for Servlet 3.0 scanning (scanning for annotations
+  and web application fragments), TLD scanning (tag libraries) or both.
+  Further versions of Tomcat may provide better ways to control this feature.</p>
 
   </subsection>
 
