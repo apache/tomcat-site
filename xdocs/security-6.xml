@@ -93,6 +93,56 @@
 
     <p>Affects: 6.0.0-6.0.35</p>
         
+    <p><strong>Important: Bypass of security constraints</strong>
+       <cve>CVE-2012-3546</cve></p>
+
+    <p>When using FORM authentication it was possible to bypass the security
+       constraint checks in the FORM authenticator by appending
+       <code>/j_security_check</code> to the end of the URL if some other
+       component (such as the Single-Sign-On valve) had called
+       <code>request.setUserPrincipal()</code> before the call to
+       <code>FormAuthenticator#authenticate()</code>.
+    </p>
+
+    <p>This was fixed in revision <revlink rev="1381035">1381035</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 13 July 2012 and
+       made public on 4 December 2012.</p>
+
+    <p>Affects: 6.0.0-6.0.36</p>
+
+    <p><strong>Important: Bypass of CSRF prevention filter</strong>
+       <cve>CVE-2012-4431</cve></p>
+
+    <p>The CSRF prevention filter could be bypassed if a request was made to a
+       protected resource without a session identifier present in the request.
+    </p>
+
+    <p>This was fixed in revision <revlink rev="1394456">1394456</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 8 September 2012
+       and made public on 4 December 2012.</p>
+
+    <p>Affects: 6.0.0-6.0.36</p>
+
+    <p><strong>Important: Denial of service</strong>
+       <cve>CVE-2012-4534</cve></p>
+
+    <p>When using the NIO connector with sendfile and HTTPS enabled, if a client
+       breaks the connection while reading the response an infinite loop is
+       entered leading to a denial of service. This was originally reported as
+       <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=52858">bug
+       52858</a>.
+    </p>
+
+    <p>This was fixed in revision <revlink rev="1372035">1372035</revlink>.</p>
+
+    <p>The security implications of this bug were reported to the Tomcat
+       security team by Arun Neelicattu of the Red Hat Security Response Team on
+       3 October 2012 and made public on 4 December 2012.</p>
+
+    <p>Affects: 6.0.0-6.0.35</p>
+
   </section>
   
   <section name="Fixed in Apache Tomcat 6.0.35" rtext="released 5 Dec 2011">
