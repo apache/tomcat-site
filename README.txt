@@ -15,15 +15,35 @@ In order to make modifications to the Tomcat web site, you need to first check o
 the Tomcat site from SVN. To check out the Tomcat site into a sub-directory
 called tomcat-site in the current directory:
 
-svn checkout https://svn.apache.org/repos/asf/tomcat/site/trunk tomcat-site
+Complete checkout:
+
+  svn checkout https://svn.apache.org/repos/asf/tomcat/site/trunk tomcat-site
+
+Sparse checkout:
+
+  It is faster as it omits subdirectories that you might be currently not
+  interested in, but keeps the main Tomcat site.
+
+  The commands:
+
+    svn checkout --depth immediates https://svn.apache.org/repos/asf/tomcat/site/trunk tomcat-site
+    cd tomcat-site
+    svn update --set-depth immediates docs
+    svn update --set-depth infinity xdocs jk-xdocs native-1.1-xdocs
+    svn update --set-depth infinity docs/articles docs/images docs/stylesheets
+
+  This checkout omits a number of subdirectories inside of docs/. You will
+  see them as empty subdirectories there. It you need to work on any of
+  them, you can retrieve their contents using the
+  "svn update --set-depth infinity" command.
 
 Once you have the site checked out locally, cd into your
 tomcat-site directory and execute:
 
 ant
 
-This will build the documentation into the docs/ directory. The output
-will show you which files got re-generated.
+This will build the documentation from xdocs/ into the docs/ directory. The
+output will show you which files got re-generated.
 
 If you would like to make modifications to the web site documents,
 you simply need to edit the files in the xdocs/ directory.
@@ -33,20 +53,29 @@ modification to project.xml, it will affect the left side navigation for the
 web site and all of your .html files will be re-generated.
 
 Once you have built your documentation and confirmed that your changes are
-ok, you can check your .xml and your .html files back into SVN.
+OK, you can commit your changed .xml and .html files into Subversion.
 
-Then, in the /www/tomcat.apache.org/ directory, execute:
-
-svn up
-
-to have the changes reflected on the Tomcat web site.
-
+The Subversion repository is configured with svn-pub-sub module so that
+when you commit changes into the docs/ directory, they are automatically
+reflected on the live tomcat.apache.org site. This happens almost
+immediately, so go to http://tomcat.apache.org/ and have fun.
 
 
 To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
 ==========================================================================
 
-1. Create build.properties file if you have not done so yet and set
+1. If you are using the "sparse" checkout feature, make sure that
+   subdirectories in the docs/ directory for the relevant Tomcat versions
+   are fully present in your working copy.
+
+   The commands are:
+
+   cd tomcat-site
+   svn up --set-depth infinity docs/tomcat-5.5-doc
+   svn up --set-depth infinity docs/tomcat-6.0-doc
+   svn up --set-depth infinity docs/tomcat-7.0-doc
+
+2. Create build.properties file if you have not done so yet and set
    "base.path" property in it. E.g.
 
       base.path=..
@@ -54,33 +83,50 @@ To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
    The documentation bundles will be downloaded and untarred into
    "${base.path}/tomcat-site-docs/"
 
-2. Set the version numbers in build.properties.default
+3. Set the version numbers in build.properties.default
 
-3. cd into your tomcat-site directory and execute one of the following
-   commands:
+4. Go into your tomcat-site directory and execute one of "release-x"
+   targets in build.xml that corresponds to the version of Tomcat which
+   documentation you are updating.
 
+   The commands are:
+
+   cd tomcat-site
    ant release-5
    ant release-6
    ant release-7
 
-4. Check the changes with "svn status" command.
+5. Check the changes with "svn status" command.
 
-   Remember there may be deleted / missing files (shown with '!')
-   and new files (shown with '?').
+   You will see
+    a) Modified files ('M')
+    b) New files ('?')
+    c) Deleted/missing files ('!')
 
-   Apply "svn delete" and "svn add" on those files as needed.
+   Apply "svn add" to the new files.
+   Apply "svn delete" to the missing files.
 
-5. Commit the changes. 
+6. Commit the changes. 
 
-6. In the /www/tomcat.apache.org/ directory on people.a.o execute:
+7. Check that all changes were committed: execute "svn status" command.
+   The expected result is that its output is empty. If it is not empty,
+   repeat steps 5 & 6.
 
-   umask 002
-   svn up
-
+8. Committed changes are reflected on the live site automatically.
+   Go to http://tomcat.apache.org/ and have fun.
 
 
 To update the documentation for Tomcat Native or Tomcat Connectors:
 ====================================================================
+
+If you are using "sparse" checkout, make sure that subdirectories for the
+relevant Tomcat components are fully present in your working copy.
+
+   The commands are:
+
+   cd tomcat-site
+   svn up --set-depth infinity docs/connectors-doc
+   svn up --set-depth infinity docs/native-doc
 
 One way to update documentation is to:
 
@@ -140,7 +186,6 @@ commands:
  - Remember that there may be deleted / missing files or new files.
 
 4. Commit the changes.
-5. In the /www/tomcat.apache.org/ directory on people.a.o execute:
 
-   umask 002
-   svn up
+5. Committed changes are reflected on the live site automatically.
+   Go to http://tomcat.apache.org/ and have fun.
