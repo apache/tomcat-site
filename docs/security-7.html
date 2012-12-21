@@ -1441,14 +1441,21 @@
        
     
 <p>The BIO connector is vulnerable if the JSSE version used is vulnerable.
-       To workaround this until a fix is available in JSSE, use the connector
-       attribute <code>allowUnsafeLegacyRenegotiation</code>. It should be set
-       to <code>false</code> (the default) to protect against this
-       vulnerability.</p>
+       To workaround a vulnerable version of JSSE, use the connector attribute
+       <code>allowUnsafeLegacyRenegotiation</code>. It should be set to
+       <code>false</code> (the default) to protect against this vulnerability.
+       </p>
        
     
-<p>The NIO connector is not vulnerable as it does not support
-       renegotiation.</p>
+<p>The NIO connector prior to 7.0.10 is not vulnerable as it does not
+       support renegotiation.</p>
+       
+    
+<p>The NIO connector is vulnerable from version 7.0.10 onwards if the JSSE
+       version used is vulnerable. To workaround a vulnerable version of JSSE,
+       use the connector attribute <code>allowUnsafeLegacyRenegotiation</code>.
+       It should be set to <code>false</code> (the default) to protect against
+       this vulnerability.</p>
        
     
 <p>The APR/native workarounds are detailed on the
