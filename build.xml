@@ -22,7 +22,6 @@
   <property name="faq.src"          location="xdocs-faq"/>
   <property name="faq.dest"         location="${docs.dest}/faq"/>
 
-  <!-- Requires JDK 1.4 -->
   <target name="docs"
           description="Render HTML Pages via XSLT">
 
@@ -84,28 +83,6 @@
       </fileset>
     </copy>
 
-  </target>
-
-  <target name="release-5"
-          depends="docs"
-          description="Used after a release to update the docs for Tomcat 5.5">
-
-    <!-- Download the latest version -->
-    <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat55.loc}"/>
-      <param name="destfile" value="${tomcat55.home}/tomcat-5.5-doc/index.html"/>
-      <param name="destdir" value="${tomcat55.home}"/>
-    </antcall>
-
-    <!-- Delete the old version -->
-    <delete dir="${docs.dest}/tomcat-5.5-doc"/>
-
-    <!-- Copy the latest version -->
-    <copy todir="${docs.dest}/tomcat-5.5-doc" >
-      <fileset dir="${tomcat55.home}/tomcat-5.5-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
   </target>
 
   <target name="release-6"

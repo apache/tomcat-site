@@ -61,7 +61,7 @@ reflected on the live tomcat.apache.org site. This happens almost
 immediately, so go to http://tomcat.apache.org/ and have fun.
 
 
-To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
+To update the documentation for Tomcat 6.0.x or 7.0.x:
 ==========================================================================
 
 1. If you are using the "sparse" checkout feature, make sure that
@@ -71,7 +71,6 @@ To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
    The commands are:
 
    cd tomcat-site
-   svn up --set-depth infinity docs/tomcat-5.5-doc
    svn up --set-depth infinity docs/tomcat-6.0-doc
    svn up --set-depth infinity docs/tomcat-7.0-doc
 
@@ -92,7 +91,6 @@ To update the documentation for Tomcat 5.5.x, Tomcat 6.0.x, Tomcat 7.0.x:
    The commands are:
 
    cd tomcat-site
-   ant release-5
    ant release-6
    ant release-7
 
