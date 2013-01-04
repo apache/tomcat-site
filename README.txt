@@ -40,7 +40,7 @@ Sparse checkout:
 Once you have the site checked out locally, cd into your
 tomcat-site directory and execute:
 
-ant
+  ant
 
 This will build the documentation from xdocs/ into the docs/ directory. The
 output will show you which files got re-generated.
