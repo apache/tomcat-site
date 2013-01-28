@@ -634,6 +634,29 @@
 
   <section name="Not a vulnerability in Tomcat">
   
+    <p><strong>Low: Denial Of Service</strong>
+       <cve>CVE-2012-5568</cve></p>
+
+    <p>Sending an HTTP request 1 byte at a time will consume a thread from the
+       connection pool until the request has been fully processed if using the
+       BIO or APR/native HTTP connectors. Multiple requests may be used to
+       consume all threads in the connection pool thereby creating a denial of
+       service.</p>
+
+    <p>Since the relationship between the client side resources and server side
+       resources is a linear one, this issue is not something that the Tomcat
+       Security Team views as a vulnerability. This is a generic DoS problem and
+       there is no magic solution. This issue has been discussed several times
+       on the Tomcat mailing lists. The best place to start to review these
+       discussions is the report for
+       <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=54263">bug
+       54236</a>.</p>
+
+    <p>This was first discussed on the public Tomcat users mailing list on 19
+       June 2009.</p>
+
+    <p>Affects: 7.0.0-7.0.x</p>
+
     <p><strong>Important: Remote Denial Of Service</strong>
        <cve>CVE-2010-4476</cve></p>
 
