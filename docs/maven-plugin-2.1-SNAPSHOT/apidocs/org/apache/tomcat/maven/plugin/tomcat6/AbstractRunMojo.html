@@ -154,6 +154,14 @@ Abstract goal that provides common configuration for embedded Tomcat goals.
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/tomcat/maven/plugin/tomcat6/AbstractRunMojo.html#backgroundProcessorDelay">backgroundProcessorDelay</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;represents the delay in seconds between each classPathScanning change invocation</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../../../org/apache/tomcat/maven/plugin/tomcat6/AbstractRunMojo.html#classLoaderClass">classLoaderClass</A></B></CODE>
 
@@ -186,11 +194,27 @@ Abstract goal that provides common configuration for embedded Tomcat goals.
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/tomcat/maven/plugin/tomcat6/AbstractRunMojo.html#mavenFileFilter">mavenFileFilter</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.project.MavenProject.html?is-external=true" title="class or interface in org.apache">org.apache.maven.project.MavenProject</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../../../org/apache/tomcat/maven/plugin/tomcat6/AbstractRunMojo.html#project">project</A></B></CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maven project.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/tomcat/maven/plugin/tomcat6/AbstractRunMojo.html#session">session</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -447,6 +471,20 @@ contextReloadable</H3>
 </DL>
 <HR>
 
+<A NAME="backgroundProcessorDelay"><!-- --></A><H3>
+backgroundProcessorDelay</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.backgroundProcessorDelay",
+           defaultValue="-1")
+</FONT>protected int <B>backgroundProcessorDelay</B></PRE>
+<DL>
+<DD>represents the delay in seconds between each classPathScanning change invocation
+<P>
+<DL>
+<DT><B>See Also:</B><DD><a href="http://tomcat.apache.org/tomcat-6.0-doc/config/context.html">http://tomcat.apache.org/tomcat-6.0-doc/config/context.html</a></DL>
+</DL>
+<HR>
+
 <A NAME="contextFile"><!-- --></A><H3>
 contextFile</H3>
 <PRE>
@@ -519,6 +557,31 @@ classLoaderClass</H3>
 <DL>
 <DT><B>Since:</B></DT>
   <DD>2.0</DD>
+</DL>
+</DL>
+<HR>
+
+<A NAME="session"><!-- --></A><H3>
+session</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(defaultValue="${session}",
+           readonly=true,
+           required=true)
+</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</A> <B>session</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="mavenFileFilter"><!-- --></A><H3>
+mavenFileFilter</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</A>(role=<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter.class</A>,
+           hint="default")
+</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</A> <B>mavenFileFilter</B></PRE>
+<DL>
+<DL>
 </DL>
 </DL>
 
