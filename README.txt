@@ -176,8 +176,8 @@ B)
 2. cd into your tomcat-site directory and execute one of the following
 commands:
 
-   ant release-native
    ant release-jk
+   ant release-native
 
 3. Check the changes with "svn status" command.
 
