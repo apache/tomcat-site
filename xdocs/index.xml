@@ -37,6 +37,44 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 7.0.39 Released" rtext="2013-03-26">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.39 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.37. The notable changes include:
+<ul>
+<li>There have been multiple improvements in the bytes to/from characters
+    conversion process. The core conversion process has been refactored to use
+    the NIO APIs. This has resulted in a number of improvements including
+    invalid UTF-8 byte sequences at the end of a series of bytes now trigger a
+    conversion error rather than being silently swallowed. Errors detected in
+    request URIs will be replaced with the replacement character (allowing the
+    application to respond to the invalid URI as it wishes) and errors in
+    request bodies will trigger an IOException. The use of the JVM provided
+    UTF-8 decoder has been replaced by a better UTF-8 decoder derived from
+    Apache Harmony. This improved decoder has earlier detection of error
+    conditions and more closely follows the Unicode specification regarding the
+    use of replacement characters.</li>
+<li>The annotation scanning process now provides more information if the scan
+    fails due to broken class dependencies. There is now enough information to
+    identify the class(es) at fault. The JAR scanning process that supports
+    annotation scanning has also seen multiple improvements and fixes including
+    the exclusion by default of the Bootstrap class path from the scan.</li>
+<li>Upgraded a number of Tomcat&apos;s dependencies including Commons Daemon to
+    1.0.14, Commons IO to 2.4 and Commons FileUpload to r1458500. A new
+    dependency on Commons Codec was added to replace Tomcat's internal Base64
+    encoder/decoder.</li>
+</ul>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html">Tomcat 7 changelog</a>.
+</p>
+
+<p align="center">
+<a href="download-70.cgi">Download</a> |
+<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.37</a>
+</p>
+</section>
+
 <section name="Tomcat Maven Plugin 2.1 Released" rtext="2013-02-25">
 <p>
 The Apache Tomcat team is pleased to
@@ -66,34 +104,6 @@ or
     <version>2.1</version>
   </plugin>
 ]]></source>
-</section>
-
-<section name="Tomcat 7.0.37 Released" rtext="2013-02-18">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 7.0.37 of
-Apache Tomcat. This release contains a small number of bug fixes and
-improvements compared to version 7.0.35. The notable changes include:
-<ul>
-<li>Fix the regression in the JspC tool that is used to pre-compile JSP pages
-    introduced in 7.0.35. See
-    <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=54440">issue
-    54440</a> for details. Patch provided by Sheldon Shao.</li>
-<li>Improve handling of <code>ciphers</code> and
-    <code>sslEnabledProtocols</code> options for the BIO and NIO connectors. The
-    behaviour of each connector is now the same. The values provided are pruned
-    to those supported by the SSL implementation and when none of the remaining
-    values are supported a warning is issued and the connector configured with
-    an empty set of options (which essentially disables HTTPS support).</li>
-<li>Update to Commons Daemon 1.0.13.</li>
-</ul>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-7.0-doc/changelog.html">Tomcat 7 changelog</a>.
-</p>
-
-<p align="center">
-<a href="download-70.cgi">Download</a> |
-<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.37</a>
-</p>
 </section>
 
 <section name="Tomcat Native 1.1.27 Released" rtext="2013-02-12">
