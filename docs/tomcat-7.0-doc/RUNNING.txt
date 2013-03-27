@@ -15,7 +15,7 @@
   limitations under the License.
 ================================================================================
 
-$Id: RUNNING.txt 1430483 2013-01-08 20:19:13Z kkolinko $
+$Id: RUNNING.txt 1456725 2013-03-14 23:48:06Z kkolinko $
 
             ===================================================
             Running The Apache Tomcat 7.0 Servlet/JSP Container
@@ -314,6 +314,8 @@ The file will look like the following:
   <?xml version="1.0" encoding="UTF-8"?>
   <Context docBase="${catalina.home}/webapps/manager"
     antiResourceLocking="false" privileged="true" >
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.0\.0\.1" />
   </Context>
 
 See Deployer chapter in User Guide and Context and Host chapters in the

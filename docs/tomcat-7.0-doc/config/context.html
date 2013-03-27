@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.37) - The Context Container</title><meta name="author" content="Craig R. McClanahan"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.39) - The Context Container</title><meta name="author" content="Craig R. McClanahan"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -18,7 +18,7 @@
             }
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.37, Feb 12 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Context Container</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.39, Mar 22 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The Context Container</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#Introduction">Introduction</a><ol><li><a href="#Parallel_deployment">Parallel deployment</a></li><li><a href="#Naming">Naming</a></li><li><a href="#Defining_a_context">Defining a context</a></li></ol></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#Logging">Logging</a></li><li><a href="#Access_Logs">Access Logs</a></li><li><a href="#Automatic_Context_Configuration">Automatic Context Configuration</a></li><li><a href="#Context_Parameters">Context Parameters</a></li><li><a href="#Environment_Entries">Environment Entries</a></li><li><a href="#Lifecycle_Listeners">Lifecycle Listeners</a></li><li><a href="#Request_Filters">Request Filters</a></li><li><a href="#Resource_Definitions">Resource Definitions</a></li><li><a href="#Resource_Links">Resource Links</a></li><li><a href="#Transaction">Transaction</a></li><li><a href="#Virtual_webapp">Virtual webapp</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -49,8 +49,10 @@
   by the web application deployment.</p>
 
   <p>You may define as many <strong>Context</strong> elements as you
-  wish.  Each such Context MUST have a unique context name. In
-  addition, a Context must be present with a context path equal to
+  wish.  Each such Context MUST have a unique context name within a virtual
+  host. The context path does not need to be unique (see <em>parallel
+  deployment</em> below). In addition, a Context must be present with a
+  context path equal to
   a zero-length string.  This Context becomes the <em>default</em>
   web application for this virtual host, and is used to process all
   requests that do not match any other Context's context path.</p>
@@ -75,31 +77,69 @@
   </blockquote></td></tr></table>
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Naming"><strong>Naming</strong></a></font></td></tr><tr><td><blockquote>
-  <p>When autoDeploy or deployOnStartup is used then there is a close
-  relationship between the <em>context name</em>, <em>context path</em>,
-  <em>context version</em> and the <em>base file name</em> used for the WAR
-  and/or directory that contains the web application when the WAR or directory
-  is located in the Host's appBase. When no version is specified, the rules
-  are:
+  <p>When <code>autoDeploy</code> or <code>deployOnStartup</code> operations
+  are performed by a Host, the web application is specified by a context XML
+  file in <a href="host.html">Host</a>'s <code>xmlBase</code>
+  directory or by a WAR file or a directory file in Host's
+  <code>appBase</code> directory.
+  In this case the context path is derived from the name of the file that
+  is being deployed. Consequently, the context path <strong>may not</strong>
+  be defined in a <code>META-INF/context.xml</code> embedded in
+  the application. There is, therefore, a close relationship between the
+  <em>context name</em>, <em>context path</em>, <em>context version</em> and
+  the <em>base file name</em> (the name minus <code>.war</code> or
+  <code>.xml</code> extension) of the file.</p>
+
+  <p>Let us assume that you want to deploy your application to respond to
+  requests to URIs starting with certain context path. According to the
+  Servlet specification, the context path may be an empty string, or a
+  string starting with '/'. The rules to define the names for this context
+  path are the following:</p>
+
   <ul>
-    <li>contextName = contextPath</li>
-    <li>If the contextPath is a zero length string, the base name is ROOT</li>
-    <li>If the contextPath is not a zero length string, the base name is the
-        contextPath with the leading '/' removed and any remaining '/'
-        characters in the path replaced with '#'.</li>
+    <li><em>context name</em> is equal to context path</li>
+    <li>If the context path is a zero length string, the <em>base name</em> is
+    <code>"ROOT"</code> (uppercase)</li>
+    <li>If the context path is not a zero length string, the <em>base
+    name</em> is the context path with the leading '/' removed and any
+    remaining '/' characters in the path replaced with '#'.</li>
   </ul>
-  When a version is specified, <code>##version</code> is added to the contextName and base
-  name. To help clarify these rules, some examples are given in the following
+
+  <p>When a version is specified, to deploy several applications for the
+  same context path, the above values are modified as follows:</p>
+
+  <ul>
+    <li><code>"##" + version</code> is added as a suffix to <em>context name</em>
+    and <em>base name</em>.</li>
+  </ul>
+
+  <p>To help clarify these rules, some examples are given in the following
   table.</p>
 
   <table class="detail-table">
-    <tr><td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Path</font></td><td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Version</font></td><td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Name</font></td><td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Base filename</font></td></tr>
+    <tr>
+      <td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Path</font></td>
+      <td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Version</font></td>
+      <td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Context Name</font></td>
+      <td bgcolor="#039acc" valign="top"><font color="#000000" size="-1" face="arial,helvetica,sanserif">Base File Name</font></td>
+    </tr>
     <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>None</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo</font></td></tr>
-    <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>None</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo#bar</font></td></tr>
-    <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>None</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">ROOT</font></td></tr>
+    <tr>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>None</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo#bar</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>None</i></font></td>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">ROOT</font></td>
+    </tr>
     <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo##42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo##42</font></td></tr>
-    <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar##42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo#bar##42</font></td></tr>
-    <tr><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">##42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">ROOT##42</font></td></tr>
+    <tr>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">/foo/bar##42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">foo#bar##42</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif"><i>Empty String</i></font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">##42</font></td><td bgcolor="#a0ddf0" valign="top" align="left"><font color="#000000" size="-1" face="arial,helvetica,sanserif">ROOT##42</font></td>
+    </tr>
   </table>
 
   <p>The version component is treated as a <code>String</code> both for
@@ -121,7 +161,7 @@
   </p>
   <ul>
   <li>Disable autoDeploy and deployOnStartup and define all
-  <Strong>Context</Strong>s in server.xml</li>
+  <strong>Context</strong>s in server.xml</li>
   <li>Locate the WAR and/or directory outside of the Host's appBase and use
       a context.xml file with a docBase attribute to define it.</li>
   </ul>
@@ -162,11 +202,11 @@
   </p>
   <ul>
   <li>In the <code>$CATALINA_BASE/conf/context.xml</code> file:
-  the Context element information will be loaded by all webapps.</li>
+  the Context element information will be loaded by all web applications.</li>
   <li>In the
   <code>$CATALINA_BASE/conf/[enginename]/[hostname]/context.xml.default</code>
-  file: the Context element information will be loaded by all webapps of that
-  host.</li>
+  file: the Context element information will be loaded by all web applications
+  of that host.</li>
   </ul>
 
   <p>With the exception of server.xml, files that define <strong>Context
@@ -180,11 +220,10 @@
   <a href="host.html#User Web Applications">User Web Applications</a>
   for more information.</p>
 
-  <p>To define multiple <Strong>Context</Strong>s that use a single WAR file or
-  directory, use one of the options described above for creating a
-  <Strong>Context</Strong> that has a path that is not related to the base file
-  name and create multiple <Strong>Context</Strong> definitions.
-  </p>
+  <p>To define multiple contexts that use a single WAR file or directory,
+  use one of the options described in the <a href="#Naming">Naming</a>
+  section above for creating a <strong>Context</strong> that has a path
+  that is not related to the base file name.</p>
   </blockquote></td></tr></table>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Attributes"><strong>Attributes</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -1205,7 +1244,7 @@ mywebapp/
                       (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s);
                   }
                   else {
-                      d.write('<div id="comments_thread"><strong>Comments are disabled for this page at the moment.</strong><\/div>');
+                      d.write('<div id="comments_thread"><strong>Comments are disabled for this page at the moment.<\/strong><\/div>');
                   }
               })(window, document);
               //--><!]]></script></blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
