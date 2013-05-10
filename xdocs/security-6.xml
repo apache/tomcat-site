@@ -49,6 +49,41 @@
   </section>
 
 
+  <section name="Fixed in Apache Tomcat 6.0.37" rtext="released 3 May 2013">
+
+    <p><strong>Important: Session fixation</strong>
+       <cve>CVE-2013-2067</cve></p>
+
+    <p>FORM authentication associates the most recent request requiring
+       authentication with the current session. By repeatedly sending a request
+       for an authenticated resource while the victim is completing the login
+       form, an attacker could inject a request that would be executed using
+       the victim's credentials.</p>
+
+    <p>This was fixed in revision <revlink rev="1417891">1417891</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 15 Oct 2012 and
+       made public on 10 May 2013.</p>
+
+    <p>Affects: 6.0.21-6.0.36</p>
+
+    <p><strong>Important: Denial of service</strong>
+       <cve>CVE-2012-3439</cve></p>
+
+    <p>When processing a request submitted using the chunked transfer encoding,
+       Tomcat ignored but did not limit any extensions that were included. This
+       allows a client to perform a limited DOS by streaming an unlimited
+       amount of data to the server.</p>
+
+    <p>This was fixed in revision <revlink rev="1476592">1476592</revlink>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 10 November 2011
+       and made public on 10 May 2013.</p>
+
+    <p>Affects: 6.0.0-6.0.36</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 6.0.36" rtext="released 19 Oct 2012">
   
     <p><strong>Important: Denial of service</strong>

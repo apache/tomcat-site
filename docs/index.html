@@ -227,6 +227,56 @@ project logo are trademarks of the Apache Software Foundation.</p>
 </table>
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 7.0.40 Released">
+<!--()--></a><a name="Tomcat_7.0.40_Released"><strong>Tomcat 7.0.40 Released</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2013-05-09</strong></font></td>
+</tr>
+<tr>
+<td colspan="2">
+<p>
+<blockquote>
+
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.40 of
+Apache Tomcat. This release contains a security fix and a number of bug fixes
+and improvements compared to version 7.0.39. The notable changes include:
+<ul>
+
+<li>A fix for CVE-2013-2071 (bug <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=54178">54178</a>) an information disclosure
+    issue.</li>
+
+<li>Various fixes to stop Tomcat attempting to parse text that looks like an EL
+    expression in a JSP document as an EL expression when EL expressions are
+    either not permitted or not enabled.</li>
+
+<li>Improved handling and reporting if a ConcurrentModificationException occurs
+    while checking for memory leaks when a web application is being stopped.
+    </li>
+
+</ul>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html">Tomcat 7 changelog</a>.
+</p>
+
+
+<p align="center">
+
+<a href="download-70.cgi">Download</a> |
+<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.40</a>
+
+</p>
+
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
 <td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 6.0.37 Released">
 <!--()--></a><a name="Tomcat_6.0.37_Released"><strong>Tomcat 6.0.37 Released</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2013-05-03</strong></font></td>
 </tr>
@@ -246,69 +296,6 @@ Apache Tomcat. This release includes security and bug fixes over Apache Tomcat
 
 <a href="download-60.cgi">Download</a> |
 <a href="tomcat-6.0-doc/changelog.html">ChangeLog for 6.0.37</a>
-
-</p>
-
-</blockquote>
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<br>
-</td>
-</tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="2" width="100%">
-<tr>
-<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Tomcat 7.0.39 Released">
-<!--()--></a><a name="Tomcat_7.0.39_Released"><strong>Tomcat 7.0.39 Released</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2013-03-26</strong></font></td>
-</tr>
-<tr>
-<td colspan="2">
-<p>
-<blockquote>
-
-<p>
-The Apache Tomcat Project is proud to announce the release of version 7.0.39 of
-Apache Tomcat. This release contains a number of bug fixes and improvements
-compared to version 7.0.37. The notable changes include:
-<ul>
-
-<li>There have been multiple improvements in the bytes to/from characters
-    conversion process. The core conversion process has been refactored to use
-    the NIO APIs. This has resulted in a number of improvements including
-    invalid UTF-8 byte sequences at the end of a series of bytes now trigger a
-    conversion error rather than being silently swallowed. Errors detected in
-    request URIs will be replaced with the replacement character (allowing the
-    application to respond to the invalid URI as it wishes) and errors in
-    request bodies will trigger an IOException. The use of the JVM provided
-    UTF-8 decoder has been replaced by a better UTF-8 decoder derived from
-    Apache Harmony. This improved decoder has earlier detection of error
-    conditions and more closely follows the Unicode specification regarding the
-    use of replacement characters.</li>
-
-<li>The annotation scanning process now provides more information if the scan
-    fails due to broken class dependencies. There is now enough information to
-    identify the class(es) at fault. The JAR scanning process that supports
-    annotation scanning has also seen multiple improvements and fixes including
-    the exclusion by default of the Bootstrap class path from the scan.</li>
-
-<li>Upgraded a number of Tomcat's dependencies including Commons Daemon to
-    1.0.14, Commons IO to 2.4 and Commons FileUpload to r1458500. A new
-    dependency on Commons Codec was added to replace Tomcat's internal Base64
-    encoder/decoder.</li>
-
-</ul>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-7.0-doc/changelog.html">Tomcat 7 changelog</a>.
-</p>
-
-
-<p align="center">
-
-<a href="download-70.cgi">Download</a> |
-<a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.39</a>
 
 </p>
 

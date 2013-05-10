@@ -50,7 +50,47 @@
 
   </section>
 
-<section name="Fixed in Apache Tomcat 7.0.32" rtext="released 9 Oct 2012">
+  <section name="Fixed in Apache Tomcat 7.0.40" rtext="released 9 May 2013">
+
+    <p><strong>Moderate: Information disclosure</strong>
+       <cve>CVE-2013-2071</cve></p>
+
+    <p>Bug <bug>54178</bug> described a scenario where elements of a previous
+       request may be exposed to a current request. This was very difficult to
+       exploit deliberately but fairly likely to happen unexpectedly if an
+       application used AsyncListeners that threw RuntimeExceptions.</p>
+
+    <p>This was fixed in revision <revlink rev="1471372">1471372</revlink>.</p>
+
+    <p>The root cause of the problem was identified as a Tomcat bug on 2 April
+       2013. The Tomcat security team identified the security implications on
+       24 April 2013 and made those details public on 10 May 2013.</p>
+
+    <p>Affects: 7.0.0-7.0.39</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.33" rtext="released 21 Nov 2012">
+
+    <p><strong>Important: Session fixation</strong>
+       <cve>CVE-2013-2067</cve></p>
+
+    <p>FORM authentication associates the most recent request requiring
+       authentication with the current session. By repeatedly sending a request
+       for an authenticated resource while the victim is completing the login
+       form, an attacker could inject a request that would be executed using
+       the victim's credentials.</p>
+
+    <p>This was fixed in revision <revlink rev="1408044">1408044</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 15 Oct 2012 and
+       made public on 10 May 2013.</p>
+
+    <p>Affects: 7.0.0-7.0.32</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.32" rtext="released 9 Oct 2012">
 
     <p><strong>Important: Bypass of CSRF prevention filter</strong>
        <cve>CVE-2012-4431</cve></p>
@@ -69,6 +109,22 @@
   </section>
 
   <section name="Fixed in Apache Tomcat 7.0.30" rtext="released 6 Sep 2012">
+
+    <p><strong>Important: Denial of service</strong>
+       <cve>CVE-2012-3544</cve></p>
+
+    <p>When processing a request submitted using the chunked transfer encoding,
+       Tomcat ignored but did not limit any extensions that were included. This
+       allows a client to perform a limited DOS by streaming an unlimited
+       amount of data to the server.</p>
+
+    <p>This was fixed in revisions <revlink rev="1378702">1378702</revlink> and
+       <revlink rev="1378921">1378921</revlink>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 10 November 2011
+       and made public on 10 May 2013.</p>
+
+    <p>Affects: 7.0.0-7.0.29</p>
 
     <p><strong>Moderate: DIGEST authentication weakness</strong>
        <cve>CVE-2012-3439</cve></p>

@@ -192,6 +192,9 @@
 <a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.37">Fixed in Apache Tomcat 6.0.37</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_6.0.36">Fixed in Apache Tomcat 6.0.36</a>
 </li>
 <li>
@@ -299,6 +302,72 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</blockquote>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr>
+<td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica,sanserif"><a name="Fixed in Apache Tomcat 6.0.37">
+<!--()--></a><a name="Fixed_in_Apache_Tomcat_6.0.37"><strong>Fixed in Apache Tomcat 6.0.37</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>released 3 May 2013</strong></font></td>
+</tr>
+<tr>
+<td colspan="2">
+<p>
+<blockquote>
+
+    
+<p>
+<strong>Important: Session fixation</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2067" rel="nofollow">CVE-2013-2067</a>
+</p>
+
+    
+<p>FORM authentication associates the most recent request requiring
+       authentication with the current session. By repeatedly sending a request
+       for an authenticated resource while the victim is completing the login
+       form, an attacker could inject a request that would be executed using
+       the victim's credentials.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1417891">1417891</a>.</p>
+
+    
+<p>This issue was identified by the Tomcat security team on 15 Oct 2012 and
+       made public on 10 May 2013.</p>
+
+    
+<p>Affects: 6.0.21-6.0.36</p>
+
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3439" rel="nofollow">CVE-2012-3439</a>
+</p>
+
+    
+<p>When processing a request submitted using the chunked transfer encoding,
+       Tomcat ignored but did not limit any extensions that were included. This
+       allows a client to perform a limited DOS by streaming an unlimited
+       amount of data to the server.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1476592">1476592</a>.</p>
+
+    
+<p>This issue was reported to the Tomcat security team on 10 November 2011
+       and made public on 10 May 2013.</p>
+
+    
+<p>Affects: 6.0.0-6.0.36</p>
 
   
 </blockquote>
