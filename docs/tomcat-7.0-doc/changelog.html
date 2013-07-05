@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.41) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.42) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -18,7 +18,187 @@
             }
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.41, Jun 6 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.41 (markt)"><!--()--></a><a name="Tomcat_7.0.41_(markt)"><strong>Tomcat 7.0.41 (markt)</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.42, Jul 2 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)"><!--()--></a><a name="Tomcat_7.0.42_(markt)"><strong>Tomcat 7.0.42 (markt)</strong></a></font></td></tr><tr><td><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/Catalina"><!--()--></a><a name="Tomcat_7.0.42_(markt)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Enforce the restriction described in section 4.4 of the Servlet 3.0
+        specification that requires the new pluggability methods only to be
+        available to <code>ServletContextListener</code>s defined in one of the
+        specified ways. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Better handle FORM authentication when requesting a resource as an
+        unauthenticated user that is only protected for a sub-set of HTTP
+        methods that does not include GET. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53777">53777</a>: Add support for a JAAS Realm instance to use a
+        dedicated configuration rather than the JVM global JAAS configuration.
+        This is most likely to be useful for per web application JAAS Realms.
+        Based on a patch by eolivelli. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=54745">54745</a>: Fix JAR file scanning when Tomcat is deployed via Java
+        Web Start. Patch provided by Nick Williams. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55017">55017</a>: Add the ability to configure the RMI bind address when
+        using the JMX remote lifecycle listener. Patch provided by Alexey
+        Noskov. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55071">55071</a>: Ensure original exception is reported if JDBC Realm
+        fails to read a user's credentials. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55073">55073</a>, <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55108">55108</a>, <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55109">55109</a>, <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55110">55110</a>,
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55158">55158</a> &amp; <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55159">55159</a>: Small performance improvements.
+        Patches provided by Adrian Nistor. (markt/violetagg)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55102">55102</a>: Add support for time to first byte in the
+        AccessLogValve. Patch provided by Jeremy Boynes. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55125">55125</a>: If the Server container fails to start, don't allow
+        the Catalina wrapper to start (used when running from the command line
+        and when running as a service) since Tomcat will not be able to do any
+        useful work. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Update the <code>JreMemoryLeakPreventionListener</code> to take account
+        of changes in the behaviour of
+        <code>java.beans.Introspector.flushCaches()</code> and
+        <code>sun.awt.AppContext.getAppContext()</code> in Java 7. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Avoid WARNING log message of
+        <code>Users:type=UserDatabase,database=UserDatabase</code> at Tomcat
+        shutdown. (pero)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Avoid <code>ClassCastException</code> when an asynchronous dispatch is
+        invoked in an asynchronous cycle which is started by a call to
+        <code>ServletRequest.startAsync(ServletRequest,ServletResponse)</code>
+        where ServletRequest/ServletResponse are custom implementations.
+        (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct a regression introduced in 7.0.39 (refactoring of base 64
+        encoding and decoding) that broke the JNDI Realm when
+        <code>userPassword</code> was set and passwords were hashed with MD5 or
+        SHA1. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct the mechanism for the path calculation in
+        <code>AsyncContext.dispatch()</code>. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55155">55155</a>: Avoid constant focus grabbing when running the Tomcat
+        unit tests under Java 6 on OSX. Patch provided by Casey Lucas. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55160">55160</a>: Don't ignore connectionUploadTimeout setting when
+        using HTTP NIO connector. (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55176">55176</a>: Correctly handle regular expressions within SSI
+        expressions that contain an equals character. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/Coyote"><!--()--></a><a name="Tomcat_7.0.42_(markt)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55177">55177</a>: Correctly handle infinite soTimeout for BIO HTTP
+        connector. Based on a patch by Nick Bunn. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55180">55180</a>: Correctly handle infinite soTimeout when
+        <code>disableUploadTimeout</code> is set to false. Patch provided by
+        Nick Bunn. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/Cluster"><!--()--></a><a name="Tomcat_7.0.42_(markt)/Cluster"><strong>Cluster</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Delete leftover of war file from tempDir when removing invalid
+        <code>FileMessageFactory</code>. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that the keepAlive of NioSender works correctly when
+        <code>keepAliveCount</code>/<code>keepAliveTime</code> is set to a value
+        greater than 0. (kfujino)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add logging of when a member is unable to join the cluster. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Replace Tribes's <code>TaskQueue</code> as executor's
+        workQueue in order to ensure that executor's <code>maxThread</code>
+        works correctly. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=54086">54086</a>: Fix an additional code path that could lead to
+        multiple threads attempting to modify the same selector key set. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/Web applications"><!--()--></a><a name="Tomcat_7.0.42_(markt)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Complete the document for <code>MessageDispatch15Interceptor</code>.
+        (kfujino)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=53655">53655</a>: Document the circumstances under which Tomcat will add
+        a <code>javax.mail.Authenticator</code> to mail sessions created via a
+        JNDI resource. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55179">55179</a>: Correct the Javadoc for the remote IP valve so the
+        correct name is used to refer to the <code>proxiesHeader</code>
+        property. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/jdbc-pool"><!--()--></a><a name="Tomcat_7.0.42_(markt)/jdbc-pool"><strong>jdbc-pool</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55031">55031</a>: Fixed <code>Export-Package</code> header and
+        <code>uses</code> directives in MANIFEST.MF. Change the version for
+        package <code>org.apache.juli.logging</code> to "0" in
+        <code>Import-Package</code> header. Thus any version of that package
+        can be used. Patch provided by Martin Lichtin. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.42 (markt)/Other"><!--()--></a><a name="Tomcat_7.0.42_(markt)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update Maven Cental location used to download dependencies at build time
+        to be <code>repo.maven.apache.org</code>. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update JUnit to version 4.11. Configure separate download for Hamcrest
+        1.3 core library as its classes are no longer included in junit.jar.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=54013">54013</a>: When using a forced stop, allow a short period of time
+        (5s) for the process to die before returning. Patch provided by
+        mukarram.baig. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55119">55119</a>: Ensure that the build process produces Javadoc that is
+        not vulnerable to CVE-2013-1571. Based on a patch by Uwe Schindler.
+        (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.41 (markt)"><!--()--></a><a name="Tomcat_7.0.41_(markt)"><strong>Tomcat 7.0.41 (markt)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2013-06-10</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.41 (markt)/Catalina"><!--()--></a><a name="Tomcat_7.0.41_(markt)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
     <table border="0" cellpadding="2" cellspacing="2">
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
@@ -90,8 +270,8 @@
       </td></tr>
       <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55046">55046</a>: Add a Servlet Filter that implements
-        <a href="http://www.w3.org/TR/cors/">CORS</a>. Patch provided by Mohit
-        Soni. (markt)
+        <a href="http://www.w3.org/TR/cors/">CORS</a>. Patch
+        provided by Mohit Soni. (markt)
       </td></tr>
       <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55052">55052</a>: JULI's LogManager now additionally looks for
@@ -2690,8 +2870,8 @@
       <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
         <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52405">52405</a>: Align the Servlet 3.0 implementation with the changes
         defined in the first maintenance release (also know as Rev. A). See the
-        <a href="http://jcp.org/aboutJava/communityprocess/maintenance/jsr315/servlet3-mr-reva.html">
-        JCP documentation</a> for a detailed list of changes. (markt) 
+        <a href="http://jcp.org/aboutJava/communityprocess/maintenance/jsr315/servlet3-mr-reva.html">JCP documentation</a> for a detailed list of changes
+        (markt) 
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         Improve JMX names for objects related to Connectors that have the
@@ -3146,10 +3326,9 @@
         <code>DeltaSession.setId(String)</code>. (kkolinko)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        Work around a <a href="http://bugs.sun.com/view_bug.do?bug_id=6427854">
-        known JVM bug</a> that is fixed in 1.7.0_01 but still present in
-        1.6.0_29 and was triggering intermittent unit test failures for
-        <code>org.apache.catalina.tribes.group.
+        Work around a <a href="http://bugs.sun.com/view_bug.do?bug_id=6427854">known JVM bug</a> that is fixed in 1.7.0_01 but still
+        present in 1.6.0_29 and was triggering intermittent unit test failure
+        for <code>org.apache.catalina.tribes.group.
         TestGroupChannelMemberArrival.testMemberArrival</code>.
         The bug affects any components that use NIO although it was more likely
         to be observed in the clustering module than the HTTP or AJP NIO
