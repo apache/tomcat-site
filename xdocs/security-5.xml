@@ -750,9 +750,12 @@
        the Accept-Language header value conforms to RFC 2616. Under normal
        circumstances this would not be possible to exploit, however older
        versions of Flash player were known to allow carefully crafted malicious
-       Flash files to make requests with such custom headers. Tomcat now ignores
-       invalid values for Accept-Language headers that do not conform to RFC
-       2616.</p>
+       Flash files to make requests with such custom headers. When generating
+       the response for <code>getLocale()</code> and <code>getLocales()</code>,
+       Tomcat now ignores values for Accept-Language headers that do not conform
+       to RFC 2616. Applications that use the raw header values directly should
+       not assume that the headers conform to RFC 2616 and should filter the
+       values appropriately.</p>
 
     <p>Affects: 5.0.0-5.0.30, 5.5.0-5.5.20</p>
   </section>
