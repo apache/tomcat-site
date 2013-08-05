@@ -130,6 +130,28 @@
     </copy>
   </target>
 
+  <target name="release-8"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 8.0">
+
+    <!-- Download the latest version -->
+    <antcall target="downloadgz">
+      <param name="sourcefile" value="${tomcat80.loc}"/>
+      <param name="destfile" value="${tomcat80.home}/tomcat-8.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat80.home}"/>
+    </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-8.0-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-8.0-doc" >
+      <fileset dir="${tomcat80.home}/tomcat-8.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
   <target name="release-native"
           depends="docs"
           description="Used after a release to update the docs for Tomcat Native">
