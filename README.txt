@@ -61,7 +61,7 @@ reflected on the live tomcat.apache.org site. This happens almost
 immediately, so go to http://tomcat.apache.org/ and have fun.
 
 
-To update the documentation for Tomcat 6.0.x or 7.0.x:
+To update the documentation for Tomcat 6.0.x, 7.0.x or 8.0.x:
 ==========================================================================
 
 1. If you are using the "sparse" checkout feature, make sure that
@@ -73,6 +73,7 @@ To update the documentation for Tomcat 6.0.x or 7.0.x:
    cd tomcat-site
    svn up --set-depth infinity docs/tomcat-6.0-doc
    svn up --set-depth infinity docs/tomcat-7.0-doc
+   svn up --set-depth infinity docs/tomcat-8.0-doc
 
 2. Create build.properties file if you have not done so yet and set
    "base.path" property in it. E.g.
@@ -93,6 +94,7 @@ To update the documentation for Tomcat 6.0.x or 7.0.x:
    cd tomcat-site
    ant release-6
    ant release-7
+   ant release-8
 
 5. Check the changes with "svn status" command.
 
@@ -102,6 +104,7 @@ To update the documentation for Tomcat 6.0.x or 7.0.x:
     c) Deleted/missing files ('!')
 
    Apply "svn add" to the new files.
+
    Apply "svn delete" to the missing files.
 
 6. Commit the changes. 
