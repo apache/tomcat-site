@@ -1,35 +1,44 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <!-- Content Stylesheet for "tomcat-site" Documentation -->
 
 <!-- $Id$ -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  version="1.0">
+  version="3.0">
 
 
   <!-- Output method -->
   <xsl:output method="html"
-              encoding="utf-8"
-              indent="yes"/>
+              html-version="5.0"
+              encoding="UTF-8"
+              indent="no"
+              doctype-system="about:legacy-compat"/>
 
 
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
+  <xsl:param    name="home-logo"     select="'/images/tomcat.png'"/>
   <xsl:param    name="buglink"       select="'https://issues.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
   <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
 
   <!-- Defined variables (non-overrideable) -->
-  <xsl:variable name="body-bg"       select="'#ffffff'"/>
-  <xsl:variable name="body-fg"       select="'#000000'"/>
-  <xsl:variable name="body-link"     select="'#525D76'"/>
-  <xsl:variable name="banner-bg"     select="'#525D76'"/>
-  <xsl:variable name="banner-fg"     select="'#ffffff'"/>
-  <xsl:variable name="sub-banner-bg" select="'#828DA6'"/>
-  <xsl:variable name="sub-banner-fg" select="'#ffffff'"/>
-  <xsl:variable name="table-th-bg"   select="'#039acc'"/>
-  <xsl:variable name="table-td-bg"   select="'#a0ddf0'"/>
-  <xsl:variable name="source-color"  select="'#023264'"/>
 
 
   <!-- Process an entire document into an HTML page -->
@@ -37,8 +46,19 @@
     <xsl:variable name="project"
                 select="document('project.xml')/project"/>
 
-    <html>
-    <head>
+<html lang="en">
+<head>
+  <!-- Note: XLST seems to always output a
+       <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       when method="html",
+       therefore we can't use
+       <meta charset="UTF-8"/>.
+
+       In XHTML, this is not needed as the encoding will be
+       specified in the XML declaration.
+  -->
+  <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
+  <link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/> - <xsl:value-of select="properties/title"/></title>
     <xsl:for-each select="properties/author">
@@ -59,102 +79,88 @@
     <xsl:if test="properties/base">
       <base href="{properties/base/@href}"/>
     </xsl:if>
+  </head>
 
-    <!-- YS 20051102: Add a stylesheet -->
-    <link type="text/css" href="stylesheets/tomcat.css" rel="stylesheet" />
-    <link type="text/css" href="stylesheets/tomcat-printer.css" rel="stylesheet" media="print" />
-    </head>
+  <body>
+  <div id="wrapper">
+  <!-- Header -->
+  <header id="header">
+    <div>
+      <div>
+          <xsl:variable name="src">
+            <xsl:value-of select="$relative-path"/><xsl:value-of select="$home-logo"/>
+          </xsl:variable>
+          <div class="logo noPrint">
+            <a href="{project/@href}"><img alt="Tomcat Home" src="{$src}"/></a>
+          </div>
 
-    <body bgcolor="{$body-bg}" text="{$body-fg}" link="{$body-link}"
-          alink="{$body-link}" vlink="{$body-link}">
-
-    <table border="0" width="100%" cellspacing="0">
-
-      <xsl:comment>PAGE HEADER</xsl:comment>
-      <tr>
-        <td>
-          <xsl:comment>PROJECT LOGO</xsl:comment>
-          <a href="http://tomcat.apache.org/">
-            <img src="./images/tomcat.gif" align="left" alt="Tomcat Logo" border="0"/>
-          </a>
-        </td>
-        <td>
-          <font face="arial,helvetica,sanserif">
-            <h1><xsl:value-of select="$project/title"/></h1>
-          </font>
-        </td>
-        <td>
-          <xsl:comment>APACHE LOGO</xsl:comment>
-          <a href="http://www.apache.org/">
-            <img src="http://www.apache.org/images/asf-logo.gif"
-                 align="right" alt="Apache Logo" border="0"/>
-          </a>
-        </td>
-      </tr>
-    </table>
-
-    <!-- Search box: uses CSS positioning -->
+        <div style="height: 1px;"/>
+        <div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
+        <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
+		
+		<div style="clear: right;"/>
+	<!-- Search box: uses CSS positioning -->
     <div class="searchbox noPrint">
       <form action="http://www.google.com/search" method="get">
         <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
-        <input value="Search the Site" size="25" name="q" id="query" type="text" />
-        <input name="Search" value="Search Site" type="submit" />
+        <input placeholder="Search the Site…" required="required" size="25" name="q" id="query" type="search" />
+        <button>Search</button>
       </form>
     </div>
     <!-- End search box -->
+	
+        <div style="height: 1px;"/>
+        <div style="clear: left;"/>
+      </div>
+    </div>
+  </header>
+  
+  
+  <div id="middle">
+    <div>
+      <div id="mainLeft" class="noprint">
+        <div>
+          <!-- Navigation -->
+          <nav>
+            <xsl:apply-templates select="$project/body/menu"/>
+          </nav>
+        </div>
+      </div>
+      <div id="mainRight">
+        <div id="content">
+          <!-- Main Part -->
+          <main>
+		    <!-- Hidden heading -->
+			<h2 style="display: none;">Content</h2>
+            <xsl:apply-templates select="body/section"/>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <table border="0" width="100%" cellspacing="4">
-
-      <xsl:comment>HEADER SEPARATOR</xsl:comment>
-      <tr>
-        <td colspan="2">
-          <hr noshade="" size="1"/>
-        </td>
-      </tr>
-
-      <tr>
-        <xsl:comment>LEFT SIDE NAVIGATION</xsl:comment>
-        <td width="20%" valign="top" nowrap="true" class="noPrint">
-          <xsl:apply-templates select="$project/body/menu"/>
-        </td>
-
-        <xsl:comment>RIGHT SIDE MAIN BODY</xsl:comment>
-        <td width="80%" valign="top" align="left" id="mainBody">
-          <xsl:apply-templates select="body/section"/>
-        </td>
-
-      </tr>
-
-      <xsl:comment>FOOTER SEPARATOR</xsl:comment>
-      <tr>
-        <td colspan="2">
-          <hr noshade="" size="1"/>
-        </td>
-      </tr>
-
-      <xsl:comment>PAGE FOOTER</xsl:comment>
-      <tr><td colspan="2">
-        <div align="center"><font color="{$body-link}" size="-1"><em>
-        Copyright &#169; 1999-2013, The Apache Software Foundation
-        <br/>
-        Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
-        project logo are trademarks of the Apache Software Foundation.
-        </em></font></div>
-      </td></tr>
-
-    </table>
-    </body>
-    </html>
+  <!-- Footer -->
+  <footer id="footer">
+    Copyright © 1999-2013, The Apache Software Foundation
+    <br/>
+    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+    project logo are trademarks of the Apache Software Foundation.
+  </footer>
+</div>
+</body>
+</html>
 
   </xsl:template>
 
 
   <!-- Process a menu for the navigation bar -->
   <xsl:template match="menu">
-    <p><strong><xsl:value-of select="@name"/></strong></p>
+  <div>
+    <h2><strong><xsl:value-of select="@name"/></strong></h2>
     <ul>
       <xsl:apply-templates select="item"/>
     </ul>
+  </div>
   </xsl:template>
 
 
@@ -182,7 +188,7 @@
 
   <!-- Process a documentation section -->
   <xsl:template match="section">
-    <xsl:variable name="name">
+    <xsl:variable name="name2">
       <xsl:choose>
         <xsl:when test="@anchor">
           <xsl:value-of select="@anchor" />
@@ -192,41 +198,31 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="name2">
-      <xsl:value-of select="translate($name, ' #', '__')"/>
+    <xsl:variable name="name">
+      <xsl:value-of select="translate($name2, ' #', '__')"/>
     </xsl:variable>
-    <table border="0" cellspacing="0" cellpadding="2" width="100%">
-      <!-- Section heading -->
-      <tr><td bgcolor="{$banner-bg}">
-          <font color="{$banner-fg}" face="arial,helvetica,sanserif">
-          <xsl:if test="$name != $name2"><a name="{$name}"><xsl:comment>()</xsl:comment></a></xsl:if>
-          <a name="{$name2}">
-          <strong><xsl:value-of select="@name"/></strong></a></font>
-          </td>
+
+    <!-- Section heading -->
+    <h3 id="{$name}">
       <xsl:if test="@rtext">
-          <td align="right" bgcolor="{$banner-bg}">
-          <font color="{$banner-fg}" face="arial,helvetica.sanserif">
-          <strong><xsl:value-of select="@rtext"/></strong></font>
-          </td>
+        <!-- Additional right-aligned text cell in section heading. -->
+        <span style="float: right;">
+          <xsl:value-of select="@rtext"/>
+        </span><xsl:text>&#x20;</xsl:text> <!-- Ensure a space follows after </span> -->
       </xsl:if>
-      </tr>
-      <!-- Section body -->
-      <tr><td>
-      <xsl:if test="@rtext">
-          <xsl:attribute name="colspan">2</xsl:attribute>
-      </xsl:if>
-      <p><blockquote>
-        <xsl:apply-templates/>
-      </blockquote></p>
-      </td></tr>
-      <tr><td><br/></td></tr>
-    </table>
+      <xsl:value-of select="@name"/>
+    </h3>
+    <!-- Section body -->
+    <div class="text">
+      <xsl:apply-templates/>
+    </div>
+
   </xsl:template>
 
 
   <!-- Process a documentation subsection -->
   <xsl:template match="subsection">
-    <xsl:variable name="name">
+    <xsl:variable name="name2">
       <xsl:choose>
         <xsl:when test="@anchor">
           <xsl:value-of select="@anchor" />
@@ -241,23 +237,23 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="name2">
-      <xsl:value-of select="translate($name, ' #', '__')"/>
+    <xsl:variable name="name">
+      <xsl:value-of select="translate($name2, ' #', '__')"/>
     </xsl:variable>
-    <table border="0" cellspacing="0" cellpadding="2" width="100%">
+	
+    <div class="subsection">
       <!-- Subsection heading -->
-      <tr><td bgcolor="{$sub-banner-bg}">
-          <font color="{$sub-banner-fg}" face="arial,helvetica,sanserif">
-          <xsl:if test="$name != $name2"><a name="{$name}"><xsl:comment>()</xsl:comment></a></xsl:if>
-          <a name="{$name2}">
-          <strong><xsl:value-of select="@name"/></strong></a></font>
-      </td></tr>
+      <!-- TODO: When a <subsection> is nested in another <subsection>,
+           the output should be <h5>, not <h4>. Same with <h6>. -->
+      <h4 id="{$name}">
+        <xsl:value-of select="@name"/>
+      </h4>
       <!-- Subsection body -->
-      <tr><td><blockquote>
+      <div class="text">
         <xsl:apply-templates/>
-      </blockquote></td></tr>
-      <tr><td><br/></td></tr>
-    </table>
+      </div>
+    </div>
+
   </xsl:template>
 
 
@@ -267,7 +263,7 @@
   </xsl:template>
 
   <xsl:template mode="toc" match="section|subsection">
-    <xsl:variable name="name">
+    <xsl:variable name="name2">
       <xsl:choose>
         <xsl:when test="@anchor">
           <xsl:value-of select="@anchor" />
@@ -282,10 +278,10 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="name2">
-      <xsl:value-of select="translate($name, ' #', '__')"/>
+    <xsl:variable name="name">
+      <xsl:value-of select="translate($name2, ' #', '__')"/>
     </xsl:variable>
-    <li><a href="#{$name2}"><xsl:value-of select="@name"/></a>
+    <li><a href="#{$name}"><xsl:value-of select="@name"/></a>
     <xsl:if test="subsection">
       <ol><xsl:apply-templates mode="toc" select="subsection"/></ol>
     </xsl:if>
@@ -295,43 +291,14 @@
 
   <!-- Process a source code example -->
   <xsl:template match="source">
-    <div align="left">
-      <table cellspacing="4" cellpadding="0" border="0">
-        <tr>
-          <td bgcolor="{$source-color}" width="1" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-          <td bgcolor="{$source-color}" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-          <td bgcolor="{$source-color}" width="1" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-        </tr>
-        <tr>
-          <td bgcolor="{$source-color}" width="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-          <td bgcolor="#ffffff" height="1"><pre>
-            <xsl:value-of select="."/>
-          </pre></td>
-          <td bgcolor="{$source-color}" width="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-        </tr>
-        <tr>
-          <td bgcolor="{$source-color}" width="1" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-          <td bgcolor="{$source-color}" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-          <td bgcolor="{$source-color}" width="1" height="1">
-            <img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/>
-          </td>
-        </tr>
-      </table>
-    </div>
+  <div class="codeBox">
+    <pre>
+      <xsl:if test="@wrapped='true'">
+        <xsl:attribute name="class">wrap</xsl:attribute>
+      </xsl:if>
+      <code><xsl:apply-templates/></code>
+    </pre>
+  </div>
   </xsl:template>
 
   <!-- Link to a bug report -->
@@ -357,28 +324,6 @@
   <xsl:template match="cve">
       <xsl:variable name="link"><xsl:value-of select="$cvelink"/><xsl:value-of select="text()"/></xsl:variable>
       <a href="{$link}" rel="nofollow"><xsl:apply-templates/></a>
-  </xsl:template>
-
-  <!-- specially process td tags ala site.vsl -->
-  <xsl:template match="table[@class='detail-table']/tr/td">
-    <td bgcolor="{$table-td-bg}" valign="top" align="left">
-        <xsl:if test="@colspan"><xsl:attribute name="colspan"><xsl:value-of select="@colspan"/></xsl:attribute></xsl:if>
-        <xsl:if test="@rowspan"><xsl:attribute name="rowspan"><xsl:value-of select="@rowspan"/></xsl:attribute></xsl:if>
-        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
-            <xsl:apply-templates/>
-        </font>
-    </td>
-  </xsl:template>
-
-  <!-- handle th ala site.vsl -->
-  <xsl:template match="table[@class='detail-table']/tr/th">
-    <td bgcolor="{$table-th-bg}" valign="top">
-        <xsl:if test="@colspan"><xsl:attribute name="colspan"><xsl:value-of select="@colspan"/></xsl:attribute></xsl:if>
-        <xsl:if test="@rowspan"><xsl:attribute name="rowspan"><xsl:value-of select="@rowspan"/></xsl:attribute></xsl:if>
-        <font color="#000000" size="-1" face="arial,helvetica,sanserif">
-            <xsl:apply-templates />
-        </font>
-    </td>
   </xsl:template>
 
   <!-- Process everything else by just passing it through -->
