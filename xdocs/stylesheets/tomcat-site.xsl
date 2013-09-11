@@ -58,6 +58,8 @@
        specified in the XML declaration.
   -->
   <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
+  <!-- CSS hack for IEs ? 9. -->
+  <xsl:comment><![CDATA[[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]]]></xsl:comment>
   <link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/> - <xsl:value-of select="properties/title"/></title>
@@ -84,7 +86,11 @@
   <body>
   <div id="wrapper">
   <!-- Header -->
+  <!-- Workaround for old IEs: use <div id="..."> instead of <header id="...">, otherwise the CSS will not apply.
+       IE ? 10 dropped support for conditional comments in Standards Mode, so there it will use <header>. -->
+  <xsl:comment><![CDATA[[if IE]><div id="header"><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
   <header id="header">
+    <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
     <div>
       <div>
           <xsl:variable name="src">
@@ -113,7 +119,10 @@
         <div style="clear: left;"/>
       </div>
     </div>
+	<!-- Workaround for old IEs, see above. -->
+    <xsl:comment><![CDATA[[if IE]></div><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
   </header>
+  <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
   
   
   <div id="middle">
@@ -140,12 +149,17 @@
   </div>
 
   <!-- Footer -->
+  <!-- Workarounds for old IEs, see above. -->
+  <xsl:comment><![CDATA[[if IE]><div id="footer"><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
   <footer id="footer">
+    <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
     Copyright © 1999-2013, The Apache Software Foundation
     <br/>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are trademarks of the Apache Software Foundation.
+    <xsl:comment><![CDATA[[if IE]></div><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
   </footer>
+  <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
 </div>
 </body>
 </html>
