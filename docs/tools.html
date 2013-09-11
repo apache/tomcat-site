@@ -1,98 +1,405 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"><!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]--><link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"><title>Apache Tomcat - Developer Tools</title><meta name="author" content="Apache Tomcat Project"></head><body><div id="wrapper"><!--[if IE]><div id="header"><![endif]--><!--[if !IE]>--><header id="header"><!--<![endif]--><div><div><div class="logo noPrint"><a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1 style="margin-top: 35px;">Apache Tomcat</h1><div style="clear: right;"></div><div class="searchbox noPrint"><form action="http://www.google.com/search" method="get"><input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button></form></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div><!--[if IE]></div><![endif]--><!--[if !IE]>--></header><!--<![endif]--><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Apache Tomcat</strong></h2><ul><li><a href="./index.html">Home</a></li><li><a href="./taglibs/">Taglibs</a></li><li><a href="./maven-plugin.html">Maven Plugin</a></li></ul></div><div><h2><strong>Download</strong></h2><ul><li><a href="./whichversion.html">Which version?</a></li><li><a href="./download-80.cgi">Tomcat 8.0</a></li><li><a href="./download-70.cgi">Tomcat 7.0</a></li><li><a href="./download-60.cgi">Tomcat 6.0</a></li><li><a href="./download-connectors.cgi">Tomcat Connectors</a></li><li><a href="./download-native.cgi">Tomcat Native</a></li><li><a href="http://archive.apache.org/dist/tomcat/">Archives</a></li></ul></div><div><h2><strong>Documentation</strong></h2><ul><li><a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a></li><li><a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a></li><li><a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a></li><li><a href="./connectors-doc/">Tomcat Connectors</a></li><li><a href="./native-doc/">Tomcat Native</a></li><li><a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a></li><li><a href="./migration.html">Migration Guide</a></li></ul></div><div><h2><strong>Problems?</strong></h2><ul><li><a href="./security.html">Security Reports</a></li><li><a href="./findhelp.html">Find help</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="./lists.html">Mailing Lists</a></li><li><a href="./bugreport.html">Bug Database</a></li><li><a href="./irc.html">IRC</a></li></ul></div><div><h2><strong>Get Involved</strong></h2><ul><li><a href="./getinvolved.html">Overview</a></li><li><a href="./svn.html">SVN Repositories</a></li><li><a href="./ci.html">Buildbot</a></li><li><a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a></li><li><a href="./tools.html">Tools</a></li></ul></div><div><h2><strong>Media</strong></h2><ul><li><a href="http://blogs.apache.org/tomcat/">Blog</a></li><li><a href="http://twitter.com/theapachetomcat">Twitter</a></li></ul></div><div><h2><strong>Misc</strong></h2><ul><li><a href="./whoweare.html">Who We Are</a></li><li><a href="./heritage.html">Heritage</a></li><li><a href="http://www.apache.org">Apache Home</a></li><li><a href="./resources.html">Resources</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./legal.html">Legal</a></li><li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li><li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><main><h2 style="display: none;">Content</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Overview">Overview</a></li><li><a href="#Apache_Tools">Apache Tools</a></li><li><a href="#Open_Source_Tools">Open Source Tools</a></li><li><a href="#Commercial_Tools">Commercial Tools</a></li></ul>
-</div><h3 id="Overview">Overview</h3><div class="text">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css">
+<!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]-->
+<link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print">
+<title>Apache Tomcat - Developer Tools</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<!--[if IE]><div id="header"><![endif]-->
+<!--[if !IE]>-->
+<header id="header">
+<!--<![endif]-->
+<div>
+<div>
+<div class="logo noPrint">
+<a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a>
+</div>
+<div style="height: 1px;"></div>
+<div class="asfLogo">
+<a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a>
+</div>
+<h1 style="margin-top: 35px;">Apache Tomcat</h1>
+<div style="clear: right;"></div>
+<div class="searchbox noPrint">
+<form action="http://www.google.com/search" method="get">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button>
+</form>
+</div>
+<div style="height: 1px;"></div>
+<div style="clear: left;"></div>
+</div>
+</div>
+<!--[if IE]></div><![endif]-->
+<!--[if !IE]>-->
+</header>
+<!--<![endif]-->
+<div id="middle">
+<div>
+<div id="mainLeft" class="noprint">
+<div>
+<nav>
+<div>
+<h2>
+<strong>Apache Tomcat</strong>
+</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs/">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Download</strong>
+</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="./download-80.cgi">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./download-70.cgi">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./download-60.cgi">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="http://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Documentation</strong>
+</h2>
+<ul>
+<li>
+<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Problems?</strong>
+</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Get Involved</strong>
+</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./svn.html">SVN Repositories</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Media</strong>
+</h2>
+<ul>
+<li>
+<a href="http://blogs.apache.org/tomcat/">Blog</a>
+</li>
+<li>
+<a href="http://twitter.com/theapachetomcat">Twitter</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Misc</strong>
+</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<main>
+<h2 style="display: none;">Content</h2>
+<h3 id="Table_of_Contents">Table of Contents</h3>
+<div class="text">
+
+<ul>
+<li>
+<a href="#Overview">Overview</a>
+</li>
+<li>
+<a href="#Apache_Tools">Apache Tools</a>
+</li>
+<li>
+<a href="#Open_Source_Tools">Open Source Tools</a>
+</li>
+<li>
+<a href="#Commercial_Tools">Commercial Tools</a>
+</li>
+</ul>
+
+</div>
+<h3 id="Overview">Overview</h3>
+<div class="text">
+
 <p>This page lists the various tools that the Apache Tomcat project uses. Not
 all developers use every tool. There are almost certainly some tools that are
 missing. If you are a committer, you know how to fix this. If you are not a
 committer, send a short note to the <a href="lists.html#tomcat-dev">developer
 mailing list</a> (you'll need to subscribe if you are not already subscribed)
 and a committer should be able to fix it for you.</p>
-</div><h3 id="Apache_Tools">Apache Tools</h3><div class="text">
+
+</div>
+<h3 id="Apache_Tools">Apache Tools</h3>
+<div class="text">
+
 <table>
+
 <tr>
-  <td><a href="http://ant.apache.org/">
+  
+<td><a href="http://ant.apache.org/">
       <img src="http://ant.apache.org/images/ant_logo_medium.gif"></a></td>
-  <td><p>Apache Tomcat is built using Apache Ant.</p>
-  </td>
+  <td>
+<p>Apache Tomcat is built using Apache Ant.</p>
+  
+</td>
+
 </tr>
+
 </table>
-</div><h3 id="Open_Source_Tools">Open Source Tools</h3><div class="text">
+
+</div>
+<h3 id="Open_Source_Tools">Open Source Tools</h3>
+<div class="text">
+
 <table>
+
 <tr>
-  <td><a href="http://www.eclipse.org/" rel="nofollow">
+  
+<td><a href="http://www.eclipse.org/" rel="nofollow">
       <img src="images/eclipse.gif"></a></td>
-  <td><p>A variety of IDEs are used by the Tomcat developers. One of them is
+  <td>
+<p>A variety of IDEs are used by the Tomcat developers. One of them is
       the Eclipse IDE.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://www.ucdetector.org/" rel="nofollow">
+  
+<td><a href="http://www.ucdetector.org/" rel="nofollow">
       <img src="http://www.ucdetector.org/ucdetector32.png"></a></td>
-  <td><p>The Unnecessary Code Detector is used by the Tomcat developers to
+  <td>
+<p>The Unnecessary Code Detector is used by the Tomcat developers to
       identify code to be removed from future versions of Tomcat.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://findbugs.sourceforge.net/" rel="nofollow">
+  
+<td><a href="http://findbugs.sourceforge.net/" rel="nofollow">
       <img src="http://findbugs.sourceforge.net/buggy-sm.png"></a></td>
-  <td><p>FindBugs is used by the Tomcat developers to identify potential coding
+  <td>
+<p>FindBugs is used by the Tomcat developers to identify potential coding
       errors.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://checkstyle.sourceforge.net/" rel="nofollow">
+  
+<td><a href="http://checkstyle.sourceforge.net/" rel="nofollow">
       <img src="http://checkstyle.sourceforge.net/images/logo.png"></a></td>
-  <td><p>Checkstyle is used by the Tomcat developers to maintain the Tomcat
+  <td>
+<p>Checkstyle is used by the Tomcat developers to maintain the Tomcat
       coding standard.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://www.farmanager.com/index.php?l=en" rel="nofollow">
+  
+<td><a href="http://www.farmanager.com/index.php?l=en" rel="nofollow">
       <img src="images/far-icon.png"></a></td>
-  <td><p>Far Manager is a two-panel file manager application for
+  <td>
+<p>Far Manager is a two-panel file manager application for
       Microsoft Windows. It works in console mode and is very useful
       to run command-line tools and make small edits that do not require
       an IDE. It is free software since version 1.75 build 2629 and
       open source since version 2.0.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 </table>
-</div><h3 id="Commercial_Tools">Commercial Tools</h3><div class="text">
+
+</div>
+<h3 id="Commercial_Tools">Commercial Tools</h3>
+<div class="text">
+
 <table>
+
 <tr>
-  <td><a href="http://www.yourkit.com/" rel="nofollow">
+  
+<td><a href="http://www.yourkit.com/" rel="nofollow">
       <img src="images/yjp.gif"></a></td>
-  <td><p>YourKit, LLC kindly provide free licenses for the YourKit Java Profiler
+  <td>
+<p>YourKit, LLC kindly provide free licenses for the YourKit Java Profiler
       to open source projects. YourKit Java Profiler is primarily used to
       investigate performance and memory leak issues reported in Apache Tomcat.
       It was particularly useful when working on the memory leak detection and
       prevention code.</p>
-  </td>
+  
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://msdn.microsoft.com/" rel="nofollow">
+  
+<td><a href="http://msdn.microsoft.com/" rel="nofollow">
       <img src="images/msdn.png"></a></td>
-  <td><p>Microsoft kindly provide free MSDN licenses to Apache committers that
+  <td>
+<p>Microsoft kindly provide free MSDN licenses to Apache committers that
       have a requirement for them. MSDN is primarily used to provide build and
       test environments for the ISAPI redirector and the Windows APR/native
       connector but it is also used to provide test platforms for Windows
       specific Tomcat issues such as those related to the Windows Installer.</p>
-   </td>
+   
+</td>
+
 </tr>
+
 <tr>
-  <td><a href="http://www.structure101.com/" rel="nofollow">
+  
+<td><a href="http://www.structure101.com/" rel="nofollow">
       <img src="images/s101.png"></a></td>
-  <td><p>Headway software kindly provide free licenses for Structure 101 to open
+  <td>
+<p>Headway software kindly provide free licenses for Structure 101 to open
       source projects. Structure 101 is primarily being used in Tomcat trunk to
       analyze the current package dependencies and identify areas where they may
       be simplified.</p>
-   </td>
+   
+</td>
+
 </tr>
+
 </table>
-</div></main></div></div></div></div><!--[if IE]><div id="footer"><![endif]--><!--[if !IE]>--><footer id="footer"><!--<![endif]-->
+
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!--[if IE]><div id="footer"><![endif]-->
+<!--[if !IE]>-->
+<footer id="footer">
+<!--<![endif]-->
     Copyright &copy; 1999-2013, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are trademarks of the Apache Software Foundation.
-    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer><!--<![endif]--></div></body></html>
+    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer>
+<!--<![endif]-->
+</div>
+</body>
+</html>

@@ -1,8 +1,283 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"><!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]--><link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"><title>Apache Tomcat - Apache Tomcat 6 vulnerabilities</title><meta name="author" content="Apache Tomcat Project"></head><body><div id="wrapper"><!--[if IE]><div id="header"><![endif]--><!--[if !IE]>--><header id="header"><!--<![endif]--><div><div><div class="logo noPrint"><a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1 style="margin-top: 35px;">Apache Tomcat</h1><div style="clear: right;"></div><div class="searchbox noPrint"><form action="http://www.google.com/search" method="get"><input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button></form></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div><!--[if IE]></div><![endif]--><!--[if !IE]>--></header><!--<![endif]--><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Apache Tomcat</strong></h2><ul><li><a href="./index.html">Home</a></li><li><a href="./taglibs/">Taglibs</a></li><li><a href="./maven-plugin.html">Maven Plugin</a></li></ul></div><div><h2><strong>Download</strong></h2><ul><li><a href="./whichversion.html">Which version?</a></li><li><a href="./download-80.cgi">Tomcat 8.0</a></li><li><a href="./download-70.cgi">Tomcat 7.0</a></li><li><a href="./download-60.cgi">Tomcat 6.0</a></li><li><a href="./download-connectors.cgi">Tomcat Connectors</a></li><li><a href="./download-native.cgi">Tomcat Native</a></li><li><a href="http://archive.apache.org/dist/tomcat/">Archives</a></li></ul></div><div><h2><strong>Documentation</strong></h2><ul><li><a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a></li><li><a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a></li><li><a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a></li><li><a href="./connectors-doc/">Tomcat Connectors</a></li><li><a href="./native-doc/">Tomcat Native</a></li><li><a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a></li><li><a href="./migration.html">Migration Guide</a></li></ul></div><div><h2><strong>Problems?</strong></h2><ul><li><a href="./security.html">Security Reports</a></li><li><a href="./findhelp.html">Find help</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="./lists.html">Mailing Lists</a></li><li><a href="./bugreport.html">Bug Database</a></li><li><a href="./irc.html">IRC</a></li></ul></div><div><h2><strong>Get Involved</strong></h2><ul><li><a href="./getinvolved.html">Overview</a></li><li><a href="./svn.html">SVN Repositories</a></li><li><a href="./ci.html">Buildbot</a></li><li><a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a></li><li><a href="./tools.html">Tools</a></li></ul></div><div><h2><strong>Media</strong></h2><ul><li><a href="http://blogs.apache.org/tomcat/">Blog</a></li><li><a href="http://twitter.com/theapachetomcat">Twitter</a></li></ul></div><div><h2><strong>Misc</strong></h2><ul><li><a href="./whoweare.html">Who We Are</a></li><li><a href="./heritage.html">Heritage</a></li><li><a href="http://www.apache.org">Apache Home</a></li><li><a href="./resources.html">Resources</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./legal.html">Legal</a></li><li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li><li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><main><h2 style="display: none;">Content</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.37">Fixed in Apache Tomcat 6.0.37</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.36">Fixed in Apache Tomcat 6.0.36</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.35">Fixed in Apache Tomcat 6.0.35</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.33">Fixed in Apache Tomcat 6.0.33</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.32">Fixed in Apache Tomcat 6.0.32</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.30">Fixed in Apache Tomcat 6.0.30</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.28">Fixed in Apache Tomcat 6.0.28</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.24">Fixed in Apache Tomcat 6.0.24</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.20">Fixed in Apache Tomcat 6.0.20</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.18">Fixed in Apache Tomcat 6.0.18</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.16">Fixed in Apache Tomcat 6.0.16</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.14">Fixed in Apache Tomcat 6.0.14</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.11">Fixed in Apache Tomcat 6.0.11</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.10">Fixed in Apache Tomcat 6.0.10</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.9">Fixed in Apache Tomcat 6.0.9</a></li><li><a href="#Fixed_in_Apache_Tomcat_6.0.6">Fixed in Apache Tomcat 6.0.6</a></li><li><a href="#Not_a_vulnerability_in_Tomcat">Not a vulnerability in Tomcat</a></li></ul>
-</div><h3 id="Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</h3><div class="text">
-    <p>This page lists all security vulnerabilities fixed in released versions
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css">
+<!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]-->
+<link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print">
+<title>Apache Tomcat - Apache Tomcat 6 vulnerabilities</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<!--[if IE]><div id="header"><![endif]-->
+<!--[if !IE]>-->
+<header id="header">
+<!--<![endif]-->
+<div>
+<div>
+<div class="logo noPrint">
+<a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a>
+</div>
+<div style="height: 1px;"></div>
+<div class="asfLogo">
+<a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a>
+</div>
+<h1 style="margin-top: 35px;">Apache Tomcat</h1>
+<div style="clear: right;"></div>
+<div class="searchbox noPrint">
+<form action="http://www.google.com/search" method="get">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button>
+</form>
+</div>
+<div style="height: 1px;"></div>
+<div style="clear: left;"></div>
+</div>
+</div>
+<!--[if IE]></div><![endif]-->
+<!--[if !IE]>-->
+</header>
+<!--<![endif]-->
+<div id="middle">
+<div>
+<div id="mainLeft" class="noprint">
+<div>
+<nav>
+<div>
+<h2>
+<strong>Apache Tomcat</strong>
+</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs/">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Download</strong>
+</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="./download-80.cgi">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./download-70.cgi">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./download-60.cgi">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="http://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Documentation</strong>
+</h2>
+<ul>
+<li>
+<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Problems?</strong>
+</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Get Involved</strong>
+</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./svn.html">SVN Repositories</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Media</strong>
+</h2>
+<ul>
+<li>
+<a href="http://blogs.apache.org/tomcat/">Blog</a>
+</li>
+<li>
+<a href="http://twitter.com/theapachetomcat">Twitter</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Misc</strong>
+</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<main>
+<h2 style="display: none;">Content</h2>
+<h3 id="Table_of_Contents">Table of Contents</h3>
+<div class="text">
+
+<ul>
+<li>
+<a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.37">Fixed in Apache Tomcat 6.0.37</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.36">Fixed in Apache Tomcat 6.0.36</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.35">Fixed in Apache Tomcat 6.0.35</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.33">Fixed in Apache Tomcat 6.0.33</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.32">Fixed in Apache Tomcat 6.0.32</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.30">Fixed in Apache Tomcat 6.0.30</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.28">Fixed in Apache Tomcat 6.0.28</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.24">Fixed in Apache Tomcat 6.0.24</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.20">Fixed in Apache Tomcat 6.0.20</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.18">Fixed in Apache Tomcat 6.0.18</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.16">Fixed in Apache Tomcat 6.0.16</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.14">Fixed in Apache Tomcat 6.0.14</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.11">Fixed in Apache Tomcat 6.0.11</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.10">Fixed in Apache Tomcat 6.0.10</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.9">Fixed in Apache Tomcat 6.0.9</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.6">Fixed in Apache Tomcat 6.0.6</a>
+</li>
+<li>
+<a href="#Not_a_vulnerability_in_Tomcat">Not a vulnerability in Tomcat</a>
+</li>
+</ul>
+
+</div>
+<h3 id="Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</h3>
+<div class="text">
+    
+<p>This page lists all security vulnerabilities fixed in released versions
        of Apache Tomcat 6.x. Each vulnerability is given a
        <a href="security-impact.html">security impact rating</a> by the Apache
        Tomcat security team &mdash; please note that this rating may vary from
@@ -10,11 +285,14 @@
        is known to affect, and where a flaw has not been verified list the
        version with a question mark.</p>
 
-    <p><strong>Note:</strong> Vulnerabilities that are not Tomcat vulnerabilities
+    
+<p>
+<strong>Note:</strong> Vulnerabilities that are not Tomcat vulnerabilities
        but have either been incorrectly reported against Tomcat or where Tomcat
        provides a workaround are listed at the end of this page.</p>
 
-    <p>Please note that binary patches are never provided. If you need to
+    
+<p>Please note that binary patches are never provided. If you need to
        apply a source code patch, use the building instructions for the
        Apache Tomcat version that you are using. For Tomcat 6.0 those are
        <a href="/tomcat-6.0-doc/building.html"><code>building.html</code></a> and
@@ -22,106 +300,156 @@
        Both files can be found in the <code>webapps/docs</code> subdirectory
        of a binary distributive.</p>
 
-    <p>If you need help on building or configuring Tomcat or other help on
+    
+<p>If you need help on building or configuring Tomcat or other help on
        following the instructions to mitigate the known vulnerabilities listed
        here, please send your questions to the public
        <a href="lists.html">Tomcat Users mailing list</a>
-    </p>
+    
+</p>
 
-    <p>If you have encountered an unlisted security vulnerability or other
+    
+<p>If you have encountered an unlisted security vulnerability or other
        unexpected behaviour that has <a href="security-impact.html">security
        impact</a>, or if the descriptions here are incomplete,
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.37"><span style="float: right;">released 3 May 2013</span> Fixed in Apache Tomcat 6.0.37</h3><div class="text">
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.37">
+<span style="float: right;">released 3 May 2013</span> Fixed in Apache Tomcat 6.0.37</h3>
+<div class="text">
 
-    <p><strong>Important: Session fixation</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2067" rel="nofollow">CVE-2013-2067</a></p>
+    
+<p>
+<strong>Important: Session fixation</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2067" rel="nofollow">CVE-2013-2067</a>
+</p>
 
-    <p>FORM authentication associates the most recent request requiring
+    
+<p>FORM authentication associates the most recent request requiring
        authentication with the current session. By repeatedly sending a request
        for an authenticated resource while the victim is completing the login
        form, an attacker could inject a request that would be executed using
        the victim's credentials.</p>
 
-    <p>Note that the option to change session ID on authentication was added in
+    
+<p>Note that the option to change session ID on authentication was added in
        Tomcat 6.0.21. In earlier 6.0.x releases, prevention of session fixation
        was an application responsibility. This vulnerability represents a bug in
        Tomcat's session fixation protection that was added in 6.0.21.
        Hence, only versions 6.0.21 onwards are listed as vulnerable.</p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1417891">1417891</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1417891">1417891</a>.</p>
 
-    <p>This issue was identified by the Tomcat security team on 15 Oct 2012 and
+    
+<p>This issue was identified by the Tomcat security team on 15 Oct 2012 and
        made public on 10 May 2013.</p>
 
-    <p>Affects: 6.0.21-6.0.36</p>
+    
+<p>Affects: 6.0.21-6.0.36</p>
 
-    <p><strong>Important: Denial of service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3544" rel="nofollow">CVE-2012-3544</a></p>
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3544" rel="nofollow">CVE-2012-3544</a>
+</p>
 
-    <p>When processing a request submitted using the chunked transfer encoding,
+    
+<p>When processing a request submitted using the chunked transfer encoding,
        Tomcat ignored but did not limit any extensions that were included. This
        allows a client to perform a limited DOS by streaming an unlimited
        amount of data to the server.</p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1476592">1476592</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1476592">1476592</a>.</p>
 
-    <p>This issue was reported to the Tomcat security team on 10 November 2011
+    
+<p>This issue was reported to the Tomcat security team on 10 November 2011
        and made public on 10 May 2013.</p>
 
-    <p>Affects: 6.0.0-6.0.36</p>
+    
+<p>Affects: 6.0.0-6.0.36</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.36"><span style="float: right;">released 19 Oct 2012</span> Fixed in Apache Tomcat 6.0.36</h3><div class="text">
   
-    <p><strong>Important: Denial of service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2733" rel="nofollow">CVE-2012-2733</a></p>
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.36">
+<span style="float: right;">released 19 Oct 2012</span> Fixed in Apache Tomcat 6.0.36</h3>
+<div class="text">
+  
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2733" rel="nofollow">CVE-2012-2733</a>
+</p>
 
-    <p>The checks that limited the permitted size of request headers were
+    
+<p>The checks that limited the permitted size of request headers were
        implemented too late in the request parsing process for the HTTP NIO
        connector. This enabled a malicious user to trigger an
        OutOfMemoryError by sending a single request with very large headers.
     </p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1356208">1356208</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1356208">1356208</a>.</p>
 
-    <p>This was reported by Josh Spiewak to the Tomcat security team on 4 June
+    
+<p>This was reported by Josh Spiewak to the Tomcat security team on 4 June
        2012 and made public on 5 November 2012.</p>
 
-    <p>Affects: 6.0.0-6.0.35</p>
     
-    <p><strong>Moderate: DIGEST authentication weakness</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3439" rel="nofollow">CVE-2012-3439</a></p>
+<p>Affects: 6.0.0-6.0.35</p>
+    
+    
+<p>
+<strong>Moderate: DIGEST authentication weakness</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3439" rel="nofollow">CVE-2012-3439</a>
+</p>
 
-    <p>Three weaknesses in Tomcat's implementation of DIGEST authentication
+    
+<p>Three weaknesses in Tomcat's implementation of DIGEST authentication
        were identified and resolved:
     </p>
-    <ol>
-      <li>Tomcat tracked client rather than server nonces and nonce count.</li>
-      <li>When a session ID was present, authentication was bypassed.</li>
-      <li>The user name and password were not checked before when indicating
+    
+<ol>
+      
+<li>Tomcat tracked client rather than server nonces and nonce count.</li>
+      
+<li>When a session ID was present, authentication was bypassed.</li>
+      
+<li>The user name and password were not checked before when indicating
           that a nonce was stale.</li>
-    </ol>
-    <p>
+    
+</ol>
+    
+<p>
       These issues reduced the security of DIGEST authentication making
       replay attacks possible in some circumstances.
     </p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1380829">1380829</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1380829">1380829</a>.</p>
 
-    <p>The first issue was reported by Tilmann Kuhn to the Tomcat security team
+    
+<p>The first issue was reported by Tilmann Kuhn to the Tomcat security team
        on 19 July 2012. The second and third issues were discovered by the
        Tomcat security team during the resulting code review. All three issues
        were made public on 5 November 2012.</p>
 
-    <p>Affects: 6.0.0-6.0.35</p>
+    
+<p>Affects: 6.0.0-6.0.35</p>
         
-    <p><strong>Important: Bypass of security constraints</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3546" rel="nofollow">CVE-2012-3546</a></p>
+    
+<p>
+<strong>Important: Bypass of security constraints</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3546" rel="nofollow">CVE-2012-3546</a>
+</p>
 
-    <p>When using FORM authentication it was possible to bypass the security
+    
+<p>When using FORM authentication it was possible to bypass the security
        constraint checks in the FORM authenticator by appending
        <code>/j_security_check</code> to the end of the URL if some other
        component (such as the Single-Sign-On valve) had called
@@ -129,57 +457,85 @@
        <code>FormAuthenticator#authenticate()</code>.
     </p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1381035">1381035</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1381035">1381035</a>.</p>
 
-    <p>This issue was identified by the Tomcat security team on 13 July 2012 and
+    
+<p>This issue was identified by the Tomcat security team on 13 July 2012 and
        made public on 4 December 2012.</p>
 
-    <p>Affects: 6.0.0-6.0.35</p>
+    
+<p>Affects: 6.0.0-6.0.35</p>
 
-    <p><strong>Important: Bypass of CSRF prevention filter</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4431" rel="nofollow">CVE-2012-4431</a></p>
+    
+<p>
+<strong>Important: Bypass of CSRF prevention filter</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4431" rel="nofollow">CVE-2012-4431</a>
+</p>
 
-    <p>The CSRF prevention filter could be bypassed if a request was made to a
+    
+<p>The CSRF prevention filter could be bypassed if a request was made to a
        protected resource without a session identifier present in the request.
     </p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1394456">1394456</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1394456">1394456</a>.</p>
 
-    <p>This issue was identified by the Tomcat security team on 8 September 2012
+    
+<p>This issue was identified by the Tomcat security team on 8 September 2012
        and made public on 4 December 2012.</p>
 
-    <p>Affects: 6.0.30-6.0.35</p>
+    
+<p>Affects: 6.0.30-6.0.35</p>
 
-    <p><strong>Important: Denial of service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4534" rel="nofollow">CVE-2012-4534</a></p>
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4534" rel="nofollow">CVE-2012-4534</a>
+</p>
 
-    <p>When using the NIO connector with sendfile and HTTPS enabled, if a client
+    
+<p>When using the NIO connector with sendfile and HTTPS enabled, if a client
        breaks the connection while reading the response an infinite loop is
        entered leading to a denial of service. This was originally reported as
        <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=52858">bug
        52858</a>.
     </p>
 
-    <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1372035">1372035</a>.</p>
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1372035">1372035</a>.</p>
 
-    <p>The security implications of this bug were reported to the Tomcat
+    
+<p>The security implications of this bug were reported to the Tomcat
        security team by Arun Neelicattu of the Red Hat Security Response Team on
        3 October 2012 and made public on 4 December 2012.</p>
 
-    <p>Affects: 6.0.0-6.0.35</p>
+    
+<p>Affects: 6.0.0-6.0.35</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.35"><span style="float: right;">released 5 Dec 2011</span> Fixed in Apache Tomcat 6.0.35</h3><div class="text">
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.35">
+<span style="float: right;">released 5 Dec 2011</span> Fixed in Apache Tomcat 6.0.35</h3>
+<div class="text">
 
-    <p><strong>Note:</strong> <i>The issues below were fixed in Apache Tomcat
+    
+<p>
+<strong>Note:</strong> <i>The issues below were fixed in Apache Tomcat
        6.0.34 but the release vote for the 6.0.34 release candidate did not
        pass. Therefore, although users must download 6.0.35 to obtain a version
        that includes a fix for this issue, version 6.0.34 is not included in the
-       list of affected versions.</i></p>
+       list of affected versions.</i>
+</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3375" rel="nofollow">CVE-2011-3375</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3375" rel="nofollow">CVE-2011-3375</a>
+</p>
 
-    <p>For performance reasons, information parsed from a request is often
+    
+<p>For performance reasons, information parsed from a request is often
        cached in two places: the internal request object and the internal
        processor object. These objects are not recycled at exactly the same
        time. When certain errors occur that needed to be added to the access
@@ -191,18 +547,25 @@
        and response objects were recycled after being re-populated to generate
        the necessary access log entries.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1185998">revision 1185998</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1185998">revision 1185998</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 22 September 2011 and
+    
+<p>This was identified by the Tomcat security team on 22 September 2011 and
        made public on 17 January 2012.</p>
 
-    <p>Affects: 6.0.30-6.0.33</p>
+    
+<p>Affects: 6.0.30-6.0.33</p>
 
-    <p><strong>Important: Authentication bypass and information disclosure
+    
+<p>
+<strong>Important: Authentication bypass and information disclosure
        </strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3190" rel="nofollow">CVE-2011-3190</a></p>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3190" rel="nofollow">CVE-2011-3190</a>
+</p>
 
-    <p>Apache Tomcat supports the AJP protocol which is used with reverse
+    
+<p>Apache Tomcat supports the AJP protocol which is used with reverse
        proxies to pass requests and associated data about the request from the
        reverse proxy to Tomcat. The AJP protocol is designed so that when a
        request includes a request body, an unsolicited AJP message is sent to
@@ -213,46 +576,74 @@
        information disclosure. This vulnerability only occurs when all of the
        following are true:
        <ul>
-         <li>The org.apache.jk.server.JkCoyoteHandler AJP connector is not used
+         
+<li>The org.apache.jk.server.JkCoyoteHandler AJP connector is not used
          </li>
-         <li>POST requests are accepted</li>
-         <li>The request body is not processed</li>
-       </ul>
-    </p>
+         
+<li>POST requests are accepted</li>
+         
+<li>The request body is not processed</li>
+       
+</ul>
+    
+</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1162959">revision 1162959</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1162959">revision 1162959</a>.</p>
 
-    <p>This was reported publicly on 20th August 2011.</p>
+    
+<p>This was reported publicly on 20th August 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.33</p>
+    
+<p>Affects: 6.0.0-6.0.33</p>
   
-    <p>Mitigation options:</p>  
-    <ul>
-      <li>Upgrade to Tomcat 6.0.35.</li>
-      <li>Apply the appropriate <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1162959">patch</a>.</li>
-      <li>Configure both Tomcat and the reverse proxy to use a shared secret.<br>
+    
+<p>Mitigation options:</p>  
+    
+<ul>
+      
+<li>Upgrade to Tomcat 6.0.35.</li>
+      
+<li>Apply the appropriate <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1162959">patch</a>.</li>
+      
+<li>Configure both Tomcat and the reverse proxy to use a shared secret.<br>
         (It is "<code>request.secret</code>" attribute in AJP &lt;Connector&gt;,
         "<code>worker.<i>workername</i>.secret</code>" directive for mod_jk.
         The mod_proxy_ajp module currently does not support shared secrets).
       </li>
-      <li>Use the org.apache.jk.server.JkCoyoteHandler (BIO) AJP connector
+      
+<li>Use the org.apache.jk.server.JkCoyoteHandler (BIO) AJP connector
         implementation.<br>
         (It is automatically selected if you do not have Tomcat-Native library
         installed. It can be also selected explicitly:
         <code>&lt;Connector protocol="org.apache.jk.server.JkCoyoteHandler"&gt;</code>).
       </li>
-    </ul>
-
-    <p>References:</p>
-    <ul>
-      <li><a href="/tomcat-6.0-doc/config/ajp.html">AJP Connector documentation (Tomcat 6.0)</a></li>
-      <li><a href="/connectors-doc/reference/workers.html">workers.properties configuration (mod_jk)</a></li>
-    </ul>
     
-    <p><strong>Important: Denial of service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0022" rel="nofollow">CVE-2012-0022</a></p>
+</ul>
 
-    <p>Analysis of the recent hash collision vulnerability identified unrelated
+    
+<p>References:</p>
+    
+<ul>
+      
+<li>
+<a href="/tomcat-6.0-doc/config/ajp.html">AJP Connector documentation (Tomcat 6.0)</a>
+</li>
+      
+<li>
+<a href="/connectors-doc/reference/workers.html">workers.properties configuration (mod_jk)</a>
+</li>
+    
+</ul>
+    
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0022" rel="nofollow">CVE-2012-0022</a>
+</p>
+
+    
+<p>Analysis of the recent hash collision vulnerability identified unrelated
        inefficiencies with Apache Tomcat's handling of large numbers of
        parameters and parameter values. These inefficiencies could allow an
        attacker, via a specially crafted request, to cause large amounts of CPU
@@ -260,21 +651,32 @@
        addressed by modifying the Tomcat parameter handling code to efficiently
        process large numbers of parameters and parameter values.</p>
 
-    <p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1200601">1200601</a>,
+    
+<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1200601">1200601</a>,
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1206324">1206324</a> and
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1229027">1229027</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 21 October 2011 and
+    
+<p>This was identified by the Tomcat security team on 21 October 2011 and
        made public on 17 January 2012.</p>
 
-    <p>Affects: 6.0.0-6.0.33</p>
     
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.33"><span style="float: right;">released 18 Aug 2011</span> Fixed in Apache Tomcat 6.0.33</h3><div class="text">
+<p>Affects: 6.0.0-6.0.33</p>
+    
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.33">
+<span style="float: right;">released 18 Aug 2011</span> Fixed in Apache Tomcat 6.0.33</h3>
+<div class="text">
 
-    <p><strong>Moderate: Multiple weaknesses in HTTP DIGEST authentication</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1184" rel="nofollow">CVE-2011-1184</a></p>
+    
+<p>
+<strong>Moderate: Multiple weaknesses in HTTP DIGEST authentication</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1184" rel="nofollow">CVE-2011-1184</a>
+</p>
 
-    <p>Note: Mitre elected to break this issue down into multiple issues and
+    
+<p>Note: Mitre elected to break this issue down into multiple issues and
        have allocated the following additional references to parts of this
        issue:
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-5062" rel="nofollow">CVE-2011-5062</a>,
@@ -283,31 +685,46 @@
        continue to treat this as a single issue using the reference
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1184" rel="nofollow">CVE-2011-1184</a>.</p>
 
-    <p>The implementation of HTTP DIGEST authentication was discovered to have
+    
+<p>The implementation of HTTP DIGEST authentication was discovered to have
        several weaknesses:
        <ul>
-         <li>replay attacks were permitted</li>
-         <li>server nonces were not checked</li>
-         <li>client nonce counts were not checked</li>
-         <li>qop values were not checked</li>
-         <li>realm values were not checked</li>
-         <li>the server secret was hard-coded to a known string</li>
-       </ul>
+         
+<li>replay attacks were permitted</li>
+         
+<li>server nonces were not checked</li>
+         
+<li>client nonce counts were not checked</li>
+         
+<li>qop values were not checked</li>
+         
+<li>realm values were not checked</li>
+         
+<li>the server secret was hard-coded to a known string</li>
+       
+</ul>
        The result of these weaknesses is that DIGEST authentication was only as
        secure as BASIC authentication.
     </p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1158180">revision 1158180</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1158180">revision 1158180</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 16 March 2011 and
+    
+<p>This was identified by the Tomcat security team on 16 March 2011 and
        made public on 26 September 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.32</p>
+    
+<p>Affects: 6.0.0-6.0.32</p>
 
-    <p><strong>Low: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204" rel="nofollow">CVE-2011-2204</a></p>
+    
+<p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2204" rel="nofollow">CVE-2011-2204</a>
+</p>
 
-    <p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
+    
+<p>When using the MemoryUserDatabase (based on tomcat-users.xml) and
        creating users via JMX, an exception during the user creation process may
        trigger an error message in the JMX client that includes the user's
        password. This error message is also written to the Tomcat logs. User
@@ -316,17 +733,24 @@
        do not have these permissions but are able to read log files may be able
        to discover a user's password.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1140071">revision 1140071</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1140071">revision 1140071</a>.</p>
 
-    <p>This was identified by Polina Genova on 14 June 2011 and
+    
+<p>This was identified by Polina Genova on 14 June 2011 and
        made public on 27 June 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.32</p>
+    
+<p>Affects: 6.0.0-6.0.32</p>
   
-    <p><strong>Low: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2526" rel="nofollow">CVE-2011-2526</a></p>
+    
+<p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2526" rel="nofollow">CVE-2011-2526</a>
+</p>
 
-    <p>Tomcat provides support for sendfile with the HTTP NIO and HTTP APR
+    
+<p>Tomcat provides support for sendfile with the HTTP NIO and HTTP APR
        connectors. sendfile is used automatically for content served via the
        DefaultServlet and deployed web applications may use it directly via
        setting request attributes. These request attributes were not validated.
@@ -334,109 +758,168 @@
        malicious web application to do one or more of the following that would
        normally be prevented by a security manager:
        <ul>
-         <li>return files to users that the security manager should make
+         
+<li>return files to users that the security manager should make
              inaccessible</li>
-         <li>terminate (via a crash) the JVM</li>
-       </ul>
+         
+<li>terminate (via a crash) the JVM</li>
+       
+</ul>
        Additionally, these vulnerabilities only occur when all of the following
        are true:
        <ul>
-         <li>untrusted web applications are being used</li>
-         <li>the SecurityManager is used to limit the untrusted web applications
+         
+<li>untrusted web applications are being used</li>
+         
+<li>the SecurityManager is used to limit the untrusted web applications
              </li>
-         <li>the HTTP NIO or HTTP APR connector is used</li>
-         <li>sendfile is enabled for the connector (this is the default)</li>
-       </ul>
-    </p>
+         
+<li>the HTTP NIO or HTTP APR connector is used</li>
+         
+<li>sendfile is enabled for the connector (this is the default)</li>
+       
+</ul>
+    
+</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1146703">revision 1146703</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1146703">revision 1146703</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 7 July 2011 and
+    
+<p>This was identified by the Tomcat security team on 7 July 2011 and
        made public on 13 July 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.32</p>
+    
+<p>Affects: 6.0.0-6.0.32</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2729" rel="nofollow">CVE-2011-2729</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2729" rel="nofollow">CVE-2011-2729</a>
+</p>
 
-    <p>Due to a bug in the capabilities code, jsvc (the service wrapper for
+    
+<p>Due to a bug in the capabilities code, jsvc (the service wrapper for
        Linux that is part of the Commons Daemon project) does not drop
        capabilities allowing the application to access files and directories
        owned by superuser. This vulnerability only occurs when all of the
        following are true:
        <ul>
-         <li>Tomcat is running on a Linux operating system</li>
-         <li>jsvc was compiled with libcap</li>
-         <li>-user parameter is used</li>
-       </ul>
+         
+<li>Tomcat is running on a Linux operating system</li>
+         
+<li>jsvc was compiled with libcap</li>
+         
+<li>-user parameter is used</li>
+       
+</ul>
        Affected Tomcat versions shipped with source files for jsvc that included
        this vulnerability.
     </p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1153824">revision 1153824</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1153824">revision 1153824</a>.</p>
 
-    <p>This was identified by Wilfried Weissmann on 20 July 2011 and made public
+    
+<p>This was identified by Wilfried Weissmann on 20 July 2011 and made public
        on 12 August 2011.</p>
 
-    <p>Affects: 6.0.30-6.0.32</p>
+    
+<p>Affects: 6.0.30-6.0.32</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.32"><span style="float: right;">released 03 Feb 2011</span> Fixed in Apache Tomcat 6.0.32</h3><div class="text">
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.32">
+<span style="float: right;">released 03 Feb 2011</span> Fixed in Apache Tomcat 6.0.32</h3>
+<div class="text">
 
-    <p><strong>Note:</strong> <i>The issue below was fixed in Apache Tomcat 6.0.31 but the
+    
+<p>
+<strong>Note:</strong> <i>The issue below was fixed in Apache Tomcat 6.0.31 but the
        release vote for the 6.0.31 release candidate did not pass. Therefore,
        although users must download 6.0.32 to obtain a version that includes a
        fix for this issue, version 6.0.31 is not included in the list of
-       affected versions.</i></p>
+       affected versions.</i>
+</p>
 
-    <p><strong>Important: Remote Denial Of Service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0534" rel="nofollow">CVE-2011-0534</a></p>
+    
+<p>
+<strong>Important: Remote Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0534" rel="nofollow">CVE-2011-0534</a>
+</p>
 
-    <p>The NIO connector expands its buffer endlessly during request line
+    
+<p>The NIO connector expands its buffer endlessly during request line
        processing. That behaviour can be used for a denial of service attack
        using a carefully crafted request.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1066313">revision 1066313</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1066313">revision 1066313</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 27 Jan 2011 and
+    
+<p>This was identified by the Tomcat security team on 27 Jan 2011 and
        made public on 5 Feb 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.30</p>
+    
+<p>Affects: 6.0.0-6.0.30</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.30"><span style="float: right;">released 13 Jan 2011</span> Fixed in Apache Tomcat 6.0.30</h3><div class="text">
   
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013" rel="nofollow">CVE-2011-0013</a></p>
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.30">
+<span style="float: right;">released 13 Jan 2011</span> Fixed in Apache Tomcat 6.0.30</h3>
+<div class="text">
+  
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0013" rel="nofollow">CVE-2011-0013</a>
+</p>
 
-    <p>The HTML Manager interface displayed web application provided data, such
+    
+<p>The HTML Manager interface displayed web application provided data, such
        as display names, without filtering. A malicious web application could
        trigger script execution by an administrative user when viewing the
        manager pages.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1057270">revision 1057270</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1057270">revision 1057270</a>.</p>
 
-    <p>This was identified by the Tomcat security team on 12 Nov 2010 and
+    
+<p>This was identified by the Tomcat security team on 12 Nov 2010 and
        made public on 5 Feb 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.29</p>
+    
+<p>Affects: 6.0.0-6.0.29</p>
 
-    <p><strong>Moderate: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4172" rel="nofollow">CVE-2010-4172</a></p>
+    
+<p>
+<strong>Moderate: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4172" rel="nofollow">CVE-2010-4172</a>
+</p>
 
-    <p>The Manager application used the user provided parameters sort and
+    
+<p>The Manager application used the user provided parameters sort and
        orderBy directly without filtering thereby permitting cross-site
        scripting.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1037779">revision 1037779</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1037779">revision 1037779</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 15 Nov 2010 and
+    
+<p>This was first reported to the Tomcat security team on 15 Nov 2010 and
        made public on 22 Nov 2010.</p>
 
-    <p>Affects: 6.0.12-6.0.29</p>
+    
+<p>Affects: 6.0.12-6.0.29</p>
 
-    <p><strong>Low: SecurityManager file permission bypass</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718" rel="nofollow">CVE-2010-3718</a></p>
+    
+<p>
+<strong>Low: SecurityManager file permission bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3718" rel="nofollow">CVE-2010-3718</a>
+</p>
 
-    <p>When running under a SecurityManager, access to the file system is
+    
+<p>When running under a SecurityManager, access to the file system is
        limited but web applications are granted read/write permissions to the
        work directory. This directory is used for a variety of temporary files
        such as the intermediate files generated when compiling JSPs to Servlets.
@@ -450,43 +933,64 @@
        applicable when hosting web applications from untrusted sources such as
        shared hosting environments.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1022560">revision 1022560</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1022560">revision 1022560</a>.</p>
 
-    <p>This was discovered by the Tomcat security team on 12 Oct 2010 and
+    
+<p>This was discovered by the Tomcat security team on 12 Oct 2010 and
        made public on 5 Feb 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.29</p>
     
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.28"><span style="float: right;">released 9 Jul 2010</span> Fixed in Apache Tomcat 6.0.28</h3><div class="text">
+<p>Affects: 6.0.0-6.0.29</p>
+    
   
-    <p><strong>Important: Remote Denial Of Service and Information Disclosure
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.28">
+<span style="float: right;">released 9 Jul 2010</span> Fixed in Apache Tomcat 6.0.28</h3>
+<div class="text">
+  
+    
+<p>
+<strong>Important: Remote Denial Of Service and Information Disclosure
        Vulnerability</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227" rel="nofollow">CVE-2010-2227</a></p>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2227" rel="nofollow">CVE-2010-2227</a>
+</p>
 
-    <p>Several flaws in the handling of the 'Transfer-Encoding' header were
+    
+<p>Several flaws in the handling of the 'Transfer-Encoding' header were
        found that prevented the recycling of a buffer. A remote attacker could
        trigger this flaw which would cause subsequent requests to fail and/or
        information to leak between requests. This flaw is mitigated if Tomcat is
        behind a reverse proxy (such as Apache httpd 2.2) as the proxy should
        reject the invalid transfer encoding header.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=958977">revision 958977</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=958977">revision 958977</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 14 Jun 2010 and
+    
+<p>This was first reported to the Tomcat security team on 14 Jun 2010 and
        made public on 9 Jul 2010.</p>
 
-    <p>Affects: 6.0.0-6.0.27</p>
+    
+<p>Affects: 6.0.0-6.0.27</p>
 
-    <p><strong>Note:</strong> <i>The issue below was fixed in Apache Tomcat 6.0.27 but the
+    
+<p>
+<strong>Note:</strong> <i>The issue below was fixed in Apache Tomcat 6.0.27 but the
        release vote for the 6.0.27 release candidate did not pass. Therefore,
        although users must download 6.0.28 to obtain a version that includes a
        fix for this issue, version 6.0.27 is not included in the list of
-       affected versions.</i></p>
+       affected versions.</i>
+</p>
          
-    <p><strong>Low: Information disclosure in authentication headers</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157" rel="nofollow">CVE-2010-1157</a></p>
+    
+<p>
+<strong>Low: Information disclosure in authentication headers</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1157" rel="nofollow">CVE-2010-1157</a>
+</p>
 
-    <p>The <code>WWW-Authenticate</code> HTTP header for BASIC and DIGEST
+    
+<p>The <code>WWW-Authenticate</code> HTTP header for BASIC and DIGEST
        authentication includes a realm name. If a
        <code>&lt;realm-name&gt;</code> element is specified for the application
        in web.xml it will be used. However, a <code>&lt;realm-name&gt;</code>
@@ -496,39 +1000,60 @@
        the local host name or IP address of the machine running Tomcat.
     </p>
        
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=936540">revision 936540</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=936540">revision 936540</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 31 Dec 2009 and
+    
+<p>This was first reported to the Tomcat security team on 31 Dec 2009 and
        made public on 21 Apr 2010.</p>
 
-    <p>Affects: 6.0.0-6.0.26</p>
+    
+<p>Affects: 6.0.0-6.0.26</p>
        
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.24"><span style="float: right;">released 21 Jan 2010</span> Fixed in Apache Tomcat 6.0.24</h3><div class="text">
-      <p><strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.21 but the
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.24">
+<span style="float: right;">released 21 Jan 2010</span> Fixed in Apache Tomcat 6.0.24</h3>
+<div class="text">
+      
+<p>
+<strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.21 but the
          release votes for the 6.0.21, 6.0.22 and 6.0.23 release candidates did
          not pass. Therefore, although users must download 6.0.24 to obtain a
          version that includes fixes for these issues, versions 6.0.21 onwards
-         are not included in the list of affected versions.</i></p>
+         are not included in the list of affected versions.</i>
+</p>
        
-    <p><strong>Low: Arbitrary file deletion and/or alteration on deploy</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2693" rel="nofollow">CVE-2009-2693</a></p>
+    
+<p>
+<strong>Low: Arbitrary file deletion and/or alteration on deploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2693" rel="nofollow">CVE-2009-2693</a>
+</p>
 
-    <p>When deploying WAR files, the WAR files were not checked for directory
+    
+<p>When deploying WAR files, the WAR files were not checked for directory
        traversal attempts. This allows an attacker to create arbitrary content
        outside of the web root by including entries such as
        <code>../../bin/catalina.sh</code> in the WAR.</p>
        
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
        
-    <p>This was first reported to the Tomcat security team on 30 Jul 2009 and
+    
+<p>This was first reported to the Tomcat security team on 30 Jul 2009 and
        made public on 1 Mar 2010.</p>
 
-    <p>Affects: 6.0.0-6.0.20</p>
+    
+<p>Affects: 6.0.0-6.0.20</p>
 
-    <p><strong>Low: Insecure partial deploy after failed undeploy</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2901" rel="nofollow">CVE-2009-2901</a></p>
+    
+<p>
+<strong>Low: Insecure partial deploy after failed undeploy</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2901" rel="nofollow">CVE-2009-2901</a>
+</p>
 
-    <p>By default, Tomcat automatically deploys any directories placed in a
+    
+<p>By default, Tomcat automatically deploys any directories placed in a
        host's appBase. This behaviour is controlled by the autoDeploy attribute
        of a host which defaults to true. After a failed undeploy, the remaining
        files will be deployed as a result of the autodeployment process.
@@ -537,140 +1062,210 @@
        making them accessible without authentication. This issue only affects
        Windows platforms.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 30 Jul 2009 and
+    
+<p>This was first reported to the Tomcat security team on 30 Jul 2009 and
        made public on 1 Mar 2010.</p>
 
-    <p>Affects: 6.0.0-6.0.20 (Windows only)</p>
     
-    <p><strong>Low: Unexpected file deletion in work directory</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2902" rel="nofollow">CVE-2009-2902</a></p>
+<p>Affects: 6.0.0-6.0.20 (Windows only)</p>
+    
+    
+<p>
+<strong>Low: Unexpected file deletion in work directory</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2902" rel="nofollow">CVE-2009-2902</a>
+</p>
 
-    <p>When deploying WAR files, the WAR file names were not checked for
+    
+<p>When deploying WAR files, the WAR file names were not checked for
        directory traversal attempts. For example, deploying and undeploying
        <code>...war</code> allows an attacker to cause the deletion of the
        current contents of the host's work directory which may cause problems
        for currently running applications.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=892815">revision 892815</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 30 Jul 2009 and
+    
+<p>This was first reported to the Tomcat security team on 30 Jul 2009 and
        made public on 1 Mar 2010.</p>
 
-    <p>Affects: 6.0.0-6.0.20</p>
     
-    <p><strong>Low: Insecure default password</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3548" rel="nofollow">CVE-2009-3548</a></p>
+<p>Affects: 6.0.0-6.0.20</p>
+    
+    
+<p>
+<strong>Low: Insecure default password</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3548" rel="nofollow">CVE-2009-3548</a>
+</p>
 
-    <p>The Windows installer defaults to a blank password for the administrative
+    
+<p>The Windows installer defaults to a blank password for the administrative
        user. If this is not changed during the install process, then by default
        a user is created with the name admin, roles admin and manager and a
        blank password.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=881771">revision 881771</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=881771">revision 881771</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 26 Oct 2009 and
+    
+<p>This was first reported to the Tomcat security team on 26 Oct 2009 and
        made public on 9 Nov 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.20</p>
+    
+<p>Affects: 6.0.0-6.0.20</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.20"><span style="float: right;">released 3 Jun 2009</span> Fixed in Apache Tomcat 6.0.20</h3><div class="text">
-    <p><strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.19 but the release
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.20">
+<span style="float: right;">released 3 Jun 2009</span> Fixed in Apache Tomcat 6.0.20</h3>
+<div class="text">
+    
+<p>
+<strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.19 but the release
        vote for that release candidate did not pass. Therefore, although users
        must download 6.0.20 to obtain a version that includes fixes for these
-       issues, 6.0.19 is not included in the list of affected versions.</i></p>
+       issues, 6.0.19 is not included in the list of affected versions.</i>
+</p>
 
-    <p><strong>Important: Information Disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5515" rel="nofollow">CVE-2008-5515</a></p>
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5515" rel="nofollow">CVE-2008-5515</a>
+</p>
 
-    <p>When using a RequestDispatcher obtained from the Request, the target path
+    
+<p>When using a RequestDispatcher obtained from the Request, the target path
        was normalised before the query string was removed. A request that
        included a specially crafted request parameter could be used to access
        content that would otherwise be protected by a security constraint or by
        locating it in under the WEB-INF directory.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=734734">revision 734734</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=734734">revision 734734</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 11 Dec 2008 and
+    
+<p>This was first reported to the Tomcat security team on 11 Dec 2008 and
        made public on 8 Jun 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.18</p>
+    
+<p>Affects: 6.0.0-6.0.18</p>
 
-    <p><strong>Important: Denial of Service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0033" rel="nofollow">CVE-2009-0033</a></p>
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0033" rel="nofollow">CVE-2009-0033</a>
+</p>
 
-    <p>If Tomcat receives a request with invalid headers via the Java AJP
+    
+<p>If Tomcat receives a request with invalid headers via the Java AJP
        connector, it does not return an error and instead closes the AJP
        connection. In case this connector is member of a mod_jk load balancing
        worker, this member will be put into an error state and will be blocked
        from use for approximately one minute. Thus the behaviour can be used for
        a denial of service attack using a carefully crafted request.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=742915">revision 742915</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=742915">revision 742915</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 26 Jan 2009 and
+    
+<p>This was first reported to the Tomcat security team on 26 Jan 2009 and
        made public on 3 Jun 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.18</p>
+    
+<p>Affects: 6.0.0-6.0.18</p>
 
-    <p><strong>Low: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0580" rel="nofollow">CVE-2009-0580</a></p>
+    
+<p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0580" rel="nofollow">CVE-2009-0580</a>
+</p>
 
-    <p>Due to insufficient error checking in some authentication classes, Tomcat
+    
+<p>Due to insufficient error checking in some authentication classes, Tomcat
        allows for the enumeration (brute force testing) of user names by
        supplying illegally URL encoded passwords. The attack is possible if FORM
        based authentication (j_security_check) is used with the MemoryRealm.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=747840">revision 747840</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=747840">revision 747840</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 25 Feb 2009 and
+    
+<p>This was first reported to the Tomcat security team on 25 Feb 2009 and
        made public on 3 Jun 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.18</p>
+    
+<p>Affects: 6.0.0-6.0.18</p>
        
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0781" rel="nofollow">CVE-2009-0781</a></p>
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0781" rel="nofollow">CVE-2009-0781</a>
+</p>
 
-    <p>The calendar application in the examples web application contains an
+    
+<p>The calendar application in the examples web application contains an
        XSS flaw due to invalid HTML which renders the XSS filtering protection
        ineffective.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=750924">revision 750924</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=750924">revision 750924</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 5 Mar 2009 and
+    
+<p>This was first reported to the Tomcat security team on 5 Mar 2009 and
        made public on 6 Mar 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.18</p>
+    
+<p>Affects: 6.0.0-6.0.18</p>
 
-    <p><strong>Low: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0783" rel="nofollow">CVE-2009-0783</a></p>
+    
+<p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0783" rel="nofollow">CVE-2009-0783</a>
+</p>
 
-    <p>Bugs <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=29936">29936</a> and <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=45933">45933</a> allowed a web application
+    
+<p>Bugs <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=29936">29936</a> and <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=45933">45933</a> allowed a web application
        to replace the XML parser used by
        Tomcat to process web.xml, context.xml and tld files. In limited
        circumstances these bugs may allow a rogue web application to view and/or
        alter the web.xml, context.xml and tld files of other web applications
        deployed on the Tomcat instance.</p>
 
-    <p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=652592">652592</a> and
+    
+<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=652592">652592</a> and
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=739522">739522</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 2 Mar 2009 and
+    
+<p>This was first reported to the Tomcat security team on 2 Mar 2009 and
        made public on 4 Jun 2009.</p>
 
-    <p>Affects: 6.0.0-6.0.18</p>
+    
+<p>Affects: 6.0.0-6.0.18</p>
        
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.18"><span style="float: right;">released 31 Jul 2008</span> Fixed in Apache Tomcat 6.0.18</h3><div class="text">
-    <p><strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.17 but the release
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.18">
+<span style="float: right;">released 31 Jul 2008</span> Fixed in Apache Tomcat 6.0.18</h3>
+<div class="text">
+    
+<p>
+<strong>Note:</strong> <i>These issues were fixed in Apache Tomcat 6.0.17 but the release
        vote for that release candidate did not pass. Therefore, although users
        must download 6.0.18 to obtain a version that includes fixes for these
-       issues, 6.0.17 is not included in the list of affected versions.</i></p>
+       issues, 6.0.17 is not included in the list of affected versions.</i>
+</p>
 
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1232" rel="nofollow">CVE-2008-1232</a></p>
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1232" rel="nofollow">CVE-2008-1232</a>
+</p>
 
-    <p>The message argument of HttpServletResponse.sendError() call is not only
+    
+<p>The message argument of HttpServletResponse.sendError() call is not only
        displayed on the error page, but is also used for the reason-phrase of
        HTTP response. This may include characters that are illegal in HTTP
        headers. It is possible for a specially crafted message to result in
@@ -678,98 +1273,152 @@
        XSS attack, unfiltered user supplied data must be included in the message
        argument.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=673834">revision 673834</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=673834">revision 673834</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 24 Jan 2008 and
+    
+<p>This was first reported to the Tomcat security team on 24 Jan 2008 and
        made public on 1 Aug 2008.</p>
-    <p>Affects: 6.0.0-6.0.16</p>
+    
+<p>Affects: 6.0.0-6.0.16</p>
 
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1947" rel="nofollow">CVE-2008-1947</a></p>
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1947" rel="nofollow">CVE-2008-1947</a>
+</p>
 
-    <p>The Host Manager web application did not escape user provided data before
+    
+<p>The Host Manager web application did not escape user provided data before
        including it in the output. This enabled a XSS attack. This application
        now filters the data before use. This issue may be mitigated by logging
        out (closing the browser) of the application once the management tasks
        have been completed.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=662585">revision 662585</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=662585">revision 662585</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 15 May 2008 and
+    
+<p>This was first reported to the Tomcat security team on 15 May 2008 and
        made public on 28 May 2008.</p>
 
-    <p>Affects: 6.0.0-6.0.16</p>
+    
+<p>Affects: 6.0.0-6.0.16</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2370" rel="nofollow">CVE-2008-2370</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2370" rel="nofollow">CVE-2008-2370</a>
+</p>
 
-    <p>When using a RequestDispatcher the target path was normalised before the 
+    
+<p>When using a RequestDispatcher the target path was normalised before the 
        query string was removed. A request that included a specially crafted 
        request parameter could be used to access content that would otherwise be 
        protected by a security constraint or by locating it in under the WEB-INF 
        directory.</p>
 
-    <p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=673839">revision 673839</a>.</p>
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=673839">revision 673839</a>.</p>
 
-    <p>This was first reported to the Tomcat security team on 13 Jun 2008 and
+    
+<p>This was first reported to the Tomcat security team on 13 Jun 2008 and
        made public on 1 August 2008.</p>
 
-    <p>Affects: 6.0.0-6.0.16</p>
+    
+<p>Affects: 6.0.0-6.0.16</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.16"><span style="float: right;">released 8 Feb 2008</span> Fixed in Apache Tomcat 6.0.16</h3><div class="text">
-    <p><strong>Low: Session hi-jacking</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5333" rel="nofollow">CVE-2007-5333</a></p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.16">
+<span style="float: right;">released 8 Feb 2008</span> Fixed in Apache Tomcat 6.0.16</h3>
+<div class="text">
+    
+<p>
+<strong>Low: Session hi-jacking</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5333" rel="nofollow">CVE-2007-5333</a>
+</p>
 
-    <p>The previous fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3385" rel="nofollow">CVE-2007-3385</a> was incomplete. It did
+    
+<p>The previous fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3385" rel="nofollow">CVE-2007-3385</a> was incomplete. It did
        not consider the use of quotes or %5C within a cookie value.</p>
 
-    <p>Affects: 6.0.0-6.0.14</p>
+    
+<p>Affects: 6.0.0-6.0.14</p>
 
-    <p><strong>Low: Elevated privileges</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5342" rel="nofollow">CVE-2007-5342</a></p>
+    
+<p>
+<strong>Low: Elevated privileges</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5342" rel="nofollow">CVE-2007-5342</a>
+</p>
 
-    <p>The JULI logging component allows web applications to provide their own
+    
+<p>The JULI logging component allows web applications to provide their own
        logging configurations. The default security policy does not restrict
        this configuration and allows an untrusted web application to add files
        or overwrite existing files where the Tomcat process has the necessary
        file permissions to do so.</p>
 
-    <p>Affects: 6.0.0-6.0.15</p>
+    
+<p>Affects: 6.0.0-6.0.15</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5461" rel="nofollow">CVE-2007-5461</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5461" rel="nofollow">CVE-2007-5461</a>
+</p>
 
-    <p>When Tomcat's WebDAV servlet is configured for use with a context and
+    
+<p>When Tomcat's WebDAV servlet is configured for use with a context and
        has been enabled for write, some WebDAV requests that specify an entity
        with a SYSTEM tag can result in the contents of arbitary files being
        returned to the client.</p>
 
-    <p>Affects: 6.0.0-6.0.14</p>
+    
+<p>Affects: 6.0.0-6.0.14</p>
 
-    <p><strong>Important: Data integrity</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6286" rel="nofollow">CVE-2007-6286</a></p>
+    
+<p>
+<strong>Important: Data integrity</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6286" rel="nofollow">CVE-2007-6286</a>
+</p>
 
-    <p>When using the native (APR based) connector, connecting to the SSL port
+    
+<p>When using the native (APR based) connector, connecting to the SSL port
        using netcat and then disconnecting without sending any data will cause
        tomcat to handle a duplicate copy of one of the recent requests.</p>
 
-    <p>Affects: 6.0.0-6.0.15</p>
+    
+<p>Affects: 6.0.0-6.0.15</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0002" rel="nofollow">CVE-2008-0002</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0002" rel="nofollow">CVE-2008-0002</a>
+</p>
 
-    <p>If an exception occurs during the processing of parameters (eg if the
+    
+<p>If an exception occurs during the processing of parameters (eg if the
        client disconnects) then it is possible that the parameters submitted for
        that request will be incorrectly processed as part of a subsequent
        request.</p>
 
-    <p>Affects: 6.0.5-6.0.15</p>
+    
+<p>Affects: 6.0.5-6.0.15</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.14"><span style="float: right;">released 13 Aug 2007</span> Fixed in Apache Tomcat 6.0.14</h3><div class="text">
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2449" rel="nofollow">CVE-2007-2449</a></p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.14">
+<span style="float: right;">released 13 Aug 2007</span> Fixed in Apache Tomcat 6.0.14</h3>
+<div class="text">
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2449" rel="nofollow">CVE-2007-2449</a>
+</p>
 
-    <p>JSPs within the examples web application did not escape user provided
+    
+<p>JSPs within the examples web application did not escape user provided
        data before including it in the output. This enabled a XSS attack. These
        JSPs now filter the data before use. This issue may be mitigated by
        undeploying the examples web application. Note that it is recommended
@@ -777,60 +1426,94 @@
        system.
        </p>
 
-    <p>Affects: 6.0.0-6.0.13</p>
+    
+<p>Affects: 6.0.0-6.0.13</p>
 
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2450" rel="nofollow">CVE-2007-2450</a></p>
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2450" rel="nofollow">CVE-2007-2450</a>
+</p>
 
-    <p>The Manager and Host Manager web applications did not escape user
+    
+<p>The Manager and Host Manager web applications did not escape user
        provided data before including it in the output. This enabled a XSS
        attack. These applications now filter the data before use. This issue may
        be mitigated by logging out (closing the browser) of the application once
        the management tasks have been completed.</p>
 
-    <p>Affects: 6.0.0-6.0.13</p>
+    
+<p>Affects: 6.0.0-6.0.13</p>
 
-    <p><strong>Low: Session hi-jacking</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3382" rel="nofollow">CVE-2007-3382</a></p>
+    
+<p>
+<strong>Low: Session hi-jacking</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3382" rel="nofollow">CVE-2007-3382</a>
+</p>
 
-    <p>Tomcat incorrectly treated a single quote character (') in a cookie
+    
+<p>Tomcat incorrectly treated a single quote character (') in a cookie
        value as a delimiter. In some circumstances this lead to the leaking of
        information such as session ID to an attacker.</p>
 
-    <p>Affects: 6.0.0-6.0.13</p>
+    
+<p>Affects: 6.0.0-6.0.13</p>
 
-    <p><strong>Low: Session hi-jacking</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3385" rel="nofollow">CVE-2007-3385</a></p>
+    
+<p>
+<strong>Low: Session hi-jacking</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3385" rel="nofollow">CVE-2007-3385</a>
+</p>
 
-    <p>Tomcat incorrectly handled the character sequence \" in a cookie value.
+    
+<p>Tomcat incorrectly handled the character sequence \" in a cookie value.
        In some circumstances this lead to the leaking of information such as
        session ID to an attacker.</p>
 
-    <p>Affects: 6.0.0-6.0.13</p>
+    
+<p>Affects: 6.0.0-6.0.13</p>
 
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3386" rel="nofollow">CVE-2007-3386</a></p>
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3386" rel="nofollow">CVE-2007-3386</a>
+</p>
 
-    <p>The Host Manager Servlet did not filter user supplied data before
+    
+<p>The Host Manager Servlet did not filter user supplied data before
        display. This enabled an XSS attack.</p>
 
-    <p>Affects: 6.0.0-6.0.13</p>
+    
+<p>Affects: 6.0.0-6.0.13</p>
 
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.11"><span style="float: right;">not released</span> Fixed in Apache Tomcat 6.0.11</h3><div class="text">
-    <p><strong>Moderate: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1355" rel="nofollow">CVE-2007-1355</a></p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.11">
+<span style="float: right;">not released</span> Fixed in Apache Tomcat 6.0.11</h3>
+<div class="text">
+    
+<p>
+<strong>Moderate: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1355" rel="nofollow">CVE-2007-1355</a>
+</p>
 
-    <p>The JSP and Servlet included in the sample application within the Tomcat
+    
+<p>The JSP and Servlet included in the sample application within the Tomcat
        documentation webapp did not escape user provided data before including
        it in the output. This enabled a XSS attack. These pages have been
        simplified not to use any user provided data in the output.</p>
 
-    <p>Affects: 6.0.0-6.0.10</p>
+    
+<p>Affects: 6.0.0-6.0.10</p>
 
-    <p><strong>Important: Information disclosure</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2090" rel="nofollow">CVE-2005-2090</a></p>
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2090" rel="nofollow">CVE-2005-2090</a>
+</p>
 
-    <p>Requests with multiple content-length headers should be rejected as
+    
+<p>Requests with multiple content-length headers should be rejected as
        invalid. When multiple components (firewalls, caches, proxies and Tomcat)
        process a sequence of requests where one or more requests contain
        multiple content-length headers and several components do not
@@ -841,52 +1524,89 @@
        content-length headers.
        </p>
 
-    <p>Affects: 6.0.0-6.0.10</p>
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.10"><span style="float: right;">released 28 Feb 2007</span> Fixed in Apache Tomcat 6.0.10</h3><div class="text">
-    <p><strong>Important: Directory traversal</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450" rel="nofollow">CVE-2007-0450</a></p>
+    
+<p>Affects: 6.0.0-6.0.10</p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.10">
+<span style="float: right;">released 28 Feb 2007</span> Fixed in Apache Tomcat 6.0.10</h3>
+<div class="text">
+    
+<p>
+<strong>Important: Directory traversal</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0450" rel="nofollow">CVE-2007-0450</a>
+</p>
 
-    <p>Tomcat permits '\', '%2F' and '%5C' as path delimiters. When Tomcat is used 
+    
+<p>Tomcat permits '\', '%2F' and '%5C' as path delimiters. When Tomcat is used 
        behind a proxy (including, but not limited to, Apache HTTP server with 
        mod_proxy and mod_jk) configured to only proxy some contexts, a HTTP request 
        containing strings like "/\../" may allow attackers to work around the context 
        restriction of the proxy, and access the non-proxied contexts.
     </p>
 
-    <p>The following Java system properties have been added to Tomcat to provide 
+    
+<p>The following Java system properties have been added to Tomcat to provide 
        additional control of the handling of path delimiters in URLs (both options 
        default to false):
        <ul>
-         <li>
-           <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code>: <code>true|false</code>
-         </li>
-         <li>
-           <code>org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH</code>: <code>true|false</code>
-         </li>
-       </ul>
-    </p>
+         
+<li>
+           
+<code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code>: <code>true|false</code>
+         
+</li>
+         
+<li>
+           
+<code>org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH</code>: <code>true|false</code>
+         
+</li>
+       
+</ul>
+    
+</p>
 
-    <p>Due to the impossibility to guarantee that all URLs are handled by Tomcat as 
+    
+<p>Due to the impossibility to guarantee that all URLs are handled by Tomcat as 
        they are in proxy servers, Tomcat should always be secured as if no proxy 
        restricting context access was used.
     </p>
 
-    <p>Affects: 6.0.0-6.0.9</p>
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.9"><span style="float: right;">released 8 Feb 2007</span> Fixed in Apache Tomcat 6.0.9</h3><div class="text">
-    <p><strong>Moderate: Session hi-jacking</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0128" rel="nofollow">CVE-2008-0128</a></p>
+    
+<p>Affects: 6.0.0-6.0.9</p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.9">
+<span style="float: right;">released 8 Feb 2007</span> Fixed in Apache Tomcat 6.0.9</h3>
+<div class="text">
+    
+<p>
+<strong>Moderate: Session hi-jacking</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0128" rel="nofollow">CVE-2008-0128</a>
+</p>
 
-    <p>When using the SingleSignOn Valve via https the Cookie JSESSIONIDSSO is
+    
+<p>When using the SingleSignOn Valve via https the Cookie JSESSIONIDSSO is
        transmitted without the "secure" attribute, resulting in it being
        transmitted to any content that is - by purpose or error - requested via
        http from the same server. </p>
 
-    <p>Affects: 6.0.0-6.0.8</p>
-  </div><h3 id="Fixed_in_Apache_Tomcat_6.0.6"><span style="float: right;">released 18 Dec 2006</span> Fixed in Apache Tomcat 6.0.6</h3><div class="text">
-    <p><strong>Low: Cross-site scripting</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1358" rel="nofollow">CVE-2007-1358</a></p>
+    
+<p>Affects: 6.0.0-6.0.8</p>
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.6">
+<span style="float: right;">released 18 Dec 2006</span> Fixed in Apache Tomcat 6.0.6</h3>
+<div class="text">
+    
+<p>
+<strong>Low: Cross-site scripting</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1358" rel="nofollow">CVE-2007-1358</a>
+</p>
 
-    <p>Web pages that display the Accept-Language header value sent by the
+    
+<p>Web pages that display the Accept-Language header value sent by the
        client are susceptible to a cross-site scripting attack if they assume
        the Accept-Language header value conforms to RFC 2616. Under normal
        circumstances this would not be possible to exploit, however older
@@ -898,19 +1618,28 @@
        not assume that the headers conform to RFC 2616 and should filter the
        values appropriately.</p>
 
-    <p>Affects: 6.0.0-6.0.5</p>
-  </div><h3 id="Not_a_vulnerability_in_Tomcat">Not a vulnerability in Tomcat</h3><div class="text">
+    
+<p>Affects: 6.0.0-6.0.5</p>
+  
+</div>
+<h3 id="Not_a_vulnerability_in_Tomcat">Not a vulnerability in Tomcat</h3>
+<div class="text">
 
-    <p><strong>Low: Denial Of Service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5568" rel="nofollow">CVE-2012-5568</a></p>
+    
+<p>
+<strong>Low: Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5568" rel="nofollow">CVE-2012-5568</a>
+</p>
 
-    <p>Sending an HTTP request 1 byte at a time will consume a thread from the
+    
+<p>Sending an HTTP request 1 byte at a time will consume a thread from the
        connection pool until the request has been fully processed if using the
        BIO or APR/native HTTP connectors. Multiple requests may be used to
        consume all threads in the connection pool thereby creating a denial of
        service.</p>
 
-    <p>Since the relationship between the client side resources and server side
+    
+<p>Since the relationship between the client side resources and server side
        resources is a linear one, this issue is not something that the Tomcat
        Security Team views as a vulnerability. This is a generic DoS problem and
        there is no magic solution. This issue has been discussed several times
@@ -919,111 +1648,156 @@
        <a href="https://issues.apache.org/bugzilla/show_bug.cgi?id=54263">bug
        54236</a>.</p>
 
-    <p>This was first discussed on the public Tomcat users mailing list on 19
+    
+<p>This was first discussed on the public Tomcat users mailing list on 19
        June 2009.</p>
 
-    <p><strong>Important: Remote Denial Of Service</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4476" rel="nofollow">CVE-2010-4476</a></p>
+    
+<p>
+<strong>Important: Remote Denial Of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4476" rel="nofollow">CVE-2010-4476</a>
+</p>
 
-    <p>A JVM bug could cause Double conversion to hang JVM when accessing to a
+    
+<p>A JVM bug could cause Double conversion to hang JVM when accessing to a
        form based security constrained page or any page that calls
        javax.servlet.ServletRequest.getLocale() or
        javax.servlet.ServletRequest.getLocales(). A specially crafted request
        can be used to trigger a denial of service.
     </p>
 
-    <p>A work-around for this JVM bug was provided in 
+    
+<p>A work-around for this JVM bug was provided in 
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1066315">revision 1066315</a>.
        This work-around is included in Tomcat 6.0.32 onwards.</p>
 
-    <p>This was first reported to the Tomcat security team on 01 Feb 2011 and
+    
+<p>This was first reported to the Tomcat security team on 01 Feb 2011 and
        made public on 31 Jan 2011.</p>
 
-    <p>Affects: 6.0.0-6.0.31</p>
+    
+<p>Affects: 6.0.0-6.0.31</p>
 
-    <p><strong>Moderate: TLS SSL Man In The Middle</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555" rel="nofollow">CVE-2009-3555</a></p>
+    
+<p>
+<strong>Moderate: TLS SSL Man In The Middle</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555" rel="nofollow">CVE-2009-3555</a>
+</p>
 
-    <p>A vulnerability exists in the TLS protocol that allows an attacker to
+    
+<p>A vulnerability exists in the TLS protocol that allows an attacker to
        inject arbitrary requests into an TLS stream during renegotiation.</p>
     
-    <p>The TLS implementation used by Tomcat varies with connector. The blocking
+    
+<p>The TLS implementation used by Tomcat varies with connector. The blocking
        IO (BIO) and non-blocking (NIO) connectors use the JSSE implementation
        provided by the JVM. The APR/native connector uses OpenSSL.</p>
        
-    <p>The BIO connector is vulnerable if the JSSE version used is vulnerable.
+    
+<p>The BIO connector is vulnerable if the JSSE version used is vulnerable.
        To workaround this until a fix is available in JSSE, a new connector
        attribute <code>allowUnsafeLegacyRenegotiation</code> has been added to
        the BIO connector. It should be set to <code>false</code> (the default)
        to protect against this vulnerability.</p>
        
-    <p>The NIO connector is not vulnerable as it does not support
+    
+<p>The NIO connector is not vulnerable as it does not support
        renegotiation.</p>
        
-    <p>The APR/native workarounds are detailed on the
+    
+<p>The APR/native workarounds are detailed on the
        <a href="security-native.html">APR/native connector security page</a>.
        </p>
        
-    <p>Users should be aware that the impact of disabling renegotiation will
+    
+<p>Users should be aware that the impact of disabling renegotiation will
        vary with both application and client. In some circumstances disabling
        renegotiation may result in some clients being unable to access the
        application.</p>
 
-    <p>A workaround was implemented in
+    
+<p>A workaround was implemented in
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=881774">revision 881774</a> and 
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=891292">revision 891292</a>
        that provided the new <code>allowUnsafeLegacyRenegotiation</code>
        attribute. This work around is included in Tomcat 6.0.21 onwards.</p>
 
-    <p>Support for the new TLS renegotiation protocol (RFC 5746) that does not
+    
+<p>Support for the new TLS renegotiation protocol (RFC 5746) that does not
        have this security issue:</p>
 
-    <ul>
-      <li>For connectors using JSSE implementation provided by JVM:
+    
+<ul>
+      
+<li>For connectors using JSSE implementation provided by JVM:
         Added in Tomcat 6.0.32.<br>
         Requires JRE that supports RFC 5746. For Oracle JRE that is
         <a rel="nofollow" href="http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html">known</a>
         to be 6u22 or later.
       </li>
-      <li>For connectors using APR and OpenSSL:<br>
+      
+<li>For connectors using APR and OpenSSL:<br>
         TBD. See
         <a href="security-native.html">APR/native connector security page</a>.
       </li>
-    </ul>
+    
+</ul>
 
-    <p><strong>Important: Directory traversal</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938" rel="nofollow">CVE-2008-2938</a></p>
+    
+<p>
+<strong>Important: Directory traversal</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2938" rel="nofollow">CVE-2008-2938</a>
+</p>
 
-    <p>Originally reported as a Tomcat vulnerability the root cause of this
+    
+<p>Originally reported as a Tomcat vulnerability the root cause of this
        issue is that the JVM does not correctly decode UTF-8 encoded URLs to
        UTF-8. This exposes a directory traversal vulnerability when the
        connector uses <code>URIEncoding="UTF-8"</code>. This directory traversal
        is limited to the docBase of the web application.</p>
        
-    <p>If a context is configured with <code>allowLinking="true"</code> then the
+    
+<p>If a context is configured with <code>allowLinking="true"</code> then the
        directory traversal vulnerability is extended to the entire file system
        of the host server.</p>
        
-    <p>It should also be noted that setting
+    
+<p>It should also be noted that setting
        <code>useBodyEncodingForURI="true"</code> has the same effect as setting
        <code>URIEncoding="UTF-8"</code> when processing requests with bodies
        encoded with UTF-8.</p>
 
-    <p>Although the root cause was quickly identified as a JVM issue and that it
+    
+<p>Although the root cause was quickly identified as a JVM issue and that it
        affected multiple JVMs from multiple vendors, it was decided to report
        this as a Tomcat vulnerability until such time as the JVM vendors
        provided updates to resolve this issue. For further information on the
        status of this issue for your JVM, contact your JVM vendor.</p>
        
-    <p>A workaround was implemented in
+    
+<p>A workaround was implemented in
        <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=678137">revision 678137</a>
        that protects against this and any similar character
        encoding issues that may still exist in the JVM. This work around is
        included in Tomcat 6.0.18 onwards.</p>
   
-  </div></main></div></div></div></div><!--[if IE]><div id="footer"><![endif]--><!--[if !IE]>--><footer id="footer"><!--<![endif]-->
+  
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!--[if IE]><div id="footer"><![endif]-->
+<!--[if !IE]>-->
+<footer id="footer">
+<!--<![endif]-->
     Copyright &copy; 1999-2013, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are trademarks of the Apache Software Foundation.
-    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer><!--<![endif]--></div></body></html>
+    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer>
+<!--<![endif]-->
+</div>
+</body>
+</html>

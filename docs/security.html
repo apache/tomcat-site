@@ -1,12 +1,229 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"><!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]--><link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"><title>Apache Tomcat - Reporting Security Problems</title><meta name="author" content="Apache Tomcat Project"></head><body><div id="wrapper"><!--[if IE]><div id="header"><![endif]--><!--[if !IE]>--><header id="header"><!--<![endif]--><div><div><div class="logo noPrint"><a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1 style="margin-top: 35px;">Apache Tomcat</h1><div style="clear: right;"></div><div class="searchbox noPrint"><form action="http://www.google.com/search" method="get"><input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button></form></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div><!--[if IE]></div><![endif]--><!--[if !IE]>--></header><!--<![endif]--><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Apache Tomcat</strong></h2><ul><li><a href="./index.html">Home</a></li><li><a href="./taglibs/">Taglibs</a></li><li><a href="./maven-plugin.html">Maven Plugin</a></li></ul></div><div><h2><strong>Download</strong></h2><ul><li><a href="./whichversion.html">Which version?</a></li><li><a href="./download-80.cgi">Tomcat 8.0</a></li><li><a href="./download-70.cgi">Tomcat 7.0</a></li><li><a href="./download-60.cgi">Tomcat 6.0</a></li><li><a href="./download-connectors.cgi">Tomcat Connectors</a></li><li><a href="./download-native.cgi">Tomcat Native</a></li><li><a href="http://archive.apache.org/dist/tomcat/">Archives</a></li></ul></div><div><h2><strong>Documentation</strong></h2><ul><li><a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a></li><li><a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a></li><li><a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a></li><li><a href="./connectors-doc/">Tomcat Connectors</a></li><li><a href="./native-doc/">Tomcat Native</a></li><li><a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a></li><li><a href="./migration.html">Migration Guide</a></li></ul></div><div><h2><strong>Problems?</strong></h2><ul><li><a href="./security.html">Security Reports</a></li><li><a href="./findhelp.html">Find help</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="./lists.html">Mailing Lists</a></li><li><a href="./bugreport.html">Bug Database</a></li><li><a href="./irc.html">IRC</a></li></ul></div><div><h2><strong>Get Involved</strong></h2><ul><li><a href="./getinvolved.html">Overview</a></li><li><a href="./svn.html">SVN Repositories</a></li><li><a href="./ci.html">Buildbot</a></li><li><a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a></li><li><a href="./tools.html">Tools</a></li></ul></div><div><h2><strong>Media</strong></h2><ul><li><a href="http://blogs.apache.org/tomcat/">Blog</a></li><li><a href="http://twitter.com/theapachetomcat">Twitter</a></li></ul></div><div><h2><strong>Misc</strong></h2><ul><li><a href="./whoweare.html">Who We Are</a></li><li><a href="./heritage.html">Heritage</a></li><li><a href="http://www.apache.org">Apache Home</a></li><li><a href="./resources.html">Resources</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./legal.html">Legal</a></li><li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li><li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><main><h2 style="display: none;">Content</h2><h3 id="Security_Updates">Security Updates</h3><div class="text">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css">
+<!--[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]-->
+<link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print">
+<title>Apache Tomcat - Reporting Security Problems</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<!--[if IE]><div id="header"><![endif]-->
+<!--[if !IE]>-->
+<header id="header">
+<!--<![endif]-->
+<div>
+<div>
+<div class="logo noPrint">
+<a href=""><img alt="Tomcat Home" src="./images/tomcat.png"></a>
+</div>
+<div style="height: 1px;"></div>
+<div class="asfLogo">
+<a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a>
+</div>
+<h1 style="margin-top: 35px;">Apache Tomcat</h1>
+<div style="clear: right;"></div>
+<div class="searchbox noPrint">
+<form action="http://www.google.com/search" method="get">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button>
+</form>
+</div>
+<div style="height: 1px;"></div>
+<div style="clear: left;"></div>
+</div>
+</div>
+<!--[if IE]></div><![endif]-->
+<!--[if !IE]>-->
+</header>
+<!--<![endif]-->
+<div id="middle">
+<div>
+<div id="mainLeft" class="noprint">
+<div>
+<nav>
+<div>
+<h2>
+<strong>Apache Tomcat</strong>
+</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs/">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Download</strong>
+</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="./download-80.cgi">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./download-70.cgi">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./download-60.cgi">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="http://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Documentation</strong>
+</h2>
+<ul>
+<li>
+<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Problems?</strong>
+</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Get Involved</strong>
+</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./svn.html">SVN Repositories</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Media</strong>
+</h2>
+<ul>
+<li>
+<a href="http://blogs.apache.org/tomcat/">Blog</a>
+</li>
+<li>
+<a href="http://twitter.com/theapachetomcat">Twitter</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+<strong>Misc</strong>
+</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<main>
+<h2 style="display: none;">Content</h2>
+<h3 id="Security_Updates">Security Updates</h3>
+<div class="text">
 
-    <p>Please note that, except in rare circumstances, binary patches are not
+    
+<p>Please note that, except in rare circumstances, binary patches are not
        produced for individual vulnerabilities. To obtain the binary fix for a
        particular vulnerability you should upgrade to an Apache Tomcat version
        where that vulnerability has been fixed.</p>
        
-    <p>Source patches, usually in the form of references to SVN commits, may be
+    
+<p>Source patches, usually in the form of references to SVN commits, may be
        provided in either in a vulnerability announcement and/or the
        vulnerability details listed on these pages. These source patches may be
        used by users wishing to build their own local version of Tomcat with just
@@ -14,83 +231,151 @@
        currently underway to add links to the svn commits for all the
        vulnerabilities listed on these pages.</p>
        
-    <p>Lists of security problems fixed in released versions of Apache Tomcat
+    
+<p>Lists of security problems fixed in released versions of Apache Tomcat
        are available:</p>
-    <ul>
-      <li><a href="security-8.html">Apache Tomcat 8.x Security Vulnerabilities
-          </a></li>
-      <li><a href="security-7.html">Apache Tomcat 7.x Security Vulnerabilities
-          </a></li>
-      <li><a href="security-6.html">Apache Tomcat 6.x Security Vulnerabilities
-          </a></li>
-      <li><a href="security-jk.html">Apache Tomcat JK Connectors Security
-          Vulnerabilities</a></li>
-      <li><a href="security-native.html">Apache Tomcat APR/native Connector
-          Security Vulnerabilities</a></li>
-    </ul>
+    
+<ul>
+      
+<li>
+<a href="security-8.html">Apache Tomcat 8.x Security Vulnerabilities
+          </a>
+</li>
+      
+<li>
+<a href="security-7.html">Apache Tomcat 7.x Security Vulnerabilities
+          </a>
+</li>
+      
+<li>
+<a href="security-6.html">Apache Tomcat 6.x Security Vulnerabilities
+          </a>
+</li>
+      
+<li>
+<a href="security-jk.html">Apache Tomcat JK Connectors Security
+          Vulnerabilities</a>
+</li>
+      
+<li>
+<a href="security-native.html">Apache Tomcat APR/native Connector
+          Security Vulnerabilities</a>
+</li>
+    
+</ul>
 
-    <p>Lists of security problems fixed in versions of Apache Tomcat that may
+    
+<p>Lists of security problems fixed in versions of Apache Tomcat that may
         be downloaded from the archives are also available:</p>
-    <ul>
-      <li><a href="security-5.html">Apache Tomcat 5.x Security Vulnerabilities
-          </a></li>
-      <li><a href="security-4.html">Apache Tomcat 4.x Security Vulnerabilities
-          </a></li>
-      <li><a href="security-3.html">Apache Tomcat 3.x Security Vulnerabilities
-          </a></li>
-    </ul>
+    
+<ul>
+      
+<li>
+<a href="security-5.html">Apache Tomcat 5.x Security Vulnerabilities
+          </a>
+</li>
+      
+<li>
+<a href="security-4.html">Apache Tomcat 4.x Security Vulnerabilities
+          </a>
+</li>
+      
+<li>
+<a href="security-3.html">Apache Tomcat 3.x Security Vulnerabilities
+          </a>
+</li>
+    
+</ul>
 
-  </div><h3 id="Reporting_New_Security_Problems_with_Apache_Tomcat">Reporting New Security Problems with Apache Tomcat</h3><div class="text">
-    <p>The Apache Software Foundation takes a very active stance in eliminating
+  
+</div>
+<h3 id="Reporting_New_Security_Problems_with_Apache_Tomcat">Reporting New Security Problems with Apache Tomcat</h3>
+<div class="text">
+    
+<p>The Apache Software Foundation takes a very active stance in eliminating
        security problems and denial of service attacks against Apache Tomcat.
        </p>
 
-    <p>We strongly encourage folks to report such problems to our private
+    
+<p>We strongly encourage folks to report such problems to our private
        security mailing list first, before disclosing them in a public forum.
        </p>
 
-    <p><strong>Please note that the security mailing list should only be used
+    
+<p>
+<strong>Please note that the security mailing list should only be used
        for reporting undisclosed security vulnerabilities in Apache Tomcat and
        managing the process of fixing such vulnerabilities. We cannot accept
        regular bug reports or other queries at this address. All mail sent to
        this address that does not relate to an undisclosed security problem in
-       the Apache Tomcat source code will be ignored.</strong></p>
+       the Apache Tomcat source code will be ignored.</strong>
+</p>
 
-    <p>If you need to report a bug that isn't an undisclosed security
+    
+<p>If you need to report a bug that isn't an undisclosed security
        vulnerability, please use the <a href="bugreport.html">bug reporting
        page</a>.</p>
        
-    <p>Questions about:</p>
-    <ul>
-      <li>how to configure Tomcat securely</li>
-      <li>if a vulnerability applies to your particular application</li>
-      <li>obtaining further information on a published vulnerability</li>
-      <li>availability of patches and/or new releases</li>
-    </ul>
-    <p>should be addressed to the users mailing list. Please see the
+    
+<p>Questions about:</p>
+    
+<ul>
+      
+<li>how to configure Tomcat securely</li>
+      
+<li>if a vulnerability applies to your particular application</li>
+      
+<li>obtaining further information on a published vulnerability</li>
+      
+<li>availability of patches and/or new releases</li>
+    
+</ul>
+    
+<p>should be addressed to the users mailing list. Please see the
        <a href="lists.html">mailing lists</a> page for details of how to
        subscribe.</p>
     
-    <p>The private security mailing address is:
+    
+<p>The private security mailing address is:
        <a href="mailto:security@tomcat.apache.org">
-       security@tomcat.apache.org</a></p>
+       security@tomcat.apache.org</a>
+</p>
 
-    <p>Note that all networked servers are subject to denial of service attacks,
+    
+<p>Note that all networked servers are subject to denial of service attacks,
        and we cannot promise magic workarounds to generic problems (such as a
        client streaming lots of data to your server, or re-requesting the same
        URL repeatedly). In general our philosophy is to avoid any attacks which
        can cause the server to consume resources in a non-linear relationship to
        the size of inputs.</p>
-  </div><h3 id="Errors_and_omissions">Errors and omissions</h3><div class="text">
+  
+</div>
+<h3 id="Errors_and_omissions">Errors and omissions</h3>
+<div class="text">
 
-    <p>Please report any errors or omissions to
+    
+<p>Please report any errors or omissions to
        <a href="mailto:security@tomcat.apache.org">security@tomcat.apache.org
        </a>.
     </p>
 
-  </div></main></div></div></div></div><!--[if IE]><div id="footer"><![endif]--><!--[if !IE]>--><footer id="footer"><!--<![endif]-->
+  
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<!--[if IE]><div id="footer"><![endif]-->
+<!--[if !IE]>-->
+<footer id="footer">
+<!--<![endif]-->
     Copyright &copy; 1999-2013, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are trademarks of the Apache Software Foundation.
-    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer><!--<![endif]--></div></body></html>
+    <!--[if IE]></div><![endif]--><!--[if !IE]>--></footer>
+<!--<![endif]-->
+</div>
+</body>
+</html>

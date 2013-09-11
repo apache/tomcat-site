@@ -27,7 +27,7 @@
   <xsl:output method="html"
               html-version="5.0"
               encoding="UTF-8"
-              indent="no"
+              indent="yes"
               doctype-system="about:legacy-compat"/>
 
 
