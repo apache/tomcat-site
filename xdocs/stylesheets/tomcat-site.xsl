@@ -58,8 +58,6 @@
        specified in the XML declaration.
   -->
   <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
-  <!-- CSS hack for IEs ? 9. -->
-  <xsl:comment><![CDATA[[if IE]><link href="stylesheets/tomcat-ie-fix.css" rel="stylesheet" type="text/css"/><![endif]]]></xsl:comment>
   <link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/> - <xsl:value-of select="properties/title"/></title>
@@ -85,12 +83,7 @@
 
   <body>
   <div id="wrapper">
-  <!-- Header -->
-  <!-- Workaround for old IEs: use <div id="..."> instead of <header id="...">, otherwise the CSS will not apply.
-       IE ? 10 dropped support for conditional comments in Standards Mode, so there it will use <header>. -->
-  <xsl:comment><![CDATA[[if IE]><div id="header"><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
-  <header id="header">
-    <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
+  <header><div id="header">
     <div>
       <div>
           <xsl:variable name="src">
@@ -103,9 +96,9 @@
         <div style="height: 1px;"/>
         <div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
         <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
-		
-		<div style="clear: right;"/>
-	<!-- Search box: uses CSS positioning -->
+        <div style="clear: right;"/>
+
+    <!-- Search box: uses CSS positioning -->
     <div class="searchbox noPrint">
       <form action="http://www.google.com/search" method="get">
         <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
@@ -114,17 +107,13 @@
       </form>
     </div>
     <!-- End search box -->
-	
+
         <div style="height: 1px;"/>
         <div style="clear: left;"/>
       </div>
     </div>
-	<!-- Workaround for old IEs, see above. -->
-    <xsl:comment><![CDATA[[if IE]></div><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
-  </header>
-  <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
-  
-  
+  </div></header>
+
   <div id="middle">
     <div>
       <div id="mainLeft" class="noprint">
@@ -138,28 +127,21 @@
       <div id="mainRight">
         <div id="content">
           <!-- Main Part -->
-          <main>
-		    <!-- Hidden heading -->
-			<h2 style="display: none;">Content</h2>
-            <xsl:apply-templates select="body/section"/>
-          </main>
+          <!-- Hidden heading -->
+          <h2 style="display: none;">Content</h2>
+          <xsl:apply-templates select="body/section"/>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <!-- Workarounds for old IEs, see above. -->
-  <xsl:comment><![CDATA[[if IE]><div id="footer"><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
-  <footer id="footer">
-    <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
+  <footer><div id="footer">
     Copyright © 1999-2013, The Apache Software Foundation
     <br/>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are trademarks of the Apache Software Foundation.
-    <xsl:comment><![CDATA[[if IE]></div><![endif]]]></xsl:comment><xsl:comment><![CDATA[[if !IE]>]]></xsl:comment>
-  </footer>
-  <xsl:comment><![CDATA[<![endif]]]></xsl:comment>
+  </div></footer>
 </div>
 </body>
 </html>
@@ -254,7 +236,7 @@
     <xsl:variable name="name">
       <xsl:value-of select="translate($name2, ' #', '__')"/>
     </xsl:variable>
-	
+
     <div class="subsection">
       <!-- Subsection heading -->
       <!-- TODO: When a <subsection> is nested in another <subsection>,
