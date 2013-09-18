@@ -138,7 +138,7 @@
        rel="nofollow">CVE-2011-1184</a>.</p>
 
     <p>The implementation of HTTP DIGEST authentication was discovered to have
-       several weaknesses:
+       several weaknesses:</p>
        <ul>
          <li>replay attacks were permitted</li>
          <li>server nonces were not checked</li>
@@ -147,6 +147,7 @@
          <li>realm values were not checked</li>
          <li>the server secret was hard-coded to a known string</li>
        </ul>
+    <p>
        The result of these weaknesses is that DIGEST authentication was only as
        secure as BASIC authentication.
     </p>
@@ -187,13 +188,14 @@
        When running under a security manager, this lack of validation allowed a
        malicious web application to do one or more of the following that would
        normally be prevented by a security manager:
+    </p>
        <ul>
          <li>return files to users that the security manager should make
              inaccessible</li>
          <li>terminate (via a crash) the JVM</li>
        </ul>
-       Additionally, these vulnerabilities only occur when all of the following
-       are true:
+       <p>Additionally, these vulnerabilities only occur when all of the following
+       are true:</p>
        <ul>
          <li>untrusted web applications are being used</li>
          <li>the SecurityManager is used to limit the untrusted web applications
@@ -201,7 +203,6 @@
          <li>the HTTP APR connector is used</li>
          <li>sendfile is enabled for the connector (this is the default)</li>
        </ul>
-    </p>
 
     <p>This was fixed in <revlink rev="1158244">revision 1158244</revlink>.</p>
 
@@ -218,11 +219,13 @@
        capabilities allowing the application to access files and directories
        owned by superuser. This vulnerability only occurs when all of the
        following are true:
+    </p>
        <ul>
          <li>Tomcat is running on a Linux operating system</li>
          <li>jsvc was compiled with libcap</li>
          <li>-user parameter is used</li>
        </ul>
+    <p>
        Affected Tomcat versions shipped with source files for jsvc that included
        this vulnerability.
     </p>
@@ -248,13 +251,13 @@
        full control over the AJP message permitting authentication bypass and
        information disclosure. This vulnerability only occurs when all of the
        following are true:
+    </p>
        <ul>
          <li>The org.apache.jk.server.JkCoyoteHandler AJP connector is not used
          </li>
          <li>POST requests are accepted</li>
          <li>The request body is not processed</li>
        </ul>
-    </p>
 
     <p>This was fixed in <revlink rev="1162960">revision 1162960</revlink>.</p>
 
@@ -723,6 +726,7 @@
     <p>The following Java system properties have been added to Tomcat to provide 
        additional control of the handling of path delimiters in URLs (both options 
        default to false):
+    </p>
        <ul>
          <li>
            <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code>: <code>true|false</code>
@@ -731,7 +735,6 @@
            <code>org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH</code>: <code>true|false</code>
          </li>
        </ul>
-    </p>
 
     <p>Due to the impossibility to guarantee that all URLs are handled by Tomcat as 
        they are in proxy servers, Tomcat should always be secured as if no proxy 

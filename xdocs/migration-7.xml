@@ -46,9 +46,8 @@ of Apache Tomcat.</p>
     For example, if package <code>"a"</code> contains class <code>Part</code>,
     the following JSP page will cease to compile in Tomcat 7:</p>
 
-    <source>
-&lt;%@page import="a.*"%&gt;
-&lt;% Part page = new Part(); %&gt;</source>
+    <source><![CDATA[<%@page import="a.*"%>
+<% Part page = new Part(); %>]]></source>
 
     <p>That happens because implicit import of <code>javax.servlet.http.*</code>
     and explicit import of <code>a.*</code> will provide conflicting
@@ -139,10 +138,10 @@ of Apache Tomcat.</p>
     interfaces are not. To maintain the CSRF protection:</p>
     
     <ul>
-      <li>users with the <tt>manager-gui</tt> role should not be granted
-          either the <tt>manager-script</tt> or <tt>manager-jmx</tt> roles.</li>
+      <li>users with the <code>manager-gui</code> role should not be granted
+          either the <code>manager-script</code> or <code>manager-jmx</code> roles.</li>
       <li>if the Manager application is accessed through a browser by a user
-          who has <tt>manager-script</tt> or <tt>manager-jmx</tt> roles
+          who has <code>manager-script</code> or <code>manager-jmx</code> roles
           (e.g. for testing the text or jmx interfaces since these interfaces
           are intended for tools not humans) then all browser windows
           must be closed afterwards to terminate the session.</li>
@@ -183,10 +182,10 @@ of Apache Tomcat.</p>
     not. To maintain the CSRF protection:</p>
     
     <ul>
-      <li>users with the <tt>admin-gui</tt> role should not be granted the
-          <tt>admin-script</tt> role.</li>
+      <li>users with the <code>admin-gui</code> role should not be granted the
+          <code>admin-script</code> role.</li>
       <li>if the Host Manager application is accessed through a browser
-          by a user who has <tt>admin-script</tt> role (e.g. for testing
+          by a user who has <code>admin-script</code> role (e.g. for testing
           the text interface since this inteface is intended for tools
           not humans) then all browser windows
           must be closed afterwards to terminate the session.</li>
@@ -466,8 +465,12 @@ of Apache Tomcat.</p>
     below and then click &quot;View differences&quot; to see the differences.
     The differences will be shown in a new tab/window.</p>
 
-    <script type="text/javascript" language="JavaScript">
-      function updateTc7ActionUrl() {
+    <script type="text/javascript"><![CDATA[
+    "use strict"; // Enable strict mode
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var formSubmit = document.getElementById("tc7Submit");
+      formSubmit.addEventListener("submit", function() {
         var revisions = {
           "HEAD":"HEAD",
           "7.0.0":"954232",
@@ -502,19 +505,19 @@ of Apache Tomcat.</p>
           "7.0.41":"1490220",
           "7.0.42":"1498817"
         };
-        var formSubmit= document.getElementById('tc7Submit');
-        var elementsSelect= document.getElementById('tc7Select').elements;
-        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/" +
-          elementsSelect['filename'].value;
-        formSubmit.elements['r1'].value = revisions[elementsSelect['r1'].value]; 
-        formSubmit.elements['r2'].value = revisions[elementsSelect['r2'].value]; 
-        return true;
-      }
-    </script>
 
-    <form id="tc7Select" action="not-used">
-    <p>Configuration file:
-    <select name="filename">
+        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc7.0.x/trunk/" +
+          document.getElementById('select-filename').value;
+        formSubmit.elements['r1'].value = revisions[document.getElementById('select-r1').value]; 
+        formSubmit.elements['r2'].value = revisions[document.getElementById('select-r2').value]; 
+        return true;
+      }, false);
+    }, false);
+    ]]></script>
+
+
+    <p><label>Configuration file:
+    <select id="select-filename">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
     <option value="conf/context.xml">context.xml</option>
@@ -522,10 +525,10 @@ of Apache Tomcat.</p>
     <option value="conf/server.xml">server.xml</option>
     <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
     <option value="conf/web.xml">web.xml</option>
-    </select>
+    </select></label>
     </p>
-    <p>Old version:
-    <select name="r1">
+    <p><label>Old version:
+    <select id="select-r1">
     <option value="7.0.0">7.0.0</option>
     <option value="7.0.2">7.0.2</option>
     <option value="7.0.4">7.0.4</option>
@@ -549,7 +552,7 @@ of Apache Tomcat.</p>
     <option value="7.0.29">7.0.29</option>
     <option value="7.0.30">7.0.30</option>
     <option value="7.0.32">7.0.32</option>
-    <option value="7.0.33"></option>
+    <option value="7.0.33">7.0.33</option>
     <option value="7.0.34">7.0.34</option>
     <option value="7.0.35">7.0.35</option>
     <option value="7.0.37">7.0.37</option>
@@ -557,8 +560,8 @@ of Apache Tomcat.</p>
     <option value="7.0.40">7.0.40</option>
     <option value="7.0.41" selected="selected">7.0.41</option>
     <option value="7.0.42">7.0.42</option>
-    </select>, new version:
-    <select name="r2">
+    </select>,</label> <label>new version:
+    <select id="select-r2">
     <option value="7.0.0">7.0.0</option>
     <option value="7.0.2">7.0.2</option>
     <option value="7.0.4">7.0.4</option>
@@ -591,23 +594,21 @@ of Apache Tomcat.</p>
     <option value="7.0.41">7.0.41</option>
     <option value="7.0.42" selected="selected">7.0.42</option>
     <option value="HEAD">trunk (unreleased)</option>
-    </select>
+    </select></label>
     </p>
-    </form>
+
     <form id="tc7Submit" action="to-be-replaced" method="get"
           target="_blank">
     <p>
     <input type="hidden" name="diff_format" value="h"/>
-    <input type="hidden" name="r1" /><input type="hidden" name="r2" />
-    <input type="submit" value="View Differences"
-           onClick="return updateTc7ActionUrl();"/>
+    <input type="hidden" name="r1"/><input type="hidden" name="r2"/>
+    <button>View Differences</button>
     </p>
     </form>
     <p>You can also use Subversion command similar to the following (all on one line):</p>
-    <pre>  svn diff
-    --old=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_27/conf/
-    --new=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_28/conf/
-    </pre>
+    <source>svn diff
+  --old=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_27/conf/
+  --new=http://svn.apache.org/repos/asf/tomcat/tc7.0.x/tags/TOMCAT_7_0_28/conf/</source>
   </subsection>
   
 </section>

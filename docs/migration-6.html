@@ -518,8 +518,12 @@ of Apache Tomcat.</p>
     The differences will be shown in a new tab/window.</p>
 
     
-<script type="text/javascript" language="JavaScript">
-      function updateTc6ActionUrl() {
+<script type="text/javascript">
+    "use strict"; // Enable strict mode
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var formSubmit = document.getElementById("tc6Submit");
+      formSubmit.addEventListener("submit", function() {
         var revisions = {
           "HEAD":"HEAD",
           "6.0.0":"466306",
@@ -547,21 +551,21 @@ of Apache Tomcat.</p>
           "6.0.36":"1398690",
           "6.0.37":"1476938"
         };
-        var formSubmit= document.getElementById('tc6Submit');
-        var elementsSelect= document.getElementById('tc6Select').elements;
+
         formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc6.0.x/trunk/" +
-          elementsSelect['filename'].value;
-        formSubmit.elements['r1'].value = revisions[elementsSelect['r1'].value]; 
-        formSubmit.elements['r2'].value = revisions[elementsSelect['r2'].value]; 
+          document.getElementById('select-filename').value;
+        formSubmit.elements['r1'].value = revisions[document.getElementById('select-r1').value]; 
+        formSubmit.elements['r2'].value = revisions[document.getElementById('select-r2').value]; 
         return true;
-      }
+      }, false);
+    }, false);
     </script>
 
     
-<form id="tc6Select" action="not-used">
     
-<p>Configuration file:
-    <select name="filename">
+<p>
+<label>Configuration file:
+    <select id="select-filename">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
     <option value="conf/context.xml">context.xml</option>
@@ -569,12 +573,13 @@ of Apache Tomcat.</p>
     <option value="conf/server.xml">server.xml</option>
     <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
     <option value="conf/web.xml">web.xml</option>
-    </select>
+    </select></label>
     
 </p>
     
-<p>Old version:
-    <select name="r1">
+<p>
+<label>Old version:
+    <select id="select-r1">
     <option value="6.0.0">6.0.0</option>
     <option value="6.0.1">6.0.1</option>
     <option value="6.0.2">6.0.2</option>
@@ -599,8 +604,8 @@ of Apache Tomcat.</p>
     <option value="6.0.35">6.0.35</option>
     <option value="6.0.36" selected>6.0.36</option>
     <option value="6.0.37">6.0.37</option>
-    </select>, new version:
-    <select name="r2">
+    </select>,</label> <label>new version:
+    <select id="select-r2">
     <option value="6.0.0">6.0.0</option>
     <option value="6.0.1">6.0.1</option>
     <option value="6.0.2">6.0.2</option>
@@ -626,11 +631,10 @@ of Apache Tomcat.</p>
     <option value="6.0.36">6.0.36</option>
     <option value="6.0.37" selected>6.0.37</option>
     <option value="HEAD">trunk (unreleased)</option>
-    </select>
+    </select></label>
     
 </p>
-    
-</form>
+
     
 <form id="tc6Submit" action="to-be-replaced" method="get" target="_blank">
     
@@ -638,7 +642,7 @@ of Apache Tomcat.</p>
     
 <input type="hidden" name="diff_format" value="h">
     <input type="hidden" name="r1"><input type="hidden" name="r2">
-    <input type="submit" value="View Differences" onClick="return updateTc6ActionUrl();">
+    <button>View Differences</button>
     
 </p>
     
@@ -646,10 +650,13 @@ of Apache Tomcat.</p>
     
 <p>You can also use Subversion command similar to the following (all on one line):</p>
     
-<pre>  svn diff
-    --old=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_36/conf/
-    --new=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_37/conf/
-    </pre>
+<div class="codeBox">
+<pre>
+<code>svn diff
+  --old=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_36/conf/
+  --new=http://svn.apache.org/repos/asf/tomcat/tc6.0.x/tags/TOMCAT_6_0_37/conf/</code>
+</pre>
+</div>
   
 </div>
 </div>
