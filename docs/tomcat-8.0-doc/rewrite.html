@@ -1,29 +1,47 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 8 (8.0.0-RC1) - The rewrite Valve</title><meta name="author" content="Remy Maucherat"><style type="text/css" media="print">
-            .noPrint {display: none;}
-            td#mainBody {width: 100%;}
-        </style><style type="text/css">
-            code {background-color:rgb(224,255,255);padding:0 0.1em;}
-            code.attributeName, code.propertyName {background-color:transparent;}
-        </style><style type="text/css">
-            .wrapped-source code { display: block; background-color: transparent; }
-            .wrapped-source div { margin: 0 0 0 1.25em; }
-            .wrapped-source p { margin: 0 0 0 1.25em; text-indent: -1.25em; }
-        </style><style type="text/css">
-            p.notice {
-                border: 1px solid rgb(255, 0, 0);
-                background-color: rgb(238, 238, 238);
-                color: rgb(0, 51, 102);
-                padding: 0.5em;
-                margin: 1em 2em 1em 1em;
-            }
-        </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
-      The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 8</font></h1><font face="arial,helvetica,sanserif">Version 8.0.0-RC1, Aug 1 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The rewrite Valve</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><style type="text/css" media="print">
+    .noPrint { display: none; }
+    #middle > div > div#mainLeft { display: none; }
+    a { color: inherit; text-decoration: none; }
+  </style><title>Apache Tomcat 8 (8.0.0-RC3) - The rewrite Valve</title><meta name="author" content="Remy Maucherat"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/rewrite">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "http://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            commentsDiv.appendChild(d.createTextNode("Loading comments…"));
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8</h1><div class="versionInfo">
+          Version 8.0.0-RC3,
+          <time datetime="2013-09-19">Sep 19 2013</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2><strong>User Guide</strong></h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li></ul></div><div><h2><strong>Reference</strong></h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2><strong>Apache Tomcat Development</strong></h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The rewrite Valve</h2><h3 id="Introduction">Introduction</h3><div class="text">
 
   <p>The rewrite valve implements URL rewrite functionnality in a way that is
   very similar to mod_rewrite from Apache HTTP Server.</p>
 
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration"><strong>Configuration</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Configuration">Configuration</h3><div class="text">
 
   <p>The rewrite valve is configured as a valve using the <code>org.apache.catalina.valves.rewrite.RewriteValve</code>
   class name.</p>
@@ -40,7 +58,7 @@
   rewrite directives, it must be placed in the WEB-INF folder of the web application
   </p>
 
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Directives"><strong>Directives</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Directives">Directives</h3><div class="text">
 
   <p>The rewrite.config file contains a list of directives which closely resemble
   the directives used by mod_rewrite, in particular the central RewriteRule and
@@ -50,7 +68,7 @@
   which is Copyright 1995-2006 The Apache Software Foundation, and licensed under the
   under the Apache License, Version 2.0.</p>
 
-  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="RewriteCond"><strong>RewriteCond</strong></a></font></td></tr><tr><td><blockquote>
+  <div class="subsection"><h4 id="RewriteCond">RewriteCond</h4><div class="text">
 
     <p>Syntax: <code>RewriteCond TestString CondPattern</code></p>
 
@@ -92,75 +110,71 @@
           where <em>NAME_OF_VARIABLE</em> can be a string taken
           from the following list:
 
-          <table border="1">
-
-            <tr>
-              <th>HTTP headers:</th> <th>connection &amp; request:</th> <th></th>
-            </tr>
-
-            <tr>
-              <td>
-                 HTTP_USER_AGENT<br>
-                 HTTP_REFERER<br>
-                 HTTP_COOKIE<br>
-                 HTTP_FORWARDED<br>
-                 HTTP_HOST<br>
-                 HTTP_PROXY_CONNECTION<br>
-                 HTTP_ACCEPT<br>
-              </td>
-
-              <td>
-                 REMOTE_ADDR<br>
-                 REMOTE_HOST<br>
-                 REMOTE_PORT<br>
-                 REMOTE_USER<br>
-                 REMOTE_IDENT<br>
-                 REQUEST_METHOD<br>
-                 SCRIPT_FILENAME<br>
-                 REQUEST_PATH<br>
-                 CONTEXT_PATH<br>
-                 SERVLET_PATH<br>
-                 PATH_INFO<br>
-                 QUERY_STRING<br>
-                 AUTH_TYPE<br>
-              </td>
-
-              <td></td>
-            </tr>
-
-            <tr>
-              <th>server internals:</th> <th>date and time:</th> <th>specials:</th>
-            </tr>
-
-            <tr>
-              <td>
-                 DOCUMENT_ROOT<br>
-                 SERVER_NAME<br>
-                 SERVER_ADDR<br>
-                 SERVER_PORT<br>
-                 SERVER_PROTOCOL<br>
-                 SERVER_SOFTWARE<br>
-              </td>
-
-              <td>
-                 TIME_YEAR<br>
-                 TIME_MON<br>
-                 TIME_DAY<br>
-                 TIME_HOUR<br>
-                 TIME_MIN<br>
-                 TIME_SEC<br>
-                 TIME_WDAY<br>
-                 TIME<br>
-              </td>
-
-              <td>
-                 THE_REQUEST<br>
-                 REQUEST_URI<br>
-                 REQUEST_FILENAME<br>
-                 HTTPS<br>
-              </td>
-            </tr>
-          </table>
+          <ul>
+          <li>
+          <p><b>HTTP headers:</b></p>
+          <p>
+            HTTP_USER_AGENT<br>
+            HTTP_REFERER<br>
+            HTTP_COOKIE<br>
+            HTTP_FORWARDED<br>
+            HTTP_HOST<br>
+            HTTP_PROXY_CONNECTION<br>
+            HTTP_ACCEPT<br>
+          </p>
+          </li>
+          <li>
+          <p><b>connection &amp; request:</b></p>
+          <p>
+            REMOTE_ADDR<br>
+            REMOTE_HOST<br>
+            REMOTE_PORT<br>
+            REMOTE_USER<br>
+            REMOTE_IDENT<br>
+            REQUEST_METHOD<br>
+            SCRIPT_FILENAME<br>
+            REQUEST_PATH<br>
+            CONTEXT_PATH<br>
+            SERVLET_PATH<br>
+            PATH_INFO<br>
+            QUERY_STRING<br>
+            AUTH_TYPE<br>
+          </p>
+          </li>
+          <li>
+          <p><b>server internals:</b></p>
+          <p>
+            DOCUMENT_ROOT<br>
+            SERVER_NAME<br>
+            SERVER_ADDR<br>
+            SERVER_PORT<br>
+            SERVER_PROTOCOL<br>
+            SERVER_SOFTWARE<br>
+          </p>
+          </li>
+          <li>
+          <p><b>date and time:</b></p>
+          <p>
+            TIME_YEAR<br>
+            TIME_MON<br>
+            TIME_DAY<br>
+            TIME_HOUR<br>
+            TIME_MIN<br>
+            TIME_SEC<br>
+            TIME_WDAY<br>
+            TIME<br>
+          </p>
+          </li>
+          <li>
+          <p><b>specials:</b></p>
+          <p>
+            THE_REQUEST<br>
+            REQUEST_URI<br>
+            REQUEST_FILENAME<br>
+            HTTPS<br>
+          </p>
+          </li>
+          </ul>
 
                 <p>These variables all
                 correspond to the similarly named HTTP
@@ -308,11 +322,11 @@
 
           </ul>
 
-<note><title>Note:</title>
+<strong>Note:</strong>
               All of these tests can
               also be prefixed by an exclamation mark ('!') to
               negate their meaning.
-</note>
+
         </li>
 
         <li>You can also set special flags for
@@ -338,12 +352,10 @@
           Use this to combine rule conditions with a local OR
           instead of the implicit AND. Typical example:
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-RewriteCond %{REMOTE_HOST}  ^host1.*  [OR]
+<div class="codeBox"><pre><code>RewriteCond %{REMOTE_HOST}  ^host1.*  [OR]
 RewriteCond %{REMOTE_HOST}  ^host2.*  [OR]
 RewriteCond %{REMOTE_HOST}  ^host3.*
-RewriteRule ...some special stuff for any of these hosts...
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+RewriteRule ...some special stuff for any of these hosts...</code></pre></div>
 
           Without this flag you would have to write the condition/rule
           pair three times.
@@ -358,15 +370,13 @@ RewriteRule ...some special stuff for any of these hosts...
         ``<code>User-Agent:</code>'' header of the request, you can
         use the following: </p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-RewriteCond  %{HTTP_USER_AGENT}  ^Mozilla.*
+<div class="codeBox"><pre><code>RewriteCond  %{HTTP_USER_AGENT}  ^Mozilla.*
 RewriteRule  ^/$                 /homepage.max.html  [L]
 
 RewriteCond  %{HTTP_USER_AGENT}  ^Lynx.*
 RewriteRule  ^/$                 /homepage.min.html  [L]
 
-RewriteRule  ^/$                 /homepage.std.html  [L]
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+RewriteRule  ^/$                 /homepage.std.html  [L]</code></pre></div>
 
         <p>Explanation: If you use a browser which identifies itself
         as 'Mozilla' (including Netscape Navigator, Mozilla etc), then you
@@ -379,27 +389,25 @@ RewriteRule  ^/$                 /homepage.std.html  [L]
         or your browser identifies itself as something non-standard), you get
         the std (standard) homepage.</p>
 
-  </blockquote></td></tr></table>
+  </div></div>
 
-  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="RewriteMap"><strong>RewriteMap</strong></a></font></td></tr><tr><td><blockquote>
+  <div class="subsection"><h4 id="RewriteMap">RewriteMap</h4><div class="text">
 
     <p>Syntax: <code>RewriteMap name rewriteMapClassName optionalParameters</code></p>
 
     <p>The maps are implemented using an interface that users must implement. Its class
     name is <code>org.apache.catalina.valves.rewrite.RewriteMap</code>, and its code is:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-package org.apache.catalina.valves.rewrite;
+<div class="codeBox"><pre><code>package org.apache.catalina.valves.rewrite;
 
 public interface RewriteMap {
     public String setParameters(String params);
     public String lookup(String key);
-}
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+}</code></pre></div>
 
-  </blockquote></td></tr></table>
+  </div></div>
 
-  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="RewriteRule"><strong>RewriteRule</strong></a></font></td></tr><tr><td><blockquote>
+  <div class="subsection"><h4 id="RewriteRule">RewriteRule</h4><div class="text">
 
     <p>Syntax: <code>RewriteRule Pattern Substitution</code></p>
 
@@ -418,6 +426,7 @@ public interface RewriteMap {
 
       <p>Some hints on the syntax of regular
       expressions:</p>
+
 
 <pre>
 <strong>Text:</strong>
@@ -456,7 +465,7 @@ public interface RewriteMap {
         <em>Mastering Regular Expressions, 2nd Edition</em><br>
          Jeffrey E.F. Friedl<br>
          O'Reilly &amp; Associates, Inc. 2002<br>
-         ISBN 0-596-00289-0<br>
+         ISBN 978-0-596-00289-3<br>
       </p>
 
       <p>In the rules, the NOT character
@@ -475,7 +484,7 @@ contents for the groups. Thus, if negated patterns are used, you
 cannot use <code>$N</code> in the substitution string!
 </p>
 
-      <p>The <a name="rhs"><em>substitution</em></a> of a
+      <p>The <em id="rhs">substitution</em> of a
       rewrite rule is the string which is substituted for (or
       replaces) the original URL which <em>Pattern</em>
       matched. In addition to plain text, it can include</p>
@@ -521,7 +530,7 @@ cannot use <code>$N</code> in the substitution string!
       to apply more than one pattern before substitution occurs.</p>
 
 
-      <p>Additionally you can set special <a name="rewriteflags">flags</a> for <em>Substitution</em> by
+      <p>Additionally you can set special <span id="rewriteflags">flags</span> for <em>Substitution</em> by
       appending <strong><code>[</code><em>flags</em><code>]</code></strong>
       as the third argument to the <code>RewriteRule</code>
       directive. <em>Flags</em> is a comma-separated list of any of the
@@ -621,9 +630,7 @@ cannot use <code>$N</code> in the substitution string!
           '%24', and '%3B', respectively); this flag prevents this
           from happening. This allows percent symbols to appear in
           the output, as in
-<example>
-    RewriteRule /foo/(.*) /bar?arg=P1\%3d$1 [R,NE]
-</example>
+          <div class="codeBox"><pre><code>RewriteRule /foo/(.*) /bar?arg=P1\%3d$1 [R,NE]</code></pre></div>
           which would turn '<code>/foo/zed</code>' into a safe
           request for '<code>/bar?arg=P1=zed</code>'.
         </li>
@@ -639,7 +646,8 @@ cannot use <code>$N</code> in the substitution string!
         data to the query string via a rewrite rule.</li>
 
          <li>'<strong><code>redirect|R</code>
-          [=<em>code</em>]</strong>' (force <a name="redirect"><strong>r</strong>edirect</a>)<br>
+          [=<em>code</em>]</strong>' (force <span id="redirect">
+          <strong>r</strong>edirect</span>)<br>
           Prefix <em>Substitution</em> with
           <code>http://thishost[:thisport]/</code> (which makes the
           new URL a URI) to force a external redirection. If no
@@ -676,45 +684,30 @@ cannot use <code>$N</code> in the substitution string!
         <li>
         '<strong><code>type|T</code></strong>=<em>MIME-type</em>'
         (force MIME <strong>t</strong>ype)<br>
-         Force the <glossary>MIME-type</glossary> of the target file to be
+         Force the MIME-type of the target file to be
         <em>MIME-type</em>. This can be used to
         set up the content-type based on some conditions.
         For example, the following snippet allows <code>.php</code> files to
         be <em>displayed</em> by <code>mod_php</code> if they are called with
         the <code>.phps</code> extension:
-        <example>
-            RewriteRule ^(.+\.php)s$ $1 [T=application/x-httpd-php-source]
-        </example>
+        <div class="codeBox"><pre><code>RewriteRule ^(.+\.php)s$ $1 [T=application/x-httpd-php-source]</code></pre></div>
         </li>
       </ul>
 
-  </blockquote></td></tr></table>
+  </div></div>
 
-</blockquote></td></tr></table></td></tr><tr class="noPrint"><td width="20%" valign="top" nowrap class="noPrint"></td><td width="80%" valign="top" align="left"><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="comments_section" id="comments_section"><strong>Comments</strong></a></font></td></tr><tr><td><blockquote><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
-              on improving documentation for Apache Tomcat.<br><br>
-              If you have trouble and need help, read
-              <a href="http://tomcat.apache.org/findhelp.html">Find Help</a> page
-              and ask your question on the tomcat-users
-              <a href="http://tomcat.apache.org/lists.html">mailing list</a>.
-              Do not ask such questions here. This is not a Q&amp;A section.<br><br>
-              The Apache Comments System is explained <a href="/tomcat-8.0-doc/comments.html">here</a>.
-              Comments may be removed by our moderators if they are either
-              implemented or considered invalid/off-topic.</p><script type="text/javascript"><!--//--><![CDATA[//><!--
-              var comments_shortname = 'tomcat';
-              var comments_identifier = 'http://tomcat.apache.org/tomcat-8.0-doc/rewrite.html';
-              (function(w, d) {
-                  if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
-                      d.write('<div id="comments_thread"><\/div>');
-                      var s = d.createElement('script');
-                      s.type = 'text/javascript';
-                      s.async = true;
-                      s.src = 'https://comments.apache.org/show_comments.lua?site=' + comments_shortname + '&page=' + comments_identifier;
-                      (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s);
-                  }
-                  else {
-                      d.write('<div id="comments_thread"><strong>Comments are disabled for this page at the moment.<\/strong><\/div>');
-                  }
-              })(window, document);
-              //--><!]]></script></blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2013, Apache Software Foundation
-        </em></font></div></td></tr></table></body></html>
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <a href="http://tomcat.apache.org/findhelp.html">Find Help</a> page
+                    and ask your question on the tomcat-users
+                    <a href="http://tomcat.apache.org/lists.html">mailing list</a>.
+                    Do not ask such questions here. This is not a Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <a href="/tomcat-8.0-doc/comments.html">here</a>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-2013, The Apache Software Foundation
+  </div></footer></div></body></html>
