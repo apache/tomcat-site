@@ -58,7 +58,6 @@
        specified in the XML declaration.
   -->
   <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
-  <link href="stylesheets/tomcat-printer.css" rel="stylesheet" type="text/css" media="print"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/> - <xsl:value-of select="properties/title"/></title>
     <xsl:for-each select="properties/author">
@@ -94,7 +93,7 @@
           </div>
 
         <div style="height: 1px;"/>
-        <div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
+        <div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
         <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
         <div style="clear: right;"/>
 
