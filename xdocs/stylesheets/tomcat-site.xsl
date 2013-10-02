@@ -89,7 +89,7 @@
             <xsl:value-of select="$relative-path"/><xsl:value-of select="$home-logo"/>
           </xsl:variable>
           <div class="logo noPrint">
-            <a href="{project/@href}"><img alt="Tomcat Home" src="{$src}"/></a>
+            <a href="{$project/@href}"><img alt="Tomcat Home" src="{$src}"/></a>
           </div>
 
         <div style="height: 1px;"/>
