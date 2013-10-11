@@ -93,13 +93,13 @@
           </div>
 
         <div style="height: 1px;"/>
-        <div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
+        <div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="//www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"/></a></div>
         <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
         <div style="clear: right;"/>
 
     <!-- Search box: uses CSS positioning -->
     <div class="searchbox noPrint">
-      <form action="http://www.google.com/search" method="get">
+      <form action="https://www.google.com/search" method="get">
         <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
         <input placeholder="Search the Site…" required="required" size="25" name="q" id="query" type="search" />
         <button>Search</button>
