@@ -1,9 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><style type="text/css" media="print">
-    .noPrint { display: none; }
-    #middle > div > div#mainLeft { display: none; }
-    a { color: inherit; text-decoration: none; }
-  </style><title>Apache Tomcat 8 (8.0.0-RC3) - Clustering/Session Replication HOW-TO</title><meta name="author" content="Filip Hanik"><meta name="author" content="Peter Rossbach"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/cluster-howto">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 (8.0.0-RC5) - Clustering/Session Replication HOW-TO</title><meta name="author" content="Filip Hanik"><meta name="author" content="Peter Rossbach"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/cluster-howto">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -20,7 +16,6 @@
 
         (function(w, d) {
           if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
-            commentsDiv.appendChild(d.createTextNode("Loading comments…"));
             var s = d.createElement("script");
             s.type = "application/javascript";
             s.async = true;
@@ -34,9 +29,9 @@
         })(window, document);
       }), false);
     })();
-  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo"><a href="http://www.apache.org/" target="_blank"><img src="http://www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8</h1><div class="versionInfo">
-          Version 8.0.0-RC3,
-          <time datetime="2013-09-19">Sep 19 2013</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2><strong>User Guide</strong></h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li></ul></div><div><h2><strong>Reference</strong></h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2><strong>Apache Tomcat Development</strong></h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Clustering/Session Replication HOW-TO</h2><h3 id="Important_Note">Important Note</h3><div class="text">
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="./images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8</h1><div class="versionInfo">
+          Version 8.0.0-RC5,
+          <time datetime="2013-10-16">Oct 16 2013</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2><strong>User Guide</strong></h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li></ul></div><div><h2><strong>Reference</strong></h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2><strong>Apache Tomcat Development</strong></h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Clustering/Session Replication HOW-TO</h2><h3 id="Important_Note">Important Note</h3><div class="text">
 <p><b>You can also check the <a href="config/cluster.html">configuration reference documentation.</a></b>
 </p>
 </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
@@ -113,7 +108,7 @@
   <p>Will cover this section in more detail later in this document.</p>
 </div><h3 id="Cluster_Basics">Cluster Basics</h3><div class="text">
 
-<p>To run session replication in your Tomcat 7.0 container, the following steps
+<p>To run session replication in your Tomcat 8 container, the following steps
 should be completed:</p>
 <ul>
   <li>All your session attributes must implement <code>java.io.Serializable</code></li>
@@ -190,7 +185,7 @@ should be completed:</p>
     Synchronous vs. asynchronous is configured using the <code>channelSendOptions</code>
     flag and is an integer value. The default value for the <code>SimpleTcpCluster/DeltaManager</code> combo is
     8, which is asynchronous. You can read more on the <a href="tribes/introduction.html">send flag(overview)</a> or the
-    <a href="http://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/tribes/Channel.html">send flag(javadoc)</a>.
+    <a href="http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/tribes/Channel.html">send flag(javadoc)</a>.
     During async replication, the request is returned before the data has been replicated. async replication yields shorter
     request times, and synchronous replication guarantees the session to be replicated before the request returns.
 </p>
@@ -214,7 +209,7 @@ should be completed:</p>
 <p>
     <b>Hint:</b><br>
     With attribute <i>sessionIdAttribute</i> you can change the request attribute name that included the old session id.
-    Default attribute name is <i>org.apache.catalina.cluster.session.JvmRouteOrignalSessionID</i>.
+    Default attribute name is <i>org.apache.catalina.ha.session.JvmRouteOrignalSessionID</i>.
 </p>
 <p>
     <b>Trick:</b><br>
@@ -278,7 +273,7 @@ should be completed:</p>
       The main element, inside this element all cluster details can be configured.
       The <code>channelSendOptions</code> is the flag that is attached to each message sent by the
       SimpleTcpCluster class or any objects that are invoking the SimpleTcpCluster.send method.
-      The description of the send flags is available at <a href="http://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/tribes/Channel.html">
+      The description of the send flags is available at <a href="http://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/tribes/Channel.html">
       our javadoc site</a>
       The <code>DeltaManager</code> sends information using the SimpleTcpCluster.send method, while the backup manager
       sends it itself directly through the channel.
@@ -526,7 +521,7 @@ should be completed:</p>
     </p>
 </li>
 <li><b><code>TomcatA</code> receives a request, invalidate is called on the session (<code>S1</code>)</b>
-    <p>The invalidate is call is intercepted, and the session is queued with invalidated sessions.
+    <p>The invalidate call is intercepted, and the session is queued with invalidated sessions.
         When the request is complete, instead of sending out the session that has changed, it sends out
         an "expire" message to TomcatB and TomcatB will invalidate the session as well.
     </p>
@@ -539,9 +534,9 @@ should be completed:</p>
 
 </li>
 <li><code>TomcatA</code> The session <code>S2</code> expires due to inactivity.
-    <p>The invalidate is call is intercepted the same was as when a session is invalidated by the user,
+    <p>The invalidate call is intercepted the same was as when a session is invalidated by the user,
        and the session is queued with invalidated sessions.
-       At this point, the invalidet session will not be replicated across until
+       At this point, the invalidated session will not be replicated across until
        another request comes through the system and checks the invalid queue.
     </p>
 </li>
@@ -652,7 +647,7 @@ should be completed:</p>
                     and ask your question on the tomcat-users
                     <a href="http://tomcat.apache.org/lists.html">mailing list</a>.
                     Do not ask such questions here. This is not a Q&amp;A section.<br><br>
-                    The Apache Comments System is explained <a href="/tomcat-8.0-doc/comments.html">here</a>.
+                    The Apache Comments System is explained <a href="./comments.html">here</a>.
                     Comments may be removed by our moderators if they are either
                     implemented or considered invalid/off-topic.
                   </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">

@@ -58,8 +58,13 @@ main {
 }
 
 #header {
-  box-shadow: 0 0 7px #aaa;
   border-bottom: 1px solid #bbb;
+}
+
+@media not print {
+    #header {
+        box-shadow: 0 0 7px #aaa;
+    }
 }
 
 #header > div {
@@ -182,8 +187,13 @@ main {
   padding-left: 5px;
   padding-right: 5px;
   background-color: #eaeaea;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+}
+
+@media not print {
+    #content h3, #content h4, #content h5, #content h6 {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 }
 
 #content h4, #content h5, #content h6 {
@@ -194,7 +204,7 @@ code {
   background-color: rgb(224,255,255);
 }
 
-div.codeBox pre code, code.attributeName, code.propertyName, code.noHighlight {
+div.codeBox pre code, code.attributeName, code.propertyName, code.noHighlight, .noHighlight code {
   background-color: transparent;
 }
 div.codeBox {
@@ -266,4 +276,18 @@ ul.changelog  li{
 
 ul.changelog img {
   vertical-align: middle
+}
+
+
+/* Printer-only Styles */
+@media print {
+    .noPrint { display: none; }
+    #middle > div > div#mainLeft { display: none; }
+    a { color: inherit; text-decoration: none; }
+}
+
+/* Fix for Comments section which contains a <h4> */
+#comments_thread h1, #comments_thread h2, #comments_thread h3, #comments_thread h4, #comments_thread h5, #comments_thread h6 {
+    border: none;
+    background-color: transparent;
 }
