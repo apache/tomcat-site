@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20131101" />
+    <meta name="Date-Revision-yyyymmdd" content="20131103" />
     <meta http-equiv="Content-Language" content="en" />
     <title>Apache Tomcat Maven Plugin :: Tomcat 7.x - 
     tomcat7:standalone-war-only</title>
@@ -193,7 +193,7 @@
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 01 November 2013</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 03 November 2013</li>
               <li id="projectVersion" class="pull-right">
                     Version: 2.2-SNAPSHOT
         </li>
@@ -224,6 +224,8 @@ that is also capable of being deployed elsewhere.</div>
 <ul>
         
 <li>Requires a Maven project to be executed.</li>
+        
+<li>The goal is thread-safe and supports parallel builds.</li>
         
 <li>Since version: <tt>2.1</tt>.</li>
       </ul>
@@ -413,6 +415,17 @@ logger configuration etc<br /></td>
           
 <tr class="a">
             
+<td><b><a href="#httpPort">httpPort</a></b></td>
+            
+<td><tt>String</tt></td>
+            
+<td><tt>2.2</tt></td>
+            
+<td>configure a default http port for the standalone jar<br /><b>User property is</b>: <tt>maven.tomcat.exec.war.httpPort</tt>.</td>
+          </tr>
+          
+<tr class="b">
+            
 <td><b><a href="#pluginWorkDirectory">pluginWorkDirectory</a></b></td>
             
 <td><tt>File</tt></td>
@@ -423,7 +436,7 @@ logger configuration etc<br /></td>
 temporary work.<br /><b>Default value is</b>: <tt>${project.build.directory}/tomcat7-maven-plugin-exec</tt>.<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#serverXml">serverXml</a></b></td>
             
@@ -434,7 +447,7 @@ temporary work.<br /><b>Default value is</b>: <tt>${project.build.directory}/tom
 <td>(no description)<br /><b>Default value is</b>: <tt>src/main/tomcatconf/server.xml</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.exec.war.serverXml</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#skip">skip</a></b></td>
             
@@ -445,7 +458,7 @@ temporary work.<br /><b>Default value is</b>: <tt>${project.build.directory}/tom
 <td>Skip the execution<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.skip</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#tomcatConfigurationFilesDirectory">tomcatConfigurationFilesDirectory</a></b></td>
             
@@ -456,7 +469,7 @@ temporary work.<br /><b>Default value is</b>: <tt>${project.build.directory}/tom
 <td>(no description)<br /><b>Default value is</b>: <tt>src/main/tomcatconf</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.exec.war.tomcatConf</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#warRunDependencies">warRunDependencies</a></b></td>
             
@@ -626,6 +639,20 @@ logger configuration etc</div>
 <li><b>User Property</b>: <tt>tomcat.jar.finalName</tt></li>
           
 <li><b>Default</b>: <tt>${project.artifactId}-${project.version}-standalone.war</tt></li>
+        </ul><hr />
+<p><b><a name="httpPort">httpPort</a>:</b></p>
+        
+<div>configure a default http port for the standalone jar</div>
+        
+<ul>
+          
+<li><b>Type</b>: <tt>java.lang.String</tt></li>
+          
+<li><b>Since</b>: <tt>2.2</tt></li>
+          
+<li><b>Required</b>: <tt>No</tt></li>
+          
+<li><b>User Property</b>: <tt>maven.tomcat.exec.war.httpPort</tt></li>
         </ul><hr />
 <p><b><a name="mainClass">mainClass</a>:</b></p>
         
