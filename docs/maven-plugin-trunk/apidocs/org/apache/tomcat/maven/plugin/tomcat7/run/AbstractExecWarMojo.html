@@ -199,6 +199,14 @@ Class AbstractExecWarMojo</H2>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#excludes">excludes</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File patterns to exclude from extraDependencies</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/ExtraDependency.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run">ExtraDependency</A>&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#extraDependencies">extraDependencies</A></B></CODE>
 
@@ -391,11 +399,20 @@ Class AbstractExecWarMojo</H2>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#extractJarToArchive(java.util.jar.JarFile, org.apache.commons.compress.archivers.ArchiveOutputStream)">extractJarToArchive</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/jar/JarFile.html?is-external=true" title="class or interface in java.util.jar">JarFile</A>&nbsp;file,
-                    <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/commons.compress.archivers.ArchiveOutputStream.html?is-external=true" title="class or interface in org.apache">org.apache.commons.compress.archivers.ArchiveOutputStream</A>&nbsp;os)</CODE>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#extractJarToArchive(java.util.jar.JarFile, org.apache.commons.compress.archivers.ArchiveOutputStream, java.lang.String[])">extractJarToArchive</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/jar/JarFile.html?is-external=true" title="class or interface in java.util.jar">JarFile</A>&nbsp;file,
+                    <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/commons.compress.archivers.ArchiveOutputStream.html?is-external=true" title="class or interface in org.apache">org.apache.commons.compress.archivers.ArchiveOutputStream</A>&nbsp;os,
+                    <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;excludes)</CODE>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copy the contents of a jar file to another archive</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#findArtifactVersion(org.apache.maven.model.Dependency)">findArtifactVersion</A></B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;dependency)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -404,6 +421,15 @@ Class AbstractExecWarMojo</H2>
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resolves the plugin work dir as a sub directory of <A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#buildDirectory"><CODE>buildDirectory</CODE></A>, creating it if it does not exist.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html#sameDependencyWithoutVersion(org.apache.maven.model.Dependency, org.apache.maven.model.Dependency)">sameDependencyWithoutVersion</A></B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;that,
+                             <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;dependency)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -781,6 +807,21 @@ httpPort</H3>
   <DD>2.2</DD>
 </DL>
 </DL>
+<HR>
+
+<A NAME="excludes"><!-- --></A><H3>
+excludes</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
+</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[] <B>excludes</B></PRE>
+<DL>
+<DD>File patterns to exclude from extraDependencies
+<P>
+<DL>
+<DT><B>Since:</B></DT>
+  <DD>2.2</DD>
+</DL>
+</DL>
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 
@@ -821,6 +862,29 @@ public void <B>execute</B>()
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE>
 <DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoFailureException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoFailureException</A></CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="findArtifactVersion(org.apache.maven.model.Dependency)"><!-- --></A><H3>
+findArtifactVersion</H3>
+<PRE>
+protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>findArtifactVersion</B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;dependency)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="sameDependencyWithoutVersion(org.apache.maven.model.Dependency, org.apache.maven.model.Dependency)"><!-- --></A><H3>
+sameDependencyWithoutVersion</H3>
+<PRE>
+protected boolean <B>sameDependencyWithoutVersion</B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;that,
+                                               <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.model.Dependency.html?is-external=true" title="class or interface in org.apache">org.apache.maven.model.Dependency</A>&nbsp;dependency)</PRE>
+<DL>
+<DD><DL>
+</DL>
 </DD>
 </DL>
 <HR>
@@ -888,11 +952,12 @@ protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.htm
 </DL>
 <HR>
 
-<A NAME="extractJarToArchive(java.util.jar.JarFile, org.apache.commons.compress.archivers.ArchiveOutputStream)"><!-- --></A><H3>
+<A NAME="extractJarToArchive(java.util.jar.JarFile, org.apache.commons.compress.archivers.ArchiveOutputStream, java.lang.String[])"><!-- --></A><H3>
 extractJarToArchive</H3>
 <PRE>
 protected void <B>extractJarToArchive</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/jar/JarFile.html?is-external=true" title="class or interface in java.util.jar">JarFile</A>&nbsp;file,
-                                   <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/commons.compress.archivers.ArchiveOutputStream.html?is-external=true" title="class or interface in org.apache">org.apache.commons.compress.archivers.ArchiveOutputStream</A>&nbsp;os)
+                                   <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/commons.compress.archivers.ArchiveOutputStream.html?is-external=true" title="class or interface in org.apache">org.apache.commons.compress.archivers.ArchiveOutputStream</A>&nbsp;os,
+                                   <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;excludes)
                             throws <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></PRE>
 <DL>
 <DD>Copy the contents of a jar file to another archive

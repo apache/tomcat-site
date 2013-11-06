@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
-<duplication lines="136" tokens="719">
-<file line="341" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.java"/>
-<file line="149" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractStandaloneWarMojo.java"/>
+<duplication lines="64" tokens="396">
+<file line="360" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.java"/>
+<file line="150" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractStandaloneWarMojo.java"/>
 <codefragment>
 <![CDATA[
             if ( serverXml != null && serverXml.exists() )
@@ -40,7 +40,7 @@
                     || StringUtils.equals( "tomcat7-war-runner", pluginArtifact.getArtifactId() ) )
                 {
                     JarFile jarFile = new JarFile( pluginArtifact.getFile() );
-                    extractJarToArchive( jarFile, os );
+                    extractJarToArchive( jarFile, os, null );
                 }
             }
 
@@ -49,15 +49,35 @@
             {
                 for ( Dependency dependency : extraDependencies )
                 {
+                    String version = dependency.getVersion();
+                    if ( StringUtils.isEmpty( version ) )
+                    {
+                        version = findArtifactVersion( dependency );
+                    }
+
+                    if ( StringUtils.isEmpty( version ) )
+                    {
+                        throw new MojoExecutionException(
+                            "Dependency '" + dependency.getGroupId() + "':'" + dependency.getArtifactId()
+                                + "' does not have version specified" );
+                    }
                     // String groupId, String artifactId, String version, String scope, String type
                     Artifact artifact =
-                        artifactFactory.createArtifact( dependency.getGroupId(), dependency.getArtifactId(),
-                                                        dependency.getVersion(), dependency.getScope(),
-                                                        dependency.getType() );
+                        artifactFactory.createArtifact( dependency.getGroupId(), dependency.getArtifactId(), version,
+                                                        dependency.getScope(), dependency.getType() );
 
                     artifactResolver.resolve( artifact, this.remoteRepos, this.local );
                     JarFile jarFile = new JarFile( artifact.getFile() );
-                    extractJarToArchive( jarFile, os );
+                    extractJarToArchive( jarFile, os, excludes );
+]]>
+</codefragment>
+</duplication>
+<duplication lines="84" tokens="381">
+<file line="424" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.java"/>
+<file line="213" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractStandaloneWarMojo.java"/>
+<codefragment>
+<![CDATA[
+                    extractJarToArchive( jarFile, os, excludes );
                 }
             }
 
@@ -145,8 +165,8 @@
 </codefragment>
 </duplication>
 <duplication lines="58" tokens="215">
-<file line="223" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.java"/>
-<file line="84" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractStandaloneWarMojo.java"/>
+<file line="230" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.java"/>
+<file line="85" path="/scratch/jenkins/workspace/tomcat-maven-plugin-site-deploy/tomcat7-maven-plugin/src/main/java/org/apache/tomcat/maven/plugin/tomcat7/run/AbstractStandaloneWarMojo.java"/>
 <codefragment>
 <![CDATA[
         }
