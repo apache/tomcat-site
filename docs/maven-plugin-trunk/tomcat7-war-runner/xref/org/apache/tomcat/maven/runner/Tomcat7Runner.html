@@ -590,10 +590,10 @@
 <a class="jxr_linenumber" name="580" href="#580">580</a>                 debugMessage( <span class="jxr_string">"expand to file:"</span> + expandFile.getPath() );
 <a class="jxr_linenumber" name="581" href="#581">581</a> 
 <a class="jxr_linenumber" name="582" href="#582">582</a>                 <em class="jxr_comment">// MTOMCAT-211 ensure parent directories created</em>
-<a class="jxr_linenumber" name="583" href="#583">583</a> 
-<a class="jxr_linenumber" name="584" href="#584">584</a>                 <strong class="jxr_keyword">if</strong> ( !expandFile.getParentFile().mkdirs() )
+<a class="jxr_linenumber" name="583" href="#583">583</a>                 File parentFile = expandFile.getParentFile();
+<a class="jxr_linenumber" name="584" href="#584">584</a>                 <strong class="jxr_keyword">if</strong> ( !parentFile.mkdirs() &amp;&amp; !parentFile.isDirectory())
 <a class="jxr_linenumber" name="585" href="#585">585</a>                 {
-<a class="jxr_linenumber" name="586" href="#586">586</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception( <span class="jxr_string">"FATAL: impossible to create directories:"</span> + expandFile.getParentFile() );
+<a class="jxr_linenumber" name="586" href="#586">586</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception( <span class="jxr_string">"FATAL: impossible to create directories:"</span> + parentFile );
 <a class="jxr_linenumber" name="587" href="#587">587</a>                 }
 <a class="jxr_linenumber" name="588" href="#588">588</a> 
 <a class="jxr_linenumber" name="589" href="#589">589</a>                 expand( inputStream, expandFile );
