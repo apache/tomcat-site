@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.0.0-RC5) - The Context Container</title><meta name="author" content="Craig R. McClanahan"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/config/context">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.0.0-RC10) - The Context Container</title><meta name="author" content="Craig R. McClanahan"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/config/context">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -30,8 +30,8 @@
       }), false);
     })();
   </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8 Configuration Reference</h1><div class="versionInfo">
-          Version 8.0.0-RC5,
-          <time datetime="2013-10-16">Oct 16 2013</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2><strong>Top Level Elements</strong></h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2><strong>Executors</strong></h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2><strong>Connectors</strong></h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2><strong>Containers</strong></h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2><strong>Nested Components</strong></h2><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2><strong>Cluster Elements</strong></h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2><strong>Other</strong></h2><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Context Container</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+          Version 8.0.0-RC10,
+          <time datetime="2013-12-19">Dec 19 2013</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>Other</h2><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Context Container</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a><ol><li><a href="#Parallel_deployment">Parallel deployment</a></li><li><a href="#Naming">Naming</a></li><li><a href="#Defining_a_context">Defining a context</a></li></ol></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#Logging">Logging</a></li><li><a href="#Access_Logs">Access Logs</a></li><li><a href="#Automatic_Context_Configuration">Automatic Context Configuration</a></li><li><a href="#Context_Parameters">Context Parameters</a></li><li><a href="#Environment_Entries">Environment Entries</a></li><li><a href="#Lifecycle_Listeners">Lifecycle Listeners</a></li><li><a href="#Request_Filters">Request Filters</a></li><li><a href="#Resource_Definitions">Resource Definitions</a></li><li><a href="#Resource_Links">Resource Links</a></li><li><a href="#Transaction">Transaction</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -458,6 +458,15 @@
         System.out and System.err by the web application will be redirected to
         the web application logger. If not specified, the default value
         of the flag is <code>false</code>.</p>
+      </td></tr><tr><td><code class="attributeName">tldValidation</code></td><td>
+        <p>If the value of this flag is <code>true</code>, the TLD files
+        will be XML validated on context startup. If the
+        <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
+        <a href="systemprops.html">system property</a> is set to
+        <code>true</code>, the default value of this attribute will be
+        <code>true</code>, else the default value will be <code>false</code>.
+        Setting this attribute to <code>true</code> will incur a performance
+        penalty.</p>
       </td></tr><tr><td><code class="attributeName">useHttpOnly</code></td><td>
        <p>Should the HttpOnly flag be set on session cookies to prevent client
           side script from accessing the session ID? Defaults to
@@ -466,19 +475,33 @@
         <p>Java class name of the <code>org.apache.catalina.Wrapper</code>
         implementation class that will be used for servlets managed by this
         Context.  If not specified, a standard default value will be used.</p>
+      </td></tr><tr><td><code class="attributeName">xmlBlockExternal</code></td><td>
+        <p>If the value of this flag is <code>true</code>, the parsing of
+        <code>web.xml</code>, <code>web-fragment.xml</code>, <code>*.tld</code>,
+        <code>*.jspx</code>, <code>*.tagx</code> and <code>tagPlugins.xml</code>
+        files for this web application will not permit external entities to be
+        loaded. If a <code>SecurityManager</code> is configured then the default
+        value of this attribute will be <code>true</code>, else the default
+        value will be <code>false</code>.</p>
       </td></tr><tr><td><code class="attributeName">xmlNamespaceAware</code></td><td>
-        <p>If the value of this flag is <code>true</code>, the validation of
-        XML files will be namespace-aware.  If you turn this flag on,
-        you should probably also turn <code>xmlValidation</code> on. If
-        the <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
+        <p>If the value of this flag is <code>true</code>, the parsing of
+        <code>web.xml</code> and <code>web-fragment.xml</code> files for this
+        web application will be namespace-aware. Note that <code>*.tld</code>,
+        <code>*.jspx</code> and <code>*.tagx</code> files are always parsed
+        using a namespace-aware parser and that the <code>tagPlugins.xml</code>
+        file (if any) is never parsed using a namespace-aware parser. Note also
+        that if you turn this flag on, you should probably also turn
+        <code>xmlValidation</code> on. If the
+        <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
         <a href="systemprops.html">system property</a> is set to
         <code>true</code>, the default value of this attribute will be
         <code>true</code>, else the default value will be <code>false</code>.
         Setting this attribute to <code>true</code> will incur a performance
         penalty.</p>
       </td></tr><tr><td><code class="attributeName">xmlValidation</code></td><td>
-        <p>If the value of this flag is <code>true</code>, the XML files
-        will be validated on context startup. If the
+        <p>If the value of this flag is <code>true</code>, the parsing of
+        <code>web.xml</code> and <code>web-fragment.xml</code> files for this
+        web application will use a validating parser. If the
         <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
         <a href="systemprops.html">system property</a> is set to
         <code>true</code>, the default value of this attribute will be
@@ -519,28 +542,12 @@
         (or any other OS which does not have a case sensitive filesystem),
         as it will disable case sensitivity checks, allowing JSP source code
         disclosure, among other security problems.</b></p>
-      </td></tr><tr><td><code class="attributeName">antiJARLocking</code></td><td>
-        <p>If true, the Tomcat classloader will take extra measures to avoid
-        JAR file locking when resources are accessed inside JARs through URLs.
-        This will impact startup time of applications, but could prove to be
-        useful on platforms or configurations where file locking can occur.
-        If not specified, the default value is <code>false</code>.</p>
-
-        <p><code>antiJARLocking</code> is a subset of
-        <code>antiResourceLocking</code> and therefore, to prevent duplicate
-        work and possible issues, only one of these attributes should be set
-        to <code>true</code> at any one time.</p>
       </td></tr><tr><td><code class="attributeName">antiResourceLocking</code></td><td>
         <p>If true, Tomcat will prevent any file locking.
         This will significantly impact startup time of applications,
         but allows full webapp hot deploy and undeploy on platforms
         or configurations where file locking can occur.
         If not specified, the default value is <code>false</code>.</p>
-
-        <p><code>antiJARLocking</code> is a subset of
-        <code>antiResourceLocking</code> and therefore, to prevent duplicate
-        work and possible issues, only one of these attributes should be set
-        to <code>true</code> at any one time.</p>
 
         <p>Please note that setting this to <code>true</code> has some side
         effects, including the disabling of JSP reloading in a running server:
@@ -607,6 +614,20 @@
         application. Unlike standard threads, timer threads can be stopped
         safely although there may still be side-effects for the application. If
         not specified, the default value of <code>false</code> will be used.</p>
+      </td></tr><tr><td><code class="attributeName">copyXML</code></td><td>
+        <p>Set to <code>true</code> if you want a context XML descriptor
+        embedded inside the application (located at
+        <code>/META-INF/context.xml</code>) to be copied to the owning
+        <a href="host.html">Host</a>'s <code>xmlBase</code> when the application
+        is deployed. On subsequent starts, the copied context XML descriptor
+        will be used in preference to any context XML descriptor embedded inside
+        the application even if the descriptor embedded inside the application
+        is more recent. The flag's value defaults to <code>false</code>. Note if
+        the <strong>deployXML</strong> attribute of the owning
+        <a href="host.html">Host</a> is <code>false</code> or if the
+        <strong>copyXML</strong> attribute of the owning
+        <a href="host.html">Host</a> is <code>true</code>, this attribute will
+        have no effect.</p>
       </td></tr><tr><td><code class="attributeName">jndiExceptionOnFailedWrite</code></td><td>
         <p>If <code>true</code>, any attempt by an application to modify the
         provided JNDI context with a call to bind(), unbind(),
