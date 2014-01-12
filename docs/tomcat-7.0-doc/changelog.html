@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.47) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.50) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -18,7 +18,443 @@
             }
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.47, Oct 18 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.47 (violetagg)"><!--()--></a><a name="Tomcat_7.0.47_(violetagg)"><strong>Tomcat 7.0.47 (violetagg)</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.50, Dec 19 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)"><strong>Tomcat 7.0.50 (violetagg)</strong></a></font></td></tr><tr><td><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Handle the case where a <code>context.xml</code> file is added to a
+        web application deployed from a directory. Previously the file was
+        ignored until Tomcat was restarted. Now (assuming automatic deployment
+        is enabled) it will trigger a redeploy of the web application. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix string comparison in <code>HostConfig.setContextClass()</code>.
+        (kkolinko)
+      </td></tr>
+      <tr><td><img alt="code" class="icon" src="./images/code.gif"></td><td>
+        Streamline handling of WebSocket messages whe no handler is configured
+        for the message currently being received. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Handle the case where a WebSocket annotation configures a message size
+        limit larger than the default permitted by Tomcat. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55855">55855</a>: This is a partial fix that bypasses the relatively
+        expensive check for a WebSocket upgrade request if no WebSocket
+        endpoints have been registered. (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55905">55905</a>: Prevent a NPE when web.xml references a taglib file
+        that does not exist. Provide better error message. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Coyote"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        When using the BIO connector with an internal executor, do not display a
+        warning that the executor has not shutdown as the default configuration
+        for BIO connectors is not to wait. This is because threads in
+        keep-alive connections cannot be interrupted and therefore the warning
+        was nearly always displayed. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Jasper"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        JspC uses servlet context initialization parameters to pass
+        configuration so ensure that the servlet context used supports
+        initialization parameters. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Cluster"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Cluster"><strong>Cluster</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        In <code>AbstractReplicatedMap#finalize</code>, remove rpcChannel from
+        channel Listener of group channel before sending
+        <code>MapMessage.MSG_STOP</code> message. This prevents that the node
+        that sent the <code>MapMessage.MSG_STOP</code> by normal shutdown is
+        added to member map again by ping at heartbeat thread in the node that
+        received the <code>MapMessage.MSG_STOP</code>. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Add time stamp to <code>GET_ALL_SESSIONS</code> message. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Web applications"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix the sample configuration of <code>StaticMembershipInterceptor</code>
+        in order to prevent warning log. uniqueId must be 16 bytes. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.50 (violetagg)/Extras"><!--()--></a><a name="Tomcat_7.0.50_(violetagg)/Extras"><strong>Extras</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update dependencies that are used to build tomcat-juli extras component.
+        Apache Avalon Framework is updated to version 4.1.5, Apache Log4J to
+        version 1.2.17. (rjung)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.49 (violetagg)"><!--()--></a><a name="Tomcat_7.0.49_(violetagg)"><strong>Tomcat 7.0.49 (violetagg)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>not released</strong></font></td></tr><tr><td colspan="2"><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.49 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.49_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct a regression in the new XML local resolver that triggered false
+        failures when XML validation was configured. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Prevent a NPE when destroying HTTP upgrade handler for WebSocket
+        connections. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)"><strong>Tomcat 7.0.48 (violetagg)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>not released</strong></font></td></tr><tr><td colspan="2"><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=51294">51294</a>: Add support for unpacking WARs located outside of the
+        Host's appBase in to the appBase. (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55656">55656</a>: Configure the Digester to use the server class loader
+        when parsing server.xml rather than the class loader that loaded
+        StandardServer. Patch provided by Roberto Benedetti. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55664">55664</a>: Correctly handle JSR 356 WebSocket Encoder, Decoder
+        and MessageHandler implementations that use a generic type such as
+        <code>Encoder.Text&lt;List&lt;String&gt;&gt;</code>. Includes a test
+        case by Niki Dokovski. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correctly handle WebSocket <code>Encoder</code>s, <code>Decoder</code>s
+        and <code>MessageHandler</code>s that use arrays of generic types.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55681">55681</a>: Ensure that the WebSocket session is made available
+        to <code>MessageHandler</code> method calls. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Updated servlet spec version and documentation section-number reported
+        when JAR files are rejected for containing a trigger class
+        (e.g. javax.servlet.Servlet). (schultz)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Modify the WebSocket handshake process so that the user properties
+        <code>Map</code> exposed by the <code>ServerEndpointConfig</code> during
+        the call to <code>Configurator.modifyHandshake()</code> is unique to the
+        connection rather than shared by all connections associated with the
+        Endpoint. This allows for easier configuration of per connection
+        properties from within <code>modifyHandshake()</code>. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55684">55684</a>: Log a warning but continue if the memory leak
+        detection code is unable to access all threads to check for possible
+        memory leaks when a web application is stopped. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Define the web-fragment.xml in tomcat7-websocket.jar as a Servlet 3.0
+        web fragment rather than as a Servlet 3.1 web fragment. (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55715">55715</a>: Add a per web application executor to the WebSocket
+        implementation and use it for calling
+        <code>SendHandler.onResult()</code> when there is a chance that the
+        current thread also initiated the write. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Prevent file descriptors leak and ensure that files are closed when
+        configuring the web application. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fixed the name of the provider-configuration file located in
+        <code>tomcat7-websocket.jar!/META-INF/services</code> that exposes
+        information for
+        <code>javax.websocket.server.ServerEndpointConfig$Configurator</code>
+        implementation. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55760">55760</a>: Remove the unnecessary setting of the
+        <code>javax.security.auth.useSubjectCredsOnly</code> system property in
+        the <code>SpnegoAuthenticator</code> as in addition to it being
+        unnecessary, it causes problems with using SPNEGO with IBM JDKs. Patch
+        provided by Arunav Sanyal. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55772">55772</a>: Ensure that the request and response are recycled
+        after an error during asynchronous processing. Includes a test case
+        based on code contributed by Todd West. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55778">55778</a>: Add an option to the JNDI Realm to control the QOP
+        used for the connection to the LDAP server after authentication when
+        using SPNEGO with delegated credentials. This value is used to set the
+        <code>javax.security.sasl.qop</code> environment property for the LDAP
+        connection. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55798">55798</a>: Log an error if the MemoryUserDatabase is unable to
+        find the specified user database file. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55799">55799</a>: Correctly enforce the restriction in JSR356 that no
+        more than one data message may be sent to a remote WebSocket endpoint at
+        a time. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        When Catalina parses TLD files, always use a namespace aware parser to
+        be consistent with how Jasper parses TLD files. The
+        <code>tldNamespaceAware</code> attribute of the Context is now ignored.
+        (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Deprecate the <code>tldNamespaceAware</code> Context attribute as TLDs
+        are always parsed with a namespace aware parser. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct a logic error that meant that unpackWARs was ignored and the WAR
+        was always expanded if a WAR failed to deploy. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add support for defining <code>copyXML</code> on a per Context basis.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Define the expected behaviour of the automatic deployment and align the
+        implementation to that definition. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        When running under a security manager, change the default value of the
+        Host's <code>deployXML</code> attribute to <code>false</code>.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        If a Host is configured with a value of <code>false</code> for
+        <code>deployXML</code>, a web application has an embedded
+        descriptor at <code>META-INF/context.xml</code> and no explicit
+        descriptor has been defined for this application, do not allow the
+        application to start. The reason for this is that the embedded
+        descriptor may contain configuration necessary for secure operation
+        such as a <code>RemoteAddrValve</code>. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Prevent an NPE in the WebSocket <code>ServerContainer</code> when
+        processing an HTTP session end event. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55801">55801</a>: Add the ability to set a custom
+        <code>SSLContext</code> to use for client wss connections. Patch
+        provided by Maciej Lypik. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55804">55804</a>: If the GSSCredential for the cached Principal expires
+        when using SPNEGO authentication, force a re-authentication. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55811">55811</a>: If the main web.xml contains an empty
+        absolute-ordering element and validation of web.xml is not enabled, skip
+        parsing any web-fragment.xml files as the result is never used. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55839">55839</a>: Extend support for digest prefixes {MD5}, {SHA} and
+        {SSHA} to all Realms rather than just the JNDIRealm. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55842">55842</a>: Ensure that if a larger than default response buffer
+        is configured that the full buffer is used when a Servlet outputs via a
+        Writer. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55851">55851</a>: Further fixes to enable SPNEGO authentication to work
+        with IBM JDKs. Based on a patch by Arunav Sanyal. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add an option to the Context to control the blocking of XML external
+        entities when parsing XML configuration files and enable this blocking
+        by default when a security manager is used. The block is implemented via
+        a custom resolver to enable the logging of any blocked entities. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Coyote"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="code" class="icon" src="./images/code.gif"></td><td>
+        Implement a number of small refactorings to the APR/native handler for
+        upgraded HTTP connections. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix an issue with upgraded HTTP connections over HTTPS (e.g. secure
+        WebSocket) when using the APR/native connector that resulted in the
+        unexpected closure of the connection. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that the application class loader is used when calling the
+        <code>ReadListener</code> and <code>WriteListener</code> methods when
+        using non-blocking IO. A side effect of not doing this was that JNDI was
+        not available when processing WebSocket events. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Make the time that the internal executor (if used) waits for request
+        processing threads to terminate before continuing with the connector
+        stop process configurable. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55749">55749</a>: Improve the error message when <code>SSLEngine</code>
+        is disabled in the <code>AprLifecycleListener</code> and SSL is
+        configured for an APR/native connector. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        If a request that includes an <code>Expect: 100-continue</code> header
+        receives anything other than a 2xx response, close the connection This
+        protects against misbehaving clients that may not sent the request body
+        in that case and send the next request instead. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve the parsing of trailing headers in HTTP requests. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Jasper"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55807">55807</a>: The JSP compiler used a last modified time of -1 for
+        TLDs in JARs expanded in to WEB-INF/classes (IDEs often do this
+        expansion) when creating the dependency list for JSPs that used that
+        TLD. This meant JSPs using that TLD were recompiled on every access.
+        (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Cluster"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Cluster"><strong>Cluster</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add log message that initialization of
+        <code>AbstractReplicatedMap</code> has been completed. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        The logger of <code>AbstractReplicatedMap</code> should be non-static in
+        order to enable logging of each application. Side-effects of this change
+        is to throw <code>RuntimeException</code> in
+        <code>MapMessage#getKey()</code> and <code>getValue()</code> instead of
+        Null return and error log. (kfujino)
+      </td></tr>
+      <tr><td><img alt="code" class="icon" src="./images/code.gif"></td><td>
+        Simplify the code of <code>DeltaManager#startInternal()</code>. Reduce
+        unnecessary nesting for acquisition of cluster instance. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Remove unnecessary attributes of 
+        <code>stateTransferCreateSendTime</code> and <code>receiverQueue</code>
+        from cluster manager template. These attributes should not be defined as
+        a template. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix MBean attribute definition of <code>stateTransfered</code>. The
+        method name is not <code>isStateTransfered()</code> but
+        <code>getStateTransfered()</code>. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct stop failure log of cluster. Failure cause is not only Valve.
+        (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Remove unnecessary sleep when sending session blocks on session sync
+        phase. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Expose <code>stateTimestampDrop</code> of
+        <code>org.apache.catalina.ha.session.DeltaManager</code> via JMX.
+        (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        When the ping timeouted, make sure that <code>memberDisappeared</code>
+        method is not called by specifying the members that has already been
+        removed. (kfujino)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add log message of session relocation when member disappeared. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        If ping message fails, prevent wrong timeout detection of normal member
+        that is no failure members. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Web applications"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add some documentation on the SSL configuration options for WebSocket
+        clients. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add to cluster document a description of
+        <code>notifyLifecycleListenerOnFailure</code> and
+        <code>heartbeatBackgroundEnabled</code>. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Update the documentation with information for WebSocket 1.0 specification
+        and javadoc. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55703">55703</a>: Clarify the role of the singleton attribute for JNDI
+        resource factories. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55746">55746</a>: Add documentation on the <code>allRolesMode</code> to
+        the <code>CombinedRealm</code> and <code>LockOutRealm</code>. Patch by
+        C&eacute;dric Couralet. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Expand the information on web applications that ship as part of Tomcat
+        in the security how-to section of the documentation web application.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Expand the description of the WebSocket buffers in the documentation web
+        application to clarify their purpose. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Correct the documentation for Cluster manager. (kfujino)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add information on how to configure integrated Windows authentication
+        when Tomcat is running on a non-Windows host. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Extras"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Extras"><strong>Extras</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update commons-logging to version 1.1.3. (rjung)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.48 (violetagg)/Other"><!--()--></a><a name="Tomcat_7.0.48_(violetagg)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52323">52323</a>: Add support for the Cobertura code coverage tool
+        when running the unit tests. Based on a patch by mhasko.
+        (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update sample Eclipse IDE project. Explicitly use a Java 6 SE JDK.
+        Exclude JSR356 WebSocket classes from build path, as they cannot be
+        compiled with Java 6. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the Eclipse compiler to 4.3.1. (kkolinko/markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.47 (violetagg)"><!--()--></a><a name="Tomcat_7.0.47_(violetagg)"><strong>Tomcat 7.0.47 (violetagg)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>2013-10-24</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.47 (violetagg)/Coyote"><!--()--></a><a name="Tomcat_7.0.47_(violetagg)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
     <table border="0" cellpadding="2" cellspacing="2">
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>

@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.47) - The ClusterManager object</title><meta name="author" content="Filip Hanik"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.50) - The ClusterManager object</title><meta name="author" content="Filip Hanik"><style type="text/css" media="print">
             .noPrint {display: none;}
             td#mainBody {width: 100%;}
         </style><style type="text/css">
@@ -18,7 +18,7 @@
             }
         </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.47, Oct 18 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The ClusterManager object</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.50, Dec 19 2013</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>Other</strong></p><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The ClusterManager object</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#The_<Manager>">The &lt;Manager&gt;</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#org.apache.catalina.ha.session.DeltaManager_Attributes">org.apache.catalina.ha.session.DeltaManager Attributes</a></li><li><a href="#org.apache.catalina.ha.session.BackupManager_Attributes">org.apache.catalina.ha.session.BackupManager Attributes</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
   <p>A cluster manager is an extension to Tomcat's session manager interface,
@@ -69,6 +69,47 @@
         <code>^(userName|sessionHistory)$</code> will only replicate the two
         session attributes named <code>userName</code> and
         <code>sessionHistory</code>.
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">maxInactiveInterval</code></td><td align="left" valign="center">
+        <p>The initial maximum time interval, in seconds,
+        between client requests before a session is invalidated. A negative value
+        will result in sessions never timing out. If the attribute is not provided,
+        a default of 1800 seconds (30 minutes) is used.</p>
+        <p>This attribute provides the initial value whenever a
+        new session is created, but the interval may be dynamically
+        varied by a servlet via the
+        <code>setMaxInactiveInterval</code> method of the <code>HttpSession</code> object.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">sessionIdLength</code></td><td align="left" valign="center">
+       <p>The length of session ids created by this Manager, measured in bytes,
+        excluding subsequent conversion to a hexadecimal string and
+        excluding any JVM route information used for load balancing.
+        The default is 16.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">processExpiresFrequency</code></td><td align="left" valign="center">
+        <p>Frequency of the session expiration, and related manager operations.
+        Manager operations will be done once for the specified amount of
+        backgroundProcess calls (i.e., the lower the amount, the more often the
+        checks will occur). The minimum value is 1, and the default value is 6.
+        </p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">secureRandomClass</code></td><td align="left" valign="center">
+        <p>Name of the Java class that extends
+        <code>java.security.SecureRandom</code> to use to generate session IDs.
+        If not specified, the default value is
+        <code>java.security.SecureRandom</code>.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">secureRandomProvider</code></td><td align="left" valign="center">
+        <p>Name of the provider to use to create the
+        <code>java.security.SecureRandom</code> instances that generate session
+        IDs. If an invalid algorithm and/or provider is specified, the Manager
+        will use the platform default provider and the default algorithm. If not
+        specified, the platform default provider will be used.</p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">secureRandomAlgorithm</code></td><td align="left" valign="center">
+        <p>Name of the algorithm to use to create the
+        <code>java.security.SecureRandom</code> instances that generate session
+        IDs. If an invalid algorithm and/or provider is specified, the Manager
+        will use the platform default provider and the default algorithm. If not
+        specified, the default algorithm of SHA1PRNG will be used. If the
+        default algorithm is not supported, the platform default will be used.
+        To specify that the platform default should be used, do not set the
+        secureRandomProvider attribute and set this attribute to the empty
+        string.</p>
       </td></tr></table>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="org.apache.catalina.ha.session.DeltaManager Attributes"><!--()--></a><a name="org.apache.catalina.ha.session.DeltaManager_Attributes"><strong>org.apache.catalina.ha.session.DeltaManager Attributes</strong></a></font></td></tr><tr><td><blockquote>
@@ -94,6 +135,29 @@
         The time in seconds to wait for a session state transfer to complete
         from another node when a node is starting up.
         Default value is <code>60</code> seconds.
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">sendAllSessions</code></td><td align="left" valign="center">
+        Flag whether send sessions as split blocks.
+        If set to <code>true</code>, send all sessions as one big block.
+        If set to <code>false</code>, send sessions as split blocks.
+        Default value is <code>true</code>.
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">sendAllSessionsSize</code></td><td align="left" valign="center">
+        The number of sessions in a session block message. This value is
+        effective only when <code>sendAllSessions</code> is <code>false</code>.
+        Default is <code>1000</code>.
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">sendAllSessionsWaitTime</code></td><td align="left" valign="center">
+        Wait time between sending of session block messages. This value is
+        effective only when <code>sendAllSessions</code> is <code>false</code>.
+        Default is <code>2000</code> milliseconds.
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">stateTimestampDrop</code></td><td align="left" valign="center">
+        When this node sends a <code>GET_ALL_SESSIONS</code> message to other
+        node, all session messages that are received as a response are queued.
+        If this attribute is set to <code>true</code>, the received session
+        messages (except any <code>GET_ALL_SESSIONS</code> sent by other nodes)
+        are filtered by their timestamp. A message is dropped if it is not a
+        <code>GET_ALL_SESSIONS</code> message and its timestamp is earlier than
+        the timestamp of our <code>GET_ALL_SESSIONS</code> message.
+        If set to <code>false</code>, all queued session messages are handled.
+        Default is <code>true</code>.
       </td></tr></table>
   </blockquote></td></tr></table>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="org.apache.catalina.ha.session.BackupManager Attributes"><!--()--></a><a name="org.apache.catalina.ha.session.BackupManager_Attributes"><strong>org.apache.catalina.ha.session.BackupManager Attributes</strong></a></font></td></tr><tr><td><blockquote>
