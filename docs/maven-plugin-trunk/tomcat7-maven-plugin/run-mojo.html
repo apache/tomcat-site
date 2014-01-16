@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20140108" />
+    <meta name="Date-Revision-yyyymmdd" content="20140116" />
     <meta http-equiv="Content-Language" content="en" />
     <title>Apache Tomcat Maven Plugin :: Tomcat 7.x - 
     tomcat7:run</title>
@@ -193,7 +193,7 @@
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 08 January 2014</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 16 January 2014</li>
               <li id="projectVersion" class="pull-right">
                     Version: 2.3-SNAPSHOT
         </li>
@@ -581,6 +581,19 @@ certificate. If not specified, the default value is &quot;JKS&quot;.<br /><b>Def
           
 <tr class="a">
             
+<td><b><a href="#maxPostSize">maxPostSize</a></b></td>
+            
+<td><tt>int</tt></td>
+            
+<td><tt>2.3</tt></td>
+            
+<td>The max post size to run the Tomcat server on. By default it's
+2097152 bytes. That's the default Tomcat configuration. Set this
+value to 0 or less to disable the post size limit.<br /><b>Default value is</b>: <tt>2097152</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.maxPostSize</tt>.</td>
+          </tr>
+          
+<tr class="b">
+            
 <td><b><a href="#port">port</a></b></td>
             
 <td><tt>int</tt></td>
@@ -592,7 +605,7 @@ props and session.executionProperties with key
 tomcat.maven.http.port<br /><b>Default value is</b>: <tt>8080</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.port</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#propertiesPortFilePath">propertiesPortFilePath</a></b></td>
             
@@ -604,7 +617,7 @@ tomcat.maven.http.port<br /><b>Default value is</b>: <tt>8080</tt>.<br /><b>User
 If empty no file generated<br /><b>User property is</b>: <tt>maven.tomcat.propertiesPortFilePath</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#protocol">protocol</a></b></td>
             
@@ -617,7 +630,7 @@ See possible values <a class="externalLink" href="http://tomcat.apache.org/tomca
 Connector</a> protocol attribute<br /><b>Default value is</b>: <tt>HTTP/1.1</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.protocol</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#serverXml">serverXml</a></b></td>
             
@@ -629,7 +642,7 @@ Connector</a> protocol attribute<br /><b>Default value is</b>: <tt>HTTP/1.1</tt>
 this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.serverXml</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#skip">skip</a></b></td>
             
@@ -640,7 +653,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <td>Skip execution<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.skip</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#staticContextDocbase">staticContextDocbase</a></b></td>
             
@@ -652,7 +665,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <tt>null</tt> static context won't be added<br /><b>User property is</b>: <tt>maven.tomcat.staticContextDocbase</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#staticContextPath">staticContextPath</a></b></td>
             
@@ -663,7 +676,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <td>The static context<br /><b>Default value is</b>: <tt>/</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.staticContextPath</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#systemProperties">systemProperties</a></b></td>
             
@@ -674,7 +687,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <td>List of System properties to pass to the Tomcat Server.<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#tomcatLoggingFile">tomcatLoggingFile</a></b></td>
             
@@ -685,7 +698,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <td>The path of the Tomcat logging configuration.<br /><b>User property is</b>: <tt>maven.tomcat.tomcatLogging.file</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#tomcatUsers">tomcatUsers</a></b></td>
             
@@ -696,7 +709,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 <td>The path of the Tomcat users XML file.<br /><b>User property is</b>: <tt>maven.tomcat.tomcatUsers.file</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#tomcatWebXml">tomcatWebXml</a></b></td>
             
@@ -708,7 +721,7 @@ this file your webapp paths</b>.<br /><b>User property is</b>: <tt>maven.tomcat.
 global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property is</b>: <tt>maven.tomcat.webXml</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#trustManagerClassName">trustManagerClassName</a></b></td>
             
@@ -719,7 +732,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#trustMaxCertLength">trustMaxCertLength</a></b></td>
             
@@ -730,7 +743,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#truststoreAlgorithm">truststoreAlgorithm</a></b></td>
             
@@ -741,7 +754,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#truststoreFile">truststoreFile</a></b></td>
             
@@ -752,7 +765,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#truststorePass">truststorePass</a></b></td>
             
@@ -763,7 +776,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#truststoreProvider">truststoreProvider</a></b></td>
             
@@ -774,7 +787,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#truststoreType">truststoreType</a></b></td>
             
@@ -785,7 +798,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#uriEncoding">uriEncoding</a></b></td>
             
@@ -796,7 +809,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>The character encoding to use for decoding URIs.<br /><b>Default value is</b>: <tt>ISO-8859-1</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.uriEncoding</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#useBodyEncodingForURI">useBodyEncodingForURI</a></b></td>
             
@@ -807,7 +820,7 @@ global Tomcat web.xml located in $CATALINA_HOME/conf/</b><br /><b>User property 
 <td>(no description)<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.useBodyEncodingForURI</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#useNaming">useNaming</a></b></td>
             
@@ -824,7 +837,7 @@ server.</p>
 naming in the <tt>server.xml</tt>.</p><br /><b>Default value is</b>: <tt>true</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.useNaming</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#useSeparateTomcatClassLoader">useSeparateTomcatClassLoader</a></b></td>
             
@@ -836,7 +849,7 @@ naming in the <tt>server.xml</tt>.</p><br /><b>Default value is</b>: <tt>true</t
 will be created to start tomcat.<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>tomcat.useSeparateTomcatClassLoader</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#useTestClasspath">useTestClasspath</a></b></td>
             
@@ -848,7 +861,7 @@ will be created to start tomcat.<br /><b>Default value is</b>: <tt>false</tt>.<b
 add test dependencies too<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.useTestClasspath</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#warSourceDirectory">warSourceDirectory</a></b></td>
             
@@ -859,7 +872,7 @@ add test dependencies too<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>
 <td>The web resources directory for the web application being run.<br /><b>Default value is</b>: <tt>${basedir}/src/main/webapp</tt>.<br /><b>User property is</b>: <tt>tomcat.warSourceDirectory</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#webapps">webapps</a></b></td>
             
@@ -1262,6 +1275,24 @@ certificate. If not specified, the default value is &quot;JKS&quot;.</div>
 <li><b>Required</b>: <tt>No</tt></li>
           
 <li><b>Default</b>: <tt>JKS</tt></li>
+        </ul><hr />
+<p><b><a name="maxPostSize">maxPostSize</a>:</b></p>
+        
+<div>The max post size to run the Tomcat server on. By default it's
+2097152 bytes. That's the default Tomcat configuration. Set this
+value to 0 or less to disable the post size limit.</div>
+        
+<ul>
+          
+<li><b>Type</b>: <tt>int</tt></li>
+          
+<li><b>Since</b>: <tt>2.3</tt></li>
+          
+<li><b>Required</b>: <tt>No</tt></li>
+          
+<li><b>User Property</b>: <tt>maven.tomcat.maxPostSize</tt></li>
+          
+<li><b>Default</b>: <tt>2097152</tt></li>
         </ul><hr />
 <p><b><a name="path">path</a>:</b></p>
         
