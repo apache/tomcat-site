@@ -200,6 +200,9 @@
 <a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.39">Fixed in Apache Tomcat 6.0.39</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_6.0.37">Fixed in Apache Tomcat 6.0.37</a>
 </li>
 <li>
@@ -294,6 +297,64 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.39">
+<span style="float: right;">released 31 January 2014</span> Fixed in Apache Tomcat 6.0.39</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 6.0.38 but the
+       release vote for the 6.0.38 release candidate did not pass. Therefore,
+       although users must download 6.0.39 to obtain a version that includes a
+       fix for these issues, version 6.0.38 is not  included in the list of
+       affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Low: Frame injection in documentation Javadoc</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1571" rel="nofollow">CVE-2013-1571</a>
+</p>
+
+    
+<p>Tomcat 6 is built with Java 5 which is known to generate Javadoc with a
+       frame injection vulnerability.</p>
+
+    
+<p>The published Javadoc on the Apache Tomcat website was fixed the day
+       this issue was announced. The Javadoc generation for releases was fixed
+       in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1557724">1557724</a>.</p>
+
+    
+<p>This issue was published by Oracle on 18 June 2013.</p>
+
+    
+<p>Affects: 6.0.0-6.0.37</p>
+
+    
+<p>
+<strong>Important: Denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3544" rel="nofollow">CVE-2012-3544</a>
+</p>
+
+    
+<p>When processing a request submitted using the chunked transfer encoding,
+       Tomcat ignored but did not limit any extensions that were included. This
+       allows a client to perform a limited DOS by streaming an unlimited
+       amount of data to the server.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1476592">1476592</a>.</p>
+
+    
+<p>This issue was reported to the Tomcat security team on 10 November 2011
+       and made public on 10 May 2013.</p>
+
+    
+<p>Affects: 6.0.0-6.0.36</p>
 
   
 </div>
