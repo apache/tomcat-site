@@ -200,6 +200,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.51">Fixed in Apache Tomcat 7.0.51</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.40">Fixed in Apache Tomcat 7.0.40</a>
 </li>
 <li>
@@ -302,6 +305,41 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.51">
+<span style="float: right;">not yet released</span> Fixed in Apache Tomcat 7.0.51</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050" rel="nofollow">CVE-2014-0050</a>
+</p>
+
+    
+<p>It was possible to craft a malformed Content-Type header for a multipart
+       request that caused Apache Tomcat to enter an infinite loop. A malicious
+       user could, therefore, craft a malformed request that triggered a denial
+       of service.</p>
+    
+    
+<p>The root cause of this error was a bug in Apache Commons FileUpload.
+       Tomcat 7 uses a packaged renamed copy of Apache Commons FileUpload to
+       implement the requirement of the Servlet 3.0 specification to support the
+       processing of mime-multipart requests. Tomcat 7 was therefore affected by
+       this issue.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1565169">1565169</a>.</p>
+
+    
+<p>This issue was reported to the Apache Software Foundation on 04 Feb 2014
+       and accidently made public on 06 Feb 2014.</p>
+
+    
+<p>Affects: 8.0.0-RC1-8.0.1</p>
 
   
 </div>

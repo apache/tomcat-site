@@ -50,10 +50,29 @@
 
   </section>
 
-  <section name="Fixed in Apache Tomcat 8.0.0-RC1" rtext="released 5 August 2013">
+  <section name="Fixed in Apache Tomcat 8.0.2" rtext="not yet released">
 
-    <p>No reports</p>
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2014-0050</cve></p>
+
+    <p>It was possible to craft a malformed Content-Type header for a multipart
+       request that caused Apache Tomcat to enter an infinite loop. A malicious
+       user could, therefore, craft a malformed request that triggered a denial
+       of service.</p>
     
+    <p>The root cause of this error was a bug in Apache Commons FileUpload.
+       Tomcat 8 uses a packaged renamed copy of Apache Commons FileUpload to
+       implement the requirement of the Servlet 3.0 and later specifications to
+       support the processing of mime-multipart requests. Tomcat 8 was therefore
+       affected by this issue.</p>
+
+    <p>This was fixed in revision <revlink rev="1565163">1565163</revlink>.</p>
+
+    <p>This issue was reported to the Apache Software Foundation on 04 Feb 2014
+       and accidently made public on 06 Feb 2014.</p>
+
+    <p>Affects: 8.0.0-RC1-8.0.1</p>
+
   </section>
 
   <section name="Not a vulnerability in Tomcat">
