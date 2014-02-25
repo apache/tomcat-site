@@ -70,6 +70,93 @@
     <p>This issue was published by Oracle on 18 June 2013.</p>
 
     <p>Affects: 6.0.0-6.0.37</p>
+  
+    <p><i>Note: The issues below were fixed in Apache Tomcat 6.0.38 but the
+          release vote for 6.0.38 did not pass.
+          Therefore, although users must download 6.0.39 to obtain a version
+          that includes the fixes for these issues, version 6.0.38 is not
+          included in the list of affected versions.</i></p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2013-4286</cve></p>
+
+    <p>The fix for CVE-2005-2090 was not complete. It did not cover the
+       following cases:</p>
+    <ul>
+      <li>content-length header with chunked encoding over any HTTP connector
+      </li>
+      <li>multiple content-length headers over any AJP connector</li>
+    </ul>
+
+    <p>Requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used should be rejected as invalid.
+       When multiple components (firewalls, caches, proxies and Tomcat) process
+       a sequence of requests where one or more requests contain either multiple
+       content-length headers or a content-length header when chunked encoding
+       is being used and several components do not reject the request and make
+       different decisions as to which content-length header to use an attacker
+       can poison a web-cache, perform an XSS attack and obtain sensitive
+       information from requests other then their own. Tomcat now rejects
+       requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used.</p>
+    
+    <p>This was fixed in revision <revlink rev="1552565">1552565</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat security team on 15 August
+       2013 and made public on 25 February 2014.</p>
+
+    <p>Affects: 6.0.0 to 6.0.37</p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2013-4322</cve></p>
+
+    <p>The fix for CVE-2012-3544 was not complete. It did not cover the
+       following cases:</p>
+    <ul>
+      <li>chunk extensions were not limited</li>
+      <li>whitespace after the : in a trailing header was not limited</li>
+    </ul>
+
+    <p>This was fixed in revision <revlink rev="1556540">1556540</revlink>.</p>
+
+    <p>The first part of this issue was identified by the Apache Tomcat security
+       team on 27 August 2013 and the second part by Saran Neti of TELUS
+       Security Labs on 5 November 2014. It was made public on 25 February 2014.
+       </p>
+
+    <p>Affects: 6.0.0 to 6.0.37</p>
+
+    <p><strong>Low: Information disclosure</strong>
+       <cve>CVE-2013-4590</cve></p>
+
+    <p>Application provided XML files such as web.xml, context.xml, *.tld,
+       *.tagx and *.jspx allowed XXE which could be used to expose Tomcat
+       internals to an attacker. This vulnerability only occurs when Tomcat is
+       running web applications from untrusted sources such as in a shared
+       hosting environment.</p>
+
+    <p>This was fixed in revision <revlink rev="1558828">1558828</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat security team on 29
+       October 2014 and made public on 25 February 2014.</p>
+
+    <p>Affects: 6.0.0 to 6.0.37</p>
+
+    <p><strong>Low: Session fixation</strong>
+       <cve>CVE-2014-0033</cve></p>
+
+    <p>Previous fixes to path parameter handling 
+       (<revlink rev="1149220">1149220</revlink>) introduced a regression that
+       meant session IDs provided in the URL were considered even when
+       disableURLRewriting was configured to true. Note that the session is only
+       used for that single request.</p>
+
+    <p>This was fixed in revision <revlink rev="1558822">1558822</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat security team on 1
+       December 2014 and made public on 25 February 2014.</p>
+
+    <p>Affects: 6.0.33 to 6.0.37</p>
 
   </section>
   
@@ -908,7 +995,7 @@
        multiple content-length headers and several components do not
        reject the request and make different decisions as to which
        content-length header to use an attacker can poison a web-cache, perform
-       an XSS attack and obtain senstive information from requests other then
+       an XSS attack and obtain sensitive information from requests other then
        their own. Tomcat now returns 400 for requests with multiple
        content-length headers.
        </p>

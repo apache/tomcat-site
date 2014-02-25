@@ -203,6 +203,12 @@
 <a href="#Fixed_in_Apache_Tomcat_8.0.3">Fixed in Apache Tomcat 8.0.3</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.0.0-RC10">Fixed in Apache Tomcat 8.0.0-RC10</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_8.0.0-RC3">Fixed in Apache Tomcat 8.0.0-RC3</a>
+</li>
+<li>
 <a href="#Not_a_vulnerability_in_Tomcat">Not a vulnerability in Tomcat</a>
 </li>
 </ul>
@@ -295,6 +301,132 @@
 
     
 <p>Affects: 8.0.0-RC1-8.0.1</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.0.0-RC10">
+<span style="float: right;">alpha, 2013-12-26</span> Fixed in Apache Tomcat 8.0.0-RC10</h3>
+<div class="text">
+
+  
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 8.0.0-RC6 but the
+       release votes for 8.0.0-RC6 to 8.0.0-RC9 did not pass.
+       Therefore, although users must download 8.0.0-RC10 to obtain a version
+       that includes a fix for this issue, versions 8.0.0-RC6 to 8.0.0-RC9 are
+       not included in the list of affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4322" rel="nofollow">CVE-2013-4322</a>
+</p>
+
+    
+<p>The fix for CVE-2012-3544 was not complete. It did not cover the
+       following cases:</p>
+    
+<ul>
+      
+<li>chunk extensions were not limited</li>
+      
+<li>whitespace after the : in a trailing header was not limited</li>
+    
+</ul>
+
+    
+<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1521834">1521834</a> and
+    <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1549522">1549522</a>.</p>
+
+    
+<p>The first part of this issue was identified by the Apache Tomcat security
+       team on 27 August 2013 and the second part by Saran Neti of TELUS
+       Security Labs on 5 November 2014. It was made public on 25 February 2014.
+       </p>
+
+    
+<p>Affects: 8.0.0-RC1 to 8.0.0-RC5</p>
+
+    
+<p>
+<strong>Low: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4590" rel="nofollow">CVE-2013-4590</a>
+</p>
+
+    
+<p>Application provided XML files such as web.xml, context.xml, *.tld,
+       *.tagx and *.jspx allowed XXE which could be used to expose Tomcat
+       internals to an attacker. This vulnerability only occurs when Tomcat is
+       running web applications from untrusted sources such as in a shared
+       hosting environment.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1549528">1549528</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat security team on 29
+       October 2014 and made public on 25 February 2014.</p>
+
+    
+<p>Affects: 8.0.0-RC1 to 8.0.0-RC5</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.0.0-RC3">
+<span style="float: right;">alpha, 2013-09-23</span> Fixed in Apache Tomcat 8.0.0-RC3</h3>
+<div class="text">
+
+  
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 8.0.0-RC2 but the
+       release vote for 8.0.0-RC2 did not pass.
+       Therefore, although users must download 8.0.0-RC3 to obtain a version
+       that includes a fix for this issue, version 8.0.0-RC2 is not
+       included in the list of affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4286" rel="nofollow">CVE-2013-4286</a>
+</p>
+
+    
+<p>The fix for CVE-2005-2090 was not complete. It did not cover the
+       following cases:</p>
+    
+<ul>
+      
+<li>content-length header with chunked encoding over any HTTP connector
+      </li>
+      
+<li>multiple content-length headers over any AJP connector</li>
+    
+</ul>
+
+    
+<p>Requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used should be rejected as invalid.
+       When multiple components (firewalls, caches, proxies and Tomcat) process
+       a sequence of requests where one or more requests contain either multiple
+       content-length headers or a content-length header when chunked encoding
+       is being used and several components do not reject the request and make
+       different decisions as to which content-length header to use an attacker
+       can poison a web-cache, perform an XSS attack and obtain sensitive
+       information from requests other then their own. Tomcat now rejects
+       requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used.</p>
+    
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1521829">1521829</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat security team on 15 August
+       2013 and made public on 25 February 2014.</p>
+
+    
+<p>Affects: 8.0.0-RC1</p>
 
   
 </div>

@@ -81,6 +81,92 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.50" rtext="2014-01-08">
+
+  <p><i>Note: The issues below were fixed in Apache Tomcat 7.0.48 but the
+       release votes for 7.0.48 to 7.0.49 did not pass.
+       Therefore, although users must download 7.0.50 to obtain a version
+       that includes fixes for these issues, versions 7.0.48 to 7.0.49 are
+       not included in the list of affected versions.</i></p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2013-4322</cve></p>
+
+    <p>The fix for CVE-2012-3544 was not complete. It did not cover the
+       following cases:</p>
+    <ul>
+      <li>chunk extensions were not limited</li>
+      <li>whitespace after the : in a trailing header was not limited</li>
+    </ul>
+
+    <p>This was fixed in revisions <revlink rev="1521864">1521864</revlink> and
+    <revlink rev="1549523">1549523</revlink>.</p>
+
+    <p>The first part of this issue was identified by the Apache Tomcat security
+       team on 27 August 2013 and the second part by Saran Neti of TELUS
+       Security Labs on 5 November 2014. It was made public on 25 February 2014.
+       </p>
+
+    <p>Affects: 7.0.0 to 7.0.47</p>
+
+    <p><strong>Low: Information disclosure</strong>
+       <cve>CVE-2013-4590</cve></p>
+
+    <p>Application provided XML files such as web.xml, context.xml, *.tld,
+       *.tagx and *.jspx allowed XXE which could be used to expose Tomcat
+       internals to an attacker. This vulnerability only occurs when Tomcat is
+       running web applications from untrusted sources such as in a shared
+       hosting environment.</p>
+
+    <p>This was fixed in revision <revlink rev="1549529">1549529</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat security team on 29
+       October 2014 and made public on 25 February 2014.</p>
+
+    <p>Affects: 7.0.0 to 7.0.47</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.47" rtext="2013-10-24">
+
+  <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.43 but the
+       release votes for 7.0.43 to 7.0.46 did not pass.
+       Therefore, although users must download 7.0.47 to obtain a version
+       that includes a fix for this issue, versions 7.0.43 to 7.0.46 are not
+       included in the list of affected versions.</i></p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2013-4286</cve></p>
+
+    <p>The fix for CVE-2005-2090 was not complete. It did not cover the
+       following cases:</p>
+    <ul>
+      <li>content-length header with chunked encoding over any HTTP connector
+      </li>
+      <li>multiple content-length headers over any AJP connector</li>
+    </ul>
+
+    <p>Requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used should be rejected as invalid.
+       When multiple components (firewalls, caches, proxies and Tomcat) process
+       a sequence of requests where one or more requests contain either multiple
+       content-length headers or a content-length header when chunked encoding
+       is being used and several components do not reject the request and make
+       different decisions as to which content-length header to use an attacker
+       can poison a web-cache, perform an XSS attack and obtain sensitive
+       information from requests other then their own. Tomcat now rejects
+       requests with multiple content-length headers or with a content-length
+       header when chunked encoding is being used.</p>
+    
+    <p>This was fixed in revision <revlink rev="1521854">1521854</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat security team on 15 August
+       2013 and made public on 25 February 2014.</p>
+
+    <p>Affects: 7.0.0 to 7.0.42</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.40" rtext="released 9 May 2013">
 
     <p><strong>Moderate: Information disclosure</strong>
