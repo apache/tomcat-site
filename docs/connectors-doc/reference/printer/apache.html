@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>The Apache Tomcat Connector - Reference Guide - Configuring Apache</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connector - Reference Guide</h1><h2>Configuring Apache</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration Directives"><strong>Configuration Directives</strong></a></font></td></tr><tr><td><blockquote>
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connector - Reference Guide - Configuring Apache</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connector - Reference Guide</h1><h2>Configuring Apache</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration Directives"><strong>Configuration Directives</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 Most of the directives are allowed once in the global part of the Apache httpd
 configuration and once in every &lt;VirtualHost&gt; elements. Exceptions from this rule are
@@ -682,7 +682,7 @@ file that Tomcat normally serves - for instance Velocity pages and JSP pages.
 </p>
 
 <p>
-JkOptions <b>ForwardLocalAddress</b>, you ask mod_jk to send the local address,
+Setting JkOptions <b>ForwardLocalAddress</b>, you ask mod_jk to send the local address,
 of the Apache web server instead remote client address. This can be used by
 Tomcat remote address valve for allowing connections only from registered Apache
 web servers.
@@ -690,7 +690,20 @@ web servers.
 <div class="example"><pre>  
   JkOptions     +ForwardLocalAddress
 </pre></div>
+<br>
+<br>
+</p>
 
+<p>
+Setting JkOptions <b>ForwardPhysicalAddress</b>, you ask mod_jk to send the
+physical peer TCP IP address as the client address. By default mod_jk
+uses the logical address as provided by the web server. For example the module
+mod_remoteip sets the logical IP address to the client IP forwarded by proxies
+in the <b class="code">X-Forwarded-For</b> header.
+
+<div class="example"><pre>  
+  JkOptions     +ForwardPhysicalAddress
+</pre></div>
 <br>
 <br>
 </p>
@@ -973,7 +986,7 @@ ways of defining the forwards, in general to mod_jk directives will win.
 If you neither specify any workers via JkMount and the related directives,
 not via the environment variable described below,
 the first worker in the list of all worker will be chosen. You can use SetHandler
-for example in Location blocks or with Apache 2.2 also in RewriteRule.
+for example in Location blocks or with Apache 2.2 and later also in RewriteRule.
 </p>
 <p>
 In order to control the worker using <b>SetEnvIf</b> or <b>RewriteRule</b>
@@ -1067,5 +1080,5 @@ This is available since version 1.2.33.
 </p>
 </blockquote></td></tr></table>
  </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2012, Apache Software Foundation
+        Copyright &copy; 1999-2014, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>
