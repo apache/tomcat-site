@@ -297,16 +297,17 @@ directory:
 
     output/build/logs
 
-By default the testsuite is run three times to test 3 different
-implementations of Tomcat connectors: BIO, NIO and APR. (If you are not
+By default the testsuite is run four times to test 4 different
+implementations of Tomcat connectors: BIO, NIO, NIO2 and APR. (If you are not
 familiar with Tomcat connectors, see config/http.html in documentation for
 details).
 
-The 3 runs are enabled and disabled individually by the following
+The 4 runs are enabled and disabled individually by the following
 properties, which all are "true" by default:
 
     execute.test.bio=true
     execute.test.nio=true
+    execute.test.nio2=true
     execute.test.apr=true
 
 The APR connector can be tested only if Tomcat-Native library binaries are
@@ -337,6 +338,16 @@ the test class.
 For example:
 
     test.entry=org.apache.catalina.util.TestServerInfo
+
+It is possible to further limit such run to a number of selected test
+methods by adding "test.entry.methods" property. The property specifies a
+comma-separated list of test case methods. (This feature requires
+Apache Ant 1.8.2 or later).
+
+For example:
+
+    test.entry=org.apache.el.lang.TestELArithmetic
+    test.entry.methods=testMultiply01,testMultiply02
 
 
 (7.3) Other configuration options
