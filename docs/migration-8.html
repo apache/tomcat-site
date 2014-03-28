@@ -218,6 +218,9 @@
 <a href="#Web_application_resources">Web application resources</a>
 </li>
 <li>
+<a href="#Database_Connection_Pooling">Database Connection Pooling</a>
+</li>
+<li>
 <a href="#Debugging">Debugging</a>
 </li>
 <li>
@@ -372,6 +375,41 @@ of Apache Tomcat.</p>
 
   
 <div class="subsection">
+<h4 id="Database_Connection_Pooling">Database Connection Pooling</h4>
+<div class="text">
+
+    
+<p>Tomcat 8 embeds a packaged renamed version of Commons DBCP 2.x. There are
+    a number of notable changes between Commons DBCP 1.x and Commons DBCP 2.x
+    which are likely to require configuration changes.</p>
+    
+<ul>
+      
+<li>The maxActive configuration option has been renamed to maxTotal</li>
+      
+<li>The JDBC driver JAR may be placed in WEB-INF/lib as an alternative to
+          $CATALINA_BASE/lib provided that the driver class is only used by that
+          web application.</li>
+      
+<li>Connection validation no longer requires both a validation query and
+          at least one of the testXxx attributes to be set to true. If no
+          validation query is defined and at least one of the testxxx attributes
+          is true, connections will be validated using Connection.isValid().
+          </li>
+    
+</ul>
+
+    
+<p>Additionally, Commons DBCP has added a number of new configuration
+    options. These should be reviewed to determine which, if any, should be
+    used.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
 <h4 id="Debugging">Debugging</h4>
 <div class="text">
 
@@ -456,6 +494,7 @@ of Apache Tomcat.</p>
           "8.0.0-RC10":"1552353",
           "8.0.1":"1562630",
           "8.0.3":"1565729",
+          "8.0.5":"1580930",
         };
 
         formSubmit.action = "http://svn.apache.org/viewvc/tomcat/trunk/" +
@@ -490,8 +529,9 @@ of Apache Tomcat.</p>
     <option value="8.0.0-RC3">8.0.0-RC3</option>
     <option value="8.0.0-RC5">8.0.0-RC5</option>
     <option value="8.0.0-RC10">8.0.0-RC10</option>
-    <option value="8.0.1" selected>8.0.1</option>
-    <option value="8.0.3">8.0.3</option>
+    <option value="8.0.1">8.0.1</option>
+    <option value="8.0.3" selected>8.0.3</option>
+    <option value="8.0.5">8.0.5</option>
     </select>,</label> <label>new version:
     <select id="select-r2">
     <option value="8.0.0-RC1">8.0.0-RC1</option>
@@ -499,7 +539,8 @@ of Apache Tomcat.</p>
     <option value="8.0.0-RC5">8.0.0-RC5</option>
     <option value="8.0.0-RC10">8.0.0-RC10</option>
     <option value="8.0.1">8.0.1</option>
-    <option value="8.0.3" selected>8.0.3</option>
+    <option value="8.0.3">8.0.3</option>
+    <option value="8.0.5" selected>8.0.5</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select></label>
     
