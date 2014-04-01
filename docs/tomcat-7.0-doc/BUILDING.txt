@@ -82,11 +82,11 @@ source distribution, do the following:
   JSR-356 (Java WebSocket 1.0) support.
 
 
-(2) Install Apache Ant 1.8.x on your computer
+(2) Install Apache Ant version 1.8.2 or later on your computer
 
- 1. If Apache Ant 1.8.x is already installed on your computer, skip to (3).
+ 1. If Apache Ant version 1.8.2 or later is already installed on your computer, skip to (3).
 
- 2. Download a binary distribution of Ant 1.8.x from:
+ 2. Download a binary distribution of Ant from:
 
         http://ant.apache.org/bindownload.cgi
 
@@ -333,6 +333,12 @@ If you are on Windows and want to test the APR connector you can put the
 tcnative-1.dll file into ${tomcat.source}/bin/native/ and it will be copied
 into the above directory when the build runs.
 
+* NOTE: If you configured the build to use a Java 7 JDK (if the
+"java.7.home" property has been defined) the tests will be run with Java 7.
+
+The version of Java that was actually used to run the tests is reported by
+"org.apache.catalina.util.TestServerInfo" test class.
+
 
 (7.2) Running a single test
 
@@ -343,6 +349,16 @@ the test class.
 For example:
 
     test.entry=org.apache.catalina.util.TestServerInfo
+
+It is possible to further limit such run to a number of selected test
+methods by adding "test.entry.methods" property. The property specifies a
+comma-separated list of test case methods. (This feature requires
+Apache Ant 1.8.2 or later).
+
+For example:
+
+    test.entry=org.apache.el.lang.TestELArithmetic
+    test.entry.methods=testMultiply01,testMultiply02
 
 
 (7.3) Other configuration options
