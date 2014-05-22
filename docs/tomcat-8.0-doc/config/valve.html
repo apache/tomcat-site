@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.0.5) - The Valve Component</title><meta name="author" content="Craig R. McClanahan"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/config/valve">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.0.8) - The Valve Component</title><meta name="author" content="Craig R. McClanahan"><script type="application/javascript" data-comments-identifier="tomcat-8.0-doc/config/valve">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -30,9 +30,9 @@
       }), false);
     })();
   </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8 Configuration Reference</h1><div class="versionInfo">
-          Version 8.0.5,
-          <time datetime="2014-03-24">Mar 24 2014</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>Other</h2><ul><li><a href="filter.html">Filter</a></li><li><a href="systemprops.html">System properties</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Access_Log_Valve">Access Log Valve</a><ol><li><a href="#Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Extended_Access_Log_Valve">Extended Access Log Valve</a><ol><li><a href="#Extended_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Extended_Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_Address_Filter">Remote Address Filter</a><ol><li><a href="#Remote_Address_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Address_Filter/Attributes">Attributes</a></li><li><a href="#Example">Example</a></li></ol></li><li><a href="#Remote_Host_Filter">Remote Host Filter</a><ol><li><a href="#Remote_Host_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Host_Filter/Attributes">Attributes</a></li></ol></li><li><a href="#Single_Sign_On_Valve">Single Sign On Valve</a><ol><li><a href="#Single_Sign_On_Valve/Introduction">Introduction</a></li><li><a href="#Single_Sign_On_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Basic_Authenticator_Valve">Basic Authenticator Valve</a><ol><li><a href="#Basic_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Basic_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Digest_Authenticator_Valve">Digest Authenticator Valve</a><ol><li><a href="#Digest_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Digest_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Form_Authenticator_Valve">Form Authenticator Valve</a><ol><li><a href="#Form_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Form_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Authenticator_Valve">SSL Authenticator Valve</a><ol><li><a href="#SSL_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SPNEGO_Valve">SPNEGO Valve</a><ol><li><a href="#SPNEGO_Valve/Introduction">Introduction</a></li><li><a href="#SPNEGO_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_IP_Valve">Remote IP Valve</a><ol><li><a href="#Remote_IP_Valve/Introduction">Introduction</a></li><li><a href="#Remote_IP_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Crawler_Session_Manager_Valve">Crawler Session Manager Valve</a><ol><li><a href="#Crawler_Session_Manager_Valve/Introduction">Introduction</a></li><li><a href="#Crawler_Session_Manager_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Stuck_Thread_Detection_Valve">Stuck Thread Detection Valve</a><ol><li><a href="#Stuck_Thread_Detection_Valve/Introduction">Introduction</a></li><li><a href="#Stuck_Thread_Detection_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Valve">SSL Valve</a><ol><li><a href="#SSL_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Valve/Attributes">Attributes</a></li></ol></li></ul>
+          Version 8.0.8,
+          <time datetime="2014-05-16">May 16 2014</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Access_Logging">Access Logging</a><ol><li><a href="#Access_Log_Valve">Access Log Valve</a><ol><li><a href="#Access_Logging/Introduction">Introduction</a></li><li><a href="#Access_Logging/Attributes">Attributes</a></li></ol></li><li><a href="#Extended_Access_Log_Valve">Extended Access Log Valve</a><ol><li><a href="#Access_Logging/Introduction">Introduction</a></li><li><a href="#Access_Logging/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Access_Control">Access Control</a><ol><li><a href="#Remote_Address_Filter">Remote Address Filter</a><ol><li><a href="#Access_Control/Introduction">Introduction</a></li><li><a href="#Access_Control/Attributes">Attributes</a></li><li><a href="#Example">Example</a></li></ol></li><li><a href="#Remote_Host_Filter">Remote Host Filter</a><ol><li><a href="#Access_Control/Introduction">Introduction</a></li><li><a href="#Access_Control/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Proxies_Support">Proxies Support</a><ol><li><a href="#Remote_IP_Valve">Remote IP Valve</a><ol><li><a href="#Proxies_Support/Introduction">Introduction</a></li><li><a href="#Proxies_Support/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Valve">SSL Valve</a><ol><li><a href="#Proxies_Support/Introduction">Introduction</a></li><li><a href="#Proxies_Support/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Single_Sign_On_Valve">Single Sign On Valve</a><ol><li><a href="#Single_Sign_On_Valve/Introduction">Introduction</a></li><li><a href="#Single_Sign_On_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Authentication">Authentication</a><ol><li><a href="#Basic_Authenticator_Valve">Basic Authenticator Valve</a><ol><li><a href="#Authentication/Introduction">Introduction</a></li><li><a href="#Authentication/Attributes">Attributes</a></li></ol></li><li><a href="#Digest_Authenticator_Valve">Digest Authenticator Valve</a><ol><li><a href="#Authentication/Introduction">Introduction</a></li><li><a href="#Authentication/Attributes">Attributes</a></li></ol></li><li><a href="#Form_Authenticator_Valve">Form Authenticator Valve</a><ol><li><a href="#Authentication/Introduction">Introduction</a></li><li><a href="#Authentication/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Authenticator_Valve">SSL Authenticator Valve</a><ol><li><a href="#Authentication/Introduction">Introduction</a></li><li><a href="#Authentication/Attributes">Attributes</a></li></ol></li><li><a href="#SPNEGO_Valve">SPNEGO Valve</a><ol><li><a href="#Authentication/Introduction">Introduction</a></li><li><a href="#Authentication/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Error_Report_Valve">Error Report Valve</a><ol><li><a href="#Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Crawler_Session_Manager_Valve">Crawler Session Manager Valve</a><ol><li><a href="#Crawler_Session_Manager_Valve/Introduction">Introduction</a></li><li><a href="#Crawler_Session_Manager_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Stuck_Thread_Detection_Valve">Stuck Thread Detection Valve</a><ol><li><a href="#Stuck_Thread_Detection_Valve/Introduction">Introduction</a></li><li><a href="#Stuck_Thread_Detection_Valve/Attributes">Attributes</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
   <p>A <strong>Valve</strong> element represents a component that will be
@@ -48,9 +48,14 @@
     directory, then $CATALINA_BASE will be set to the value of $CATALINA_HOME,
     the directory into which you have installed Tomcat.</em></p>
 
-</div><h3 id="Access_Log_Valve">Access Log Valve</h3><div class="text">
+</div><h3 id="Access_Logging">Access Logging</h3><div class="text">
 
-  <div class="subsection"><h4 id="Access_Log_Valve/Introduction">Introduction</h4><div class="text">
+<p>Access logging is performed by valves that implement
+<strong>org.apache.catalina.AccessLog</strong> interface.</p>
+
+<div class="subsection"><h4 id="Access_Log_Valve">Access Log Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Access_Logging/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Access Log Valve</strong> creates log files in the
     same format as those created by standard web servers.  These logs
@@ -99,7 +104,7 @@
     </p>
   </div></div>
 
-  <div class="subsection"><h4 id="Access_Log_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Access_Logging/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Access Log Valve</strong> supports the following
     configuration attributes:</p>
@@ -301,9 +306,12 @@
 
   </div></div>
 
-</div><h3 id="Extended_Access_Log_Valve">Extended Access Log Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Extended_Access_Log_Valve/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="Extended_Access_Log_Valve">Extended Access Log Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Access_Logging/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Extended Access Log Valve</strong> extends the
     <a href="#Access_Log_Valve">Access Log Valve</a> class, and so
@@ -317,7 +325,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Extended_Access_Log_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Access_Logging/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Extended Access Log Valve</strong> supports all
     configuration attributes of the standard
@@ -402,9 +410,14 @@
 
   </div></div>
 
-</div><h3 id="Remote_Address_Filter">Remote Address Filter</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Filter/Introduction">Introduction</h4><div class="text">
+</div><h3 id="Access_Control">Access Control</h3><div class="text">
+
+
+<div class="subsection"><h4 id="Remote_Address_Filter">Remote Address Filter</h4><div class="text">
+
+  <div class="subsection"><h4 id="Access_Control/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Remote Address Filter</strong> allows you to compare the
     IP address of the client that submitted this request against one or more
@@ -432,7 +445,7 @@
     <a href="#Remote_IP_Valve">Remote IP Valve</a>.</p>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Filter/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Access_Control/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Remote Address Filter</strong> supports the following
     configuration attributes:</p>
@@ -471,9 +484,12 @@
    allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1"/&gt;</code></pre></div>
   </div></div>
 
-</div><h3 id="Remote_Host_Filter">Remote Host Filter</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Remote_Host_Filter/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="Remote_Host_Filter">Remote Host Filter</h4><div class="text">
+
+  <div class="subsection"><h4 id="Access_Control/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Remote Host Filter</strong> allows you to compare the
     hostname of the client that submitted this request against one or more
@@ -498,7 +514,7 @@
     <a href="http.html">HTTP Connector</a> configuration.</p>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Host_Filter/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Access_Control/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Remote Host Filter</strong> supports the following
     configuration attributes:</p>
@@ -530,6 +546,178 @@
       </td></tr></table>
 
   </div></div>
+
+</div></div>
+
+
+</div><h3 id="Proxies_Support">Proxies Support</h3><div class="text">
+
+<div class="subsection"><h4 id="Remote_IP_Valve">Remote IP Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Proxies_Support/Introduction">Introduction</h4><div class="text">
+
+    <p>Tomcat port of
+    <a href="http://httpd.apache.org/docs/trunk/mod/mod_remoteip.html">mod_remoteip</a>,
+    this valve replaces the apparent client remote IP address and hostname for
+    the request with the IP address list presented by a proxy or a load balancer
+    via a request headers (e.g. "X-Forwarded-For").</p>
+
+    <p>Another feature of this valve is to replace the apparent scheme
+    (http/https), server port and <code>request.secure</code> with the scheme presented
+    by a proxy or a load balancer via a request header
+    (e.g. "X-Forwarded-Proto").</p>
+
+    <p>This Valve may be used at the <code>Engine</code>, <code>Host</code> or
+    <code>Context</code> level as required. Normally, this Valve would be used
+    at the <code>Engine</code> level.</p>
+
+    <p>If used in conjunction with Remote Address/Host valves then this valve
+    should be defined first to ensure that the correct client IP address is
+    presented to the Remote Address/Host valves.</p>
+
+    <p><strong>Note:</strong> By default this valve has no effect on the
+    values that are written into access log. The original values are restored
+    when request processing leaves the valve and that always happens earlier
+    than access logging. To pass the remote address, remote host, server port
+    and protocol values set by this valve to the access log,
+    they are put into request attributes. Publishing these values here
+    is enabled by default, but <code>AccessLogValve</code> should be explicitly
+    configured to use them. See documentation for
+    <code>requestAttributesEnabled</code> attribute of
+    <code>AccessLogValve</code>.</p>
+
+    <p>The names of request attributes that are set by this valve
+    and can be used by access logging are the following:</p>
+
+    <ul>
+      <li><code>org.apache.catalina.AccessLog.RemoteAddr</code></li>
+      <li><code>org.apache.catalina.AccessLog.RemoteHost</code></li>
+      <li><code>org.apache.catalina.AccessLog.Protocol</code></li>
+      <li><code>org.apache.catalina.AccessLog.ServerPort</code></li>
+      <li><code>org.apache.tomcat.remoteAddr</code></li>
+    </ul>
+
+  </div></div>
+
+  <div class="subsection"><h4 id="Proxies_Support/Attributes">Attributes</h4><div class="text">
+
+    <p>The <strong>Remote IP Valve</strong> supports the
+    following configuration attributes:</p>
+
+    <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+        <p>Java class name of the implementation to use.  This MUST be set to
+        <strong>org.apache.catalina.valves.RemoteIpValve</strong>.</p>
+      </td></tr><tr><td><code class="attributeName">remoteIpHeader</code></td><td>
+        <p>Name of the HTTP Header read by this valve that holds the list of
+        traversed IP addresses starting from the requesting client. If not
+        specified, the default of <code>x-forwarded-for</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">internalProxies</code></td><td>
+        <p>Regular expression (using <code>java.util.regex</code>) that a
+        proxy's IP address must match to be considered an internal proxy.
+        Internal proxies that appear in the <strong>remoteIpHeader</strong> will
+        be trusted and will not appear in the <strong>proxiesHeader</strong>
+        value. If not specified the default value of <code>
+        10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.1[6-9]{1}\.\d{1,3}\.\d{1,3}|172\.2[0-9]{1}\.\d{1,3}\.\d{1,3}|172\.3[0-1]{1}\.\d{1,3}\.\d{1,3}
+        </code> will be used.</p>
+      </td></tr><tr><td><code class="attributeName">proxiesHeader</code></td><td>
+        <p>Name of the HTTP header created by this valve to hold the list of
+        proxies that have been processed in the incoming
+        <strong>remoteIpHeader</strong>. If not specified, the default of
+        <code>x-forwarded-by</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">requestAttributesEnabled</code></td><td>
+        <p>Set to <code>true</code> to set the request attributes used by
+        AccessLog implementations to override the values returned by the
+        request for remote address, remote host, server port and protocol.
+        Request attributes are also used to enable the forwarded remote address
+        to be displayed on the status page of the Manager web application.
+        If not set, the default value of <code>true</code> will be used.</p>
+      </td></tr><tr><td><code class="attributeName">trustedProxies</code></td><td>
+        <p>Regular expression (using <code>java.util.regex</code>) that a
+        proxy's IP address must match to be considered an trusted proxy.
+        Trusted proxies that appear in the <strong>remoteIpHeader</strong> will
+        be trusted and will appear in the <strong>proxiesHeader</strong> value.
+        If not specified, no proxies will be trusted.</p>
+      </td></tr><tr><td><code class="attributeName">protocolHeader</code></td><td>
+        <p>Name of the HTTP Header read by this valve that holds the protocol
+        used by the client to connect to the proxy. If not specified, the
+        default of <code>null</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">portHeader</code></td><td>
+        <p>Name of the HTTP Header read by this valve that holds the port
+        used by the client to connect to the proxy. If not specified, the
+        default of <code>null</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">protocolHeaderHttpsValue</code></td><td>
+        <p>Value of the <strong>protocolHeader</strong> to indicate that it is
+        an HTTPS request. If not specified, the default of <code>https</code> is
+        used.</p>
+      </td></tr><tr><td><code class="attributeName">httpServerPort</code></td><td>
+         <p>Value returned by <code>ServletRequest.getServerPort()</code>
+         when the <strong>protocolHeader</strong> indicates <code>http</code>
+         protocol and no <strong>portHeader</strong> is present. If not
+         specified, the default of <code>80</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">httpsServerPort</code></td><td>
+         <p>Value returned by <code>ServletRequest.getServerPort()</code>
+         when the <strong>protocolHeader</strong> indicates <code>https</code>
+         protocol and no <strong>portHeader</strong> is present. If not
+         specified, the default of <code>443</code> is used.</p>
+      </td></tr><tr><td><code class="attributeName">changeLocalPort</code></td><td>
+        <p>If <code>true</code>, the value returned by
+        <code>ServletRequest.getLocalPort()</code> and
+        <code>ServletRequest.getServerPort()</code> is modified by the this
+        valve. If not specified, the default of <code>false</code> is used.</p>
+      </td></tr></table>
+
+  </div></div>
+
+</div></div>
+
+
+<div class="subsection"><h4 id="SSL_Valve">SSL Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Proxies_Support/Introduction">Introduction</h4><div class="text">
+
+    <p>When using mod_proxy_http, the client SSL information is not included in
+    the protocol (unlike mod_jk and mod_proxy_ajp). To make the client SSL
+    information available to Tomcat, some additional configuration is required.
+    In httpd, mod_headers is used to add the SSL information as HTTP headers. In
+    Tomcat, this valve is used to read the information from the HTTP headers and
+    insert it into the request.</p>
+
+    <p>Note: Ensure that the headers are always set by httpd for all requests to
+    prevent a client spoofing SSL information by sending fake headers.</p>
+
+    <p>To configure httpd to set the necessary headers, add the following:</p>
+<div class="codeBox"><pre><code>&lt;IfModule ssl_module&gt;
+  RequestHeader set SSL_CLIENT_CERT "%{SSL_CLIENT_CERT}s"
+  RequestHeader set SSL_CIPHER "%{SSL_CIPHER}s"
+  RequestHeader set SSL_SESSION_ID "%{SSL_SESSION_ID}s"
+  RequestHeader set SSL_CIPHER_USEKEYSIZE "%{SSL_CIPHER_USEKEYSIZE}s"
+&lt;/IfModule&gt;</code></pre></div>
+
+  </div></div>
+
+  <div class="subsection"><h4 id="Proxies_Support/Attributes">Attributes</h4><div class="text">
+
+    <p>The <strong>SSL Valve</strong> supports the following configuration
+    attribute:</p>
+
+    <table class="defaultTable"><tr><th style="width: 15%;">
+          Attribute
+        </th><th style="width: 85%;">
+          Description
+        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
+        <p>Java class name of the implementation to use.  This MUST be set to
+        <strong>org.apache.catalina.valves.SSLValve</strong>.
+        </p>
+      </td></tr></table>
+
+  </div></div>
+
+</div></div>
+
 
 </div><h3 id="Single_Sign_On_Valve">Single Sign On Valve</h3><div class="text">
 
@@ -573,9 +761,14 @@
   </div></div>
 
 
-</div><h3 id="Basic_Authenticator_Valve">Basic Authenticator Valve</h3><div class="text">
+</div><h3 id="Authentication">Authentication</h3><div class="text">
 
-  <div class="subsection"><h4 id="Basic_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+<p>The valves in this section implement
+<strong>org.apache.catalina.Authenticator</strong> interface.</p>
+
+<div class="subsection"><h4 id="Basic_Authenticator_Valve">Basic Authenticator Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Authentication/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Basic Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use BASIC
@@ -587,7 +780,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Basic_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Authentication/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Basic Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -657,9 +850,12 @@
 
   </div></div>
 
-</div><h3 id="Digest_Authenticator_Valve">Digest Authenticator Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Digest_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="Digest_Authenticator_Valve">Digest Authenticator Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Authentication/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Digest Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use DIGEST
@@ -671,7 +867,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Digest_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Authentication/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Digest Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -772,9 +968,12 @@
 
   </div></div>
 
-</div><h3 id="Form_Authenticator_Valve">Form Authenticator Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Form_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="Form_Authenticator_Valve">Form Authenticator Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Authentication/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>Form Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use FORM
@@ -786,7 +985,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Form_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Authentication/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>Form Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -858,9 +1057,12 @@
 
   </div></div>
 
-</div><h3 id="SSL_Authenticator_Valve">SSL Authenticator Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="SSL_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="SSL_Authenticator_Valve">SSL Authenticator Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Authentication/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>SSL Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use SSL
@@ -872,7 +1074,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="SSL_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Authentication/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>SSL Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -933,9 +1135,12 @@
 
   </div></div>
 
-</div><h3 id="SPNEGO_Valve">SPNEGO Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="SPNEGO_Valve/Introduction">Introduction</h4><div class="text">
+
+<div class="subsection"><h4 id="SPNEGO_Valve">SPNEGO Valve</h4><div class="text">
+
+  <div class="subsection"><h4 id="Authentication/Introduction">Introduction</h4><div class="text">
 
     <p>The <strong>SPNEGO Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use SPNEGO
@@ -947,7 +1152,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="SPNEGO_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Authentication/Attributes">Attributes</h4><div class="text">
 
     <p>The <strong>SPNEGO Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -1047,57 +1252,25 @@
 
   </div></div>
 
-</div><h3 id="Remote_IP_Valve">Remote IP Valve</h3><div class="text">
+</div></div>
 
-  <div class="subsection"><h4 id="Remote_IP_Valve/Introduction">Introduction</h4><div class="text">
 
-    <p>Tomcat port of
-    <a href="http://httpd.apache.org/docs/trunk/mod/mod_remoteip.html">mod_remoteip</a>,
-    this valve replaces the apparent client remote IP address and hostname for
-    the request with the IP address list presented by a proxy or a load balancer
-    via a request headers (e.g. "X-Forwarded-For").</p>
+</div><h3 id="Error_Report_Valve">Error Report Valve</h3><div class="text">
 
-    <p>Another feature of this valve is to replace the apparent scheme
-    (http/https), server port and <code>request.secure</code> with the scheme presented
-    by a proxy or a load balancer via a request header
-    (e.g. "X-Forwarded-Proto").</p>
+  <div class="subsection"><h4 id="Error_Report_Valve/Introduction">Introduction</h4><div class="text">
 
-    <p>This Valve may be used at the <code>Engine</code>, <code>Host</code> or
-    <code>Context</code> level as required. Normally, this Valve would be used
-    at the <code>Engine</code> level.</p>
+    <p>The <strong>Error Report Valve</strong> is a simple error handler
+    for HTTP status codes that will generate and return HTML error pages.</p>
 
-    <p>If used in conjunction with Remote Address/Host valves then this valve
-    should be defined first to ensure that the correct client IP address is
-    presented to the Remote Address/Host valves.</p>
-
-    <p><strong>Note:</strong> By default this valve has no effect on the
-    values that are written into access log. The original values are restored
-    when request processing leaves the valve and that always happens earlier
-    than access logging. To pass the remote address, remote host, server port
-    and protocol values set by this valve to the access log,
-    they are put into request attributes. Publishing these values here
-    is enabled by default, but <code>AccessLogValve</code> should be explicitly
-    configured to use them. See documentation for
-    <code>requestAttributesEnabled</code> attribute of
-    <code>AccessLogValve</code>.</p>
-
-    <p>The names of request attributes that are set by this valve
-    and can be used by access logging are the following:</p>
-
-    <ul>
-      <li><code>org.apache.catalina.AccessLog.RemoteAddr</code></li>
-      <li><code>org.apache.catalina.AccessLog.RemoteHost</code></li>
-      <li><code>org.apache.catalina.AccessLog.Protocol</code></li>
-      <li><code>org.apache.catalina.AccessLog.ServerPort</code></li>
-      <li><code>org.apache.tomcat.remoteAddr</code></li>
-    </ul>
+    <p><strong>NOTE:</strong> Disabling both showServerInfo and showReport will
+    only return the HTTP status code and remove all CSS.</p>
 
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_IP_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h4 id="Error_Report_Valve/Attributes">Attributes</h4><div class="text">
 
-    <p>The <strong>Remote IP Valve</strong> supports the
-    following configuration attributes:</p>
+    <p>The <strong>Error Report Valve</strong> supports the following
+    configuration attributes:</p>
 
     <table class="defaultTable"><tr><th style="width: 15%;">
           Attribute
@@ -1105,64 +1278,20 @@
           Description
         </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
         <p>Java class name of the implementation to use.  This MUST be set to
-        <strong>org.apache.catalina.valves.RemoteIpValve</strong>.</p>
-      </td></tr><tr><td><code class="attributeName">remoteIpHeader</code></td><td>
-        <p>Name of the HTTP Header read by this valve that holds the list of
-        traversed IP addresses starting from the requesting client. If not
-        specified, the default of <code>x-forwarded-for</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">internalProxies</code></td><td>
-        <p>Regular expression (using <code>java.util.regex</code>) that a
-        proxy's IP address must match to be considered an internal proxy.
-        Internal proxies that appear in the <strong>remoteIpHeader</strong> will
-        be trusted and will not appear in the <strong>proxiesHeader</strong>
-        value. If not specified the default value of <code>
-        10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.1[6-9]{1}\.\d{1,3}\.\d{1,3}|172\.2[0-9]{1}\.\d{1,3}\.\d{1,3}|172\.3[0-1]{1}\.\d{1,3}\.\d{1,3}
-        </code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">proxiesHeader</code></td><td>
-        <p>Name of the HTTP header created by this valve to hold the list of
-        proxies that have been processed in the incoming
-        <strong>remoteIpHeader</strong>. If not specified, the default of
-        <code>x-forwarded-by</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">requestAttributesEnabled</code></td><td>
-        <p>Set to <code>true</code> to set the request attributes used by
-        AccessLog implementations to override the values returned by the
-        request for remote address, remote host, server port and protocol.
-        Request attributes are also used to enable the forwarded remote address
-        to be displayed on the status page of the Manager web application.
-        If not set, the default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">trustedProxies</code></td><td>
-        <p>Regular expression (using <code>java.util.regex</code>) that a
-        proxy's IP address must match to be considered an trusted proxy.
-        Trusted proxies that appear in the <strong>remoteIpHeader</strong> will
-        be trusted and will appear in the <strong>proxiesHeader</strong> value.
-        If not specified, no proxies will be trusted.</p>
-      </td></tr><tr><td><code class="attributeName">protocolHeader</code></td><td>
-        <p>Name of the HTTP Header read by this valve that holds the protocol
-        used by the client to connect to the proxy. If not specified, the
-        default of <code>null</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">portHeader</code></td><td>
-        <p>Name of the HTTP Header read by this valve that holds the port
-        used by the client to connect to the proxy. If not specified, the
-        default of <code>null</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">protocolHeaderHttpsValue</code></td><td>
-        <p>Value of the <strong>protocolHeader</strong> to indicate that it is
-        an HTTPS request. If not specified, the default of <code>https</code> is
-        used.</p>
-      </td></tr><tr><td><code class="attributeName">httpServerPort</code></td><td>
-         <p>Value returned by <code>ServletRequest.getServerPort()</code>
-         when the <strong>protocolHeader</strong> indicates <code>http</code>
-         protocol and no <strong>portHeader</strong> is present. If not
-         specified, the default of <code>80</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">httpsServerPort</code></td><td>
-         <p>Value returned by <code>ServletRequest.getServerPort()</code>
-         when the <strong>protocolHeader</strong> indicates <code>https</code>
-         protocol and no <strong>portHeader</strong> is present. If not
-         specified, the default of <code>443</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">changeLocalPort</code></td><td>
-        <p>If <code>true</code>, the value returned by
-        <code>ServletRequest.getLocalPort()</code> and
-        <code>ServletRequest.getServerPort()</code> is modified by the this
-        valve. If not specified, the default of <code>false</code> is used.</p>
+        <strong>org.apache.catalina.valves.ErrorReportValve</strong> to use the
+        default error report valve.</p>
+      </td></tr><tr><td><code class="attributeName">showReport</code></td><td>
+        <p>Flag to determine if the error report is presented when an error
+           occurs. If set to <code>false</code>, then the error report is not in
+           the HTML response.
+           Default value: <code>true</code>
+        </p>
+      </td></tr><tr><td><code class="attributeName">showServerInfo</code></td><td>
+        <p>Flag to determine if server information is presented when an error
+           occurs. If set to <code>false</code>, then the server version is not
+           returned in the HTML response.
+           Default value: <code>true</code>
+        </p>
       </td></tr></table>
 
   </div></div>
@@ -1251,47 +1380,6 @@
         <p>Note: since the detection is done in the background thread of the Container
         (Engine, Host or Context) declaring this Valve, the threshold should be higher
         than the <code>backgroundProcessorDelay</code> of this Container.</p>
-      </td></tr></table>
-
-  </div></div>
-
-</div><h3 id="SSL_Valve">SSL Valve</h3><div class="text">
-
-  <div class="subsection"><h4 id="SSL_Valve/Introduction">Introduction</h4><div class="text">
-
-    <p>When using mod_proxy_http, the client SSL information is not included in
-    the protocol (unlike mod_jk and mod_proxy_ajp). To make the client SSL
-    information available to Tomcat, some additional configuration is required.
-    In httpd, mod_headers is used to add the SSL information as HTTP headers. In
-    Tomcat, this valve is used to read the information from the HTTP headers and
-    insert it into the request.</p>
-
-    <p>Note: Ensure that the headers are always set by httpd for all requests to
-    prevent a client spoofing SSL information by sending fake headers.</p>
-
-    <p>To configure httpd to set the necessary headers, add the following:</p>
-<div class="codeBox"><pre><code>&lt;IfModule ssl_module&gt;
-  RequestHeader set SSL_CLIENT_CERT "%{SSL_CLIENT_CERT}s"
-  RequestHeader set SSL_CIPHER "%{SSL_CIPHER}s"
-  RequestHeader set SSL_SESSION_ID "%{SSL_SESSION_ID}s"
-  RequestHeader set SSL_CIPHER_USEKEYSIZE "%{SSL_CIPHER_USEKEYSIZE}s"
-&lt;/IfModule&gt;</code></pre></div>
-
-  </div></div>
-
-  <div class="subsection"><h4 id="SSL_Valve/Attributes">Attributes</h4><div class="text">
-
-    <p>The <strong>SSL Valve</strong> supports the following configuration
-    attribute:</p>
-
-    <table class="defaultTable"><tr><th style="width: 15%;">
-          Attribute
-        </th><th style="width: 85%;">
-          Description
-        </th></tr><tr><td><strong><code class="attributeName">className</code></strong></td><td>
-        <p>Java class name of the implementation to use.  This MUST be set to
-        <strong>org.apache.catalina.valves.SSLValve</strong>.
-        </p>
       </td></tr></table>
 
   </div></div>
