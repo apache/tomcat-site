@@ -1,31 +1,94 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.53) - Clustering/Session Replication HOW-TO</title><meta name="author" content="Filip Hanik"><meta name="author" content="Peter Rossbach"><style type="text/css" media="print">
-            .noPrint {display: none;}
-            td#mainBody {width: 100%;}
-        </style><style type="text/css">
-            code {background-color:rgb(224,255,255);padding:0 0.1em;}
-            code.attributeName, code.propertyName {background-color:transparent;}
-        </style><style type="text/css">
-            .wrapped-source code { display: block; background-color: transparent; }
-            .wrapped-source div { margin: 0 0 0 1.25em; }
-            .wrapped-source p { margin: 0 0 0 1.25em; text-indent: -1.25em; }
-        </style><style type="text/css">
-            p.notice {
-                border: 1px solid rgb(255, 0, 0);
-                background-color: rgb(238, 238, 238);
-                color: rgb(0, 51, 102);
-                padding: 0.5em;
-                margin: 1em 2em 1em 1em;
-            }
-        </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.54) - Clustering/Session Replication HOW-TO</title><meta name="author" content="Filip Hanik"><meta name="author" content="Peter Rossbach"><style type="text/css" media="print">
+    .noPrint {display: none;}
+    td#mainBody {width: 100%;}
+</style><style type="text/css">
+code {background-color:rgb(224,255,255);padding:0 0.1em;}
+code.attributeName, code.propertyName {background-color:transparent;}
+
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+table *:not(table) {
+  /* Prevent border-collapsing for table child elements like <div> */
+  border-collapse: separate;
+}
+
+th {
+  text-align: left;
+}
+
+
+div.codeBox pre code, code.attributeName, code.propertyName, code.noHighlight, .noHighlight code {
+  background-color: transparent;
+}
+div.codeBox {
+  overflow: auto;
+  margin: 1em 0;
+}
+div.codeBox pre {
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #eff8ff;
+  display: table; /* To prevent <pre>s from taking the complete available width. */
+  /*
+  When it is officially supported, use the following CSS instead of display: table
+  to prevent big <pre>s from exceeding the browser window:
+  max-width: available;
+  width: min-content;
+  */
+}
+
+div.codeBox pre.wrap {
+  white-space: pre-wrap;
+}
+
+
+table.defaultTable tr, table.detail-table tr {
+    border: 1px solid #CCC;
+}
+
+table.defaultTable tr:nth-child(even), table.detail-table tr:nth-child(even) {
+    background-color: #FAFBFF;
+}
+
+table.defaultTable tr:nth-child(odd), table.detail-table tr:nth-child(odd) {
+    background-color: #EEEFFF;
+}
+
+table.defaultTable th, table.detail-table th {
+  background-color: #88b;
+  color: #fff;
+}
+
+table.defaultTable th, table.defaultTable td, table.detail-table th, table.detail-table td {
+  padding: 5px 8px;
+}
+
+
+p.notice {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 51, 102);
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.53, Mar 25 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Clustering/Session Replication HOW-TO</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Important Note"><!--()--></a><a name="Important_Note"><strong>Important Note</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.54, May 19 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Clustering/Session Replication HOW-TO</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Important Note"><!--()--></a><a name="Important_Note"><strong>Important Note</strong></a></font></td></tr><tr><td><blockquote>
 <p><b>You can also check the <a href="config/cluster.html">configuration reference documentation.</a></b>
 </p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#For_the_impatient">For the impatient</a></li><li><a href="#Cluster_Basics">Cluster Basics</a></li><li><a href="#Overview">Overview</a></li><li><a href="#Cluster_Information">Cluster Information</a></li><li><a href="#Bind_session_after_crash_to_failover_node">Bind session after crash to failover node</a></li><li><a href="#Configuration_Example">Configuration Example</a></li><li><a href="#Cluster_Architecture">Cluster Architecture</a></li><li><a href="#How_it_Works">How it Works</a></li><li><a href="#Monitoring_your_Cluster_with_JMX">Monitoring your Cluster with JMX</a></li><li><a href="#FAQ">FAQ</a></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="For the impatient"><!--()--></a><a name="For_the_impatient"><strong>For the impatient</strong></a></font></td></tr><tr><td><blockquote>
   <p>
-    Simply add <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>&lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/&gt;</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+    Simply add
+  </p>
+  <div class="codeBox"><pre><code>&lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/&gt;</code></pre></div>
+  <p>
     to your <code>&lt;Engine&gt;</code> or your <code>&lt;Host&gt;</code> element to enable clustering.
   </p>
   <p>
@@ -35,17 +98,22 @@
     Also when using the delta manager it will replicate to all nodes, even nodes that don't have the application deployed.<br>
     To get around this problem, you'll want to use the BackupManager. This manager only replicates the session data to one backup
     node, and only to nodes that have the application deployed. Downside of the BackupManager: not quite as battle tested as the delta manager.
-    <br>
-    Here are some of the important default values:<br>
-    1. Multicast address is 228.0.0.4<br>
-    2. Multicast port is 45564 (the port and the address together determine cluster membership.<br>
-    3. The IP broadcasted is <code>java.net.InetAddress.getLocalHost().getHostAddress()</code> (make sure you don't broadcast 127.0.0.1, this is a common error)<br>
-    4. The TCP port listening for replication messages is the first available server socket in range <code>4000-4100</code><br>
-    5. Two listeners are configured <code>ClusterSessionListener</code> and <code>JvmRouteSessionIDBinderListener</code><br>
-    6. Two interceptors are configured <code>TcpFailureDetector</code> and <code>MessageDispatch15Interceptor</code><br>
-    The following is the default cluster configuration:<br>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
+  </p>
+  <p>
+    Here are some of the important default values:
+  </p>
+  <ol>
+    <li>Multicast address is 228.0.0.4</li>
+    <li>Multicast port is 45564 (the port and the address together determine cluster membership.</li>
+    <li>The IP broadcasted is <code>java.net.InetAddress.getLocalHost().getHostAddress()</code> (make sure you don't broadcast 127.0.0.1, this is a common error)</li>
+    <li>The TCP port listening for replication messages is the first available server socket in range <code>4000-4100</code></li>
+    <li>Two listeners are configured <code>ClusterSessionListener</code></li>
+    <li>Two interceptors are configured <code>TcpFailureDetector</code> and <code>MessageDispatch15Interceptor</code></li>
+  </ol>
+  <p>
+    The following is the default cluster configuration:
+  </p>
+  <div class="codeBox"><pre><code>        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
                  channelSendOptions="8"&gt;
 
           &lt;Manager className="org.apache.catalina.ha.session.DeltaManager"
@@ -82,11 +150,9 @@
                     watchDir="/tmp/war-listen/"
                     watchEnabled="false"/&gt;
 
-          &lt;ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/&gt;
-          &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/&gt;
-        &lt;/Cluster&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-  </p>
+          &lt;ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"&gt;
+          &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"&gt;
+        &lt;/Cluster&gt;</code></pre></div>
   <p>Will cover this section in more detail later in this document.</p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Cluster Basics"><!--()--></a><a name="Cluster_Basics"><strong>Cluster Basics</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -111,7 +177,7 @@ should be completed:</p>
    side otherwise, a new session will be created.</p>
 <p>Note: Clustering support currently requires the JDK version 1.5 or later.</p>
 <p>The Cluster module uses the Tomcat JULI logging framework, so you can configure logging
-   through the regular logging.properties file. To track messages, you can enable logging on the key:<code>org.apache.catalina.tribes.MESSAGES</code></p>
+   through the regular logging.properties file. To track messages, you can enable logging on the key: <code>org.apache.catalina.tribes.MESSAGES</code></p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Overview"><strong>Overview</strong></a></font></td></tr><tr><td><blockquote>
 
 <p>To enable session replication in Tomcat, three different paths can be followed to achieve the exact same thing:</p>
@@ -132,15 +198,13 @@ should be completed:</p>
    A very simple setup would look like this:
    </p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        DNS Round Robin
+<div class="codeBox"><pre><code>        DNS Round Robin
                |
          Load Balancer
           /           \
       Cluster1      Cluster2
       /     \        /     \
-  Tomcat1 Tomcat2  Tomcat3 Tomcat4
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+  Tomcat1 Tomcat2  Tomcat3 Tomcat4</code></pre></div>
 
 <p>What is important to mention here, is that session replication is only the beginning of clustering.
    Another popular concept used to implement clusters is farming, i.e., you deploy your apps only to one
@@ -208,8 +272,7 @@ should be completed:</p>
 
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration Example"><!--()--></a><a name="Configuration_Example"><strong>Configuration Example</strong></a></font></td></tr><tr><td><blockquote>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
+    <div class="codeBox"><pre><code>        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
                  channelSendOptions="6"&gt;
 
           &lt;Manager className="org.apache.catalina.ha.session.BackupManager"
@@ -251,15 +314,12 @@ should be completed:</p>
                     watchEnabled="false"/&gt;
 
           &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/&gt;
-        &lt;/Cluster&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+        &lt;/Cluster&gt;</code></pre></div>
     <p>
       Break it down!!
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
-                 channelSendOptions="6"&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+    <div class="codeBox"><pre><code>        &lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
+                 channelSendOptions="6"&gt;</code></pre></div>
     <p>
       The main element, inside this element all cluster details can be configured.
       The <code>channelSendOptions</code> is the flag that is attached to each message sent by the
@@ -270,8 +330,7 @@ should be completed:</p>
       sends it itself directly through the channel.
       <br>For more info, Please visit the <a href="config/cluster.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          &lt;Manager className="org.apache.catalina.ha.session.BackupManager"
+    <div class="codeBox"><pre><code>          &lt;Manager className="org.apache.catalina.ha.session.BackupManager"
                    expireSessionsOnShutdown="false"
                    notifyListenersOnReplication="true"
                    mapSendOptions="6"/&gt;
@@ -279,8 +338,7 @@ should be completed:</p>
           &lt;Manager className="org.apache.catalina.ha.session.DeltaManager"
                    expireSessionsOnShutdown="false"
                    notifyListenersOnReplication="true"/&gt;
-          --&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+          --&gt;</code></pre></div>
     <p>
         This is a template for the manager configuration that will be used if no manager is defined in the &lt;Context&gt;
         element. In Tomcat 5.x each webapp marked distributable had to use the same manager, this is no longer the case
@@ -290,21 +348,17 @@ should be completed:</p>
         and create a manager instance cloning this configuration.
         <br>For more info, Please visit the <a href="config/cluster-manager.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          &lt;Channel className="org.apache.catalina.tribes.group.GroupChannel"&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+    <div class="codeBox"><pre><code>          &lt;Channel className="org.apache.catalina.tribes.group.GroupChannel"&gt;</code></pre></div>
     <p>
         The channel element is <a href="tribes/introduction.html">Tribes</a>, the group communication framework
         used inside Tomcat. This element encapsulates everything that has to do with communication and membership logic.
         <br>For more info, Please visit the <a href="config/cluster-channel.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-            &lt;Membership className="org.apache.catalina.tribes.membership.McastService"
+    <div class="codeBox"><pre><code>            &lt;Membership className="org.apache.catalina.tribes.membership.McastService"
                         address="228.0.0.4"
                         port="45564"
                         frequency="500"
-                        dropTime="3000"/&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+                        dropTime="3000"/&gt;</code></pre></div>
     <p>
         Membership is done using multicasting. Please note that Tribes also supports static memberships using the
         <code>StaticMembershipInterceptor</code> if you want to extend your membership to points beyond multicasting.
@@ -316,13 +370,11 @@ should be completed:</p>
         <code>Receiver.address</code> attribute.
         <br>For more info, Please visit the <a href="config/cluster-membership.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-            &lt;Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
+    <div class="codeBox"><pre><code>            &lt;Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
                       address="auto"
                       port="5000"
                       selectorTimeout="100"
-                      maxThreads="6"/&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+                      maxThreads="6"/&gt;</code></pre></div>
     <p>
         In tribes the logic of sending and receiving data has been broken into two functional components. The Receiver, as the name suggests
         is responsible for receiving messages. Since the Tribes stack is thread less, (a popular improvement now adopted by other frameworks as well),
@@ -330,12 +382,9 @@ should be completed:</p>
         The address attribute is the host address that will be broadcasted by the membership component to the other nodes.
         <br>For more info, Please visit the <a href="config/cluster-receiver.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-
-            &lt;Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter"&gt;
+    <div class="codeBox"><pre><code>            &lt;Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter"&gt;
               &lt;Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender"/&gt;
-            &lt;/Sender&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+            &lt;/Sender&gt;</code></pre></div>
     <p>
         The sender component, as the name indicates is responsible for sending messages to other nodes.
         The sender has a shell component, the <code>ReplicationTransmitter</code> but the real stuff done is done in the
@@ -346,12 +395,10 @@ should be completed:</p>
         at the same time.
         <br>For more info, Please visit the <a href="config/cluster-sender.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-            &lt;Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/&gt;
+    <div class="codeBox"><pre><code>            &lt;Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/&gt;
             &lt;Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor"/&gt;
             &lt;Interceptor className="org.apache.catalina.tribes.group.interceptors.ThroughputInterceptor"/&gt;
-          &lt;/Channel&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+          &lt;/Channel&gt;</code></pre></div>
     <p>
         Tribes uses a stack to send messages through. Each element in the stack is called an interceptor, and works much like the valves do
         in the Tomcat servlet container.
@@ -364,23 +411,19 @@ should be completed:</p>
         channel stack. Think of it as a linked list, with the head being the first most interceptor and the tail the last.
         <br>For more info, Please visit the <a href="config/cluster-interceptor.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          &lt;Valve className="org.apache.catalina.ha.tcp.ReplicationValve"
-                 filter=".*\.gif|.*\.js|.*\.jpeg|.*\.jpg|.*\.png|.*\.htm|.*\.html|.*\.css|.*\.txt"/&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+    <div class="codeBox"><pre><code>          &lt;Valve className="org.apache.catalina.ha.tcp.ReplicationValve"
+                 filter=".*\.gif|.*\.js|.*\.jpeg|.*\.jpg|.*\.png|.*\.htm|.*\.html|.*\.css|.*\.txt"/&gt;</code></pre></div>
     <p>
         The cluster uses valves to track requests to web applications, we've mentioned the ReplicationValve and the JvmRouteBinderValve above.
         The &lt;Cluster&gt; element itself is not part of the pipeline in Tomcat, instead the cluster adds the valve to its parent container.
         If the &lt;Cluster&gt; elements is configured in the &lt;Engine&gt; element, the valves get added to the engine and so on.
         <br>For more info, Please visit the <a href="config/cluster-valve.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          &lt;Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
+    <div class="codeBox"><pre><code>          &lt;Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
                     tempDir="/tmp/war-temp/"
                     deployDir="/tmp/war-deploy/"
                     watchDir="/tmp/war-listen/"
-                    watchEnabled="false"/&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+                    watchEnabled="false"/&gt;</code></pre></div>
     <p>
         The default tomcat cluster supports farmed deployment, ie, the cluster can deploy and undeploy applications on the other nodes.
         The state of this component is currently in flux but will be addressed soon. There was a change in the deployment algorithm
@@ -388,10 +431,8 @@ should be completed:</p>
         webapps directory.
         <br>For more info, Please visit the <a href="config/cluster-deployer.html">reference documentation</a>
     </p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-          &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/&gt;
-        &lt;/Cluster&gt;
-    </pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+    <div class="codeBox"><pre><code>          &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/&gt;
+        &lt;/Cluster&gt;</code></pre></div>
     <p>
         Since the SimpleTcpCluster itself is a sender and receiver of the Channel object, components can register themselves as listeners to
         the SimpleTcpCluster. The listener above <code>ClusterSessionListener</code> listens for DeltaManager replication messages
@@ -401,9 +442,8 @@ should be completed:</p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Cluster Architecture"><!--()--></a><a name="Cluster_Architecture"><strong>Cluster Architecture</strong></a></font></td></tr><tr><td><blockquote>
 
-<p><b>Component Levels:</b>
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-         Server
+<p><b>Component Levels:</b></p>
+<div class="codeBox"><pre><code>         Server
            |
          Service
            |
@@ -449,9 +489,8 @@ should be completed:</p>
                                                 \
                                                  -- FarmWarDeployer
 
+</code></pre></div>
 
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-</p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="How it Works"><!--()--></a><a name="How_it_Works"><strong>How it Works</strong></a></font></td></tr><tr><td><blockquote>
 <p>To make it easy to understand how clustering works, We are gonna take you through a series of scenarios.
@@ -482,7 +521,7 @@ should be completed:</p>
         Tomcat will create a <code>DeltaManager</code> for that context instead of a <code>StandardManager</code>.
         The cluster class will start up a membership service (multicast) and a replication service (tcp unicast).
         More on the architecture further down in this document.
-    </p><p></p>
+    </p>
 </li>
 <li><b><code>TomcatB</code> starts up</b>
     <p>
@@ -495,7 +534,7 @@ should be completed:</p>
         entry. The session state gets transferred for each web application that has distributable in
         its web.xml. Note: To use session replication efficiently, all your tomcat instances should be
         configured the same.
-    </p><p></p>
+    </p>
 </li>
 <li><B><code>TomcatA</code> receives a request, a session <code>S1</code> is created.</B>
     <p>
@@ -509,7 +548,7 @@ should be completed:</p>
         in the session without calling setAttribute or removeAttribute to be replicated.
         a useDirtyFlag configuration parameter can be used to optimize the number of times
         a session is replicated.
-    </p><p></p>
+    </p>
 
 </li>
 <li><b><code>TomcatA</code> crashes</b>
@@ -519,11 +558,11 @@ should be completed:</p>
         be notified of any changes that occurs in TomcatB.
         The load balancer will redirect the requests from TomcatA to TomcatB and all the sessions
         are current.
-    </p><p></p>
+    </p>
 </li>
 <li><b><code>TomcatB</code> receives a request for session <code>S1</code></b>
     <p>Nothing exciting, TomcatB will process the request as any other request.
-    </p><p></p>
+    </p>
 </li>
 <li><b><code>TomcatA</code> starts up</b>
     <p>Upon start up, before TomcatA starts taking new request and making itself
@@ -531,18 +570,18 @@ should be completed:</p>
     It will join the cluster, contact TomcatB for the current state of all the sessions.
     And once it receives the session state, it finishes loading and opens its HTTP/mod_jk ports.
     So no requests will make it to TomcatA until it has received the session state from TomcatB.
-    </p><p></p>
+    </p>
 </li>
 <li><b><code>TomcatA</code> receives a request, invalidate is called on the session (<code>S1</code>)</b>
     <p>The invalidate call is intercepted, and the session is queued with invalidated sessions.
         When the request is complete, instead of sending out the session that has changed, it sends out
         an "expire" message to TomcatB and TomcatB will invalidate the session as well.
-    </p><p></p>
+    </p>
 
 </li>
 <li><b><code>TomcatB</code> receives a request, for a new session (<code>S2</code>)</b>
     <p>Same scenario as in step 3)
-    </p><p></p>
+    </p>
 
 
 </li>
@@ -551,7 +590,7 @@ should be completed:</p>
        and the session is queued with invalidated sessions.
        At this point, the invalidated session will not be replicated across until
        another request comes through the system and checks the invalid queue.
-    </p><p></p>
+    </p>
 </li>
 </ol>
 
@@ -585,24 +624,23 @@ should be completed:</p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Monitoring your Cluster with JMX"><!--()--></a><a name="Monitoring_your_Cluster_with_JMX"><strong>Monitoring your Cluster with JMX</strong></a></font></td></tr><tr><td><blockquote>
 <p>Monitoring is a very important question when you use a cluster. Some of the cluster objects are JMX MBeans </p>
-<p>Add the following parameter to your startup script with Java 5:
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-set CATALINA_OPTS=\
+<p>Add the following parameter to your startup script with Java 5:</p>
+<div class="codeBox"><pre><code>set CATALINA_OPTS=\
 -Dcom.sun.management.jmxremote \
 -Dcom.sun.management.jmxremote.port=%my.jmx.port% \
 -Dcom.sun.management.jmxremote.ssl=false \
--Dcom.sun.management.jmxremote.authenticate=false
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-</p>
+-Dcom.sun.management.jmxremote.authenticate=false</code></pre></div>
+
 <p>
-List of Cluster Mbeans<br>
-<table border="1" cellpadding="5">
+  List of Cluster Mbeans
+</p>
+<table class="defaultTable">
 
   <tr>
-    <th align="center" bgcolor="aqua">Name</th>
-    <th align="center" bgcolor="aqua">Description</th>
-    <th align="center" bgcolor="aqua">MBean ObjectName - Engine</th>
-    <th align="center" bgcolor="aqua">MBean ObjectName - Host</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>MBean ObjectName - Engine</th>
+    <th>MBean ObjectName - Host</th>
   </tr>
 
   <tr>
@@ -650,7 +688,6 @@ List of Cluster Mbeans<br>
   </tr>
 
 </table>
-</p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="FAQ"><strong>FAQ</strong></a></font></td></tr><tr><td><blockquote>
 <p>Please see <a href="http://wiki.apache.org/tomcat/FAQ/Clustering">the clustering section of the FAQ</a>.</p>
 </blockquote></td></tr></table></td></tr><tr class="noPrint"><td width="20%" valign="top" nowrap class="noPrint"></td><td width="80%" valign="top" align="left"><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="comments_section" id="comments_section"><strong>Comments</strong></a></font></td></tr><tr><td><blockquote><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions

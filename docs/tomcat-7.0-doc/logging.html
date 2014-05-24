@@ -1,24 +1,84 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.53) - Logging in Tomcat</title><meta name="author" content="Allistair Crossley"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
-            .noPrint {display: none;}
-            td#mainBody {width: 100%;}
-        </style><style type="text/css">
-            code {background-color:rgb(224,255,255);padding:0 0.1em;}
-            code.attributeName, code.propertyName {background-color:transparent;}
-        </style><style type="text/css">
-            .wrapped-source code { display: block; background-color: transparent; }
-            .wrapped-source div { margin: 0 0 0 1.25em; }
-            .wrapped-source p { margin: 0 0 0 1.25em; text-indent: -1.25em; }
-        </style><style type="text/css">
-            p.notice {
-                border: 1px solid rgb(255, 0, 0);
-                background-color: rgb(238, 238, 238);
-                color: rgb(0, 51, 102);
-                padding: 0.5em;
-                margin: 1em 2em 1em 1em;
-            }
-        </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.54) - Logging in Tomcat</title><meta name="author" content="Allistair Crossley"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
+    .noPrint {display: none;}
+    td#mainBody {width: 100%;}
+</style><style type="text/css">
+code {background-color:rgb(224,255,255);padding:0 0.1em;}
+code.attributeName, code.propertyName {background-color:transparent;}
+
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+table *:not(table) {
+  /* Prevent border-collapsing for table child elements like <div> */
+  border-collapse: separate;
+}
+
+th {
+  text-align: left;
+}
+
+
+div.codeBox pre code, code.attributeName, code.propertyName, code.noHighlight, .noHighlight code {
+  background-color: transparent;
+}
+div.codeBox {
+  overflow: auto;
+  margin: 1em 0;
+}
+div.codeBox pre {
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #eff8ff;
+  display: table; /* To prevent <pre>s from taking the complete available width. */
+  /*
+  When it is officially supported, use the following CSS instead of display: table
+  to prevent big <pre>s from exceeding the browser window:
+  max-width: available;
+  width: min-content;
+  */
+}
+
+div.codeBox pre.wrap {
+  white-space: pre-wrap;
+}
+
+
+table.defaultTable tr, table.detail-table tr {
+    border: 1px solid #CCC;
+}
+
+table.defaultTable tr:nth-child(even), table.detail-table tr:nth-child(even) {
+    background-color: #FAFBFF;
+}
+
+table.defaultTable tr:nth-child(odd), table.detail-table tr:nth-child(odd) {
+    background-color: #EEEFFF;
+}
+
+table.defaultTable th, table.detail-table th {
+  background-color: #88b;
+  color: #fff;
+}
+
+table.defaultTable th, table.defaultTable td, table.detail-table th, table.detail-table td {
+  padding: 5px 8px;
+}
+
+
+p.notice {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 51, 102);
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.53, Mar 25 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Logging in Tomcat</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.54, May 19 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Logging in Tomcat</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#Introduction">Introduction</a><ol><li><a href="#Java_logging_API_%E2%80%94_java.util.logging">Java logging API &mdash; java.util.logging</a></li><li><a href="#Servlets_logging_API">Servlets logging API</a></li><li><a href="#Console">Console</a></li><li><a href="#Access_logging">Access logging</a></li></ol></li><li><a href="#Using_java.util.logging_(default)">Using java.util.logging (default)</a><ol><li><a href="#Documentation_references">Documentation references</a></li><li><a href="#Considerations_for_productive_usage">Considerations for productive usage</a></li></ol></li><li><a href="#Using_Log4j">Using Log4j</a></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
     <p>
@@ -43,7 +103,7 @@
       logging, one has to replace the logging library with the one that is built
       with the full implementation. Such library is provided as an <a href="extras.html">extras</a>
       component. Instructions on how to configure Tomcat to use Log4j framework
-      for its internal logging may be found below.
+      for its internal logging may be found <a href="#Using_Log4j">below</a>.
     </p>
 
     <p>
@@ -111,7 +171,7 @@
       log messages are handled by internal Tomcat logging. Such messages are
       logged to the category named
     </p>
-      <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>org.apache.catalina.core.ContainerBase.[${engine}].[${host}].[${context}]</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+      <div class="codeBox"><pre><code>org.apache.catalina.core.ContainerBase.[${engine}].[${host}].[${context}]</code></pre></div>
     <p>
       This logging is performed according to the Tomcat logging configuration. You
       cannot overwrite it in a web application.
@@ -179,9 +239,16 @@
     <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Access logging"><!--()--></a><a name="Access_logging"><strong>Access logging</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>
-      A related, but different feature is access logging. It can be configured
-      as a valve at the Context, or Host, or Engine. See <a href="config/valve.html">Valves</a>
-      documentation for more details.
+      Access logging is a related but different feature, which is
+      implemented as a <code>Valve</code>. It uses self-contained
+      logic to write its log files. The essential requirement for
+      access logging is to handle a large continuous stream of data
+      with low overhead, so it only uses Apache Commons Logging for
+      its own debug messages. This implementation approach avoids
+      additional overhead and potentially complex configuration.
+      Please refer to the <a href="config/valve.html#Access_Logging">Valves</a>
+      documentation for more details on its configuration, including
+      the various report formats.
     </p>
 
     </blockquote></td></tr></table>
@@ -206,6 +273,7 @@
     JULI is enabled by default, and supports per classloader configuration, in
     addition to the regular global java.util.logging configuration. This means
     that logging can be configured at the following layers:
+  </p>
     <ul>
       <li>Globally. That is usually done in the
         <code>${catalina.base}/conf/logging.properties</code> file.
@@ -218,7 +286,6 @@
         <code>WEB-INF/classes/logging.properties</code>
       </li>
     </ul>
-  </p>
   <p>
     The default <code>logging.properties</code> in the JRE specifies a
     <code>ConsoleHandler</code> that routes logging to System.err.
@@ -237,9 +304,7 @@
     so FINEST or ALL should be set. Please refer to <code>java.util.logging</code>
     documentation in the JDK for the complete details:
   </p>
-  <p>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>org.apache.catalina.level=FINEST</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-  </p>
+  <div class="codeBox"><pre><code>org.apache.catalina.level=FINEST</code></pre></div>
   <p>
     The configuration used by JULI is extremely similar to the one supported by
     plain <code>java.util.logging</code>, but uses a few
@@ -279,8 +344,8 @@
   </p>
   <p>
     Example logging.properties file to be placed in $CATALINA_BASE/conf:
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-handlers = 1catalina.org.apache.juli.FileHandler, \
+  </p>
+  <div class="codeBox"><pre><code>handlers = 1catalina.org.apache.juli.FileHandler, \
            2localhost.org.apache.juli.FileHandler, \
            3manager.org.apache.juli.FileHandler, \
            java.util.logging.ConsoleHandler
@@ -324,15 +389,13 @@ org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].handler
 
 # For example, set the org.apache.catalina.util.LifecycleBase logger to log
 # each component that extends LifecycleBase changing state:
-#org.apache.catalina.util.LifecycleBase.level = FINE
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-    </p>
+#org.apache.catalina.util.LifecycleBase.level = FINE</code></pre></div>
 
     <p>
       Example logging.properties for the servlet-examples web application to be
       placed in WEB-INF/classes inside the web application:
-      <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-handlers = org.apache.juli.FileHandler, java.util.logging.ConsoleHandler
+    </p>
+    <div class="codeBox"><pre><code>handlers = org.apache.juli.FileHandler, java.util.logging.ConsoleHandler
 
 ############################################################
 # Handler specific properties.
@@ -344,9 +407,8 @@ org.apache.juli.FileHandler.directory = ${catalina.base}/logs
 org.apache.juli.FileHandler.prefix = servlet-examples.
 
 java.util.logging.ConsoleHandler.level = FINE
-java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
-    </p>
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter</code></pre></div>
+
 
     <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Documentation references"><!--()--></a><a name="Documentation_references"><strong>Documentation references</strong></a></font></td></tr><tr><td><blockquote>
       <p>See the following resources for additional information:</p>
@@ -377,8 +439,8 @@ java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
         <li><p>The handlers by default use the system default encoding to write
         the log files. It can be configured with <code>encoding</code> property.
         See Javadoc for details.</p></li>
-        <li><p>Consider configuring an <a href="config/valve.html">Access
-        log</a>.</p></li>
+        <li><p>Consider configuring an
+        <a href="config/valve.html#Access_Logging">Access log</a>.</p></li>
       </ul>
     </blockquote></td></tr></table>
 
@@ -405,55 +467,54 @@ java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
         <li>Create a file called <code>log4j.properties</code> with the
         following content and save it into <code>$CATALINA_BASE/lib</code></li>
     </ol>
-    <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-log4j.rootLogger=INFO, CATALINA
+    <div class="codeBox"><pre><code>
+log4j.rootLogger = INFO, CATALINA
 
 # Define all the appenders
-log4j.appender.CATALINA=org.apache.log4j.DailyRollingFileAppender
-log4j.appender.CATALINA.File=${catalina.base}/logs/catalina.
-log4j.appender.CATALINA.Append=true
-log4j.appender.CATALINA.Encoding=UTF-8
+log4j.appender.CATALINA = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.CATALINA.File = ${catalina.base}/logs/catalina
+log4j.appender.CATALINA.Append = true
+log4j.appender.CATALINA.Encoding = UTF-8
 # Roll-over the log once per day
-log4j.appender.CATALINA.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.CATALINA.DatePattern = '.'yyyy-MM-dd'.log'
 log4j.appender.CATALINA.layout = org.apache.log4j.PatternLayout
 log4j.appender.CATALINA.layout.ConversionPattern = %d [%t] %-5p %c- %m%n
 
-log4j.appender.LOCALHOST=org.apache.log4j.DailyRollingFileAppender
-log4j.appender.LOCALHOST.File=${catalina.base}/logs/localhost.
-log4j.appender.LOCALHOST.Append=true
-log4j.appender.LOCALHOST.Encoding=UTF-8
-log4j.appender.LOCALHOST.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.LOCALHOST = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.LOCALHOST.File = ${catalina.base}/logs/localhost
+log4j.appender.LOCALHOST.Append = true
+log4j.appender.LOCALHOST.Encoding = UTF-8
+log4j.appender.LOCALHOST.DatePattern = '.'yyyy-MM-dd'.log'
 log4j.appender.LOCALHOST.layout = org.apache.log4j.PatternLayout
 log4j.appender.LOCALHOST.layout.ConversionPattern = %d [%t] %-5p %c- %m%n
 
-log4j.appender.MANAGER=org.apache.log4j.DailyRollingFileAppender
-log4j.appender.MANAGER.File=${catalina.base}/logs/manager.
-log4j.appender.MANAGER.Append=true
-log4j.appender.MANAGER.Encoding=UTF-8
-log4j.appender.MANAGER.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.MANAGER = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.MANAGER.File = ${catalina.base}/logs/manager
+log4j.appender.MANAGER.Append = true
+log4j.appender.MANAGER.Encoding = UTF-8
+log4j.appender.MANAGER.DatePattern = '.'yyyy-MM-dd'.log'
 log4j.appender.MANAGER.layout = org.apache.log4j.PatternLayout
 log4j.appender.MANAGER.layout.ConversionPattern = %d [%t] %-5p %c- %m%n
 
-log4j.appender.HOST-MANAGER=org.apache.log4j.DailyRollingFileAppender
-log4j.appender.HOST-MANAGER.File=${catalina.base}/logs/host-manager.
-log4j.appender.HOST-MANAGER.Append=true
-log4j.appender.HOST-MANAGER.Encoding=UTF-8
-log4j.appender.HOST-MANAGER.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.HOST-MANAGER = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.HOST-MANAGER.File = ${catalina.base}/logs/host-manager
+log4j.appender.HOST-MANAGER.Append = true
+log4j.appender.HOST-MANAGER.Encoding = UTF-8
+log4j.appender.HOST-MANAGER.DatePattern = '.'yyyy-MM-dd'.log'
 log4j.appender.HOST-MANAGER.layout = org.apache.log4j.PatternLayout
 log4j.appender.HOST-MANAGER.layout.ConversionPattern = %d [%t] %-5p %c- %m%n
 
-log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
-log4j.appender.CONSOLE.Encoding=UTF-8
+log4j.appender.CONSOLE = org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Encoding = UTF-8
 log4j.appender.CONSOLE.layout = org.apache.log4j.PatternLayout
 log4j.appender.CONSOLE.layout.ConversionPattern = %d [%t] %-5p %c- %m%n
 
 # Configure which loggers log to which appenders
-log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost]=INFO, LOCALHOST
-log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager]=\
+log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost] = INFO, LOCALHOST
+log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager] =\
   INFO, MANAGER
-log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager]=\
-  INFO, HOST-MANAGER
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager] =\
+  INFO, HOST-MANAGER</code></pre></div>
     <ol start="2">
         <li><a href="http://logging.apache.org/log4j">Download Log4J</a>
         (v1.2 or later).</li>
@@ -519,11 +580,9 @@ log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hos
       configuration files, so we recommend you use a properties file as
       described until a future version of log4j allows this convention.
     </p>
-      <div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost]=DEBUG
+      <div class="codeBox"><pre><code>log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost]=DEBUG
 log4j.logger.org.apache.catalina.core=DEBUG
-log4j.logger.org.apache.catalina.session=DEBUG
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+log4j.logger.org.apache.catalina.session=DEBUG</code></pre></div>
 
     <p>
       Be warned: a level of DEBUG will produce megabytes of logging and slow
@@ -553,15 +612,26 @@ log4j.logger.org.apache.catalina.session=DEBUG
         library are likely to automatically choose log4j as the underlying
         logging implementation.</p></li>
 
-        <li><p>The <code>java.util.logging</code> API is still available, for
-        those web applications that use it directly. The
+        <li><p>The <code>java.util.logging</code> API is still available for
+        those web applications that use it directly.  The
         <code>${catalina.base}/conf/logging.properties</code> file is still
-        referenced by Tomcat startup scripts.</p>
+        referenced by Tomcat startup scripts.  For more information, see the
+        subsections of the <a href="#Introduction">Introduction</a> to
+        this page.</p>
         <p> Removal of <code>${catalina.base}/conf/logging.properties</code>
-        file, mentioned as one of the steps, just causes
-        <code>java.util.logging</code> to fallback to the default configuration
-        as configured in JRE, which is to use a ConsoleHandler and do not
-        create any files.</p></li>
+        file, mentioned as one of the steps above, causes
+        <code>java.util.logging</code> to fallback to the default
+        configuration for the JRE, which is to use a ConsoleHandler
+        and therefore not create any standard log files.  You should
+        confirm that all your log files are being created by log4j
+        <i>before</i> disabling the standard mechanism.</p></li>
+
+        <li><p>The <strong>Access Log Valve</strong> and
+        <strong>ExtendedAccessLogValve</strong> use their own self-contained
+        logging implementation, so they
+        <strong><i>cannot be configured to use log4j</i></strong>.
+        Refer to <a href="config/valve.html#Access_Logging">Valves</a>
+        for specific configuration details.</p></li>
     </ul>
   </blockquote></td></tr></table></td></tr><tr class="noPrint"><td width="20%" valign="top" nowrap class="noPrint"></td><td width="80%" valign="top" align="left"><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="comments_section" id="comments_section"><strong>Comments</strong></a></font></td></tr><tr><td><blockquote><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
               on improving documentation for Apache Tomcat.<br><br>

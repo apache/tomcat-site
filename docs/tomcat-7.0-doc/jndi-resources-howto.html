@@ -1,42 +1,103 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.53) - JNDI Resources HOW-TO</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
-            .noPrint {display: none;}
-            td#mainBody {width: 100%;}
-        </style><style type="text/css">
-            code {background-color:rgb(224,255,255);padding:0 0.1em;}
-            code.attributeName, code.propertyName {background-color:transparent;}
-        </style><style type="text/css">
-            .wrapped-source code { display: block; background-color: transparent; }
-            .wrapped-source div { margin: 0 0 0 1.25em; }
-            .wrapped-source p { margin: 0 0 0 1.25em; text-indent: -1.25em; }
-        </style><style type="text/css">
-            p.notice {
-                border: 1px solid rgb(255, 0, 0);
-                background-color: rgb(238, 238, 238);
-                color: rgb(0, 51, 102);
-                padding: 0.5em;
-                margin: 1em 2em 1em 1em;
-            }
-        </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.54) - JNDI Resources HOW-TO</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
+    .noPrint {display: none;}
+    td#mainBody {width: 100%;}
+</style><style type="text/css">
+code {background-color:rgb(224,255,255);padding:0 0.1em;}
+code.attributeName, code.propertyName {background-color:transparent;}
+
+
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+table *:not(table) {
+  /* Prevent border-collapsing for table child elements like <div> */
+  border-collapse: separate;
+}
+
+th {
+  text-align: left;
+}
+
+
+div.codeBox pre code, code.attributeName, code.propertyName, code.noHighlight, .noHighlight code {
+  background-color: transparent;
+}
+div.codeBox {
+  overflow: auto;
+  margin: 1em 0;
+}
+div.codeBox pre {
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #eff8ff;
+  display: table; /* To prevent <pre>s from taking the complete available width. */
+  /*
+  When it is officially supported, use the following CSS instead of display: table
+  to prevent big <pre>s from exceeding the browser window:
+  max-width: available;
+  width: min-content;
+  */
+}
+
+div.codeBox pre.wrap {
+  white-space: pre-wrap;
+}
+
+
+table.defaultTable tr, table.detail-table tr {
+    border: 1px solid #CCC;
+}
+
+table.defaultTable tr:nth-child(even), table.detail-table tr:nth-child(even) {
+    background-color: #FAFBFF;
+}
+
+table.defaultTable tr:nth-child(odd), table.detail-table tr:nth-child(odd) {
+    background-color: #EEEFFF;
+}
+
+table.defaultTable th, table.detail-table th {
+  background-color: #88b;
+  color: #fff;
+}
+
+table.defaultTable th, table.defaultTable td, table.detail-table th, table.detail-table td {
+  padding: 5px 8px;
+}
+
+
+p.notice {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 51, 102);
+    padding: 0.5em;
+    margin: 1em 2em 1em 1em;
+}
+</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.53, Mar 25 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>JNDI Resources HOW-TO</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.54, May 19 2014</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.0 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>JNDI Resources HOW-TO</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#web.xml_configuration">web.xml configuration</a></li><li><a href="#context.xml_configuration">context.xml configuration</a></li><li><a href="#Global_configuration">Global configuration</a></li><li><a href="#Using_resources">Using resources</a></li><li><a href="#Tomcat_Standard_Resource_Factories">Tomcat Standard Resource Factories</a><ol><li><a href="#Generic_JavaBean_Resources">Generic JavaBean Resources</a></li><li><a href="#UserDatabase_Resources">UserDatabase Resources</a></li><li><a href="#JavaMail_Sessions">JavaMail Sessions</a></li><li><a href="#JDBC_Data_Sources">JDBC Data Sources</a></li></ol></li><li><a href="#Adding_Custom_Resource_Factories">Adding Custom Resource Factories</a></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
 <p>Tomcat provides a JNDI <strong>InitialContext</strong> implementation
 instance for each web application running under it, in a manner that is
 compatible with those provided by a
-<a href="http://java.sun.com/j2ee">Java Enterprise Edition</a> application
-server. The Java EE standard provides a standard set of elements in the
-<code>/WEB-INF/web.xml</code> file to reference/define resources.</p>
+<a href="http://www.oracle.com/technetwork/java/javaee/overview/index.html">
+Java Enterprise Edition</a> application server. The Java EE standard provides
+a standard set of elements in the <code>/WEB-INF/web.xml</code> file to
+reference/define resources.</p>
 
 <p>See the following Specifications for more information about programming APIs
 for JNDI, and for the features supported by Java Enterprise Edition (Java EE)
 servers, which Tomcat emulates for the services that it provides:</p>
 <ul>
-<li><a href="http://java.sun.com/products/jndi">Java Naming and Directory
-    Interface</a> (included in JDK 1.4 onwards)</li>
-<li><a href="http://java.sun.com/j2ee/download.html">Java EE Platform
-    Specification</a> (in particular, see Chapter 5 on <em>Naming</em>)</li>
+<li><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jndi/index.html">
+    Java Naming and Directory Interface</a> (included in JDK 1.4 onwards)</li>
+<li><a href="http://www.oracle.com/technetwork/java/javaee/documentation/index.html">
+    Java EE Platform Specification</a> (in particular, see Chapter 5 on <em>Naming</em>)</li>
 </ul>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="web.xml configuration"><!--()--></a><a name="web.xml_configuration"><strong>web.xml configuration</strong></a></font></td></tr><tr><td><blockquote>
@@ -90,18 +151,18 @@ elements in the <a href="config/context.html"><code>&lt;Context&gt;</code></a>
 element:</p>
 
 <ul>
-<li><a href="config/context.html#Environment Entries">&lt;Environment&gt;</a> -
+<li><a href="config/context.html#Environment_Entries">&lt;Environment&gt;</a> -
     Configure names and values for scalar environment entries that will be
     exposed to the web application through the JNDI
     <code>InitialContext</code> (equivalent to the inclusion of an
     <code>&lt;env-entry&gt;</code> element in the web application
     deployment descriptor).</li>
-<li><a href="config/context.html#Resource Definitions">&lt;Resource&gt;</a> -
+<li><a href="config/context.html#Resource_Definitions">&lt;Resource&gt;</a> -
     Configure the name and data type of a resource made available to the
     application (equivalent to the inclusion of a
     <code>&lt;resource-ref&gt;</code> element in the web application
     deployment descriptor).</li>
-<li><a href="config/context.html#Resource Links">&lt;ResourceLink&gt;</a> -
+<li><a href="config/context.html#Resource_Links">&lt;ResourceLink&gt;</a> -
     Add a link to a resource defined in the global JNDI context. Use resource
     links to give a web application access to a resource defined in
     the <a href="config/globalresources.html">&lt;GlobalNamingResources&gt;</a>
@@ -141,11 +202,11 @@ entire server.  These are configured in the
 <code><strong>&lt;GlobalNamingResources&gt;</strong></code></a> element of
 <code>$CATALINA_BASE/conf/server.xml</code>. You may expose these resources to
 web applications by using a
-<a href="config/context.html#Resource Links">&lt;ResourceLink&gt;</a> to
+<a href="config/context.html#Resource_Links">&lt;ResourceLink&gt;</a> to
 include it in the per-web-application context.</p>
 
 <p>If a resource has been defined using a
-<a href="config/context.html#Resource Links">&lt;ResourceLink&gt;</a>, it is not
+<a href="config/context.html#Resource_Links">&lt;ResourceLink&gt;</a>, it is not
 necessary for that resource to be defined in <code>/WEB-INF/web.xml</code>.
 However, it is recommended to keep the entry in <code>/WEB-INF/web.xml</code>
 to document the resource requirements for the web application.</p>
@@ -159,8 +220,7 @@ the <code>java:comp/env</code> portion of the JNDI namespace, so a typical
 access to a resource - in this case, to a JDBC <code>DataSource</code> -
 would look something like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-// Obtain our environment naming context
+<div class="codeBox"><pre><code>// Obtain our environment naming context
 Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
@@ -171,8 +231,7 @@ DataSource ds = (DataSource)
 // Allocate and use a connection from the pool
 Connection conn = ds.getConnection();
 ... use this connection to access the database ...
-conn.close();
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+conn.close();</code></pre></div>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat Standard Resource Factories"><!--()--></a><a name="Tomcat_Standard_Resource_Factories"><strong>Tomcat Standard Resource Factories</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -184,7 +243,7 @@ conn.close();
   subsection below details the configuration and usage of the standard resource
   factories.</p>
 
-  <p>See <a href="#Adding Custom Resource Factories">Adding Custom
+  <p>See <a href="#Adding_Custom_Resource_Factories">Adding Custom
   Resource Factories</a> for information about how to create, install,
   configure, and use your own custom resource factory classes with
   Tomcat.</p>
@@ -199,7 +258,7 @@ conn.close();
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Generic JavaBean Resources"><!--()--></a><a name="Generic_JavaBean_Resources"><strong>Generic JavaBean Resources</strong></a></font></td></tr><tr><td><blockquote>
 
-    <h3>0.  Introduction</h3>
+    <h5>0.  Introduction</h5>
 
     <p>This resource factory can be used to create objects of <em>any</em>
     Java class that conforms to standard JavaBeans naming conventions (i.e.
@@ -211,15 +270,14 @@ conn.close();
 
     <p>The steps required to use this facility are described below.</p>
 
-    <h3>1.  Create Your JavaBean Class</h3>
+    <h5>1.  Create Your JavaBean Class</h5>
 
     <p>Create the JavaBean class which will be instantiated each time
     that the resource factory is looked up.  For this example, assume
     you create a class <code>com.mycompany.MyBean</code>, which looks
     like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-package com.mycompany;
+<div class="codeBox"><pre><code>package com.mycompany;
 
 public class MyBean {
 
@@ -244,18 +302,16 @@ public class MyBean {
   }
 
 
-}
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+}</code></pre></div>
 
-  <h3>2.  Declare Your Resource Requirements</h3>
+  <h5>2.  Declare Your Resource Requirements</h5>
 
   <p>Next, modify your web application deployment descriptor
   (<code>/WEB-INF/web.xml</code>) to declare the JNDI name under which
   you will request new instances of this bean.  The simplest approach is
   to use a <code>&lt;resource-env-ref&gt;</code> element, like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;resource-env-ref&gt;
+<div class="codeBox"><pre><code>&lt;resource-env-ref&gt;
   &lt;description&gt;
     Object factory for MyBean instances.
   &lt;/description&gt;
@@ -265,8 +321,7 @@ public class MyBean {
   &lt;resource-env-ref-type&gt;
     com.mycompany.MyBean
   &lt;/resource-env-ref-type&gt;
-&lt;/resource-env-ref&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/resource-env-ref&gt;</code></pre></div>
 
     <p><strong>WARNING</strong> - Be sure you respect the element ordering
     that is required by the DTD for web application deployment descriptors!
@@ -274,36 +329,32 @@ public class MyBean {
     <a href="http://wiki.apache.org/tomcat/Specifications">Servlet
     Specification</a> for details.</p>
 
-  <h3>3.  Code Your Application's Use Of This Resource</h3>
+  <h5>3.  Code Your Application's Use Of This Resource</h5>
 
   <p>A typical use of this resource environment reference might look
   like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-Context initCtx = new InitialContext();
+<div class="codeBox"><pre><code>Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 MyBean bean = (MyBean) envCtx.lookup("bean/MyBeanFactory");
 
 writer.println("foo = " + bean.getFoo() + ", bar = " +
-               bean.getBar());
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+               bean.getBar());</code></pre></div>
 
-    <h3>4.  Configure Tomcat's Resource Factory</h3>
+    <h5>4.  Configure Tomcat's Resource Factory</h5>
 
     <p>To configure Tomcat's resource factory, add an element like this to the
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
     this web application.</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;Context ...&gt;
+<div class="codeBox"><pre><code>&lt;Context ...&gt;
   ...
   &lt;Resource name="bean/MyBeanFactory" auth="Container"
             type="com.mycompany.MyBean"
             factory="org.apache.naming.factory.BeanFactory"
             bar="23"/&gt;
   ...
-&lt;/Context&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/Context&gt;</code></pre></div>
 
     <p>Note that the resource name (here, <code>bean/MyBeanFactory</code>
     must match the value specified in the web application deployment
@@ -318,7 +369,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="UserDatabase Resources"><!--()--></a><a name="UserDatabase_Resources"><strong>UserDatabase Resources</strong></a></font></td></tr><tr><td><blockquote>
 
-    <h3>0.  Introduction</h3>
+    <h5>0.  Introduction</h5>
 
     <p>UserDatabase resources are typically configured as global resources for
     use by a UserDatabase realm. Tomcat includes a UserDatabaseFactoory that
@@ -328,7 +379,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
     <p>The steps required to set up a global UserDatabase resource are described
     below.</p>
 
-    <h3>1. Create/edit the XML file</h3>
+    <h5>1. Create/edit the XML file</h5>
 
     <p>The XML file is typically located at
     <code>$CATALINA_BASE/conf/tomcat-users.xml</code> however, you are free to
@@ -336,32 +387,28 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
     files are placed in <code>$CATALINA_BASE/conf</code>. A typical XML would
     look like:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;?xml version='1.0' encoding='utf-8'?&gt;
+<div class="codeBox"><pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
 &lt;tomcat-users&gt;
   &lt;role rolename="tomcat"/&gt;
   &lt;role rolename="role1"/&gt;
   &lt;user username="tomcat" password="tomcat" roles="tomcat"/&gt;
   &lt;user username="both" password="tomcat" roles="tomcat,role1"/&gt;
   &lt;user username="role1" password="tomcat" roles="role1"/&gt;
-&lt;/tomcat-users&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/tomcat-users&gt;</code></pre></div>
 
-    <h3>2.  Declare Your Resource</h3>
+    <h5>2.  Declare Your Resource</h5>
 
     <p>Next, modify <code>$CATALINA_BASE/conf/server.xml</code> to create the
     UserDatabase resource based on your XML file. It should look something like
     this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;Resource name="UserDatabase"
+<div class="codeBox"><pre><code>&lt;Resource name="UserDatabase"
           auth="Container"
           type="org.apache.catalina.UserDatabase"
           description="User database that can be updated and saved"
           factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
           pathname="conf/tomcat-users.xml"
-          readonly="false" /&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+          readonly="false" /&gt;</code></pre></div>
 
     <p>The <code>pathname</code> attribute can be absolute or relative. If
     relative, it is relative to <code>$CATALINA_BASE</code>.</p>
@@ -373,7 +420,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
     is running as. Ensure that these are appropriate to maintain the security
     of your installation.</p>
 
-    <h3>3.  Configure the Realm</h3>
+    <h5>3.  Configure the Realm</h5>
 
     <p>Configure a UserDatabase Realm to use this resource as described in the
     <a href="config/realm.html">Realm configuration documentation</a>.</p>
@@ -383,11 +430,11 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JavaMail Sessions"><!--()--></a><a name="JavaMail_Sessions"><strong>JavaMail Sessions</strong></a></font></td></tr><tr><td><blockquote>
 
-    <h3>0.  Introduction</h3>
+    <h5>0.  Introduction</h5>
 
     <p>In many web applications, sending electronic mail messages is a
     required part of the system's functionality.  The
-    <a href="http://java.sun.com/products/javamail">Java Mail</a> API
+    <a href="http://www.oracle.com/technetwork/java/javamail/index.html">Java Mail</a> API
     makes this process relatively straightforward, but requires many
     configuration details that the client application must be aware of
     (including the name of the SMTP host to be used for message sending).</p>
@@ -401,7 +448,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
 
     <p>The steps required for this are outlined below.</p>
 
-    <h3>1.  Declare Your Resource Requirements</h3>
+    <h5>1.  Declare Your Resource Requirements</h5>
 
     <p>The first thing you should do is modify the web application deployment
     descriptor (<code>/WEB-INF/web.xml</code>) to declare the JNDI name under
@@ -410,8 +457,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
     standard <code>java:comp/env</code> naming context that is the root of
     all provided resource factories.  A typical <code>web.xml</code> entry
     might look like this:</p>
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;resource-ref&gt;
+<div class="codeBox"><pre><code>&lt;resource-ref&gt;
   &lt;description&gt;
     Resource reference to a factory for javax.mail.Session
     instances that may be used for sending electronic mail
@@ -427,8 +473,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
   &lt;res-auth&gt;
     Container
   &lt;/res-auth&gt;
-&lt;/resource-ref&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/resource-ref&gt;</code></pre></div>
 
     <p><strong>WARNING</strong> - Be sure you respect the element ordering
     that is required by the DTD for web application deployment descriptors!
@@ -436,11 +481,10 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
     <a href="http://wiki.apache.org/tomcat/Specifications">Servlet
     Specification</a> for details.</p>
 
-    <h3>2.  Code Your Application's Use Of This Resource</h3>
+    <h5>2.  Code Your Application's Use Of This Resource</h5>
 
     <p>A typical use of this resource reference might look like this:</p>
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-Context initCtx = new InitialContext();
+<div class="codeBox"><pre><code>Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 Session session = (Session) envCtx.lookup("mail/Session");
 
@@ -451,8 +495,7 @@ to[0] = new InternetAddress(request.getParameter("to"));
 message.setRecipients(Message.RecipientType.TO, to);
 message.setSubject(request.getParameter("subject"));
 message.setContent(request.getParameter("content"), "text/plain");
-Transport.send(message);
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+Transport.send(message);</code></pre></div>
 
     <p>Note that the application uses the same resource reference name
     that was declared in the web application deployment descriptor.  This
@@ -460,21 +503,19 @@ Transport.send(message);
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element
     for the web application as described below.</p>
 
-    <h3>3.  Configure Tomcat's Resource Factory</h3>
+    <h5>3.  Configure Tomcat's Resource Factory</h5>
 
     <p>To configure Tomcat's resource factory, add an elements like this to the
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
     this web application.</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;Context ...&gt;
+<div class="codeBox"><pre><code>&lt;Context ...&gt;
   ...
   &lt;Resource name="mail/Session" auth="Container"
             type="javax.mail.Session"
             mail.smtp.host="localhost"/&gt;
   ...
-&lt;/Context&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/Context&gt;</code></pre></div>
 
     <p>Note that the resource name (here, <code>mail/Session</code>) must
     match the value specified in the web application deployment descriptor.
@@ -494,9 +535,9 @@ Transport.send(message);
     then Tomcat's resource factory will configure and add a
     <code>javax.mail.Authenticator</code> to the mail session.</p>
 
-    <h3>4.  Install the JavaMail libraries</h3>
+    <h5>4.  Install the JavaMail libraries</h5>
 
-    <p><a href="http://www.oracle.com/technetwork/java/index-138643.html">
+    <p><a href="http://javamail.java.net/">
     Download the JavaMail API</a>.</p>
 
     <p>Unpackage the distribution and place mail.jar  into $CATALINA_HOME/lib so
@@ -506,13 +547,13 @@ Transport.send(message);
     it in the $CATALINA_HOME/lib location only.
     </p>
 
-    <h3>5.  Restart Tomcat</h3>
+    <h5>5.  Restart Tomcat</h5>
 
     <p>For the additional JAR to be visible to Tomcat, it is necessary for the
     Tomcat instance to be restarted.</p>
 
 
-    <h3>Example Application</h3>
+    <h5>Example Application</h5>
 
     <p>The <code>/examples</code> application included with Tomcat contains
     an example of utilizing this resource factory.  It is accessed via the
@@ -532,7 +573,7 @@ Transport.send(message);
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JDBC Data Sources"><!--()--></a><a name="JDBC_Data_Sources"><strong>JDBC Data Sources</strong></a></font></td></tr><tr><td><blockquote>
 
-    <h3>0.  Introduction</h3>
+    <h5>0.  Introduction</h5>
 
     <p>Many web applications need to access a database via a JDBC driver,
     to support the functionality required by that application.  The Java EE
@@ -544,7 +585,8 @@ Transport.send(message);
 
     <p>For information about JDBC, you should consult the following:</p>
     <ul>
-    <li><a href="http://java.sun.com/products/jdbc/">http://java.sun.com/products/jdbc/</a> -
+    <li><a href="http://www.oracle.com/technetwork/java/javase/jdbc/index.html">
+        http://www.oracle.com/technetwork/java/javase/jdbc/index.html</a> -
         Home page for information about Java Database Connectivity.</li>
     <li><a href="http://java.sun.com/j2se/1.3/docs/guide/jdbc/spec2/jdbc2.1.frame.html">http://java.sun.com/j2se/1.3/docs/guide/jdbc/spec2/jdbc2.1.frame.html</a> -
         The JDBC 2.1 API Specification.</li>
@@ -552,7 +594,8 @@ Transport.send(message);
         The JDBC 2.0 Standard Extension API (including the
         <code>javax.sql.DataSource</code> API).  This package is now known
         as the "JDBC Optional Package".</li>
-    <li><a href="http://java.sun.com/j2ee/download.html">http://java.sun.com/j2ee/download.html</a> -
+    <li><a href="http://www.oracle.com/technetwork/java/javaee/overview/index.htm">
+        http://www.oracle.com/technetwork/java/javaee/overview/index.htm</a> -
         The Java EE Platform Specification (covers the JDBC facilities that
         all Java EE platforms must provide to applications).</li>
     </ul>
@@ -563,9 +606,9 @@ Transport.send(message);
     project.  However, it is possible to use any other connection pool
     that implements <code>javax.sql.DataSource</code>, by writing your
     own custom resource factory, as described
-    <a href="#Adding Custom Resource Factories">below</a>.</p>
+    <a href="#Adding_Custom_Resource_Factories">below</a>.</p>
 
-    <h3>1.  Install Your JDBC Driver</h3>
+    <h5>1.  Install Your JDBC Driver</h5>
 
     <p>Use of the <em>JDBC Data Sources</em> JNDI Resource Factory requires
     that you make an appropriate JDBC driver available to both Tomcat internal
@@ -574,7 +617,7 @@ Transport.send(message);
     <code>$CATALINA_HOME/lib</code> directory, which makes the driver
     available both to the resource factory and to your application.</p>
 
-    <h3>2.  Declare Your Resource Requirements</h3>
+    <h5>2.  Declare Your Resource Requirements</h5>
 
     <p>Next, modify the web application deployment descriptor
     (<code>/WEB-INF/web.xml</code>) to declare the JNDI name under
@@ -583,8 +626,7 @@ Transport.send(message);
     standard <code>java:comp/env</code> naming context that is the root of
     all provided resource factories.  A typical <code>web.xml</code> entry
     might look like this:</p>
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;resource-ref&gt;
+<div class="codeBox"><pre><code>&lt;resource-ref&gt;
   &lt;description&gt;
     Resource reference to a factory for java.sql.Connection
     instances that may be used for talking to a particular
@@ -600,8 +642,7 @@ Transport.send(message);
   &lt;res-auth&gt;
     Container
   &lt;/res-auth&gt;
-&lt;/resource-ref&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/resource-ref&gt;</code></pre></div>
 
     <p><strong>WARNING</strong> - Be sure you respect the element ordering
     that is required by the DTD for web application deployment descriptors!
@@ -609,19 +650,17 @@ Transport.send(message);
     <a href="http://wiki.apache.org/tomcat/Specifications">Servlet
     Specification</a> for details.</p>
 
-    <h3>3.  Code Your Application's Use Of This Resource</h3>
+    <h5>3.  Code Your Application's Use Of This Resource</h5>
 
     <p>A typical use of this resource reference might look like this:</p>
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-Context initCtx = new InitialContext();
+<div class="codeBox"><pre><code>Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 DataSource ds = (DataSource)
   envCtx.lookup("jdbc/EmployeeDB");
 
 Connection conn = ds.getConnection();
 ... use this connection to access the database ...
-conn.close();
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+conn.close();</code></pre></div>
 
     <p>Note that the application uses the same resource reference name that was
     declared in the web application deployment descriptor. This is matched up
@@ -629,14 +668,13 @@ conn.close();
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
     the web application as described below.</p>
 
-    <h3>4.  Configure Tomcat's Resource Factory</h3>
+    <h5>4.  Configure Tomcat's Resource Factory</h5>
 
     <p>To configure Tomcat's resource factory, add an element like this to the
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
     the web application.</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;Context ...&gt;
+<div class="codeBox"><pre><code>&lt;Context ...&gt;
   ...
   &lt;Resource name="jdbc/EmployeeDB"
             auth="Container"
@@ -648,8 +686,7 @@ conn.close();
             maxActive="8"
             maxIdle="4"/&gt;
   ...
-&lt;/Context&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/Context&gt;</code></pre></div>
 
     <p>Note that the resource name (here, <code>jdbc/EmployeeDB</code>) must
     match the value specified in the web application deployment descriptor.</p>
@@ -781,10 +818,10 @@ conn.close();
   <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
   the web application. In the example below, we will create a factory that only
   knows how to create <code>com.mycompany.MyBean</code> beans from the
-  <a href="#Generic JavaBean Resources">Generic JavaBean Resources</a> example
+  <a href="#Generic_JavaBean_Resources">Generic JavaBean Resources</a> example
   above.</p>
 
-  <h3>1.  Write A Resource Factory Class</h3>
+  <h4>1.  Write A Resource Factory Class</h4>
 
   <p>You must write a class that implements the JNDI service provider
   <code>javax.naming.spi.ObjectFactory</code> inteface.  Every time your
@@ -815,8 +852,7 @@ conn.close();
   <p>To create a resource factory that knows how to produce <code>MyBean</code>
   instances, you might create a class like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-package com.mycompany;
+<div class="codeBox"><pre><code>package com.mycompany;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -859,8 +895,7 @@ public class MyBeanFactory implements ObjectFactory {
 
   }
 
-}
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+}</code></pre></div>
 
   <p>In this example, we are unconditionally creating a new instance of
   the <code>com.mycompany.MyBean</code> class, and populating its properties
@@ -872,8 +907,8 @@ public class MyBeanFactory implements ObjectFactory {
   bean being configured.</p>
 
   <p>For more information about <code>ObjectFactory</code>, see the
-  <a href="http://java.sun.com/products/jndi/docs.html">JNDI 1.2 Service
-  Provider Interface (SPI) Specification</a>.</p>
+  <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jndi/index.html">
+  JNDI Service Provider Interface (SPI) Specification</a>.</p>
 
   <p>You will need to compile this class against a class path that includes
   all of the JAR files in the <code>$CATALINA_HOME/lib</code> directory.  When you are through,
@@ -883,15 +918,14 @@ public class MyBeanFactory implements ObjectFactory {
   files are visible to both Catalina internal resources and your web
   application.</p>
 
-  <h3>2.  Declare Your Resource Requirements</h3>
+  <h4>2.  Declare Your Resource Requirements</h4>
 
   <p>Next, modify your web application deployment descriptor
   (<code>/WEB-INF/web.xml</code>) to declare the JNDI name under which
   you will request new instances of this bean.  The simplest approach is
   to use a <code>&lt;resource-env-ref&gt;</code> element, like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;resource-env-ref&gt;
+<div class="codeBox"><pre><code>&lt;resource-env-ref&gt;
   &lt;description&gt;
     Object factory for MyBean instances.
   &lt;/description&gt;
@@ -901,8 +935,7 @@ public class MyBeanFactory implements ObjectFactory {
   &lt;resource-env-ref-type&gt;
     com.mycompany.MyBean
   &lt;/resource-env-ref-type&gt;
-&lt;resource-env-ref&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;resource-env-ref&gt;</code></pre></div>
 
     <p><strong>WARNING</strong> - Be sure you respect the element ordering
     that is required by the DTD for web application deployment descriptors!
@@ -910,28 +943,25 @@ public class MyBeanFactory implements ObjectFactory {
     <a href="http://wiki.apache.org/tomcat/Specifications">Servlet
     Specification</a> for details.</p>
 
-  <h3>3.  Code Your Application's Use Of This Resource</h3>
+  <h4>3.  Code Your Application's Use Of This Resource</h4>
 
   <p>A typical use of this resource environment reference might look
   like this:</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-Context initCtx = new InitialContext();
+<div class="codeBox"><pre><code>Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 MyBean bean = (MyBean) envCtx.lookup("bean/MyBeanFactory");
 
 writer.println("foo = " + bean.getFoo() + ", bar = " +
-               bean.getBar());
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+               bean.getBar());</code></pre></div>
 
-    <h3>4.  Configure Tomcat's Resource Factory</h3>
+    <h4>4.  Configure Tomcat's Resource Factory</h4>
 
     <p>To configure Tomcat's resource factory, add an elements like this to the
     <a href="config/context.html"><code>&lt;Context&gt;</code></a> element for
     this web application.</p>
 
-<div align="left"><table cellspacing="4" cellpadding="0" border="0"><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#ffffff" height="1"><pre>
-&lt;Context ...&gt;
+<div class="codeBox"><pre><code>&lt;Context ...&gt;
   ...
   &lt;Resource name="bean/MyBeanFactory" auth="Container"
             type="com.mycompany.MyBean"
@@ -939,8 +969,7 @@ writer.println("foo = " + bean.getFoo() + ", bar = " +
             singleton="false"
             bar="23"/&gt;
   ...
-&lt;/Context&gt;
-</pre></td><td bgcolor="#023264" width="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr><tr><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td><td bgcolor="#023264" width="1" height="1"><img src="./images/void.gif" alt="" width="1" height="1" vspace="0" hspace="0" border="0"></td></tr></table></div>
+&lt;/Context&gt;</code></pre></div>
 
     <p>Note that the resource name (here, <code>bean/MyBeanFactory</code>
     must match the value specified in the web application deployment
