@@ -50,6 +50,114 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.0.8" rtext="beta, 2014-05-21">
+
+  <p><i>Note: The issue below was fixed in Apache Tomcat 8.0.6 but the
+       release votes for the 8.0.6 and 8.0.7 release candidates did not pass.
+       Therefore, although users must download 8.0.8 to obtain a version that
+       includes a fix for this issue, versions 8.0.6 and 8.0.7 are not
+       included in the list of affected versions.</i></p>
+
+    <p><strong>Low: Information Disclosure</strong>
+       <cve>CVE-2014-0119</cve></p>
+
+    <p>In limited circumstances it was possible for a malicious web application
+       to replace the XML parsers used by Tomcat to process XSLTs for the
+       default servlet, JSP documents, tag library descriptors (TLDs) and tag
+       plugin configuration files. The injected XML parser(s) could then bypass
+       the limits imposed on XML external entities and/or have visibility of the
+       XML files processed for other web applications deployed on the same
+       Tomcat instance.</p>
+
+    <p>This was fixed in revisions <revlink rev="1589837">1589837</revlink>,
+       <revlink rev="1589980">1589980</revlink> and
+       <revlink rev="1589990">1589990</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 12 April 2014
+       and made public on 27 May 2014.</p>
+
+    <p>Affects: 8.0.0-RC1 to 8.0.5</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 8.0.5" rtext="beta, 2014-03-27">
+
+  <p><i>Note: The issues below were fixed in Apache Tomcat 8.0.4 but the
+       release vote for the 8.0.4 release candidate did not pass.
+       Therefore, although users must download 8.0.5 to obtain a version that
+       includes fixes for these issues, version 8.0.4 is not
+       included in the list of affected versions.</i></p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2014-0075</cve></p>
+
+    <p>It was possible to craft a malformed chunk size as part of a chucked
+       request that enabled an unlimited amount of data to be streamed to the
+       server, bypassing the various size limits enforced on a request. This
+       enabled a denial of service attack.</p>
+
+    <p>This was fixed in revision <revlink rev="1578337">1578337</revlink>.</p>
+
+    <p>This issue was reported to the Tomcat security team by David Jorm of the
+       Red Hat Security Response Team on 28 February 2014 and made public on 27
+       May 2014.</p>
+
+    <p>Affects: 8.0.0-RC1 to 8.0.3</p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2014-0095</cve></p>
+
+    <p>A regression was introduced in <revlink rev="1519838">1519838</revlink>
+       that caused AJP requests to hang if an explicit content length of zero
+       was set on the request. The hanging request consumed a request processing
+       thread which could lead to a denial of service.</p>
+
+    <p>This was fixed in revision <revlink rev="1578337">1578337</revlink>.</p>
+
+    <p>This issue was reported as a possible bug via the Tomcat users mailing
+       list on 3 March 2014 and the security implications were identified by the
+       Tomcat security team on the same day. This issue was made public on 27
+       May 2014.</p>
+
+    <p>Affects: 8.0.0-RC2 to 8.0.3</p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2014-0096</cve></p>
+
+    <p>The default servlet allows web applications to define (at multiple
+       levels) an XSLT to be used to format a directory listing. When running
+       under a security manager, the processing of these was not subject to the
+       same constraints as the web application. This enabled a malicious web
+       application to bypass the file access constraints imposed by the security
+       manager via the use of external XML entities.</p>
+
+    <p>This was fixed in revisions <revlink rev="1578610">1578610</revlink> and
+       <revlink rev="1578611">1578611</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 27 February 2014
+       and made public on 27 May 2014.</p>
+
+    <p>Affects: 8.0.0-RC1 to 8.0.3</p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2014-0099</cve></p>
+
+    <p>The code used to parse the request content length header did not check
+       for overflow in the result. This exposed a request smuggling
+       vulnerability when Tomcat was located behind a reverse proxy that
+       correctly processed the content length header.</p>
+
+    <p>This was fixed in revision <revlink rev="1578812">1578812</revlink>.</p>
+
+    <p>A test case that demonstrated the parsing bug was sent to the Tomcat
+       security team on 13 March 2014 but no context was provided. The security
+       implications were identified by the Tomcat security team the day the
+       report was received and made public on 27 May 2014.</p>
+
+    <p>Affects: 8.0.0-RC1 to 8.0.3</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.0.3" rtext="beta, 2014-02-11">
 
   <p><i>Note: The issue below was fixed in Apache Tomcat 8.0.2 but the
@@ -77,7 +185,7 @@
     <p>This issue was reported to the Apache Software Foundation on 04 Feb 2014
        and accidently made public on 06 Feb 2014.</p>
 
-    <p>Affects: 8.0.0-RC1-8.0.1</p>
+    <p>Affects: 8.0.0-RC1 to 8.0.1</p>
 
   </section>
 

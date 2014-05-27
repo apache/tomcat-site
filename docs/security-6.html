@@ -200,6 +200,9 @@
 <a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.41">Fixed in Apache Tomcat 6.0.41</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_6.0.39">Fixed in Apache Tomcat 6.0.39</a>
 </li>
 <li>
@@ -297,6 +300,117 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.41">
+<span style="float: right;">released 2014-05-23</span> Fixed in Apache Tomcat 6.0.41</h3>
+<div class="text">
+
+  
+<p>
+<i>Note: The issues below were fixed in Apache Tomcat 6.0.40 but the
+       release vote for the 6.0.40 release candidate did not pass.
+       Therefore, although users must download 6.0.41 to obtain a version that
+       includes fixes for these issues, version 6.0.40 is not
+       included in the list of affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0075" rel="nofollow">CVE-2014-0075</a>
+</p>
+
+    
+<p>It was possible to craft a malformed chunk size as part of a chucked
+       request that enabled an unlimited amount of data to be streamed to the
+       server, bypassing the various size limits enforced on a request. This
+       enabled a denial of service attack.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1579262">1579262</a>.</p>
+
+    
+<p>This issue was reported to the Tomcat security team by David Jorm of the
+       Red Hat Security Response Team on 28 February 2014 and made public on 27
+       May 2014.</p>
+
+    
+<p>Affects: 6.0.0-6.0.39</p>
+
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0096" rel="nofollow">CVE-2014-0096</a>
+</p>
+
+    
+<p>The default servlet allows web applications to define (at multiple
+       levels) an XSLT to be used to format a directory listing. When running
+       under a security manager, the processing of these was not subject to the
+       same constraints as the web application. This enabled a malicious web
+       application to bypass the file access constraints imposed by the security
+       manager via the use of external XML entities.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1585853">1585853</a>.</p>
+
+    
+<p>This issue was identified by the Tomcat security team on 27 February 2014
+       and made public on 27 May 2014.</p>
+
+    
+<p>Affects: 6.0.0-6.0.39</p>
+
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0099" rel="nofollow">CVE-2014-0099</a>
+</p>
+
+    
+<p>The code used to parse the request content length header did not check
+       for overflow in the result. This exposed a request smuggling
+       vulnerability when Tomcat was located behind a reverse proxy that
+       correctly processed the content length header.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1580473">1580473</a>.</p>
+
+    
+<p>A test case that demonstrated the parsing bug was sent to the Tomcat
+       security team on 13 March 2014 but no context was provided. The security
+       implications were identified by the Tomcat security team the day the
+       report was received and made public on 27 May 2014.</p>
+
+    
+<p>Affects: 6.0.0-6.0.39</p>
+
+    
+<p>
+<strong>Low: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0119" rel="nofollow">CVE-2014-0119</a>
+</p>
+
+    
+<p>In limited circumstances it was possible for a malicious web application
+       to replace the XML parsers used by Tomcat to process XSLTs for the
+       default servlet, JSP documents, tag library descriptors (TLDs) and tag
+       plugin configuration files. The injected XML parser(s) could then bypass
+       the limits imposed on XML external entities and/or have visibility of the
+       XML files processed for other web applications deployed on the same
+       Tomcat instance.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1593821">1593821</a>.</p>
+
+    
+<p>This issue was identified by the Tomcat security team on 12 April 2014
+       and made public on 27 May 2014.</p>
+
+    
+<p>Affects: 6.0.0-6.0.39</p>
 
   
 </div>
