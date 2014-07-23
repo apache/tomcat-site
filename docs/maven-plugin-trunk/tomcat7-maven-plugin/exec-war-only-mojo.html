@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Date-Revision-yyyymmdd" content="20140116" />
+    <meta name="Date-Revision-yyyymmdd" content="20140723" />
     <meta http-equiv="Content-Language" content="en" />
     <title>Apache Tomcat Maven Plugin :: Tomcat 7.x - 
     tomcat7:exec-war-only</title>
@@ -108,18 +108,6 @@
               <ul class="dropdown-menu">
                                   <li>      <a href="plugin-info.html"  title="Plugin Documentation">Plugin Documentation</a>
 </li>
-                                  <li>      <a href="pmd.html"  title="PMD Report">PMD Report</a>
-</li>
-                                  <li>      <a href="cpd.html"  title="CPD Report">CPD Report</a>
-</li>
-                                  <li>      <a href="checkstyle.html"  title="Checkstyle">Checkstyle</a>
-</li>
-                                  <li>      <a href="xref-test/index.html"  title="Test Source Xref">Test Source Xref</a>
-</li>
-                                  <li>      <a href="xref/index.html"  title="Source Xref">Source Xref</a>
-</li>
-                                  <li>      <a href="sonar.html"  title="Sonar">Sonar</a>
-</li>
                               </ul>
             </li>
                           </ul>
@@ -193,7 +181,7 @@
         
                 
                     
-                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 16 January 2014</li>
+                  <li id="publishDate" class="pull-right"><span class="divider">|</span> Last Published: 23 July 2014</li>
               <li id="projectVersion" class="pull-right">
                     Version: 2.3-SNAPSHOT
         </li>
@@ -315,6 +303,17 @@ org.apache.coyote.http11.Http11NioProtocol<br /><b>Default value is</b>: <tt>HTT
           
 <tr class="b">
             
+<td><b><a href="#enableRemoteIpValve">enableRemoteIpValve</a></b></td>
+            
+<td><tt>String</tt></td>
+            
+<td><tt>2.3</tt></td>
+            
+<td>see http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html<br /><b>Default value is</b>: <tt>true</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.exec.war.enableRemoteIpValve</tt>.</td>
+          </tr>
+          
+<tr class="a">
+            
 <td><b><a href="#finalName">finalName</a></b></td>
             
 <td><tt>String</tt></td>
@@ -324,7 +323,7 @@ org.apache.coyote.http11.Http11NioProtocol<br /><b>Default value is</b>: <tt>HTT
 <td>Name of the generated exec JAR.<br /><b>Default value is</b>: <tt>${project.artifactId}-${project.version}-war-exec.jar</tt>.<br /><b>User property is</b>: <tt>tomcat.jar.finalName</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#mainClass">mainClass</a></b></td>
             
@@ -335,7 +334,7 @@ org.apache.coyote.http11.Http11NioProtocol<br /><b>Default value is</b>: <tt>HTT
 <td>Main class to use for starting the standalone jar.<br /><b>Default value is</b>: <tt>org.apache.tomcat.maven.runner.Tomcat7RunnerCli</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.exec.war.mainClass</tt>.</td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#path">path</a></b></td>
             
@@ -347,7 +346,7 @@ org.apache.coyote.http11.Http11NioProtocol<br /><b>Default value is</b>: <tt>HTT
 The name to store webapp in exec jar. Do not use /<br /><b>Default value is</b>: <tt>${project.artifactId}</tt>.<br /><b>User property is</b>: <tt>maven.tomcat.path</tt>.</td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#pluginArtifacts">pluginArtifacts</a></b></td>
             
@@ -606,6 +605,22 @@ org.apache.coyote.http11.Http11NioProtocol</div>
 <li><b>User Property</b>: <tt>maven.tomcat.exec.war.enableNaming</tt></li>
           
 <li><b>Default</b>: <tt>false</tt></li>
+        </ul><hr />
+<p><b><a name="enableRemoteIpValve">enableRemoteIpValve</a>:</b></p>
+        
+<div>see http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html</div>
+        
+<ul>
+          
+<li><b>Type</b>: <tt>java.lang.String</tt></li>
+          
+<li><b>Since</b>: <tt>2.3</tt></li>
+          
+<li><b>Required</b>: <tt>Yes</tt></li>
+          
+<li><b>User Property</b>: <tt>maven.tomcat.exec.war.enableRemoteIpValve</tt></li>
+          
+<li><b>Default</b>: <tt>true</tt></li>
         </ul><hr />
 <p><b><a name="excludes">excludes</a>:</b></p>
         

@@ -1,1132 +1,979 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-AbstractRunMojo (Apache Tomcat Maven Plugin 2.3-SNAPSHOT API)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>AbstractRunMojo (Apache Tomcat Maven Plugin 2.3-SNAPSHOT API)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="AbstractRunMojo (Apache Tomcat Maven Plugin 2.3-SNAPSHOT API)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AbstractRunMojo.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../../../index.html?org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="AbstractRunMojo.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/AbstractRunMojo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../../index.html?org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html" target="_top">Frames</a></li>
+<li><a href="AbstractRunMojo.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.tomcat.maven.plugin.tomcat7.run</FONT>
-<BR>
-Class AbstractRunMojo</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.AbstractMojo.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.AbstractMojo</A>
-      <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo</A>
-          <IMG SRC="../../../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.tomcat.maven.plugin.tomcat7.run.AbstractRunMojo</B>
-</PRE>
-<DL>
-<DT><B>All Implemented Interfaces:</B> <DD><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.ContextEnabled.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.ContextEnabled</A>, <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.Mojo.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.Mojo</A></DD>
-</DL>
-<DL>
-<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run">AbstractRunWarMojo</A>, <A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/RunMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run">RunMojo</A></DD>
-</DL>
-<HR>
-<DL>
-<DT><PRE>public abstract class <B>AbstractRunMojo</B><DT>extends <A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</A></DL>
-</PRE>
-
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-<DT><B>Author:</B></DT>
-  <DD>Olivier Lamy</DD>
-</DL>
-<HR>
-
-<P>
+<div class="header">
+<div class="subTitle">org.apache.tomcat.maven.plugin.tomcat7.run</div>
+<h2 title="Class AbstractRunMojo" class="title">Class AbstractRunMojo</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.AbstractMojo.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.AbstractMojo</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tomcat.maven.plugin.tomcat7.run.AbstractRunMojo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.ContextEnabled.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.ContextEnabled</a>, <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.Mojo.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.Mojo</a></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run">AbstractRunWarMojo</a>, <a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/RunMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run">RunMojo</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public abstract class <span class="strong">AbstractRunMojo</span>
+extends <a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</a></pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">Author:</span></dt>
+  <dd>Olivier Lamy</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#aliases">aliases</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configure aliases
- see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Host_Name_Aliases">Host Name aliases</a></TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#backgroundProcessorDelay">backgroundProcessorDelay</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;represents the delay in seconds between each classPathScanning change invocation</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#classLoaderClass">classLoaderClass</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Class loader class to set.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#clientAuth">clientAuth</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enable client authentication for https (if configured)
- see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO">http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO</a></TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#contextFile">contextFile</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The path of the Tomcat context XML file.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#contextReloadable">contextReloadable</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Force context scanning if you don't use a context file with reloadable = "true".</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.factory.ArtifactFactory.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.factory.ArtifactFactory</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#factory">factory</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used to look up Artifacts in the remote repository.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#hostName">hostName</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configure host name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#jarScanAllDirectories">jarScanAllDirectories</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In case a module in your reactors has some web-fragments they will be read.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#mavenFileFilter">mavenFileFilter</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.project.MavenProject.html?is-external=true" title="class or interface in org.apache">org.apache.maven.project.MavenProject</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#project">project</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maven project.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#propertiesPortFilePath">propertiesPortFilePath</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Will dump port in a properties file (see ports for property names).</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.resolver.ArtifactResolver.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.resolver.ArtifactResolver</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#resolver">resolver</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Used to look up Artifacts in the remote repository.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#session">session</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#skip">skip</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skip execution</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#trustManagerClassName">trustManagerClassName</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#trustMaxCertLength">trustMaxCertLength</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreAlgorithm">truststoreAlgorithm</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreFile">truststoreFile</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststorePass">truststorePass</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreProvider">truststoreProvider</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreType">truststoreType</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#useBodyEncodingForURI">useBodyEncodingForURI</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#useSeparateTomcatClassLoader">useSeparateTomcatClassLoader</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if <code>true</code> a new classLoader separated from maven core will be created to start tomcat.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="fields_inherited_from_class_org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Fields inherited from class org.apache.tomcat.maven.plugin.tomcat7.<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#messagesProvider">messagesProvider</A>, <A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#path">path</A>, <A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#settings">settings</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="fields_inherited_from_class_org.apache.maven.plugin.Mojo"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Fields inherited from interface org.apache.maven.plugin.<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.Mojo.html?is-external=true" title="class or interface in org.apache">Mojo</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE>ROLE</CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#aliases">aliases</a></strong></code>
+<div class="block">configure aliases
+ see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Host_Name_Aliases">Host Name aliases</a></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#backgroundProcessorDelay">backgroundProcessorDelay</a></strong></code>
+<div class="block">represents the delay in seconds between each classPathScanning change invocation</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#classLoaderClass">classLoaderClass</a></strong></code>
+<div class="block">Class loader class to set.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#clientAuth">clientAuth</a></strong></code>
+<div class="block">enable client authentication for https (if configured)
+ see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO">http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO</a></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#contextFile">contextFile</a></strong></code>
+<div class="block">The path of the Tomcat context XML file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#contextReloadable">contextReloadable</a></strong></code>
+<div class="block">Force context scanning if you don't use a context file with reloadable = "true".</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.factory.ArtifactFactory.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.factory.ArtifactFactory</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#factory">factory</a></strong></code>
+<div class="block">Used to look up Artifacts in the remote repository.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#hostName">hostName</a></strong></code>
+<div class="block">configure host name</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#jarScanAllDirectories">jarScanAllDirectories</a></strong></code>
+<div class="block">In case a module in your reactors has some web-fragments they will be read.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#mavenFileFilter">mavenFileFilter</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.project.MavenProject.html?is-external=true" title="class or interface in org.apache">org.apache.maven.project.MavenProject</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#project">project</a></strong></code>
+<div class="block">The maven project.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#propertiesPortFilePath">propertiesPortFilePath</a></strong></code>
+<div class="block">Will dump port in a properties file (see ports for property names).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.resolver.ArtifactResolver.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.resolver.ArtifactResolver</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#resolver">resolver</a></strong></code>
+<div class="block">Used to look up Artifacts in the remote repository.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#session">session</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#skip">skip</a></strong></code>
+<div class="block">Skip execution</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#trustManagerClassName">trustManagerClassName</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#trustMaxCertLength">trustMaxCertLength</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreAlgorithm">truststoreAlgorithm</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreFile">truststoreFile</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststorePass">truststorePass</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreProvider">truststoreProvider</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#truststoreType">truststoreType</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#useBodyEncodingForURI">useBodyEncodingForURI</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#useSeparateTomcatClassLoader">useSeparateTomcatClassLoader</a></strong></code>
+<div class="block">if <code>true</code> a new classLoader separated from maven core will be created to start tomcat.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tomcat.maven.plugin.tomcat7.<a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</a></h3>
+<code><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#messagesProvider">messagesProvider</a>, <a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#path">path</a>, <a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#settings">settings</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.maven.plugin.Mojo">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;org.apache.maven.plugin.<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.Mojo.html?is-external=true" title="class or interface in org.apache">Mojo</a></h3>
+<code>ROLE</code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#AbstractRunMojo()">AbstractRunMojo</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#AbstractRunMojo()">AbstractRunMojo</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/Context.html?is-external=true" title="class or interface in org.apache.catalina">Context</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#createContext(org.apache.catalina.startup.Tomcat)">createContext</A></B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/startup/Tomcat.html?is-external=true" title="class or interface in org.apache.catalina.startup">Tomcat</A>&nbsp;container)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the context to run this web application under for the specified embedded Tomcat.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/loader/WebappLoader.html?is-external=true" title="class or interface in org.apache.catalina.loader">WebappLoader</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#createWebappLoader()">createWebappLoader</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the webapp loader to run this web application under.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#execute()">execute</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getArtifact(org.apache.tomcat.maven.common.config.AbstractWebapp)">getArtifact</A></B>(<A HREF="../../../../../../../org/apache/tomcat/maven/common/config/AbstractWebapp.html" title="class in org.apache.tomcat.maven.common.config">AbstractWebapp</A>&nbsp;additionalWebapp)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resolves the Artifact from the remote repository if necessary.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected abstract &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getContextFile()">getContextFile</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the Tomcat context XML file to use.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected abstract &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getDocBase()">getDocBase</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the webapp directory to run.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getPath()">getPath</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the webapp context path to use for the web application being run.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</A>&lt;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</A>&gt;</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getProjectArtifacts()">getProjectArtifacts</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;org.codehaus.plexus.classworlds.realm.ClassRealm</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getTomcatClassLoader()">getTomcatClassLoader</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#isContextReloadable()">isContextReloadable</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determine whether the passed context.xml file declares the context as reloadable or not.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#isWar()">isWar</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets whether this project uses WAR packaging.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/core/StandardContext.html?is-external=true" title="class or interface in org.apache.catalina.core">StandardContext</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#parseContextFile(java.io.File)">parseContextFile</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;file)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class org.apache.tomcat.maven.plugin.tomcat7.<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#checkTomcatResponse(org.apache.tomcat.maven.common.deployer.TomcatManagerResponse)">checkTomcatResponse</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_org.apache.maven.plugin.AbstractMojo"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class org.apache.maven.plugin.<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.AbstractMojo.html?is-external=true" title="class or interface in org.apache">AbstractMojo</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE>getLog, getPluginContext, setLog, setPluginContext</CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/Context.html?is-external=true" title="class or interface in org.apache.catalina">Context</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#createContext(org.apache.catalina.startup.Tomcat)">createContext</a></strong>(<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/startup/Tomcat.html?is-external=true" title="class or interface in org.apache.catalina.startup">Tomcat</a>&nbsp;container)</code>
+<div class="block">Gets the context to run this web application under for the specified embedded Tomcat.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/loader/WebappLoader.html?is-external=true" title="class or interface in org.apache.catalina.loader">WebappLoader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#createWebappLoader()">createWebappLoader</a></strong>()</code>
+<div class="block">Gets the webapp loader to run this web application under.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#execute()">execute</a></strong>()</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getArtifact(org.apache.tomcat.maven.common.config.AbstractWebapp)">getArtifact</a></strong>(<a href="../../../../../../../org/apache/tomcat/maven/common/config/AbstractWebapp.html" title="class in org.apache.tomcat.maven.common.config">AbstractWebapp</a>&nbsp;additionalWebapp)</code>
+<div class="block">Resolves the Artifact from the remote repository if necessary.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getContextFile()">getContextFile</a></strong>()</code>
+<div class="block">Gets the Tomcat context XML file to use.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected abstract <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getDocBase()">getDocBase</a></strong>()</code>
+<div class="block">Gets the webapp directory to run.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getPath()">getPath</a></strong>()</code>
+<div class="block">Gets the webapp context path to use for the web application being run.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getProjectArtifacts()">getProjectArtifacts</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.codehaus.plexus.classworlds.realm.ClassRealm</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#getTomcatClassLoader()">getTomcatClassLoader</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#isContextReloadable()">isContextReloadable</a></strong>()</code>
+<div class="block">Determine whether the passed context.xml file declares the context as reloadable or not.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#isWar()">isWar</a></strong>()</code>
+<div class="block">Gets whether this project uses WAR packaging.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/core/StandardContext.html?is-external=true" title="class or interface in org.apache.catalina.core">StandardContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html#parseContextFile(java.io.File)">parseContextFile</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tomcat.maven.plugin.tomcat7.AbstractTomcat7Mojo">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tomcat.maven.plugin.tomcat7.<a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</a></h3>
+<code><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#checkTomcatResponse(org.apache.tomcat.maven.common.deployer.TomcatManagerResponse)">checkTomcatResponse</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.maven.plugin.AbstractMojo">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.maven.plugin.<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.AbstractMojo.html?is-external=true" title="class or interface in org.apache">AbstractMojo</a></h3>
+<code>getLog, getPluginContext, setLog, setPluginContext</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="factory"><!-- --></A><H3>
-factory</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</A>
-</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.factory.ArtifactFactory.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.factory.ArtifactFactory</A> <B>factory</B></PRE>
-<DL>
-<DD>Used to look up Artifacts in the remote repository.
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="resolver"><!-- --></A><H3>
-resolver</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</A>
-</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.resolver.ArtifactResolver.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.resolver.ArtifactResolver</A> <B>resolver</B></PRE>
-<DL>
-<DD>Used to look up Artifacts in the remote repository.
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="project"><!-- --></A><H3>
-project</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</A>
-</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.project.MavenProject.html?is-external=true" title="class or interface in org.apache">org.apache.maven.project.MavenProject</A> <B>project</B></PRE>
-<DL>
-<DD>The maven project.
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>1.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="useSeparateTomcatClassLoader"><!-- --></A><H3>
-useSeparateTomcatClassLoader</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="tomcat.useSeparateTomcatClassLoader",
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="factory">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>factory</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</a>
+protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.factory.ArtifactFactory.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.factory.ArtifactFactory</a> factory</pre>
+<div class="block">Used to look up Artifacts in the remote repository.</div>
+</li>
+</ul>
+<a name="resolver">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolver</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</a>
+protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.resolver.ArtifactResolver.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.resolver.ArtifactResolver</a> resolver</pre>
+<div class="block">Used to look up Artifacts in the remote repository.</div>
+</li>
+</ul>
+<a name="project">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>project</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</a>
+protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.project.MavenProject.html?is-external=true" title="class or interface in org.apache">org.apache.maven.project.MavenProject</a> project</pre>
+<div class="block">The maven project.</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>1.0</dd></dl>
+</li>
+</ul>
+<a name="useSeparateTomcatClassLoader">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>useSeparateTomcatClassLoader</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="tomcat.useSeparateTomcatClassLoader",
            defaultValue="false")
-</FONT>protected boolean <B>useSeparateTomcatClassLoader</B></PRE>
-<DL>
-<DD>if <code>true</code> a new classLoader separated from maven core will be created to start tomcat.
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>1.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="contextReloadable"><!-- --></A><H3>
-contextReloadable</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.contextReloadable",
+protected&nbsp;boolean useSeparateTomcatClassLoader</pre>
+<div class="block">if <code>true</code> a new classLoader separated from maven core will be created to start tomcat.</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>1.0</dd></dl>
+</li>
+</ul>
+<a name="contextReloadable">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>contextReloadable</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.contextReloadable",
            defaultValue="false")
-</FONT>protected boolean <B>contextReloadable</B></PRE>
-<DL>
-<DD>Force context scanning if you don't use a context file with reloadable = "true".
+protected&nbsp;boolean contextReloadable</pre>
+<div class="block">Force context scanning if you don't use a context file with reloadable = "true".
  The other way to use contextReloadable is to add attribute reloadable = "true"
- in your context file.
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="backgroundProcessorDelay"><!-- --></A><H3>
-backgroundProcessorDelay</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.backgroundProcessorDelay",
+ in your context file.</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd></dl>
+</li>
+</ul>
+<a name="backgroundProcessorDelay">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>backgroundProcessorDelay</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.backgroundProcessorDelay",
            defaultValue="-1")
-</FONT>protected int <B>backgroundProcessorDelay</B></PRE>
-<DL>
-<DD>represents the delay in seconds between each classPathScanning change invocation
-<P>
-<DL>
-<DT><B>See Also:</B><DD><a href="http://tomcat.apache.org/tomcat-7.0-doc/config/context.html">http://tomcat.apache.org/tomcat-7.0-doc/config/context.html</a></DL>
-</DL>
-<HR>
-
-<A NAME="contextFile"><!-- --></A><H3>
-contextFile</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.contextFile")
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A> <B>contextFile</B></PRE>
-<DL>
-<DD><p>The path of the Tomcat context XML file.</p>
+protected&nbsp;int backgroundProcessorDelay</pre>
+<div class="block">represents the delay in seconds between each classPathScanning change invocation</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="http://tomcat.apache.org/tomcat-7.0-doc/config/context.html">http://tomcat.apache.org/tomcat-7.0-doc/config/context.html</a></dd></dl>
+</li>
+</ul>
+<a name="contextFile">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>contextFile</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.contextFile")
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a> contextFile</pre>
+<div class="block"><p>The path of the Tomcat context XML file.</p>
  <p>Since release 2.0, the file is filtered as a maven resource so you can use
- interpolation tokens ${ }</p>
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="skip"><!-- --></A><H3>
-skip</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.skip",
+ interpolation tokens ${ }</p></div>
+</li>
+</ul>
+<a name="skip">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>skip</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.skip",
            defaultValue="false")
-</FONT>protected boolean <B>skip</B></PRE>
-<DL>
-<DD>Skip execution
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="classLoaderClass"><!-- --></A><H3>
-classLoaderClass</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>classLoaderClass</B></PRE>
-<DL>
-<DD>Class loader class to set.
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="session"><!-- --></A><H3>
-session</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(defaultValue="${session}",
+protected&nbsp;boolean skip</pre>
+<div class="block">Skip execution</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd></dl>
+</li>
+</ul>
+<a name="classLoaderClass">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>classLoaderClass</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> classLoaderClass</pre>
+<div class="block">Class loader class to set.</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd></dl>
+</li>
+</ul>
+<a name="session">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>session</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(defaultValue="${session}",
            readonly=true,
            required=true)
-</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</A> <B>session</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="propertiesPortFilePath"><!-- --></A><H3>
-propertiesPortFilePath</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.propertiesPortFilePath")
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>propertiesPortFilePath</B></PRE>
-<DL>
-<DD>Will dump port in a properties file (see ports for property names).
- If empty no file generated
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="hostName"><!-- --></A><H3>
-hostName</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.hostName",
+protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.execution.MavenSession.html?is-external=true" title="class or interface in org.apache">org.apache.maven.execution.MavenSession</a> session</pre>
+</li>
+</ul>
+<a name="propertiesPortFilePath">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>propertiesPortFilePath</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.propertiesPortFilePath")
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> propertiesPortFilePath</pre>
+<div class="block">Will dump port in a properties file (see ports for property names).
+ If empty no file generated</div>
+</li>
+</ul>
+<a name="hostName">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hostName</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.hostName",
            defaultValue="localhost")
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>hostName</B></PRE>
-<DL>
-<DD>configure host name
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="aliases"><!-- --></A><H3>
-aliases</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[] <B>aliases</B></PRE>
-<DL>
-<DD>configure aliases
- see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Host_Name_Aliases">Host Name aliases</a>
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.0</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="clientAuth"><!-- --></A><H3>
-clientAuth</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.https.clientAuth",
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> hostName</pre>
+<div class="block">configure host name</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd></dl>
+</li>
+</ul>
+<a name="aliases">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>aliases</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[] aliases</pre>
+<div class="block">configure aliases
+ see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Host_Name_Aliases">Host Name aliases</a></div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd></dl>
+</li>
+</ul>
+<a name="clientAuth">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clientAuth</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.https.clientAuth",
            defaultValue="false")
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>clientAuth</B></PRE>
-<DL>
-<DD>enable client authentication for https (if configured)
- see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO">http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO</a>
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.1</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="mavenFileFilter"><!-- --></A><H3>
-mavenFileFilter</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</A>(role=<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter.class</A>,
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> clientAuth</pre>
+<div class="block">enable client authentication for https (if configured)
+ see <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO">http://tomcat.apache.org/tomcat-7.0-doc/config/http.html#SSL_Support_-_BIO_and_NIO</a></div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd></dl>
+</li>
+</ul>
+<a name="mavenFileFilter">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mavenFileFilter</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Component.html?is-external=true" title="class or interface in org.apache">@Component</a>(role=<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter.class</a>,
            hint="default")
-</FONT>protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</A> <B>mavenFileFilter</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="jarScanAllDirectories"><!-- --></A><H3>
-jarScanAllDirectories</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.jarScan.allDirectories",
+protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.shared.filtering.MavenFileFilter.html?is-external=true" title="class or interface in org.apache">org.apache.maven.shared.filtering.MavenFileFilter</a> mavenFileFilter</pre>
+</li>
+</ul>
+<a name="jarScanAllDirectories">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>jarScanAllDirectories</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.jarScan.allDirectories",
            defaultValue="true")
-</FONT>protected boolean <B>jarScanAllDirectories</B></PRE>
-<DL>
-<DD>In case a module in your reactors has some web-fragments they will be read.
- If you don't need that for performance reasons, you can deactivate it.
-<P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="useBodyEncodingForURI"><!-- --></A><H3>
-useBodyEncodingForURI</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>(property="maven.tomcat.useBodyEncodingForURI",
+protected&nbsp;boolean jarScanAllDirectories</pre>
+<div class="block">In case a module in your reactors has some web-fragments they will be read.
+ If you don't need that for performance reasons, you can deactivate it.</div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="useBodyEncodingForURI">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>useBodyEncodingForURI</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>(property="maven.tomcat.useBodyEncodingForURI",
            defaultValue="false")
-</FONT>protected boolean <B>useBodyEncodingForURI</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="trustManagerClassName"><!-- --></A><H3>
-trustManagerClassName</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>trustManagerClassName</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="trustMaxCertLength"><!-- --></A><H3>
-trustMaxCertLength</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>trustMaxCertLength</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="truststoreAlgorithm"><!-- --></A><H3>
-truststoreAlgorithm</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>truststoreAlgorithm</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="truststoreFile"><!-- --></A><H3>
-truststoreFile</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>truststoreFile</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="truststorePass"><!-- --></A><H3>
-truststorePass</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>truststorePass</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="truststoreProvider"><!-- --></A><H3>
-truststoreProvider</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>truststoreProvider</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-<HR>
-
-<A NAME="truststoreType"><!-- --></A><H3>
-truststoreType</H3>
-<PRE>
-<FONT SIZE="-1"><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</A>
-</FONT>protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>truststoreType</B></PRE>
-<DL>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>2.2</DD>
-</DL>
-</DL>
-
+protected&nbsp;boolean useBodyEncodingForURI</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="trustManagerClassName">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>trustManagerClassName</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> trustManagerClassName</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="trustMaxCertLength">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>trustMaxCertLength</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> trustMaxCertLength</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="truststoreAlgorithm">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>truststoreAlgorithm</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> truststoreAlgorithm</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="truststoreFile">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>truststoreFile</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> truststoreFile</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="truststorePass">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>truststorePass</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> truststorePass</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="truststoreProvider">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>truststoreProvider</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> truststoreProvider</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+<a name="truststoreType">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>truststoreType</h4>
+<pre><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugins.annotations.Parameter.html?is-external=true" title="class or interface in org.apache">@Parameter</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> truststoreType</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>2.2</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="AbstractRunMojo()"><!-- --></A><H3>
-AbstractRunMojo</H3>
-<PRE>
-public <B>AbstractRunMojo</B>()</PRE>
-<DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="AbstractRunMojo()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>AbstractRunMojo</h4>
+<pre>public&nbsp;AbstractRunMojo()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="execute()"><!-- --></A><H3>
-execute</H3>
-<PRE>
-public void <B>execute</B>()
-             throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A>,
-                    <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoFailureException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoFailureException</A></PRE>
-<DL>
-<DD>
-<P>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoFailureException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoFailureException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getPath()"><!-- --></A><H3>
-getPath</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getPath</B>()</PRE>
-<DL>
-<DD>Gets the webapp context path to use for the web application being run.
-<P>
-<DD><DL>
-<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#getPath()">getPath</A></CODE> in class <CODE><A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</A></CODE></DL>
-</DD>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>the webapp context path</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createContext(org.apache.catalina.startup.Tomcat)"><!-- --></A><H3>
-createContext</H3>
-<PRE>
-protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/Context.html?is-external=true" title="class or interface in org.apache.catalina">Context</A> <B>createContext</B>(<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/startup/Tomcat.html?is-external=true" title="class or interface in org.apache.catalina.startup">Tomcat</A>&nbsp;container)
-                         throws <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A>,
-                                <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A>,
-                                javax.servlet.ServletException</PRE>
-<DL>
-<DD>Gets the context to run this web application under for the specified embedded Tomcat.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>container</CODE> - the embedded Tomcat container being used
-<DT><B>Returns:</B><DD>the context to run this web application under
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></CODE> - if the context could not be created
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE> - in case of an error creating the context
-<DD><CODE>javax.servlet.ServletException</CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="parseContextFile(java.io.File)"><!-- --></A><H3>
-parseContextFile</H3>
-<PRE>
-protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/core/StandardContext.html?is-external=true" title="class or interface in org.apache.catalina.core">StandardContext</A> <B>parseContextFile</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;file)
-                                    throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createWebappLoader()"><!-- --></A><H3>
-createWebappLoader</H3>
-<PRE>
-protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/loader/WebappLoader.html?is-external=true" title="class or interface in org.apache.catalina.loader">WebappLoader</A> <B>createWebappLoader</B>()
-                                   throws <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A>,
-                                          <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD>Gets the webapp loader to run this web application under.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>the webapp loader to use
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></CODE> - if the webapp loader could not be created
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE> - in case of an error creating the webapp loader</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="isContextReloadable()"><!-- --></A><H3>
-isContextReloadable</H3>
-<PRE>
-protected boolean <B>isContextReloadable</B>()
-                               throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD>Determine whether the passed context.xml file declares the context as reloadable or not.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>false by default, true if  reloadable="true" in context.xml.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getDocBase()"><!-- --></A><H3>
-getDocBase</H3>
-<PRE>
-protected abstract <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A> <B>getDocBase</B>()
-                            throws <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></PRE>
-<DL>
-<DD>Gets the webapp directory to run.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>the webapp directory
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getContextFile()"><!-- --></A><H3>
-getContextFile</H3>
-<PRE>
-protected abstract <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A> <B>getContextFile</B>()
-                                throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD>Gets the Tomcat context XML file to use.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>the context XML file
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="isWar()"><!-- --></A><H3>
-isWar</H3>
-<PRE>
-protected boolean <B>isWar</B>()</PRE>
-<DL>
-<DD>Gets whether this project uses WAR packaging.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>whether this project uses WAR packaging</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getTomcatClassLoader()"><!-- --></A><H3>
-getTomcatClassLoader</H3>
-<PRE>
-protected org.codehaus.plexus.classworlds.realm.ClassRealm <B>getTomcatClassLoader</B>()
-                                                                         throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getProjectArtifacts()"><!-- --></A><H3>
-getProjectArtifacts</H3>
-<PRE>
-public <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</A>&lt;<A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</A>&gt; <B>getProjectArtifacts</B>()</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getArtifact(org.apache.tomcat.maven.common.config.AbstractWebapp)"><!-- --></A><H3>
-getArtifact</H3>
-<PRE>
-protected <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</A> <B>getArtifact</B>(<A HREF="../../../../../../../org/apache/tomcat/maven/common/config/AbstractWebapp.html" title="class in org.apache.tomcat.maven.common.config">AbstractWebapp</A>&nbsp;additionalWebapp)
-                                                  throws <A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></PRE>
-<DL>
-<DD>Resolves the Artifact from the remote repository if necessary. If no version is specified, it will be retrieved
- from the dependency list or from the DependencyManagement section of the pom.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>additionalWebapp</CODE> - containing information about artifact from plugin configuration.
-<DT><B>Returns:</B><DD>Artifact object representing the specified file.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</A></CODE> - with a message if the version can't be found in DependencyManagement.</DL>
-</DD>
-</DL>
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="execute()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre>public&nbsp;void&nbsp;execute()
+             throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a>,
+                    <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoFailureException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoFailureException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code></dd>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoFailureException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoFailureException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getPath()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPath</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPath()</pre>
+<div class="block">Gets the webapp context path to use for the web application being run.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html#getPath()">getPath</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/AbstractTomcat7Mojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7">AbstractTomcat7Mojo</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the webapp context path</dd></dl>
+</li>
+</ul>
+<a name="createContext(org.apache.catalina.startup.Tomcat)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createContext</h4>
+<pre>protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/Context.html?is-external=true" title="class or interface in org.apache.catalina">Context</a>&nbsp;createContext(<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/startup/Tomcat.html?is-external=true" title="class or interface in org.apache.catalina.startup">Tomcat</a>&nbsp;container)
+                         throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                                <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a>,
+                                javax.servlet.ServletException</pre>
+<div class="block">Gets the context to run this web application under for the specified embedded Tomcat.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>container</code> - the embedded Tomcat container being used</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the context to run this web application under</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the context could not be created</dd>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code> - in case of an error creating the context</dd>
+<dd><code>javax.servlet.ServletException</code></dd></dl>
+</li>
+</ul>
+<a name="parseContextFile(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parseContextFile</h4>
+<pre>protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/core/StandardContext.html?is-external=true" title="class or interface in org.apache.catalina.core">StandardContext</a>&nbsp;parseContextFile(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)
+                                    throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createWebappLoader()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createWebappLoader</h4>
+<pre>protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/catalina/loader/WebappLoader.html?is-external=true" title="class or interface in org.apache.catalina.loader">WebappLoader</a>&nbsp;createWebappLoader()
+                                   throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                                          <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<div class="block">Gets the webapp loader to run this web application under.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the webapp loader to use</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the webapp loader could not be created</dd>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code> - in case of an error creating the webapp loader</dd></dl>
+</li>
+</ul>
+<a name="isContextReloadable()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isContextReloadable</h4>
+<pre>protected&nbsp;boolean&nbsp;isContextReloadable()
+                               throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<div class="block">Determine whether the passed context.xml file declares the context as reloadable or not.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>false by default, true if  reloadable="true" in context.xml.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getDocBase()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDocBase</h4>
+<pre>protected abstract&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getDocBase()
+                            throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Gets the webapp directory to run.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the webapp directory</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getContextFile()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getContextFile</h4>
+<pre>protected abstract&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getContextFile()
+                                throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<div class="block">Gets the Tomcat context XML file to use.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the context XML file</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code></dd></dl>
+</li>
+</ul>
+<a name="isWar()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isWar</h4>
+<pre>protected&nbsp;boolean&nbsp;isWar()</pre>
+<div class="block">Gets whether this project uses WAR packaging.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>whether this project uses WAR packaging</dd></dl>
+</li>
+</ul>
+<a name="getTomcatClassLoader()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTomcatClassLoader</h4>
+<pre>protected&nbsp;org.codehaus.plexus.classworlds.realm.ClassRealm&nbsp;getTomcatClassLoader()
+                                                                         throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getProjectArtifacts()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProjectArtifacts</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</a>&gt;&nbsp;getProjectArtifacts()</pre>
+</li>
+</ul>
+<a name="getArtifact(org.apache.tomcat.maven.common.config.AbstractWebapp)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getArtifact</h4>
+<pre>protected&nbsp;<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.artifact.Artifact.html?is-external=true" title="class or interface in org.apache">org.apache.maven.artifact.Artifact</a>&nbsp;getArtifact(<a href="../../../../../../../org/apache/tomcat/maven/common/config/AbstractWebapp.html" title="class in org.apache.tomcat.maven.common.config">AbstractWebapp</a>&nbsp;additionalWebapp)
+                                                  throws <a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></pre>
+<div class="block">Resolves the Artifact from the remote repository if necessary. If no version is specified, it will be retrieved
+ from the dependency list or from the DependencyManagement section of the pom.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>additionalWebapp</code> - containing information about artifact from plugin configuration.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Artifact object representing the specified file.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/maven.plugin.MojoExecutionException.html?is-external=true" title="class or interface in org.apache">org.apache.maven.plugin.MojoExecutionException</a></code> - with a message if the version can't be found in DependencyManagement.</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AbstractRunMojo.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../../../index.html?org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="AbstractRunMojo.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/AbstractRunMojo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractExecWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../../org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunWarMojo.html" title="class in org.apache.tomcat.maven.plugin.tomcat7.run"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../../index.html?org/apache/tomcat/maven/plugin/tomcat7/run/AbstractRunMojo.html" target="_top">Frames</a></li>
+<li><a href="AbstractRunMojo.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright &#169; 2005&#x2013;2014 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All rights reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright &#169; 2005&#x2013;2014 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All rights reserved.</small></p>
+</body>
+</html>
