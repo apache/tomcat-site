@@ -265,6 +265,9 @@
 <a href="#Upgrading_7.0.x">Upgrading 7.0.x</a>
 <ol>
 <li>
+<a href="#Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</a>
+</li>
+<li>
 <a href="#Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</a>
 </li>
 </ol>
@@ -953,19 +956,40 @@ of Apache Tomcat.</p>
 <h3 id="Upgrading_7.0.x">Upgrading 7.0.x</h3>
 <div class="text">
   
-<p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
-  another, particularly when using separate locations for $CATALINA_HOME and
-  $CATALINA_BASE, it is necessary to ensure that any changes in the
-  configuration files such as new attributes and changes to defaults are applied
-  as part of the upgrade. To assist with the identification of these changes,
-  the form below may be used to view the differences between the configuration
-  files in different versions of Tomcat 7.</p>
+<div class="subsection">
+<h4 id="Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</h4>
+<div class="text">
+    
+<p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occassionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    
+<ul>
+      
+<li>In 7.0.51 onwards, the web application class loader is now a higher
+          priority for loading classes than the system class loader.</li>
+    
+</ul>
+  
+</div>
+</div>
   
   
 <div class="subsection">
 <h4 id="Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</h4>
 <div class="text">
 
+    
+<p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+    another, particularly when using separate locations for $CATALINA_HOME and
+    $CATALINA_BASE, it is necessary to ensure that any changes in the
+    configuration files such as new attributes and changes to defaults are
+    applied as part of the upgrade. To assist with the identification of these
+    changes, the form below may be used to view the differences between the
+    configuration files in different versions of Tomcat 7.</p>
+  
     
 <p>Select a configuration file, old version and new version from the boxes
     below and then click "View differences" to see the differences.

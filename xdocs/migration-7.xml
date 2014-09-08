@@ -463,16 +463,28 @@ of Apache Tomcat.</p>
 </section>
 
 <section name="Upgrading 7.0.x">
-  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
-  another, particularly when using separate locations for $CATALINA_HOME and
-  $CATALINA_BASE, it is necessary to ensure that any changes in the
-  configuration files such as new attributes and changes to defaults are applied
-  as part of the upgrade. To assist with the identification of these changes,
-  the form below may be used to view the differences between the configuration
-  files in different versions of Tomcat 7.</p>
+  <subsection name="Tomcat 7.0.x noteable changes">
+    <p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occassionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    <ul>
+      <li>In 7.0.51 onwards, the web application class loader is now a higher
+          priority for loading classes than the system class loader.</li>
+    </ul>
+  </subsection>
   
   <subsection name="Tomcat 7.0.x configuration file differences">
 
+    <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+    another, particularly when using separate locations for $CATALINA_HOME and
+    $CATALINA_BASE, it is necessary to ensure that any changes in the
+    configuration files such as new attributes and changes to defaults are
+    applied as part of the upgrade. To assist with the identification of these
+    changes, the form below may be used to view the differences between the
+    configuration files in different versions of Tomcat 7.</p>
+  
     <p>Select a configuration file, old version and new version from the boxes
     below and then click &quot;View differences&quot; to see the differences.
     The differences will be shown in a new tab/window.</p>
