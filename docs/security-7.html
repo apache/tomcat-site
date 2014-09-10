@@ -629,6 +629,80 @@
     
 <p>Affects: 7.0.0-7.0.39</p>
 
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4444" rel="nofollow">CVE-2013-4444</a>
+</p>
+
+    
+<p>In very limited circumstances, it was possible for an attacker to upload
+       a malicious JSP to a Tomcat server and then trigger the execution of that
+       JSP. While Remote Code Execution would normally be viewed as a critical
+       vulnerability, the circumstances under which this is possible are, in the
+       view of the Tomcat security team, sufficiently limited that this
+       vulnerability is viewed as important.</p>
+
+    
+<p>For this attack to succeed all of the following requirements must be
+       met:</p>
+
+    
+<ol>
+      
+<li>Using Oracle Java 1.7.0 update 25 or earlier (or any other Java
+          implementation where java.io.File is vulnerable to null byte
+          injection).</li>
+      
+<li>A web application must be deployed to a vulnerable version of
+          Tomcat.</li>
+      
+<li>The web application must use the Servlet 3.0 File Upload feature.</li>
+      
+<li>A file location within a deployed web application must be writeable by
+          the user the Tomcat process is running as. The Tomcat security
+          documentation recommends against this.</li>
+      
+<li>A custom listener for JMX connections (e.g. the JmxRemoteListener that
+          is not enabled by default) must be configured and be able to load
+          classes from Tomcat's common class loader (i.e. the custom JMX
+          listener must be placed in Tomcat's lib directory).</li>
+      
+<li>The custom JMX listener must be bound to an address other than
+          localhost for a remote attack (it is bound to localhost by default).
+          If the custom JMX listener is bound to localhost, a local attack will
+          still be possible.</li>
+    
+</ol>
+
+    
+<p>Note that requirements 2 and 3 may be replaced with the following
+       requirement:</p>
+
+    
+<ol start="7">
+      
+<li>A web application is deployed that uses Apache Commons File Upload
+          1.2.1 or earlier.</li>
+    
+</ol>
+
+    
+<p>In this case (requirements 1, 4, 5, 6 and 7 met) a similar vulnerability
+       may exist on any Servlet container, not just Apache Tomcat.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1470437">1470437</a>.</p>
+
+    
+<p>This issue was identified by Pierre Ernst of the VMware Security
+       Engineering, Communications and Response group (vSECR)  and reported to
+       the Tomcat security team via the Pivotal security team on 5 September
+       2014. It was made public on 10 September 2014.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.39</p>
+
   
 </div>
 <h3 id="Fixed_in_Apache_Tomcat_7.0.33">
