@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Processor (Apache Tomcat 8.0.15 API Documentation)</title>
+<title>Processor (Apache Tomcat 8.0.17 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Processor (Apache Tomcat 8.0.15 API Documentation)";
+        parent.document.title="Processor (Apache Tomcat 8.0.17 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -136,34 +136,40 @@
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#getHttpUpgradeHandler()">getHttpUpgradeHandler</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#getLeftoverInput()">getLeftoverInput</a></strong>()</code>
+<div class="block">Allows retrieving additional input during the upgrade process</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#getRequest()">getRequest</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#isAsync()">isAsync</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#isComet()">isComet</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#isUpgrade()">isUpgrade</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/tomcat/util/net/AbstractEndpoint.Handler.SocketState.html" title="enum in org.apache.tomcat.util.net">AbstractEndpoint.Handler.SocketState</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#process(org.apache.tomcat.util.net.SocketWrapper)">process</a></strong>(<a href="../../../org/apache/tomcat/util/net/SocketWrapper.html" title="class in org.apache.tomcat.util.net">SocketWrapper</a>&lt;<a href="../../../org/apache/coyote/Processor.html" title="type parameter in Processor">S</a>&gt;&nbsp;socketWrapper)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#recycle(boolean)">recycle</a></strong>(boolean&nbsp;socketClosing)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#setSslSupport(org.apache.tomcat.util.net.SSLSupport)">setSslSupport</a></strong>(<a href="../../../org/apache/tomcat/util/net/SSLSupport.html" title="interface in org.apache.tomcat.util.net">SSLSupport</a>&nbsp;sslSupport)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/tomcat/util/net/AbstractEndpoint.Handler.SocketState.html" title="enum in org.apache.tomcat.util.net">AbstractEndpoint.Handler.SocketState</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Processor.html#upgradeDispatch(org.apache.tomcat.util.net.SocketStatus)">upgradeDispatch</a></strong>(<a href="../../../org/apache/tomcat/util/net/SocketStatus.html" title="enum in org.apache.tomcat.util.net">SocketStatus</a>&nbsp;status)</code>&nbsp;</td>
 </tr>
@@ -311,10 +317,21 @@
 <a name="setSslSupport(org.apache.tomcat.util.net.SSLSupport)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setSslSupport</h4>
 <pre>void&nbsp;setSslSupport(<a href="../../../org/apache/tomcat/util/net/SSLSupport.html" title="interface in org.apache.tomcat.util.net">SSLSupport</a>&nbsp;sslSupport)</pre>
+</li>
+</ul>
+<a name="getLeftoverInput()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getLeftoverInput</h4>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a>&nbsp;getLeftoverInput()</pre>
+<div class="block">Allows retrieving additional input during the upgrade process</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>leftover bytes</dd></dl>
 </li>
 </ul>
 </li>
@@ -339,7 +356,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -384,6 +401,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

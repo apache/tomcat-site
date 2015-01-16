@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Container (Apache Tomcat 8.0.15 API Documentation)</title>
+<title>Container (Apache Tomcat 8.0.17 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Container (Apache Tomcat 8.0.15 API Documentation)";
+        parent.document.title="Container (Apache Tomcat 8.0.17 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -244,20 +244,19 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#findChild(java.lang.String)">findChild</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Return the child Container, associated with this Container, with
- the specified name (if any); otherwise, return <code>null</code></div>
+<div class="block">Obtain a child Container by name.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#findChildren()">findChildren</a></strong>()</code>
-<div class="block">Return the set of children Containers associated with this Container.</div>
+<div class="block">Obtain the child Containers associated with this Container.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/ContainerListener.html" title="interface in org.apache.catalina">ContainerListener</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#findContainerListeners()">findContainerListeners</a></strong>()</code>
-<div class="block">Return the set of container listeners associated with this Container.</div>
+<div class="block">Obtain the container listeners associated with this Container.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -271,9 +270,8 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/AccessLog.html" title="interface in org.apache.catalina">AccessLog</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#getAccessLog()">getAccessLog</a></strong>()</code>
-<div class="block">Identify the AccessLog to use to log a request/response that was destined
- for this container but was handled earlier in the processing chain so
- that the request/response still appears in the correct access logs.</div>
+<div class="block">Obtain the AccessLog to use to log a request/response that is destined
+ for this container.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -356,13 +354,13 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#getRealm()">getRealm</a></strong>()</code>
-<div class="block">Return the Realm with which this Container is associated.</div>
+<div class="block">Obtain the Realm with which this Container is associated.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Container.html#getStartStopThreads()">getStartStopThreads</a></strong>()</code>
-<div class="block">Returns the number of threads available for starting and stopping any
+<div class="block">Obtain the number of threads available for starting and stopping any
  children associated with this container.</div>
 </td>
 </tr>
@@ -731,9 +729,10 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>getRealm</h4>
 <pre><a href="../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a>&nbsp;getRealm()</pre>
-<div class="block">Return the Realm with which this Container is associated.  If there is
- no associated Realm, return the Realm associated with our parent
- Container (if any); otherwise return <code>null</code>.</div>
+<div class="block">Obtain the Realm with which this Container is associated.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The associated Realm; if there is no associated Realm, the
+         Realm associated with the parent Container (if any); otherwise
+         return <code>null</code>.</dd></dl>
 </li>
 </ul>
 <a name="setRealm(org.apache.catalina.Realm)">
@@ -811,9 +810,10 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>findChild</h4>
 <pre><a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a>&nbsp;findChild(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Return the child Container, associated with this Container, with
- the specified name (if any); otherwise, return <code>null</code></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the child Container to be retrieved</dd></dl>
+<div class="block">Obtain a child Container by name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the child Container to be retrieved</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The child Container with the given name or <code>null</code> if
+         no such child exists.</dd></dl>
 </li>
 </ul>
 <a name="findChildren()">
@@ -823,8 +823,9 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>findChildren</h4>
 <pre><a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a>[]&nbsp;findChildren()</pre>
-<div class="block">Return the set of children Containers associated with this Container.
- If this Container has no children, a zero-length array is returned.</div>
+<div class="block">Obtain the child Containers associated with this Container.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An array containing all children of this container. If this
+         Container has no children, a zero-length array is returned.</dd></dl>
 </li>
 </ul>
 <a name="findContainerListeners()">
@@ -834,9 +835,10 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>findContainerListeners</h4>
 <pre><a href="../../../org/apache/catalina/ContainerListener.html" title="interface in org.apache.catalina">ContainerListener</a>[]&nbsp;findContainerListeners()</pre>
-<div class="block">Return the set of container listeners associated with this Container.
- If this Container has no registered container listeners, a zero-length
- array is returned.</div>
+<div class="block">Obtain the container listeners associated with this Container.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An array containing the container listeners associated with this
+         Container. If this Container has no registered container
+         listeners, a zero-length array is returned.</dd></dl>
 </li>
 </ul>
 <a name="removeChild(org.apache.catalina.Container)">
@@ -912,9 +914,12 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>getAccessLog</h4>
 <pre><a href="../../../org/apache/catalina/AccessLog.html" title="interface in org.apache.catalina">AccessLog</a>&nbsp;getAccessLog()</pre>
-<div class="block">Identify the AccessLog to use to log a request/response that was destined
- for this container but was handled earlier in the processing chain so
- that the request/response still appears in the correct access logs.</div>
+<div class="block">Obtain the AccessLog to use to log a request/response that is destined
+ for this container. This is typically used when the request/response was
+ handled (and rejected) earlier in the processing chain so that the
+ request/response still appears in the correct access logs.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The AccessLog to use for a request/response destined for this
+         container</dd></dl>
 </li>
 </ul>
 <a name="getStartStopThreads()">
@@ -924,9 +929,11 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li class="blockList">
 <h4>getStartStopThreads</h4>
 <pre>int&nbsp;getStartStopThreads()</pre>
-<div class="block">Returns the number of threads available for starting and stopping any
+<div class="block">Obtain the number of threads available for starting and stopping any
  children associated with this container. This allows start/stop calls to
  children to be processed in parallel.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The currently configured number of threads used to start/stop
+         children associated with this container</dd></dl>
 </li>
 </ul>
 <a name="setStartStopThreads(int)">
@@ -950,6 +957,7 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <h4>getCatalinaBase</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getCatalinaBase()</pre>
 <div class="block">Obtain the location of CATALINA_BASE.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The location of CATALINA_BASE.</dd></dl>
 </li>
 </ul>
 <a name="getCatalinaHome()">
@@ -960,6 +968,7 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <h4>getCatalinaHome</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getCatalinaHome()</pre>
 <div class="block">Obtain the location of CATALINA_HOME.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The location of CATALINA_HOME.</dd></dl>
 </li>
 </ul>
 </li>
@@ -984,7 +993,7 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -1029,6 +1038,6 @@ extends <a href="../../../org/apache/catalina/Lifecycle.html" title="interface i
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Context (Apache Tomcat 8.0.15 API Documentation)</title>
+<title>Context (Apache Tomcat 8.0.17 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Context (Apache Tomcat 8.0.15 API Documentation)";
+        parent.document.title="Context (Apache Tomcat 8.0.17 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -608,17 +608,13 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Context.html#getApplicationEventListeners()">getApplicationEventListeners</a></strong>()</code>
-<div class="block">Return the set of initialized application event listener objects,
- in the order they were specified in the web application deployment
- descriptor, for this application.</div>
+<div class="block">Obtain the registered application event listeners.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Context.html#getApplicationLifecycleListeners()">getApplicationLifecycleListeners</a></strong>()</code>
-<div class="block">Return the set of initialized application lifecycle listener objects,
- in the order they were specified in the web application deployment
- descriptor, for this application.</div>
+<div class="block">Obtain the registered application lifecycle listeners.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1575,12 +1571,10 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <li class="blockList">
 <h4>getApplicationEventListeners</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;getApplicationEventListeners()</pre>
-<div class="block">Return the set of initialized application event listener objects,
- in the order they were specified in the web application deployment
- descriptor, for this application.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if this method is called before
-  this application has started, or after it has been stopped</dd></dl>
+<div class="block">Obtain the registered application event listeners.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An array containing the application event listener instances for
+         this web application in the order they were specified in the web
+         application deployment descriptor</dd></dl>
 </li>
 </ul>
 <a name="setApplicationEventListeners(java.lang.Object[])">
@@ -1603,12 +1597,10 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <li class="blockList">
 <h4>getApplicationLifecycleListeners</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;getApplicationLifecycleListeners()</pre>
-<div class="block">Return the set of initialized application lifecycle listener objects,
- in the order they were specified in the web application deployment
- descriptor, for this application.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if this method is called before
-  this application has started, or after it has been stopped</dd></dl>
+<div class="block">Obtain the registered application lifecycle listeners.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An array containing the application lifecycle listener instances
+         for this web application in the order they were specified in the
+         web application deployment descriptor</dd></dl>
 </li>
 </ul>
 <a name="setApplicationLifecycleListeners(java.lang.Object[])">
@@ -1634,6 +1626,9 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <div class="block">Obtain the character set name to use with the given Locale. Note that
  different Contexts may have different mappings of Locale to character
  set.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>locale</code> - The locale for which the mapped character set should be
+               returned</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The name of the character set to use with the given Locale</dd></dl>
 </li>
 </ul>
 <a name="getConfigFile()">
@@ -1644,6 +1639,7 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <h4>getConfigFile</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;getConfigFile()</pre>
 <div class="block">Return the URL of the XML descriptor for this context.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The URL of the XML descriptor for this context</dd></dl>
 </li>
 </ul>
 <a name="setConfigFile(java.net.URL)">
@@ -1665,6 +1661,8 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <h4>getConfigured</h4>
 <pre>boolean&nbsp;getConfigured()</pre>
 <div class="block">Return the "correctly configured" flag for this Context.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the Context has been correctly configured,
+         otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="setConfigured(boolean)">
@@ -1688,6 +1686,9 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <h4>getCookies</h4>
 <pre>boolean&nbsp;getCookies()</pre>
 <div class="block">Return the "use cookies for session ids" flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if it is permitted to use cookies to track
+         session IDs for this web application, otherwise
+         <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="setCookies(boolean)">
@@ -1837,6 +1838,8 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <h4>getCrossContext</h4>
 <pre>boolean&nbsp;getCrossContext()</pre>
 <div class="block">Return the "allow crossing servlet contexts" flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if cross-contest requests are allowed from this
+         web applications, otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="getAltDDName()">
@@ -3807,7 +3810,7 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -3852,6 +3855,6 @@ extends <a href="../../../org/apache/catalina/Container.html" title="interface i
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

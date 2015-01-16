@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>JNDIRealm (Apache Tomcat 8.0.15 API Documentation)</title>
+<title>JNDIRealm (Apache Tomcat 8.0.17 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JNDIRealm (Apache Tomcat 8.0.15 API Documentation)";
+        parent.document.title="JNDIRealm (Apache Tomcat 8.0.17 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -914,13 +914,17 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUseDelegatedCredential()">isUseDelegatedCredential</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUserSearchAsUser()">isUserSearchAsUser</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#open()">open</a></strong>()</code>
 <div class="block">Open (if necessary) and return a connection to the configured
  directory server for this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#parseUserPatternString(java.lang.String)">parseUserPatternString</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPatternString)</code>
 <div class="block">Given a string containing LDAP patterns for user locations (separated by
@@ -928,167 +932,171 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  "(location1)(location2)", returns an array of those paths.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#release(javax.naming.directory.DirContext)">release</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context)</code>
 <div class="block">Release our use of this connection so that it can be recycled.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAdCompat(boolean)">setAdCompat</a></strong>(boolean&nbsp;adCompat)</code>
 <div class="block">How do we handle PartialResultExceptions?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAlternateURL(java.lang.String)">setAlternateURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;alternateURL)</code>
 <div class="block">Setter for property alternateURL.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAuthentication(java.lang.String)">setAuthentication</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authentication)</code>
 <div class="block">Set the type of authentication to use.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setCommonRole(java.lang.String)">setCommonRole</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commonRole)</code>
 <div class="block">Set the common role</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionName(java.lang.String)">setConnectionName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionName)</code>
 <div class="block">Set the connection username for this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionPassword(java.lang.String)">setConnectionPassword</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionPassword)</code>
 <div class="block">Set the connection password for this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionTimeout(java.lang.String)">setConnectionTimeout</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;timeout)</code>
 <div class="block">Set the connection timeout.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionURL(java.lang.String)">setConnectionURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionURL)</code>
 <div class="block">Set the connection URL for this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setContextFactory(java.lang.String)">setContextFactory</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextFactory)</code>
 <div class="block">Set the JNDI context factory for this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setDerefAliases(java.lang.String)">setDerefAliases</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;derefAliases)</code>
 <div class="block">Set the value for derefAliases to be used when searching the directory.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setProtocol(java.lang.String)">setProtocol</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol)</code>
 <div class="block">Set the protocol for this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setReferrals(java.lang.String)">setReferrals</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;referrals)</code>
 <div class="block">How do we handle JNDI referrals?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleBase(java.lang.String)">setRoleBase</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;roleBase)</code>
 <div class="block">Set the base element for role searches.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleName(java.lang.String)">setRoleName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;roleName)</code>
 <div class="block">Set the role name attribute name for this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleNested(boolean)">setRoleNested</a></strong>(boolean&nbsp;roleNested)</code>
 <div class="block">Set the "search subtree for roles" flag.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleSearch(java.lang.String)">setRoleSearch</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;roleSearch)</code>
 <div class="block">Set the message format pattern for selecting roles in this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleSearchAsUser(boolean)">setRoleSearchAsUser</a></strong>(boolean&nbsp;roleSearchAsUser)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setRoleSubtree(boolean)">setRoleSubtree</a></strong>(boolean&nbsp;roleSubtree)</code>
 <div class="block">Set the "search subtree for roles" flag.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setSizeLimit(long)">setSizeLimit</a></strong>(long&nbsp;sizeLimit)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setSpnegoDelegationQop(java.lang.String)">setSpnegoDelegationQop</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spnegoDelegationQop)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setTimeLimit(int)">setTimeLimit</a></strong>(int&nbsp;timeLimit)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUseDelegatedCredential(boolean)">setUseDelegatedCredential</a></strong>(boolean&nbsp;useDelegatedCredential)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserBase(java.lang.String)">setUserBase</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userBase)</code>
 <div class="block">Set the base element for user searches.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserPassword(java.lang.String)">setUserPassword</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPassword)</code>
 <div class="block">Set the password attribute used to retrieve the user password.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserPattern(java.lang.String)">setUserPattern</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPattern)</code>
 <div class="block">Set the message format pattern for selecting users in this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserRoleAttribute(java.lang.String)">setUserRoleAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userRoleAttribute)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserRoleName(java.lang.String)">setUserRoleName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userRoleName)</code>
 <div class="block">Set the user role name attribute name for this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserSearch(java.lang.String)">setUserSearch</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userSearch)</code>
 <div class="block">Set the message format pattern for selecting users in this Realm.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserSearchAsUser(boolean)">setUserSearchAsUser</a></strong>(boolean&nbsp;userSearchAsUser)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -1831,6 +1839,24 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <pre>public&nbsp;void&nbsp;setUserSearch(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userSearch)</pre>
 <div class="block">Set the message format pattern for selecting users in this Realm.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>userSearch</code> - The new user search pattern</dd></dl>
+</li>
+</ul>
+<a name="isUserSearchAsUser()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isUserSearchAsUser</h4>
+<pre>public&nbsp;boolean&nbsp;isUserSearchAsUser()</pre>
+</li>
+</ul>
+<a name="setUserSearchAsUser(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUserSearchAsUser</h4>
+<pre>public&nbsp;void&nbsp;setUserSearchAsUser(boolean&nbsp;userSearchAsUser)</pre>
 </li>
 </ul>
 <a name="getUserSubtree()">
@@ -2664,7 +2690,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.17</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -2709,6 +2735,6 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
