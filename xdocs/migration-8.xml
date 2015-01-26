@@ -72,6 +72,26 @@ of Apache Tomcat.</p>
 
   </subsection>
 
+  <subsection name="Default URL encoding" anchor="URIEncoding">
+
+    <p>The default value of <code>URIEncoding</code> attribute for HTTP and
+    AJP connectors has been changed from "ISO-8859-1" to be "UTF-8" (if
+    "strict servlet compliance" mode is off, which is the default). This
+    setting specifies what character encoding is used to decode '%xx'-encoded
+    bytes in path and query of a request URI.
+    </p>
+
+    <p>If server is configured with "strict servlet compliance" on, the
+    default value of <code>URIEncoding</code> attribute of connectors is
+    "ISO-8859-1", the same as in older versions of Tomcat.
+    </p>
+
+    <p>Reference: <a href="tomcat-8.0-doc/config/http.html">HTTP connector</a>,
+    <a href="tomcat-8.0-doc/config/ajp.html">AJP connector</a>.
+    </p>
+
+  </subsection>
+
   <subsection name="Web application resources">
 
     <p>The Aliases, VirtualLoader, VirtualDirContext, JAR resources and external

@@ -215,6 +215,9 @@
 <a href="#Default_connector_implementation">Default connector implementation</a>
 </li>
 <li>
+<a href="#URIEncoding">Default URL encoding</a>
+</li>
+<li>
 <a href="#Web_application_resources">Web application resources</a>
 </li>
 <li>
@@ -331,6 +334,34 @@ of Apache Tomcat.</p>
     implementation (NIO). BIO may still be used but Servlet 3.1 and WebSocket
     1.0 features that use non-blocking IO will then use blocking IO instead
     which may cause unexpected application behavior.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="URIEncoding">Default URL encoding</h4>
+<div class="text">
+
+    
+<p>The default value of <code>URIEncoding</code> attribute for HTTP and
+    AJP connectors has been changed from "ISO-8859-1" to be "UTF-8" (if
+    "strict servlet compliance" mode is off, which is the default). This
+    setting specifies what character encoding is used to decode '%xx'-encoded
+    bytes in path and query of a request URI.
+    </p>
+
+    
+<p>If server is configured with "strict servlet compliance" on, the
+    default value of <code>URIEncoding</code> attribute of connectors is
+    "ISO-8859-1", the same as in older versions of Tomcat.
+    </p>
+
+    
+<p>Reference: <a href="tomcat-8.0-doc/config/http.html">HTTP connector</a>,
+    <a href="tomcat-8.0-doc/config/ajp.html">AJP connector</a>.
+    </p>
 
   
 </div>
