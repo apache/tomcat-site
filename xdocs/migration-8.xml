@@ -130,12 +130,16 @@ of Apache Tomcat.</p>
 
   <subsection name="Database Connection Pooling">
 
-    <p>Tomcat 8 embeds a packaged renamed version of Commons DBCP 2.x. There are
-    a number of notable changes between Commons DBCP 1.x and Commons DBCP 2.x
+    <p>Tomcat 8 embeds a packaged renamed version of
+    <a href="http://commons.apache.org/proper/commons-dbcp/">Apache Commons DBCP</a>
+    2.x. There are a number of notable changes between Commons DBCP 1.x
+    (used by Tomcat 7 and earlier) and Commons DBCP 2.x
     which are likely to require configuration changes.</p>
     <ul>
-      <li>The maxActive configuration option has been renamed to maxTotal</li>
-      <li>The maxWait configuration option has been renamed to maxWaitMillis</li>
+      <li>The <code>maxActive</code> configuration option has been renamed
+          to <code>maxTotal</code></li>
+      <li>The <code>maxWait</code> configuration option has been renamed to
+          <code>maxWaitMillis</code></li>
       <li>The JDBC driver JAR may be placed in WEB-INF/lib as an alternative to
           $CATALINA_BASE/lib provided that the driver class is only used by that
           web application.</li>
