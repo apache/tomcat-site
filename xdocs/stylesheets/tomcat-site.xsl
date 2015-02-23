@@ -34,7 +34,7 @@
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
   <xsl:param    name="home-logo"     select="'/images/tomcat.png'"/>
-  <xsl:param    name="buglink"       select="'https://issues.apache.org/bugzilla/show_bug.cgi?id='"/>
+  <xsl:param    name="buglink"       select="'https://bz.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
   <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
 
