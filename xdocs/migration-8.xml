@@ -204,6 +204,36 @@ of Apache Tomcat.</p>
 
   </subsection>
 
+  <subsection name="Deployment">
+
+    <p>Deployment of a web application as a WAR file and with Tomcat configured
+    not to unpack WARs will result in significantly slower startup times and
+    slower runtime performance. Start-up times have been measured between three
+    and ten times slower. Runtime impact will depend significantly on the
+    application structure.</p>
+    
+    <p>It is strongly recommended not to set <code>unpackWARs="false"</code> on
+    a Host or <code>unpackWAR="false"</code> on a Context. Below is a list of
+    common reasons for disabling unpacking and the recommended alternative for
+    Tomcat 8:</p>
+    
+    <ul>
+      <li><i>Security (appBase is readOnly to Tomcat user)</i> - Deploy (as a
+      different user) an unpacked directory to the appBase rather than a WAR
+      file.</li>
+      <li><i>Sharing an appBase between multiple hosts</i> - Deploy WAR files
+      to a common location and then use context.xml files to add the web
+      applications to the hosts as required. Note sharing an appBase between
+      multiple hosts is strongly discouraged in all circumstances.</li>
+      <li><i>Off-line deployment</i> - As of Tomcat 8.0.21, Tomcat will detect
+      when a WAR has been updated while it is not running and, when next
+      started, remove the out of date expanded directory and deploy the updated
+      WAR file so simply use <code>unpackWAR="true"</code> and continue to
+      deploy WARs when Tomcat is not running.</li>
+    </ul>
+
+  </subsection>
+
 </section>
 
 <section name="Upgrading 8.0.x">
