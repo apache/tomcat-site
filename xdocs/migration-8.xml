@@ -62,6 +62,30 @@ of Apache Tomcat.</p>
 
   </subsection>
 
+  <subsection name="JavaServer Pages 2.3">
+  
+    <p>Unified Expression Language 3.0 added support for referencing static
+    fields and methods. Supporting this feature in JSPs required changing the
+    <code>javax.servlet.jsp.el.ScopedAttributeELResolver</code> implementation
+    so that it also checked identifiers to see if they were names of imported
+    classes or fields. In some circumstances, this change triggers significant
+    slow down. This affects identifiers that may refer to a page, request,
+    session or application scoped variable or may be undefined. When undefined,
+    it takes significantly longer to resolve the identifier since it is now also
+    checked to see if it is an imported class or field. To avoid this slow down,
+    code such as:</p>
+
+    <source><![CDATA[${undefined}]]></source>
+
+    <p>should be replaced with:</p>
+    
+    <source><![CDATA[${requestScope.undefined}]]></source>
+    
+    <p>or similar, using the appropriate scope for where the variable is
+    defined.</p>
+
+  </subsection>
+
   <subsection name="Default connector implementation">
 
     <p>The default HTTP and AJP connector implementation has switched from the

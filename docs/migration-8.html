@@ -215,6 +215,9 @@
 <a href="#Servlet_3.1_API">Servlet 3.1 API</a>
 </li>
 <li>
+<a href="#JavaServer_Pages_2.3">JavaServer Pages 2.3</a>
+</li>
+<li>
 <a href="#Default_connector_implementation">Default connector implementation</a>
 </li>
 <li>
@@ -324,6 +327,48 @@ of Apache Tomcat.</p>
     definitions of class <code>ReadListener</code> that was added in Servlet
     3.1. The solution is to use the explicit import,
     <code>import="a.ReadListener"</code>.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="JavaServer_Pages_2.3">JavaServer Pages 2.3</h4>
+<div class="text">
+  
+    
+<p>Unified Expression Language 3.0 added support for referencing static
+    fields and methods. Supporting this feature in JSPs required changing the
+    <code>javax.servlet.jsp.el.ScopedAttributeELResolver</code> implementation
+    so that it also checked identifiers to see if they were names of imported
+    classes or fields. In some circumstances, this change triggers significant
+    slow down. This affects identifiers that may refer to a page, request,
+    session or application scoped variable or may be undefined. When undefined,
+    it takes significantly longer to resolve the identifier since it is now also
+    checked to see if it is an imported class or field. To avoid this slow down,
+    code such as:</p>
+
+    
+<div class="codeBox">
+<pre>
+<code>${undefined}</code>
+</pre>
+</div>
+
+    
+<p>should be replaced with:</p>
+    
+    
+<div class="codeBox">
+<pre>
+<code>${requestScope.undefined}</code>
+</pre>
+</div>
+    
+    
+<p>or similar, using the appropriate scope for where the variable is
+    defined.</p>
 
   
 </div>
