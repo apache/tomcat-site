@@ -280,6 +280,18 @@ of Apache Tomcat.</p>
     <code>org.apache.tomcat.util.http.ServerCookie.ALLOW_NAME_ONLY</code>, that
     can be used to accept name-only cookies.</p>
 
+    <p>If a cookie value or path contain characters that have to be quoted
+    (per RFC2109 specification), the cookie will be automatically converted
+    from "version 0" cookie into "version 1" cookie before sending it to
+    the client and those values will be surrounded by double quotes. What
+    characters need quoting is controlled by several <a
+    href="/tomcat-7.0-doc/config/systemprops.html">System properties</a>
+    such as
+    <code>org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR</code>.
+    It is known that Internet Explorer has problem processing "version 1"
+    cookies. (Bug <bug>57872</bug>).
+    </p>
+
   </subsection>
 
   <subsection name="Request attributes">
