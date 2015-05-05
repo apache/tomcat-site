@@ -65,6 +65,25 @@
 
     <p>Affects: 7.0.0 to 7.0.54</p>
 
+    <p><strong>Low: Denial of Service</strong>
+       <cve>CVE-2014-0230</cve></p>
+
+    <p>When a response for a request with a request body is returned to the user
+    agent before the request body is fully read, by default Tomcat swallows the
+    remaining request body so that the next request on the connection may be
+    processed. There was no limit to the size of request body that Tomcat would
+    swallow. This permitted a limited Denial of Service as Tomcat would never
+    close the connection and a processing thread would remain allocated to the
+    connection.</p>
+
+    <p>This was fixed in revision <revlink rev="1603781">1603781</revlink>.</p>
+
+    <p>This issue was disclosed to the Tomcat security team by AntBean@secdig
+    from the Baidu Security Team on 4 June 2014 and made public on 9 April
+    2015.</p>
+
+    <p>Affects: 7.0.0 to 7.0.54</p>
+
   </section>
 
   <section name="Fixed in Apache Tomcat 7.0.54" rtext="released 22 May 2014">
