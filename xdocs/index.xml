@@ -37,6 +37,50 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 8.0.22 Released" rtext="2015-05-05">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.0.22
+of Apache Tomcat. Apache Tomcat 8.0.22 includes a numerous fixes for issues
+identified in 8.0.21 as well as a number of other enhancements and changes. The
+notable changes since 8.0.21 include:</p>
+<ul>
+  <li>Change the format of the Tomcat specific URLs for resources inside JARs
+      that are in turn packed in a WAR. The <code>^/</code> sequence has been
+      replaced by <code>*/</code> so that the resulting URLs are compliant with
+      RFC 2396 and do not trigger exceptions when converted to URIs. The old
+      format will continue to be accepted.</li>
+  <li>Allow logging of the remote port in the access log using the format
+      pattern <code>%{remote}p</code>.</li>
+  <li>When checking last modified times as part of the automatic deployment
+      process, account for the fact that File.lastModified() has a resolution of
+      one second to ensure that if a file has been modified within the last
+      second, the latest version of the file is always used. Note that a
+      side-effect of this change is that files with modification times in the
+      future are treated as if they are unmodified.</li>
+  <li>Align redeploy resource modification checking with reload modification
+      checking so that now, in both cases, a change in modification time rather
+      than an increase in modification time is used to determine if the resource
+      has changed.</li>
+</ul>
+
+<p>
+Note: There is a known issue with NIO2 and SSL/TLS in this and previous releases
+that can result in dropped connections. It is not recommended that NIO2 is used
+in production with SSL/TLS until this issue is resolved (the fix is expected in
+8.0.23).
+</p>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.0-doc/changelog.html#Tomcat_8.0.22_(markt)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 7.0.61 Released" rtext="2015-04-07">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 7.0.61 of
@@ -63,35 +107,6 @@ Full details of these changes, and all the other changes, are available in the
 <p style="text-align: center;">
 <a href="download-70.cgi">Download</a> |
 <a href="tomcat-7.0-doc/changelog.html">ChangeLog for 7.0.61</a>
-</p>
-</section>
-
-<section name="Tomcat 8.0.21 Released" rtext="2015-03-26">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 8.0.21
-of Apache Tomcat. Apache Tomcat 8.0.21 includes a numerous fixes for issues
-identified in 8.0.20 as well as a number of other enhancements and changes. The
-notable changes since 8.0.20 include:</p>
-<ul>
-  <li>Enable Tomcat to detect when a WAR file has been changed while Tomcat is
-      not running.</li>
-  <li>Add support for Java 8 JSSE server-preferred TLS cipher suite ordering.
-      This feature requires Java 8.</li>
-  <li>Update to Tomcat Native Library version 1.1.33 to pick up the Windows
-      binaries that are based on OpenSSL 1.0.1m and APR 1.5.1</li>
-  <li>Implement a new feature for AJP connectors - Tomcat Authorization. If
-      enabled Tomcat, will take an authenticated user name from the AJP protocol
-      and use the appropriate Realm for the request to authorize (i.e. add
-      roles) to that user.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.0-doc/changelog.html">Tomcat 8 changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-80.cgi">Download</a>
 </p>
 </section>
 
