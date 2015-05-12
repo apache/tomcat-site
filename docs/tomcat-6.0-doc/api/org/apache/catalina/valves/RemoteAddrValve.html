@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-RemoteAddrValve (Apache Tomcat 6.0.43 API Documentation)
+RemoteAddrValve (Apache Tomcat 6.0.44 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.valves.RemoteAddrValve class">
@@ -14,7 +14,7 @@ RemoteAddrValve (Apache Tomcat 6.0.43 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="RemoteAddrValve (Apache Tomcat 6.0.43 API Documentation)";
+    parent.document.title="RemoteAddrValve (Apache Tomcat 6.0.44 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -72,9 +72,9 @@ function windowTitle()
 </TR>
 <TR>
 <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.catalina.valves.RequestFilterValve">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
 <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
 </TR>
 </TABLE>
 <A NAME="skip-navbar_top"></A>
@@ -103,7 +103,8 @@ java.lang.Object
 
 <P>
 Concrete implementation of <code>RequestFilterValve</code> that filters
- based on the string representation of the remote client's IP address.
+ based on the string representation of the remote client's IP address
+ optionally combined with the server connector port number.
 <P>
 
 <P>
@@ -121,6 +122,15 @@ Concrete implementation of <code>RequestFilterValve</code> that filters
 <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
 <TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
 <B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/valves/RemoteAddrValve.html#addConnectorPort">addConnectorPort</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flag deciding whether we add the server connector port to the property
+ compared in the filtering method.</TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="fields_inherited_from_class_org.apache.catalina.valves.RequestFilterValve"><!-- --></A>
@@ -177,6 +187,15 @@ Concrete implementation of <code>RequestFilterValve</code> that filters
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/valves/RemoteAddrValve.html#getAddConnectorPort()">getAddConnectorPort</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the flag deciding whether we add the server connector port to the
+ property compared in the filtering method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;java.lang.String</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/valves/RemoteAddrValve.html#getInfo()">getInfo</A></B>()</CODE>
 
@@ -193,6 +212,15 @@ Concrete implementation of <code>RequestFilterValve</code> that filters
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extract the desired request property, and pass it (along with the
  specified request and response objects) to the protected
  <code>process()</code> method to perform the actual filtering.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/valves/RemoteAddrValve.html#setAddConnectorPort(boolean)">setAddConnectorPort</A></B>(boolean&nbsp;addConnectorPort)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the flag deciding whether we add the server connector port to the
+ property compared in the filtering method.</TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_org.apache.catalina.valves.RequestFilterValve"><!-- --></A>
@@ -224,6 +252,29 @@ Concrete implementation of <code>RequestFilterValve</code> that filters
 </TABLE>
 &nbsp;
 <P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="addConnectorPort"><!-- --></A><H3>
+addConnectorPort</H3>
+<PRE>
+protected volatile boolean <B>addConnectorPort</B></PRE>
+<DL>
+<DD>Flag deciding whether we add the server connector port to the property
+ compared in the filtering method. The port will be appended
+ using a ";" as a separator.
+<P>
+<DL>
+</DL>
+</DL>
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 
@@ -264,6 +315,36 @@ public java.lang.String <B>getInfo</B>()</PRE>
 </DD>
 <DD><DL>
 </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAddConnectorPort()"><!-- --></A><H3>
+getAddConnectorPort</H3>
+<PRE>
+public boolean <B>getAddConnectorPort</B>()</PRE>
+<DL>
+<DD>Get the flag deciding whether we add the server connector port to the
+ property compared in the filtering method. The port will be appended
+ using a ";" as a separator.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setAddConnectorPort(boolean)"><!-- --></A><H3>
+setAddConnectorPort</H3>
+<PRE>
+public void <B>setAddConnectorPort</B>(boolean&nbsp;addConnectorPort)</PRE>
+<DL>
+<DD>Set the flag deciding whether we add the server connector port to the
+ property compared in the filtering method. The port will be appended
+ using a ";" as a separator.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>addConnectorPort</CODE> - The new flag</DL>
 </DD>
 </DL>
 <HR>
@@ -315,7 +396,7 @@ public void <B>invoke</B>(<A HREF="../../../../org/apache/catalina/connector/Req
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -342,15 +423,15 @@ public void <B>invoke</B>(<A HREF="../../../../org/apache/catalina/connector/Req
 </TR>
 <TR>
 <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.catalina.valves.RequestFilterValve">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
 <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
 </TR>
 </TABLE>
 <A NAME="skip-navbar_bottom"></A>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

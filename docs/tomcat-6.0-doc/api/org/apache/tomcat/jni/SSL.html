@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-SSL (Apache Tomcat 6.0.43 API Documentation)
+SSL (Apache Tomcat 6.0.44 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.tomcat.jni.SSL class">
@@ -14,7 +14,7 @@ SSL (Apache Tomcat 6.0.43 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="SSL (Apache Tomcat 6.0.43 API Documentation)";
+    parent.document.title="SSL (Apache Tomcat 6.0.44 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -1116,7 +1116,7 @@ SSL
 <TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/SSL.html#closeBIO(long)">closeBIO</A></B>(long&nbsp;bio)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Close BIO and derefrence callback object</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Close BIO and dereference callback object</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -1174,7 +1174,7 @@ SSL
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load temporary DSA key from file
- <br />
+ <br>
  Index can be one of:
  
  SSL_TMP_KEY_DH_512
@@ -1222,11 +1222,11 @@ SSL
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<CODE>static&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/SSL.html#randSet(java.lang.String)">randSet</A></B>(java.lang.String&nbsp;filename)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set source of entropy to use in SSL</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets global random filename.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -2553,7 +2553,7 @@ public static int <B>initialize</B>(java.lang.String&nbsp;engine)</PRE>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>engine</CODE> - Support for external a Crypto Device ("engine"),
                 usually
- a hardware accellerator card for crypto operations.
+ a hardware accelerator card for crypto operations.
 <DT><B>Returns:</B><DD>APR status code</DL>
 </DD>
 </DL>
@@ -2591,19 +2591,6 @@ public static int <B>fipsModeSet</B>(int&nbsp;mode)
 <DT><B>Throws:</B>
 <DD><CODE>java.lang.Exception</CODE> - If tcnative was not compiled with FIPS Mode available,
   or if <code>FIPS_mode_set()</code> call returned an error value.<DT><B>See Also:</B><DD><a href="http://wiki.openssl.org/index.php/FIPS_mode_set%28%29">OpenSSL method FIPS_mode_set()</a></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="randSet(java.lang.String)"><!-- --></A><H3>
-randSet</H3>
-<PRE>
-public static boolean <B>randSet</B>(java.lang.String&nbsp;filename)</PRE>
-<DL>
-<DD>Set source of entropy to use in SSL
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>filename</CODE> - Filename containing random data</DL>
 </DD>
 </DL>
 <HR>
@@ -2656,6 +2643,21 @@ public static boolean <B>randMake</B>(java.lang.String&nbsp;filename,
 </DL>
 <HR>
 
+<A NAME="randSet(java.lang.String)"><!-- --></A><H3>
+randSet</H3>
+<PRE>
+public static void <B>randSet</B>(java.lang.String&nbsp;filename)</PRE>
+<DL>
+<DD>Sets global random filename.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>filename</CODE> - Filename to use.
+        If set it will be used for SSL initialization
+        and all contexts where explicitly not set.</DL>
+</DD>
+</DL>
+<HR>
+
 <A NAME="newBIO(long, org.apache.tomcat.jni.BIOCallback)"><!-- --></A><H3>
 newBIO</H3>
 <PRE>
@@ -2679,7 +2681,7 @@ closeBIO</H3>
 <PRE>
 public static int <B>closeBIO</B>(long&nbsp;bio)</PRE>
 <DL>
-<DD>Close BIO and derefrence callback object
+<DD>Close BIO and dereference callback object
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>bio</CODE> - BIO to close and destroy.
@@ -2720,7 +2722,7 @@ generateRSATempKey</H3>
 public static boolean <B>generateRSATempKey</B>(int&nbsp;idx)</PRE>
 <DL>
 <DD>Generate temporary RSA key.
- <br />
+ <br>
  Index can be one of:
  <PRE>
  SSL_TMP_KEY_RSA_512
@@ -2744,7 +2746,7 @@ public static boolean <B>loadDSATempKey</B>(int&nbsp;idx,
                                      java.lang.String&nbsp;file)</PRE>
 <DL>
 <DD>Load temporary DSA key from file
- <br />
+ <br>
  Index can be one of:
  <PRE>
  SSL_TMP_KEY_DH_512
@@ -2780,8 +2782,8 @@ public static boolean <B>hasOp</B>(int&nbsp;op)</PRE>
 <DD>Return true if all the requested SSL_OP_* are supported by OpenSSL.
  
  <i>Note that for versions of tcnative &lt; 1.1.25, this method will
- return <code>true</code> if and only if <code>op=0x00040000</code>
- (SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION) and tcnative
+ return <code>true</code> if and only if <code>op</code>=
+ <CODE>#SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION</CODE> and tcnative
  supports that flag.</i>
 <P>
 <DD><DL>
@@ -2813,7 +2815,7 @@ public static boolean <B>hasOp</B>(int&nbsp;op)</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -2849,6 +2851,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

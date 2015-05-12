@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-File (Apache Tomcat 6.0.43 API Documentation)
+File (Apache Tomcat 6.0.44 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.tomcat.jni.File class">
@@ -14,7 +14,7 @@ File (Apache Tomcat 6.0.43 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="File (Apache Tomcat 6.0.43 API Documentation)";
+    parent.document.title="File (Apache Tomcat 6.0.44 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -274,7 +274,7 @@ File
 <TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/File.html#APR_FINFO_MIN">APR_FINFO_MIN</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;->name in proper case</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;name in proper case</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -451,7 +451,7 @@ File
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Platform dependent flag to enable large file support;
- <br /><b>Warning :</b> The APR_LARGEFILE flag only has effect on some platforms
+ <br><b>Warning :</b> The APR_LARGEFILE flag only has effect on some platforms
  where sizeof(apr_off_t) == 4.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
@@ -1098,7 +1098,7 @@ File
        byte[][]&nbsp;vec)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write data from aray of byte arrays to the specified file.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write data from array of byte arrays to the specified file.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -1107,7 +1107,7 @@ File
            byte[][]&nbsp;vec)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write data from aray of byte arrays to the specified file,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write data from array of byte arrays to the specified file,
  ensuring that all of the data is written before returning.</TD>
 </TR>
 </TABLE>
@@ -1298,7 +1298,7 @@ APR_FOPEN_LARGEFILE</H3>
 public static final int <B>APR_FOPEN_LARGEFILE</B></PRE>
 <DL>
 <DD>Platform dependent flag to enable large file support;
- <br /><b>Warning :</b> The APR_LARGEFILE flag only has effect on some platforms
+ <br><b>Warning :</b> The APR_LARGEFILE flag only has effect on some platforms
  where sizeof(apr_off_t) == 4.  Where implemented, it allows opening
  and writing to a file which exceeds the size which can be
  represented by apr_off_t (2 gigabytes).  When a file's size does
@@ -1908,7 +1908,7 @@ APR_FINFO_MIN</H3>
 <PRE>
 public static final int <B>APR_FINFO_MIN</B></PRE>
 <DL>
-<DD>->name in proper case
+<DD>-&gt;name in proper case
 <P>
 <DL>
 <DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.tomcat.jni.File.APR_FINFO_MIN">Constant Field Values</A></DL>
@@ -2124,7 +2124,7 @@ public static int <B>rename</B>(java.lang.String&nbsp;fromPath,
                          long&nbsp;pool)</PRE>
 <DL>
 <DD>Rename the specified file.
- <br /><b>Warning :</b> If a file exists at the new location, then it will be
+ <br><b>Warning :</b> If a file exists at the new location, then it will be
  overwritten.  Moving files or directories across devices may not be
  possible.
 <P>
@@ -2144,7 +2144,7 @@ public static int <B>copy</B>(java.lang.String&nbsp;fromPath,
 <DL>
 <DD>Copy the specified file to another file.
  The new file does not need to exist, it will be created if required.
- <br /><b>Warning :</b> If the new file already exists, its contents will be overwritten.
+ <br><b>Warning :</b> If the new file already exists, its contents will be overwritten.
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>fromPath</CODE> - The full path to the original file (using / on all systems)<DD><CODE>toPath</CODE> - The full path to the new file (using / on all systems)<DD><CODE>perms</CODE> - Access permissions for the new file if it is created.
@@ -2357,7 +2357,7 @@ writev</H3>
 public static int <B>writev</B>(long&nbsp;thefile,
                          byte[][]&nbsp;vec)</PRE>
 <DL>
-<DD>Write data from aray of byte arrays to the specified file.
+<DD>Write data from array of byte arrays to the specified file.
 
  It is possible for both bytes to be written and an error to
  be returned.  APR_EINTR is never returned.
@@ -2378,7 +2378,7 @@ writevFull</H3>
 public static int <B>writevFull</B>(long&nbsp;thefile,
                              byte[][]&nbsp;vec)</PRE>
 <DL>
-<DD>Write data from aray of byte arrays to the specified file,
+<DD>Write data from array of byte arrays to the specified file,
  ensuring that all of the data is written before returning.
 
  writevFull is available even if the underlying
@@ -2531,7 +2531,7 @@ public static int <B>getc</B>(long&nbsp;thefile)
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>thefile</CODE> - The file descriptor to read from
-<DT><B>Returns:</B><DD>The readed character
+<DT><B>Returns:</B><DD>The read character
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../org/apache/tomcat/jni/Error.html" title="class in org.apache.tomcat.jni">Error</A></CODE></DL>
 </DD>
@@ -2572,10 +2572,10 @@ public static int <B>permsSet</B>(java.lang.String&nbsp;fname,
                            int&nbsp;perms)</PRE>
 <DL>
 <DD>Set the specified file's permission bits.
- <br /><b>Warning :</b> Some platforms may not be able to apply all of the
+ <br><b>Warning :</b> Some platforms may not be able to apply all of the
  available permission bits; APR_INCOMPLETE will be returned if some
  permissions are specified which could not be set.
- <br /><b>Warning :</b> Platforms which do not implement this feature will return
+ <br><b>Warning :</b> Platforms which do not implement this feature will return
  APR_ENOTIMPL.
 <P>
 <DD><DL>
@@ -2593,11 +2593,11 @@ public static int <B>attrsSet</B>(java.lang.String&nbsp;fname,
                            long&nbsp;pool)</PRE>
 <DL>
 <DD>Set attributes of the specified file.
- This function should be used in preference to explict manipulation
+ This function should be used in preference to explicit manipulation
       of the file permissions, because the operations to provide these
       attributes are platform specific and may involve more than simply
       setting permission bits.
- <br /><b>Warning :</b> Platforms which do not implement this feature will return
+ <br><b>Warning :</b> Platforms which do not implement this feature will return
       APR_ENOTIMPL.
 <P>
 <DD><DL>
@@ -2619,7 +2619,7 @@ public static int <B>mtimeSet</B>(java.lang.String&nbsp;fname,
                            long&nbsp;pool)</PRE>
 <DL>
 <DD>Set the mtime of the specified file.
- <br /><b>Warning :</b> Platforms which do not implement this feature will return
+ <br><b>Warning :</b> Platforms which do not implement this feature will return
       APR_ENOTIMPL.
 <P>
 <DD><DL>
@@ -2668,7 +2668,7 @@ public static int <B>flagsGet</B>(long&nbsp;file)</PRE>
  when the file was opened.
 <P>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>file</CODE> - The file to retrive flags.
+<DT><B>Parameters:</B><DD><CODE>file</CODE> - The file to retrieve flags.
 <DT><B>Returns:</B><DD>the flags</DL>
 </DD>
 </DL>
@@ -2729,8 +2729,8 @@ public static int <B>pipeTimeoutSet</B>(long&nbsp;thepipe,
 <DD>Set the timeout value for a pipe or manipulate the blocking state.
 <P>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>thepipe</CODE> - The pipe we are setting a timeout on.<DD><CODE>timeout</CODE> - The timeout value in microseconds.  Values < 0 mean wait
-        forever, 0 means do not wait at all.</DL>
+<DT><B>Parameters:</B><DD><CODE>thepipe</CODE> - The pipe we are setting a timeout on.<DD><CODE>timeout</CODE> - The timeout value in microseconds.  Values &lt; 0 mean
+        wait forever, 0 means do not wait at all.</DL>
 </DD>
 </DL>
 <HR>
@@ -2859,7 +2859,7 @@ public static <A HREF="../../../../org/apache/tomcat/jni/FileInfo.html" title="c
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.43</b></EM>
+<b>Apache Tomcat 6.0.44</b></EM>
 </TD>
 </TR>
 
@@ -2895,6 +2895,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2014 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>
