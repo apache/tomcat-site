@@ -2,14 +2,14 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ClusterSingleSignOn (Apache Tomcat 7.0.61 API Documentation)</title>
+<meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1">
+<title>ClusterSingleSignOn (Apache Tomcat 7.0.62 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ClusterSingleSignOn (Apache Tomcat 7.0.61 API Documentation)";
+        parent.document.title="ClusterSingleSignOn (Apache Tomcat 7.0.62 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.61</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.62</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li><a href="../../../../../org/apache/catalina/util/LifecycleBase.html" title="class in org.apache.catalina.util">org.apache.catalina.util.LifecycleBase</a></li>
@@ -115,13 +115,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.util.EventListener, javax.management.MBeanRegistration, <a href="../../../../../org/apache/catalina/Contained.html" title="interface in org.apache.catalina">Contained</a>, <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" title="interface in org.apache.catalina.ha">ClusterValve</a>, <a href="../../../../../org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a>, <a href="../../../../../org/apache/catalina/SessionListener.html" title="interface in org.apache.catalina">SessionListener</a>, <a href="../../../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a></dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="../../../../../org/apache/catalina/Contained.html" title="interface in org.apache.catalina">Contained</a>, <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" title="interface in org.apache.catalina.ha">ClusterValve</a>, <a href="../../../../../org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a>, <a href="../../../../../org/apache/catalina/tribes/tipis/AbstractReplicatedMap.MapOwner.html" title="interface in org.apache.catalina.tribes.tipis">AbstractReplicatedMap.MapOwner</a>, <a href="../../../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">ClusterSingleSignOn</span>
 extends <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a>
-implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" title="interface in org.apache.catalina.ha">ClusterValve</a></pre>
+implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" title="interface in org.apache.catalina.ha">ClusterValve</a>, <a href="../../../../../org/apache/catalina/tribes/tipis/AbstractReplicatedMap.MapOwner.html" title="interface in org.apache.catalina.tribes.tipis">AbstractReplicatedMap.MapOwner</a></pre>
 <div class="block">A <strong>Valve</strong> that supports a "single sign on" user experience on
  each nodes of a cluster, where the security identity of a user who successfully
  authenticates to one web application is propagated to other web applications and
@@ -158,14 +158,10 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#info">info</a></strong></code>
 <div class="block">Descriptive information about this Valve implementation.</div>
 </td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#messageNumber">messageNumber</a></strong></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -173,7 +169,7 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;org.apache.catalina.authenticator.<a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></h3>
-<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#cache">cache</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#LAST_ACCESS_AT_START">LAST_ACCESS_AT_START</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#reverse">reverse</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#sm">sm</a></code></li>
+<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#cache">cache</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#LAST_ACCESS_AT_START">LAST_ACCESS_AT_START</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields_inherited_from_class_org.apache.catalina.valves.ValveBase">
@@ -228,90 +224,45 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#associate(java.lang.String,%20org.apache.catalina.Session)">associate</a></strong>(java.lang.String&nbsp;ssoId,
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#associate(java.lang.String,%20org.apache.catalina.Session)">associate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId,
          <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>
-<div class="block">Notify the cluster of the addition of a Session to
- an SSO session and associate the specified single
- sign on identifier with the specified Session on the
- local node.</div>
+<div class="block">Associate the specified single sign on identifier with the
+ specified Session.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#associateLocal(java.lang.String,%20org.apache.catalina.Session)">associateLocal</a></strong>(java.lang.String&nbsp;ssoId,
-              <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#deregister(java.lang.String)">deregister</a></strong>(java.lang.String&nbsp;ssoId)</code>
-<div class="block">Notifies the cluster that a single sign on session
- has been terminated due to a user logout, deregister
- the specified single sign on identifier, and invalidate
- any associated sessions on the local node.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#deregister(java.lang.String,%20org.apache.catalina.Session)">deregister</a></strong>(java.lang.String&nbsp;ssoId,
-          <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>
-<div class="block">Notify the cluster of the removal of a Session from an
- SSO session and deregister the specified session.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#deregisterLocal(java.lang.String)">deregisterLocal</a></strong>(java.lang.String&nbsp;ssoId)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#deregisterLocal(java.lang.String,%20org.apache.catalina.Session)">deregisterLocal</a></strong>(java.lang.String&nbsp;ssoId,
-               <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/catalina/ha/CatalinaCluster.html" title="interface in org.apache.catalina.ha">CatalinaCluster</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getCluster()">getCluster</a></strong>()</code>
 <div class="block">Returns the cluster the cluster deployer is associated with</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getInfo()">getInfo</a></strong>()</code>
 <div class="block">Return descriptive information about this Valve implementation.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#register(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">register</a></strong>(java.lang.String&nbsp;ssoId,
-        java.security.Principal&nbsp;principal,
-        java.lang.String&nbsp;authType,
-        java.lang.String&nbsp;username,
-        java.lang.String&nbsp;password)</code>
-<div class="block">Notifies the cluster of the creation of a new SSO entry
- and register the specified Principal as being associated
- with the specified value for the single sign on identifier.</div>
-</td>
-</tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#registerLocal(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">registerLocal</a></strong>(java.lang.String&nbsp;ssoId,
-             java.security.Principal&nbsp;principal,
-             java.lang.String&nbsp;authType,
-             java.lang.String&nbsp;username,
-             java.lang.String&nbsp;password)</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getMapSendOptions()">getMapSendOptions</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#removeSession(java.lang.String,%20org.apache.catalina.Session)">removeSession</a></strong>(java.lang.String&nbsp;ssoId,
-             <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>
-<div class="block">Remove a single Session from a SingleSignOn and notify the cluster
- of the removal.</div>
-</td>
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getRpcTimeout()">getRpcTimeout</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#removeSessionLocal(java.lang.String,%20org.apache.catalina.Session)">removeSessionLocal</a></strong>(java.lang.String&nbsp;ssoId,
-                  <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/catalina/SessionListener.html" title="interface in org.apache.catalina">SessionListener</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getSessionListener(java.lang.String)">getSessionListener</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#getTerminateOnStartFailure()">getTerminateOnStartFailure</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#objectMadePrimay(java.lang.Object,%20java.lang.Object)">objectMadePrimay</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -320,37 +271,41 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#setMapSendOptions(int)">setMapSendOptions</a></strong>(int&nbsp;mapSendOptions)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#setRpcTimeout(long)">setRpcTimeout</a></strong>(long&nbsp;rpcTimeout)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#setTerminateOnStartFailure(boolean)">setTerminateOnStartFailure</a></strong>(boolean&nbsp;terminateOnStartFailure)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#startInternal()">startInternal</a></strong>()</code>
 <div class="block">Start this component and implement the requirements
  of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#stopInternal()">stopInternal</a></strong>()</code>
 <div class="block">Stop this component and implement the requirements
  of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#stopInternal()"><code>LifecycleBase.stopInternal()</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#update(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">update</a></strong>(java.lang.String&nbsp;ssoId,
-      java.security.Principal&nbsp;principal,
-      java.lang.String&nbsp;authType,
-      java.lang.String&nbsp;username,
-      java.lang.String&nbsp;password)</code>
-<div class="block">Notifies the cluster of an update of the security credentials
- associated with an SSO session.</div>
-</td>
-</tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#updateLocal(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">updateLocal</a></strong>(java.lang.String&nbsp;ssoId,
-           java.security.Principal&nbsp;principal,
-           java.lang.String&nbsp;authType,
-           java.lang.String&nbsp;username,
-           java.lang.String&nbsp;password)</code>&nbsp;</td>
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/ha/authenticator/ClusterSingleSignOn.html#update(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">update</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;principal,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authType,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
+      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+<div class="block">Updates any <code>SingleSignOnEntry</code> found under key
+ <code>ssoId</code> with the given authentication data.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -358,7 +313,7 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.catalina.authenticator.<a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></h3>
-<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#getCookieDomain()">getCookieDomain</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#getRequireReauthentication()">getRequireReauthentication</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#invoke(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response)">invoke</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#lookup(java.lang.String)">lookup</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#reauthenticate(java.lang.String,%20org.apache.catalina.Realm,%20org.apache.catalina.connector.Request)">reauthenticate</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#sessionEvent(org.apache.catalina.SessionEvent)">sessionEvent</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#setCookieDomain(java.lang.String)">setCookieDomain</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#setRequireReauthentication(boolean)">setRequireReauthentication</a></code></li>
+<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#deregister(java.lang.String)">deregister</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#getCookieDomain()">getCookieDomain</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#getRequireReauthentication()">getRequireReauthentication</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#invoke(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response)">invoke</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#reauthenticate(java.lang.String,%20org.apache.catalina.Realm,%20org.apache.catalina.connector.Request)">reauthenticate</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#register(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">register</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#removeSession(java.lang.String,%20org.apache.catalina.Session)">removeSession</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#sessionDestroyed(java.lang.String,%20org.apache.catalina.Session)">sessionDestroyed</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#setCookieDomain(java.lang.String)">setCookieDomain</a>, <a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#setRequireReauthentication(boolean)">setRequireReauthentication</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.catalina.valves.ValveBase">
@@ -385,8 +340,8 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.catalina.Valve">
@@ -412,21 +367,12 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <a name="info">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>info</h4>
-<pre>protected static final&nbsp;java.lang.String info</pre>
-<div class="block">Descriptive information about this Valve implementation.</div>
-<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.catalina.ha.authenticator.ClusterSingleSignOn.info">Constant Field Values</a></dd></dl>
-</li>
-</ul>
-<a name="messageNumber">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>messageNumber</h4>
-<pre>protected&nbsp;int messageNumber</pre>
+<h4>info</h4>
+<pre>protected static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> info</pre>
+<div class="block">Descriptive information about this Valve implementation.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.catalina.ha.authenticator.ClusterSingleSignOn.info">Constant Field Values</a></dd></dl>
 </li>
 </ul>
 </li>
@@ -460,7 +406,7 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>getInfo</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getInfo()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getInfo()</pre>
 <div class="block">Return descriptive information about this Valve implementation.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
@@ -500,40 +446,58 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <dt><span class="strong">Parameters:</span></dt><dd><code>cluster</code> - CatalinaCluster</dd></dl>
 </li>
 </ul>
-<a name="startInternal()">
+<a name="getRpcTimeout()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>startInternal</h4>
-<pre>protected&nbsp;void&nbsp;startInternal()
-                      throws <a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
-<div class="block">Start this component and implement the requirements
- of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/valves/ValveBase.html#startInternal()">startInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/valves/ValveBase.html" title="class in org.apache.catalina.valves">ValveBase</a></code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code> - if this component detects a fatal error
-  that prevents this component from being used</dd></dl>
+<h4>getRpcTimeout</h4>
+<pre>public&nbsp;long&nbsp;getRpcTimeout()</pre>
 </li>
 </ul>
-<a name="stopInternal()">
+<a name="setRpcTimeout(long)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>stopInternal</h4>
-<pre>protected&nbsp;void&nbsp;stopInternal()
-                     throws <a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
-<div class="block">Stop this component and implement the requirements
- of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#stopInternal()"><code>LifecycleBase.stopInternal()</code></a>.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/valves/ValveBase.html#stopInternal()">stopInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/valves/ValveBase.html" title="class in org.apache.catalina.valves">ValveBase</a></code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code> - if this component detects a fatal error
-  that prevents this component from being used</dd></dl>
+<h4>setRpcTimeout</h4>
+<pre>public&nbsp;void&nbsp;setRpcTimeout(long&nbsp;rpcTimeout)</pre>
+</li>
+</ul>
+<a name="getMapSendOptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMapSendOptions</h4>
+<pre>public&nbsp;int&nbsp;getMapSendOptions()</pre>
+</li>
+</ul>
+<a name="setMapSendOptions(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMapSendOptions</h4>
+<pre>public&nbsp;void&nbsp;setMapSendOptions(int&nbsp;mapSendOptions)</pre>
+</li>
+</ul>
+<a name="getTerminateOnStartFailure()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTerminateOnStartFailure</h4>
+<pre>public&nbsp;boolean&nbsp;getTerminateOnStartFailure()</pre>
+</li>
+</ul>
+<a name="setTerminateOnStartFailure(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTerminateOnStartFailure</h4>
+<pre>public&nbsp;void&nbsp;setTerminateOnStartFailure(boolean&nbsp;terminateOnStartFailure)</pre>
 </li>
 </ul>
 <a name="associate(java.lang.String, org.apache.catalina.Session)">
@@ -542,114 +506,17 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>associate</h4>
-<pre>protected&nbsp;void&nbsp;associate(java.lang.String&nbsp;ssoId,
-             <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
-<div class="block">Notify the cluster of the addition of a Session to
- an SSO session and associate the specified single
- sign on identifier with the specified Session on the
- local node.</div>
+<pre>protected&nbsp;boolean&nbsp;associate(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId,
+                <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#associate(java.lang.String,%20org.apache.catalina.Session)">SingleSignOn</a></code></strong></div>
+<div class="block">Associate the specified single sign on identifier with the
+ specified Session.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#associate(java.lang.String,%20org.apache.catalina.Session)">associate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier</dd><dd><code>session</code> - Session to be associated</dd></dl>
-</li>
-</ul>
-<a name="associateLocal(java.lang.String, org.apache.catalina.Session)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>associateLocal</h4>
-<pre>protected&nbsp;void&nbsp;associateLocal(java.lang.String&nbsp;ssoId,
-                  <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
-</li>
-</ul>
-<a name="deregister(java.lang.String, org.apache.catalina.Session)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deregister</h4>
-<pre>protected&nbsp;void&nbsp;deregister(java.lang.String&nbsp;ssoId,
-              <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
-<div class="block">Notify the cluster of the removal of a Session from an
- SSO session and deregister the specified session. If it is the last
- session, then also get rid of the single sign on identifier on the
- local node.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#deregister(java.lang.String,%20org.apache.catalina.Session)">deregister</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier</dd><dd><code>session</code> - Session to be deregistered</dd></dl>
-</li>
-</ul>
-<a name="deregisterLocal(java.lang.String, org.apache.catalina.Session)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deregisterLocal</h4>
-<pre>protected&nbsp;void&nbsp;deregisterLocal(java.lang.String&nbsp;ssoId,
-                   <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
-</li>
-</ul>
-<a name="deregister(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deregister</h4>
-<pre>protected&nbsp;void&nbsp;deregister(java.lang.String&nbsp;ssoId)</pre>
-<div class="block">Notifies the cluster that a single sign on session
- has been terminated due to a user logout, deregister
- the specified single sign on identifier, and invalidate
- any associated sessions on the local node.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#deregister(java.lang.String)">deregister</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier to deregister</dd></dl>
-</li>
-</ul>
-<a name="deregisterLocal(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deregisterLocal</h4>
-<pre>protected&nbsp;void&nbsp;deregisterLocal(java.lang.String&nbsp;ssoId)</pre>
-</li>
-</ul>
-<a name="register(java.lang.String, java.security.Principal, java.lang.String, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>register</h4>
-<pre>protected&nbsp;void&nbsp;register(java.lang.String&nbsp;ssoId,
-            java.security.Principal&nbsp;principal,
-            java.lang.String&nbsp;authType,
-            java.lang.String&nbsp;username,
-            java.lang.String&nbsp;password)</pre>
-<div class="block">Notifies the cluster of the creation of a new SSO entry
- and register the specified Principal as being associated
- with the specified value for the single sign on identifier.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#register(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">register</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier to register</dd><dd><code>principal</code> - Associated user principal that is identified</dd><dd><code>authType</code> - Authentication type used to authenticate this
-  user principal</dd><dd><code>username</code> - Username used to authenticate this user</dd><dd><code>password</code> - Password used to authenticate this user</dd></dl>
-</li>
-</ul>
-<a name="registerLocal(java.lang.String, java.security.Principal, java.lang.String, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>registerLocal</h4>
-<pre>protected&nbsp;void&nbsp;registerLocal(java.lang.String&nbsp;ssoId,
-                 java.security.Principal&nbsp;principal,
-                 java.lang.String&nbsp;authType,
-                 java.lang.String&nbsp;username,
-                 java.lang.String&nbsp;password)</pre>
+<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier</dd><dd><code>session</code> - Session to be associated</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the session was associated to the given SSO
+         session, otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="update(java.lang.String, java.security.Principal, java.lang.String, java.lang.String, java.lang.String)">
@@ -658,18 +525,18 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>update</h4>
-<pre>protected&nbsp;void&nbsp;update(java.lang.String&nbsp;ssoId,
-          java.security.Principal&nbsp;principal,
-          java.lang.String&nbsp;authType,
-          java.lang.String&nbsp;username,
-          java.lang.String&nbsp;password)</pre>
-<div class="block">Notifies the cluster of an update of the security credentials
- associated with an SSO session. Updates any <code>SingleSignOnEntry</code>
- found under key <code>ssoId</code> with the given authentication data.
+<pre>protected&nbsp;boolean&nbsp;update(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;principal,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authType,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#update(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">SingleSignOn</a></code></strong></div>
+<div class="block">Updates any <code>SingleSignOnEntry</code> found under key
+ <code>ssoId</code> with the given authentication data.
  <p>
  The purpose of this method is to allow an SSO entry that was
  established without a username/password combination (i.e. established
- following DIGEST or CLIENT-CERT authentication) to be updated with
+ following DIGEST or CLIENT_CERT authentication) to be updated with
  a username and password if one becomes available through a subsequent
  BASIC or FORM authentication.  The SSO entry will then be usable for
  reauthentication.
@@ -683,47 +550,73 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#update(java.lang.String,%20java.security.Principal,%20java.lang.String,%20java.lang.String,%20java.lang.String)">update</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - identifier of Single sign to be updated</dd><dd><code>principal</code> - the <code>Principal</code> returned by the latest
-                  call to <code>Realm.authenticate</code>.</dd><dd><code>authType</code> - the type of authenticator used (BASIC, CLIENT-CERT,
-                  DIGEST or FORM)</dd><dd><code>username</code> - the username (if any) used for the authentication</dd><dd><code>password</code> - the password (if any) used for the authentication</dd></dl>
+                  call to <code>Realm.authenticate</code>.</dd><dd><code>authType</code> - the type of authenticator used (BASIC, CLIENT_CERT,
+                  DIGEST or FORM)</dd><dd><code>username</code> - the username (if any) used for the authentication</dd><dd><code>password</code> - the password (if any) used for the authentication</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the credentials were updated, otherwise
+         <code>false</code></dd></dl>
 </li>
 </ul>
-<a name="updateLocal(java.lang.String, java.security.Principal, java.lang.String, java.lang.String, java.lang.String)">
+<a name="getSessionListener(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>updateLocal</h4>
-<pre>protected&nbsp;void&nbsp;updateLocal(java.lang.String&nbsp;ssoId,
-               java.security.Principal&nbsp;principal,
-               java.lang.String&nbsp;authType,
-               java.lang.String&nbsp;username,
-               java.lang.String&nbsp;password)</pre>
-</li>
-</ul>
-<a name="removeSession(java.lang.String, org.apache.catalina.Session)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeSession</h4>
-<pre>protected&nbsp;void&nbsp;removeSession(java.lang.String&nbsp;ssoId,
-                 <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
-<div class="block">Remove a single Session from a SingleSignOn and notify the cluster
- of the removal. Called when a session is timed out and no longer active.</div>
+<h4>getSessionListener</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/catalina/SessionListener.html" title="interface in org.apache.catalina">SessionListener</a>&nbsp;getSessionListener(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ssoId)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#removeSession(java.lang.String,%20org.apache.catalina.Session)">removeSession</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>ssoId</code> - Single sign on identifier from which to remove the session.</dd><dd><code>session</code> - the session to be removed.</dd></dl>
+<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#getSessionListener(java.lang.String)">getSessionListener</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
+</dl>
 </li>
 </ul>
-<a name="removeSessionLocal(java.lang.String, org.apache.catalina.Session)">
+<a name="objectMadePrimay(java.lang.Object, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>objectMadePrimay</h4>
+<pre>public&nbsp;void&nbsp;objectMadePrimay(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/catalina/tribes/tipis/AbstractReplicatedMap.MapOwner.html#objectMadePrimay(java.lang.Object,%20java.lang.Object)">objectMadePrimay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/catalina/tribes/tipis/AbstractReplicatedMap.MapOwner.html" title="interface in org.apache.catalina.tribes.tipis">AbstractReplicatedMap.MapOwner</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="startInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>startInternal</h4>
+<pre>protected&nbsp;void&nbsp;startInternal()
+                      throws <a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
+<div class="block">Start this component and implement the requirements
+ of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#startInternal()">startInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code> - if this component detects a fatal error
+  that prevents this component from being used</dd></dl>
+</li>
+</ul>
+<a name="stopInternal()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>removeSessionLocal</h4>
-<pre>protected&nbsp;void&nbsp;removeSessionLocal(java.lang.String&nbsp;ssoId,
-                      <a href="../../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</pre>
+<h4>stopInternal</h4>
+<pre>protected&nbsp;void&nbsp;stopInternal()
+                     throws <a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
+<div class="block">Stop this component and implement the requirements
+ of <a href="../../../../../org/apache/catalina/util/LifecycleBase.html#stopInternal()"><code>LifecycleBase.stopInternal()</code></a>.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html#stopInternal()">stopInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/catalina/authenticator/SingleSignOn.html" title="class in org.apache.catalina.authenticator">SingleSignOn</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code> - if this component detects a fatal error
+  that prevents this component from being used</dd></dl>
 </li>
 </ul>
 </li>
@@ -748,7 +641,7 @@ implements <a href="../../../../../org/apache/catalina/ha/ClusterValve.html" tit
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.61</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.62</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
