@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SlowQueryReport (Apache Tomcat 8.0.23 API Documentation)</title>
+<title>SlowQueryReport (Apache Tomcat 8.0.24 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SlowQueryReport (Apache Tomcat 8.0.23 API Documentation)";
+        parent.document.title="SlowQueryReport (Apache Tomcat 8.0.24 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.23</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.24</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -197,6 +197,12 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <div class="block">the queries that are used for this interceptor.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.QueryStats.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">SlowQueryReport.QueryStats</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#queryStatsComparator">queryStatsComparator</a></strong></code>
+<div class="block">Sort QueryStats by last invocation time</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="fields_inherited_from_class_org.apache.tomcat.jdbc.pool.interceptor.AbstractQueryReport">
@@ -306,7 +312,7 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#removeOldest(java.util.concurrent.ConcurrentHashMap)">removeOldest</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html?is-external=true" title="class or interface in java.util.concurrent">ConcurrentHashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.QueryStats.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">SlowQueryReport.QueryStats</a>&gt;&nbsp;queries)</code>
-<div class="block">TODO - implement a better algorithm</div>
+<div class="block">Sort QueryStats by last invocation time</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -321,6 +327,16 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#reportQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20long)">reportQuery</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;query,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+           long&nbsp;start,
+           long&nbsp;delta)</code>
+<div class="block">Invoked when a query execution, a call to execute/executeQuery or executeBatch succeeded and was within the timing threshold</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#reportSlowQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20long)">reportSlowQuery</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;query,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
@@ -329,26 +345,26 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <div class="block">Invoked when a query execution, a call to execute/executeQuery or executeBatch succeeded and was exceeded the timing threshold</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#reset(org.apache.tomcat.jdbc.pool.ConnectionPool,%20org.apache.tomcat.jdbc.pool.PooledConnection)">reset</a></strong>(<a href="../../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html" title="class in org.apache.tomcat.jdbc.pool">ConnectionPool</a>&nbsp;parent,
      <a href="../../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)</code>
 <div class="block">no-op for this interceptor. no state is stored.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#setLogFailed(boolean)">setLogFailed</a></strong>(boolean&nbsp;logFailed)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#setLogSlow(boolean)">setLogSlow</a></strong>(boolean&nbsp;logSlow)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#setMaxQueries(int)">setMaxQueries</a></strong>(int&nbsp;maxQueries)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.html#setProperties(java.util.Map)">setProperties</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.InterceptorProperty.html" title="class in org.apache.tomcat.jdbc.pool">PoolProperties.InterceptorProperty</a>&gt;&nbsp;properties)</code>
 <div class="block">Called during the creation of an interceptor
@@ -362,7 +378,7 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.tomcat.jdbc.pool.interceptor.<a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">AbstractQueryReport</a></h3>
-<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#createStatement(java.lang.Object,%20java.lang.reflect.Method,%20java.lang.Object[],%20java.lang.Object,%20long)">createStatement</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#getConstructor(int,%20java.lang.Class)">getConstructor</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#getThreshold()">getThreshold</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#reportQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20long)">reportQuery</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#setThreshold(long)">setThreshold</a></code></li>
+<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#createStatement(java.lang.Object,%20java.lang.reflect.Method,%20java.lang.Object[],%20java.lang.Object,%20long)">createStatement</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#getConstructor(int,%20java.lang.Class)">getConstructor</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#getThreshold()">getThreshold</a>, <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#setThreshold(long)">setThreshold</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.tomcat.jdbc.pool.interceptor.AbstractCreateStatementInterceptor">
@@ -442,11 +458,21 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <a name="logFailed">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>logFailed</h4>
 <pre>protected&nbsp;boolean logFailed</pre>
 <div class="block">Flag to enable disable logging of failed queries</div>
+</li>
+</ul>
+<a name="queryStatsComparator">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>queryStatsComparator</h4>
+<pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.QueryStats.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">SlowQueryReport.QueryStats</a>&gt; queryStatsComparator</pre>
+<div class="block">Sort QueryStats by last invocation time</div>
 </li>
 </ul>
 </li>
@@ -513,6 +539,26 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#reportFailedQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20java.lang.Throwable)">reportFailedQuery</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">AbstractQueryReport</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>query</code> - the query that was executed and failed</dd><dd><code>args</code> - the arguments to the execution</dd><dd><code>name</code> - the name of the method used to execute <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractCreateStatementInterceptor.html#isExecute(java.lang.reflect.Method,%20boolean)"><code>AbstractCreateStatementInterceptor.isExecute(Method, boolean)</code></a></dd><dd><code>start</code> - the time the query execution started</dd><dd><code>t</code> - the exception that happened</dd>
+<dt><span class="strong">Returns:</span></dt><dd>- the SQL that was executed or the string &quot;batch&quot; if it was a batch execution</dd></dl>
+</li>
+</ul>
+<a name="reportQuery(java.lang.String, java.lang.Object[], java.lang.String, long, long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reportQuery</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;reportQuery(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;query,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                 long&nbsp;start,
+                 long&nbsp;delta)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#reportQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20long)">AbstractQueryReport</a></code></strong></div>
+<div class="block">Invoked when a query execution, a call to execute/executeQuery or executeBatch succeeded and was within the timing threshold</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html#reportQuery(java.lang.String,%20java.lang.Object[],%20java.lang.String,%20long,%20long)">reportQuery</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractQueryReport.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">AbstractQueryReport</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>query</code> - the query that was executed and failed</dd><dd><code>args</code> - the arguments to the execution</dd><dd><code>name</code> - the name of the method used to execute <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/AbstractCreateStatementInterceptor.html#isExecute(java.lang.reflect.Method,%20boolean)"><code>AbstractCreateStatementInterceptor.isExecute(Method, boolean)</code></a></dd><dd><code>start</code> - the time the query execution started</dd><dd><code>delta</code> - the time the execution took</dd>
 <dt><span class="strong">Returns:</span></dt><dd>- the SQL that was executed or the string &quot;batch&quot; if it was a batch execution</dd></dl>
 </li>
 </ul>
@@ -633,7 +679,7 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <li class="blockList">
 <h4>removeOldest</h4>
 <pre>protected&nbsp;void&nbsp;removeOldest(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html?is-external=true" title="class or interface in java.util.concurrent">ConcurrentHashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReport.QueryStats.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">SlowQueryReport.QueryStats</a>&gt;&nbsp;queries)</pre>
-<div class="block">TODO - implement a better algorithm</div>
+<div class="block">Sort QueryStats by last invocation time</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>queries</code> - </dd></dl>
 </li>
 </ul>
@@ -728,7 +774,7 @@ extends <a href="../../../../../../org/apache/tomcat/jdbc/pool/interceptor/Abstr
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.23</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.24</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

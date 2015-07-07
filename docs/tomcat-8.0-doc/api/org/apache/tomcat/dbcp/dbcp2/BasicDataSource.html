@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BasicDataSource (Apache Tomcat 8.0.23 API Documentation)</title>
+<title>BasicDataSource (Apache Tomcat 8.0.24 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="BasicDataSource (Apache Tomcat 8.0.23 API Documentation)";
+        parent.document.title="BasicDataSource (Apache Tomcat 8.0.24 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.23</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.24</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -95,13 +95,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Wrapper.html?is-external=true" title="class or interface in java.sql">Wrapper</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/CommonDataSource.html?is-external=true" title="class or interface in javax.sql">CommonDataSource</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a>, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></dd>
+<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Wrapper.html?is-external=true" title="class or interface in java.sql">Wrapper</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/CommonDataSource.html?is-external=true" title="class or interface in javax.sql">CommonDataSource</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a>, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">BasicDataSource</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a>, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a></pre>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a>, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a>, <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></pre>
 <div class="block"><p>Basic implementation of <code>javax.sql.DataSource</code> that is
  configured via JavaBeans properties.  This is not the only way to
  combine the <em>commons-dbcp</em> and <em>commons-pool</em> packages,
@@ -276,6 +276,19 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()">getDisconnectionSqlCodes</a></strong>()</code>
+<div class="block">Returns the set of SQL_STATE codes considered to signal fatal conditions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodesAsArray()">getDisconnectionSqlCodesAsArray</a></strong>()</code>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an
+ array so it is accessible via JMX.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true" title="class or interface in java.sql">Driver</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDriver()">getDriver</a></strong>()</code>
 <div class="block">Returns the JDBC Driver that has been configured for use by this pool.</div>
@@ -310,28 +323,44 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()">getFastFailValidation</a></strong>()</code>
+<div class="block">True means that validation will fail immediately for connections that
+ have previously thrown SQLExceptions with SQL_STATE indicating fatal
+ disconnection errors.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getInitialSize()">getInitialSize</a></strong>()</code>
 <div class="block">Returns the initial size of the connection pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getJmxName()">getJmxName</a></strong>()</code>
 <div class="block">Returns the JMX name that has been requested for this DataSource.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLifo()">getLifo</a></strong>()</code>
 <div class="block">Returns the LIFO property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogAbandoned()">getLogAbandoned</a></strong>()</code>
 <div class="block">Flag to log stack traces for application code which abandoned
  a Statement or Connection.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogExpiredConnections()">getLogExpiredConnections</a></strong>()</code>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
+ this property determines whether or not log messages are generated when the
+ pool closes connections due to maximum lifetime exceeded.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -650,23 +679,29 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDisconnectionSqlCodes(java.util.Collection)">setDisconnectionSqlCodes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;disconnectionSqlCodes)</code>
+<div class="block">Sets the SQL_STATE codes considered to signal fatal conditions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)">setDriver</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true" title="class or interface in java.sql">Driver</a>&nbsp;driver)</code>
 <div class="block">Sets the JDBC Driver instance to use for this pool.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassLoader(java.lang.ClassLoader)">setDriverClassLoader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;driverClassLoader)</code>
 <div class="block">Sets the class loader to be used to load the JDBC driver.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)">setDriverClassName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;driverClassName)</code>
 <div class="block">Sets the jdbc driver class name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setEnableAutoCommitOnReturn(boolean)">setEnableAutoCommitOnReturn</a></strong>(boolean&nbsp;enableAutoCommitOnReturn)</code>
 <div class="block">Sets the value of the flag that controls whether or not connections
@@ -676,11 +711,15 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  is returned.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setEvictionPolicyClassName(java.lang.String)">setEvictionPolicyClassName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;evictionPolicyClassName)</code>
 <div class="block">Sets the EvictionPolicy implementation to use with this connection pool.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setFastFailValidation(boolean)">setFastFailValidation</a></strong>(boolean&nbsp;fastFailValidation)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -706,102 +745,104 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setLogExpiredConnections(boolean)">setLogExpiredConnections</a></strong>(boolean&nbsp;logExpiredConnections)</code>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
+ this property determines whether or not log messages are generated when the
+ pool closes connections due to maximum lifetime exceeded.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setLoginTimeout(int)">setLoginTimeout</a></strong>(int&nbsp;loginTimeout)</code>
 <div class="block"><strong>BasicDataSource does NOT support this method.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setLogWriter(java.io.PrintWriter)">setLogWriter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;logWriter)</code>
 <div class="block">Sets the log writer being used by this data source.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxConnLifetimeMillis(long)">setMaxConnLifetimeMillis</a></strong>(long&nbsp;maxConnLifetimeMillis)</code>
 <div class="block">Sets the maximum permitted lifetime of a connection in
  milliseconds.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxIdle(int)">setMaxIdle</a></strong>(int&nbsp;maxIdle)</code>
 <div class="block">Sets the maximum number of connections that can remain idle in the
  pool.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxOpenPreparedStatements(int)">setMaxOpenPreparedStatements</a></strong>(int&nbsp;maxOpenStatements)</code>
 <div class="block">Sets the value of the <code>maxOpenPreparedStatements</code>
  property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxTotal(int)">setMaxTotal</a></strong>(int&nbsp;maxTotal)</code>
 <div class="block">Sets the maximum total number of idle and borrows connections that can be
  active at the same time.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxWaitMillis(long)">setMaxWaitMillis</a></strong>(long&nbsp;maxWaitMillis)</code>
 <div class="block">Sets the MaxWaitMillis property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMinEvictableIdleTimeMillis(long)">setMinEvictableIdleTimeMillis</a></strong>(long&nbsp;minEvictableIdleTimeMillis)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#minEvictableIdleTimeMillis"><code>minEvictableIdleTimeMillis</code></a> property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMinIdle(int)">setMinIdle</a></strong>(int&nbsp;minIdle)</code>
 <div class="block">Sets the minimum number of idle connections in the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setNumTestsPerEvictionRun(int)">setNumTestsPerEvictionRun</a></strong>(int&nbsp;numTestsPerEvictionRun)</code>
 <div class="block">Sets the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a> property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setPassword(java.lang.String)">setPassword</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#password"><code>password</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setPoolPreparedStatements(boolean)">setPoolPreparedStatements</a></strong>(boolean&nbsp;poolingStatements)</code>
 <div class="block">Sets whether to pool statements or not.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedOnBorrow(boolean)">setRemoveAbandonedOnBorrow</a></strong>(boolean&nbsp;removeAbandonedOnBorrow)</code>
-<div class="block">Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout during pool maintenance.</div>
-</td>
-</tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedOnMaintenance(boolean)">setRemoveAbandonedOnMaintenance</a></strong>(boolean&nbsp;removeAbandonedOnMaintenance)</code>
-<div class="block">Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout when borrowObject is invoked.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedOnBorrow(boolean)">setRemoveAbandonedOnBorrow</a></strong>(boolean&nbsp;removeAbandonedOnBorrow)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedOnMaintenance(boolean)">setRemoveAbandonedOnMaintenance</a></strong>(boolean&nbsp;removeAbandonedOnMaintenance)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedTimeout(int)">setRemoveAbandonedTimeout</a></strong>(int&nbsp;removeAbandonedTimeout)</code>
 <div class="block">Sets the timeout in seconds before an abandoned connection can be
  removed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRollbackOnReturn(boolean)">setRollbackOnReturn</a></strong>(boolean&nbsp;rollbackOnReturn)</code>
 <div class="block">Sets the flag that controls if a connection will be rolled back when it
@@ -809,7 +850,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  is not read only.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setSoftMinEvictableIdleTimeMillis(long)">setSoftMinEvictableIdleTimeMillis</a></strong>(long&nbsp;softMinEvictableIdleTimeMillis)</code>
 <div class="block">Sets the minimum amount of time a connection may sit idle in the pool
@@ -817,55 +858,55 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  extra condition that at least "minIdle" connections remain in the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setTestOnBorrow(boolean)">setTestOnBorrow</a></strong>(boolean&nbsp;testOnBorrow)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnBorrow"><code>testOnBorrow</code></a> property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setTestOnCreate(boolean)">setTestOnCreate</a></strong>(boolean&nbsp;testOnCreate)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnCreate"><code>testOnCreate</code></a> property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setTestOnReturn(boolean)">setTestOnReturn</a></strong>(boolean&nbsp;testOnReturn)</code>
 <div class="block">Sets the <code>testOnReturn</code> property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setTestWhileIdle(boolean)">setTestWhileIdle</a></strong>(boolean&nbsp;testWhileIdle)</code>
 <div class="block">Sets the <code>testWhileIdle</code> property.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setTimeBetweenEvictionRunsMillis(long)">setTimeBetweenEvictionRunsMillis</a></strong>(long&nbsp;timeBetweenEvictionRunsMillis)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a> property.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setUrl(java.lang.String)">setUrl</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setUsername(java.lang.String)">setUsername</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setValidationQuery(java.lang.String)">setValidationQuery</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;validationQuery)</code>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validationQuery"><code>validationQuery</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setValidationQueryTimeout(int)">setValidationQueryTimeout</a></strong>(int&nbsp;timeout)</code>
 <div class="block">Sets the validation query timeout, the amount of time, in seconds, that
@@ -873,17 +914,17 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  executing a validation query.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#startPoolMaintenance()">startPoolMaintenance</a></strong>()</code>
 <div class="block">Starts the connection pool maintenance task, if configured.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#unwrap(java.lang.Class)">unwrap</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;iface)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validateConnectionFactory(org.apache.tomcat.dbcp.dbcp2.PoolableConnectionFactory)">validateConnectionFactory</a></strong>(<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnectionFactory</a>&nbsp;connectionFactory)</code>&nbsp;</td>
 </tr>
@@ -1964,6 +2005,23 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <dt><span class="strong">Returns:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a></dd></dl>
 </li>
 </ul>
+<a name="getLogExpiredConnections()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLogExpiredConnections</h4>
+<pre>public&nbsp;boolean&nbsp;getLogExpiredConnections()</pre>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
+ this property determines whether or not log messages are generated when the
+ pool closes connections due to maximum lifetime exceeded.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getLogExpiredConnections()">getLogExpiredConnections</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogExpiredConnections()"><code>getLogExpiredConnections()</code></a></dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd></dl>
+</li>
+</ul>
 <a name="setMaxConnLifetimeMillis(long)">
 <!--   -->
 </a>
@@ -1978,6 +2036,19 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  initialized.  The pool is initialized the first time one of the
  following methods is invoked: <code>getConnection, setLogwriter,
  setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+</li>
+</ul>
+<a name="setLogExpiredConnections(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLogExpiredConnections</h4>
+<pre>public&nbsp;void&nbsp;setLogExpiredConnections(boolean&nbsp;logExpiredConnections)</pre>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
+ this property determines whether or not log messages are generated when the
+ pool closes connections due to maximum lifetime exceeded.  Set this property
+ to false to suppress log messages when connections expire.</div>
 </li>
 </ul>
 <a name="getJmxName()">
@@ -2055,6 +2126,94 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <div class="block">Sets the flag that controls if a connection will be rolled back when it
  is returned to the pool if auto commit is not enabled and the connection
  is not read only.</div>
+</li>
+</ul>
+<a name="getDisconnectionSqlCodes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDisconnectionSqlCodes</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getDisconnectionSqlCodes()</pre>
+<div class="block">Returns the set of SQL_STATE codes considered to signal fatal conditions.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>fatal disconnection state codes</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDisconnectionSqlCodes(java.util.Collection)"><code>setDisconnectionSqlCodes(Collection)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getDisconnectionSqlCodesAsArray()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDisconnectionSqlCodesAsArray</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;getDisconnectionSqlCodesAsArray()</pre>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an
+ array so it is accessible via JMX.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getDisconnectionSqlCodesAsArray()">getDisconnectionSqlCodesAsArray</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodesAsArray()"><code>getDisconnectionSqlCodesAsArray()</code></a></dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd></dl>
+</li>
+</ul>
+<a name="setDisconnectionSqlCodes(java.util.Collection)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDisconnectionSqlCodes</h4>
+<pre>public&nbsp;void&nbsp;setDisconnectionSqlCodes(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;disconnectionSqlCodes)</pre>
+<div class="block">Sets the SQL_STATE codes considered to signal fatal conditions.
+ <p>
+ Overrides the defaults in <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODES"><code>Utils.DISCONNECTION_SQL_CODES</code></a>
+ (plus anything starting with <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODE_PREFIX"><code>Utils.DISCONNECTION_SQL_CODE_PREFIX</code></a>).
+ If this property is non-null and <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a> is
+ <code>true</code>, whenever connections created by this datasource generate exceptions
+ with SQL_STATE codes in this list, they will be marked as "fatally disconnected"
+ and subsequent validations will fail fast (no attempt at isValid or validation
+ query).</p>
+ <p>
+ If <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a> is <code>false</code> setting this property has no
+ effect.</p>
+ <p>
+ Note: this method currently has no effect once the pool has been
+ initialized.  The pool is initialized the first time one of the
+ following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter</code>.</p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>disconnectionSqlCodes</code> - SQL_STATE codes considered to signal fatal conditions</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd></dl>
+</li>
+</ul>
+<a name="getFastFailValidation()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFastFailValidation</h4>
+<pre>public&nbsp;boolean&nbsp;getFastFailValidation()</pre>
+<div class="block">True means that validation will fail immediately for connections that
+ have previously thrown SQLExceptions with SQL_STATE indicating fatal
+ disconnection errors.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getFastFailValidation()">getFastFailValidation</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if connections created by this datasource will fast fail validation.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDisconnectionSqlCodes(java.util.Collection)"><code>setDisconnectionSqlCodes(Collection)</code></a></dd></dl>
+</li>
+</ul>
+<a name="setFastFailValidation(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFastFailValidation</h4>
+<pre>public&nbsp;void&nbsp;setFastFailValidation(boolean&nbsp;fastFailValidation)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fastFailValidation</code> - true means connections created by this factory will
+ fast fail validation</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.1</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getConnectionPool()">
@@ -2203,17 +2362,16 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <div class="block"><p>Flag to remove abandoned connections if they exceed the
  removeAbandonedTimeout when borrowObject is invoked.</p>
 
- <p>The default value is false.<p>
+ <p>The default value is false.</p>
 
  <p>If set to true a connection is considered abandoned and eligible
  for removal if it has not been used for more than
  <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.</p>
 
  <p>Abandoned connections are identified and removed when
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> is invoked and the following conditions hold:
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> is invoked and all of the following conditions hold:
  </p>
- <ul><li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> or
-         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> = true</li>
+ <ul><li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> </li>
      <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()"><code>getNumActive()</code></a> &gt; <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>getMaxTotal()</code></a> - 3 </li>
      <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()"><code>getNumIdle()</code></a> &lt; 2 </li></ul></div>
 <dl>
@@ -2229,18 +2387,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <li class="blockList">
 <h4>setRemoveAbandonedOnMaintenance</h4>
 <pre>public&nbsp;void&nbsp;setRemoveAbandonedOnMaintenance(boolean&nbsp;removeAbandonedOnMaintenance)</pre>
-<div class="block"><p>Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout when borrowObject is invoked.</p>
-
- <p>If set to true a connection is considered abandoned and eligible
- for removal if it has been idle longer than the
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a>.</p>
-
- <p>Setting this to true can recover db connections from poorly written
- applications which fail to close a connection.</p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnMaintenance</code> - true means abandoned connections will
-                                     be removed when borrowObject is
-                                     invoked</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnMaintenance</code> - true means abandoned connections may
+                                     be removed on pool maintenance.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRemoveAbandonedOnMaintenance()">
@@ -2253,19 +2401,11 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <div class="block"><p>Flag to remove abandoned connections if they exceed the
  removeAbandonedTimeout during pool maintenance.</p>
 
- <p>The default value is false.<p>
+ <p>The default value is false.</p>
 
  <p>If set to true a connection is considered abandoned and eligible
  for removal if it has not been used for more than
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.</p>
-
- <p>Abandoned connections are identified and removed when
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> is invoked and the following conditions hold:
- </p>
- <ul><li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> or
-         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> = true</li>
-     <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()"><code>getNumActive()</code></a> &gt; <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>getMaxTotal()</code></a> - 3 </li>
-     <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()"><code>getNumIdle()</code></a> &lt; 2 </li></ul></div>
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.</p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getRemoveAbandonedOnMaintenance()">getRemoveAbandonedOnMaintenance</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2279,17 +2419,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <li class="blockList">
 <h4>setRemoveAbandonedOnBorrow</h4>
 <pre>public&nbsp;void&nbsp;setRemoveAbandonedOnBorrow(boolean&nbsp;removeAbandonedOnBorrow)</pre>
-<div class="block"><p>Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout during pool maintenance.</p>
-
- <p>If set to true a connection is considered abandoned and eligible
- for removal if it has been idle longer than the
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a>.</p>
-
- <p>Setting this to true can recover db connections from poorly written
- applications which fail to close a connection.</p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnBorrow</code> - true means abandoned connections will be
-                                removed during pool maintenance</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnBorrow</code> - true means abandoned connections may be
+                                removed when connections are borrowed from the pool.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRemoveAbandonedTimeout()">
@@ -2485,11 +2616,14 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
  these connections to the pool, the underlying JDBC connections are closed.</p>
 
  <p>Attempts to acquire connections using <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> after this method has been
- invoked result in SQLExceptions.<p>
+ invoked result in SQLExceptions.</p>
 
  <p>This method is idempotent - i.e., closing an already closed BasicDataSource has no effect
  and does not generate exceptions.</p></div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - if an error occurs closing idle connections</dd></dl>
 </li>
 </ul>
@@ -2772,7 +2906,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSourc
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.23</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.24</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
