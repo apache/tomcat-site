@@ -203,6 +203,9 @@
 <a href="#Apache_Tomcat_JK_Connectors_vulnerabilities">Apache Tomcat JK Connectors vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_JK_Connector_1.2.41_(not_yet_released)">Fixed in Apache Tomcat JK Connector 1.2.41 (not yet released)</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_JK_Connector_1.2.27">Fixed in Apache Tomcat JK Connector 1.2.27</a>
 </li>
 <li>
@@ -233,6 +236,40 @@
        and the CVE list. Please send comments or corrections for these
        vulnerabilities to the <a href="security.html">Tomcat
        Security Team</a>.</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_JK_Connector_1.2.41_(not_yet_released)">Fixed in Apache Tomcat JK Connector 1.2.41 (not yet released)</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8111" rel="nofollow">CVE-2014-8111</a>
+</p>
+
+    
+<p>Multiple adjacent slashes in a request URI were not collapsed to a single
+       slash before comparing the request URI to the configured mount and
+       unmount patterns. It is therefore possible for an attacker to use a
+       request URI containing multiple adjacent slashes to bypass the
+       restrictions of a <code>JkUnmount</code> directive. This may expose
+       application functionality through the reverse proxy that is not intended
+       for clients accessing the application via the reverse proxy.</p>
+
+    
+<p>As of mod_jk 1.2.41, slashes are collapsed by default. The behaviour is
+       now configurable via a new <code>JkOption</code> for httpd (values
+       <code>CollapseSlashesAll</code>, <code>CollapseSlashesNone</code> or
+       <code>CollapseSlashesUnmount</code>) and via a new property
+       <code>collapse_slashes</code> for IIS (values <code>all</code>,
+       <code>none</code>, <code>unmount</code>).</p>
+
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1647017">revision 1647017</a>.</p>
+
+    
+<p>Affects: JK 1.2.0-1.2.40</p>
 
   
 </div>

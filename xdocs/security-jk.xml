@@ -28,6 +28,32 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.41 (not yet released)">
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2014-8111</cve></p>
+
+    <p>Multiple adjacent slashes in a request URI were not collapsed to a single
+       slash before comparing the request URI to the configured mount and
+       unmount patterns. It is therefore possible for an attacker to use a
+       request URI containing multiple adjacent slashes to bypass the
+       restrictions of a <code>JkUnmount</code> directive. This may expose
+       application functionality through the reverse proxy that is not intended
+       for clients accessing the application via the reverse proxy.</p>
+
+    <p>As of mod_jk 1.2.41, slashes are collapsed by default. The behaviour is
+       now configurable via a new <code>JkOption</code> for httpd (values
+       <code>CollapseSlashesAll</code>, <code>CollapseSlashesNone</code> or
+       <code>CollapseSlashesUnmount</code>) and via a new property
+       <code>collapse_slashes</code> for IIS (values <code>all</code>,
+       <code>none</code>, <code>unmount</code>).</p>
+
+    <p>This was fixed in <revlink rev="1647017">revision 1647017</revlink>.</p>
+
+    <p>Affects: JK 1.2.0-1.2.40</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat JK Connector 1.2.27">
     <p><strong>Important: Information disclosure</strong>
        <cve>CVE-2008-5519</cve></p>
