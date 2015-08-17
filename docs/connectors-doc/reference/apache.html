@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connector - Reference Guide - Configuring Apache</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="true"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li></ul><p><strong>Reference Guide</strong></p><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server</a></li><li><a href="../reference/iis.html">IIS</a></li></ul><p><strong>Generic HowTo</strong></p><ul><li><a href="../generic_howto/quick.html">For the impatient</a></li><li><a href="../generic_howto/workers.html">All about workers</a></li><li><a href="../generic_howto/timeouts.html">Timeouts</a></li><li><a href="../generic_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../generic_howto/proxy.html">Reverse Proxy</a></li></ul><p><strong>Webserver HowTo</strong></p><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server</a></li><li><a href="../webserver_howto/iis.html">IIS</a></li><li><a href="../webserver_howto/nes.html">Netscape/SunOne/Sun</a></li></ul><p><strong>AJP Protocol Reference</strong></p><ul><li><a href="../ajp/ajpv13a.html">AJPv13</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul><p><strong>Miscellaneous Documentation</strong></p><ul><li><a href="../miscellaneous/faq.html">Frequently asked questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul><p><strong>News</strong></p><ul><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connector - Reference Guide</h1><h2>Configuring Apache</h2></td><td align="right" valign="top" nowrap="true"><small><a href="printer/apache.html"><img src="../images/printer.gif" border="0" alt="Printer Friendly Version"><br>print-friendly<br>version
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - Configuring Apache</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="true"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li></ul><p><strong>Common HowTo</strong></p><ul><li><a href="../common_howto/quick.html">For the impatient</a></li><li><a href="../common_howto/workers.html">All about workers</a></li><li><a href="../common_howto/timeouts.html">Timeouts</a></li><li><a href="../common_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../common_howto/proxy.html">Reverse Proxy</a></li></ul><p><strong>Webserver HowTo</strong></p><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server</a></li><li><a href="../webserver_howto/iis.html">IIS</a></li><li><a href="../webserver_howto/nes.html">Netscape/SunOne/Sun</a></li></ul><p><strong>Reference Guide</strong></p><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server</a></li><li><a href="../reference/iis.html">IIS</a></li></ul><p><strong>AJP Protocol Reference</strong></p><ul><li><a href="../ajp/ajpv13a.html">AJPv13</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul><p><strong>Miscellaneous Documentation</strong></p><ul><li><a href="../miscellaneous/faq.html">Frequently asked questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul><p><strong>News</strong></p><ul><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>Configuring Apache</h2></td><td align="right" valign="top" nowrap="true"><small><a href="printer/apache.html"><img src="../images/printer.gif" border="0" alt="Printer Friendly Version"><br>print-friendly<br>version
                     </a></small></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration Directives"><strong>Configuration Directives</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 Most of the directives are allowed once in the global part of the Apache httpd
@@ -98,9 +98,14 @@ A mount point from a context to a Tomcat worker.
 <br>
 This directive is allowed multiple times.
 It is allowed in the global configuration and in VirtualHost.
+<br>
 You can also use it inside Location with a different syntax.
 Inside Location, one omits the first argument (path),
-which gets inherited from the Location.
+which gets inherited verbatim from the Location argument.
+Whereas &lt;Location /myapp&gt; matches any URI beginning with
+"/myapp", any JkMount nested in such a Location block will
+only match for requests with exact URI /myapp. Therefore nesting
+JkMount in Location is typically not the right thing to do.
 <br>
 By default JkMount entries are not inherited from the global
 server to other VirtualHosts or between VirtualHosts.
@@ -118,9 +123,15 @@ it will not be forwarded to tomcat, and instead be served locally.
 <br>
 This directive is allowed multiple times.
 It is allowed in the global configuration and in VirtualHost.
+<br>
 You can also use it inside Location with a different syntax.
 Inside Location, one omits the first argument (path),
-which gets inherited from the Location.
+which gets inherited verbatim from the Location argument.
+Whereas &lt;Location /myapp&gt; matches any URI beginning with
+"/myapp", any JkUnMount nested in such a Location block will
+only match for requests with exact URI /myapp. Therefore nesting
+JkUnMount in Location is typically not the right thing to do.
+<br>
 For inheritance rules, see: JkMountCopy.
 <br>
 This directive is available in jk1.2.7 version and later.
@@ -185,7 +196,7 @@ This directive has been added in version 1.2.27 of mod_jk.
 It is available only for httpd 2.x and above using APR libraries
 including thread support.
 </p></td></tr><tr><td align="left" valign="center"><code>JkLogFile</code></td><td align="left" valign="center"><p>
-Full or server relative path to the Tomcat Connector module log file.
+Full or server relative path to the mod_jk log file.
 It will also work with pipe, by using a value of the form "| ...".
 <br>
 The default value is logs/mod_jk.log.
@@ -193,12 +204,12 @@ The default value is logs/mod_jk.log.
 Pipes are supported for Apache 1.3 only since version 1.2.16.
 The default value exists only since version 1.2.20.
 </p></td></tr><tr><td align="left" valign="center"><code>JkLogLevel</code></td><td align="left" valign="center"><p>
-The Tomcat Connector module log level, can be debug, info, warn
+The mod_jk log level, can be debug, info, warn
 error or trace.
 <br>
 The default value is info.
 </p></td></tr><tr><td align="left" valign="center"><code>JkLogStampFormat</code></td><td align="left" valign="center"><p>
-The Tomcat Connector module <b>date</b> log format, using an
+The mod_jk <b>date</b> log format, using an
 extended strftime syntax.
 This format will be used for the time stamps in the JkLogFile.
 The maximum length of the format is 63 characters.
@@ -262,6 +273,14 @@ to add <b class="code">SSLOptions +ExportCertData</b>.
   </tr>
 </table>
 <p>
+  In addition mod_jk sends the name of the SSL protocol used as a proprietary
+  request attribute named <b class="code">AJP_SSL_PROTOCOL</b>. Modern Tomcat
+  versions will expose this attribute under the name
+  <b class="code">org.apache.tomcat.util.net.secure_protocol_version</b>.
+  This feature has been added in version 1.2.41 of mod_jk. See also
+  JkSSLPROTOCOLIndicator.
+</p>
+<p>
   For all other SSL-related variables, use <b class="code">JkEnvVar</b> for each
   variable you want. Please note that, like <b class="code">JkEnvVar</b>, these
   variables are available from the request <i><b>attributes</b></i>, not as
@@ -271,6 +290,12 @@ to add <b class="code">SSLOptions +ExportCertData</b>.
 Name of the Apache environment variable that contains SSL indication.
 <br>
 The default value is "HTTPS".
+</p></td></tr><tr><td align="left" valign="center"><code>JkSSLPROTOCOLIndicator</code></td><td align="left" valign="center"><p>
+Name of the Apache environment variable that contains the SSL protocol name.
+<br>
+The default value is "SSL_PROTOCOL".
+<br>
+This directive has been added in version 1.2.41 of mod_jk.
 </p></td></tr><tr><td align="left" valign="center"><code>JkCERTSIndicator</code></td><td align="left" valign="center"><p>
 Name of the Apache environment variable that contains SSL client certificates.
 <br>
@@ -295,16 +320,34 @@ The default value is "SSL_CIPHER_USEKEYSIZE".
 Name of the Apache environment variable which can be used to overwrite
 the forwarded local name.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_LOCAL_NAME".
 <br>
 This directive has been added in version 1.2.28 of mod_jk.
+</p></td></tr><tr><td align="left" valign="center"><code>JkIgnoreCLIndicator</code></td><td align="left" valign="center"><p>
+Name of the Apache environment variable which forces to
+ignore an existing Content-Length request header. This can be
+used to make mod_jk conpatible with mod_deflate request body
+inflation (see <a href="#Advanced Environment Variables">below</a>).
+<br>
+The default value is "JK_IGNORE_CL".
+<br>
+This directive has been added in version 1.2.41 of mod_jk.
+</p></td></tr><tr><td align="left" valign="center"><code>JkLocalAddrIndicator</code></td><td align="left" valign="center"><p>
+Name of the Apache environment variable which can be used to overwrite
+the forwarded local IP address.
+Use this only if you need to adjust the data (see the
+<a href="../common_howto/proxy.html">proxy</a> documentation).
+<br>
+The default value is "JK_LOCAL_ADDR".
+<br>
+This directive has been added in version 1.2.41 of mod_jk.
 </p></td></tr><tr><td align="left" valign="center"><code>JkLocalPortIndicator</code></td><td align="left" valign="center"><p>
 Name of the Apache environment variable which can be used to overwrite
 the forwarded local port.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_LOCAL_PORT".
 <br>
@@ -313,7 +356,7 @@ This directive has been added in version 1.2.28 of mod_jk.
 Name of the Apache environment variable which can be used to overwrite
 the forwarded remote (client) host name.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_REMOTE_HOST".
 <br>
@@ -322,7 +365,7 @@ This directive has been added in version 1.2.28 of mod_jk.
 Name of the Apache environment variable which can be used to overwrite
 the forwarded remote (client) IP address.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_REMOTE_ADDR".
 <br>
@@ -331,7 +374,7 @@ This directive has been added in version 1.2.28 of mod_jk.
 Name of the Apache environment variable which can be used to overwrite
 the forwarded remote (client) IP address.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_REMOTE_PORT".
 <br>
@@ -340,7 +383,7 @@ This directive has been added in version 1.2.32 of mod_jk.
 Name of the Apache environment variable which can be used to overwrite
 the forwarded user name.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_REMOTE_USER".
 <br>
@@ -349,7 +392,7 @@ This directive has been added in version 1.2.28 of mod_jk.
 Name of the Apache environment variable which can be used to overwrite
 the forwarded authentication type.
 Use this only if you need to adjust the data (see the
-<a href="../generic_howto/proxy.html">proxy</a> documentation).
+<a href="../common_howto/proxy.html">proxy</a> documentation).
 <br>
 The default value is "JK_AUTH_TYPE".
 <br>
@@ -385,7 +428,8 @@ has been introduced in version 1.2.21.
 </p></td></tr><tr><td align="left" valign="center"><code>JkStripSession</code></td><td align="left" valign="center"><p>
 If this directive is set to On in some virtual server,
 the session IDs <b class="code">;jsessionid=...</b> will be
-removed for non matched URLs.
+removed for URLs which are not forwarded but instead are
+handled by the local server.
 <br>
 This directive is only allowed inside VirtualHost.
 <br>
@@ -470,12 +514,11 @@ set the log level between :
 
 <p>
 <b>JkLogStampFormat</b> will configure the date/time format found on mod_jk log file. 
-Using the strftime() format string it's set by<br>
-default to <b>"[%a %b %d %H:%M:%S %Y]"</b>
+See above for details.
 </p>
 
 <div class="example"><pre>
-  JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
+  JkLogStampFormat "[%Y-%m-%d %H:%M:%S.%Q] "
 </pre></div>
 
 <p>
@@ -484,26 +527,7 @@ default to <b>"[%a %b %d %H:%M:%S %Y]"</b>
 </p>
 
 <p>
-<b>JkRequestLogFormat</b> will configure the format of mod_jk individual request logging. 
-Request logging is configured and enabled on a per virtual host basis. 
-To enable request logging for a virtual host just add a JkRequestLogFormat config. 
-The syntax of the format string is similar to the Apache LogFormat command, 
-here is a list of the available request log format options:
-</p>
-
-<p>
-<table border="1" cellpadding="5"><tr><th width="20%" bgcolor="#023264"><font color="#ffffff">Options</font></th><th width="80%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code>%b</code></td><td align="left" valign="center">Bytes sent, excluding HTTP headers (CLF format)</td></tr><tr><td align="left" valign="center"><code>%B</code></td><td align="left" valign="center">Bytes sent, excluding HTTP headers</td></tr><tr><td align="left" valign="center"><code>%H</code></td><td align="left" valign="center">The request protocol</td></tr><tr><td align="left" valign="center"><code>%m</code></td><td align="left" valign="center">The request method</td></tr><tr><td align="left" valign="center"><code>%p</code></td><td align="left" valign="center">The canonical Port of the server serving the request</td></tr><tr><td align="left" valign="center"><code>%q</code></td><td align="left" valign="center">The query string (prepended with a ? if a query string exists, otherwise an empty string)</td></tr><tr><td align="left" valign="center"><code>%r</code></td><td align="left" valign="center">First line of request</td></tr><tr><td align="left" valign="center"><code>%s</code></td><td align="left" valign="center">Request HTTP status code</td></tr><tr><td align="left" valign="center"><code>%T</code></td><td align="left" valign="center">Request duration, elapsed time to handle request in seconds '.' micro seconds</td></tr><tr><td align="left" valign="center"><code>%U</code></td><td align="left" valign="center">The URL path requested, not including any query string.</td></tr><tr><td align="left" valign="center"><code>%v</code></td><td align="left" valign="center">The canonical ServerName of the server serving the request</td></tr><tr><td align="left" valign="center"><code>%V</code></td><td align="left" valign="center">The server name according to the UseCanonicalName setting</td></tr><tr><td align="left" valign="center"><code>%w</code></td><td align="left" valign="center">Tomcat worker name</td></tr><tr><td align="left" valign="center"><code>%R</code></td><td align="left" valign="center">Real worker name</td></tr></table>
-
-<div class="example"><pre>
-  JkRequestLogFormat     "%w %V %T"
-</pre></div>
-
-<br>
-<br>
-</p>
-
-<p>
-You can also log mod_jk information using the Apache standard module <b>mod_log_config</b>.
+You can log mod_jk information using the Apache standard module <b>mod_log_config</b>.
 The module sets several notes in the Apache httpd notes table.
 Most of them are are only useful in combination with a load balancer worker.
 </p>
@@ -517,6 +541,27 @@ Most of them are are only useful in combination with a load balancer worker.
   LogFormat     "%h %l %u %t \"%r\" %&gt;s %b %{JK_WORKER_NAME}n %{JK_LB_FIRST_NAME}n \
                  %{JK_LB_FIRST_BUSY}n %{JK_LB_LAST_NAME}n %{JK_LB_LAST_BUSY}n" mod_jk_log
   CustomLog     logs/access_log     mod_jk_log
+</pre></div>
+
+<br>
+<br>
+</p>
+
+<p>
+You can also log a request protocol in the mod_jk log file instead of
+the access log. This is not recommended and mostly a backward compatibility
+feature. The directive <b>JkRequestLogFormat</b> will configure the format
+of this protocol. It gets configured and enabled on a per virtual host basis. 
+To enable request logging for a virtual host just add a JkRequestLogFormat config. 
+The syntax of the format string is similar to the Apache LogFormat command, 
+here is a list of the available request log format options:
+</p>
+
+<p>
+<table border="1" cellpadding="5"><tr><th width="20%" bgcolor="#023264"><font color="#ffffff">Options</font></th><th width="80%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code>%b</code></td><td align="left" valign="center">Bytes sent, excluding HTTP headers (CLF format)</td></tr><tr><td align="left" valign="center"><code>%B</code></td><td align="left" valign="center">Bytes sent, excluding HTTP headers</td></tr><tr><td align="left" valign="center"><code>%H</code></td><td align="left" valign="center">The request protocol</td></tr><tr><td align="left" valign="center"><code>%m</code></td><td align="left" valign="center">The request method</td></tr><tr><td align="left" valign="center"><code>%p</code></td><td align="left" valign="center">The canonical Port of the server serving the request</td></tr><tr><td align="left" valign="center"><code>%q</code></td><td align="left" valign="center">The query string (prepended with a ? if a query string exists, otherwise an empty string)</td></tr><tr><td align="left" valign="center"><code>%r</code></td><td align="left" valign="center">First line of request</td></tr><tr><td align="left" valign="center"><code>%s</code></td><td align="left" valign="center">Request HTTP status code</td></tr><tr><td align="left" valign="center"><code>%T</code></td><td align="left" valign="center">Request duration, elapsed time to handle request in seconds '.' micro seconds</td></tr><tr><td align="left" valign="center"><code>%U</code></td><td align="left" valign="center">The URL path requested, not including any query string.</td></tr><tr><td align="left" valign="center"><code>%v</code></td><td align="left" valign="center">The canonical ServerName of the server serving the request</td></tr><tr><td align="left" valign="center"><code>%V</code></td><td align="left" valign="center">The server name according to the UseCanonicalName setting</td></tr><tr><td align="left" valign="center"><code>%w</code></td><td align="left" valign="center">Tomcat worker name</td></tr><tr><td align="left" valign="center"><code>%R</code></td><td align="left" valign="center">Real worker name</td></tr></table>
+
+<div class="example"><pre>
+  JkRequestLogFormat     "%w %V %T"
 </pre></div>
 
 <br>
@@ -642,6 +687,40 @@ but also slightly more complicated.
 </p>
 
 <p>
+JkOptions <b>CollapseSlashesAll</b> will collapse multiple
+adjacent slashes in request URLs before looking for mount or unmount
+matches.
+<div class="example"><pre>
+  JkOptions     +CollapseSlashesAll
+</pre></div>
+<br>
+<br>
+</p>
+
+<p>
+JkOptions <b>CollapseSlashesUnmount</b> will collapse multiple
+adjacent slashes in request URLs only before looking for unmount
+matches. This is the default value.
+<div class="example"><pre>
+  JkOptions     +CollapseSlashesUnmount
+</pre></div>
+<br>
+<br>
+</p>
+
+<p>
+JkOptions <b>CollapseSlashesNone</b> will never collapse multiple
+adjacent slashes in request URLs before looking for mount or unmount
+matches. Using this value might make you vulnerable for attacks
+bypassing your unmount rules.
+<div class="example"><pre>
+  JkOptions     +CollapseSlashesNone
+</pre></div>
+<br>
+<br>
+</p>
+
+<p>
 JkOptions <b>ForwardDirectories</b> is used in conjunction with <b>DirectoryIndex</b>
 directive of Apache web server. As such mod_dir should be available to Apache,
 statically or dynamically (DSO)
@@ -656,14 +735,14 @@ local file that matches (this is done by stat-ing the file).
 </p>
 
 <p>
-If ForwardDirectories is set to false (default) and Apache doesn't find any
+If ForwardDirectories is set to <b>false</b> (default) and Apache doesn't find any
 files that match, Apache will serve the content of the directory (if directive
 Options specifies Indexes for that directory) or a <b class="code">403 Forbidden</b> response (if
 directive Options doesn't specify Indexes for that directory).
 </p>
 
 <p>
-If ForwardDirectories is set to true and Apache doesn't find any files that
+If ForwardDirectories is set to <b>true</b> and Apache doesn't find any files that
 match, the request will be forwarded to Tomcat for resolution. This is used in
 cases when Apache cannot see the index files on the file system for various
 reasons: Tomcat is running on a different machine, the JSP file has been
@@ -1079,7 +1158,30 @@ then the request will not count as a new session, even if it does not
 come with a session id.
 This is available since version 1.2.33.
 </p>
+<p>
+The environment variable
+<b>JK_IGNORE_CL</b> can be set to force ignoring the request
+Content-Length header (if it exists). mod_jk will then stream
+the request body until the web server indicates that the full body
+was read. No Content-Length header will be send to the backend.
+This is available since version 1.2.41.
+</p>
+<p>
+This feature can be used to make mod_jk compatible with filters
+which change the size of the request body. One such filter is
+mod_deflate when used to inflate the body of a request with gzip
+encoded body. In this case mod_jk will by default forward a truncated
+body, because it gets the wrong body size from the web server.
+Telling mod_jk to ignore the Content-Length header will result
+in streaming all request body data it can read from the web server
+to the backend.
+</p>
+<p>
+You should only set the <b>JK_IGNORE_CL</b> environment variables
+for requests that actually need it. Unfortunately there's no way
+for mod_jk to detect the need automatically.
+</p>
 </blockquote></td></tr></table>
  </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2014, Apache Software Foundation
+        Copyright &copy; 1999-2015, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>

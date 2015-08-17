@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connector - Reference Guide - workers.properties configuration</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="true"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li></ul><p><strong>Reference Guide</strong></p><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server</a></li><li><a href="../reference/iis.html">IIS</a></li></ul><p><strong>Generic HowTo</strong></p><ul><li><a href="../generic_howto/quick.html">For the impatient</a></li><li><a href="../generic_howto/workers.html">All about workers</a></li><li><a href="../generic_howto/timeouts.html">Timeouts</a></li><li><a href="../generic_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../generic_howto/proxy.html">Reverse Proxy</a></li></ul><p><strong>Webserver HowTo</strong></p><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server</a></li><li><a href="../webserver_howto/iis.html">IIS</a></li><li><a href="../webserver_howto/nes.html">Netscape/SunOne/Sun</a></li></ul><p><strong>AJP Protocol Reference</strong></p><ul><li><a href="../ajp/ajpv13a.html">AJPv13</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul><p><strong>Miscellaneous Documentation</strong></p><ul><li><a href="../miscellaneous/faq.html">Frequently asked questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul><p><strong>News</strong></p><ul><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connector - Reference Guide</h1><h2>workers.properties configuration</h2></td><td align="right" valign="top" nowrap="true"><small><a href="printer/workers.html"><img src="../images/printer.gif" border="0" alt="Printer Friendly Version"><br>print-friendly<br>version
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - workers.properties configuration</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="true"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li></ul><p><strong>Common HowTo</strong></p><ul><li><a href="../common_howto/quick.html">For the impatient</a></li><li><a href="../common_howto/workers.html">All about workers</a></li><li><a href="../common_howto/timeouts.html">Timeouts</a></li><li><a href="../common_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../common_howto/proxy.html">Reverse Proxy</a></li></ul><p><strong>Webserver HowTo</strong></p><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server</a></li><li><a href="../webserver_howto/iis.html">IIS</a></li><li><a href="../webserver_howto/nes.html">Netscape/SunOne/Sun</a></li></ul><p><strong>Reference Guide</strong></p><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server</a></li><li><a href="../reference/iis.html">IIS</a></li></ul><p><strong>AJP Protocol Reference</strong></p><ul><li><a href="../ajp/ajpv13a.html">AJPv13</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul><p><strong>Miscellaneous Documentation</strong></p><ul><li><a href="../miscellaneous/faq.html">Frequently asked questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul><p><strong>News</strong></p><ul><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>workers.properties configuration</h2></td><td align="right" valign="top" nowrap="true"><small><a href="printer/workers.html"><img src="../images/printer.gif" border="0" alt="Printer Friendly Version"><br>print-friendly<br>version
                     </a></small></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 <br>
 <p>
@@ -65,6 +65,13 @@ Whitespace at the beginning and the end of a property name or value gets ignored
 Comments can be placed in any line and start with a hash sign '#'.
 Any line contents behind the hash sign get ignored.
 </p>
+<p>
+Boolean properties can be set either using the numbers <b>0</b> (false) and <b>1</b> (true)
+as values, or <b>off</b> (false) and <b>on</b> (true) or any other string starting with the
+letters <b>f</b> (false), <b>n</b> (false), <b>t</b> (true) or <b>y</b> (true).
+The values are taken case insensitive. In this documentation we will stick
+to <b>false</b> and <b>true</b>.
+</p>
 </blockquote></td></tr></table>
 
 <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Global Properties"><strong>Global Properties</strong></a></font></td></tr><tr><td><blockquote>
@@ -104,7 +111,7 @@ Each worker configuration directive consists of three words separated by a dot:
 The first word is always <b>worker</b>. 
 The second word is the worker name you can choose. In the case of load-balancing,
 the worker name has an additional meaning. Please consult the
-<a href="../generic_howto/loadbalancers.html">Load Balancer HowTo</a>.
+<a href="../common_howto/loadbalancers.html">Load Balancer HowTo</a>.
 </p>
 <p><font color="#ff0000">
 The name of the worker can contain only the alphanumeric characters
@@ -140,10 +147,10 @@ the file, you can inherit properties from one worker to another, or even
 from a template to real workers.
 </p>
 <p>
-The directive "reference" allows to copy configurations between workers
-in a hierarchical way. If worker castor sets <b>worker.castor.reference=worker.pollux</b>
-then it inherits all properties of <b>pollux</b>, except for the ones that
-are explicitly set for <b>castor</b>.
+The directive "reference" allows to copy configurations between workers or
+worker templates in a hierarchical way. If worker castor sets
+<b>worker.castor.reference=worker.pollux</b> then it inherits all properties
+of <b>pollux</b>, except for the ones that are explicitly set for <b>castor</b>.
 </p>
 <p>
 Please note, that the value of the directive is not only the name of the referred worker,
@@ -160,6 +167,8 @@ reference those common properties in all balanced workers.
 </p>
 <p>
 References can be used to inherit properties over multiple hops in a hierarchical way.
+The maximum depth for nesting references is 20. Be careful not to introduce a reference
+loop!
 </p>
 <p>
 This feature has been added in <b>jk 1.2.19</b>.
@@ -175,10 +184,12 @@ be unavailable or will misbehave. Those directives will be marked with a <strong
 <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Directive</font></th><th width="10%" bgcolor="#023264"><font color="#ffffff">Default</font></th><th width="75%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><strong><code>type</code></strong></td><td align="center" valign="center"><code>ajp13</code></td><td align="left" valign="center">
 Type of the worker (can be one of ajp13, ajp14, jni, lb or status). The type of the worker
 defines the directives that can be applied to the worker.
-<p>AJP13 worker is the preferred worker type that JK uses for communication
+<p>Type <b>ajp13</b> is the preferred worker type that JK uses for communication
 between web server and Tomcat. This type of worker uses sockets as communication
 channel. For detailed description of the AJP13 protocol stack browse to
 <a href="../ajp/ajpv13a.html">AJPv13 protocol specification</a>
+</p>
+<p>Type <b>ajp14</b> is experimental and not recommended.
 </p>
 <p><font color="#ff0000">JNI workers have been deprecated. They will likely not work. Do not use them.</font></p>
 </td></tr></table>
@@ -191,12 +202,18 @@ the connections pool of persistent connections between JK and remote Tomcat.
 </p>
 <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Directive</font></th><th width="10%" bgcolor="#023264"><font color="#ffffff">Default</font></th><th width="75%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code>host</code></td><td align="center" valign="center"><code>localhost</code></td><td align="left" valign="center">
 Host name or IP address of the backend Tomcat instance. The remote Tomcat must
-support the ajp13 protocol stack. The host name can have a <b>port</b> number
+support the AJP13 protocol stack. The host name can have a <b>port</b> number
 embedded separated by the colon (':') character.
 </td></tr><tr><td align="left" valign="center"><code>port</code></td><td align="center" valign="center"><code>8009</code></td><td align="left" valign="center">
 Port number of the remote Tomcat instance listening for defined protocol requests.
-The default value depends on the worker type. For AJP13 workers the default port is
-<b>8009</b>, while for AJP14 type of worker that value is <b>8011</b>.
+The default value depends on the worker type. For ajp13 workers the default port is
+<b>8009</b>, while for ajp14 type of worker that value is <b>8011</b>.
+</td></tr><tr><td align="left" valign="center"><code>source</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
+Name or IP address used for the connection source (outgoing address).
+It should only be used on multi-homed hosts.
+<p>
+This feature is experimental and has been added in <b>jk 1.2.41</b>.
+</p>
 </td></tr><tr><td align="left" valign="center"><code>socket_timeout</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
 Socket timeout in seconds used for the communication channel between JK and remote host.
 If the remote host does not respond inside the timeout specified, JK will generate an error,
@@ -215,12 +232,12 @@ equal to <b class="code">"socket_timeout</b>.
 <p>
 This feature has been added in <b>jk 1.2.27</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>socket_keepalive</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>socket_keepalive</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
 This directive should be used when you have a firewall between your webserver
 and the Tomcat engine, who tend to drop inactive connections. This flag will tell the Operating System
 to send <b class="code">KEEP_ALIVE</b> messages on inactive connections (interval depend on global OS settings,
 generally 120 minutes), and thus prevent the firewall to cut inactive connections.
-To enable keepalive set this property value to <b>True</b>.
+To enable keepalive set this property value to <b>true</b>.
 <p>
 The problem with Firewall cutting inactive connections is that sometimes, neither webserver or Tomcat
 have information about the cut and couldn't handle it.
@@ -335,7 +352,8 @@ to handle high-load, even it the child/thread handle only static contents, you c
 finish having many unused ajp13 threads on the Tomcat side.
 </p>
 <p>
-You should keep this time interval in sync with the <b>connectionTimeout</b> attribute
+You should keep this time interval in sync with the <b>keepAliveTimeout</b> attribute
+(if it is set explicitly) or <b>connectionTimeout</b> attribute
 of your AJP connector in Tomcat's server.xml. Note however, that the value
 for mod_jk is given in seconds, the one in server.xml has to use milliseconds.
 </p>
@@ -422,10 +440,10 @@ can be used only with mod_jk versions 1.2.7 and up.
 </p>
 <p><font color="#ff0000">As long as these workers should only be used via the load balancer worker,
 there is no need to also put them into the <b>worker.list</b> property.</font></p>
-</td></tr><tr><td align="left" valign="center"><code>sticky_session</code></td><td align="center" valign="center"><code>True</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>sticky_session</code></td><td align="center" valign="center"><code>true</code></td><td align="left" valign="center">
 Specifies whether requests with SESSION ID's should be routed back to the same
-Tomcat worker. If sticky_session is set to <b>True</b> or <b>1</b> sessions are sticky, otherwise
-sticky_session is set to <b>False</b>. Set sticky_session to <b>False</b> when Tomcat
+Tomcat worker. If sticky_session is set to <b>true</b> sessions are sticky, otherwise
+sticky_session is set to <b>false</b>. Set sticky_session to <b>false</b> when Tomcat
 is using a Session Manager which can persist session data across multiple
 instances of Tomcat.
 <p>
@@ -433,13 +451,13 @@ The <b>sticky_session</b> setting can be overwritten using the Apache httpd
 environment variable <b>JK_STICKY_IGNORE</b> and the worker map extension for
 <b>sticky_ignore</b>. This has been added in version <b>1.2.33</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>sticky_session_force</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>sticky_session_force</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
 Specifies whether requests with SESSION ID's for workers that are in error state
-should be rejected. If sticky_session_force is set to <b>True</b> or <b>1</b>
+should be rejected. If sticky_session_force is set to <b>true</b>
 and the worker that matches that SESSION ID is in error state, client will
-receive 500 (Server Error). If set to <b>False</b> or <b>0</b> failover on
-another worker will be issued with loosing client session. This directive is
-used only when you set <b>sticky_session=True</b>.
+receive 500 (Server Error). If set to <b>false</b> failover on
+another worker will be issued with losing client session. This directive is
+used only when you set <b>sticky_session=true</b>.
 <p>
 This feature has been added in <b>jk 1.2.9</b>.
 </p>
@@ -499,7 +517,8 @@ pick the worker with the lowest current load, based on how many requests the
 worker is currently serving. This number is divided by the workers lbfactor,
 and the lowest value (least busy) worker is picked. This method is especially
 interesting, if your request take a long time to process, like for a download
-application.
+application. The method is not recommended for general use, because under high
+load on some hardware architectures the busy counter can become wrong.
 </p>
 <p>
 This feature has been added in version <b>1.2.9</b>.
@@ -537,8 +556,8 @@ Instead it is responsible for the load balancer management.
 </p>
 <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Directive</font></th><th width="10%" bgcolor="#023264"><font color="#ffffff">Default</font></th><th width="75%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code>css</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
 Specifies the url for cascading stylesheet to use.
-</td></tr><tr><td align="left" valign="center"><code>read_only</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
-A status worker with read_only=True will not allow any operations,
+</td></tr><tr><td align="left" valign="center"><code>read_only</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
+A status worker with read_only=true will not allow any operations,
 that change the runtime state or configuration of the other workers.
 These are edit/update/reset/recover.
 <p>
@@ -555,9 +574,9 @@ This directive can be used multiple times.
 <p>
 This feature has been added in <b>jk 1.2.20</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>user_case_insensitive</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>user_case_insensitive</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
 By default, the user names are matched case sensitively. You can set
-user_case_insensitive=True to make the comparison case insensitive.
+user_case_insensitive=true to make the comparison case insensitive.
 This may be especially useful on the Windows platform.
 <p>
 This feature has been added in <b>jk 1.2.21</b>.
@@ -762,6 +781,16 @@ fail_on_status. This feature gets enabled, by putting a minus sign in
 front of those status codes.
 For example: <b class="code">worker.xxx.fail_on_status=-404,-500,503</b>
 </p>
+</td></tr><tr><td align="left" valign="center"><code>busy_limit</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
+If set to a positive number, the worker will only be used for a request,
+if it is currently working on less than this number of concurrent requests.
+<p>
+Note that this is not related to the <b>Busyness</b> load balancing
+<b>method</b>.
+</p>
+<p>
+This feature is experimental and has been added in <b>jk 1.2.41</b>.
+</p>
 </td></tr><tr><td align="left" valign="center"><code>max_packet_size</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>8192</code></td><td align="left" valign="center">
 This attribute sets the maximal AJP packet size in Bytes.
 The maximum value is 65536. If you change it from the default,
@@ -776,13 +805,16 @@ certificate chains.
 <p>
 This feature has been added in <b>jk 1.2.19</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>mount</code></td><td align="left" valign="center"><code>AJP,LB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
-Space delimited list of uri maps the worker should handle. It is only used,
-if the worker is included in worker.list.
+</td></tr><tr><td align="left" valign="center"><code>prefer_ipv6</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
+When compiled with IPV6 support, this directive forces IPV6 address
+resolution for host names which have both IPV6 and IPV4 addresses. In case there is
+no IPV6 address defined for the given hostname this directive in ineffective. This directive will
+be also ineffective if there is only IPV6 address defined or if IP address is used for "host",
+either in IPV4 or IPV6 notation.
 <p>
-This directive can be used multiple times for the same worker.
+This feature has been added in <b>jk 1.2.38</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>secret</code></td><td align="left" valign="center"><code>AJP,LB,SUB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>secret</code></td><td align="left" valign="center"><code>AJP,SUB,LB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
 You can set a secret keyword on the Tomcat AJP Connector. Then only requests
 from workers with the same secret keyword will be accepted.
 <p>
@@ -795,6 +827,12 @@ If you set a secret on a load balancer, all its members will inherit this secret
 </p>
 <p>
 This feature has been added in <b>jk 1.2.12</b>.
+</p>
+</td></tr><tr><td align="left" valign="center"><code>mount</code></td><td align="left" valign="center"><code>AJP,LB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
+Space delimited list of uri maps the worker should handle. It is only used,
+if the worker is included in worker.list.
+<p>
+This directive can be used multiple times for the same worker.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>max_reply_timeouts</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
 If you use a <b>reply_timeout</b> for the members of a load balancer worker,
@@ -840,12 +878,55 @@ will the node be put into error state.
 <p>
 This features has been added in <b>jk 1.2.28</b>.
 </p>
+</td></tr><tr><td align="left" valign="center"><code>session_cookie</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>JSESSIONID</code></td><td align="left" valign="center">
+The name of the cookie that contains the routing identifier needed for session stickyness.
+The routing identifier is everything after a "." character in the value of the cookie.
+<p>
+This feature has been added in <b>jk 1.2.27</b>.
+</p>
+</td></tr><tr><td align="left" valign="center"><code>session_path</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>;jsessionid</code></td><td align="left" valign="center">
+The name of the path parameter that contains the routing identifier needed for
+session stickyness. The routing identifier is everything after a "." character in the value
+of the path parameter.
+<p>
+This feature has been added in <b>jk 1.2.27</b>.
+</p>
+</td></tr><tr><td align="left" valign="center"><code>set_session_cookie</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
+Activates generation of session stickyness cookies. Typically you don't need this.
+<p>
+Some web frameworks replace Tomcat session management and use a different way
+of generating session IDs. As a consequence the routing ID added by Tomcat to the
+end of the session ID is lost and we no longer can do sticky load balancing.
+As a workaround you can use the following steps:
+<ul>
+<li>Choose a non-standard cookie name using the "session_cookie" attribute.</li>
+<li>Activate cookie sending by setting the attribute "set_session_cookie" to <b>true</b>.</li>
+<li>Set the attribute "session_cookie_path" to the correct application URI, like
+e.g. "/myapp/".</li>
+</ul>
+</p>
+<p>
+The cookie will only be send if the request does not already contain
+a cookie of the same name, or that cookie does not contain a routing
+ID which the load balancer can fulfill. Especially after a node failover
+we will send a new cookie to switch stickyness to the new node.
+</p>
+<p>
+This feature has been added in <b>jk 1.2.38</b>.
+</p>
+</td></tr><tr><td align="left" valign="center"><code>session_cookie_path</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
+This attribute is only used if "set_session_cookie" is set to <b>true</b>.
+See "set_session_cookie" for a description. If the value of "session_cookie_path"
+is empty (default), then the send cookie will not contain a PATH information.
+<p>
+This feature has been added in <b>jk 1.2.38</b>.
+</p>
 </td></tr><tr><td align="left" valign="center"><code>activation</code></td><td align="left" valign="center"><code>SUB</code></td><td align="center" valign="center"><code>Active</code></td><td align="left" valign="center">
 Using this directive, a balanced worker of a load balancer
 can be configured as disabled or stopped. A disabled worker only gets
 requests, which belong to sessions for that worker. A stopped
 worker does not get any requests. Users of a stopped worker will
-loose their sessions, unless session replication via clustering is used.
+lose their sessions, unless session replication via clustering is used.
 <p>
 Use <b>d</b> or <b>D</b> to disable and <b>s</b> or <b>S</b> to stop.
 If this directive is not present the deprecated directives
@@ -916,58 +997,6 @@ to this route of the preferred failover worker and not to its name.
 <p>
 This feature has been added in <b>jk 1.2.9</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>session_cookie</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>JSESSIONID</code></td><td align="left" valign="center">
-The name of the cookie that contains the routing identifier needed for session stickyness.
-The routing identifier is everything after a "." character in the value of the cookie.
-<p>
-This feature has been added in <b>jk 1.2.27</b>.
-</p>
-</td></tr><tr><td align="left" valign="center"><code>session_path</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>;jsessionid</code></td><td align="left" valign="center">
-The name of the path parameter that contains the routing identifier needed for
-session stickyness. The routing identifier is everything after a "." character in the value
-of the path parameter.
-<p>
-This feature has been added in <b>jk 1.2.27</b>.
-</p>
-</td></tr><tr><td align="left" valign="center"><code>set_session_cookie</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
-Activates generation of session stickyness cookies. Typically you don't need this.
-<p>
-Some web frameworks replace Tomcat session management and use a different way
-of generating session IDs. As a consequence the routing ID added by Tomcat to the
-end of the session ID is lost and we no longer can do sticky load balancing.
-As a workaround you can use the following steps:
-<ul>
-<li>Choose a non-standard cookie name using the "session_cookie" attribute.</li>
-<li>Activate cookie sending by setting the attribute "set_session_cookie" to "True".</li>
-<li>Set the attribute "session_cookie_path" to the correct application URI, like
-e.g. "/myapp/".</li>
-</ul>
-</p>
-<p>
-The cookie will only be send if the request does not already contain
-a cookie of the same name, or that cookie does not contain a routing
-ID which the load balancer can fulfill. Especially after a node failover
-we will send a new cookie to switch stickyness to the new node.
-</p>
-<p>
-This feature has been added in <b>jk 1.2.38</b>.
-</p>
-</td></tr><tr><td align="left" valign="center"><code>session_cookie_path</code></td><td align="left" valign="center"><code>LB</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
-This attribute is only used if "set_session_cookie" is set to "True".
-See "set_session_cookie" for a description. If the value of "session_cookie_path"
-is empty (default), then the send cookie will not contain a PATH information.
-<p>
-This feature has been added in <b>jk 1.2.38</b>.
-</p>
-</td></tr><tr><td align="left" valign="center"><code>prefer_ipv6</code></td><td align="left" valign="center"><code>AJP</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
-When compiled with IPV6 support, this directive forces IPV6 address
-resolution for host names which have both IPV6 and IPV4 addresses. In case there is
-no IPV6 address defined for the given hostname this directive in ineffective. This directive will
-be also ineffective if there is only IPV6 address defined or if IP address is used for "host",
-either in IPV4 or IPV6 notation.
-<p>
-This feature has been added in <b>jk 1.2.38</b>.
-</p>
 </td></tr></table>
 </blockquote></td></tr></table>
 
@@ -1020,16 +1049,16 @@ If set to value zero (default) no recycle will took place.
 <p><font color="#ff0000">This directive has been deprecated since 1.2.7.</font></p>
 A comma separated list of workers that the load balancer
 need to manage.
-</td></tr><tr><td align="left" valign="center"><code>disabled</code></td><td align="center" valign="center"><code>activation</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>disabled</code></td><td align="center" valign="center"><code>activation</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
 <p><font color="#ff0000">This directive has been deprecated since 1.2.19.</font></p>
-If set to <b>True</b> or <b>1</b> the worker will be disabled if member
+If set to <b>true</b> the worker will be disabled if member
 of load balancer. This flag can be changed at runtime using status worker.
 <p>
 This feature has been added in <b>jk 1.2.9</b>.
 </p>
-</td></tr><tr><td align="left" valign="center"><code>stopped</code></td><td align="center" valign="center"><code>activation</code></td><td align="center" valign="center"><code>False</code></td><td align="left" valign="center">
+</td></tr><tr><td align="left" valign="center"><code>stopped</code></td><td align="center" valign="center"><code>activation</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
 <p><font color="#ff0000">This directive has been deprecated since 1.2.19.</font></p>
-If set to <b>True</b> or <b>1</b> the worker will be stopped if member
+If set to <b>true</b> the worker will be stopped if member
 of load balancer. The flag is needed for stop complete traffic of a sticky session
 worker. It is only useful, when you have a cluster that replicated the sessions.
 This flag can be changed at runtime using status worker.
@@ -1059,5 +1088,5 @@ This feature has been added in <b>jk 1.2.16</b>.
 </blockquote></td></tr></table>
 
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2014, Apache Software Foundation
+        Copyright &copy; 1999-2015, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>
