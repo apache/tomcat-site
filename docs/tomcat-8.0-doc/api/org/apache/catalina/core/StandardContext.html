@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>StandardContext (Apache Tomcat 8.0.26 API Documentation)</title>
+<title>StandardContext (Apache Tomcat 8.0.27 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StandardContext (Apache Tomcat 8.0.26 API Documentation)";
+        parent.document.title="StandardContext (Apache Tomcat 8.0.27 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -2916,10 +2916,13 @@ implements <a href="../../../../org/apache/catalina/Context.html" title="interfa
 <li class="blockList">
 <h4>setApplicationEventListeners</h4>
 <pre>public&nbsp;void&nbsp;setApplicationEventListeners(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;listeners)</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/catalina/Context.html#setApplicationEventListeners(java.lang.Object[])">Context</a></code></strong></div>
 <div class="block">Store the set of initialized application event listener objects,
  in the order they were specified in the web application deployment
- descriptor, for this application.</div>
+ descriptor, for this application.
+
+ Note that this implementation is not thread safe. If two threads call
+ this method concurrently, the result may be either set of listeners or a
+ the union of both.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Context.html#setApplicationEventListeners(java.lang.Object[])">setApplicationEventListeners</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a></code></dd>
@@ -2935,6 +2938,7 @@ implements <a href="../../../../org/apache/catalina/Context.html" title="interfa
 <pre>public&nbsp;void&nbsp;addApplicationEventListener(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;listener)</pre>
 <div class="block">Add a listener to the end of the list of initialized application event
  listeners.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>listener</code> - The listener to add</dd></dl>
 </li>
 </ul>
 <a name="getApplicationLifecycleListeners()">
@@ -6466,7 +6470,7 @@ implements <a href="../../../../org/apache/catalina/Context.html" title="interfa
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

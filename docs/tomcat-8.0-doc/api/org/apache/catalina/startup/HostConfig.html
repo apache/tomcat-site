@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HostConfig (Apache Tomcat 8.0.26 API Documentation)</title>
+<title>HostConfig (Apache Tomcat 8.0.27 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="HostConfig (Apache Tomcat 8.0.26 API Documentation)";
+        parent.document.title="HostConfig (Apache Tomcat 8.0.27 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -283,198 +283,209 @@ implements <a href="../../../../org/apache/catalina/LifecycleListener.html" titl
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#check(java.lang.String)">check</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Check status of a specific webapp, for use with stuff like management webapps.</div>
+<div class="block">Check status of a specific web application and reload, redeploy or deploy
+ it as necessary.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#checkResources(org.apache.catalina.startup.HostConfig.DeployedApplication)">checkResources</a></strong>(<a href="../../../../org/apache/catalina/startup/HostConfig.DeployedApplication.html" title="class in org.apache.catalina.startup">HostConfig.DeployedApplication</a>&nbsp;app)</code>
-<div class="block">Check resources for redeployment and reloading.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../org/apache/catalina/startup/HostConfig.html#checkResources(org.apache.catalina.startup.HostConfig.DeployedApplication,%20boolean)"><code>checkResources(DeployedApplication, boolean)</code></a>.
+             Will be removed in Tomcat 9.0.x</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#checkResources(org.apache.catalina.startup.HostConfig.DeployedApplication,%20boolean)">checkResources</a></strong>(<a href="../../../../org/apache/catalina/startup/HostConfig.DeployedApplication.html" title="class in org.apache.catalina.startup">HostConfig.DeployedApplication</a>&nbsp;app,
+              boolean&nbsp;skipFileModificationResolutionCheck)</code>
+<div class="block">Check resources for redeployment and reloading.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#checkUndeploy()">checkUndeploy</a></strong>()</code>
 <div class="block">Check for old versions of applications using parallel deployment that are
  now unused (have no active sessions) and undeploy any that are found.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="../../../../org/apache/tomcat/util/digester/Digester.html" title="class in org.apache.tomcat.util.digester">Digester</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#createDigester(java.lang.String)">createDigester</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextClassName)</code>
 <div class="block">Create the digester which will be used to parse context config files.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployApps()">deployApps</a></strong>()</code>
 <div class="block">Deploy applications for any directories or WAR files that are found
  in our "application root" directory.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployApps(java.lang.String)">deployApps</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Deploy applications for any directories or WAR files that are found
  in our "application root" directory.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployDescriptor(org.apache.catalina.util.ContextName,%20java.io.File)">deployDescriptor</a></strong>(<a href="../../../../org/apache/catalina/util/ContextName.html" title="class in org.apache.catalina.util">ContextName</a>&nbsp;cn,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;contextXml)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployDescriptors(java.io.File,%20java.lang.String[])">deployDescriptors</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;configBase,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;files)</code>
 <div class="block">Deploy XML context descriptors.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployDirectories(java.io.File,%20java.lang.String[])">deployDirectories</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;appBase,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;files)</code>
 <div class="block">Deploy directories.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployDirectory(org.apache.catalina.util.ContextName,%20java.io.File)">deployDirectory</a></strong>(<a href="../../../../org/apache/catalina/util/ContextName.html" title="class in org.apache.catalina.util">ContextName</a>&nbsp;cn,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;dir)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deploymentExists(java.lang.String)">deploymentExists</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextName)</code>
 <div class="block">Check if a webapp is already deployed in this host.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployWAR(org.apache.catalina.util.ContextName,%20java.io.File)">deployWAR</a></strong>(<a href="../../../../org/apache/catalina/util/ContextName.html" title="class in org.apache.catalina.util">ContextName</a>&nbsp;cn,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;war)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#deployWARs(java.io.File,%20java.lang.String[])">deployWARs</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;appBase,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;files)</code>
 <div class="block">Deploy WAR files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#filterAppPaths(java.lang.String[])">filterAppPaths</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;unfilteredAppPaths)</code>
 <div class="block">Filter the list of application file paths to remove those that match
  the regular expression defined by <a href="../../../../org/apache/catalina/Host.html#getDeployIgnore()"><code>Host.getDeployIgnore()</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#getConfigBaseName()">getConfigBaseName</a></strong>()</code>
 <div class="block">Get the name of the configBase.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#getContextClass()">getContextClass</a></strong>()</code>
 <div class="block">Return the Context implementation class name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#getDeploymentTime(java.lang.String)">getDeploymentTime</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Get the instant where an application was deployed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#isCopyXML()">isCopyXML</a></strong>()</code>
 <div class="block">Return the copy XML config file flag for this component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#isDeployed(java.lang.String)">isDeployed</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Has the specified application been deployed?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#isDeployXML()">isDeployXML</a></strong>()</code>
 <div class="block">Return the deploy XML config file flag for this component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#isServiced(java.lang.String)">isServiced</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Is application serviced ?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#isUnpackWARs()">isUnpackWARs</a></strong>()</code>
 <div class="block">Return the unpack WARs flag.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#lifecycleEvent(org.apache.catalina.LifecycleEvent)">lifecycleEvent</a></strong>(<a href="../../../../org/apache/catalina/LifecycleEvent.html" title="class in org.apache.catalina">LifecycleEvent</a>&nbsp;event)</code>
 <div class="block">Process the START event for an associated Host.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#manageApp(org.apache.catalina.Context)">manageApp</a></strong>(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</code>
 <div class="block">Add a new Context to be managed by us.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#removeServiced(java.lang.String)">removeServiced</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removed a serviced application from the list.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#returnCanonicalPath(java.lang.String)">returnCanonicalPath</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#setContextClass(java.lang.String)">setContextClass</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextClass)</code>
 <div class="block">Set the Context implementation class name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#setCopyXML(boolean)">setCopyXML</a></strong>(boolean&nbsp;copyXML)</code>
 <div class="block">Set the copy XML config file flag for this component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#setDeployXML(boolean)">setDeployXML</a></strong>(boolean&nbsp;deployXML)</code>
 <div class="block">Set the deploy XML config file flag for this component.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#setUnpackWARs(boolean)">setUnpackWARs</a></strong>(boolean&nbsp;unpackWARs)</code>
 <div class="block">Set the unpack WARs flag.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#start()">start</a></strong>()</code>
 <div class="block">Process a "start" event for this Host.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#stop()">stop</a></strong>()</code>
 <div class="block">Process a "stop" event for this Host.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/HostConfig.html#unmanageApp(java.lang.String)">unmanageApp</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextName)</code>
 <div class="block">Remove a webapp from our control.</div>
@@ -979,8 +990,26 @@ implements <a href="../../../../org/apache/catalina/LifecycleListener.html" titl
 <ul class="blockList">
 <li class="blockList">
 <h4>checkResources</h4>
-<pre>protected&nbsp;void&nbsp;checkResources(<a href="../../../../org/apache/catalina/startup/HostConfig.DeployedApplication.html" title="class in org.apache.catalina.startup">HostConfig.DeployedApplication</a>&nbsp;app)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected&nbsp;void&nbsp;checkResources(<a href="../../../../org/apache/catalina/startup/HostConfig.DeployedApplication.html" title="class in org.apache.catalina.startup">HostConfig.DeployedApplication</a>&nbsp;app)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/startup/HostConfig.html#checkResources(org.apache.catalina.startup.HostConfig.DeployedApplication,%20boolean)"><code>checkResources(DeployedApplication, boolean)</code></a>.
+             Will be removed in Tomcat 9.0.x</i></div>
 <div class="block">Check resources for redeployment and reloading.</div>
+</li>
+</ul>
+<a name="checkResources(org.apache.catalina.startup.HostConfig.DeployedApplication, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>checkResources</h4>
+<pre>protected&nbsp;void&nbsp;checkResources(<a href="../../../../org/apache/catalina/startup/HostConfig.DeployedApplication.html" title="class in org.apache.catalina.startup">HostConfig.DeployedApplication</a>&nbsp;app,
+                  boolean&nbsp;skipFileModificationResolutionCheck)</pre>
+<div class="block">Check resources for redeployment and reloading.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>app</code> - The web application to check</dd><dd><code>skipFileModificationResolutionCheck</code> - When checking files for modification should the check that
+              requires that any file modification must have occurred at
+              least as long ago as the resolution of the file time stamp
+              be skipped</dd></dl>
 </li>
 </ul>
 <a name="start()">
@@ -1020,7 +1049,15 @@ implements <a href="../../../../org/apache/catalina/LifecycleListener.html" titl
 <li class="blockList">
 <h4>check</h4>
 <pre>public&nbsp;void&nbsp;check(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Check status of a specific webapp, for use with stuff like management webapps.</div>
+<div class="block">Check status of a specific web application and reload, redeploy or deploy
+ it as necessary. This method is for use with functionality such as
+ management web applications that upload new/updated web applications and
+ need to trigger the appropriate action to deploy them. This method
+ assumes that the web application is currently marked as serviced and that
+ any uploading/updating has been completed before this method is called.
+ Any action taken as a result of the checks will complete before this
+ method returns.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name of the web application to check</dd></dl>
 </li>
 </ul>
 <a name="checkUndeploy()">
@@ -1078,7 +1115,7 @@ implements <a href="../../../../org/apache/catalina/LifecycleListener.html" titl
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

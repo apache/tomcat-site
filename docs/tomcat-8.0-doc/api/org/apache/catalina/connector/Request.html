@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Request (Apache Tomcat 8.0.26 API Documentation)</title>
+<title>Request (Apache Tomcat 8.0.27 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Request (Apache Tomcat 8.0.26 API Documentation)";
+        parent.document.title="Request (Apache Tomcat 8.0.27 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -134,7 +134,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequ
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Request.html#asyncSupported">asyncSupported</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html?is-external=true" title="class or interface in java.util.concurrent">ConcurrentHashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Request.html#attributes">attributes</a></strong></code>
 <div class="block">The attributes associated with this Request, keyed by attribute name.</div>
 </td>
@@ -154,7 +154,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequ
 <tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Request.html#comet">comet</a></strong></code>
-<div class="block">Comet state</div>
+<div class="block">Comet state (can be accessed from multiple threads concurrently).</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1462,7 +1462,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequ
 <ul class="blockList">
 <li class="blockList">
 <h4>attributes</h4>
-<pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt; attributes</pre>
+<pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentHashMap.html?is-external=true" title="class or interface in java.util.concurrent">ConcurrentHashMap</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt; attributes</pre>
 <div class="block">The attributes associated with this Request, keyed by attribute name.</div>
 </li>
 </ul>
@@ -1514,8 +1514,8 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequ
 <ul class="blockList">
 <li class="blockList">
 <h4>comet</h4>
-<pre>protected&nbsp;boolean comet</pre>
-<div class="block">Comet state</div>
+<pre>protected volatile&nbsp;boolean comet</pre>
+<div class="block">Comet state (can be accessed from multiple threads concurrently).</div>
 </li>
 </ul>
 <a name="internalDispatcherType">
@@ -4002,7 +4002,7 @@ public&nbsp;boolean&nbsp;isRequestedSessionIdFromUrl()</pre>
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

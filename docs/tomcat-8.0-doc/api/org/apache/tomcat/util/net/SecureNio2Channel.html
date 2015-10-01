@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SecureNio2Channel (Apache Tomcat 8.0.26 API Documentation)</title>
+<title>SecureNio2Channel (Apache Tomcat 8.0.27 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SecureNio2Channel (Apache Tomcat 8.0.26 API Documentation)";
+        parent.document.title="SecureNio2Channel (Apache Tomcat 8.0.27 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -160,14 +160,6 @@ extends <a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" tit
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SecureNio2Channel.html#endpoint">endpoint</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SecureNio2Channel.html#handshakeComplete">handshakeComplete</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLEngineResult.HandshakeStatus.html?is-external=true" title="class or interface in javax.net.ssl">SSLEngineResult.HandshakeStatus</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SecureNio2Channel.html#handshakeStatus">handshakeStatus</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="../../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging">Log</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SecureNio2Channel.html#log">log</a></strong></code>&nbsp;</td>
 </tr>
@@ -277,7 +269,8 @@ extends <a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" tit
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SecureNio2Channel.html#handshake()">handshake</a></strong>()</code>
-<div class="block">Performs SSL handshake, non blocking, but performs NEED_TASK on the same thread.</div>
+<div class="block">Performs SSL handshake, non blocking, but performs NEED_TASK on the same
+ thread.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -452,24 +445,6 @@ extends <a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" tit
 <pre>protected final&nbsp;<a href="../../../../../org/apache/tomcat/util/net/Nio2Endpoint.html" title="class in org.apache.tomcat.util.net">Nio2Endpoint</a> endpoint</pre>
 </li>
 </ul>
-<a name="handshakeComplete">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>handshakeComplete</h4>
-<pre>protected&nbsp;boolean handshakeComplete</pre>
-</li>
-</ul>
-<a name="handshakeStatus">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>handshakeStatus</h4>
-<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLEngineResult.HandshakeStatus.html?is-external=true" title="class or interface in javax.net.ssl">SSLEngineResult.HandshakeStatus</a> handshakeStatus</pre>
-</li>
-</ul>
 <a name="closed">
 <!--   -->
 </a>
@@ -596,15 +571,19 @@ extends <a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" tit
 <h4>handshake</h4>
 <pre>public&nbsp;int&nbsp;handshake()
               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Performs SSL handshake, non blocking, but performs NEED_TASK on the same thread.<br>
- Hence, you should never call this method using your Acceptor thread, as you would slow down
- your system significantly.<br>
- The return for this operation is 0 if the handshake is complete and a positive value if it is not complete.
- In the event of a positive value coming back, reregister the selection key for the return values interestOps.</div>
+<div class="block">Performs SSL handshake, non blocking, but performs NEED_TASK on the same
+ thread. Hence, you should never call this method using your Acceptor
+ thread, as you would slow down your system significantly.
+ <p>
+ The return for this operation is 0 if the handshake is complete and a
+ positive value if it is not complete. In the event of a positive value
+ coming back, the appropriate read/write will already have been called
+ with an appropriate CompletionHandler.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html#handshake()">handshake</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" title="class in org.apache.tomcat.util.net">Nio2Channel</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>int - 0 if hand shake is complete, otherwise it returns a SelectionKey interestOps value</dd>
+<dt><span class="strong">Returns:</span></dt><dd>0 if hand shake is complete, negative if the socket needs to
+         close and positive if the handshake is incomplete</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
@@ -920,7 +899,7 @@ extends <a href="../../../../../org/apache/tomcat/util/net/Nio2Channel.html" tit
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

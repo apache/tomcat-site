@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Membership (Apache Tomcat 8.0.26 API Documentation)</title>
+<title>Membership (Apache Tomcat 8.0.27 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Membership (Apache Tomcat 8.0.26 API Documentation)";
+        parent.document.title="Membership (Apache Tomcat 8.0.27 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -154,8 +154,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#local">local</a></strong></code>
-<div class="block">The name of this membership, has to be the same as the name for the local
- member</div>
+<div class="block">The local member.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -167,7 +166,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#memberComparator">memberComparator</a></strong></code>
-<div class="block">sort members by alive time</div>
+<div class="block">Comparator for sorting members by alive time.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -250,20 +249,21 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/catalina/tribes/membership/Membership.MbrEntry.html" title="class in org.apache.catalina.tribes.membership">Membership.MbrEntry</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#getMemberEntries()">getMemberEntries</a></strong>()</code>
-<div class="block">get a copy from all member entries</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Unused. Will be removed in Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#getMembers()">getMembers</a></strong>()</code>
-<div class="block">Returning a list of all the members in the membership
- We not need a copy: add and remove generate new arrays.</div>
+<div class="block">Returning a list of all the members in the membership.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#hasMembers()">hasMembers</a></strong>()</code>
-<div class="block">Returning that service has members or not</div>
+<div class="block">Returning that service has members or not.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -281,7 +281,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/tribes/membership/Membership.html#reset()">reset</a></strong>()</code>
-<div class="block">Reset the membership and start over fresh.</div>
+<div class="block">Reset the membership and start over fresh. i.e., delete all the members
+ and wait for them to ping again and join this membership.</div>
 </td>
 </tr>
 </table>
@@ -322,8 +323,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>local</h4>
 <pre>protected final&nbsp;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a> local</pre>
-<div class="block">The name of this membership, has to be the same as the name for the local
- member</div>
+<div class="block">The local member.</div>
 </li>
 </ul>
 <a name="map">
@@ -342,7 +342,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <ul class="blockList">
 <li class="blockList">
 <h4>members</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[] members</pre>
+<pre>protected volatile&nbsp;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[] members</pre>
 <div class="block">A list of all the members in the cluster.</div>
 </li>
 </ul>
@@ -353,7 +353,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>memberComparator</h4>
 <pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html?is-external=true" title="class or interface in java.util">Comparator</a>&lt;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&gt; memberComparator</pre>
-<div class="block">sort members by alive time</div>
+<div class="block">Comparator for sorting members by alive time.</div>
 </li>
 </ul>
 </li>
@@ -434,8 +434,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>reset</h4>
 <pre>public&nbsp;void&nbsp;reset()</pre>
-<div class="block">Reset the membership and start over fresh.
- Ie, delete all the members and wait for them to ping again and join this membership</div>
+<div class="block">Reset the membership and start over fresh. i.e., delete all the members
+ and wait for them to ping again and join this membership.</div>
 </li>
 </ul>
 <a name="memberAlive(org.apache.catalina.tribes.Member)">
@@ -459,7 +459,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <h4>addMember</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/catalina/tribes/membership/Membership.MbrEntry.html" title="class in org.apache.catalina.tribes.membership">Membership.MbrEntry</a>&nbsp;addMember(<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;member)</pre>
 <div class="block">Add a member to this component and sort array with memberComparator</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>member</code> - The member to add</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>member</code> - The member to add</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The member entry created for this new member.</dd></dl>
 </li>
 </ul>
 <a name="removeMember(org.apache.catalina.tribes.Member)">
@@ -494,7 +495,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>hasMembers</h4>
 <pre>public&nbsp;boolean&nbsp;hasMembers()</pre>
-<div class="block">Returning that service has members or not</div>
+<div class="block">Returning that service has members or not.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if there are one or more members, otherwise
+         <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="getMember(org.apache.catalina.tribes.Member)">
@@ -522,8 +525,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>getMembers</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[]&nbsp;getMembers()</pre>
-<div class="block">Returning a list of all the members in the membership
+<div class="block">Returning a list of all the members in the membership.
  We not need a copy: add and remove generate new arrays.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An array of the current members</dd></dl>
 </li>
 </ul>
 <a name="getMemberEntries()">
@@ -532,8 +536,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getMemberEntries</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/catalina/tribes/membership/Membership.MbrEntry.html" title="class in org.apache.catalina.tribes.membership">Membership.MbrEntry</a>[]&nbsp;getMemberEntries()</pre>
-<div class="block">get a copy from all member entries</div>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected&nbsp;<a href="../../../../../org/apache/catalina/tribes/membership/Membership.MbrEntry.html" title="class in org.apache.catalina.tribes.membership">Membership.MbrEntry</a>[]&nbsp;getMemberEntries()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Unused. Will be removed in Tomcat 9.0.x.</i></div>
+<div class="block">Get a copy from all member entries.</div>
 </li>
 </ul>
 </li>
@@ -558,7 +564,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.26</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.27</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
