@@ -1,0 +1,457 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css">
+<title>Apache Tomcat - Migration Guide - Tomcat 9.0.x</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div id="header">
+<div>
+<div>
+<div class="logo noPrint">
+<a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a>
+</div>
+<div style="height: 1px;"></div>
+<div class="asfLogo noPrint">
+<a href="http://www.apache.org/" target="_blank"><img src="//www.apache.org/images/feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a>
+</div>
+<h1 style="margin-top: 35px;">Apache Tomcat</h1>
+<div style="clear: right;"></div>
+<div class="searchbox noPrint">
+<form action="https://www.google.com/search" method="get">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button>
+</form>
+</div>
+<div style="height: 1px;"></div>
+<div style="clear: left;"></div>
+</div>
+</div>
+</div>
+</header>
+<div id="middle">
+<div>
+<div id="mainLeft" class="noprint">
+<div>
+<nav>
+<div>
+<h2>Apache Tomcat</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs.html">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Download</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="./download-80.cgi">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./download-70.cgi">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./download-60.cgi">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="./download-taglibs.cgi">Taglibs</a>
+</li>
+<li>
+<a href="http://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Documentation</h2>
+<ul>
+<li>
+<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Problems?</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Get Involved</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./svn.html">SVN Repositories</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Media</h2>
+<ul>
+<li>
+<a href="http://blogs.apache.org/tomcat/">Blog</a>
+</li>
+<li>
+<a href="http://twitter.com/theapachetomcat">Twitter</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Misc</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<h2 style="display: none;">Content</h2>
+<h3 id="Table_of_Contents">Table of Contents</h3>
+<div class="text">
+
+<ul>
+<li>
+<a href="#General">General</a>
+</li>
+<li>
+<a href="#Migrating_from_8.0.x_to_9.0.x">Migrating from 8.0.x to 9.0.x</a>
+<ol>
+<li>
+<a href="#Java_8_required">Java 8 required</a>
+</li>
+<li>
+<a href="#Specification_APIs">Specification APIs</a>
+</li>
+<li>
+<a href="#Servlet_4.0_API">Servlet 4.0 API</a>
+</li>
+<li>
+<a href="#JavaServer_Pages_2.3">JavaServer Pages 2.3</a>
+</li>
+<li>
+<a href="#Expression_Language_3.1">Expression Language 3.1</a>
+</li>
+<li>
+<a href="#WebSocket_2.0">WebSocket 2.0</a>
+</li>
+<li>
+<a href="#BIO_connector_removed">BIO connector removed</a>
+</li>
+<li>
+<a href="#Comet_support_removed">Comet support removed</a>
+</li>
+<li>
+<a href="#HTTP/2_support_added">HTTP/2 support added</a>
+</li>
+<li>
+<a href="#TLS_virtua_hosting_and_multiple_certificate_support_added">TLS virtua hosting and multiple certificate support added</a>
+</li>
+<li>
+<a href="#Internal_APIs">Internal APIs</a>
+</li>
+</ol>
+</li>
+</ul>
+
+</div>
+<h3 id="General">General</h3>
+<div class="text">
+
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+
+</div>
+<h3 id="Migrating_from_8.0.x_to_9.0.x">Migrating from 8.0.x to 9.0.x</h3>
+<div class="text">
+
+  
+<p> This section lists all the known changes between 8.0.x and 9.0.x which may
+  cause backwards compatibility problems when upgrading.</p>
+
+  
+<div class="subsection">
+<h4 id="Java_8_required">Java 8 required</h4>
+<div class="text">
+
+    
+<p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x
+    required Java 7.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Specification_APIs">Specification APIs</h4>
+<div class="text">
+
+    
+<p>Apache Tomcat 9 supports the Java Servlet 4.0, JavaServer Pages 2.4,
+    Java Unified Expression Language 3.1 and Java WebSocket 2.0
+    <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
+    The changes between versions of specifications may be found in the
+    <em>Changes</em> appendix in each of specification documents.
+    </p>
+
+  
+</div>
+</div>
+  
+  
+<div class="subsection">
+<h4 id="Servlet_4.0_API">Servlet 4.0 API</h4>
+<div class="text">
+  
+    
+<p>In JSP pages that use wildcard import syntax the new classes added in
+    Servlet API may conflict with ones in web applications.
+    For example, if package <code>"a"</code> contains class
+    <code>PushBuilder</code>, the following JSP page will cease to compile in
+    Tomcat 8:</p>
+
+    
+<div class="codeBox">
+<pre>
+<code>&lt;%@page import="a.*"%&gt;
+&lt;% PushBuilder pushBuilder = new PushBuilder(); %&gt;</code>
+</pre>
+</div>
+
+    
+<p>This happens because the implicit import of
+    <code>javax.servlet.http.*</code> and the explicit import of
+    <code>a.*</code> will provide conflicting definitions of class
+    <code>PushBuilder</code> that was added in Servlet 4.0. The solution is to
+    use the explicit import, <code>import="a.PushBuilder"</code>.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="JavaServer_Pages_2.3">JavaServer Pages 2.3</h4>
+<div class="text">
+  
+    
+<p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of JSP with a version of 2.4.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Expression_Language_3.1">Expression Language 3.1</h4>
+<div class="text">
+  
+    
+<p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of expression language with a version of
+    3.1.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="WebSocket_2.0">WebSocket 2.0</h4>
+<div class="text">
+  
+    
+<p>No information is currently available. It is anticipated that Java EE 8
+    will include an updated WebSocket specification with a version of 2.0.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="BIO_connector_removed">BIO connector removed</h4>
+<div class="text">
+
+    
+<p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
+    removed. Users are recommended to switch to the Java non-blocking IO
+    implementation (NIO).</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Comet_support_removed">Comet support removed</h4>
+<div class="text">
+
+    
+<p>Comet support has been removed without a direct replacement. Applications
+    using Comet are recommended to migrate to WebSockets.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="HTTP/2_support_added">HTTP/2 support added</h4>
+<div class="text">
+
+    
+<p>TODO.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="TLS_virtua_hosting_and_multiple_certificate_support_added">TLS virtua hosting and multiple certificate support added</h4>
+<div class="text">
+
+    
+<p>TODO.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Internal_APIs">Internal APIs</h4>
+<div class="text">
+  
+    
+<p>Whilst the Tomcat 9 internal API is broadly compatible with Tomcat 8
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat's
+    internals should review the JavaDoc for the relevant API.</p>
+
+    
+<p>Of particular note are:</p>
+    
+<ul>
+      
+<li>Significant refactoring has taken place throughout the connectors to
+          reduce duplicate code and to align behaviour across implementations.
+          </li>
+    
+</ul>
+
+  
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div id="footer">
+    Copyright &copy; 1999-2015, The Apache Software Foundation
+    <br>
+    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+    project logo are trademarks of the Apache Software Foundation.
+  </div>
+</footer>
+</div>
+</body>
+</html>

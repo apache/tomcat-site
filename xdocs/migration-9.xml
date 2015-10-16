@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Migration Guide - Tomcat 9.0.x</title>
+  </properties>
+
+<body>
+
+<section name="Table of Contents">
+<toc/>
+</section>
+
+<section name="General">
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+</section>
+
+<section name="Migrating from 8.0.x to 9.0.x">
+
+  <p> This section lists all the known changes between 8.0.x and 9.0.x which may
+  cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="Java 8 required">
+
+    <p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x
+    required Java 7.</p>
+
+  </subsection>
+
+  <subsection name="Specification APIs">
+
+    <p>Apache Tomcat 9 supports the Java Servlet 4.0, JavaServer Pages 2.4,
+    Java Unified Expression Language 3.1 and Java WebSocket 2.0
+    <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
+    The changes between versions of specifications may be found in the
+    <em>Changes</em> appendix in each of specification documents.
+    </p>
+
+  </subsection>
+  
+  <subsection name="Servlet 4.0 API">
+  
+    <p>In JSP pages that use wildcard import syntax the new classes added in
+    Servlet API may conflict with ones in web applications.
+    For example, if package <code>"a"</code> contains class
+    <code>PushBuilder</code>, the following JSP page will cease to compile in
+    Tomcat 8:</p>
+
+    <source><![CDATA[<%@page import="a.*"%>
+<% PushBuilder pushBuilder = new PushBuilder(); %>]]></source>
+
+    <p>This happens because the implicit import of
+    <code>javax.servlet.http.*</code> and the explicit import of
+    <code>a.*</code> will provide conflicting definitions of class
+    <code>PushBuilder</code> that was added in Servlet 4.0. The solution is to
+    use the explicit import, <code>import="a.PushBuilder"</code>.</p>
+
+  </subsection>
+
+  <subsection name="JavaServer Pages 2.3">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of JSP with a version of 2.4.</p>
+
+  </subsection>
+
+  <subsection name="Expression Language 3.1">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of expression language with a version of
+    3.1.</p>
+
+  </subsection>
+
+  <subsection name="WebSocket 2.0">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include an updated WebSocket specification with a version of 2.0.</p>
+
+  </subsection>
+
+  <subsection name="BIO connector removed">
+
+    <p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
+    removed. Users are recommended to switch to the Java non-blocking IO
+    implementation (NIO).</p>
+
+  </subsection>
+
+  <subsection name="Comet support removed">
+
+    <p>Comet support has been removed without a direct replacement. Applications
+    using Comet are recommended to migrate to WebSockets.</p>
+
+  </subsection>
+
+  <subsection name="HTTP/2 support added">
+
+    <p>TODO.</p>
+
+  </subsection>
+
+  <subsection name="TLS virtua hosting and multiple certificate support added">
+
+    <p>TODO.</p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 9 internal API is broadly compatible with Tomcat 8
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+    <p>Of particular note are:</p>
+    <ul>
+      <li>Significant refactoring has taken place throughout the connectors to
+          reduce duplicate code and to align behaviour across implementations.
+          </li>
+    </ul>
+
+  </subsection>
+
+</section>
+
+</body>
+</document>
