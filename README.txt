@@ -29,7 +29,7 @@ Sparse checkout:
     svn checkout --depth immediates https://svn.apache.org/repos/asf/tomcat/site/trunk tomcat-site
     cd tomcat-site
     svn update --set-depth immediates docs
-    svn update --set-depth infinity xdocs jk-xdocs native-1.1-xdocs
+    svn update --set-depth infinity xdocs jk-xdocs native-xdocs
     svn update --set-depth infinity docs/articles docs/images docs/stylesheets
 
   This checkout omits a number of subdirectories inside of docs/. You will
@@ -144,7 +144,7 @@ For the latter:
 
 A)
 
-   Use "svn switch" command to switch jk-xdocs or native-1.1-xdocs
+   Use "svn switch" command to switch jk-xdocs or native-xdocs
    directories to xdocs directory of trunk or tag in those projects.
 
    The command looks like the following:
@@ -152,28 +152,28 @@ A)
    To switch to current development versions:
 
       svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
+      svn switch "^/tomcat/native/xdocs" native-xdocs
 
    To switch to tags for released versions:
 
       svn switch "^/tomcat/jk/tags/JK_1_2_xx/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_xx/xdocs" native-1.1-xdocs
+      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_2_xx/xdocs" native-xdocs
 
    To switch back to empty directories:
 
       svn switch "^/tomcat/site/trunk/jk-xdocs" jk-xdocs
-      svn switch "^/tomcat/site/trunk/native-1.1-xdocs" native-1.1-xdocs
+      svn switch "^/tomcat/site/trunk/native-xdocs" native-xdocs
 
 
    To check to what URLs switched directories are mapped:
 
       svn info jk-xdocs
-      svn info native-1.1-xdocs
+      svn info native-xdocs
 
 B)
 
    Or just copy the contents of "xdocs" directory from source
-   distributive of released version into empty jk-xdocs or native-1.1-xdocs
+   distributive of released version into empty jk-xdocs or native-xdocs
    directories.
 
 2. cd into your tomcat-site directory and execute one of the following
