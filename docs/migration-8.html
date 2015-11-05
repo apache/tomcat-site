@@ -247,6 +247,9 @@
 <a href="#Upgrading_8.0.x">Upgrading 8.0.x</a>
 <ol>
 <li>
+<a href="#Tomcat_8.0.x_noteable_changes">Tomcat 8.0.x noteable changes</a>
+</li>
+<li>
 <a href="#Tomcat_8.0.x_configuration_file_differences">Tomcat 8.0.x configuration file differences</a>
 </li>
 </ol>
@@ -648,6 +651,35 @@ of Apache Tomcat.</p>
   as part of the upgrade. To assist with the identification of these changes,
   the form below may be used to view the differences between the configuration
   files in different versions of Tomcat 8.</p>
+
+  
+<div class="subsection">
+<h4 id="Tomcat_8.0.x_noteable_changes">Tomcat 8.0.x noteable changes</h4>
+<div class="text">
+    
+<p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occassionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    
+<ul>
+      
+<li>
+<p>In 8.0.24 onwards, the meaning of value 0 for <code>maxPostSize</code>
+        attribute on connectors was changed to mean a limit of zero rather
+        than no limit to align it with <code>maxSavePostSize</code> and to
+        be more intuitive.</p>
+        
+<p>Reference: <a href="tomcat-8.0-doc/config/http.html">HTTP connector</a>,
+        <a href="tomcat-8.0-doc/config/ajp.html">AJP connector</a>.</p>
+      
+</li>
+    
+</ul>
+  
+</div>
+</div>
   
   
 <div class="subsection">
