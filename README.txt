@@ -152,7 +152,7 @@ A)
    To switch to current development versions:
 
       svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/xdocs" native-xdocs
+      svn switch "^/tomcat/native/trunk/xdocs" native-xdocs
 
    To switch to tags for released versions:
 
