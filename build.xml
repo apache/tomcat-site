@@ -152,6 +152,28 @@
     </copy>
   </target>
 
+  <target name="release-9"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 9.0">
+
+    <!-- Download the latest version -->
+    <antcall target="downloadgz">
+      <param name="sourcefile" value="${tomcat90.loc}"/>
+      <param name="destfile" value="${tomcat90.home}/tomcat-9.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat90.home}"/>
+    </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-9.0-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-9.0-doc" >
+      <fileset dir="${tomcat90.home}/tomcat-9.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
   <target name="release-native"
           depends="docs"
           description="Used after a release to update the docs for Tomcat Native">
