@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>EmbeddedServletOptions (Apache Tomcat 8.0.28 API Documentation)</title>
+<title>EmbeddedServletOptions (Apache Tomcat 8.0.29 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="EmbeddedServletOptions (Apache Tomcat 8.0.28 API Documentation)";
+        parent.document.title="EmbeddedServletOptions (Apache Tomcat 8.0.29 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.28</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.29</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -303,15 +303,23 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#getQuoteAttributeEL()">getQuoteAttributeEL</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#getRecompileOnFail()">getRecompileOnFail</a></strong>()</code>
 <div class="block">Re-compile on failure.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#getScratchDir()">getScratchDir</a></strong>()</code>
 <div class="block">What is my scratch dir?</div>
 </td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#getStrictQuoteEscaping()">getStrictQuoteEscaping</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/jasper/compiler/TagPluginManager.html" title="class in org.apache.jasper.compiler">TagPluginManager</a></code></td>
@@ -372,6 +380,10 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#setQuoteAttributeEL(boolean)">setQuoteAttributeEL</a></strong>(boolean&nbsp;b)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/jasper/EmbeddedServletOptions.html#setTldCache(org.apache.jasper.compiler.TldCache)">setTldCache</a></strong>(<a href="../../../org/apache/jasper/compiler/TldCache.html" title="class in org.apache.jasper.compiler">TldCache</a>&nbsp;tldCache)</code>&nbsp;</td>
 </tr>
@@ -452,6 +464,29 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
 <h4>setProperty</h4>
 <pre>public&nbsp;void&nbsp;setProperty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+</li>
+</ul>
+<a name="setQuoteAttributeEL(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setQuoteAttributeEL</h4>
+<pre>public&nbsp;void&nbsp;setQuoteAttributeEL(boolean&nbsp;b)</pre>
+</li>
+</ul>
+<a name="getQuoteAttributeEL()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getQuoteAttributeEL</h4>
+<pre>public&nbsp;boolean&nbsp;getQuoteAttributeEL()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/apache/jasper/Options.html#getQuoteAttributeEL()">getQuoteAttributeEL</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/jasper/Options.html" title="interface in org.apache.jasper">Options</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if EL expressions used within attributes should have
+         the quoting rules in JSP.1.6 applied to the expression.</dd></dl>
 </li>
 </ul>
 <a name="getKeepGenerated()">
@@ -928,7 +963,7 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
 <a name="getJspIdleTimeout()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getJspIdleTimeout</h4>
 <pre>public&nbsp;int&nbsp;getJspIdleTimeout()</pre>
@@ -938,6 +973,20 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../org/apache/jasper/Options.html#getJspIdleTimeout()">getJspIdleTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/jasper/Options.html" title="interface in org.apache.jasper">Options</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getStrictQuoteEscaping()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getStrictQuoteEscaping</h4>
+<pre>public&nbsp;boolean&nbsp;getStrictQuoteEscaping()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/apache/jasper/Options.html#getStrictQuoteEscaping()">getStrictQuoteEscaping</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/jasper/Options.html" title="interface in org.apache.jasper">Options</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the quote escaping required by section JSP.1.6 of
+         the JSP specification should be applied to scriplet expression.</dd></dl>
 </li>
 </ul>
 </li>
@@ -962,7 +1011,7 @@ implements <a href="../../../org/apache/jasper/Options.html" title="interface in
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.28</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.29</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

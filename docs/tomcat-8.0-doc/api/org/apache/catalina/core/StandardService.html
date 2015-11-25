@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>StandardService (Apache Tomcat 8.0.28 API Documentation)</title>
+<title>StandardService (Apache Tomcat 8.0.29 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StandardService (Apache Tomcat 8.0.28 API Documentation)";
+        parent.document.title="StandardService (Apache Tomcat 8.0.29 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.28</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.29</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -280,9 +280,7 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/mapper/Mapper.html" title="class in org.apache.catalina.mapper">Mapper</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardService.html#getMapper()">getMapper</a></strong>()</code>
-<div class="block">The mapper associated with this Service.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardService.html#getMapper()">getMapper</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -522,12 +520,10 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <li class="blockList">
 <h4>getMapper</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/catalina/mapper/Mapper.html" title="class in org.apache.catalina.mapper">Mapper</a>&nbsp;getMapper()</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/catalina/Service.html#getMapper()">Service</a></code></strong></div>
-<div class="block">The mapper associated with this Service.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#getMapper()">getMapper</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the mapper associated with this Service.</dd></dl>
 </li>
 </ul>
 <a name="getContainer()">
@@ -542,7 +538,8 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#getContainer()">getContainer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the <code>Container</code> that handles requests for all
+ <code>Connectors</code> associated with this Service.</dd></dl>
 </li>
 </ul>
 <a name="setContainer(org.apache.catalina.Container)">
@@ -571,7 +568,7 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the name of this Service.</dd></dl>
 </li>
 </ul>
 <a name="setName(java.lang.String)">
@@ -599,7 +596,7 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#getServer()">getServer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the <code>Server</code> with which we are associated (if any).</dd></dl>
 </li>
 </ul>
 <a name="setServer(org.apache.catalina.Server)">
@@ -662,7 +659,7 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#findConnectors()">findConnectors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the set of associated Connectors</dd></dl>
 </li>
 </ul>
 <a name="removeConnector(org.apache.catalina.connector.Connector)">
@@ -848,7 +845,9 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Service.html#getParentClassLoader()">getParentClassLoader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the parent class loader for this component. If not set, return
+ <a href="../../../../org/apache/catalina/Service.html#getServer()"><code>Service.getServer()</code></a> <a href="../../../../org/apache/catalina/Server.html#getParentClassLoader()"><code>Server.getParentClassLoader()</code></a>. If no server
+ has been set, return the system class loader.</dd></dl>
 </li>
 </ul>
 <a name="setParentClassLoader(java.lang.ClassLoader)">
@@ -920,7 +919,7 @@ implements <a href="../../../../org/apache/catalina/Service.html" title="interfa
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.28</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.29</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
