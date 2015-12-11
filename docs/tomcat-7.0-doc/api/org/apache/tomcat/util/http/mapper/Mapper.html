@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mapper (Apache Tomcat 7.0.65 API Documentation)</title>
+<title>Mapper (Apache Tomcat 7.0.67 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Mapper (Apache Tomcat 7.0.65 API Documentation)";
+        parent.document.title="Mapper (Apache Tomcat 7.0.67 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.65</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.67</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -222,7 +222,8 @@ extends java.lang.Object</pre>
                  java.lang.String[]&nbsp;welcomeResources,
                  javax.naming.Context&nbsp;resources)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection)"><code>addContextVersion(String, Object, String, String, Object, String[], javax.naming.Context, Collection)</code></a></i></div>
+<div class="block"><i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection,%20boolean,%20boolean)"><code>addContextVersion(String, Object, String, String, Object, String[],
+             javax.naming.Context, Collection, boolean, boolean)</code></a></i></div>
 </div>
 </td>
 </tr>
@@ -236,10 +237,28 @@ extends java.lang.Object</pre>
                  java.lang.String[]&nbsp;welcomeResources,
                  javax.naming.Context&nbsp;resources,
                  java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers)</code>
-<div class="block">Add a new Context to an existing Host.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection,%20boolean,%20boolean)"><code>addContextVersion(String, Object, String, String, Object, String[],
+             javax.naming.Context, Collection, boolean, boolean)</code></a></i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection,%20boolean,%20boolean)">addContextVersion</a></strong>(java.lang.String&nbsp;hostName,
+                 java.lang.Object&nbsp;host,
+                 java.lang.String&nbsp;path,
+                 java.lang.String&nbsp;version,
+                 java.lang.Object&nbsp;context,
+                 java.lang.String[]&nbsp;welcomeResources,
+                 javax.naming.Context&nbsp;resources,
+                 java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers,
+                 boolean&nbsp;mapperContextRootRedirectEnabled,
+                 boolean&nbsp;mapperDirectoryRedirectEnabled)</code>
+<div class="block">Add a new Context to an existing Host.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addHost(java.lang.String,%20java.lang.String[],%20java.lang.Object)">addHost</a></strong>(java.lang.String&nbsp;name,
        java.lang.String[]&nbsp;aliases,
@@ -247,14 +266,14 @@ extends java.lang.Object</pre>
 <div class="block">Add a new host to the mapper.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addHostAlias(java.lang.String,%20java.lang.String)">addHostAlias</a></strong>(java.lang.String&nbsp;name,
             java.lang.String&nbsp;alias)</code>
 <div class="block">Add an alias to an existing host.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addWelcomeFile(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">addWelcomeFile</a></strong>(java.lang.String&nbsp;hostName,
               java.lang.String&nbsp;contextPath,
@@ -263,7 +282,7 @@ extends java.lang.Object</pre>
 <div class="block">Add a welcome file to the given context.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addWrapper(org.apache.tomcat.util.http.mapper.Mapper.ContextVersion,%20java.lang.String,%20java.lang.Object,%20boolean,%20boolean)">addWrapper</a></strong>(<a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.ContextVersion.html" title="class in org.apache.tomcat.util.http.mapper">Mapper.ContextVersion</a>&nbsp;context,
           java.lang.String&nbsp;path,
@@ -273,14 +292,14 @@ extends java.lang.Object</pre>
 <div class="block">Adds a wrapper to the given context.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addWrapper(java.lang.String,%20java.lang.Object,%20boolean,%20boolean)">addWrapper</a></strong>(java.lang.String&nbsp;path,
           java.lang.Object&nbsp;wrapper,
           boolean&nbsp;jspWildCard,
           boolean&nbsp;resourceOnly)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addWrapper(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20boolean,%20boolean)">addWrapper</a></strong>(java.lang.String&nbsp;hostName,
           java.lang.String&nbsp;contextPath,
@@ -290,14 +309,14 @@ extends java.lang.Object</pre>
           boolean&nbsp;jspWildCard,
           boolean&nbsp;resourceOnly)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addWrappers(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.util.Collection)">addWrappers</a></strong>(java.lang.String&nbsp;hostName,
            java.lang.String&nbsp;contextPath,
            java.lang.String&nbsp;version,
            java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#clearWelcomeFiles(java.lang.String,%20java.lang.String,%20java.lang.String)">clearWelcomeFiles</a></strong>(java.lang.String&nbsp;hostName,
                  java.lang.String&nbsp;contextPath,
@@ -305,7 +324,7 @@ extends java.lang.Object</pre>
 <div class="block">Clear the welcome files for the given context.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#map(org.apache.tomcat.util.buf.MessageBytes,%20org.apache.tomcat.util.http.mapper.MappingData)">map</a></strong>(<a href="../../../../../../org/apache/tomcat/util/buf/MessageBytes.html" title="class in org.apache.tomcat.util.buf">MessageBytes</a>&nbsp;uri,
    <a href="../../../../../../org/apache/tomcat/util/http/mapper/MappingData.html" title="class in org.apache.tomcat.util.http.mapper">MappingData</a>&nbsp;mappingData)</code>
@@ -313,7 +332,7 @@ extends java.lang.Object</pre>
  mutating the given mapping data.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#map(org.apache.tomcat.util.buf.MessageBytes,%20org.apache.tomcat.util.buf.MessageBytes,%20java.lang.String,%20org.apache.tomcat.util.http.mapper.MappingData)">map</a></strong>(<a href="../../../../../../org/apache/tomcat/util/buf/MessageBytes.html" title="class in org.apache.tomcat.util.buf">MessageBytes</a>&nbsp;host,
    <a href="../../../../../../org/apache/tomcat/util/buf/MessageBytes.html" title="class in org.apache.tomcat.util.buf">MessageBytes</a>&nbsp;uri,
@@ -322,7 +341,7 @@ extends java.lang.Object</pre>
 <div class="block">Map the specified host name and URI, mutating the given mapping data.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#pauseContextVersion(java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.String)">pauseContextVersion</a></strong>(java.lang.Object&nbsp;ctxt,
                    java.lang.String&nbsp;hostName,
@@ -331,7 +350,7 @@ extends java.lang.Object</pre>
 <div class="block">Mark a context as being reloaded.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeContextVersion(java.lang.String,%20java.lang.String,%20java.lang.String)">removeContextVersion</a></strong>(java.lang.String&nbsp;hostName,
                     java.lang.String&nbsp;path,
@@ -339,19 +358,19 @@ extends java.lang.Object</pre>
 <div class="block">Remove a context from an existing host.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeHost(java.lang.String)">removeHost</a></strong>(java.lang.String&nbsp;name)</code>
 <div class="block">Remove a host from the mapper.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeHostAlias(java.lang.String)">removeHostAlias</a></strong>(java.lang.String&nbsp;alias)</code>
 <div class="block">Remove a host alias</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeWelcomeFile(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">removeWelcomeFile</a></strong>(java.lang.String&nbsp;hostName,
                  java.lang.String&nbsp;contextPath,
@@ -360,18 +379,18 @@ extends java.lang.Object</pre>
 <div class="block">Remove a welcome file from the given context.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeWrapper(org.apache.tomcat.util.http.mapper.Mapper.ContextVersion,%20java.lang.String)">removeWrapper</a></strong>(<a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.ContextVersion.html" title="class in org.apache.tomcat.util.http.mapper">Mapper.ContextVersion</a>&nbsp;context,
              java.lang.String&nbsp;path)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeWrapper(java.lang.String)">removeWrapper</a></strong>(java.lang.String&nbsp;path)</code>
 <div class="block">Remove a wrapper from the context associated with this wrapper.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#removeWrapper(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">removeWrapper</a></strong>(java.lang.String&nbsp;hostName,
              java.lang.String&nbsp;contextPath,
@@ -380,7 +399,7 @@ extends java.lang.Object</pre>
 <div class="block">Remove a wrapper from an existing context.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#setContext(java.lang.String,%20java.lang.String[],%20javax.naming.Context)">setContext</a></strong>(java.lang.String&nbsp;path,
           java.lang.String[]&nbsp;welcomeResources,
@@ -388,7 +407,7 @@ extends java.lang.Object</pre>
 <div class="block">Set context, used for wrapper mapping (request dispatcher).</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#setDefaultHostName(java.lang.String)">setDefaultHostName</a></strong>(java.lang.String&nbsp;defaultHostName)</code>
 <div class="block">Set default host.</div>
@@ -570,12 +589,34 @@ public&nbsp;void&nbsp;addContextVersion(java.lang.String&nbsp;hostName,
                                 java.lang.Object&nbsp;context,
                                 java.lang.String[]&nbsp;welcomeResources,
                                 javax.naming.Context&nbsp;resources)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection)"><code>addContextVersion(String, Object, String, String, Object, String[], javax.naming.Context, Collection)</code></a></i></div>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection,%20boolean,%20boolean)"><code>addContextVersion(String, Object, String, String, Object, String[],
+             javax.naming.Context, Collection, boolean, boolean)</code></a></i></div>
 <div class="block">Add a new Context to an existing Host.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>hostName</code> - Virtual host name this context belongs to</dd><dd><code>host</code> - Host object</dd><dd><code>path</code> - Context path</dd><dd><code>version</code> - Context version</dd><dd><code>context</code> - Context object</dd><dd><code>welcomeResources</code> - Welcome files defined for this context</dd><dd><code>resources</code> - Static resources of the context</dd></dl>
 </li>
 </ul>
 <a name="addContextVersion(java.lang.String, java.lang.Object, java.lang.String, java.lang.String, java.lang.Object, java.lang.String[], javax.naming.Context, java.util.Collection)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addContextVersion</h4>
+<pre>@Deprecated
+public&nbsp;void&nbsp;addContextVersion(java.lang.String&nbsp;hostName,
+                                java.lang.Object&nbsp;host,
+                                java.lang.String&nbsp;path,
+                                java.lang.String&nbsp;version,
+                                java.lang.Object&nbsp;context,
+                                java.lang.String[]&nbsp;welcomeResources,
+                                javax.naming.Context&nbsp;resources,
+                                java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../../../org/apache/tomcat/util/http/mapper/Mapper.html#addContextVersion(java.lang.String,%20java.lang.Object,%20java.lang.String,%20java.lang.String,%20java.lang.Object,%20java.lang.String[],%20javax.naming.Context,%20java.util.Collection,%20boolean,%20boolean)"><code>addContextVersion(String, Object, String, String, Object, String[],
+             javax.naming.Context, Collection, boolean, boolean)</code></a></i></div>
+<div class="block">Add a new Context to an existing Host.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hostName</code> - Virtual host name this context belongs to</dd><dd><code>host</code> - Host object</dd><dd><code>path</code> - Context path</dd><dd><code>version</code> - Context version</dd><dd><code>context</code> - Context object</dd><dd><code>welcomeResources</code> - Welcome files defined for this context</dd><dd><code>resources</code> - Static resources of the context</dd><dd><code>wrappers</code> - Information on wrapper mappings</dd></dl>
+</li>
+</ul>
+<a name="addContextVersion(java.lang.String, java.lang.Object, java.lang.String, java.lang.String, java.lang.Object, java.lang.String[], javax.naming.Context, java.util.Collection, boolean, boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -588,9 +629,11 @@ public&nbsp;void&nbsp;addContextVersion(java.lang.String&nbsp;hostName,
                      java.lang.Object&nbsp;context,
                      java.lang.String[]&nbsp;welcomeResources,
                      javax.naming.Context&nbsp;resources,
-                     java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers)</pre>
+                     java.util.Collection&lt;<a href="../../../../../../org/apache/tomcat/util/http/mapper/WrapperMappingInfo.html" title="class in org.apache.tomcat.util.http.mapper">WrapperMappingInfo</a>&gt;&nbsp;wrappers,
+                     boolean&nbsp;mapperContextRootRedirectEnabled,
+                     boolean&nbsp;mapperDirectoryRedirectEnabled)</pre>
 <div class="block">Add a new Context to an existing Host.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hostName</code> - Virtual host name this context belongs to</dd><dd><code>host</code> - Host object</dd><dd><code>path</code> - Context path</dd><dd><code>version</code> - Context version</dd><dd><code>context</code> - Context object</dd><dd><code>welcomeResources</code> - Welcome files defined for this context</dd><dd><code>resources</code> - Static resources of the context</dd><dd><code>wrappers</code> - Information on wrapper mappings</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hostName</code> - Virtual host name this context belongs to</dd><dd><code>host</code> - Host object</dd><dd><code>path</code> - Context path</dd><dd><code>version</code> - Context version</dd><dd><code>context</code> - Context object</dd><dd><code>welcomeResources</code> - Welcome files defined for this context</dd><dd><code>resources</code> - Static resources of the context</dd><dd><code>wrappers</code> - Information on wrapper mappings</dd><dd><code>mapperContextRootRedirectEnabled</code> - Mapper does context root redirects</dd><dd><code>mapperDirectoryRedirectEnabled</code> - Mapper does directory redirects</dd></dl>
 </li>
 </ul>
 <a name="removeContextVersion(java.lang.String, java.lang.String, java.lang.String)">
@@ -810,7 +853,7 @@ public&nbsp;void&nbsp;addContextVersion(java.lang.String&nbsp;hostName,
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.65</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.67</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
