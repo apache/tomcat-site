@@ -3,6 +3,39 @@
   <p>
   This is the Changelog for Tomcat Native 1.2.
   </p>
+</div><h3 id="Changes_in_1.2.3">Changes in 1.2.3</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Remove Java classes that do not have C implementation code
+      for their native methods in the current library. They were
+      used for NPN support which is superseded by ALPN support
+      in the current code. (kkolinko)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix typo in declaration of a stub method used when the library is
+      compiled without OpenSSL support. (kkolinko)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix the signature of the implementation of the native SSL method
+      newSSL() in the case when OPENSSL is not available. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix the signature of the implementation of the native SSLSocket
+      method getInfoB() to return jbyteArray instead of jobject.
+      This is consistent with what it actually returns and how
+      the native Java method is declared. (rjung)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add support for using Java ketstores for certificates and keys. (jfclere)
+    </li>
+    <li><img alt="Code: " class="icon" src="../images/code.gif">
+      Remove code that performs a read after a renegotiation that appears to be
+      unnecessary with OpenSDSL 1.0.2. (billbarker)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Expose <code>SSL_renegotiate</code> to the Java API. (remm)
+    </li>
+  </ul>
 </div><h3 id="Changes_in_1.2.2">Changes in 1.2.2</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Fix: " class="icon" src="../images/fix.gif">
