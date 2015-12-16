@@ -130,6 +130,7 @@ relevant Tomcat components are fully present in your working copy.
    cd tomcat-site
    svn up --set-depth infinity docs/connectors-doc
    svn up --set-depth infinity docs/native-doc
+   svn up --set-depth infinity docs/native-1.1-doc
 
 One way to update documentation is to:
 
@@ -146,7 +147,7 @@ For the latter:
 
 A)
 
-   Use "svn switch" command to switch jk-xdocs or native-xdocs
+   Use "svn switch" command to switch jk-xdocs, native-xdocs or native-1.1-xdocs
    directories to xdocs directory of trunk or tag in those projects.
 
    The command looks like the following:
@@ -155,22 +156,26 @@ A)
 
       svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
       svn switch "^/tomcat/native/trunk/xdocs" native-xdocs
+      svn switch "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
 
    To switch to tags for released versions:
 
       svn switch "^/tomcat/jk/tags/JK_1_2_xx/xdocs" jk-xdocs
       svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_2_xx/xdocs" native-xdocs
+      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_xx/xdocs" native-1.1-xdocs
 
    To switch back to empty directories:
 
       svn switch "^/tomcat/site/trunk/jk-xdocs" jk-xdocs
       svn switch "^/tomcat/site/trunk/native-xdocs" native-xdocs
+      svn switch "^/tomcat/site/trunk/native-1.1-xdocs" native-1.1-xdocs
 
 
    To check to what URLs switched directories are mapped:
 
       svn info jk-xdocs
       svn info native-xdocs
+      svn info native-1.1-xdocs
 
 B)
 
@@ -183,6 +188,7 @@ commands:
 
    ant release-jk
    ant release-native
+   ant release-native-1.1
 
 3. Check the changes with "svn status" command.
 
