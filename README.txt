@@ -156,7 +156,7 @@ A)
 
       svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
       svn switch "^/tomcat/native/trunk/xdocs" native-xdocs
-      svn switch "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
+      svn switch --ignore-ancestry "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
 
    To switch to tags for released versions:
 
