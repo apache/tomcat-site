@@ -96,7 +96,7 @@
         <xsl:variable name="src-asf-logo">
           <xsl:value-of select="$relative-path"/><xsl:value-of select="$asf-logo"/>
         </xsl:variable>
-		<div style="height: 1px;"/>
+        <div style="height: 1px;"/>
         <div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="{$src-asf-logo}" alt="The Apache Software Foundation" style="width: 205px; height: 83px; margin-right: 15px;"/></a></div>
         <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
         <div style="clear: right;"/>
