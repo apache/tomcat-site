@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>StandardSession (Apache Tomcat 8.0.30 API Documentation)</title>
+<title>StandardSession (Apache Tomcat 8.0.32 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StandardSession (Apache Tomcat 8.0.30 API Documentation)";
+        parent.document.title="StandardSession (Apache Tomcat 8.0.32 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.30</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -179,7 +179,10 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 <tr class="altColor">
 <td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#excludedAttributes">excludedAttributes</a></strong></code>
-<div class="block">Set of attribute names which are not allowed to be persisted.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><code>Constants.excludedAttributeNames</code></a> instead. Will be
+             removed in Tomcat 9.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -366,24 +369,34 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 <tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String)">exclude</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Exclude standard attributes that cannot be serialized.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String,%20java.lang.Object)"><code>exclude(String, Object)</code></a>. Will be removed in
+             Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String,%20java.lang.Object)">exclude</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Should the given session attribute be excluded?</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#expire()">expire</a></strong>()</code>
 <div class="block">Perform the internal processing required to invalidate this session,
  without triggering an exception if the session has already expired.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#expire(boolean)">expire</a></strong>(boolean&nbsp;notify)</code>
 <div class="block">Perform the internal processing required to invalidate this session,
  without triggering an exception if the session has already expired.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#fireSessionEvent(java.lang.String,%20java.lang.Object)">fireSessionEvent</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;data)</code>
@@ -391,66 +404,66 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  occurred for this Session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getAttribute(java.lang.String)">getAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Return the object bound with the specified name in this session, or
  <code>null</code> if no object is bound with that name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Enumeration.html?is-external=true" title="class or interface in java.util">Enumeration</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getAttributeNames()">getAttributeNames</a></strong>()</code>
 <div class="block">Return an <code>Enumeration</code> of <code>String</code> objects
  containing the names of the objects bound to this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getAuthType()">getAuthType</a></strong>()</code>
 <div class="block">Return the authentication type used to authenticate our cached
  Principal, if any.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getCreationTime()">getCreationTime</a></strong>()</code>
 <div class="block">Return the time when this session was created, in milliseconds since
  midnight, January 1, 1970 GMT.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getCreationTimeInternal()">getCreationTimeInternal</a></strong>()</code>
 <div class="block">Return the time when this session was created, in milliseconds since
  midnight, January 1, 1970 GMT, bypassing the session validation checks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getId()">getId</a></strong>()</code>
 <div class="block">Return the session identifier for this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getIdInternal()">getIdInternal</a></strong>()</code>
 <div class="block">Return the session identifier for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getIdleTime()">getIdleTime</a></strong>()</code>
 <div class="block">Return the idle time (in milliseconds) from last client access time.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getIdleTimeInternal()">getIdleTimeInternal</a></strong>()</code>
 <div class="block">Return the idle time from last client access time without invalidation check</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getLastAccessedTime()">getLastAccessedTime</a></strong>()</code>
 <div class="block">Return the last time the client sent a request associated with this
@@ -458,59 +471,59 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  GMT.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getLastAccessedTimeInternal()">getLastAccessedTimeInternal</a></strong>()</code>
 <div class="block">Return the last client access time without invalidation check</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getManager()">getManager</a></strong>()</code>
 <div class="block">Return the Manager within which this Session is valid.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getMaxInactiveInterval()">getMaxInactiveInterval</a></strong>()</code>
 <div class="block">Return the maximum time interval, in seconds, between client requests
  before the servlet container will invalidate the session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getNote(java.lang.String)">getNote</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Return the object bound with the specified name to the internal notes
  for this session, or <code>null</code> if no such binding exists.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getNoteNames()">getNoteNames</a></strong>()</code>
 <div class="block">Return an Iterator containing the String names of all notes bindings
  that exist for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getPrincipal()">getPrincipal</a></strong>()</code>
 <div class="block">Return the authenticated Principal that is associated with this Session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../servletapi/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getServletContext()">getServletContext</a></strong>()</code>
 <div class="block">Return the ServletContext to which this session belongs.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../servletapi/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http">HttpSession</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getSession()">getSession</a></strong>()</code>
 <div class="block">Return the <code>HttpSession</code> for which this object
  is the facade.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../servletapi/javax/servlet/http/HttpSessionContext.html?is-external=true" title="class or interface in javax.servlet.http">HttpSessionContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getSessionContext()">getSessionContext</a></strong>()</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -520,7 +533,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getThisAccessedTime()">getThisAccessedTime</a></strong>()</code>
 <div class="block">Return the last time the client sent a request associated with this
@@ -528,13 +541,13 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  GMT.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getThisAccessedTimeInternal()">getThisAccessedTimeInternal</a></strong>()</code>
 <div class="block">Return the last client access time without invalidation check</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getValue(java.lang.String)">getValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -543,7 +556,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#getValueNames()">getValueNames</a></strong>()</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -552,54 +565,55 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#invalidate()">invalidate</a></strong>()</code>
 <div class="block">Invalidates this session and unbinds any objects bound to it.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#isAttributeDistributable(java.lang.String,%20java.lang.Object)">isAttributeDistributable</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
-<div class="block">Check whether the Object can be distributed.</div>
+<div class="block">Does the session implementation support the distributing of the given
+ attribute?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#isNew()">isNew</a></strong>()</code>
 <div class="block">Return <code>true</code> if the client does not yet know about the
  session, or if the client chooses not to join the session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#isValid()">isValid</a></strong>()</code>
 <div class="block">Return the <code>isValid</code> flag for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#isValidInternal()">isValidInternal</a></strong>()</code>
 <div class="block">Return the <code>isValid</code> flag for this session without any expiration
  check.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#keys()">keys</a></strong>()</code>
 <div class="block">Return the names of all currently defined session attributes
  as an array of Strings.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#passivate()">passivate</a></strong>()</code>
 <div class="block">Perform the internal processing required to passivate
  this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#putValue(java.lang.String,%20java.lang.Object)">putValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
@@ -609,7 +623,7 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#readObjectData(java.io.ObjectInputStream)">readObjectData</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/ObjectInputStream.html?is-external=true" title="class or interface in java.io">ObjectInputStream</a>&nbsp;stream)</code>
 <div class="block">Read a serialized version of the contents of this session object from
@@ -617,47 +631,47 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  StandardSession itself have been serialized.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#recycle()">recycle</a></strong>()</code>
 <div class="block">Release all object references, and initialize instance variables, in
  preparation for reuse of this object.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeAttribute(java.lang.String)">removeAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Remove the object bound with the specified name from this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeAttribute(java.lang.String,%20boolean)">removeAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                boolean&nbsp;notify)</code>
 <div class="block">Remove the object bound with the specified name from this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeAttributeInternal(java.lang.String,%20boolean)">removeAttributeInternal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        boolean&nbsp;notify)</code>
 <div class="block">Remove the object bound with the specified name from this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeNote(java.lang.String)">removeNote</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Remove any object bound to the specified name in the internal notes
  for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeSessionListener(org.apache.catalina.SessionListener)">removeSessionListener</a></strong>(<a href="../../../../org/apache/catalina/SessionListener.html" title="interface in org.apache.catalina">SessionListener</a>&nbsp;listener)</code>
 <div class="block">Remove a session event listener from this component.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#removeValue(java.lang.String)">removeValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -666,14 +680,14 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 </div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setAttribute(java.lang.String,%20java.lang.Object)">setAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Bind an object to this session, using the specified name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setAttribute(java.lang.String,%20java.lang.Object,%20boolean)">setAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value,
@@ -681,26 +695,26 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 <div class="block">Bind an object to this session, using the specified name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setAuthType(java.lang.String)">setAuthType</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authType)</code>
 <div class="block">Set the authentication type used to authenticate our cached
  Principal, if any.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setCreationTime(long)">setCreationTime</a></strong>(long&nbsp;time)</code>
 <div class="block">Set the creation time for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setId(java.lang.String)">setId</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
 <div class="block">Set the session identifier for this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setId(java.lang.String,%20boolean)">setId</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id,
      boolean&nbsp;notify)</code>
@@ -708,26 +722,26 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  associated listeners that a new session has been created.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setManager(org.apache.catalina.Manager)">setManager</a></strong>(<a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</a>&nbsp;manager)</code>
 <div class="block">Set the Manager within which this Session is valid.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setMaxInactiveInterval(int)">setMaxInactiveInterval</a></strong>(int&nbsp;interval)</code>
 <div class="block">Set the maximum time interval, in seconds, between client requests
  before the servlet container will invalidate the session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setNew(boolean)">setNew</a></strong>(boolean&nbsp;isNew)</code>
 <div class="block">Set the <code>isNew</code> flag for this session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setNote(java.lang.String,%20java.lang.Object)">setNote</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
@@ -735,19 +749,19 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
  with this session, replacing any existing binding for this name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setPrincipal(java.security.Principal)">setPrincipal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;principal)</code>
 <div class="block">Set the authenticated Principal that is associated with this Session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#setValid(boolean)">setValid</a></strong>(boolean&nbsp;isValid)</code>
 <div class="block">Set the <code>isValid</code> flag for this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#tellChangedSessionId(java.lang.String,%20java.lang.String,%20boolean,%20boolean)">tellChangedSessionId</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newId,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;oldId,
@@ -756,19 +770,19 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 <div class="block">Inform the listeners about the change session ID.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#tellNew()">tellNew</a></strong>()</code>
 <div class="block">Inform the listeners about the new session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#toString()">toString</a></strong>()</code>
 <div class="block">Return a string representation of this object.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/StandardSession.html#writeObjectData(java.io.ObjectOutputStream)">writeObjectData</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/ObjectOutputStream.html?is-external=true" title="class or interface in java.io">ObjectOutputStream</a>&nbsp;stream)</code>
 <div class="block">Write a serialized version of the contents of this session object to
@@ -874,7 +888,10 @@ implements <a href="../../../../../servletapi/javax/servlet/http/HttpSession.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>excludedAttributes</h4>
-<pre>protected static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[] excludedAttributes</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[] excludedAttributes</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><code>Constants.excludedAttributeNames</code></a> instead. Will be
+             removed in Tomcat 9.</i></div>
 <div class="block">Set of attribute names which are not allowed to be persisted.</div>
 </li>
 </ul>
@@ -2050,14 +2067,27 @@ public&nbsp;void&nbsp;removeValue(<a href="http://docs.oracle.com/javase/7/docs/
 <ul class="blockList">
 <li class="blockList">
 <h4>isAttributeDistributable</h4>
-<pre>protected&nbsp;boolean&nbsp;isAttributeDistributable(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<pre>public&nbsp;boolean&nbsp;isAttributeDistributable(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
-<div class="block">Check whether the Object can be distributed. This implementation
- simply checks for serializability. Derived classes might use other
- distribution technology not based on serialization and can extend
- this check.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name of the attribute to check</dd><dd><code>value</code> - The value of the attribute to check</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if the attribute is distributable, false otherwise</dd></dl>
+<div class="block">Does the session implementation support the distributing of the given
+ attribute? If the Manager is marked as distributable, then this method
+ must be used to check attributes before adding them to a session and
+ an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> thrown if the proposed attribute is
+ not distributable.
+ <p>
+ Note that the <a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><code>Manager</code></a> implementation may further restrict which
+ attributes are distributed but a <a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><code>Manager</code></a> level restriction should
+ not trigger an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> in
+ <a href="../../../../../servletapi/javax/servlet/http/HttpSession.html?is-external=true#setAttribute(java.lang.String,%20java.lang.Object)" title="class or interface in javax.servlet.http"><code>HttpSession.setAttribute(String, Object)</code></a>
+ <p>
+ This implementation simply checks the value for serializability.
+ Sub-classes might use other distribution technology not based on
+ serialization and can override this check.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/Session.html#isAttributeDistributable(java.lang.String,%20java.lang.Object)">isAttributeDistributable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The attribute name</dd><dd><code>value</code> - The attribute value</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if distribution is supported, otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="doReadObject(java.io.ObjectInputStream)">
@@ -2112,9 +2142,35 @@ public&nbsp;void&nbsp;removeValue(<a href="http://docs.oracle.com/javase/7/docs/
 <ul class="blockList">
 <li class="blockList">
 <h4>exclude</h4>
-<pre>protected&nbsp;boolean&nbsp;exclude(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected&nbsp;boolean&nbsp;exclude(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String,%20java.lang.Object)"><code>exclude(String, Object)</code></a>. Will be removed in
+             Tomcat 9.0.x.</i></div>
 <div class="block">Exclude standard attributes that cannot be serialized.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the attribute's name</dd></dl>
+</li>
+</ul>
+<a name="exclude(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exclude</h4>
+<pre>protected&nbsp;boolean&nbsp;exclude(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Should the given session attribute be excluded? This implementation
+ checks:
+ <ul>
+ <li><a href="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><code>Constants.excludedAttributeNames</code></a></li>
+ <li><a href="../../../../org/apache/catalina/Manager.html#willAttributeDistribute(java.lang.String,%20java.lang.Object)"><code>Manager.willAttributeDistribute(String, Object)</code></a></li>
+ </ul>
+ Note: This method deliberately does not check
+       <a href="../../../../org/apache/catalina/session/StandardSession.html#isAttributeDistributable(java.lang.String,%20java.lang.Object)"><code>isAttributeDistributable(String, Object)</code></a> which is kept
+       separate to support the checks required in
+       <a href="../../../../org/apache/catalina/session/StandardSession.html#setAttribute(java.lang.String,%20java.lang.Object,%20boolean)"><code>setAttribute(String, Object, boolean)</code></a></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The attribute name</dd><dd><code>value</code> - The attribute value</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the attribute should be excluded from
+         distribution, otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 <a name="fireSessionEvent(java.lang.String, java.lang.Object)">
@@ -2184,7 +2240,7 @@ public&nbsp;void&nbsp;removeValue(<a href="http://docs.oracle.com/javase/7/docs/
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.30</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -2229,6 +2285,6 @@ public&nbsp;void&nbsp;removeValue(<a href="http://docs.oracle.com/javase/7/docs/
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

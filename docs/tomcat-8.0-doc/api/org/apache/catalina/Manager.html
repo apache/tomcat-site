@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Manager (Apache Tomcat 8.0.30 API Documentation)</title>
+<title>Manager (Apache Tomcat 8.0.32 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Manager (Apache Tomcat 8.0.30 API Documentation)";
+        parent.document.title="Manager (Apache Tomcat 8.0.32 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.30</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -97,7 +97,7 @@
 <br>
 <pre>public interface <span class="strong">Manager</span></pre>
 <div class="block">A <b>Manager</b> manages the pool of Sessions that are associated with a
- particular Container.  Different Manager implementations may support
+ particular Context. Different Manager implementations may support
  value-added features such as the persistent storage of session data,
  as well as migrating sessions for distributable web applications.
  <p>
@@ -214,8 +214,10 @@
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#getDistributable()">getDistributable</a></strong>()</code>
-<div class="block">Return the distributable flag for the sessions supported by
- this Manager.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Ignored. <a href="../../../org/apache/catalina/Context.html#getDistributable()"><code>Context.getDistributable()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -234,8 +236,10 @@
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#getMaxInactiveInterval()">getMaxInactiveInterval</a></strong>()</code>
-<div class="block">Return the default maximum inactive interval (in seconds)
- for Sessions created by this Manager.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Ignored. <a href="../../../org/apache/catalina/Context.html#getSessionTimeout()"><code>Context.getSessionTimeout()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -330,14 +334,16 @@
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#setContext(org.apache.catalina.Context)">setContext</a></strong>(<a href="../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</code>
-<div class="block">Set the Container with which this Manager is associated.</div>
+<div class="block">Set the Context with which this Manager is associated.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#setDistributable(boolean)">setDistributable</a></strong>(boolean&nbsp;distributable)</code>
-<div class="block">Set the distributable flag for the sessions supported by this
- Manager.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Ignored. <a href="../../../org/apache/catalina/Context.html#getDistributable()"><code>Context.getDistributable()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -356,8 +362,10 @@
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#setMaxInactiveInterval(int)">setMaxInactiveInterval</a></strong>(int&nbsp;interval)</code>
-<div class="block">Set the default maximum inactive interval (in seconds)
- for Sessions created by this Manager.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Ignored. <a href="../../../org/apache/catalina/Context.html#getSessionTimeout()"><code>Context.getSessionTimeout()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -393,6 +401,13 @@
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#unload()">unload</a></strong>()</code>
 <div class="block">Save any currently active sessions in the appropriate persistence
  mechanism, if any.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/catalina/Manager.html#willAttributeDistribute(java.lang.String,%20java.lang.Object)">willAttributeDistribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Would the Manager distribute the given session attribute?</div>
 </td>
 </tr>
 </table>
@@ -454,7 +469,11 @@ void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" tit
 <li class="blockList">
 <h4>setContext</h4>
 <pre>void&nbsp;setContext(<a href="../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</pre>
-<div class="block">Set the Container with which this Manager is associated.</div>
+<div class="block">Set the Context with which this Manager is associated. The Context must
+ be set to a non-null value before the Manager is first used. Multiple
+ calls to this method before first use are permitted. Once the Manager has
+ been used, this method may not be used to change the Context (including
+ setting a <code>null</code> value) that the Manager is associated with.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The newly associated Context</dd></dl>
 </li>
 </ul>
@@ -464,7 +483,10 @@ void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>getDistributable</h4>
-<pre>boolean&nbsp;getDistributable()</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+boolean&nbsp;getDistributable()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Ignored. <a href="../../../org/apache/catalina/Context.html#getDistributable()"><code>Context.getDistributable()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
 <div class="block">Return the distributable flag for the sessions supported by
  this Manager.</div>
 </li>
@@ -475,7 +497,10 @@ void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>setDistributable</h4>
-<pre>void&nbsp;setDistributable(boolean&nbsp;distributable)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+void&nbsp;setDistributable(boolean&nbsp;distributable)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Ignored. <a href="../../../org/apache/catalina/Context.html#getDistributable()"><code>Context.getDistributable()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
 <div class="block">Set the distributable flag for the sessions supported by this
  Manager.  If this flag is set, all user data objects added to
  sessions associated with this manager must implement Serializable.</div>
@@ -488,7 +513,10 @@ void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>getMaxInactiveInterval</h4>
-<pre>int&nbsp;getMaxInactiveInterval()</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+int&nbsp;getMaxInactiveInterval()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Ignored. <a href="../../../org/apache/catalina/Context.html#getSessionTimeout()"><code>Context.getSessionTimeout()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
 <div class="block">Return the default maximum inactive interval (in seconds)
  for Sessions created by this Manager.</div>
 </li>
@@ -499,7 +527,10 @@ void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" tit
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaxInactiveInterval</h4>
-<pre>void&nbsp;setMaxInactiveInterval(int&nbsp;interval)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+void&nbsp;setMaxInactiveInterval(int&nbsp;interval)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Ignored. <a href="../../../org/apache/catalina/Context.html#getSessionTimeout()"><code>Context.getSessionTimeout()</code></a> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</i></div>
 <div class="block">Set the default maximum inactive interval (in seconds)
  for Sessions created by this Manager.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>interval</code> - The new default value</dd></dl>
@@ -890,13 +921,29 @@ void&nbsp;setSessionIdLength(int&nbsp;idLength)</pre>
 <a name="backgroundProcess()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>backgroundProcess</h4>
 <pre>void&nbsp;backgroundProcess()</pre>
 <div class="block">This method will be invoked by the context/container on a periodic
  basis and allows the manager to implement
  a method that executes periodic tasks, such as expiring sessions etc.</div>
+</li>
+</ul>
+<a name="willAttributeDistribute(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>willAttributeDistribute</h4>
+<pre>boolean&nbsp;willAttributeDistribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Would the Manager distribute the given session attribute? Manager
+ implementations may provide additional configuration options to control
+ which attributes are distributable.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The attribute name</dd><dd><code>value</code> - The attribute value</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the Manager would distribute the given attribute
+         otherwise <code>false</code></dd></dl>
 </li>
 </ul>
 </li>
@@ -921,7 +968,7 @@ void&nbsp;setSessionIdLength(int&nbsp;idLength)</pre>
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.30</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -966,6 +1013,6 @@ void&nbsp;setSessionIdLength(int&nbsp;idLength)</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
