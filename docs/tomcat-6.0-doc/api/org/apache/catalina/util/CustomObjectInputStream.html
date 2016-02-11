@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-CustomObjectInputStream (Apache Tomcat 6.0.44 API Documentation)
+CustomObjectInputStream (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.util.CustomObjectInputStream class">
@@ -14,7 +14,7 @@ CustomObjectInputStream (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="CustomObjectInputStream (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="CustomObjectInputStream (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -166,7 +166,19 @@ Custom subclass of <code>ObjectInputStream</code> that loads from the
                         java.lang.ClassLoader&nbsp;classLoader)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance of CustomObjectInputStream</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance of CustomObjectInputStream without any filtering
+ of deserialized classes.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/util/CustomObjectInputStream.html#CustomObjectInputStream(java.io.InputStream, java.lang.ClassLoader, org.apache.juli.logging.Log, java.util.regex.Pattern, boolean)">CustomObjectInputStream</A></B>(java.io.InputStream&nbsp;stream,
+                        java.lang.ClassLoader&nbsp;classLoader,
+                        <A HREF="../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging">Log</A>&nbsp;log,
+                        java.util.regex.Pattern&nbsp;allowedClassNamePattern,
+                        boolean&nbsp;warnOnFailure)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct a new instance of CustomObjectInputStream with filtering of
+ deserialized classes.</TD>
 </TR>
 </TABLE>
 &nbsp;
@@ -180,7 +192,7 @@ Custom subclass of <code>ObjectInputStream</code> that loads from the
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;java.lang.Class</CODE></FONT></TD>
+<CODE>&nbsp;java.lang.Class&lt;?&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/util/CustomObjectInputStream.html#resolveClass(java.io.ObjectStreamClass)">resolveClass</A></B>(java.io.ObjectStreamClass&nbsp;classDesc)</CODE>
 
 <BR>
@@ -189,7 +201,7 @@ Custom subclass of <code>ObjectInputStream</code> that loads from the
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;java.lang.Class</CODE></FONT></TD>
+<CODE>protected &nbsp;java.lang.Class&lt;?&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/util/CustomObjectInputStream.html#resolveProxyClass(java.lang.String[])">resolveProxyClass</A></B>(java.lang.String[]&nbsp;interfaces)</CODE>
 
 <BR>
@@ -253,10 +265,36 @@ public <B>CustomObjectInputStream</B>(java.io.InputStream&nbsp;stream,
                                java.lang.ClassLoader&nbsp;classLoader)
                         throws java.io.IOException</PRE>
 <DL>
-<DD>Construct a new instance of CustomObjectInputStream
+<DD>Construct a new instance of CustomObjectInputStream without any filtering
+ of deserialized classes.
 <P>
 <DL>
 <DT><B>Parameters:</B><DD><CODE>stream</CODE> - The input stream we will read from<DD><CODE>classLoader</CODE> - The class loader used to instantiate objects
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if an input/output error occurs</DL>
+</DL>
+<HR>
+
+<A NAME="CustomObjectInputStream(java.io.InputStream, java.lang.ClassLoader, org.apache.juli.logging.Log, java.util.regex.Pattern, boolean)"><!-- --></A><H3>
+CustomObjectInputStream</H3>
+<PRE>
+public <B>CustomObjectInputStream</B>(java.io.InputStream&nbsp;stream,
+                               java.lang.ClassLoader&nbsp;classLoader,
+                               <A HREF="../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging">Log</A>&nbsp;log,
+                               java.util.regex.Pattern&nbsp;allowedClassNamePattern,
+                               boolean&nbsp;warnOnFailure)
+                        throws java.io.IOException</PRE>
+<DL>
+<DD>Construct a new instance of CustomObjectInputStream with filtering of
+ deserialized classes.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>stream</CODE> - The input stream we will read from<DD><CODE>classLoader</CODE> - The class loader used to instantiate objects<DD><CODE>log</CODE> - The logger to use to report any issues. It may only be null if
+            the filterMode does not require logging<DD><CODE>allowedClassNamePattern</CODE> - The regular expression to use to filter
+                                deserialized classes. The fully qualified
+                                class name must match this pattern for
+                                deserialization to be allowed if filtering
+                                is enabled.<DD><CODE>warnOnFailure</CODE> - Should any failures be logged?
 <DT><B>Throws:</B>
 <DD><CODE>java.io.IOException</CODE> - if an input/output error occurs</DL>
 </DL>
@@ -274,9 +312,9 @@ public <B>CustomObjectInputStream</B>(java.io.InputStream&nbsp;stream,
 <A NAME="resolveClass(java.io.ObjectStreamClass)"><!-- --></A><H3>
 resolveClass</H3>
 <PRE>
-public java.lang.Class <B>resolveClass</B>(java.io.ObjectStreamClass&nbsp;classDesc)
-                             throws java.lang.ClassNotFoundException,
-                                    java.io.IOException</PRE>
+public java.lang.Class&lt;?&gt; <B>resolveClass</B>(java.io.ObjectStreamClass&nbsp;classDesc)
+                                throws java.lang.ClassNotFoundException,
+                                       java.io.IOException</PRE>
 <DL>
 <DD>Load the local class equivalent of the specified stream class
  description, by using the class loader assigned to this Context.
@@ -296,9 +334,9 @@ public java.lang.Class <B>resolveClass</B>(java.io.ObjectStreamClass&nbsp;classD
 <A NAME="resolveProxyClass(java.lang.String[])"><!-- --></A><H3>
 resolveProxyClass</H3>
 <PRE>
-protected java.lang.Class <B>resolveProxyClass</B>(java.lang.String[]&nbsp;interfaces)
-                                     throws java.io.IOException,
-                                            java.lang.ClassNotFoundException</PRE>
+protected java.lang.Class&lt;?&gt; <B>resolveProxyClass</B>(java.lang.String[]&nbsp;interfaces)
+                                        throws java.io.IOException,
+                                               java.lang.ClassNotFoundException</PRE>
 <DL>
 <DD>Return a proxy class that implements the interfaces named in a proxy
  class descriptor. Do this using the class loader assigned to this
@@ -338,7 +376,7 @@ protected java.lang.Class <B>resolveProxyClass</B>(java.lang.String[]&nbsp;inter
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -374,6 +412,6 @@ DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&n
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

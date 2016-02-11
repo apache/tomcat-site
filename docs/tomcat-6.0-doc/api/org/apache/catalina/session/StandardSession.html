@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-StandardSession (Apache Tomcat 6.0.44 API Documentation)
+StandardSession (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.session.StandardSession class">
@@ -14,7 +14,7 @@ StandardSession (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="StandardSession (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="StandardSession (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -190,7 +190,8 @@ Standard implementation of the <b>Session</b> interface.  This object is
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StandardSession.html#excludedAttributes">excludedAttributes</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set of attribute names which are not allowed to be persisted.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><CODE>Constants.excludedAttributeNames</CODE></A> instead. Will be
+             removed in Tomcat 9.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -406,7 +407,17 @@ Standard implementation of the <b>Session</b> interface.  This object is
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String)">exclude</A></B>(java.lang.String&nbsp;name)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exclude standard attributes that cannot be serialized.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String, java.lang.Object)"><CODE>exclude(String, Object)</CODE></A>. Will be removed in
+             Tomcat 9.0.x.</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String, java.lang.Object)">exclude</A></B>(java.lang.String&nbsp;name,
+        java.lang.Object&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should the given session attribute be excluded?</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -625,12 +636,15 @@ Standard implementation of the <b>Session</b> interface.  This object is
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<CODE>&nbsp;boolean</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StandardSession.html#isAttributeDistributable(java.lang.String, java.lang.Object)">isAttributeDistributable</A></B>(java.lang.String&nbsp;name,
                          java.lang.Object&nbsp;value)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check whether the Object can be distributed.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does the session implementation support the distributing of the given
+ attribute?
+ 
+ This implementation simply checks the value for serializability.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -1006,9 +1020,11 @@ protected long <B>creationTime</B></PRE>
 <A NAME="excludedAttributes"><!-- --></A><H3>
 excludedAttributes</H3>
 <PRE>
-protected static final java.lang.String[] <B>excludedAttributes</B></PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>protected static final java.lang.String[] <B>excludedAttributes</B></PRE>
 <DL>
-<DD>Set of attribute names which are not allowed to be persisted.
+<DD><B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><CODE>Constants.excludedAttributeNames</CODE></A> instead. Will be
+             removed in Tomcat 9.</I><DD>Set of attribute names which are not allowed to be persisted.
 <P>
 <DL>
 </DL>
@@ -1171,7 +1187,7 @@ protected transient java.security.Principal <B>principal</B></PRE>
 <A NAME="sm"><!-- --></A><H3>
 sm</H3>
 <PRE>
-protected static <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
+protected static final <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
 <DL>
 <DD>The string manager for this package.
 <P>
@@ -2297,20 +2313,30 @@ protected boolean <B>isValidInternal</B>()</PRE>
 <A NAME="isAttributeDistributable(java.lang.String, java.lang.Object)"><!-- --></A><H3>
 isAttributeDistributable</H3>
 <PRE>
-protected boolean <B>isAttributeDistributable</B>(java.lang.String&nbsp;name,
-                                           java.lang.Object&nbsp;value)</PRE>
+public boolean <B>isAttributeDistributable</B>(java.lang.String&nbsp;name,
+                                        java.lang.Object&nbsp;value)</PRE>
 <DL>
-<DD>Check whether the Object can be distributed. This implementation
- simply checks for serializability. Derived classes might use other
- distribution technology not based on serialization and can extend
- this check.
+<DD>Does the session implementation support the distributing of the given
+ attribute? If the Manager is marked as distributable, then this method
+ must be used to check attributes before adding them to a session and
+ an <CODE>IllegalArgumentException</CODE> thrown if the proposed attribute is
+ not distributable.
+ <p>
+ Note that the <A HREF="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><CODE>Manager</CODE></A> implementation may further restrict which
+ attributes are distributed but a <A HREF="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><CODE>Manager</CODE></A> level restriction should
+ not trigger an <CODE>IllegalArgumentException</CODE> in
+ <CODE>HttpSession.setAttribute(String, Object)</CODE>
+ <p>
+ This implementation simply checks the value for serializability.
+ Sub-classes might use other distribution technology not based on
+ serialization and can override this check.
 <P>
 <DD><DL>
-</DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Session.html#isAttributeDistributable(java.lang.String, java.lang.Object)">isAttributeDistributable</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</A></CODE></DL>
 </DD>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - The name of the attribute to check<DD><CODE>value</CODE> - The value of the attribute to check
-<DT><B>Returns:</B><DD>true if the attribute is distributable, false otherwise</DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - The attribute name<DD><CODE>value</CODE> - The attribute value
+<DT><B>Returns:</B><DD><code>true</code> if distribution is supported, otherwise <code>false</code></DL>
 </DD>
 </DL>
 <HR>
@@ -2374,8 +2400,12 @@ protected void <B>writeObject</B>(java.io.ObjectOutputStream&nbsp;stream)
 <A NAME="exclude(java.lang.String)"><!-- --></A><H3>
 exclude</H3>
 <PRE>
-protected boolean <B>exclude</B>(java.lang.String&nbsp;name)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>protected boolean <B>exclude</B>(java.lang.String&nbsp;name)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/session/StandardSession.html#exclude(java.lang.String, java.lang.Object)"><CODE>exclude(String, Object)</CODE></A>. Will be removed in
+             Tomcat 9.0.x.</I>
+<P>
 <DD>Exclude standard attributes that cannot be serialized.
 <P>
 <DD><DL>
@@ -2383,6 +2413,34 @@ protected boolean <B>exclude</B>(java.lang.String&nbsp;name)</PRE>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>name</CODE> - the attribute's name</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="exclude(java.lang.String, java.lang.Object)"><!-- --></A><H3>
+exclude</H3>
+<PRE>
+protected boolean <B>exclude</B>(java.lang.String&nbsp;name,
+                          java.lang.Object&nbsp;value)</PRE>
+<DL>
+<DD>Should the given session attribute be excluded? This implementation
+ checks:
+ <ul>
+ <li><A HREF="../../../../org/apache/catalina/session/Constants.html#excludedAttributeNames"><CODE>Constants.excludedAttributeNames</CODE></A></li>
+ <li><A HREF="../../../../org/apache/catalina/Manager.html#willAttributeDistribute(java.lang.String, java.lang.Object)"><CODE>Manager.willAttributeDistribute(String, Object)</CODE></A></li>
+ </ul>
+ Note: This method deliberately does not check
+       <A HREF="../../../../org/apache/catalina/session/StandardSession.html#isAttributeDistributable(java.lang.String, java.lang.Object)"><CODE>isAttributeDistributable(String, Object)</CODE></A> which is kept
+       separate to support the checks required in
+       <A HREF="../../../../org/apache/catalina/session/StandardSession.html#setAttribute(java.lang.String, java.lang.Object, boolean)"><CODE>setAttribute(String, Object, boolean)</CODE></A>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - The attribute name<DD><CODE>value</CODE> - The attribute value
+<DT><B>Returns:</B><DD><code>true</code> if the attribute should be excluded from
+         distribution, otherwise <code>false</code></DL>
 </DD>
 </DL>
 <HR>
@@ -2492,7 +2550,7 @@ protected void <B>removeAttributeInternal</B>(java.lang.String&nbsp;name,
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -2528,6 +2586,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

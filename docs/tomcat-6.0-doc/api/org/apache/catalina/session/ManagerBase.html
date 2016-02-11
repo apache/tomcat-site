@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-ManagerBase (Apache Tomcat 6.0.44 API Documentation)
+ManagerBase (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.session.ManagerBase class">
@@ -14,7 +14,7 @@ ManagerBase (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="ManagerBase (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="ManagerBase (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -190,7 +190,8 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#distributable">distributable</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The distributable flag for Sessions created by this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -255,8 +256,8 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#maxInactiveInterval">maxInactiveInterval</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The default maximum inactive interval for Sessions created by
- this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -551,7 +552,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getClassName()">getClassName</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the name of the implementation class.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -592,8 +593,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getDistributable()">getDistributable</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the distributable flag for the sessions supported by
- this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -642,9 +642,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getInfo()">getInfo</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return descriptive information about this Manager implementation and
- the corresponding version number, in the format
- <code>&lt;description&gt;/&lt;version&gt;</code>.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -693,7 +691,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getName()">getName</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the descriptive short name of this Manager implementation.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -717,7 +715,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getProcessExpiresFrequency()">getProcessExpiresFrequency</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the frequency of manager checks.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -762,7 +760,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;java.util.HashMap</CODE></FONT></TD>
+<CODE>&nbsp;java.util.HashMap&lt;java.lang.String,java.lang.Object&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSession(java.lang.String)">getSession</A></B>(java.lang.String&nbsp;sessionId)</CODE>
 
 <BR>
@@ -775,7 +773,42 @@ Minimal implementation of the <b>Manager</b> interface that supports
                     java.lang.String&nbsp;key)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For debugging: get a session attribute</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For debugging.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeNameFilter()">getSessionAttributeNameFilter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtain the regular expression used to filter session attribute based on
+ attribute name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.regex.Pattern</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeNamePattern()">getSessionAttributeNamePattern</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeValueClassNameFilter()">getSessionAttributeValueClassNameFilter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtain the regular expression used to filter session attribute based on
+ the implementation class of the value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.regex.Pattern</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeValueClassNamePattern()">getSessionAttributeValueClassNamePattern</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides <A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeValueClassNameFilter()"><CODE>getSessionAttributeValueClassNameFilter()</CODE></A> as a
+ pre-compiled regular expression pattern.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -832,6 +865,15 @@ Minimal implementation of the <b>Manager</b> interface that supports
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getWarnOnSessionAttributeFilterFailure()">getWarnOnSessionAttributeFilterFailure</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should a warn level log message be generated if a session attribute is
+ not persisted / replicated / restored.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#init()">init</A></B>()</CODE>
 
@@ -844,7 +886,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#listSessionIds()">listSessionIds</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For debugging: return a list of all session ids currently active</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For debugging.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -925,8 +967,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setDistributable(boolean)">setDistributable</A></B>(boolean&nbsp;distributable)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the distributable flag for the sessions supported by this
- Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -967,8 +1008,7 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setMaxInactiveInterval(int)">setMaxInactiveInterval</A></B>(int&nbsp;interval)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the default maximum inactive interval (in seconds)
- for Sessions created by this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -1005,6 +1045,23 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setSessionAttributeNameFilter(java.lang.String)">setSessionAttributeNameFilter</A></B>(java.lang.String&nbsp;sessionAttributeNameFilter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setSessionAttributeValueClassNameFilter(java.lang.String)">setSessionAttributeValueClassNameFilter</A></B>(java.lang.String&nbsp;sessionAttributeValueClassNameFilter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the regular expression to use to filter classes used for session
+ attributes.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setSessionAverageAliveTime(int)">setSessionAverageAliveTime</A></B>(int&nbsp;sessionAverageAliveTime)</CODE>
 
 <BR>
@@ -1036,6 +1093,29 @@ Minimal implementation of the <b>Manager</b> interface that supports
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the longest time (in seconds) that an expired session had been
  alive.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#setWarnOnSessionAttributeFilterFailure(boolean)">setWarnOnSessionAttributeFilterFailure</A></B>(boolean&nbsp;warnOnSessionAttributeFilterFailure)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure whether or not a warn level log message should be generated if
+ a session attribute is not persisted / replicated / restored.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/ManagerBase.html#willAttributeDistribute(java.lang.String, java.lang.Object)">willAttributeDistribute</A></B>(java.lang.String&nbsp;name,
+                        java.lang.Object&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would the Manager distribute the given session attribute?
+ 
+ This implementation excludes session attributes from distribution if the:
+ 
+ attribute name matches <A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeNameFilter()"><CODE>getSessionAttributeNameFilter()</CODE></A>
+ </TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
@@ -1154,9 +1234,11 @@ protected java.security.MessageDigest <B>digest</B></PRE>
 <A NAME="distributable"><!-- --></A><H3>
 distributable</H3>
 <PRE>
-protected boolean <B>distributable</B></PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>protected boolean <B>distributable</B></PRE>
 <DL>
-<DD>The distributable flag for Sessions created by this Manager.  If this
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I><DD>The distributable flag for Sessions created by this Manager.  If this
  flag is set to <code>true</code>, any user attributes added to a
  session controlled by this Manager must be Serializable.
 <P>
@@ -1181,9 +1263,11 @@ protected java.lang.String <B>entropy</B></PRE>
 <A NAME="maxInactiveInterval"><!-- --></A><H3>
 maxInactiveInterval</H3>
 <PRE>
-protected int <B>maxInactiveInterval</B></PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>protected int <B>maxInactiveInterval</B></PRE>
 <DL>
-<DD>The default maximum inactive interval for Sessions created by
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I><DD>The default maximum inactive interval for Sessions created by
  this Manager.
 <P>
 <DL>
@@ -1389,7 +1473,7 @@ protected int <B>processExpiresFrequency</B></PRE>
 <A NAME="sm"><!-- --></A><H3>
 sm</H3>
 <PRE>
-protected static <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
+protected static final <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
 <DL>
 <DD>The string manager for this package.
 <P>
@@ -1466,6 +1550,158 @@ public <B>ManagerBase</B>()</PRE>
 </TR>
 </TABLE>
 
+<A NAME="getSessionAttributeNameFilter()"><!-- --></A><H3>
+getSessionAttributeNameFilter</H3>
+<PRE>
+public java.lang.String <B>getSessionAttributeNameFilter</B>()</PRE>
+<DL>
+<DD>Obtain the regular expression used to filter session attribute based on
+ attribute name. The regular expression is anchored so it must match the
+ entire name
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The regular expression currently used to filter attribute names.
+         <code>null</code> means no filter is applied. If an empty string is
+         specified then no names will match the filter and all attributes
+         will be blocked.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSessionAttributeNameFilter(java.lang.String)"><!-- --></A><H3>
+setSessionAttributeNameFilter</H3>
+<PRE>
+public void <B>setSessionAttributeNameFilter</B>(java.lang.String&nbsp;sessionAttributeNameFilter)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSessionAttributeNamePattern()"><!-- --></A><H3>
+getSessionAttributeNamePattern</H3>
+<PRE>
+protected java.util.regex.Pattern <B>getSessionAttributeNamePattern</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSessionAttributeValueClassNameFilter()"><!-- --></A><H3>
+getSessionAttributeValueClassNameFilter</H3>
+<PRE>
+public java.lang.String <B>getSessionAttributeValueClassNameFilter</B>()</PRE>
+<DL>
+<DD>Obtain the regular expression used to filter session attribute based on
+ the implementation class of the value. The regular expression is anchored
+ and must match the fully qualified class name.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The regular expression currently used to filter class names.
+         <code>null</code> means no filter is applied. If an empty string is
+         specified then no names will match the filter and all attributes
+         will be blocked.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSessionAttributeValueClassNamePattern()"><!-- --></A><H3>
+getSessionAttributeValueClassNamePattern</H3>
+<PRE>
+protected java.util.regex.Pattern <B>getSessionAttributeValueClassNamePattern</B>()</PRE>
+<DL>
+<DD>Provides <A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeValueClassNameFilter()"><CODE>getSessionAttributeValueClassNameFilter()</CODE></A> as a
+ pre-compiled regular expression pattern.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The pre-compiled pattern used to filter session attributes based
+         on the implementation class name of the value. <code>null</code> means
+         no filter is applied.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSessionAttributeValueClassNameFilter(java.lang.String)"><!-- --></A><H3>
+setSessionAttributeValueClassNameFilter</H3>
+<PRE>
+public void <B>setSessionAttributeValueClassNameFilter</B>(java.lang.String&nbsp;sessionAttributeValueClassNameFilter)
+                                             throws java.util.regex.PatternSyntaxException</PRE>
+<DL>
+<DD>Set the regular expression to use to filter classes used for session
+ attributes. The regular expression is anchored and must match the fully
+ qualified class name.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sessionAttributeValueClassNameFilter</CODE> - The regular expression to use
+            to filter session attributes based on class name. Use <code>null</code> if no filtering is required. If an empty string is
+           specified then no names will match the filter and all
+           attributes will be blocked.
+<DT><B>Throws:</B>
+<DD><CODE>java.util.regex.PatternSyntaxException</CODE> - If the expression is not valid</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getWarnOnSessionAttributeFilterFailure()"><!-- --></A><H3>
+getWarnOnSessionAttributeFilterFailure</H3>
+<PRE>
+public boolean <B>getWarnOnSessionAttributeFilterFailure</B>()</PRE>
+<DL>
+<DD>Should a warn level log message be generated if a session attribute is
+ not persisted / replicated / restored.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if a warn level log message should be generated</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setWarnOnSessionAttributeFilterFailure(boolean)"><!-- --></A><H3>
+setWarnOnSessionAttributeFilterFailure</H3>
+<PRE>
+public void <B>setWarnOnSessionAttributeFilterFailure</B>(boolean&nbsp;warnOnSessionAttributeFilterFailure)</PRE>
+<DL>
+<DD>Configure whether or not a warn level log message should be generated if
+ a session attribute is not persisted / replicated / restored.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>warnOnSessionAttributeFilterFailure</CODE> - <code>true</code> if the
+            warn level message should be generated</DL>
+</DD>
+</DL>
+<HR>
+
 <A NAME="getAlgorithm()"><!-- --></A><H3>
 getAlgorithm</H3>
 <PRE>
@@ -1519,7 +1755,13 @@ setContainer</H3>
 <PRE>
 public void <B>setContainer</B>(<A HREF="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</A>&nbsp;container)</PRE>
 <DL>
-<DD>Set the Container with which this Manager is associated.
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Manager.html#setContainer(org.apache.catalina.Container)">Manager</A></CODE></B></DD>
+<DD>Set the Container with which this Manager is associated. The Container
+ must be set to a non-null value before the Manager is first used.
+ Multiple calls to this method before first use are permitted. Once the
+ Manager has been used, this method may not be used to change the
+ Container (including setting a <code>null</code> value) that the Manager is
+ associated with.
 <P>
 <DD><DL>
 <DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Manager.html#setContainer(org.apache.catalina.Container)">setContainer</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</A></CODE></DL>
@@ -1535,13 +1777,12 @@ getClassName</H3>
 <PRE>
 public java.lang.String <B>getClassName</B>()</PRE>
 <DL>
-<DD>Returns the name of the implementation class.
-<P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>The name of the implementation class.</DL>
 </DD>
 </DL>
 <HR>
@@ -1567,8 +1808,11 @@ public java.security.MessageDigest <B>getDigest</B>()</PRE>
 <A NAME="getDistributable()"><!-- --></A><H3>
 getDistributable</H3>
 <PRE>
-public boolean <B>getDistributable</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public boolean <B>getDistributable</B>()</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;
+<P>
 <DD>Return the distributable flag for the sessions supported by
  this Manager.
 <P>
@@ -1584,8 +1828,12 @@ public boolean <B>getDistributable</B>()</PRE>
 <A NAME="setDistributable(boolean)"><!-- --></A><H3>
 setDistributable</H3>
 <PRE>
-public void <B>setDistributable</B>(boolean&nbsp;distributable)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public void <B>setDistributable</B>(boolean&nbsp;distributable)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;
+<P>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Manager.html#setDistributable(boolean)">Manager</A></CODE></B></DD>
 <DD>Set the distributable flag for the sessions supported by this
  Manager.  If this flag is set, all user data objects added to
  sessions associated with this manager must implement Serializable.
@@ -1635,8 +1883,11 @@ public void <B>setEntropy</B>(java.lang.String&nbsp;entropy)</PRE>
 <A NAME="getInfo()"><!-- --></A><H3>
 getInfo</H3>
 <PRE>
-public java.lang.String <B>getInfo</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public java.lang.String <B>getInfo</B>()</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;
+<P>
 <DD>Return descriptive information about this Manager implementation and
  the corresponding version number, in the format
  <code>&lt;description&gt;/&lt;version&gt;</code>.
@@ -1670,8 +1921,12 @@ public int <B>getMaxInactiveInterval</B>()</PRE>
 <A NAME="setMaxInactiveInterval(int)"><!-- --></A><H3>
 setMaxInactiveInterval</H3>
 <PRE>
-public void <B>setMaxInactiveInterval</B>(int&nbsp;interval)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public void <B>setMaxInactiveInterval</B>(int&nbsp;interval)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;
+<P>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Manager.html#setMaxInactiveInterval(int)">Manager</A></CODE></B></DD>
 <DD>Set the default maximum inactive interval (in seconds)
  for Sessions created by this Manager.
 <P>
@@ -1724,13 +1979,12 @@ getName</H3>
 <PRE>
 public java.lang.String <B>getName</B>()</PRE>
 <DL>
-<DD>Return the descriptive short name of this Manager implementation.
-<P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>The descriptive short name of this Manager implementation.</DL>
 </DD>
 </DL>
 <HR>
@@ -1892,13 +2146,12 @@ getProcessExpiresFrequency</H3>
 <PRE>
 public int <B>getProcessExpiresFrequency</B>()</PRE>
 <DL>
-<DD>Return the frequency of manager checks.
-<P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>The frequency of manager checks.</DL>
 </DD>
 </DL>
 <HR>
@@ -2014,7 +2267,8 @@ public void <B>addPropertyChangeListener</B>(java.beans.PropertyChangeListener&n
 <A NAME="createSession()"><!-- --></A><H3>
 createSession</H3>
 <PRE>
-public <A HREF="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</A> <B>createSession</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public <A HREF="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</A> <B>createSession</B>()</PRE>
 <DL>
 <DD><B>Deprecated.</B>&nbsp;<I></I>
 <P>
@@ -2164,6 +2418,32 @@ public void <B>changeSessionId</B>(<A HREF="../../../../org/apache/catalina/Sess
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>session</CODE> - The session to change the session ID for</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="willAttributeDistribute(java.lang.String, java.lang.Object)"><!-- --></A><H3>
+willAttributeDistribute</H3>
+<PRE>
+public boolean <B>willAttributeDistribute</B>(java.lang.String&nbsp;name,
+                                       java.lang.Object&nbsp;value)</PRE>
+<DL>
+<DD>Would the Manager distribute the given session attribute? Manager
+ implementations may provide additional configuration options to control
+ which attributes are distributable.
+ <p>
+ This implementation excludes session attributes from distribution if the:
+ <ul>
+ <li>attribute name matches <A HREF="../../../../org/apache/catalina/session/ManagerBase.html#getSessionAttributeNameFilter()"><CODE>getSessionAttributeNameFilter()</CODE></A></li>
+ </ul>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Manager.html#willAttributeDistribute(java.lang.String, java.lang.Object)">willAttributeDistribute</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - The attribute name<DD><CODE>value</CODE> - The attribute value
+<DT><B>Returns:</B><DD><code>true</code> if the Manager would distribute the given attribute
+         otherwise <code>false</code></DL>
 </DD>
 </DL>
 <HR>
@@ -2484,13 +2764,14 @@ listSessionIds</H3>
 <PRE>
 public java.lang.String <B>listSessionIds</B>()</PRE>
 <DL>
-<DD>For debugging: return a list of all session ids currently active
+<DD>For debugging.
 <P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>A space separated list of all session IDs currently active</DL>
 </DD>
 </DL>
 <HR>
@@ -2501,14 +2782,15 @@ getSessionAttribute</H3>
 public java.lang.String <B>getSessionAttribute</B>(java.lang.String&nbsp;sessionId,
                                             java.lang.String&nbsp;key)</PRE>
 <DL>
-<DD>For debugging: get a session attribute
+<DD>For debugging.
 <P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>sessionId</CODE> - <DD><CODE>key</CODE> - 
-<DT><B>Returns:</B><DD>The attribute value, if found, null otherwise</DL>
+<DT><B>Parameters:</B><DD><CODE>sessionId</CODE> - The ID for the session of interest<DD><CODE>key</CODE> - The key for the attribute to obtain
+<DT><B>Returns:</B><DD>The attribute value for the specified session, if found, null
+         otherwise</DL>
 </DD>
 </DL>
 <HR>
@@ -2516,7 +2798,7 @@ public java.lang.String <B>getSessionAttribute</B>(java.lang.String&nbsp;session
 <A NAME="getSession(java.lang.String)"><!-- --></A><H3>
 getSession</H3>
 <PRE>
-public java.util.HashMap <B>getSession</B>(java.lang.String&nbsp;sessionId)</PRE>
+public java.util.HashMap&lt;java.lang.String,java.lang.Object&gt; <B>getSession</B>(java.lang.String&nbsp;sessionId)</PRE>
 <DL>
 <DD>Returns information about the session with the given session id.
  
@@ -2718,7 +3000,7 @@ public void <B>postDeregister</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -2754,6 +3036,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

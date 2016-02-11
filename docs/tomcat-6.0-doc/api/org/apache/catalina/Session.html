@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Session (Apache Tomcat 6.0.44 API Documentation)
+Session (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.Session interface">
@@ -14,7 +14,7 @@ Session (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Session (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Session (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -307,6 +307,16 @@ A <b>Session</b> is the Catalina-internal facade for an
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the <code>HttpSession</code> for which this object
  is the facade.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Session.html#isAttributeDistributable(java.lang.String, java.lang.Object)">isAttributeDistributable</A></B>(java.lang.String&nbsp;name,
+                         java.lang.Object&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does the session implementation support the distributing of the given
+ attribute?</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -934,6 +944,30 @@ void <B>setNote</B>(java.lang.String&nbsp;name,
 <DT><B>Parameters:</B><DD><CODE>name</CODE> - Name to which the object should be bound<DD><CODE>value</CODE> - Object to be bound to the specified name</DL>
 </DD>
 </DL>
+<HR>
+
+<A NAME="isAttributeDistributable(java.lang.String, java.lang.Object)"><!-- --></A><H3>
+isAttributeDistributable</H3>
+<PRE>
+boolean <B>isAttributeDistributable</B>(java.lang.String&nbsp;name,
+                                 java.lang.Object&nbsp;value)</PRE>
+<DL>
+<DD>Does the session implementation support the distributing of the given
+ attribute? If the Manager is marked as distributable, then this method
+ must be used to check attributes before adding them to a session and
+ an <CODE>IllegalArgumentException</CODE> thrown if the proposed attribute is
+ not distributable.
+ <p>
+ Note that the <A HREF="../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><CODE>Manager</CODE></A> implementation may further restrict which
+ attributes are distributed but a <A HREF="../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina"><CODE>Manager</CODE></A> level restriction should
+ not trigger an <CODE>IllegalArgumentException</CODE> in
+ <CODE>HttpSession.setAttribute(String, Object)</CODE>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - The attribute name<DD><CODE>value</CODE> - The attribute value
+<DT><B>Returns:</B><DD><code>true</code> if distribution is supported, otherwise <code>false</code></DL>
+</DD>
+</DL>
 <!-- ========= END OF CLASS DATA ========= -->
 <HR>
 
@@ -958,7 +992,7 @@ void <B>setNote</B>(java.lang.String&nbsp;name,
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -994,6 +1028,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

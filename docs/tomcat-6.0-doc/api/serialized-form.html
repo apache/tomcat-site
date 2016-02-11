@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Serialized Form (Apache Tomcat 6.0.44 API Documentation)
+Serialized Form (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 
@@ -13,7 +13,7 @@ Serialized Form (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Serialized Form (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Serialized Form (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -44,7 +44,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -1974,6 +1974,24 @@ boolean <B>clearReferencesThreadLocals</B></PRE>
  reload. It is disabled by default since the clearing of the ThreadLocal
  objects is not performed in a thread-safe manner.
 <P>
+<DL>
+</DL>
+</DL>
+<HR>
+<H3>
+mapperContextRootRedirectEnabled</H3>
+<PRE>
+boolean <B>mapperContextRootRedirectEnabled</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+<H3>
+mapperDirectoryRedirectEnabled</H3>
+<PRE>
+boolean <B>mapperDirectoryRedirectEnabled</B></PRE>
+<DL>
 <DL>
 </DL>
 </DL>
@@ -5276,7 +5294,13 @@ debug</H3>
 <PRE>
 int <B>debug</B></PRE>
 <DL>
-<DD>the debugging detail level for this servlet.
+<DD>The debugging detail level for this servlet. Useful values range from 0
+ to 5 where 0 means no logging and 5 means maximum logging. Values of 10
+ or more mean maximum logging and debug info added to the HTTP response.
+ If an error occurs and debug is 10 or more the standard error page
+ mechanism will be disabled and a response body with debug information
+ will be produced. Note that any value of 10 or more has the same effect
+ as a value of 10.
 <P>
 <DL>
 </DL>
@@ -6619,9 +6643,12 @@ java.text.FieldPosition <B>fp</B></PRE>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
 <TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
 <TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Class <A HREF="org/apache/catalina/util/ParameterMap.html" title="class in org.apache.catalina.util">org.apache.catalina.util.ParameterMap</A> extends java.util.HashMap implements Serializable</B></FONT></TH>
+<B>Class <A HREF="org/apache/catalina/util/ParameterMap.html" title="class in org.apache.catalina.util">org.apache.catalina.util.ParameterMap</A> extends java.util.LinkedHashMap&lt;<A HREF="org/apache/catalina/util/ParameterMap.html" title="type parameter in ParameterMap">K</A>,<A HREF="org/apache/catalina/util/ParameterMap.html" title="type parameter in ParameterMap">V</A>&gt; implements Serializable</B></FONT></TH>
 </TR>
 </TABLE>
+
+<P>
+<B>serialVersionUID:&nbsp;</B>1L
 
 <P>
 <A NAME="serializedForm"><!-- --></A>
@@ -8018,6 +8045,9 @@ javax.naming.directory.Attributes <B>attributes</B></PRE>
 </TABLE>
 
 <P>
+<B>serialVersionUID:&nbsp;</B>1L
+
+<P>
 <A NAME="serializedForm"><!-- --></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
 <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
@@ -8044,6 +8074,36 @@ java.lang.String <B>description</B></PRE>
 <DL>
 <DD>A description of the problem.
 <P>
+<DL>
+</DL>
+</DL>
+
+<P>
+<A NAME="org.apache.tomcat.jni.LibraryNotFoundError"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Class <A HREF="org/apache/tomcat/jni/LibraryNotFoundError.html" title="class in org.apache.tomcat.jni">org.apache.tomcat.jni.LibraryNotFoundError</A> extends java.lang.UnsatisfiedLinkError implements Serializable</B></FONT></TH>
+</TR>
+</TABLE>
+
+<P>
+<B>serialVersionUID:&nbsp;</B>1L
+
+<P>
+<A NAME="serializedForm"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Serialized Fields</B></FONT></TH>
+</TR>
+</TABLE>
+
+<H3>
+libraryNames</H3>
+<PRE>
+java.lang.String <B>libraryNames</B></PRE>
+<DL>
 <DL>
 </DL>
 </DL>
@@ -9388,7 +9448,7 @@ java.lang.String <B>userInfo</B></PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -9418,6 +9478,6 @@ java.lang.String <B>userInfo</B></PRE>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

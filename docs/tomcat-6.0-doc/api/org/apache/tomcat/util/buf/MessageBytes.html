@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-MessageBytes (Apache Tomcat 6.0.44 API Documentation)
+MessageBytes (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.tomcat.util.buf.MessageBytes class">
@@ -14,7 +14,7 @@ MessageBytes (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="MessageBytes (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="MessageBytes (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -254,6 +254,14 @@ This class is used to represent a subarray of bytes in an HTTP message.
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.nio.charset.Charset</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/tomcat/util/buf/MessageBytes.html#getCharset()">getCharset</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the Charset used for string&lt;-&gt;byte conversions.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;<A HREF="../../../../../org/apache/tomcat/util/buf/MessageBytes.html" title="class in org.apache.tomcat.util.buf">MessageBytes</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../../org/apache/tomcat/util/buf/MessageBytes.html#getClone()">getClone</A></B>()</CODE>
 
@@ -426,7 +434,7 @@ This class is used to represent a subarray of bytes in an HTTP message.
 <TD><CODE><B><A HREF="../../../../../org/apache/tomcat/util/buf/MessageBytes.html#setCharset(java.nio.charset.Charset)">setCharset</A></B>(java.nio.charset.Charset&nbsp;charset)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the encoding.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the Charset used for string&lt;-&gt;byte conversions.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -502,7 +510,7 @@ This class is used to represent a subarray of bytes in an HTTP message.
 <TD><CODE><B><A HREF="../../../../../org/apache/tomcat/util/buf/MessageBytes.html#toBytes()">toBytes</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unimplemented yet.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do a char-&gt;byte conversion.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -717,24 +725,6 @@ public void <B>setBytes</B>(byte[]&nbsp;b,
 </DL>
 <HR>
 
-<A NAME="setCharset(java.nio.charset.Charset)"><!-- --></A><H3>
-setCharset</H3>
-<PRE>
-public void <B>setCharset</B>(java.nio.charset.Charset&nbsp;charset)</PRE>
-<DL>
-<DD>Set the encoding. If the object was constructed from bytes[]. any
-  previous conversion is reset.
-  If no encoding is set, we'll use 8859-1.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
 <A NAME="setChars(char[], int, int)"><!-- --></A><H3>
 setChars</H3>
 <PRE>
@@ -871,12 +861,44 @@ public java.lang.String <B>getString</B>()</PRE>
 </DL>
 <HR>
 
+<A NAME="getCharset()"><!-- --></A><H3>
+getCharset</H3>
+<PRE>
+public java.nio.charset.Charset <B>getCharset</B>()</PRE>
+<DL>
+<DD>Get the Charset used for string&lt;-&gt;byte conversions.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setCharset(java.nio.charset.Charset)"><!-- --></A><H3>
+setCharset</H3>
+<PRE>
+public void <B>setCharset</B>(java.nio.charset.Charset&nbsp;charset)</PRE>
+<DL>
+<DD>Set the Charset used for string&lt;-&gt;byte conversions.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
 <A NAME="toBytes()"><!-- --></A><H3>
 toBytes</H3>
 <PRE>
 public void <B>toBytes</B>()</PRE>
 <DL>
-<DD>Unimplemented yet. Do a char->byte conversion.
+<DD>Do a char-&gt;byte conversion.
 <P>
 <DD><DL>
 </DL>
@@ -1264,7 +1286,7 @@ public static void <B>setFactory</B>(<A HREF="../../../../../org/apache/tomcat/u
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -1300,6 +1322,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

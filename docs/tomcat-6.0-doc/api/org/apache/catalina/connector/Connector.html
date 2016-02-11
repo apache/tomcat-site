@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Connector (Apache Tomcat 6.0.44 API Documentation)
+Connector (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.connector.Connector class">
@@ -14,7 +14,7 @@ Connector (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Connector (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Connector (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -606,6 +606,14 @@ Implementation of a Coyote connector.
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/connector/Connector.html#getLocalPort()">getLocalPort</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the port number on which this connector is listening to requests.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;<A HREF="../../../../org/apache/tomcat/util/http/mapper/Mapper.html" title="class in org.apache.tomcat.util.http.mapper">Mapper</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/connector/Connector.html#getMapper()">getMapper</A></B>()</CODE>
 
@@ -669,7 +677,8 @@ Implementation of a Coyote connector.
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/connector/Connector.html#getPort()">getPort</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the port number on which we listen for requests.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the port number on which this connector is configured to listen
+ for requests.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -2160,7 +2169,9 @@ getPort</H3>
 <PRE>
 public int <B>getPort</B>()</PRE>
 <DL>
-<DD>Return the port number on which we listen for requests.
+<DD>Return the port number on which this connector is configured to listen
+ for requests. The special value of 0 means select a random free port
+ when the socket is bound.
 <P>
 <DD><DL>
 </DL>
@@ -2183,6 +2194,24 @@ public void <B>setPort</B>(int&nbsp;port)</PRE>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>port</CODE> - The new port number</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLocalPort()"><!-- --></A><H3>
+getLocalPort</H3>
+<PRE>
+public int <B>getLocalPort</B>()</PRE>
+<DL>
+<DD>Return the port number on which this connector is listening to requests.
+ If the special value for <A HREF="../../../../org/apache/catalina/connector/Connector.html#port"><CODE>port</CODE></A> of zero is used then this method
+ will report the actual port bound.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
 </DD>
 </DL>
 <HR>
@@ -2985,7 +3014,7 @@ public java.lang.String <B>toString</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -3021,6 +3050,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-StoreBase (Apache Tomcat 6.0.44 API Documentation)
+StoreBase (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.session.StoreBase class">
@@ -14,7 +14,7 @@ StoreBase (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="StoreBase (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="StoreBase (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -149,7 +149,7 @@ Abstract implementation of the Store interface to
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A></CODE></FONT></TD>
+<CODE>protected static&nbsp;<A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StoreBase.html#sm">sm</A></B></CODE>
 
 <BR>
@@ -253,6 +253,14 @@ Abstract implementation of the Store interface to
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the Manager with which the Store is associated.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.io.ObjectInputStream</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/session/StoreBase.html#getObjectInputStream(java.io.InputStream)">getObjectInputStream</A></B>(java.io.InputStream&nbsp;is)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create the object input stream to use to read a session from the store.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -408,7 +416,7 @@ protected java.beans.PropertyChangeSupport <B>support</B></PRE>
 <A NAME="sm"><!-- --></A><H3>
 sm</H3>
 <PRE>
-protected <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
+protected static final <A HREF="../../../../org/apache/catalina/util/StringManager.html" title="class in org.apache.catalina.util">StringManager</A> <B>sm</B></PRE>
 <DL>
 <DD>The string manager for this package.
 <P>
@@ -618,6 +626,30 @@ public void <B>processExpires</B>()</PRE>
 </DL>
 <HR>
 
+<A NAME="getObjectInputStream(java.io.InputStream)"><!-- --></A><H3>
+getObjectInputStream</H3>
+<PRE>
+protected java.io.ObjectInputStream <B>getObjectInputStream</B>(java.io.InputStream&nbsp;is)
+                                                  throws java.io.IOException</PRE>
+<DL>
+<DD>Create the object input stream to use to read a session from the store.
+ Sub-classes <b>must</b> have set the thread context class loader before
+ calling this method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>is</CODE> - The input stream provided by the sub-class that will provide
+           the data for a session
+<DT><B>Returns:</B><DD>An appropriately configured ObjectInputStream from which the
+         session can be read.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if a problem occurs creating the ObjectInputStream</DL>
+</DD>
+</DL>
+<HR>
+
 <A NAME="start()"><!-- --></A><H3>
 start</H3>
 <PRE>
@@ -684,7 +716,7 @@ public void <B>stop</B>()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -720,6 +752,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Socket (Apache Tomcat 6.0.44 API Documentation)
+Socket (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.tomcat.jni.Socket class">
@@ -14,7 +14,7 @@ Socket (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Socket (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Socket (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -492,6 +492,25 @@ Socket
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.Object</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/Socket.html#dataGet(long, java.lang.String)">dataGet</A></B>(long&nbsp;sock,
+        java.lang.String&nbsp;key)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the data associated with the current socket</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/Socket.html#dataSet(long, java.lang.String, java.lang.Object)">dataSet</A></B>(long&nbsp;sock,
+        java.lang.String&nbsp;key,
+        java.lang.Object&nbsp;data)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the data associated with the current socket.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>static&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/Socket.html#destroy(long)">destroy</A></B>(long&nbsp;thesocket)</CODE>
 
@@ -564,7 +583,7 @@ Socket
        int&nbsp;nbytes)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read data from a network using internally set ByteBuffer</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read data from a network using internally set ByteBuffer.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -672,6 +691,30 @@ Socket
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Send a file without header and trailer arrays.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/Socket.html#sendib(long, java.nio.ByteBuffer, int, int)">sendib</A></B>(long&nbsp;sock,
+       java.nio.ByteBuffer&nbsp;buf,
+       int&nbsp;offset,
+       int&nbsp;len)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Send data over a network without retry
+ 
+ This functions acts like a blocking write by default.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/tomcat/jni/Socket.html#sendibb(long, int, int)">sendibb</A></B>(long&nbsp;sock,
+        int&nbsp;offset,
+        int&nbsp;len)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Send data over a network using internally set ByteBuffer
+ without internal retry.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -1417,6 +1460,34 @@ public static int <B>sendb</B>(long&nbsp;sock,
 </DL>
 <HR>
 
+<A NAME="sendib(long, java.nio.ByteBuffer, int, int)"><!-- --></A><H3>
+sendib</H3>
+<PRE>
+public static int <B>sendib</B>(long&nbsp;sock,
+                         java.nio.ByteBuffer&nbsp;buf,
+                         int&nbsp;offset,
+                         int&nbsp;len)</PRE>
+<DL>
+<DD>Send data over a network without retry
+ <PRE>
+ This functions acts like a blocking write by default.  To change
+ this behavior, use apr_socket_timeout_set() or the APR_SO_NONBLOCK
+ socket option.
+
+ It is possible for both bytes to be sent and an error to be returned.
+
+ </PRE>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sock</CODE> - The socket to send the data over.<DD><CODE>buf</CODE> - The Byte buffer which contains the data to be sent.<DD><CODE>offset</CODE> - The offset within the buffer array of the first buffer from
+               which bytes are to be retrieved; must be non-negative
+               and no larger than buf.length<DD><CODE>len</CODE> - The maximum number of buffers to be accessed; must be non-negative
+            and no larger than buf.length - offset
+<DT><B>Returns:</B><DD>The number of bytes send.</DL>
+</DD>
+</DL>
+<HR>
+
 <A NAME="sendbb(long, int, int)"><!-- --></A><H3>
 sendbb</H3>
 <PRE>
@@ -1425,6 +1496,22 @@ public static int <B>sendbb</B>(long&nbsp;sock,
                          int&nbsp;len)</PRE>
 <DL>
 <DD>Send data over a network using internally set ByteBuffer
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="sendibb(long, int, int)"><!-- --></A><H3>
+sendibb</H3>
+<PRE>
+public static int <B>sendibb</B>(long&nbsp;sock,
+                          int&nbsp;offset,
+                          int&nbsp;len)</PRE>
+<DL>
+<DD>Send data over a network using internally set ByteBuffer
+ without internal retry.
 <P>
 <DD><DL>
 </DL>
@@ -1555,7 +1642,9 @@ public static int <B>recvb</B>(long&nbsp;sock,
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>sock</CODE> - The socket to read the data from.<DD><CODE>buf</CODE> - The buffer to store the data in.<DD><CODE>offset</CODE> - Offset in the byte buffer.<DD><CODE>nbytes</CODE> - The number of bytes to read (-1) for full array.
-<DT><B>Returns:</B><DD>the number of bytes received.</DL>
+<DT><B>Returns:</B><DD>If &ge; 0, the return value is the number of bytes read. Note a
+         non-blocking read with no data current available will return
+         <A HREF="../../../../org/apache/tomcat/jni/Status.html#EAGAIN"><CODE>Status.EAGAIN</CODE></A> and EOF will return <A HREF="../../../../org/apache/tomcat/jni/Status.html#APR_EOF"><CODE>Status.APR_EOF</CODE></A>.</DL>
 </DD>
 </DL>
 <HR>
@@ -1567,10 +1656,14 @@ public static int <B>recvbb</B>(long&nbsp;sock,
                          int&nbsp;offset,
                          int&nbsp;nbytes)</PRE>
 <DL>
-<DD>Read data from a network using internally set ByteBuffer
+<DD>Read data from a network using internally set ByteBuffer.
 <P>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>If &gt; 0, the return value is the number of bytes read. If == 0,
+         the return value indicates EOF and if &lt; 0 the return value is the
+         error code. Note a non-blocking read with no data current
+         available will return <A HREF="../../../../org/apache/tomcat/jni/Status.html#EAGAIN"><CODE>Status.EAGAIN</CODE></A> not zero.</DL>
 </DD>
 </DL>
 <HR>
@@ -1829,6 +1922,36 @@ public static void <B>setrbb</B>(long&nbsp;sock,
 <DT><B>Parameters:</B><DD><CODE>sock</CODE> - The socket to use<DD><CODE>buf</CODE> - The ByteBuffer</DL>
 </DD>
 </DL>
+<HR>
+
+<A NAME="dataSet(long, java.lang.String, java.lang.Object)"><!-- --></A><H3>
+dataSet</H3>
+<PRE>
+public static int <B>dataSet</B>(long&nbsp;sock,
+                          java.lang.String&nbsp;key,
+                          java.lang.Object&nbsp;data)</PRE>
+<DL>
+<DD>Set the data associated with the current socket.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sock</CODE> - The currently open socket.<DD><CODE>data</CODE> - The user data to associate with the socket.<DD><CODE>key</CODE> - The key to associate with the data.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="dataGet(long, java.lang.String)"><!-- --></A><H3>
+dataGet</H3>
+<PRE>
+public static java.lang.Object <B>dataGet</B>(long&nbsp;sock,
+                                       java.lang.String&nbsp;key)</PRE>
+<DL>
+<DD>Return the data associated with the current socket
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>key</CODE> - The key to associate with the user data.<DD><CODE>sock</CODE> - The currently open socket.
+<DT><B>Returns:</B><DD>Data or null in case of error.</DL>
+</DD>
+</DL>
 <!-- ========= END OF CLASS DATA ========= -->
 <HR>
 
@@ -1853,7 +1976,7 @@ public static void <B>setrbb</B>(long&nbsp;sock,
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -1889,6 +2012,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

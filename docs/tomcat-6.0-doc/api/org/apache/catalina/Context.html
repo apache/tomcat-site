@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Context (Apache Tomcat 6.0.44 API Documentation)
+Context (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.Context interface">
@@ -14,7 +14,7 @@ Context (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Context (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Context (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -721,6 +721,24 @@ A <b>Context</b> is a Container that represents a servlet context, and
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Context.html#getMapperContextRootRedirectEnabled()">getMapperContextRootRedirectEnabled</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Context.html#getMapperDirectoryRedirectEnabled()">getMapperDirectoryRedirectEnabled</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;<A HREF="../../../org/apache/catalina/deploy/NamingResources.html" title="class in org.apache.catalina.deploy">NamingResources</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../org/apache/catalina/Context.html#getNamingResources()">getNamingResources</A></B>()</CODE>
 
@@ -1166,6 +1184,24 @@ A <b>Context</b> is a Container that represents a servlet context, and
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the login configuration descriptor for this web application.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Context.html#setMapperContextRootRedirectEnabled(boolean)">setMapperContextRootRedirectEnabled</A></B>(boolean&nbsp;mapperContextRootRedirectEnabled)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If enabled, requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Context.html#setMapperDirectoryRedirectEnabled(boolean)">setMapperDirectoryRedirectEnabled</A></B>(boolean&nbsp;mapperDirectoryRedirectEnabled)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If enabled, requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -3672,6 +3708,84 @@ void <B>removeWrapperListener</B>(java.lang.String&nbsp;listener)</PRE>
 <DT><B>Parameters:</B><DD><CODE>listener</CODE> - Class name of a ContainerListener class to be removed</DL>
 </DD>
 </DL>
+<HR>
+
+<A NAME="setMapperContextRootRedirectEnabled(boolean)"><!-- --></A><H3>
+setMapperContextRootRedirectEnabled</H3>
+<PRE>
+void <B>setMapperContextRootRedirectEnabled</B>(boolean&nbsp;mapperContextRootRedirectEnabled)</PRE>
+<DL>
+<DD>If enabled, requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper. This is more
+ efficient but has the side effect of confirming that the context path is
+ valid.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mapperContextRootRedirectEnabled</CODE> - Should the redirects be enabled?</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMapperContextRootRedirectEnabled()"><!-- --></A><H3>
+getMapperContextRootRedirectEnabled</H3>
+<PRE>
+boolean <B>getMapperContextRootRedirectEnabled</B>()</PRE>
+<DL>
+<DD>Determines if requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper. This is more
+ efficient but has the side effect of confirming that the context path is
+ valid.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if the Mapper level redirect is enabled for this
+         Context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMapperDirectoryRedirectEnabled(boolean)"><!-- --></A><H3>
+setMapperDirectoryRedirectEnabled</H3>
+<PRE>
+void <B>setMapperDirectoryRedirectEnabled</B>(boolean&nbsp;mapperDirectoryRedirectEnabled)</PRE>
+<DL>
+<DD>If enabled, requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper. This is more efficient but has the
+ side effect of confirming that the directory is valid.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mapperDirectoryRedirectEnabled</CODE> - Should the redirects be enabled?</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMapperDirectoryRedirectEnabled()"><!-- --></A><H3>
+getMapperDirectoryRedirectEnabled</H3>
+<PRE>
+boolean <B>getMapperDirectoryRedirectEnabled</B>()</PRE>
+<DL>
+<DD>Determines if requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper. This is more efficient but has the
+ side effect of confirming that the directory is valid.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if the Mapper level redirect is enabled for this
+         Context.</DL>
+</DD>
+</DL>
 <!-- ========= END OF CLASS DATA ========= -->
 <HR>
 
@@ -3696,7 +3810,7 @@ void <B>removeWrapperListener</B>(java.lang.String&nbsp;listener)</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -3732,6 +3846,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

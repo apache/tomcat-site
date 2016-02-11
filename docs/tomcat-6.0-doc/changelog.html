@@ -1,9 +1,227 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.44) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Yoav Shapira"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Peter Rossbach"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Jean-Frederic Clere"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Mladen Turk"><meta name="author" content="Tim Whittington"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Christopher Schultz"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.45) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Yoav Shapira"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Peter Rossbach"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Jean-Frederic Clere"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Mladen Turk"><meta name="author" content="Tim Whittington"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Christopher Schultz"><style type="text/css" media="print">
 			.noPrint {display: none;}
 			td#mainBody {width: 100%;}
 		</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.44, May 8 2015</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade="noshade" size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="nowrap" class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Apache Tomcat 6.0</h1><h2>Changelog</h2><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.44 (jfclere)"><!--()--></a><a name="Tomcat_6.0.44_(jfclere)"><strong>Tomcat 6.0.44 (jfclere)</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.45, Feb 1 2016</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade="noshade" size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="nowrap" class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Apache Tomcat 6.0</h1><h2>Changelog</h2><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.45 (jfclere)"><!--()--></a><a name="Tomcat_6.0.45_(jfclere)"><strong>Tomcat 6.0.45 (jfclere)</strong></a></font></td></tr><tr><td><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.45 (jfclere)/Catalina"><!--()--></a><a name="Tomcat_6.0.45_(jfclere)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Back-port various improvements to the <code>AprLifecycleListener</code>
+        including the fix for <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57021">57021</a> that improves logging when the
+        Tomcat-Native DLL fails to load. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57154">57154</a>: Add support for web applications (Context elements)
+        that do not have a docBase. This is intended for use when embedding,
+        such as Tomcat unit tests, when a web application is configured
+        programmatically and does not serve any files. Based on a patch
+        provided by Huxing Zhang. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57741">57741</a>: Enable the CGI servlet to use the standard error page
+        mechanism. Note that if the CGI servlet's debug init parameter is
+        set to 10 or higher then the standard error page mechanism will be
+        bypassed and a debug response generated by the CGI servlet will be
+        returned instead. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57896">57896</a>: Support defensive copying of "cookie" header so that
+        unescaping double quotes in a cookie value does not corrupt original
+        value of "cookie" header. This is an opt-in feature, enabled by
+        <code>org.apache.tomcat.util.http.ServerCookie.PRESERVE_COOKIE_HEADER</code>
+        or <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
+        system property. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58031">58031</a>: Make the (first) reason parameter parsing failed
+        available as a request attribute and then use it to provide a better
+        status code via the FailedRequstFilter (if configured). (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58313">58313</a>: Fix concurrent access of encoders map when clearing
+        encoders during Comet processing. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58508">58508</a>: Escape role names when generating associated MBeans in
+        case the role name contains characters not permitted in an MBean name.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58582">58582</a>: Combined realm should perform background processing
+        on its sub-realms. Based upon a patch provided by Aidan. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Move the functionality that provides redirects for context roots and
+        directories where a trailing <code>/</code> is added from the Mapper to
+        the <code>DefaultServlet</code>. This enables such requests to be
+        processed by any configured Valves and Filters before the redirect is
+        made. This behaviour is configurable via the
+        <code>mapperContextRootRedirectEnabled</code> and
+        <code>mapperDirectoryRedirectEnabled</code> attributes of the Context
+        which may be used to restore the previous behaviour. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58635">58635</a>: Enable break points to be set within agent code when
+        running Tomcat with a Java agent. Based on a patch by Huxing Zhang.
+        (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Add the <code>StatusManagerServlet</code> to the list of Servlets that
+        can only be loaded by privileged applications. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Remove redundant copy of catalina.properties from o.a.c.startup.
+        Generate this copy during the ant "compile" task. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58817">58817</a>: Fix <code>ArrayIndexOutOfBoundsException</code>
+        caused by <code>MapperListener</code> when ROOT context is being
+        undeployed and mapperContextRootRedirectEnabled="false". (kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58836">58836</a>: Correctly merge query string parameters when
+        processing a forwarded request where the target includes a query string
+        that contains a parameter with no value. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Allow singleton server instance stored by <code>ServerFactory</code>
+        to be cleared.
+        Allow <code>ResourceLinkFactory</code> to be initialized more than once.
+        This is used by unit tests when running several copies of Tomcat
+        sequentially in the same JVM.
+        When running with a SecurityManager the initialization method of
+        <code>ResourceLinkFactory</code> is protected by requiring a
+        <code>RuntimePermission</code>. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Extend the feature available in the cluster session manager
+        implementations that enables session attribute replication to be
+        filtered bases on attribute name to all session manager implementations.
+        Note that configuration attribute name has changed from
+        <code>sessionAttributeFilter</code> to
+        <code>sessionAttributeNameFilter</code>. Apply the filter on load as
+        well as unload to ensure that configuration changes made while the web
+        application is stopped are applied to any persisted data. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Extend the session attribute filtering options to include filtering
+        based on the implementation class of the value and optional
+        <code>WARN</code> level logging if an attribute is filtered. These
+        options are available for all of the Manager implementations that ship
+        with Tomcat. When a <code>SecurityManager</code> is used filtering will
+        be enabled by default. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58946">58946</a>: Ensure that the request parameter map remains
+        immutable when processing via a RequestDispatcher. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.45 (jfclere)/Coyote"><!--()--></a><a name="Tomcat_6.0.45_(jfclere)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Align the Java side of the tc-native connector with the Tomcat 7
+        implementation to ease future maintenance. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=51503">51503</a>: Add additional validation that prevents a connector
+        from starting if it does not have a valid port number. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=52028">52028</a>: Add support for automatic binding to a free port by a
+        connector if the special value of zero is used for the port. This is
+        mainly useful in embedded and testing scenarios. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=52926">52926</a>: Avoid NPE when an NIO Comet connection times out on
+        one thread at the same time as it is closed on another thread.
+        (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57943">57943</a>: Prevent the same socket being added to the cache
+        twice. Patch based on analysis by Ian Luo / Sun Qi. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve HTTP header validation. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.45 (jfclere)/Web applications"><!--()--></a><a name="Tomcat_6.0.45_(jfclere)/Web_applications"><strong>Web applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57971">57971</a>: Correct the documentation for the cluster
+        configuration setting <code>recoverySleepTime</code>. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58112">58112</a>: Update the documentation for using the Catalina tasks
+        in an Apache Ant build file. (markt) 
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve the Javadoc for some of the APR socket read functions that have
+        inconsistent behaviour for return values. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58255">58255</a>: Document the Semaphore valve. Patch provided by
+        Kyohei Nakamura. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58631">58631</a>: Correct the continuation character use in the Windows
+        Service How-To page of the documenation web application. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct some typos in the JNDI resources How-To. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Add a redirect to the web interface to the root of the Manager web
+        application. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Don't create sessions unnecessarily in the Manager application. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Add a redirect to the web interface to the root of the Host Manager web
+        application. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Don't create sessions unnecessarily in the Host Manager application.
+        (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.45 (jfclere)/Other"><!--()--></a><a name="Tomcat_6.0.45_(jfclere)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure JULI adapters JAR in Tomcat extras package does not include
+        the LogFactoryImpl[$*] classes. Based on patch provided by
+        Benjamin Gandon. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="code" class="icon" src="./images/code.gif"></td><td>
+        Convert test classes to JUnit 4. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=58596">58596</a>: Clarify the description in RUNNING.txt of how
+        environment variables are used. (markt)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the NSIS Installer used to build the Windows Installers to
+        version 2.50. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add framework for client-server unit tests, porting it from
+        Tomcat 7. Add support for running the tests with Apache Ant. (kkolinko)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update to Tomcat Native Library version 1.1.34. (jfclere)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Remove support for Intel Itanium CPU (i64, IA-64) in the Windows
+        installer, as the current release of Tomcat Native does not have
+        binaries for that processor architecture. (jfclere)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.44 (jfclere)"><!--()--></a><a name="Tomcat_6.0.44_(jfclere)"><strong>Tomcat 6.0.44 (jfclere)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>released 2015-05-12</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.44 (jfclere)/Catalina"><!--()--></a><a name="Tomcat_6.0.44_(jfclere)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
     <table border="0" cellpadding="2" cellspacing="2">
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
@@ -37,9 +255,16 @@
         filterInsecureProtocols method. (kkolinko/schultz)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        When applying the <code>maxSwallowSize</code> limit to a connection read
-        that many bytes first before closing the connection to give the client a
-        chance to read the response. (markt)
+        CVE-2014-0230: Add a new system property
+        <code>org.apache.coyote.MAX_SWALLOW_SIZE</code> (defaults to 2MB)
+        that limits amount of data Tomcat will swallow if request body
+        has not been fully read during normal request processing, e.g.
+        for an aborted upload. (Note: in Tomcat 7 and later this feature is
+        configured by <code>maxSwallowSize</code> attribute on a connector).
+        When applying the limit to a connection try to read that many bytes
+        first before closing the connection to give the client a chance to
+        read the response.
+        (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57544">57544</a>: Fix a potential infinite loop when preparing a kept
@@ -62,17 +287,19 @@
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 6.0.44 (jfclere)/Jasper"><!--()--></a><a name="Tomcat_6.0.44_(jfclere)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
     <table border="0" cellpadding="2" cellspacing="2">
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        Fix potential issue with BeanELResolver when running under a security
+        CVE-2014-7810:
+        Do not use a privileged code block when evaluating EL expressions
+        when running under a security manager, which allowed to bypass code
+        restrictions. (markt/kkolinko)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix an issue with BeanELResolver when running under a security
         manager. Some classes may not be accessible but may have accessible
         interfaces. (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         Simplify code in <code>ProtectedFunctionMapper</code> class of
         Jasper runtime. (kkolinko)
-      </td></tr>
-      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57801">57801</a>: Improve the error message in the start script in case
-        the PID read from the PID file is already owned by a process. (rjung)
       </td></tr>
     </table>
   </blockquote></td></tr></table>
@@ -155,6 +382,10 @@
       <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
         Update to Tomcat Native Library version 1.1.33 to pick up the Windows
         binaries that are based on OpenSSL 1.0.1m and APR 1.5.1. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57801">57801</a>: Improve the error message in the start script in case
+        the PID read from the PID file is already owned by a process. (rjung)
       </td></tr>
     </table>
   </blockquote></td></tr></table>
@@ -1415,7 +1646,7 @@
         (markt/rjung)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        Ensure the the memory leak protection for the HttpClient keep-alive
+        Ensure that the memory leak protection for the HttpClient keep-alive
         always operates even if the thread has already stopped. (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
@@ -1722,7 +1953,13 @@
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         Improve handling of URLs with path parameters and prevent incorrect 404
-        responses that could occur when path parameters were present. (kkolinko)
+        responses that could occur when path parameters were present.
+        The method <code>getRequestURI()</code> was fixed to comply with
+        specification (chapter SRV.3.1 of Servlet Spec. 2.5, javadoc) and now
+        returns original request URI line from a HTTP request including any
+        path parameters (such as jsessionid). See issues <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=51833">51833</a> and
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=53584">53584</a>.
+        (kkolinko/markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=51473">51473</a>: Fix concatenation of values in
@@ -2670,7 +2907,7 @@
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=48760">48760</a>: Fix potential multi-threading issue in static resource
-        serving where multiple threads could try to use the the same
+        serving where multiple threads could try to use the same
         InputStream. (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
@@ -4567,7 +4804,7 @@
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         Fix various edge-cases when parsing EL, particularly inside attribute
-        values. Note the the Expert Group has confirmed that JSP.1.6 takes
+        values. Note that the Expert Group has confirmed that JSP.1.6 takes
         precedence over JSP.1.3.10. Therefore EL in attributes must be escaped
         twice. (markt)
       </td></tr>
@@ -6587,5 +6824,5 @@
     </table>
   </blockquote></td></tr></table>
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade="noshade" size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2015, Apache Software Foundation
+        Copyright &copy; 1999-2016, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>

@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Manager (Apache Tomcat 6.0.44 API Documentation)
+Manager (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.Manager interface">
@@ -14,7 +14,7 @@ Manager (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Manager (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="Manager (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -231,8 +231,8 @@ A <b>Manager</b> manages the pool of Sessions that are associated with a
 <TD><CODE><B><A HREF="../../../org/apache/catalina/Manager.html#getDistributable()">getDistributable</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the distributable flag for the sessions supported by
- this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -267,8 +267,8 @@ A <b>Manager</b> manages the pool of Sessions that are associated with a
 <TD><CODE><B><A HREF="../../../org/apache/catalina/Manager.html#getMaxInactiveInterval()">getMaxInactiveInterval</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the default maximum inactive interval (in seconds)
- for Sessions created by this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -353,8 +353,8 @@ A <b>Manager</b> manages the pool of Sessions that are associated with a
 <TD><CODE><B><A HREF="../../../org/apache/catalina/Manager.html#setDistributable(boolean)">setDistributable</A></B>(boolean&nbsp;distributable)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the distributable flag for the sessions supported by this
- Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -379,8 +379,8 @@ A <b>Manager</b> manages the pool of Sessions that are associated with a
 <TD><CODE><B><A HREF="../../../org/apache/catalina/Manager.html#setMaxInactiveInterval(int)">setMaxInactiveInterval</A></B>(int&nbsp;interval)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the default maximum inactive interval (in seconds)
- for Sessions created by this Manager.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I></TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -435,6 +435,15 @@ A <b>Manager</b> manages the pool of Sessions that are associated with a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save any currently active sessions in the appropriate persistence
  mechanism, if any.</TD>
 </TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../org/apache/catalina/Manager.html#willAttributeDistribute(java.lang.String, java.lang.Object)">willAttributeDistribute</A></B>(java.lang.String&nbsp;name,
+                        java.lang.Object&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would the Manager distribute the given session attribute?</TD>
+</TR>
 </TABLE>
 &nbsp;
 <P>
@@ -467,7 +476,12 @@ setContainer</H3>
 <PRE>
 void <B>setContainer</B>(<A HREF="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</A>&nbsp;container)</PRE>
 <DL>
-<DD>Set the Container with which this Manager is associated.
+<DD>Set the Container with which this Manager is associated. The Container
+ must be set to a non-null value before the Manager is first used.
+ Multiple calls to this method before first use are permitted. Once the
+ Manager has been used, this method may not be used to change the
+ Container (including setting a <code>null</code> value) that the Manager is
+ associated with.
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The newly associated Container</DL>
@@ -478,8 +492,12 @@ void <B>setContainer</B>(<A HREF="../../../org/apache/catalina/Container.html" t
 <A NAME="getDistributable()"><!-- --></A><H3>
 getDistributable</H3>
 <PRE>
-boolean <B>getDistributable</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>boolean <B>getDistributable</B>()</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I>
+<P>
 <DD>Return the distributable flag for the sessions supported by
  this Manager.
 <P>
@@ -492,8 +510,12 @@ boolean <B>getDistributable</B>()</PRE>
 <A NAME="setDistributable(boolean)"><!-- --></A><H3>
 setDistributable</H3>
 <PRE>
-void <B>setDistributable</B>(boolean&nbsp;distributable)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>void <B>setDistributable</B>(boolean&nbsp;distributable)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getDistributable()"><CODE>Context.getDistributable()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I>
+<P>
 <DD>Set the distributable flag for the sessions supported by this
  Manager.  If this flag is set, all user data objects added to
  sessions associated with this manager must implement Serializable.
@@ -522,8 +544,12 @@ java.lang.String <B>getInfo</B>()</PRE>
 <A NAME="getMaxInactiveInterval()"><!-- --></A><H3>
 getMaxInactiveInterval</H3>
 <PRE>
-int <B>getMaxInactiveInterval</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>int <B>getMaxInactiveInterval</B>()</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I>
+<P>
 <DD>Return the default maximum inactive interval (in seconds)
  for Sessions created by this Manager.
 <P>
@@ -536,8 +562,12 @@ int <B>getMaxInactiveInterval</B>()</PRE>
 <A NAME="setMaxInactiveInterval(int)"><!-- --></A><H3>
 setMaxInactiveInterval</H3>
 <PRE>
-void <B>setMaxInactiveInterval</B>(int&nbsp;interval)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>void <B>setMaxInactiveInterval</B>(int&nbsp;interval)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Ignored. <A HREF="../../../org/apache/catalina/Context.html#getSessionTimeout()"><CODE>Context.getSessionTimeout()</CODE></A> always takes
+             precedence. Will be removed in Tomcat 9.0.x.</I>
+<P>
 <DD>Set the default maximum inactive interval (in seconds)
  for Sessions created by this Manager.
 <P>
@@ -824,7 +854,8 @@ createEmptySession</H3>
 <A NAME="createSession()"><!-- --></A><H3>
 createSession</H3>
 <PRE>
-<A HREF="../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</A> <B>createSession</B>()</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT><A HREF="../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</A> <B>createSession</B>()</PRE>
 <DL>
 <DD><B>Deprecated.</B>&nbsp;<I></I>
 <P>
@@ -978,6 +1009,24 @@ void <B>backgroundProcess</B>()</PRE>
 </DL>
 </DD>
 </DL>
+<HR>
+
+<A NAME="willAttributeDistribute(java.lang.String, java.lang.Object)"><!-- --></A><H3>
+willAttributeDistribute</H3>
+<PRE>
+boolean <B>willAttributeDistribute</B>(java.lang.String&nbsp;name,
+                                java.lang.Object&nbsp;value)</PRE>
+<DL>
+<DD>Would the Manager distribute the given session attribute? Manager
+ implementations may provide additional configuration options to control
+ which attributes are distributable.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - The attribute name<DD><CODE>value</CODE> - The attribute value
+<DT><B>Returns:</B><DD><code>true</code> if the Manager would distribute the given attribute
+         otherwise <code>false</code></DL>
+</DD>
+</DL>
 <!-- ========= END OF CLASS DATA ========= -->
 <HR>
 
@@ -1002,7 +1051,7 @@ void <B>backgroundProcess</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -1038,6 +1087,6 @@ DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHO
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>

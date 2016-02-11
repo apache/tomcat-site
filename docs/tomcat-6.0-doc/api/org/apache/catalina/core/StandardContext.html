@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-StandardContext (Apache Tomcat 6.0.44 API Documentation)
+StandardContext (Apache Tomcat 6.0.45 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.core.StandardContext class">
@@ -14,7 +14,7 @@ StandardContext (Apache Tomcat 6.0.44 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="StandardContext (Apache Tomcat 6.0.44 API Documentation)";
+    parent.document.title="StandardContext (Apache Tomcat 6.0.45 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -1193,6 +1193,28 @@ Standard implementation of the <b>Context</b> interface.  Each
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getMapperContextRootRedirectEnabled()">getMapperContextRootRedirectEnabled</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper.
+ 
+ The default value for this implementation is <code>false</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getMapperDirectoryRedirectEnabled()">getMapperDirectoryRedirectEnabled</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper.
+ 
+ The default value for this implementation is <code>false</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;<A HREF="../../../../org/apache/catalina/core/NamingContextListener.html" title="class in org.apache.catalina.core">NamingContextListener</A></CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getNamingContextListener()">getNamingContextListener</A></B>()</CODE>
 
@@ -2214,6 +2236,24 @@ Standard implementation of the <b>Context</b> interface.  Each
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setMapperContextRootRedirectEnabled(boolean)">setMapperContextRootRedirectEnabled</A></B>(boolean&nbsp;mapperContextRootRedirectEnabled)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If enabled, requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setMapperDirectoryRedirectEnabled(boolean)">setMapperDirectoryRedirectEnabled</A></B>(boolean&nbsp;mapperDirectoryRedirectEnabled)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If enabled, requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setName(java.lang.String)">setName</A></B>(java.lang.String&nbsp;name)</CODE>
 
 <BR>
@@ -2662,6 +2702,90 @@ public <B>StandardContext</B>()</PRE>
 <B>Method Detail</B></FONT></TH>
 </TR>
 </TABLE>
+
+<A NAME="setMapperContextRootRedirectEnabled(boolean)"><!-- --></A><H3>
+setMapperContextRootRedirectEnabled</H3>
+<PRE>
+public void <B>setMapperContextRootRedirectEnabled</B>(boolean&nbsp;mapperContextRootRedirectEnabled)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Context.html#setMapperContextRootRedirectEnabled(boolean)">Context</A></CODE></B></DD>
+<DD>If enabled, requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper. This is more
+ efficient but has the side effect of confirming that the context path is
+ valid.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#setMapperContextRootRedirectEnabled(boolean)">setMapperContextRootRedirectEnabled</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mapperContextRootRedirectEnabled</CODE> - Should the redirects be enabled?</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMapperContextRootRedirectEnabled()"><!-- --></A><H3>
+getMapperContextRootRedirectEnabled</H3>
+<PRE>
+public boolean <B>getMapperContextRootRedirectEnabled</B>()</PRE>
+<DL>
+<DD>Determines if requests for a web application context root will be
+ redirected (adding a trailing slash) by the Mapper. This is more
+ efficient but has the side effect of confirming that the context path is
+ valid.
+ <p>
+ The default value for this implementation is <code>false</code>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#getMapperContextRootRedirectEnabled()">getMapperContextRootRedirectEnabled</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if the Mapper level redirect is enabled for this
+         Context.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMapperDirectoryRedirectEnabled(boolean)"><!-- --></A><H3>
+setMapperDirectoryRedirectEnabled</H3>
+<PRE>
+public void <B>setMapperDirectoryRedirectEnabled</B>(boolean&nbsp;mapperDirectoryRedirectEnabled)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Context.html#setMapperDirectoryRedirectEnabled(boolean)">Context</A></CODE></B></DD>
+<DD>If enabled, requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper. This is more efficient but has the
+ side effect of confirming that the directory is valid.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#setMapperDirectoryRedirectEnabled(boolean)">setMapperDirectoryRedirectEnabled</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>mapperDirectoryRedirectEnabled</CODE> - Should the redirects be enabled?</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMapperDirectoryRedirectEnabled()"><!-- --></A><H3>
+getMapperDirectoryRedirectEnabled</H3>
+<PRE>
+public boolean <B>getMapperDirectoryRedirectEnabled</B>()</PRE>
+<DL>
+<DD>Determines if requests for a directory will be redirected (adding a
+ trailing slash) by the Mapper. This is more efficient but has the
+ side effect of confirming that the directory is valid.
+ <p>
+ The default value for this implementation is <code>false</code>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#getMapperDirectoryRedirectEnabled()">getMapperDirectoryRedirectEnabled</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if the Mapper level redirect is enabled for this
+         Context.</DL>
+</DD>
+</DL>
+<HR>
 
 <A NAME="getAnnotationProcessor()"><!-- --></A><H3>
 getAnnotationProcessor</H3>
@@ -7201,7 +7325,7 @@ public boolean <B>isStatisticsProvider</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.44</b></EM>
+<b>Apache Tomcat 6.0.45</b></EM>
 </TD>
 </TR>
 
@@ -7237,6 +7361,6 @@ DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2015 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>
