@@ -86,13 +86,16 @@
 
     <p>Affects: 7.0.0 to 7.0.67</p>
 
-    <p><strong>Low: CSRF token leak</strong>
+    <p><strong>Moderate: CSRF token leak</strong>
        <cve>CVE-2015-5351</cve></p>
 
     <p>The index page of the Manager and Host Manager applications included a
        valid CSRF token when issuing a redirect as a result of an
-       unauthenticated request to the root of the web application. This token
-       could then be used by an attacker to construct a CSRF attack.</p>
+       unauthenticated request to the root of the web application. If an
+       attacker had access to the Manager or Host Manager applications
+       (typically these applications are only accessible to internal users, not
+       exposed to the Internet), this token could then be used by the attacker
+       to construct a CSRF attack.</p>
 
     <p>This was fixed in revisions <revlink rev="1720661">1720661</revlink> and
        <revlink rev="1720663">1720663</revlink>.</p>
@@ -105,12 +108,16 @@
     <p><strong>Low: Security Manager bypass</strong>
        <cve>CVE-2016-0706</cve></p>
 
-    <p>The StatusManagerServlet could be loaded by a web application when a
-       security manager was configured. This servlet would then provide the web
-       application with a list of all deployed applications and a list of the
-       HTTP request lines for all requests currently being processed. This could
-       have exposed sensitive information from other web applications such as
-       session IDs to the web application.</p>
+    <p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
+    <p>The internal StatusManagerServlet could be loaded by a malicious web
+       application when a security manager was configured. This servlet could
+       then provide the malicious web application with a list of all deployed
+       applications and a list of the HTTP request lines for all requests
+       currently being processed. This could have exposed sensitive information
+       from other web applications, such as session IDs, to the web
+       application.</p>
 
     <p>This was fixed in revision <revlink rev="1722801">1722801</revlink>.</p>
 
@@ -122,6 +129,9 @@
     <p><strong>Moderate: Security Manager bypass</strong>
        <cve>CVE-2016-0714</cve></p>
 
+    <p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
     <p>Tomcat provides several session persistence mechanisms. The
        <code>StandardManager</code> persists session over a restart. The
        <code>PersistentManager</code> is able to persist sessions to files, a
@@ -144,10 +154,13 @@
     <p><strong>Moderate: Security Manager bypass</strong>
        <cve>CVE-2016-0763</cve></p>
 
+    <p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
     <p><code>ResourceLinkFactory.setGlobalContext()</code> is a public method
-       and was accessible by web applications running under a security manager
-       without any checks. This allowed a malicious web application to inject a
-       malicious global context that could in turn be used to disrupt other web
+       and was accessible to web applications even when running under a security
+       manager. This allowed a malicious web application to inject a malicious
+       global context that could in turn be used to disrupt other web
        applications and/or read and write data owned by other web
        applications.</p>
 
@@ -196,6 +209,9 @@
     <p><strong>Low: Limited directory traversal</strong>
        <cve>CVE-2015-5174</cve></p>
 
+    <p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
     <p>When accessing resources via the <code>ServletContext</code> methods
        <code>getResource()</code> <code>getResourceAsStream()</code> and
        <code>getResourcePaths()</code> the paths should be limited to the

@@ -338,6 +338,10 @@
 </p>
 
     
+<p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
+    
 <p>When accessing resources via the <code>ServletContext</code> methods
        <code>getResource()</code> <code>getResourceAsStream()</code> and
        <code>getResourcePaths()</code> the paths should be limited to the
@@ -410,12 +414,17 @@
 </p>
 
     
-<p>The StatusManagerServlet could be loaded by a web application when a
-       security manager was configured. This servlet would then provide the web
-       application with a list of all deployed applications and a list of the
-       HTTP request lines for all requests currently being processed. This could
-       have exposed sensitive information from other web applications such as
-       session IDs to the web application.</p>
+<p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
+    
+<p>The internal StatusManagerServlet could be loaded by a malicious web
+       application when a security manager was configured. This servlet could
+       then provide the malicious web application with a list of all deployed
+       applications and a list of the HTTP request lines for all requests
+       currently being processed. This could have exposed sensitive information
+       from other web applications, such as session IDs, to the web
+       application.</p>
 
     
 <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1722802">1722802</a>.</p>
@@ -433,6 +442,10 @@
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0714" rel="nofollow">CVE-2016-0714</a>
 </p>
 
+    
+<p>This issue only affects users running untrusted web applications under a
+       security manager.</p>
+       
     
 <p>Tomcat provides several session persistence mechanisms. The
        <code>StandardManager</code> persists session over a restart. The
