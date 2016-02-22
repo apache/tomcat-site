@@ -52,6 +52,40 @@
 
   <section name="Fixed in Apache Tomcat 7.0.68" rtext="16 February 2016">
 
+    <p><strong>Low: Directory disclosure</strong>
+       <cve>CVE-2015-5345</cve></p>
+
+    <p>When accessing a directory protected by a security constraint with a URL
+       that did not end in a slash, Tomcat would redirect to the URL with the
+       trailing slash thereby confirming the presence of the directory before
+       processing the security constraint. It was therefore possible for a user
+       to determine if a directory existed or not, even if the user was not
+       permitted to view the directory. The issue also occurred at the root of a
+       web application in which case the presence of the web application was
+       confirmed, even if a user did not have access.</p>
+
+    <p>The solution was to implement the redirect in the DefaultServlet so that
+       any security constraints and/or security enforcing Filters were processed
+       before the redirect. The Tomcat team recognised that moving the redirect
+       could cause regressions to two new Context configuration options
+       (<code>mapperContextRootRedirectEnabled</code> and
+       <code>mapperDirectoryRedirectEnabled</code>) were introduced. The initial
+       default was <code>false</code> for both since this was more secure. 
+       However, due to regressions such as
+       <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58765">Bug
+       58765</a> the default for <code>mapperContextRootRedirectEnabled</code>
+       was later changed to true since it was viewed that the regression was
+       more serious than the security risk of associated with being able to
+       determine if a web application was deployed at a given path.</p>
+
+    <p>This was fixed in revisions <revlink rev="1715213">1715213</revlink> and
+       <revlink rev="1717212">1717212</revlink>.</p>
+
+    <p>This issue was identified by Mark Koek of QCSec on 12 October 2015 and
+    made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.67</p>
+
     <p><strong>Low: CSRF token leak</strong>
        <cve>CVE-2015-5351</cve></p>
 
@@ -128,40 +162,6 @@
 
   <section name="Fixed in Apache Tomcat 7.0.67" rtext="10 December 2015">
   
-    <p><strong>Low: Directory disclosure</strong>
-       <cve>CVE-2015-5345</cve></p>
-
-    <p>When accessing a directory protected by a security constraint with a URL
-       that did not end in a slash, Tomcat would redirect to the URL with the
-       trailing slash thereby confirming the presence of the directory before
-       processing the security constraint. It was therefore possible for a user
-       to determine if a directory existed or not, even if the user was not
-       permitted to view the directory. The issue also occurred at the root of a
-       web application in which case the presence of the web application was
-       confirmed, even if a user did not have access.</p>
-
-    <p>The solution was to implement the redirect in the DefaultServlet so that
-       any security constraints and/or security enforcing Filters were processed
-       before the redirect. The Tomcat team recognised that moving the redirect
-       could cause regressions to two new Context configuration options
-       (<code>mapperContextRootRedirectEnabled</code> and
-       <code>mapperDirectoryRedirectEnabled</code>) were introduced. The initial
-       default was <code>false</code> for both since this was more secure. 
-       However, due to regressions such as
-       <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58765">Bug
-       58765</a> the default for <code>mapperContextRootRedirectEnabled</code>
-       was later changed to true since it was viewed that the regression was
-       more serious than the security risk of associated with being able to
-       determine if a web application was deployed at a given path.</p>
-
-    <p>This was fixed in revisions <revlink rev="1715213">1715213</revlink> and
-       <revlink rev="1717212">1717212</revlink>.</p>
-
-    <p>This issue was identified by Mark Koek of QCSec on 12 October 2015 and
-    made public on 22 February 2016.</p>
-
-    <p>Affects: 7.0.0 to 7.0.66</p>
-
   <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.66 but the
        release vote for the 7.0.66 release candidate did not pass. Therefore,
        although users must download 7.0.67 to obtain a version that includes a
