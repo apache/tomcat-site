@@ -48,6 +48,105 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 6.0.45" rtext="11 February 2016">
+
+    <p><strong>Low: Limited directory traversal</strong>
+       <cve>CVE-2015-5174</cve></p>
+
+    <p>When accessing resources via the <code>ServletContext</code> methods
+       <code>getResource()</code> <code>getResourceAsStream()</code> and
+       <code>getResourcePaths()</code> the paths should be limited to the
+       current web application. The validation was not correct and paths of the
+       form <code>"/.."</code> were not rejected. Note that paths starting with
+       <code>"/../"</code> were correctly rejected. This bug allowed malicious
+       web applications running under a security manager to obtain a directory
+       listing for the directory in which the web application had been deployed.
+       This should not be possible when running under a security manager.
+       Typically, the directory listing that would be exposed would be for
+       <code>$CATALINA_BASE/webapps.</code></p>
+
+    <p>This was fixed in revision <revlink rev="1700900">1700900</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 12 August 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 6.0.0 to 6.0.44</p>
+  
+    <p><strong>Low: Directory disclosure</strong>
+       <cve>CVE-2015-5345</cve></p>
+
+    <p>When accessing a directory protected by a security constraint with a URL
+       that did not end in a slash, Tomcat would redirect to the URL with the
+       trailing slash thereby confirming the presence of the directory before
+       processing the security constraint. It was therefore possible for a user
+       to determine if a directory existed or not, even if the user was not
+       permitted to view the directory. The issue also occurred at the root of a
+       web application in which case the presence of the web application was
+       confirmed, even if a user did not have access.</p>
+
+    <p>The solution was to implement the redirect in the DefaultServlet so that
+       any security constraints and/or security enforcing Filters were processed
+       before the redirect. The Tomcat team recognised that moving the redirect
+       could cause regressions to two new Context configuration options
+       (<code>mapperContextRootRedirectEnabled</code> and
+       <code>mapperDirectoryRedirectEnabled</code>) were introduced. The initial
+       default was <code>false</code> for both since this was more secure. 
+       However, due to regressions such as
+       <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58765">Bug
+       58765</a> the default for <code>mapperContextRootRedirectEnabled</code>
+       was later changed to true since it was viewed that the regression was
+       more serious than the security risk of associated with being able to
+       determine if a web application was deployed at a given path.</p>
+
+    <p>This was fixed in revisions <revlink rev="1715216">1715216</revlink> and
+       <revlink rev="1717216">1717216</revlink>.</p>
+
+    <p>This issue was identified by Mark Koek of QCSec on 12 October 2015 and
+       made public on 22 February 2016.</p>
+
+    <p>Affects: 6.0.0 to 6.0.44</p>
+  
+    <p><strong>Low: Security Manager bypass</strong>
+       <cve>CVE-2016-0706</cve></p>
+
+    <p>The StatusManagerServlet could be loaded by a web application when a
+       security manager was configured. This servlet would then provide the web
+       application with a list of all deployed applications and a list of the
+       HTTP request lines for all requests currently being processed. This could
+       have exposed sensitive information from other web applications such as
+       session IDs to the web application.</p>
+
+    <p>This was fixed in revision <revlink rev="1722802">1722802</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 27 December 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 6.0.0 to 6.0.44</p>
+
+    <p><strong>Moderate: Security Manager bypass</strong>
+       <cve>CVE-2016-0714</cve></p>
+
+    <p>Tomcat provides several session persistence mechanisms. The
+       <code>StandardManager</code> persists session over a restart. The
+       <code>PersistentManager</code> is able to persist sessions to files, a
+       database or a custom <code>Store</code>. The cluster implementation
+       persists sessions to one or more additional nodes in the cluster. All of
+       these mechanisms could be exploited to bypass a security manager. Session
+       persistence is performed by Tomcat code with the permissions assigned to
+       Tomcat internal code. By placing a carefully crafted object into a
+       session, a malicious web application could trigger the execution of
+       arbitrary code.</p>
+
+    <p>This was fixed in revisions <revlink rev="1727166">1727166</revlink> and
+       <revlink rev="1727182">1727182</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 12 November 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 6.0.0 to 6.0.44</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 6.0.44" rtext="12 May 2015">
 
     <p><strong>Low: Denial of Service</strong>

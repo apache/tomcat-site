@@ -50,6 +50,174 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.68" rtext="16 February 2016">
+
+    <p><strong>Low: CSRF token leak</strong>
+       <cve>CVE-2015-5351</cve></p>
+
+    <p>The index page of the Manager and Host Manager applications included a
+       valid CSRF token when issuing a redirect as a result of an
+       unauthenticated request to the root of the web application. This token
+       could then be used by an attacker to construct a CSRF attack.</p>
+
+    <p>This was fixed in revisions <revlink rev="1720661">1720661</revlink> and
+       <revlink rev="1720663">1720663</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 8 December 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.1 to 7.0.67</p>
+
+    <p><strong>Low: Security Manager bypass</strong>
+       <cve>CVE-2016-0706</cve></p>
+
+    <p>The StatusManagerServlet could be loaded by a web application when a
+       security manager was configured. This servlet would then provide the web
+       application with a list of all deployed applications and a list of the
+       HTTP request lines for all requests currently being processed. This could
+       have exposed sensitive information from other web applications such as
+       session IDs to the web application.</p>
+
+    <p>This was fixed in revision <revlink rev="1722801">1722801</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 27 December 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.67</p>
+
+    <p><strong>Moderate: Security Manager bypass</strong>
+       <cve>CVE-2016-0714</cve></p>
+
+    <p>Tomcat provides several session persistence mechanisms. The
+       <code>StandardManager</code> persists session over a restart. The
+       <code>PersistentManager</code> is able to persist sessions to files, a
+       database or a custom <code>Store</code>. The cluster implementation
+       persists sessions to one or more additional nodes in the cluster. All of
+       these mechanisms could be exploited to bypass a security manager. Session
+       persistence is performed by Tomcat code with the permissions assigned to
+       Tomcat internal code. By placing a carefully crafted object into a
+       session, a malicious web application could trigger the execution of
+       arbitrary code.</p>
+
+    <p>This was fixed in revisions <revlink rev="1726923">1726923</revlink> and
+       <revlink rev="1727034">1727034</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 12 November 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.67</p>
+
+    <p><strong>Moderate: Security Manager bypass</strong>
+       <cve>CVE-2016-0763</cve></p>
+
+    <p><code>ResourceLinkFactory.setGlobalContext()</code> is a public method
+       and was accessible by web applications running under a security manager
+       without any checks. This allowed a malicious web application to inject a
+       malicious global context that could in turn be used to disrupt other web
+       applications and/or read and write data owned by other web
+       applications.</p>
+
+    <p>This was fixed in revision <revlink rev="1725931">1725931</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 18 January 2016
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.67</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.67" rtext="10 December 2015">
+  
+    <p><strong>Low: Directory disclosure</strong>
+       <cve>CVE-2015-5345</cve></p>
+
+    <p>When accessing a directory protected by a security constraint with a URL
+       that did not end in a slash, Tomcat would redirect to the URL with the
+       trailing slash thereby confirming the presence of the directory before
+       processing the security constraint. It was therefore possible for a user
+       to determine if a directory existed or not, even if the user was not
+       permitted to view the directory. The issue also occurred at the root of a
+       web application in which case the presence of the web application was
+       confirmed, even if a user did not have access.</p>
+
+    <p>The solution was to implement the redirect in the DefaultServlet so that
+       any security constraints and/or security enforcing Filters were processed
+       before the redirect. The Tomcat team recognised that moving the redirect
+       could cause regressions to two new Context configuration options
+       (<code>mapperContextRootRedirectEnabled</code> and
+       <code>mapperDirectoryRedirectEnabled</code>) were introduced. The initial
+       default was <code>false</code> for both since this was more secure. 
+       However, due to regressions such as
+       <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=58765">Bug
+       58765</a> the default for <code>mapperContextRootRedirectEnabled</code>
+       was later changed to true since it was viewed that the regression was
+       more serious than the security risk of associated with being able to
+       determine if a web application was deployed at a given path.</p>
+
+    <p>This was fixed in revisions <revlink rev="1715213">1715213</revlink> and
+       <revlink rev="1717212">1717212</revlink>.</p>
+
+    <p>This issue was identified by Mark Koek of QCSec on 12 October 2015 and
+    made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.66</p>
+
+  <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.66 but the
+       release vote for the 7.0.66 release candidate did not pass. Therefore,
+       although users must download 7.0.67 to obtain a version that includes a
+       fix for this issue, version 7.0.66 is not included in the list of
+       affected versions.</i></p>
+
+    <p><strong>Low: Session Fixation</strong>
+       <cve>CVE-2015-5346</cve></p>
+
+    <p>When recycling the <code>Request</code> object to use for a new request,
+    the <code>requestedSessionSSL</code> field was not recycled. This meant that
+    a session ID provided in the next request to be processed using the recycled
+    <code>Request</code> object could be used when it should not have been. This
+    gave the client the ability to control the session ID. In theory, this could
+    have been used as part of a session fixation attack but it would have been
+    hard to achieve as the attacker would not have been able to force the victim
+    to use the 'correct' <code>Request</code> object. It was also necessary for
+    at least one web application to be configured to use the SSL session ID as
+    the HTTP session ID. This is not a common configuration.</p>
+
+    <p>This was fixed in revision <revlink rev="1713187">1713187</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 22 June 2014
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.5 to 7.0.65</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 7.0.65" rtext="19 October 2015">
+
+    <p><strong>Low: Limited directory traversal</strong>
+       <cve>CVE-2015-5174</cve></p>
+
+    <p>When accessing resources via the <code>ServletContext</code> methods
+       <code>getResource()</code> <code>getResourceAsStream()</code> and
+       <code>getResourcePaths()</code> the paths should be limited to the
+       current web application. The validation was not correct and paths of the
+       form <code>"/.."</code> were not rejected. Note that paths starting with
+       <code>"/../"</code> were correctly rejected. This bug allowed malicious
+       web applications running under a security manager to obtain a directory
+       listing for the directory in which the web application had been deployed.
+       This should not be possible when running under a security manager.
+       Typically, the directory listing that would be exposed would be for
+       <code>$CATALINA_BASE/webapps.</code></p>
+
+    <p>This was fixed in revisions <revlink rev="1696284">1696284</revlink> and
+       <revlink rev="1700898">1700898</revlink>.</p>
+
+    <p>This issue was identified by the Tomcat security team on 12 August 2015
+       and made public on 22 February 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.64</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.59" rtext="4 February 2015">
 
   <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.58 but the
