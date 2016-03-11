@@ -3,6 +3,24 @@
   <p>
   This is the Changelog for Tomcat Native 1.2.
   </p>
+</div><h3 id="Changes_in_1.2.5">Changes in 1.2.5</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Enable OpenSSL version check in <code>configure</code> by
+      default. It can be turned off using
+      <code>--disable-openssl-version-check</code>. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=59024">59024</a>: Native function <code>versionString()</code> and
+      for OpenSSL 1.1.0 also <code>version()</code> (both in in ssl.c) now
+      return the OpenSSL run time version, not the compile time version.
+      (rjung)
+    </li>
+    <li><img alt="Code: " class="icon" src="../images/code.gif">
+      Track changes in the OpenSSL master branch so it is possible to build
+      Tomcat Native with that branch. (billbarker)
+    </li>
+  </ul>
 </div><h3 id="Changes_in_1.2.4">Changes in 1.2.4</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Fix: " class="icon" src="../images/fix.gif">
@@ -37,7 +55,7 @@
     </li>
     <li><img alt="Code: " class="icon" src="../images/code.gif">
       Remove code that performs a read after a renegotiation that appears to be
-      unnecessary with OpenSDSL 1.0.2. (billbarker)
+      unnecessary with OpenSSL 1.0.2. (billbarker)
     </li>
     <li><img alt="Add: " class="icon" src="../images/add.gif">
       Expose <code>SSL_renegotiate</code> to the Java API. (remm)
