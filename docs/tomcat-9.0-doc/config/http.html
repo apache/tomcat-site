@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M3) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/http">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.0.M4) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/http">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -30,8 +30,8 @@
       }), false);
     })();
   </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
-          Version 9.0.0.M3,
-          <time datetime="2016-02-01">Feb 1 2016</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+          Version 9.0.0.M4,
+          <time datetime="2016-03-12">Mar 12 2016</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2_(deprecated)">SSL Support - Connector - NIO and NIO2 (deprecated)</a></li><li><a href="#SSL_Support_-_Connector_-_APR/Native_(deprecated)">SSL Support - Connector - APR/Native (deprecated)</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -150,10 +150,12 @@
         either a Java NIO based connector or an APR/native based connector.
         If the <code>PATH</code> (Windows) or <code>LD_LIBRARY_PATH</code> (on
         most unix systems) environment variables contain the Tomcat native
-        library, the APR/native connector will be used. If the native library
-        cannot be found, the Java NIO based connector will be used. Note
-        that the APR/native connector has different settings for HTTPS than the
-        Java connectors.<br>
+        library, and the <code>AprLifecycleListener</code> that is used to
+        initialize APR has its <code>useAprConnector</code> attribute set to
+        <code>true</code>, the APR/native connector will be used. If the native library
+        cannot be found or the attribute is not configured, the Java NIO based
+        connector will be used. Note that the APR/native connector has different
+        settings for HTTPS than the Java connectors.<br>
         To use an explicit protocol rather than rely on the auto-switching
         mechanism described above, the following values may be used:<br>
         <code>org.apache.coyote.http11.Http11NioProtocol</code> -
@@ -818,12 +820,14 @@
   attributes to the values <code>https</code> and <code>true</code>
   respectively, to pass correct information to the servlets.</p>
 
-  <p>The NIO and NIO2 connectors use the JSSE SSL implementation whereas the
-  APR/native connector uses OpenSSL. Prior to Tomcat 9, different configuration
+  <p>The NIO and NIO2 connectors use either the JSSE Java SSL implementation or
+  an OpenSSL implementation, whereas the
+  APR/native connector uses OpenSSL only. Prior to Tomcat 9, different configuration
   attributes were used for JSSE and OpenSSL. From Tomcat 9 onwards, and as far
   as possible, common configuration attributes are used for both JSSE and
-  OpenSSL. This is to aid simpler switching between connector implementations
-  for SSL connectors.</p>
+  OpenSSL. Also if using the JSSE OpenSSL implementation, configuration can be set using
+  either the JSSE or APR attributes (note: but not both types within the same configuration).
+  This is to aid simpler switching between connector implementations for SSL connectors.</p>
 
   <p>Each secure connector must define at least one
   <strong>SSLHostConfig</strong>. The names of the
@@ -1126,6 +1130,10 @@
 
   <div class="subsection"><h4 id="SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</h4><div class="text">
 
+  <p>When APR/native is enabled, the connectors will default to using OpenSSL through JSSE,
+  which may be more optimized than the JSSE Java implementation depending on the processor being used,
+  and can be complemented with many commercial accelerator components.</p>
+
   <p>The following NIO and NIO2 SSL configuration attributes are not specific to
   a virtual host and, therefore, must be configured on the connector.</p>
 
@@ -1138,20 +1146,22 @@
       message received on a new TLS connection (the client hello) to extract the
       requested server name. The message needs to be buffered so it can then be
       passed to the JSSE implementation for normal TLS processing. In theory,
-      this first message could be very large although in practise it is
+      this first message could be very large although in practice it is
       typically a few hundred bytes. This attribute sets the maximum message
       size that Tomcat will buffer. If a message exceeds this size, the
       connection will be configured as if no server name was indicated by the
       client. If not specified a default of <code>65536</code> (64k) will be
       used.</p>
     </td></tr><tr><td><code class="attributeName">sslImplementationName</code></td><td>
-      <p>The class name of the SSL implementation to use. If not specified, the
+      <p>The class name of the SSL implementation to use. If not specified and
+      the tomcat-native library is not installed, the
       default of <code>org.apache.tomcat.util.net.jsse.JSSEImplementation</code>
       will be used which wraps JVM's default JSSE provider. Note that the
       JVM can be configured to use a different JSSE provider as the default.
       Tomcat also bundles a special SSL implementation for JSSE that is backed
       by OpenSSL. To enable it, the native library should be enabled as if
-      intending to use the APR connector, the value of this attribute should be
+      intending to use the APR connector, and Tomcat will automatically enable it
+      and the default value of this attribute becomes
       <code>org.apache.tomcat.util.net.openssl.OpenSSLImplementation</code>.
       In that case, the attributes from either from either JSSE and OpenSSL
       configuration styles can be used, as long as the two types are not mixed
@@ -1164,7 +1174,7 @@
   <div class="subsection"><h4 id="SSL_Support_-_Connector_-_NIO_and_NIO2_(deprecated)">SSL Support - Connector - NIO and NIO2 (deprecated)</h4><div class="text">
 
   <p>The following NIO and NIO2 SSL configuration attributes have been
-  deprecated in favour of the default
+  deprecated in favor of the default
   <a href="#SSL_Support_-_SSLHostConfig">SSLHostConfig</a> element.
   </p>
 
@@ -1414,8 +1424,8 @@
       </tr>
       <tr>
         <th style="text-align: left;">SSL Support</th>
-        <td>Java SSL</td>
-        <td>Java SSL</td>
+        <td>Java SSL or OpenSSL</td>
+        <td>Java SSL or OpenSSL</td>
         <td>OpenSSL</td>
       </tr>
       <tr>
