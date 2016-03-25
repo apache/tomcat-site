@@ -171,5 +171,159 @@ of Apache Tomcat.</p>
 
 </section>
 
+<section name="Migrating from 8.5.x to 9.0.x">
+
+  <p> This section lists all the known changes between 8.0.x and 9.0.x which may
+  cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="Java 8 required">
+
+    <p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x
+    required Java 7.</p>
+
+  </subsection>
+
+  <subsection name="Specification APIs">
+
+    <p>Apache Tomcat 9 supports the Java Servlet 4.0, JavaServer Pages 2.4,
+    Java Unified Expression Language 3.1 and Java WebSocket 2.0
+    <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
+    The changes between versions of specifications may be found in the
+    <em>Changes</em> appendix in each of specification documents.
+    </p>
+
+  </subsection>
+  
+  <subsection name="Servlet 4.0 API">
+  
+    <p>In JSP pages that use wildcard import syntax the new classes added in
+    Servlet API may conflict with ones in web applications.
+    For example, if package <code>"a"</code> contains class
+    <code>PushBuilder</code>, the following JSP page will cease to compile in
+    Tomcat 9:</p>
+
+    <source><![CDATA[<%@page import="a.*"%>
+<% PushBuilder pushBuilder = new PushBuilder(); %>]]></source>
+
+    <p>This happens because the implicit import of
+    <code>javax.servlet.http.*</code> and the explicit import of
+    <code>a.*</code> will provide conflicting definitions of class
+    <code>PushBuilder</code> that was added in Servlet 4.0. The solution is to
+    use the explicit import, <code>import="a.PushBuilder"</code>.</p>
+
+  </subsection>
+
+  <subsection name="JavaServer Pages 2.4">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of JSP with a version of 2.4.</p>
+
+  </subsection>
+
+  <subsection name="Expression Language 3.1">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include a maintenance release of expression language with a version of
+    3.1.</p>
+
+  </subsection>
+
+  <subsection name="WebSocket 2.0">
+  
+    <p>No information is currently available. It is anticipated that Java EE 8
+    will include an updated WebSocket specification with a version of 2.0.</p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 9 internal API is broadly compatible with Tomcat 8.5
+    there have been some changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+  </subsection>
+
+</section>
+
+<section name="Upgrading 9.0.x">
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 9 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 9.</p>
+
+  <subsection name="Tomcat 9.0.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <script type="text/javascript"><![CDATA[
+    "use strict"; // Enable strict mode
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var formSubmit = document.getElementById("tc9Submit");
+      formSubmit.addEventListener("submit", function() {
+        var revisions = {
+          "HEAD":"HEAD",
+          "9.0.0.M1":"1714130",
+          "9.0.0.M3":"1728005",
+          "9.0.0.M4":"1734692"
+        };
+
+        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/trunk/" +
+          document.getElementById('select-filename').value;
+        formSubmit.elements['r1'].value = revisions[document.getElementById('select-r1').value]; 
+        formSubmit.elements['r2'].value = revisions[document.getElementById('select-r2').value]; 
+        return true;
+      }, false);
+    }, false);
+    ]]></script>
+
+
+    <p><label>Configuration file:
+    <select id="select-filename">
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
+    </select></label>
+    </p>
+    <p><label>Old version:
+    <select id="select-r1">
+    <option value="9.0.0.M1">9.0.0.M1</option>
+    <option value="9.0.0.M3" selected="selected">9.0.0.M3</option>
+    <option value="9.0.0.M4">9.0.0.M4</option>
+    </select>,</label> <label>new version:
+    <select id="select-r2">
+    <option value="9.0.0.M1">9.0.0.M1</option>
+    <option value="9.0.0.M3">9.0.0.M3</option>
+    <option value="9.0.0.M4" selected="selected">9.0.0.M4</option>
+    <option value="HEAD">trunk (unreleased)</option>
+    </select></label>
+    </p>
+
+    <form id="tc9Submit" action="to-be-replaced" method="get"
+          target="_blank">
+    <p>
+    <input type="hidden" name="diff_format" value="h"/>
+    <input type="hidden" name="r1"/><input type="hidden" name="r2"/>
+    <button>View Differences</button>
+    </p>
+    </form>
+    <p>You can also use Subversion command similar to the following (all on one line):</p>
+    <source>svn diff
+  --old=http://svn.apache.org/repos/asf/tomcat/tags/TOMCAT_9_0_0_M1/conf/
+  --new=http://svn.apache.org/repos/asf/tomcat/tags/TOMCAT_9_0_0_M3/conf/</source>
+  </subsection>
+  
+</section>
+
 </body>
 </document>
