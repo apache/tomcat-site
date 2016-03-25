@@ -152,6 +152,28 @@
     </copy>
   </target>
 
+  <target name="release-85"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 8.5">
+
+    <!-- Download the latest version -->
+    <antcall target="downloadgz">
+      <param name="sourcefile" value="${tomcat85.loc}"/>
+      <param name="destfile" value="${tomcat85.home}/tomcat-8.5-doc/index.html"/>
+      <param name="destdir" value="${tomcat85.home}"/>
+    </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-8.5-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-8.5-doc" >
+      <fileset dir="${tomcat85.home}/tomcat-8.5-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
   <target name="release-9"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 9.0">
