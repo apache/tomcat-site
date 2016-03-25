@@ -1,0 +1,406 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css">
+<title>Apache Tomcat - Migration Guide - Tomcat 8.5.x</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div id="header">
+<div>
+<div>
+<div class="logo noPrint">
+<a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a>
+</div>
+<div style="height: 1px;"></div>
+<div class="asfLogo noPrint">
+<a href="http://www.apache.org/" target="_blank"><img src="./images/asf_logo.svg" alt="The Apache Software Foundation" style="width: 205px; height: 83px; margin-right: 15px;"></a>
+</div>
+<h1 style="margin-top: 35px;">Apache Tomcat</h1>
+<div style="clear: right;"></div>
+<div class="searchbox noPrint">
+<form action="https://www.google.com/search" method="get">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search the Site&hellip;" required="required" size="25" name="q" id="query" type="search"><button>Search</button>
+</form>
+</div>
+<div style="height: 1px;"></div>
+<div style="clear: left;"></div>
+</div>
+</div>
+</div>
+</header>
+<div id="middle">
+<div>
+<div id="mainLeft" class="noprint">
+<div>
+<nav>
+<div>
+<h2>Apache Tomcat</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs.html">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Download</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="./download-90.cgi">Tomcat 9</a>
+</li>
+<li>
+<a href="./download-80.cgi">Tomcat 8</a>
+</li>
+<li>
+<a href="./download-70.cgi">Tomcat 7</a>
+</li>
+<li>
+<a href="./download-60.cgi">Tomcat 6</a>
+</li>
+<li>
+<a href="./download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="./download-taglibs.cgi">Taglibs</a>
+</li>
+<li>
+<a href="http://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Documentation</h2>
+<ul>
+<li>
+<a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
+</li>
+<li>
+<a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
+</li>
+<li>
+<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./tomcat-6.0-doc/index.html">Tomcat 6.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+<li>
+<a href="./presentations.html">Presentations</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Problems?</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Get Involved</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./svn.html">SVN Repositories</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="https://reviews.apache.org/groups/tomcat/">Reviewboard</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Media</h2>
+<ul>
+<li>
+<a href="https://twitter.com/theapachetomcat">Twitter</a>
+</li>
+<li>
+<a href="https://www.youtube.com/channel/UCpqpJ0-G1lYfUBQ6_36Au_g">YouTube</a>
+</li>
+<li>
+<a href="http://blogs.apache.org/tomcat/">Blog</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Misc</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<h2 style="display: none;">Content</h2>
+<h3 id="Table_of_Contents">Table of Contents</h3>
+<div class="text">
+
+<ul>
+<li>
+<a href="#General">General</a>
+</li>
+<li>
+<a href="#Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</a>
+<ol>
+<li>
+<a href="#BIO_connector_removed">BIO connector removed</a>
+</li>
+<li>
+<a href="#Comet_support_removed">Comet support removed</a>
+</li>
+<li>
+<a href="#HTTP/2_support_added">HTTP/2 support added</a>
+</li>
+<li>
+<a href="#TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</a>
+</li>
+<li>
+<a href="#Internal_APIs">Internal APIs</a>
+</li>
+</ol>
+</li>
+</ul>
+
+</div>
+<h3 id="General">General</h3>
+<div class="text">
+
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+
+</div>
+<h3 id="Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</h3>
+<div class="text">
+
+  
+<p> This section lists all the known changes between 8.0.x and 8.5.x which may
+  cause backwards compatibility problems when upgrading.</p>
+
+  
+<div class="subsection">
+<h4 id="BIO_connector_removed">BIO connector removed</h4>
+<div class="text">
+
+    
+<p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
+    removed. Users are recommended to switch to the Java non-blocking IO
+    implementation (NIO).</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Comet_support_removed">Comet support removed</h4>
+<div class="text">
+
+    
+<p>Comet support has been removed without a direct replacement. Applications
+    using Comet are recommended to migrate to WebSockets.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="HTTP/2_support_added">HTTP/2 support added</h4>
+<div class="text">
+
+    
+<p>HTTP/2 is supported for h2 (over TLS, negotiated via ALPN) and h2c (clear
+    text, negotiated via HTTP/1.1 upgrade). HTTP/2 needs to be explicitly
+    enabled for a connector. To enable it, insert
+    <div class="codeBox">
+<pre>
+<code>&lt;UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" /&gt;</code>
+</pre>
+</div>
+    inside the connector for which you wish to enable HTTP/2. Note that to
+    enable HTTP/2 for a secure NIO or NIO2 connector, those connectors must be
+    using the OpenSSL engine for TLS.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</h4>
+<div class="text">
+
+    
+<p>Tomcat 9 supports multiple TLS virtual hosts for a single connector with
+    each virtual host able to support multiple certificates. Virtual host
+    definitions are nested inside the Connector element with the default
+    specified using the <strong>sslDefaultHost</strong> attribute on the
+    Connector if more than one virtual host is specified. Certificate
+    definitions are nested inside the virtual host.</p>
+    
+    
+<p>The following example shows how to use this to configure a single
+    APR/native connector for multiple TLS virtual hosts with each host having
+    both an RSA and EC certificate.
+    
+<div class="codeBox">
+<pre>
+<code>
+&lt;Connector port="8443"
+           protocol="org.apache.coyote.http11.Http11AprProtocol"
+           maxThreads="150"
+           SSLEnabled="true"
+           sslDefaultHost="openoffice.apache.org" &gt;
+    &lt;SSLHostConfig hostName="openoffice.apache.org" &gt;
+        &lt;Certificate certificateKeyFile="conf/openoffice.apache.org-rsa-key.pem"
+                     certificateFile="conf/openoffice.apache.org-rsa-cert.pem"
+                     type="RSA" /&gt;
+        &lt;Certificate certificateKeyFile="conf/openoffice.apache.org-ec-key.pem"
+                     certificateFile="conf/openoffice.apache.org-ec-cert.pem"
+                     type="EC" /&gt;
+    &lt;/SSLHostConfig&gt;
+    &lt;SSLHostConfig hostName="www.openoffice.org" &gt;
+        &lt;Certificate certificateKeyFile="conf/www.openoffice.org-rsa-key.pem"
+                     certificateFile="conf/www.openoffice.org-rsa-cert.pem"
+                     type="RSA" /&gt;
+        &lt;Certificate certificateKeyFile="conf/www.openoffice.org-ec-key.pem"
+                     certificateFile="conf/www.openoffice.org-ec-cert.pem"
+                     type="EC" /&gt;
+    &lt;/SSLHostConfig&gt;
+&lt;/Connector&gt;
+</code>
+</pre>
+</div>
+</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Internal_APIs">Internal APIs</h4>
+<div class="text">
+  
+    
+<p>Whilst the Tomcat 8.5 internal API is broadly compatible with Tomcat 8.0
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat's
+    internals should review the JavaDoc for the relevant API.</p>
+
+    
+<p>Of particular note are:</p>
+    
+<ul>
+      
+<li>Significant refactoring has taken place throughout the connectors to
+          reduce duplicate code and to align behaviour across
+          implementations.</li>
+      
+<li>The deprecated <code>digest</code> attribute has been removed from the
+          <code>Realm</code>.</li>
+    
+</ul>
+
+  
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div id="footer">
+    Copyright &copy; 1999-2016, The Apache Software Foundation
+    <br>
+    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+    project logo are trademarks of the Apache Software Foundation.
+  </div>
+</footer>
+</div>
+</body>
+</html>

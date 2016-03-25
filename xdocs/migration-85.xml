@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Migration Guide - Tomcat 8.5.x</title>
+  </properties>
+
+<body>
+
+<section name="Table of Contents">
+<toc/>
+</section>
+
+<section name="General">
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+</section>
+
+<section name="Migrating from 8.0.x to 8.5.x">
+
+  <p> This section lists all the known changes between 8.0.x and 8.5.x which may
+  cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="BIO connector removed">
+
+    <p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
+    removed. Users are recommended to switch to the Java non-blocking IO
+    implementation (NIO).</p>
+
+  </subsection>
+
+  <subsection name="Comet support removed">
+
+    <p>Comet support has been removed without a direct replacement. Applications
+    using Comet are recommended to migrate to WebSockets.</p>
+
+  </subsection>
+
+  <subsection name="HTTP/2 support added">
+
+    <p>HTTP/2 is supported for h2 (over TLS, negotiated via ALPN) and h2c (clear
+    text, negotiated via HTTP/1.1 upgrade). HTTP/2 needs to be explicitly
+    enabled for a connector. To enable it, insert
+    <source><![CDATA[<UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />]]></source>
+    inside the connector for which you wish to enable HTTP/2. Note that to
+    enable HTTP/2 for a secure NIO or NIO2 connector, those connectors must be
+    using the OpenSSL engine for TLS.</p>
+
+  </subsection>
+
+  <subsection name="TLS virtual hosting and multiple certificate support added">
+
+    <p>Tomcat 9 supports multiple TLS virtual hosts for a single connector with
+    each virtual host able to support multiple certificates. Virtual host
+    definitions are nested inside the Connector element with the default
+    specified using the <strong>sslDefaultHost</strong> attribute on the
+    Connector if more than one virtual host is specified. Certificate
+    definitions are nested inside the virtual host.</p>
+    
+    <p>The following example shows how to use this to configure a single
+    APR/native connector for multiple TLS virtual hosts with each host having
+    both an RSA and EC certificate.
+    
+<source><![CDATA[
+<Connector port="8443"
+           protocol="org.apache.coyote.http11.Http11AprProtocol"
+           maxThreads="150"
+           SSLEnabled="true"
+           sslDefaultHost="openoffice.apache.org" >
+    <SSLHostConfig hostName="openoffice.apache.org" >
+        <Certificate certificateKeyFile="conf/openoffice.apache.org-rsa-key.pem"
+                     certificateFile="conf/openoffice.apache.org-rsa-cert.pem"
+                     type="RSA" />
+        <Certificate certificateKeyFile="conf/openoffice.apache.org-ec-key.pem"
+                     certificateFile="conf/openoffice.apache.org-ec-cert.pem"
+                     type="EC" />
+    </SSLHostConfig>
+    <SSLHostConfig hostName="www.openoffice.org" >
+        <Certificate certificateKeyFile="conf/www.openoffice.org-rsa-key.pem"
+                     certificateFile="conf/www.openoffice.org-rsa-cert.pem"
+                     type="RSA" />
+        <Certificate certificateKeyFile="conf/www.openoffice.org-ec-key.pem"
+                     certificateFile="conf/www.openoffice.org-ec-cert.pem"
+                     type="EC" />
+    </SSLHostConfig>
+</Connector>
+]]></source></p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 8.5 internal API is broadly compatible with Tomcat 8.0
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+    <p>Of particular note are:</p>
+    <ul>
+      <li>Significant refactoring has taken place throughout the connectors to
+          reduce duplicate code and to align behaviour across
+          implementations.</li>
+      <li>The deprecated <code>digest</code> attribute has been removed from the
+          <code>Realm</code>.</li>
+    </ul>
+
+  </subsection>
+
+</section>
+
+</body>
+</document>
