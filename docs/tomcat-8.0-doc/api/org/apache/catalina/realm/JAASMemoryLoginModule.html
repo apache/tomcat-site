@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JAASMemoryLoginModule (Apache Tomcat 8.0.32 API Documentation)</title>
+<title>JAASMemoryLoginModule (Apache Tomcat 8.0.33 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JAASMemoryLoginModule (Apache Tomcat 8.0.32 API Documentation)";
+        parent.document.title="JAASMemoryLoginModule (Apache Tomcat 8.0.33 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -125,20 +125,23 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/security/auth
 <div class="block"><p>Implementation of the JAAS <strong>LoginModule</strong> interface,
  primarily for use in testing <code>JAASRealm</code>.  It utilizes an
  XML-format data file of username/password/role information identical to
- that supported by <code>org.apache.catalina.realm.MemoryRealm</code>
- (except that digested passwords are not supported).</p>
+ that supported by <code>org.apache.catalina.realm.MemoryRealm</code>.</p>
 
  <p>This class recognizes the following string-valued options, which are
- specified in the configuration file (and passed to our constructor in
- the <code>options</code> argument:</p>
+ specified in the configuration file and passed to <a href="../../../../org/apache/catalina/realm/JAASMemoryLoginModule.html#initialize(javax.security.auth.Subject,%20javax.security.auth.callback.CallbackHandler,%20java.util.Map,%20java.util.Map)"><code>initialize(Subject, CallbackHandler, Map, Map)</code></a> in the <code>options</code>
+ argument:</p>
  <ul>
- <li><strong>debug</strong> - Set to "true" to get debugging messages
-     generated to System.out.  The default value is <code>false</code>.</li>
  <li><strong>pathname</strong> - Relative (to the pathname specified by the
      "catalina.base" system property) or absolute pathname to the
      XML file containing our user information, in the format supported by
      <a href="../../../../org/apache/catalina/realm/MemoryRealm.html" title="class in org.apache.catalina.realm"><code>MemoryRealm</code></a>.  The default value matches the MemoryRealm
      default.</li>
+ <li><strong>credentialHandlerClassName</strong> - The fully qualified class
+     name of the CredentialHandler to use. If not specified, <a href="../../../../org/apache/catalina/realm/MessageDigestCredentialHandler.html" title="class in org.apache.catalina.realm"><code>MessageDigestCredentialHandler</code></a> will be used.</li>
+ <li>Any additional options will be used to identify and call setters on the
+     <a href="../../../../org/apache/catalina/CredentialHandler.html" title="interface in org.apache.catalina"><code>CredentialHandler</code></a>. For example, <code>algorithm=SHA256</code>
+     would result in a call to <a href="../../../../org/apache/catalina/realm/MessageDigestCredentialHandler.html#setAlgorithm(java.lang.String)"><code>MessageDigestCredentialHandler.setAlgorithm(String)</code></a> with a parameter of
+     <code>"SHA256"</code></li>
  </ul>
 
  <p><strong>IMPLEMENTATION NOTE</strong> - This class implements
@@ -612,7 +615,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/javax/security/auth
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

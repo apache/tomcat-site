@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ContainerMBean (Apache Tomcat 8.0.32 API Documentation)</title>
+<title>ContainerMBean (Apache Tomcat 8.0.33 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ContainerMBean (Apache Tomcat 8.0.32 API Documentation)";
+        parent.document.title="ContainerMBean (Apache Tomcat 8.0.33 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -300,7 +300,7 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
  Container.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the existing child Container to be removed</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - if the child cannot be removed</dd></dl>
 </li>
 </ul>
 <a name="addValve(java.lang.String)">
@@ -313,8 +313,9 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
                 throws <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></pre>
 <div class="block">Adds a valve to this Container instance.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>valveType</code> - ClassName of the valve to be added</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the MBean name of the new valve</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - if a component cannot be removed</dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - if adding the valve failed</dd></dl>
 </li>
 </ul>
 <a name="removeValve(java.lang.String)">
@@ -342,7 +343,7 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
 <div class="block">Add a LifecycleEvent listener to this component.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - ClassName of the listener to add</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - if adding the listener failed</dd></dl>
 </li>
 </ul>
 <a name="removeLifecycleListeners(java.lang.String)">
@@ -357,7 +358,7 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - The ClassName of the listeners to be removed.
  Note that all the listeners having given ClassName will be removed.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - propagated from the managed resource access</dd></dl>
 </li>
 </ul>
 <a name="findLifecycleListenerNames()">
@@ -370,8 +371,9 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
                                     throws <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></pre>
 <div class="block">List the class name of each of the lifecycle listeners added to this
  container.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the lifecycle listeners class names</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - propagated from the managed resource access</dd></dl>
 </li>
 </ul>
 <a name="findContainerListenerNames()">
@@ -384,8 +386,9 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
                                     throws <a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></pre>
 <div class="block">List the class name of each of the container listeners added to this
  container.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the container listeners class names</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/MBeanException.html?is-external=true" title="class or interface in javax.management">MBeanException</a></code> - propagated from the managed resource access</dd></dl>
 </li>
 </ul>
 </li>
@@ -410,7 +413,7 @@ extends <a href="../../../../org/apache/tomcat/util/modeler/BaseModelMBean.html"
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

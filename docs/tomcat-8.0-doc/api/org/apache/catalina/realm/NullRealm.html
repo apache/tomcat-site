@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NullRealm (Apache Tomcat 8.0.32 API Documentation)</title>
+<title>NullRealm (Apache Tomcat 8.0.33 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="NullRealm (Apache Tomcat 8.0.32 API Documentation)";
+        parent.document.title="NullRealm (Apache Tomcat 8.0.33 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -207,21 +207,18 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/NullRealm.html#getName()">getName</a></strong>()</code>
-<div class="block">Return a short name for this Realm implementation, for use in
- log messages.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/NullRealm.html#getName()">getName</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/NullRealm.html#getPassword(java.lang.String)">getPassword</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
-<div class="block">Return the password associated with the given principal's user name.</div>
+<div class="block">Get the password for the specified user.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/NullRealm.html#getPrincipal(java.lang.String)">getPrincipal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
-<div class="block">Return the Principal associated with the given user name.</div>
+<div class="block">Get the principal associated with the specified user.</div>
 </td>
 </tr>
 </table>
@@ -291,13 +288,11 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <li class="blockList">
 <h4>getName</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getName()">RealmBase</a></code></strong></div>
-<div class="block">Return a short name for this Realm implementation, for use in
- log messages.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getName()">getName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>a short name for this Realm implementation, for use in
+ log messages.</dd></dl>
 </li>
 </ul>
 <a name="getPassword(java.lang.String)">
@@ -308,11 +303,12 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <h4>getPassword</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPassword(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</pre>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getPassword(java.lang.String)">RealmBase</a></code></strong></div>
-<div class="block">Return the password associated with the given principal's user name.</div>
+<div class="block">Get the password for the specified user.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getPassword(java.lang.String)">getPassword</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
-</dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - The user name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the password associated with the given principal's user name.</dd></dl>
 </li>
 </ul>
 <a name="getPrincipal(java.lang.String)">
@@ -323,11 +319,12 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <h4>getPrincipal</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;getPrincipal(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</pre>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.lang.String)">RealmBase</a></code></strong></div>
-<div class="block">Return the Principal associated with the given user name.</div>
+<div class="block">Get the principal associated with the specified user.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.lang.String)">getPrincipal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
-</dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - The user name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the Principal associated with the given user name.</dd></dl>
 </li>
 </ul>
 </li>
@@ -352,7 +349,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
