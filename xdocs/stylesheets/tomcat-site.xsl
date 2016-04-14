@@ -60,7 +60,7 @@
   -->
   <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
     <xsl:apply-templates select="meta"/>
-    <title><xsl:value-of select="$project/title"/> - <xsl:value-of select="properties/title"/></title>
+    <title><xsl:value-of select="$project/title"/>&#174; - <xsl:value-of select="properties/title"/></title>
     <xsl:for-each select="properties/author">
       <xsl:variable name="name">
         <xsl:value-of select="."/>
@@ -98,7 +98,7 @@
         </xsl:variable>
         <div style="height: 1px;"/>
         <div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="{$src-asf-logo}" alt="The Apache Software Foundation" style="width: 205px; height: 83px; margin-right: 15px;"/></a></div>
-        <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/></h1>
+        <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/><sup>&#174;</sup></h1>
         <div style="clear: right;"/>
 
     <!-- Search box: uses CSS positioning -->
