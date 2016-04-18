@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Transformation (Apache Tomcat 7.0.68 API Documentation)</title>
+<title>Transformation (Apache Tomcat 7.0.69 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Transformation (Apache Tomcat 7.0.68 API Documentation)";
+        parent.document.title="Transformation (Apache Tomcat 7.0.69 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.68</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.69</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -113,37 +113,43 @@
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#close()">close</a></strong>()</code>
+<div class="block">Clean-up any resources that were used by the transformation.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../websocketapi/javax/websocket/Extension.html?is-external=true" title="class or interface in javax.websocket">Extension</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#getExtensionResponse()">getExtensionResponse</a></strong>()</code>
 <div class="block">Obtain the extension that describes the information to be returned to the
  client.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/tomcat/websocket/TransformationResult.html" title="enum in org.apache.tomcat.websocket">TransformationResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#getMoreData(byte,%20boolean,%20int,%20java.nio.ByteBuffer)">getMoreData</a></strong>(byte&nbsp;opCode,
            boolean&nbsp;fin,
            int&nbsp;rsv,
-           <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a>&nbsp;dest)</code>
+           java.nio.ByteBuffer&nbsp;dest)</code>
 <div class="block">Obtain more input data.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.apache.tomcat.websocket.MessagePart&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#sendMessagePart(java.util.List)">sendMessagePart</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;messageParts)</code>
+<tr class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;org.apache.tomcat.websocket.MessagePart&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#sendMessagePart(java.util.List)">sendMessagePart</a></strong>(java.util.List&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;messageParts)</code>
 <div class="block">Takes the provided list of messages, transforms them, passes the
  transformed list on to the next transformation (if any) and then returns
  the resulting list of message parts after all of the transformations have
  been applied.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#setNext(org.apache.tomcat.websocket.Transformation)">setNext</a></strong>(<a href="../../../../org/apache/tomcat/websocket/Transformation.html" title="interface in org.apache.tomcat.websocket">Transformation</a>&nbsp;t)</code>
 <div class="block">Sets the next transformation in the pipeline.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#validateRsv(int,%20byte)">validateRsv</a></strong>(int&nbsp;rsv,
            byte&nbsp;opCode)</code>
@@ -151,7 +157,7 @@
  from a WebSocket Frame) for this extension.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/tomcat/websocket/Transformation.html#validateRsvBits(int)">validateRsvBits</a></strong>(int&nbsp;i)</code>
 <div class="block">Validate that the RSV bit(s) required by this transformation are not
@@ -222,13 +228,13 @@
 <pre><a href="../../../../org/apache/tomcat/websocket/TransformationResult.html" title="enum in org.apache.tomcat.websocket">TransformationResult</a>&nbsp;getMoreData(byte&nbsp;opCode,
                                boolean&nbsp;fin,
                                int&nbsp;rsv,
-                               <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio">ByteBuffer</a>&nbsp;dest)
-                                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+                               java.nio.ByteBuffer&nbsp;dest)
+                                 throws java.io.IOException</pre>
 <div class="block">Obtain more input data.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>opCode</code> - The opcode for the frame currently being processed</dd><dd><code>fin</code> - Is this the final frame in this WebSocket message?</dd><dd><code>rsv</code> - The reserved bits for the frame currently being
                       processed</dd><dd><code>dest</code> - The buffer in which the data is to be written</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+<dd><code>java.io.IOException</code></dd></dl>
 </li>
 </ul>
 <a name="validateRsv(int, byte)">
@@ -252,10 +258,10 @@
 <a name="sendMessagePart(java.util.List)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendMessagePart</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;sendMessagePart(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;messageParts)</pre>
+<pre>java.util.List&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;sendMessagePart(java.util.List&lt;org.apache.tomcat.websocket.MessagePart&gt;&nbsp;messageParts)</pre>
 <div class="block">Takes the provided list of messages, transforms them, passes the
  transformed list on to the next transformation (if any) and then returns
  the resulting list of message parts after all of the transformations have
@@ -264,6 +270,16 @@
 <dt><span class="strong">Returns:</span></dt><dd>The list of messages after this any any subsequent
           transformations have been applied. The size of the returned list
           may be bigger or smaller than the size of the input list</dd></dl>
+</li>
+</ul>
+<a name="close()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>close</h4>
+<pre>void&nbsp;close()</pre>
+<div class="block">Clean-up any resources that were used by the transformation.</div>
 </li>
 </ul>
 </li>
@@ -288,7 +304,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.68</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.69</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
