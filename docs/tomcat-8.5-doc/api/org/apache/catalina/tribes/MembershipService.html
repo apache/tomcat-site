@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MembershipService (Apache Tomcat 8.5.0 API Documentation)</title>
+<title>MembershipService (Apache Tomcat 8.5.2 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="MembershipService (Apache Tomcat 8.5.0 API Documentation)";
+        parent.document.title="MembershipService (Apache Tomcat 8.5.2 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.0</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.2</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -149,37 +149,49 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getChannel()">getChannel</a></strong>()</code>
+<div class="block">Return the channel that is related to this MembershipService</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getLocalMember(boolean)">getLocalMember</a></strong>(boolean&nbsp;incAliveTime)</code>
 <div class="block">Get the local member.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getMember(org.apache.catalina.tribes.Member)">getMember</a></strong>(<a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;mbr)</code>
 <div class="block">Retrieve the specified member from the membership.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getMembers()">getMembers</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getMembersByName()">getMembersByName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#getProperties()">getProperties</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#hasMembers()">hasMembers</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#removeMembershipListener()">removeMembershipListener</a></strong>()</code>
 <div class="block">Removes the membership listener.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/MembershipService.html#setChannel(org.apache.catalina.tribes.Channel)">setChannel</a></strong>(<a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;channel)</code>
+<div class="block">Set the channel that is related to this MembershipService</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -472,7 +484,7 @@
 <a name="broadcast(org.apache.catalina.tribes.ChannelMessage)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>broadcast</h4>
 <pre>void&nbsp;broadcast(<a href="../../../../org/apache/catalina/tribes/ChannelMessage.html" title="interface in org.apache.catalina.tribes">ChannelMessage</a>&nbsp;message)
@@ -481,6 +493,28 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message to broadcast</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/catalina/tribes/ChannelException.html" title="class in org.apache.catalina.tribes">ChannelException</a></code> - Message broadcast failed</dd></dl>
+</li>
+</ul>
+<a name="getChannel()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChannel</h4>
+<pre><a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;getChannel()</pre>
+<div class="block">Return the channel that is related to this MembershipService</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Channel</dd></dl>
+</li>
+</ul>
+<a name="setChannel(org.apache.catalina.tribes.Channel)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setChannel</h4>
+<pre>void&nbsp;setChannel(<a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;channel)</pre>
+<div class="block">Set the channel that is related to this MembershipService</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>channel</code> - The channel</dd></dl>
 </li>
 </ul>
 </li>
@@ -505,7 +539,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.0</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.2</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

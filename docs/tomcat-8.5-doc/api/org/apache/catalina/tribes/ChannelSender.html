@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ChannelSender (Apache Tomcat 8.5.0 API Documentation)</title>
+<title>ChannelSender (Apache Tomcat 8.5.2 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ChannelSender (Apache Tomcat 8.5.0 API Documentation)";
+        parent.document.title="ChannelSender (Apache Tomcat 8.5.2 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.0</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.2</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -127,22 +127,34 @@ extends <a href="../../../../org/apache/catalina/tribes/Heartbeat.html" title="i
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/ChannelSender.html#getChannel()">getChannel</a></strong>()</code>
+<div class="block">Return the channel that is related to this ChannelSender</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/ChannelSender.html#heartbeat()">heartbeat</a></strong>()</code>
 <div class="block">A channel heartbeat, use this method to clean up resources</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/ChannelSender.html#remove(org.apache.catalina.tribes.Member)">remove</a></strong>(<a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;member)</code>
 <div class="block">Notification that a member has been removed or crashed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/ChannelSender.html#sendMessage(org.apache.catalina.tribes.ChannelMessage,%20org.apache.catalina.tribes.Member[])">sendMessage</a></strong>(<a href="../../../../org/apache/catalina/tribes/ChannelMessage.html" title="interface in org.apache.catalina.tribes">ChannelMessage</a>&nbsp;message,
            <a href="../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[]&nbsp;destination)</code>
 <div class="block">Send a message to one or more recipients.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/tribes/ChannelSender.html#setChannel(org.apache.catalina.tribes.Channel)">setChannel</a></strong>(<a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;channel)</code>
+<div class="block">Set the channel that is related to this ChannelSender</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -236,7 +248,7 @@ extends <a href="../../../../org/apache/catalina/tribes/Heartbeat.html" title="i
 <a name="sendMessage(org.apache.catalina.tribes.ChannelMessage, org.apache.catalina.tribes.Member[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendMessage</h4>
 <pre>void&nbsp;sendMessage(<a href="../../../../org/apache/catalina/tribes/ChannelMessage.html" title="interface in org.apache.catalina.tribes">ChannelMessage</a>&nbsp;message,
@@ -247,6 +259,28 @@ extends <a href="../../../../org/apache/catalina/tribes/Heartbeat.html" title="i
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/catalina/tribes/ChannelException.html" title="class in org.apache.catalina.tribes">ChannelException</a></code> - - if an error happens, the ChannelSender MUST report
  individual send failures on a per member basis, using ChannelException.addFaultyMember</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/tribes/ChannelException.html#addFaultyMember(org.apache.catalina.tribes.Member,%20java.lang.Exception)"><code>ChannelException.addFaultyMember(Member,java.lang.Exception)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getChannel()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChannel</h4>
+<pre><a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;getChannel()</pre>
+<div class="block">Return the channel that is related to this ChannelSender</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Channel</dd></dl>
+</li>
+</ul>
+<a name="setChannel(org.apache.catalina.tribes.Channel)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setChannel</h4>
+<pre>void&nbsp;setChannel(<a href="../../../../org/apache/catalina/tribes/Channel.html" title="interface in org.apache.catalina.tribes">Channel</a>&nbsp;channel)</pre>
+<div class="block">Set the channel that is related to this ChannelSender</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>channel</code> - The channel</dd></dl>
 </li>
 </ul>
 </li>
@@ -271,7 +305,7 @@ extends <a href="../../../../org/apache/catalina/tribes/Heartbeat.html" title="i
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.0</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.2</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.5.0) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><script type="application/javascript" data-comments-identifier="tomcat-8.5-doc/config/http">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 8 Configuration Reference (8.5.2) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><script type="application/javascript" data-comments-identifier="tomcat-8.5-doc/config/http">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -30,8 +30,8 @@
       }), false);
     })();
   </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 8 Configuration Reference</h1><div class="versionInfo">
-          Version 8.5.0,
-          <time datetime="2016-03-17">Mar 17 2016</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+          Version 8.5.2,
+          <time datetime="2016-05-17">May 17 2016</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2_(deprecated)">SSL Support - Connector - NIO and NIO2 (deprecated)</a></li><li><a href="#SSL_Support_-_Connector_-_APR/Native_(deprecated)">SSL Support - Connector - APR/Native (deprecated)</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -757,16 +757,16 @@
 
 </div><h3 id="Nested_Components">Nested Components</h3><div class="text">
 
-  <p>Starting with Tomcat 9, Tomcat supports Server Name Indication (SNI). This
-  allows multiple SSL configurations to be associated with a single secure
-  connector with the configuration used for any given connection determined by
-  the host name requested by the client. To facilitate this, Tomcat 9 added the
-  <strong>SSLHostConfig</strong> element which can be used to define one of
-  these configurations. Any number of <strong>SSLHostConfig</strong> may be
-  nested in a <strong>Connector</strong>. Tomcat 9 also adds support for
-  multiple certificates to be associated with a single
-  <strong>SSLHostConfig</strong>. Each SSL certificate is therefore configured
-  in a <strong>Certificate</strong> element with in an
+  <p>First implemented in Tomcat 9 and back-ported to 8.5, Tomcat now supports
+  Server Name Indication (SNI). This allows multiple SSL configurations to be
+  associated with a single secure connector with the configuration used for any
+  given connection determined by the host name requested by the client. To
+  facilitate this, the <strong>SSLHostConfig</strong> element was added which
+  can be used to define one of these configurations. Any number of
+  <strong>SSLHostConfig</strong> may be nested in a <strong>Connector</strong>.
+  At the same time, support was added for multiple certificates to be associated
+  with a single <strong>SSLHostConfig</strong>. Each SSL certificate is
+  therefore configured in a <strong>Certificate</strong> element with in an
   <strong>SSLHostConfig</strong>. For further information, see the SSL Support
   section below.</p>
 
@@ -821,13 +821,14 @@
   respectively, to pass correct information to the servlets.</p>
 
   <p>The NIO and NIO2 connectors use either the JSSE Java SSL implementation or
-  an OpenSSL implementation, whereas the
-  APR/native connector uses OpenSSL only. Prior to Tomcat 9, different configuration
-  attributes were used for JSSE and OpenSSL. From Tomcat 9 onwards, and as far
-  as possible, common configuration attributes are used for both JSSE and
-  OpenSSL. Also if using the JSSE OpenSSL implementation, configuration can be set using
-  either the JSSE or APR attributes (note: but not both types within the same configuration).
-  This is to aid simpler switching between connector implementations for SSL connectors.</p>
+  an OpenSSL implementation, whereas the APR/native connector uses OpenSSL only.
+  Prior to Tomcat 8.5, different configuration attributes were used for JSSE and
+  OpenSSL. From Tomcat 8.5 onwards, and as far as possible, common configuration
+  attributes are used for both JSSE and OpenSSL. Also if using the JSSE OpenSSL
+  implementation, configuration can be set using either the JSSE or APR
+  attributes (note: but not both types within the same configuration). This is
+  to aid simpler switching between connector implementations for SSL
+  connectors.</p>
 
   <p>Each secure connector must define at least one
   <strong>SSLHostConfig</strong>. The names of the
@@ -839,7 +840,7 @@
   <strong>Certificate</strong>. The types of the <strong>Certificate</strong>s
   must be unique.</p>
 
-  <p>As of Tomcat 9, the majority of the SSL configuration attributes in the
+  <p>As of Tomcat 8.5, the majority of the SSL configuration attributes in the
   <strong>Connector</strong> are deprecated. If specified, they will be used to
   configure a <strong>SSLHostConfig</strong> and <strong>Certificate</strong>
   for the <code>sslDefaultHost</code>. Note that if an explicit
@@ -925,7 +926,8 @@
     </td></tr><tr><td><code class="attributeName">honorCipherOrder</code></td><td>
       <p>Set to <code>true</code> to enforce the server's cipher order
       (from the <code>ciphers</code> setting) instead of allowing
-      the client to choose the cipher. The default is <code>true</code>.</p>
+      the client to choose the cipher. The default is <code>false</code>.
+      Use of this feature requires Java 8 or later.</p>
     </td></tr><tr><td><code class="attributeName">hostName</code></td><td>
       <p>The name of the SSL Host. This should either be the fully qualified
       domain name (e.g. <code>tomcat.apache.org</code>) or a wild card domain
@@ -1043,7 +1045,6 @@
         </th><th style="width: 85%;">
           Description
         </th></tr><tr><td><strong><code class="attributeName">certificateFile</code></strong></td><td>
-      <p>OpenSSL only.</p>
       <p>Name of the file that contains the server certificate. The format is
       PEM-encoded. Relative paths will be resolved against
       <code>$CATALINA_BASE</code>.</p>
@@ -1053,7 +1054,6 @@
       respectively. The output of the respective OpenSSL command can simply
       be concatenated to the certificate file.</p>
     </td></tr><tr><td><code class="attributeName">certificateChainFile</code></td><td>
-      <p>OpenSSL only.</p>
       <p>Name of the file that contains the certificate chain associated with
       the server certificate used. The format is
       PEM-encoded. Relative paths will be resolved against
@@ -1072,7 +1072,6 @@
       keystore it is strongly recommended that a keyAlias is configured to
       ensure that the correct key is used.</p>
     </td></tr><tr><td><code class="attributeName">certificateKeyFile</code></td><td>
-      <p>OpenSSL only.</p>
       <p>Name of the file that contains the server private key. The format is
       PEM-encoded. The default value is the value of
       <strong>certificateFile</strong> and in this case both certificate and
@@ -1190,7 +1189,7 @@
       <p>This is an alias for the <code>ciphers</code> attribute of the default
       <a href="#SSL_Support_-_SSLHostConfig">SSLHostConfig</a> element.</p>
     </td></tr><tr><td><code class="attributeName">clientAuth</code></td><td>
-      <p>This is an alias for the <code>certificateValidation</code> attribute
+      <p>This is an alias for the <code>certificateVerification</code> attribute
       of the default <a href="#SSL_Support_-_SSLHostConfig">SSLHostConfig</a>
       element.</p>
     </td></tr><tr><td><code class="attributeName">crlFile</code></td><td>
@@ -1348,7 +1347,7 @@
       default <a href="#SSL_Support_-_SSLHostConfig">SSLHostConfig</a>
       element.</p>
     </td></tr><tr><td><code class="attributeName">SSLVerifyClient</code></td><td>
-      <p>This is an alias for the <code>certificateValidation</code> attribute
+      <p>This is an alias for the <code>certificateVerification</code> attribute
       of the default <a href="#SSL_Support_-_SSLHostConfig">SSLHostConfig</a>
       element.</p>
     </td></tr><tr><td><code class="attributeName">SSLVerifyDepth</code></td><td>
@@ -1370,72 +1369,72 @@
     <table class="defaultTable" style="text-align: center;">
       <tr>
         <th></th>
-        <th>Java Nio Connector<br>NIO</th>
-        <th>Java Nio2 Connector<br>NIO2</th>
-        <th>APR/native Connector<br>APR</th>
+        <th style="text-align: center;">Java Nio Connector<br>NIO</th>
+        <th style="text-align: center;">Java Nio2 Connector<br>NIO2</th>
+        <th style="text-align: center;">APR/native Connector<br>APR</th>
       </tr>
       <tr>
-        <th style="text-align: left;">Classname</th>
+        <th>Classname</th>
         <td><code class="noHighlight">Http11NioProtocol</code></td>
         <td><code class="noHighlight">Http11Nio2Protocol</code></td>
         <td><code class="noHighlight">Http11AprProtocol</code></td>
       </tr>
       <tr>
-        <th style="text-align: left;">Tomcat Version</th>
+        <th>Tomcat Version</th>
         <td>6.x onwards</td>
         <td>8.x onwards</td>
         <td>5.5.x onwards</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Support Polling</th>
+        <th>Support Polling</th>
         <td>YES</td>
         <td>YES</td>
         <td>YES</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Polling Size</th>
+        <th>Polling Size</th>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
       </tr>
       <tr>
-        <th style="text-align: left;">Read HTTP Request</th>
+        <th>Read Request Headers</th>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Read HTTP Body</th>
+        <th>Read Request Body</th>
         <td>Blocking</td>
         <td>Blocking</td>
         <td>Blocking</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Write HTTP Response</th>
+        <th>Write Response Headers and Body</th>
         <td>Blocking</td>
         <td>Blocking</td>
         <td>Blocking</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Wait for next Request</th>
+        <th>Wait for next Request</th>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
       </tr>
       <tr>
-        <th style="text-align: left;">SSL Support</th>
+        <th>SSL Support</th>
         <td>Java SSL or OpenSSL</td>
         <td>Java SSL or OpenSSL</td>
         <td>OpenSSL</td>
       </tr>
       <tr>
-        <th style="text-align: left;">SSL Handshake</th>
+        <th>SSL Handshake</th>
         <td>Non blocking</td>
         <td>Non blocking</td>
         <td>Blocking</td>
       </tr>
       <tr>
-        <th style="text-align: left;">Max Connections</th>
+        <th>Max Connections</th>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
