@@ -112,5 +112,92 @@ of Apache Tomcat.</p>
 
 </section>
 
+<section name="Upgrading 8.5.x">
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 8 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 8.</p>
+
+  <subsection name="Tomcat 8.5.x noteable changes">
+    <p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occasionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    <ul>
+      <li>None.</li>
+    </ul>
+  </subsection>
+  
+  <subsection name="Tomcat 8.5.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <script type="text/javascript"><![CDATA[
+    "use strict"; // Enable strict mode
+
+    document.addEventListener("DOMContentLoaded", function() {
+    var formSubmit = document.getElementById("tc8Submit");
+      formSubmit.addEventListener("submit", function() {
+        var revisions = {
+          "HEAD":"HEAD",
+          "8.5.0":"1735438",
+          "8.5.2":"1743439"
+        };
+
+        formSubmit.action = "http://svn.apache.org/viewvc/tomcat/tc8.5.x/trunk/" +
+          document.getElementById('select-filename').value;
+        formSubmit.elements['r1'].value = revisions[document.getElementById('select-r1').value]; 
+        formSubmit.elements['r2'].value = revisions[document.getElementById('select-r2').value]; 
+        return true;
+      }, false);
+    }, false);
+    ]]></script>
+
+
+    <p><label>Configuration file:
+    <select id="select-filename">
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
+    </select></label>
+    </p>
+    <p><label>Old version:
+    <select id="select-r1">
+    <option value="8.5.0" selected="selected">8.5.0</option>
+    <option value="8.5.2">8.5.2</option>
+    </select>,</label> <label>new version:
+    <select id="select-r2">
+    <option value="8.5.0">8.5.0</option>
+    <option value="8.5.2" selected="selected">8.5.2</option>
+    <option value="HEAD">trunk (unreleased)</option>
+    </select></label>
+    </p>
+
+    <form id="tc8Submit" action="to-be-replaced" method="get"
+          target="_blank">
+    <p>
+    <input type="hidden" name="diff_format" value="h"/>
+    <input type="hidden" name="r1"/><input type="hidden" name="r2"/>
+    <button>View Differences</button>
+    </p>
+    </form>
+    <p>You can also use Subversion command similar to the following (all on one line):</p>
+    <source>svn diff
+  --old=http://svn.apache.org/repos/asf/tomcat/tc8.5.x/tags/TOMCAT_8_5_0/conf/
+  --new=http://svn.apache.org/repos/asf/tomcat/tc8.5.x/tags/TOMCAT_8_5_2/conf/</source>
+  </subsection>
+  
+</section>
+
 </body>
 </document>
