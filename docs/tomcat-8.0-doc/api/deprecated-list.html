@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Deprecated List (Apache Tomcat 8.0.33 API Documentation)</title>
+<title>Deprecated List (Apache Tomcat 8.0.35 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Deprecated List (Apache Tomcat 8.0.33 API Documentation)";
+        parent.document.title="Deprecated List (Apache Tomcat 8.0.35 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="index-all.html">Index</a></li>
 <li><a href="help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.35</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -86,6 +86,12 @@
 <tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/InstanceListener.html" title="interface in org.apache.catalina">org.apache.catalina.InstanceListener</a>
 <div class="block"><i>Will be removed in 8.5.x onwards</i></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/tomcat/util/scan/Jar.html" title="interface in org.apache.tomcat.util.scan">org.apache.tomcat.util.scan.Jar</a>
+<div class="block"><i>Use <a href="org/apache/tomcat/Jar.html" title="interface in org.apache.tomcat"><code>Jar</code></a> instead.
+             This class will be removed from Tomcat 8.5.x onwards.</i></div>
 </td>
 </tr>
 </tbody>
@@ -800,29 +806,39 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="org/apache/tomcat/JarScannerCallback.html#scan(java.net.JarURLConnection,%20java.lang.String,%20boolean)">org.apache.tomcat.JarScannerCallback.scan(JarURLConnection, String, boolean)</a>
+<div class="block"><i>Use <a href="org/apache/tomcat/JarScannerCallback.html#scan(org.apache.tomcat.Jar,%20java.lang.String,%20boolean)"><code>JarScannerCallback.scan(Jar, String, boolean)</code></a> instead. Because the
+             urlConn parameter could refer directly to a JAR or to a JAR
+             as an entry in a WAR, it required further processing that
+             included obtaining the original URL. It is simpler to provide
+             the URL to start with.
+             This method will be removed in Tomcat 8.5.x onwards.</i></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/tribes/group/interceptors/MessageDispatchInterceptor.html#sendAsyncData(org.apache.catalina.tribes.transport.bio.util.LinkObject)">org.apache.catalina.tribes.group.interceptors.MessageDispatchInterceptor.sendAsyncData(LinkObject)</a>
 <div class="block"><i>Unused. Will be removed in 8.5.x</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/tomcat/util/net/NioEndpoint.KeyAttachment.html#setCometNotify(boolean)">org.apache.tomcat.util.net.NioEndpoint.KeyAttachment.setCometNotify(boolean)</a></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/Service.html#setContainer(org.apache.catalina.Container)">org.apache.catalina.Service.setContainer(Container)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/Service.html#setContainer(org.apache.catalina.Engine)"><code>Service.setContainer(Engine)</code></a> Will be removed in Tomcat
              9.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/Manager.html#setContainer(org.apache.catalina.Container)">org.apache.catalina.Manager.setContainer(Container)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/Manager.html#setContext(org.apache.catalina.Context)"><code>Manager.setContext(Context)</code></a>. This method will be removed in
              Tomcat 9 onwards.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/session/ManagerBase.html#setContainer(org.apache.catalina.Container)">org.apache.catalina.session.ManagerBase.setContainer(Container)</a></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/connector/Request.html#setContext(org.apache.catalina.Context)">org.apache.catalina.connector.Request.setContext(Context)</a>
 <div class="block"><i>Use setters on <a href="org/apache/catalina/connector/Request.html#getMappingData()"><code>MappingData</code></a> object.
  Depending on use case, you may need to update other
@@ -830,71 +846,71 @@
  <code>contextSlashCount</code> and <code>host</code>.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/realm/RealmBase.html#setDigest(java.lang.String)">org.apache.catalina.realm.RealmBase.setDigest(String)</a>
 <div class="block"><i>This will be removed in Tomcat 8.5.x as it has been replaced
               by the CredentialHandler</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/realm/RealmBase.html#setDigestEncoding(java.lang.String)">org.apache.catalina.realm.RealmBase.setDigestEncoding(String)</a>
 <div class="block"><i>This will be removed in Tomcat 8.5.x as it has been replaced
               by the CredentialHandler</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/Manager.html#setDistributable(boolean)">org.apache.catalina.Manager.setDistributable(boolean)</a>
 <div class="block"><i>Ignored. <a href="org/apache/catalina/Context.html#getDistributable()"><code>Context.getDistributable()</code></a> always takes
              precedence. Will be removed in Tomcat 8.5.x.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/session/ManagerBase.html#setDistributable(boolean)">org.apache.catalina.session.ManagerBase.setDistributable(boolean)</a></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/Manager.html#setMaxInactiveInterval(int)">org.apache.catalina.Manager.setMaxInactiveInterval(int)</a>
 <div class="block"><i>Ignored. <a href="org/apache/catalina/Context.html#getSessionTimeout()"><code>Context.getSessionTimeout()</code></a> always takes
              precedence. Will be removed in Tomcat 8.5.x.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/session/ManagerBase.html#setMaxInactiveInterval(int)">org.apache.catalina.session.ManagerBase.setMaxInactiveInterval(int)</a></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/tomcat/util/http/LegacyCookieProcessor.html#setPreserveCookieHeader(boolean)">org.apache.tomcat.util.http.LegacyCookieProcessor.setPreserveCookieHeader(boolean)</a>
 <div class="block"><i>No longer used. Cookie headers are now always preserved. Will
              be removed in Tomcat 8.5.x.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/ha/session/ClusterManagerBase.html#setSessionAttributeFilter(java.lang.String)">org.apache.catalina.ha.session.ClusterManagerBase.setSessionAttributeFilter(String)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/session/ManagerBase.html#setSessionAttributeNameFilter(java.lang.String)"><code>ManagerBase.setSessionAttributeNameFilter(String)</code></a>. Will be
              removed in Tomcat 8.5.x</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/Manager.html#setSessionIdLength(int)">org.apache.catalina.Manager.setSessionIdLength(int)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/SessionIdGenerator.html#setSessionIdLength(int)"><code>SessionIdGenerator.setSessionIdLength(int)</code></a>.
              This method will be removed in Tomcat 9 onwards.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/session/ManagerBase.html#setSessionIdLength(int)">org.apache.catalina.session.ManagerBase.setSessionIdLength(int)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/SessionIdGenerator.html#setSessionIdLength(int)"><code>SessionIdGenerator.setSessionIdLength(int)</code></a>.
              This method will be removed in Tomcat 9 onwards.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/connector/Response.html#setStatus(int,%20java.lang.String)">org.apache.catalina.connector.Response.setStatus(int, String)</a>
 <div class="block"><i>As of Version 2.1 of the Java Servlet API, this method
   has been deprecated due to the ambiguous meaning of the message
   parameter.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/tomcat/dbcp/dbcp2/DelegatingPreparedStatement.html#setUnicodeStream(int,%20java.io.InputStream,%20int)">org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.setUnicodeStream(int, InputStream, int)</a>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/connector/Request.html#setWrapper(org.apache.catalina.Wrapper)">org.apache.catalina.connector.Request.setWrapper(Wrapper)</a>
 <div class="block"><i>Use setters on <a href="org/apache/catalina/connector/Request.html#getMappingData()"><code>MappingData</code></a> object.
  Depending on use case, you may need to update other
@@ -902,12 +918,12 @@
  and <code>contextSlashCount</code>.</i></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/catalina/loader/WebappClassLoaderBase.html#validate(java.lang.String)">org.apache.catalina.loader.WebappClassLoaderBase.validate(String)</a>
 <div class="block"><i>Unused. Will be removed in Tomcat 9 onwards.</i></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/catalina/ha/session/ClusterManagerBase.html#willAttributeDistribute(java.lang.String)">org.apache.catalina.ha.session.ClusterManagerBase.willAttributeDistribute(String)</a>
 <div class="block"><i>Use <a href="org/apache/catalina/session/ManagerBase.html#willAttributeDistribute(java.lang.String,%20java.lang.Object)"><code>ManagerBase.willAttributeDistribute(String, Object)</code></a>. Will be
              removed in Tomcat 8.5.x</i></div>
@@ -966,7 +982,7 @@
 <li><a href="index-all.html">Index</a></li>
 <li><a href="help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.33</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.35</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
