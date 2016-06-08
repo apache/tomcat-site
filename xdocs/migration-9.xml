@@ -20,14 +20,15 @@ of Apache Tomcat.</p>
 
 </section>
 
-<section name="Migrating from 8.0.x to 9.0.x">
+<section name="Migrating from 8.0.x or 8.5.x to 9.0.x">
 
-  <p> This section lists all the known changes between 8.0.x and 9.0.x which may
-  cause backwards compatibility problems when upgrading.</p>
+  <p>This section lists all the known changes between 8.0.x / 8.5.x and 9.0.x
+  which may cause backwards compatibility problems when upgrading. Some of
+  these changes and new features are already present in Apache Tomcat 8.5.x.</p>
 
   <subsection name="Java 8 required">
 
-    <p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x
+    <p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x and 8.5.x
     required Java 7.</p>
 
   </subsection>
@@ -35,7 +36,7 @@ of Apache Tomcat.</p>
   <subsection name="Specification APIs">
 
     <p>Apache Tomcat 9 supports the Java Servlet 4.0, JavaServer Pages 2.4,
-    Java Unified Expression Language 3.1 and Java WebSocket 2.0
+    Java Unified Expression Language 3.1 and Java API for WebSocket 2.0
     <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
     The changes between versions of specifications may be found in the
     <em>Changes</em> appendix in each of specification documents.
@@ -80,11 +81,14 @@ of Apache Tomcat.</p>
   <subsection name="WebSocket 2.0">
   
     <p>No information is currently available. It is anticipated that Java EE 8
-    will include an updated WebSocket specification with a version of 2.0.</p>
+    will include an updated Java API for WebSocket specification with a
+    version of 2.0.</p>
 
   </subsection>
 
   <subsection name="BIO connector removed">
+
+    <p><em>The following change is present in 8.5.0 onwards.</em></p>
 
     <p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
     removed. Users are recommended to switch to the Java non-blocking IO
@@ -94,12 +98,16 @@ of Apache Tomcat.</p>
 
   <subsection name="Comet support removed">
 
+    <p><em>The following change is present in 8.5.0 onwards.</em></p>
+
     <p>Comet support has been removed without a direct replacement. Applications
     using Comet are recommended to migrate to WebSockets.</p>
 
   </subsection>
 
   <subsection name="HTTP/2 support added">
+
+    <p><em>The following feature is available since 8.5.0 onwards.</em></p>
 
     <p>HTTP/2 is supported for h2 (over TLS, negotiated via ALPN) and h2c (clear
     text, negotiated via HTTP/1.1 upgrade). HTTP/2 needs to be explicitly
@@ -112,6 +120,8 @@ of Apache Tomcat.</p>
   </subsection>
 
   <subsection name="TLS virtual hosting and multiple certificate support added">
+
+    <p><em>The following feature is available since 8.5.0 onwards.</em></p>
 
     <p>Tomcat 9 supports multiple TLS virtual hosts for a single connector with
     each virtual host able to support multiple certificates. Virtual host
@@ -162,16 +172,18 @@ of Apache Tomcat.</p>
     <ul>
       <li>Significant refactoring has taken place throughout the connectors to
           reduce duplicate code and to align behaviour across
-          implementations.</li>
+          implementations. (<em>This change is present in 8.5.x.</em>)</li>
       <li>The deprecated <code>digest</code> attribute has been removed from the
-          <code>Realm</code>.</li>
+          <code>Realm</code>. (<em>This change is present in 8.5.x.</em>)</li>
     </ul>
 
   </subsection>
 
   <subsection name="JSR-77 implementation removed">
 
-    <p>The JSR-77 implementation is incomplete and has been removed in 9.0.x.
+    <p><em>The following change is present in 8.5.0 onwards.</em></p>
+
+    <p>The JSR-77 implementation is incomplete and has been removed in 8.5.x and 9.0.x.
     Specifically, the following methods that exposed to JMX have been removed.
     </p>
 
@@ -185,86 +197,13 @@ of Apache Tomcat.</p>
 
   <subsection name="Clustering">
 
+    <p><em>The following change is present in 8.5.0 onwards.</em></p>
+
     <p><code>MessageDispatch15Interceptor</code> had been used to add the Java 5
     features to MessageDispatchInterceptor.
-    <code>MessageDispatch15Interceptor</code> has been removed in Tomcat9.0.x
+    <code>MessageDispatch15Interceptor</code> has been removed in Tomcat 8.5.x and 9.0.x
     by merging the Java 5 features to <code>MessageDispatchInterceptor</code>.
     </p>
-
-  </subsection>
-
-</section>
-
-<section name="Migrating from 8.5.x to 9.0.x">
-
-  <p> This section lists all the known changes between 8.0.x and 9.0.x which may
-  cause backwards compatibility problems when upgrading.</p>
-
-  <subsection name="Java 8 required">
-
-    <p>Apache Tomcat 9.0.x requires Java 8 or later. Apache Tomcat 8.0.x
-    required Java 7.</p>
-
-  </subsection>
-
-  <subsection name="Specification APIs">
-
-    <p>Apache Tomcat 9 supports the Java Servlet 4.0, JavaServer Pages 2.4,
-    Java Unified Expression Language 3.1 and Java WebSocket 2.0
-    <a href="http://wiki.apache.org/tomcat/Specifications">specifications</a>.
-    The changes between versions of specifications may be found in the
-    <em>Changes</em> appendix in each of specification documents.
-    </p>
-
-  </subsection>
-  
-  <subsection name="Servlet 4.0 API">
-  
-    <p>In JSP pages that use wildcard import syntax the new classes added in
-    Servlet API may conflict with ones in web applications.
-    For example, if package <code>"a"</code> contains class
-    <code>PushBuilder</code>, the following JSP page will cease to compile in
-    Tomcat 9:</p>
-
-    <source><![CDATA[<%@page import="a.*"%>
-<% PushBuilder pushBuilder = new PushBuilder(); %>]]></source>
-
-    <p>This happens because the implicit import of
-    <code>javax.servlet.http.*</code> and the explicit import of
-    <code>a.*</code> will provide conflicting definitions of class
-    <code>PushBuilder</code> that was added in Servlet 4.0. The solution is to
-    use the explicit import, <code>import="a.PushBuilder"</code>.</p>
-
-  </subsection>
-
-  <subsection name="JavaServer Pages 2.4">
-  
-    <p>No information is currently available. It is anticipated that Java EE 8
-    will include a maintenance release of JSP with a version of 2.4.</p>
-
-  </subsection>
-
-  <subsection name="Expression Language 3.1">
-  
-    <p>No information is currently available. It is anticipated that Java EE 8
-    will include a maintenance release of expression language with a version of
-    3.1.</p>
-
-  </subsection>
-
-  <subsection name="WebSocket 2.0">
-  
-    <p>No information is currently available. It is anticipated that Java EE 8
-    will include an updated WebSocket specification with a version of 2.0.</p>
-
-  </subsection>
-
-  <subsection name="Internal APIs">
-  
-    <p>Whilst the Tomcat 9 internal API is broadly compatible with Tomcat 8.5
-    there have been some changes at the detail level and they are not binary
-    compatible. Developers of custom components that interact with Tomcat&apos;s
-    internals should review the JavaDoc for the relevant API.</p>
 
   </subsection>
 
