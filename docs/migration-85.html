@@ -245,6 +245,9 @@
 <li>
 <a href="#InstanceListener_removed">InstanceListener removed</a>
 </li>
+<li>
+<a href="#SessionManager">SessionManager</a>
+</li>
 </ol>
 </li>
 <li>
@@ -483,6 +486,59 @@ of Apache Tomcat.</p>
 <li>
 <code>org.apache.catalina.util.InstanceSupport</code>
 </li>
+    
+</ul>
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="SessionManager">SessionManager</h4>
+<div class="text">
+
+    
+<p>The following session manager attribute of has been completely removed in
+    8.5.</p>
+
+    
+<ul>
+      
+<li>
+<code>distributable</code>
+</li>
+      
+<li>
+<code>maxInactiveInterval</code>
+</li>
+      
+<li>
+<code>sessionIdLength</code>
+</li>
+    
+</ul>
+
+    
+<p>Clarify are:</p>
+    
+<ul>
+      
+<li>The <code>distributable</code> attribute has been deprecated in 8.0
+          and specified value is ignored. This should be configured via the
+          Context. The value is inherited based on the presence or absence of
+          the <code>&lt;distributable /&gt;</code> element in
+          <code>/WEB-INF/web.xml.</code>
+</li>
+      
+<li>The <code>maxInactiveInterval</code> attribute has been deprecated in
+          8.0. If the value is specified, a warning log is Issued. This should
+          be configured via the Context. The value is inherited based on the
+          value of the <code>&lt;session-timeout&gt;</code> element in
+          <code>/WEB-INF/web.xml</code>.</li>
+      
+<li>The <code>sessionIdLength</code> attribute of <code>Manager</code> has
+          been replaced by <code>sessionIdLength</code> attribute of
+          <code>SessionIdGenerator</code>.</li>
     
 </ul>
   
