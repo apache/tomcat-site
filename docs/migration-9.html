@@ -477,7 +477,7 @@ of Apache Tomcat.</p>
 <p>Tomcat 9 supports multiple TLS virtual hosts for a single connector with
     each virtual host able to support multiple certificates. Virtual host
     definitions are nested inside the Connector element with the default
-    specified using the <strong>sslDefaultHost</strong> attribute on the
+    specified using the <strong>defaultSSLHostConfigName</strong> attribute on the
     Connector if more than one virtual host is specified. Certificate
     definitions are nested inside the virtual host.</p>
     
@@ -493,7 +493,7 @@ of Apache Tomcat.</p>
            protocol="org.apache.coyote.http11.Http11AprProtocol"
            maxThreads="150"
            SSLEnabled="true"
-           sslDefaultHost="openoffice.apache.org" &gt;
+           defaultSSLHostConfigName="openoffice.apache.org" &gt;
     &lt;SSLHostConfig hostName="openoffice.apache.org" &gt;
         &lt;Certificate certificateKeyFile="conf/openoffice.apache.org-rsa-key.pem"
                      certificateFile="conf/openoffice.apache.org-rsa-cert.pem"
