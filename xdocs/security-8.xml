@@ -50,6 +50,31 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.3 and 8.0.36" rtext="13 June 2016">
+  
+    <p><strong>Moderate: Denial of Service</strong>
+       <cve>CVE-2016-3092</cve></p>
+
+    <p>Apache Tomcat uses a package renamed copy of Apache Commons FileUpload to
+       implement the file upload requirements of the Servlet specification. A
+       denial of service vulnerability was identified in Commons FileUpload that
+       occurred when the length of the multipart boundary was just below the
+       size of the buffer (4096 bytes) used to read the uploaded file. This
+       caused the file upload process to take several orders of magnitude
+       longer than if the boundary was the typical tens of bytes long.</p>
+
+    <p>This was fixed in revision <revlink rev="1743722">1743722</revlink> for
+       8.5.x and revision <revlink rev="1743738">1743738</revlink> for
+       8.0.x.</p>
+
+    <p>This issue was identified by the TERASOLUNA Framework Development Team
+       and reported to the Apache Commons team via JPCERT on 9 May 2016. It was
+       made public on 21 June 2016.</p>
+
+    <p>Affects: 8.5.0 to 8.5.2, 8.0.0.RC1 to 8.0.35</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 8.0.32" rtext="8 February 2016">
 
   <p><i>Note: The issues below were fixed in Apache Tomcat 8.0.31 but the

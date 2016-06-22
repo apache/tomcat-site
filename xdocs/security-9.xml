@@ -50,6 +50,35 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.0.M8" rtext="13 June 2016">
+  
+    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.0.M7 but the
+       release vote for the 9.0.0.M7 release candidate did not pass. Therefore,
+       although users must download 9.0.0.M8 to obtain a version that includes
+       fixes for these issues, version 9.0.0.M7 is not included in the list of
+       affected versions.</i></p>
+  
+    <p><strong>Moderate: Denial of Service</strong>
+       <cve>CVE-2016-3092</cve></p>
+
+    <p>Apache Tomcat uses a package renamed copy of Apache Commons FileUpload to
+       implement the file upload requirements of the Servlet specification. A
+       denial of service vulnerability was identified in Commons FileUpload that
+       occurred when the length of the multipart boundary was just below the
+       size of the buffer (4096 bytes) used to read the uploaded file. This
+       caused the file upload process to take several orders of magnitude
+       longer than if the boundary was the typical tens of bytes long.</p>
+
+    <p>This was fixed in revision <revlink rev="1743700">1743700</revlink>.</p>
+
+    <p>This issue was identified by the TERASOLUNA Framework Development Team
+       and reported to the Apache Commons team via JPCERT on 9 May 2016. It was
+       made public on 21 June 2016.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.0.M6</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.0.M3" rtext="5 January 2016">
   
     <p><strong>Moderate: Security Manager bypass</strong>
