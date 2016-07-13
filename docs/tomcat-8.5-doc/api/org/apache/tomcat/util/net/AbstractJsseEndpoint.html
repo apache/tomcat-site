@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AbstractJsseEndpoint (Apache Tomcat 8.5.3 API Documentation)</title>
+<title>AbstractJsseEndpoint (Apache Tomcat 8.5.4 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AbstractJsseEndpoint (Apache Tomcat 8.5.3 API Documentation)";
+        parent.document.title="AbstractJsseEndpoint (Apache Tomcat 8.5.4 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.3</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -172,37 +172,49 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#createSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">createSSLContext</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;sslHostConfig)</code>
+<div class="block">Create the SSLContextfor the the given SSLHostConfig.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLEngine.html?is-external=true" title="class or interface in javax.net.ssl">SSLEngine</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#createSSLEngine(java.lang.String,%20java.util.List)">createSSLEngine</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sniHostName,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../org/apache/tomcat/util/net/openssl/ciphers/Cipher.html" title="enum in org.apache.tomcat.util.net.openssl.ciphers">Cipher</a>&gt;&nbsp;clientRequestedCiphers)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#destroySsl()">destroySsl</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#getSniParseLimit()">getSniParseLimit</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.Type.html" title="enum in org.apache.tomcat.util.net">SSLHostConfig.Type</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#getSslConfigType()">getSslConfigType</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/tomcat/util/net/SSLImplementation.html" title="class in org.apache.tomcat.util.net">SSLImplementation</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#getSslImplementation()">getSslImplementation</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#getSslImplementationName()">getSslImplementationName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#init()">init</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#initialiseSsl()">initialiseSsl</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html#releaseSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">releaseSSLContext</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;sslHostConfig)</code>
+<div class="block">Release the SSLContext, if any, associated with the SSLHostConfig.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -332,6 +344,25 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
 </li>
 </ul>
+<a name="createSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSSLContext</h4>
+<pre>protected&nbsp;void&nbsp;createSSLContext(<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;sslHostConfig)
+                         throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">AbstractEndpoint</a></code></strong></div>
+<div class="block">Create the SSLContextfor the the given SSLHostConfig.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">createSSLContext</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a>&lt;<a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html" title="type parameter in AbstractJsseEndpoint">S</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>sslHostConfig</code> - The SSLHostConfig for which the SSLContext should be
+                      created</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code></dd></dl>
+</li>
+</ul>
 <a name="destroySsl()">
 <!--   -->
 </a>
@@ -342,6 +373,22 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html
                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="releaseSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>releaseSSLContext</h4>
+<pre>protected&nbsp;void&nbsp;releaseSSLContext(<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;sslHostConfig)</pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#releaseSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">AbstractEndpoint</a></code></strong></div>
+<div class="block">Release the SSLContext, if any, associated with the SSLHostConfig.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#releaseSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">releaseSSLContext</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a>&lt;<a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.html" title="type parameter in AbstractJsseEndpoint">S</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>sslHostConfig</code> - The SSLHostConfig for which the SSLContext should be
+                      released</dd></dl>
 </li>
 </ul>
 <a name="createSSLEngine(java.lang.String, java.util.List)">
@@ -406,7 +453,7 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.3</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
