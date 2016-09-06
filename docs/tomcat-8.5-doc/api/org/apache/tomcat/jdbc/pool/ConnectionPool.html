@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ConnectionPool (Apache Tomcat 8.5.4 API Documentation)</title>
+<title>ConnectionPool (Apache Tomcat 8.5.5 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ConnectionPool (Apache Tomcat 8.5.4 API Documentation)";
+        parent.document.title="ConnectionPool (Apache Tomcat 8.5.5 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.5</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -442,8 +442,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#suspect(org.apache.tomcat.jdbc.pool.PooledConnection)">suspect</a></strong>(<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)</code>
-<div class="block">thread safe way to abandon a connection
- signals a connection to be abandoned.</div>
+<div class="block">Thread safe way to suspect a connection.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -786,9 +785,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>suspect</h4>
 <pre>protected&nbsp;void&nbsp;suspect(<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)</pre>
-<div class="block">thread safe way to abandon a connection
- signals a connection to be abandoned.
- this will disconnect the connection, and log the stack trace if logAbanded=true</div>
+<div class="block">Thread safe way to suspect a connection. Similar to
+ <a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#abandon(org.apache.tomcat.jdbc.pool.PooledConnection)"><code>abandon(PooledConnection)</code></a>, but instead of actually abandoning
+ the connection, this will log a warning and set the suspect flag on the
+ <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool"><code>PooledConnection</code></a> if logAbandoned=true</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>con</code> - PooledConnection</dd></dl>
 </li>
 </ul>
@@ -1097,7 +1097,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.5</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

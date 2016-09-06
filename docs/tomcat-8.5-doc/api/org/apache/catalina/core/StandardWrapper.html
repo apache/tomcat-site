@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>StandardWrapper (Apache Tomcat 8.5.4 API Documentation)</title>
+<title>StandardWrapper (Apache Tomcat 8.5.5 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StandardWrapper (Apache Tomcat 8.5.4 API Documentation)";
+        parent.document.title="StandardWrapper (Apache Tomcat 8.5.5 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.5</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -666,8 +666,11 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletConfig.html?i
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardWrapper.html#isSingleThreadModel()">isSingleThreadModel</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardWrapper.html#isSingleThreadModel()">isSingleThreadModel</a></strong>()</code>
+<div class="block">Does the servlet class represented by this component implement the
+ <code>SingleThreadModel</code> interface?</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -1503,9 +1506,13 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletConfig.html?i
 <ul class="blockList">
 <li class="blockList">
 <h4>isSingleThreadModel</h4>
-<pre>public&nbsp;boolean&nbsp;isSingleThreadModel()</pre>
-<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the servlet class represented by this
- component implements the <code>SingleThreadModel</code> interface.</dd></dl>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;isSingleThreadModel()</pre>
+<div class="block">Does the servlet class represented by this component implement the
+ <code>SingleThreadModel</code> interface? This can only be determined
+ once the class is loaded. Calling this method will not trigger loading
+ the class since that may cause the application to behave unexpectedly.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>null</code> if the class has not been loaded, otherwise <code>true</code> if the servlet does implement <code>SingleThreadModel</code> and
+         <code>false</code> if it does not.</dd></dl>
 </li>
 </ul>
 <a name="isUnavailable()">
@@ -2362,7 +2369,7 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletConfig.html?i
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.4</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.5</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
