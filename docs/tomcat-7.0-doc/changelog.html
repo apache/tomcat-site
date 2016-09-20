@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.70) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><meta name="author" content="Jeremy Boynes"><meta name="author" content="Felix Schumacher"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 (7.0.72) - Changelog</title><meta name="author" content="Remy Maucherat"><meta name="author" content="Filip Hanik"><meta name="author" content="Rainer Jung"><meta name="author" content="Konstantin Kolinko"><meta name="author" content="Peter Rossbach"><meta name="author" content="Keiichi Fujino"><meta name="author" content="Tim Whittington"><meta name="author" content="Mladen Turk"><meta name="author" content="Christopher Schultz"><meta name="author" content="Sylvain Laurent"><meta name="author" content="Violeta Georgieva"><meta name="author" content="Jeremy Boynes"><meta name="author" content="Felix Schumacher"><style type="text/css" media="print">
     .noPrint {display: none;}
     td#mainBody {width: 100%;}
 </style><style type="text/css">
@@ -78,7 +78,322 @@ p.notice {
 }
 </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.70, Jun 15 2016</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL/TLS</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.1 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.70 (violetagg)"><!--()--></a><a name="Tomcat_7.0.70_(violetagg)"><strong>Tomcat 7.0.70 (violetagg)</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.72, Sep 14 2016</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL/TLS</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">16) MBeans Descriptors</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.2 Javadocs</a></li><li><a href="elapi/index.html">EL 2.2 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.1 Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Changelog</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.72 (violetagg)"><!--()--></a><a name="Tomcat_7.0.72_(violetagg)"><strong>Tomcat 7.0.72 (violetagg)</strong></a></font></td></tr><tr><td><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.72 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.72_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure <code>Digester.useContextClassLoader</code> is considered in
+        case the class loader is used. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.72 (violetagg)/Jasper"><!--()--></a><a name="Tomcat_7.0.72_(violetagg)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=60101">60101</a>: Remove preloading of the class that was deleted.
+        (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.72 (violetagg)/jdbc-pool"><!--()--></a><a name="Tomcat_7.0.72_(violetagg)/jdbc-pool"><strong>jdbc-pool</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Notify jmx when returning the connection that has been marked suspect.
+        (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that the <code>POOL_EMPTY</code> notification has been added to
+        the jmx notification types. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)"><strong>Tomcat 7.0.71 (violetagg)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>not released</strong></font></td></tr><tr><td colspan="2"><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=57705">57705</a>: Add debug logging for requests denied by the remote
+        host and remote address valves and filters. Based on a patch by Graham
+        Leggett. (markt)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Change the default of the
+        <code>sessionCookiePathUsesTrailingSlash</code> attribute of the
+        <code>Context</code> element to <code>false</code> since the problems
+        caused when a Servlet is mapped to <code>/*</code> are more significant
+        than the security risk of not enabling this option by default. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59708">59708</a>: Modify the LockOutRealm logic. Valid authentication
+        attempts during the lock out period will no longer reset the lock out
+        timer to zero. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve error handling around user code prior to calling
+        <code>InstanceManager.destroy()</code> to ensure that the method is
+        executed. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that reading the <code>singleThreadModel</code> attribute of a
+        <code>StandardWrapper</code> via JMX does not trigger initialisation of
+        the associated servlet. With some frameworks this can trigger an
+        unexpected initialisation thread and if initilisation is not thread-safe
+        the initialisation can then fail. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        By default, treat paths used to obtain a request dispatcher as encoded.
+        This behaviour can be changed per web application via the
+        <code>dispatchersUseEncodedPaths</code> attribute of the Context.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59839">59839</a>: Apply <code>roleSearchAsUser</code> to all nested searches
+        in JNDIRealm. (fschumacher)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Provide a mechanism that enables the container to check if a component
+        (typically a web application) has been granted a given permission when
+        running under a SecurityManager without the current execution stack
+        having to have passed through the component. Use this new mechanism to
+        extend SecurityManager protection to the system property replacement
+        feature of the digester. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        When retrieving an object via a <code>ResourceLink</code>, ensure that
+        the object obtained is of the expected type. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59866">59866</a>: When scanning <code>WEB-INF/classes</code> for
+        annotations, don't scan the contents of
+        <code>WEB-INF/classes/META-INF</code> (if present) since classes will
+        never be loaded from that location. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59912">59912</a>: Fix an edge case in input stream handling where an
+        <code>IOException</code> could be thrown when reading a POST body.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59966">59966</a>: Do not start the web application if the error page
+        configuration in web.xml is invalid. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Switch the CGI servlet to the standard logging mechanism and remove
+        support for the debug attribute. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add a new initialisation parameter, <code>envHttpHeaders</code>, to
+        the CGI Servlet to mitigate <a href="https://httpoxy.org">httpoxy</a>
+        (<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5388">CVE-2016-5388</a>) by default and to provide a mechanism that can be
+        used to mitigate any future, similar issues. (markt)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        When adding and removing <code>ResourceLink</code>s dynamically, ensure
+        that the global resource is only visible via the
+        <code>ResourceLinkFactory</code> when it is meant to be. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=60008">60008</a>: When processing CORs requests, treat any origin with a
+        URI scheme of <code>file</code> as a valid origin. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve handling of exceptions during a Lifecycle events triggered by a
+        state transition. The exception is now caught and the component is now
+        placed into the <code>FAILED</code> state. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix a file descriptor leak when reading the global web.xml. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=60041">60041</a>: Better error message if a JAR is deleted while a web
+        application is running. Note: Deleting a JAR while the application is
+        running is not supported and errors are expected. Based on a patch by
+        gehui. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Coyote"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Coyote"><strong>Coyote</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve error handling around user code prior to calling
+        <code>InstanceManager.destroy()</code> to ensure that the method is
+        executed. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59904">59904</a>: Add a limit (default 200) for the number of cookies
+        allowed per request. Based on a patch by gehui. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Make timing attacks against the Realm implementations harder. (schultz)
+      </td></tr>
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Refactor the code that implements the requirement that a call to
+        <code>complete()</code> or <code>dispatch()</code> made from a
+        non-container thread before the container initiated thread that called
+        <code>startAsync()</code> completes must be delayed until the container
+        initiated thread has completed. Rather than implementing this by
+        blocking the non-container thread, extend the internal state machine to
+        track this. This removes the possibility that blocking the non-container
+        thread could trigger a deadlock. (markt)  
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Jasper"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Jasper"><strong>Jasper</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve error handling around user code prior to calling
+        <code>InstanceManager.destroy()</code> to ensure that the method is
+        executed. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve the error handling for custom tags to ensure that the tag is
+        returned to the pool or released and destroyed once used. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fixed StringIndexOutOfBoundsException. Based on a patch provided by
+        wuwen via Github. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/WebSocket"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/WebSocket"><strong>WebSocket</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Improve error handling around user code prior to calling
+        <code>InstanceManager.destroy()</code> to ensure that the method is
+        executed. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59868">59868</a>: Clarify the documentation for the Manager web
+        application to make clearer that the host name and IP address in the
+        server section are the primary host name and IP address. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59908">59908</a>: Ensure that a reason phrase is included in the close
+        message if a session is closed due to a timeout. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Web Applications"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Web_Applications"><strong>Web Applications</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Do not log an additional case of <code>IOException</code>s in the
+        error handler for the Drawboard WebSocket example when the root cause is
+        the client disconnecting since the logs add no value. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59642">59642</a>: Mention the <code>localDataSource</code> in the
+        <code>DataSourceRealm</code> section of the Realm How-To. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Follow-up to the fix for <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59399">59399</a>. Ensure that the new attribute
+        <code>transportGuaranteeRedirectStatus</code> is documented for all
+        <strong>Realm</strong>s. Also document the <code>NullRealm</code> and
+        when it is automatically created for an <strong>Engine</strong>. (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        MBeans Descriptors How-To is moved to
+        <code>mbeans-descriptors-howto.html</code>. Patch provided by Radoslav
+        Husar. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=60034">60034</a>: Correct a typo in the Manager How-To page of the
+        documentation web application. (markt) 
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Tribes"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Tribes"><strong>Tribes</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Add log message when the ping has timed-out. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        If the ping message has been received at the
+        <code>AbstractReplicatedMap#leftOver</code> method, ensure that notify
+        the member is alive than ignore it. (kfujino)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/jdbc-pool"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/jdbc-pool"><strong>jdbc-pool</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fix the duplicated connection release when connection verification
+        failed. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that do not remove the abandoned connection that has been already
+        released. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        In order to avoid the unintended skip of <code>PoolCleaner</code>,
+        remove the check code of the execution interval in the task that has
+        been scheduled. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59849">59849</a>: Ensure that the connection verification is executed by
+        <code>initSQL</code> (if required) if the borrowing
+        <code>PooledConnection</code> has not been initialized. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59850">59850</a>: Ensure that the <code>ResultSet</code> is closed when
+        enabling the <code>StatementCache</code> interceptor. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59923">59923</a>: Reduce the default value of
+        <code>validationInterval</code> in order to avoid the potential issue
+        that continues to return an invalid connection after database restart.
+        (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ensure that the <code>ResultSet</code> is returned as Proxy object when
+        enabling the <code>StatementDecoratorInterceptor</code>. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=60043">60043</a>: Ensure that the <code>suspectTimeout</code> works
+        without removing connection when the <code>removeAbandoned</code> is
+        disabled. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Add log message of when returning the connection that has been marked
+        suspect. (kfujino)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Correct Javadoc for <code>ConnectionPool.suspect()</code>. Based on a
+        patch by Yahya Cahyadi. (markt)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.71 (violetagg)/Other"><!--()--></a><a name="Tomcat_7.0.71_(violetagg)/Other"><strong>Other</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td><img alt="add" class="icon" src="./images/add.gif"></td><td>
+        Use the mirror network rather than the ASF master site to download the
+        current ASF dependencies. (markt)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the packaged version of the Tomcat Native Library to 1.2.8 to
+        pick up the latest fixes and make 1.2.8 the minimum recommended version.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Fixed typos in mbeans-descriptors.xml files. (violetagg)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the internal fork of Commons BCEL to r1757132 to align with the
+        BCEL 6 release. (markt)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the internal fork of Commons Codec to r1757174. Code formatting
+        changes only. (markt)
+      </td></tr>
+      <tr><td><img alt="update" class="icon" src="./images/update.gif"></td><td>
+        Update the internal fork of Commons FileUpload to afdedc9. This pulls in
+        a fix to improve the performance with large multipart boundaries.
+        (markt)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Update the download location for Objenesis. (violetagg)
+      </td></tr>
+    </table>
+  </blockquote></td></tr></table>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.70 (violetagg)"><!--()--></a><a name="Tomcat_7.0.70_(violetagg)"><strong>Tomcat 7.0.70 (violetagg)</strong></a></font></td><td align="right" bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><strong>released 2016-06-20</strong></font></td></tr><tr><td colspan="2"><blockquote>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Tomcat 7.0.70 (violetagg)/Catalina"><!--()--></a><a name="Tomcat_7.0.70_(violetagg)/Catalina"><strong>Catalina</strong></a></font></td></tr><tr><td><blockquote>
     <table border="0" cellpadding="2" cellspacing="2">
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
@@ -136,12 +451,12 @@ p.notice {
         enabled but without the command line option it requires. (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
-        Fix potential concurrency issue with web application class loader with
-        concurrent reads and writes of the resource cache. (markt)
+        Fix a potential concurrency issue with the web application class loader
+        and  concurrent reads and writes of the resource cache. (markt)
       </td></tr>
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=59619">59619</a>: Within the web application class loader, always use
-        path as the key for the resource cache to improve the hit ration. This
+        path as the key for the resource cache to improve the hit ratio. This
         also fixes a problem exposed by the fix for <a href="http://bz.apache.org/bugzilla/show_bug.cgi?id=56777">56777</a> that
         enabled file based configuration resources to be loaded from the class
         path. (markt)
@@ -687,6 +1002,10 @@ p.notice {
       <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
         Fix handling of missing messages in
         <code>org.apache.el.util.MessageFactory</code>. (violetagg)
+      </td></tr>
+      <tr><td><img alt="fix" class="icon" src="./images/fix.gif"></td><td>
+        Ignore <code>engineOptionsClass</code> and <code>scratchdir</code> when
+        running under a security manager. (markt)
       </td></tr>
     </table>
   </blockquote></td></tr></table>
