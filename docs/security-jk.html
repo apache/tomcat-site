@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_JK_Connectors_vulnerabilities">Apache Tomcat JK Connectors vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_JK_Connector_1.2.42">Fixed in Apache Tomcat JK Connector 1.2.42</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_JK_Connector_1.2.41">Fixed in Apache Tomcat JK Connector 1.2.41</a>
 </li>
 <li>
@@ -252,6 +255,33 @@
        and the CVE list. Please send comments or corrections for these
        vulnerabilities to the <a href="security.html">Tomcat
        Security Team</a>.</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_JK_Connector_1.2.42">Fixed in Apache Tomcat JK Connector 1.2.42</h3>
+<div class="text">
+
+    
+<p>
+<strong>Moderate: Buffer Overflow</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6808" rel="nofollow">CVE-2016-6808</a>
+</p>
+
+    
+<p>The IIS/ISAPI specific code implements special handling when a virtual
+       host is present. The virtual host name and the URI are concatenated to
+       create a virtual host mapping rule. The length checks prior to writing
+       to the target buffer for this rule did not take account of the length of
+       the virtual host name, creating the potential for a buffer overflow.</p>
+
+    
+<p>It is not known if this overflow is exploitable.</p>
+
+    
+<p>This was fixed in <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1762057">revision 1762057</a>.</p>
+
+    
+<p>Affects: JK 1.2.0-1.2.41</p>
 
   
 </div>

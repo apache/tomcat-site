@@ -28,6 +28,25 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.42">
+
+    <p><strong>Moderate: Buffer Overflow</strong>
+       <cve>CVE-2016-6808</cve></p>
+
+    <p>The IIS/ISAPI specific code implements special handling when a virtual
+       host is present. The virtual host name and the URI are concatenated to
+       create a virtual host mapping rule. The length checks prior to writing
+       to the target buffer for this rule did not take account of the length of
+       the virtual host name, creating the potential for a buffer overflow.</p>
+
+    <p>It is not known if this overflow is exploitable.</p>
+
+    <p>This was fixed in <revlink rev="1762057">revision 1762057</revlink>.</p>
+
+    <p>Affects: JK 1.2.0-1.2.41</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat JK Connector 1.2.41">
 
     <p><strong>Important: Information disclosure</strong>
