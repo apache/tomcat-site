@@ -1,7 +1,8 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - Webserver HowTo - Apache HTTP Server HowTo</title><meta name="author" value="Henri Gomez"><meta name="email" value="hgomez@apache.org"><meta name="author" value="Gal Shachor"><meta name="email" value="shachor@il.ibm.com"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Webserver HowTo</h1><h2>Apache HTTP Server HowTo</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>The Apache Tomcat Connectors - Web Server HowTo - Apache HTTP Server HowTo</title><meta name="author" value="Henri Gomez"><meta name="email" value="hgomez@apache.org"><meta name="author" value="Gal Shachor"><meta name="email" value="shachor@il.ibm.com"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Web Server HowTo</h1><h2>Apache HTTP Server HowTo</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-This document explains how to connect Tomcat to the popular open source web server, Apache httpd.
-You can use mod_jk, the Tomcat redirector module, with any version of Apache starting with 1.3.
+This document explains how to connect Tomcat to the popular open source web server, Apache HTTP Server.
+You can use the connection module mod_jk with any version of Apache starting with 1.3 and any version
+of Tomcat starting with (at least) 3.2.
 </p>
 
 <p>
@@ -14,12 +15,12 @@ For more detailed configuration information consult the Reference Guide for
 and <a href="../../reference/apache.html">Apache</a>.
 </p>
 
-<p><b>Waring: If Apache HTTP Server and Tomcat are configured to serve content from
-the same filing system location then care must be taken to ensure that httpd is
+<p><b>Warning: If Apache and Tomcat are configured to serve content from
+the same file system location then care must be taken to ensure that Apache is
 not able to serve inappropriate content such as the contents of the WEB-INF
-directory or JSP source code.</b> This could occur if the httpd DocumentRoot
+directory or JSP source code.</b> This could occur if the Apache DocumentRoot
 overlaps with a Tomcat Host's appBase or the docBase of any Context. It could
-also occur when using the httpd Alias directive with a Tomcat Host's appBase or
+also occur when using the Apache Alias directive with a Tomcat Host's appBase or
 the docBase of any Context.
 </p>
 
@@ -63,7 +64,7 @@ supporting Apache 1.3 and/or 2.x
 WinNT4.0-i386 SP4/SP5/SP6a (should be able to work with other service packs), Win2K and WinXP and Win98
 </li>
 <li>
-Cygwin (until you have an apache server and autoconf/automake support tools)
+Cygwin (until you have an Apache server and autoconf/automake support tools)
 </li>
 <li>
 Netware
@@ -78,27 +79,20 @@ Tomcat 3.2 to Tomcat 8.
 </p>
 
 <p>
-The redirector uses <b>ajp12</b> and <b>ajp13</b> to send requests to the Tomcat containers. There is also an option to use Tomcat in process,
-more about the in-process mode can be found in the in process howto.
+The mod_jk module uses the AJP protocol to send requests to the Tomcat containers.
+The AJP version typically used is <b>ajp13</b>.
 </p>
 </blockquote></td></tr></table>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Who support ajp protocols ?"><strong>Who support ajp protocols ?</strong></a></font></td></tr><tr><td><blockquote>
+<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Who supports AJP protocols?"><strong>Who supports AJP protocols?</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-The ajp12 protocol is only available in Tomcat 3.2.x and 3.3.x.
+Tomcat supports ajp13 since Tomcat 3.2.
+Others servlet engines such as <b>Jetty</b> or <b>JBoss</b> also support the ajp13 protocol
 </p>
 
 <p>
-The <b>ajp12</b> has been <b>deprecated</b> with Tomcat 3.3.x and you should use instead
-<b>ajp13</b> which is the only ajp protocol known by Tomcat 4 and above.
-</p>
-
-<p>
-Of course Tomcat 3.2.x and 3.3.x also support ajp13 protocol.
-</p>
-
-<p>
-Others servlet engines such as <b>jetty</b> have support for ajp13 protocol
+The <b>ajp12</b> protocol has been <b>deprecated</b> and you should no longer use it.
+The <b>ajp14</b> protocol is considered experimental.
 </p>
 
 </blockquote></td></tr></table>
@@ -192,8 +186,8 @@ A sample workers.properties can be found under the conf directory in the source 
 </p>
 
 <p>
-Also as with other Apache HTTP Server modules, mod_jk should be first installed on the modules directory of your
-Apache webserver, ie : /usr/lib/apache and you should update your <b>httpd.conf</b> file.
+Also as with other Apache modules, mod_jk should be first installed on the modules directory of your
+Apache HTTP Server, ie: /usr/lib/apache and you should update your <b>httpd.conf</b> file.
 </p>
 
 
@@ -213,8 +207,9 @@ The mod_jserv configuration directives are not compatible with mod_jk !
 </blockquote></td></tr></table>
 
 <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Using Tomcat auto-configure"><strong>Using Tomcat auto-configure</strong></a></font></td></tr><tr><td><blockquote>
+<p><font color="#ff0000">Tomcat auto-configure is deprecated and has been removed in Tomcat 7 and later.</font></p>
 <p>
-The auto-configure works only for a single Tomcat running on the same machine where Apache HTTP Server is running.
+The auto-configure works only for a single Tomcat running on the same machine where the Apache HTTP Server is running.
 The simplest way to configure Apache HTTP Server to use mod_jk is to turn on the Apache HTTP Server auto-configure setting
 in Tomcat and put the following include directive at the end of your Apache httpd.conf file
 (make sure you replace $TOMCAT_HOME with the correct path for your Tomcat installation:
@@ -230,7 +225,7 @@ Note: this file may also be generated as $TOMCAT_HOME/conf/auto/mod_jk.conf
 </p>
 
 <p>
-This will tell Apache HTTP Server to use directives in the <b>mod_jk.conf-auto</b> file in
+This will tell the Apache HTTP Server to use directives in the <b>mod_jk.conf-auto</b> file in
 the Apache configuration. This file is created by enabling the Apache
 auto-configuration by creating your workers.properties file at
 $TOMCAT_HOME/conf/jk/workers.properties and adding the listener to the Engine
@@ -251,7 +246,7 @@ element in the server.xml file as per the following example.
 <p>
 Then restart Tomcat and mod_jk.conf should be generated. For more information on
 this topic, please refer to the API documentation at the
-<a href="http://tomcat.apache.org/tomcat-5.5-doc/catalina/docs/api/org/apache/jk/config/ApacheConfig.html">
+<a href="http://tomcat.apache.org/tomcat-6.0-doc/api/org/apache/jk/config/ApacheConfig.html">
 Tomcat docs website</a>.
 </p>
 
@@ -259,7 +254,7 @@ Tomcat docs website</a>.
 
 <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Custom mod_jk configuration"><strong>Custom mod_jk configuration</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-You should use custom configuration when :
+You should use custom configuration when:
 </p>
 <ul>
 <li>
@@ -271,7 +266,7 @@ Another case for custom configuration is when your Apache is in front of many di
 each one having it's own configuration, a general case in ISP hosting
 </li>
 <li>
-Also all Apache webmaster will retain custom configuration to be able to tune the settings
+Also most Apache web masters will retain custom configuration to be able to tune the settings
 to their real needs.
 </li>
 </ul>
@@ -296,10 +291,8 @@ Here is a simple configuration:
     JkLogFile     /var/log/httpd/mod_jk.log
     # Set the jk log level [debug/error/info]
     JkLogLevel    info
-    # Send servlet for context /examples to worker named worker1
-    JkMount  /examples/servlet/* worker1
-    # Send JSPs  for context /examples to worker named worker1
-    JkMount  /examples/*.jsp worker1
+    # Send requests for context /examples to worker named worker1
+    JkMount  /examples/* worker1
 </pre></div>
 
 </blockquote></td></tr></table>
@@ -341,7 +334,7 @@ be used for piped logging:
 
 <p>
 <b>JkLogLevel</b>
-set the log level between :
+set the log level between:
 </p>
 
 <ul>
@@ -368,7 +361,7 @@ set the log level between :
 
 <p>
 <b>JkLogStampFormat</b> will configure the date/time format found on mod_jk logfile.
-See the mod_jk <a href="../../reference/apache.html">Apache HTTP server reference</a> for details.
+See the mod_jk <a href="../../reference/apache.html">Apache HTTP Server reference</a> for details.
 </p>
 
 <div class="example"><pre>
@@ -382,9 +375,9 @@ See the mod_jk <a href="../../reference/apache.html">Apache HTTP server referenc
 
 <p>
 You can log mod_jk information using the Apache standard module <b>mod_log_config</b>.
-The module sets several notes in the Apache httpd notes table.
+The module sets several notes in the Apache notes table.
 Most of them are are only useful in combination with a load balancer worker.
-See the mod_jk <a href="../../reference/apache.html">Apache HTTP server reference</a> for details.
+See the mod_jk <a href="../../reference/apache.html">Apache HTTP Server reference</a> for details.
 </p>
 
 <div class="example"><pre>
@@ -403,7 +396,7 @@ You can also log a request protocol in the mod_jk log file instead of
 the access log. This is not recommended and mostly a backward compatibility
 feature. The directive <b>JkRequestLogFormat</b> will configure the format
 of this protocol. It gets configured and enabled on a per virtual host basis.
-See the mod_jk <a href="../../reference/apache.html">Apache HTTP server reference</a> for details.
+See the mod_jk <a href="../../reference/apache.html">Apache HTTP Server reference</a> for details.
 </p>
 
 <div class="example"><pre>
@@ -451,7 +444,7 @@ options(vhost) = plus_options(global) - minus_options(global) + plus_options(vho
 
 <p>
 Using JkOptions <b>ForwardURIProxy</b>, the forwarded URI
-will be partially reencoded after processing inside Apache httpd and
+will be partially reencoded after processing inside Apache and
 before forwarding to Tomcat. This will be compatible with local
 URL manipulation by mod_rewrite and with URL encoded session ids.
 
@@ -479,7 +472,7 @@ will not work.
 </p>
 <p>
 Using JkOptions <b>ForwardURICompat</b>, the forwarded URI will
-be decoded by Apache httpd. Encoded characters will be decoded and
+be decoded by Apache. Encoded characters will be decoded and
 explicit path components like ".." will already be resolved.
 This is less spec compliant and is <b>not safe</b> if you are using
 prefix JkMount. This option will allow to rewrite URIs with
@@ -567,7 +560,7 @@ bypassing your unmount rules.
 
 <p>
 JkOptions <b>ForwardDirectories</b> is used in conjunction with <b>DirectoryIndex</b>
-directive of Apache web server. As such mod_dir should be available to Apache,
+directive of Apache. As such mod_dir should be available to Apache,
 statically or dynamically (DSO)
 <br>
 <br>
@@ -608,9 +601,9 @@ file that Tomcat normally serves - for instance Velocity pages and JSP pages.
 
 <p>
 Setting JkOptions <b>ForwardLocalAddress</b>, you ask mod_jk to send the local address
-of the Apache web server instead of remote client address. This can be used by
-Tomcat remote address valve for allowing connections only from registered Apache
-web servers.
+of the Apache HTTP Server instead of remote client address. This can be used by
+Tomcat remote address valve for allowing connections only from configured Apache
+servers.
 
 <div class="example"><pre>
   JkOptions     +ForwardLocalAddress
@@ -695,7 +688,7 @@ This flag shouldn't be set when servlet engine is Tomcat 3.2.x (off by default).
 </p>
 
 <p>
-JkOptions <b>ForwardSSLCertChain</b>,  you ask mod_jk, when using ajp13,
+JkOptions <b>ForwardSSLCertChain</b>, you ask mod_jk, when using ajp13,
 to forward SSL certificate chain (off by default).
 Mod_jk only passes the <b class="code">SSL_CLIENT_CERT</b> to the AJP connector. This is not a
 problem with self-signed certificates or certificates directly signed by the
@@ -766,7 +759,7 @@ You can use the JkMount directive at the top level or inside &lt;VirtualHost&gt;
 
 <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuring Apache to serve static web application files"><strong>Configuring Apache to serve static web application files</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-If the Tomcat Host appBase (webapps) directory is accessible by the Apache web server,
+If the Tomcat Host appBase (webapps) directory is accessible by the Apache HTTP Server,
 Apache can be configured to serve web application context directory static files instead
 of passing the request to Tomcat.
 </p>
@@ -774,8 +767,8 @@ of passing the request to Tomcat.
 <p>
 Caution: For security reasons it is strongly recommended that JkMount is used to
 pass all requests to Tomcat by default and JkUnMount is used to explicitly
-exclude static content to be served by httpd. It should also be noted that
-content served by httpd will bypass any security constraints defined in the
+exclude static content to be served by Apache. It should also be noted that
+content served by Apache will bypass any security constraints defined in the
 application's web.xml.
 </p>
 
@@ -784,11 +777,11 @@ document space for a VirtualHost:
 </p>
 
 <div class="example"><pre>
-  # Static files in the examples webapp are served by apache
+  # Static files in the examples webapp are served by Apache
   Alias /examples /vat/tomcat3/webapps/examples
   # All requests go to worker1 by default
   JkMount /* worker1
-  # Serve html, jpg and gif using httpd
+  # Serve html, jpg and gif using Apache
   JkUnMount /*.html worker1
   JkUnMount /*.jpg  worker1
   JkUnMount /*.gif  worker1
@@ -810,7 +803,7 @@ directive when jk and alias/userdir URLs matches.
       ServerName testxxx.mysys
       DocumentRoot /www/testxxx/htdocs
 
-  # Use SetEnvIf to st no-jk when /home/ is encountered
+  # Use SetEnvIf to set no-jk when /home/ is encountered
       SetEnvIf Request_URI "/home/*" no-jk
 
   # Now /home will goes to /home/dataxxx/
@@ -841,12 +834,12 @@ or a Web Archive *.war within the Tomcat Host appBase (webapps) directory will f
 </p>
 
 <div class="example"><pre>
-  # Static files in all Tomcat webapp context directories are served by apache
+  # Static files in all Tomcat webapp context directories are served by Apache
   JkAutoAlias /var/tomcat3/webapps
 
   # All requests go to worker1 by default
   JkMount /* ajp13
-  # Serve html, jpg and gif using httpd
+  # Serve html, jpg and gif using Apache
   JkUnMount /*.html ajp13
   JkUnMount /*.jpg  ajp13
   JkUnMount /*.gif  ajp13
@@ -855,7 +848,7 @@ or a Web Archive *.war within the Tomcat Host appBase (webapps) directory will f
 <p>
 If you encoded all your URLs to contain the session id
 (<b class="code">;jsessionid=...</b>), and you later decide, you want to
-move part of the content to Apache httpd, you can tell
+move part of the content to Apache, you can tell
 mod_jk to strip off all session ids from URLs for
 those requests, that do not get forwarded via mod_jk.
 </p>
@@ -875,7 +868,7 @@ The mod_jk build use the widely used configure system.
 In case you get source from subversion, ie without an existing configure script,
 you should have autoconf for configuration and installation.
 <p>
-To create tomcat-connectors's autoconf script, you will need libtool
+To create the mod_jk autoconf script, you will need libtool
 1.5.2, automake 1.10 and autoconf 2.59 or newer. The use of more recent
 versions is encouraged, e.g. for reliable detection of the features of
 recent version of operating systems.
@@ -884,7 +877,7 @@ Those tools will not be required if you are just using a package downloaded from
 they are only required for developers.
 </p>
 <p>
-To create the configure script just type :
+To create the configure script just type:
 
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./buildconf.sh</b></nobr></code><br></td></tr></table></div></p>
 </p>
@@ -893,7 +886,7 @@ To create the configure script just type :
 <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Using configure to build mod_jk"><strong>Using configure to build mod_jk</strong></a></font></td></tr><tr><td><blockquote>
 <p>Here's how to use configure to prepare mod_jk for building, just type:
 <div class="example"><pre>
-./configure [autoconf arguments] [tomcat-connectors arguments]
+./configure [autoconf arguments] [mod_jk arguments]
 </pre></div>
 </p>
 
@@ -904,27 +897,28 @@ You could set <b>CFLAGS</b> and <b>LDFLAGS</b> to add some platform specifics:
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">LDFLAGS=-lc ./configure -with-apxs=/home2/local/apache/bin/apxs</b></nobr></code><br></td></tr></table></div></p>
 
 <p>
-If you want to build mod_jk for different version of Apache httpd, like 1.3 or 2.x,
+If you want to build mod_jk for different versions of the Apache HTTP Server, like 1.3 or 2.x,
 you need to go through the full build process for each of them.
-Please note, that httpd 2.0, 2.2 or 2.4 modules are <b>not</b> binary compatible.
+Please note, that Apache 2.0, 2.2 or 2.4 modules are <b>not</b> binary compatible.
 You have to compile the module using the Apache version you plan to run it in.
-The mod_jk build directory used is "apache-2.0" for all 2.x builds.
+The mod_jk build directory used is "apache-2.0" for all 2.x builds. The source code
+is compatible with Apache HTTP Server 2.0, 2.2 and 2.4.
 <ul>
 <li>
-use configure and indicate the correct Apache httpd apxs location (--with-apxs)
+use configure and indicate the correct Apache HTTP Server apxs location (--with-apxs)
 </li>
 <li>
 use make
 </li>
 <li>
 copy the resulting mod_jk.so binary from the apache-1.3 or apache-2.0 subdirectory
-to the Apache httpd modules location.
+to the Apache HTTP Server modules location.
 </li>
 <li>
 make clean (to remove all previously compiled object files)
 </li>
 <li>
-Start over with the apxs location for your next Apache httpd version.
+Start over with the apxs location for your next Apache HTTP Server version.
 </li>
 </ul>
 
@@ -942,25 +936,25 @@ It builds a shared Apache module. It detects automatically the Apache version.
 (2.x and 1.3)</td>
   </tr>
   <tr valign="top"><td>--with-apache=DIR</td>
-  <td>DIR is the path where apache sources are located.
-The apache sources should have been configured before configuring mod_jk.
+  <td>DIR is the path where Apache sources are located.
+The Apache sources should have been configured before configuring mod_jk.
 DIR is something like: /home/apache/apache_1.3.19
 It builds a static Apache module.</td>
   </tr>
   <tr valign="top"><td>--enable-EAPI</td>
   <td>This parameter is needed when using Apache-1.3 and mod_ssl, otherwise you will get the error message:
-"this module might crash under EAPI!" when loading mod_jk.so in httpd.
+"this module might crash under EAPI!" when loading mod_jk.so in Apache.
 Not needed when --with-apxs has been used</td>
 </tr>
   <tr valign="top"><td>--enable-prefork</td>
   <td>
-In case you build mod_jk for a multi-threaded Apache httpd 2.x MPM (Multi-Processing Module),
+In case you build mod_jk for a multi-threaded Apache HTTP Server 2.x MPM (Multi-Processing Module),
 some areas of mod_jk code need to be synchronised to make it thread-safe.
 Because configure can not easily detect, whether your are using a multi-threaded MPM,
-mod_jk by default is always build thread-safe for Apache httpd 2.x.
+mod_jk by default is always build thread-safe for Apache HTTP Server 2.x.
 If you are sure, that your MPM is not multi-threaded, you can use "--enable-prefork"
 to force the removal of the synchronisation code (thus increasing performance a bit).
-For instance, the prefork MPM is not multi-threaded. For Apache httpd 1.3
+For instance, the prefork MPM is not multi-threaded. For Apache HTTP Server 1.3
 this flag will be set automatically.</td>
 </tr>
   <tr valign="top"><td>--disable-trace</td>
@@ -976,10 +970,10 @@ will still be possible.</td>
 </tr>
   <tr valign="top"><td>--enable-api-compatibility</td>
   <td>
-Only use httpd API functions available in all httpd production releases
-of the chosen major httpd release branch. This improves binary
-compatibility of module builds with httpd releases older than the release
-against mod_jk is build (only between minor httpd versions).</td>
+Only use Apache API functions available in all Apache production releases
+of the chosen major Apache release branch. This improves binary
+compatibility of module builds with Apache releases older than the release
+against mod_jk is build (only between minor Apache versions).</td>
 </tr>
   <tr valign="top"><td>--enable-flock</td>
   <td>
@@ -999,49 +993,92 @@ However those locks does not work on NFS mounted volumes, so you can use
 
 </blockquote></td></tr></table>
 
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Building mod_jk for Apache on Windows NT/2K/XP"><strong>Building mod_jk for Apache on Windows NT/2K/XP</strong></a></font></td></tr><tr><td><blockquote>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Building mod_jk for Apache on Windows"><strong>Building mod_jk for Apache on Windows</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-The module was developed using Visual C++ version 6.0, so having this environment is a prerequisite
-if you want to perform a custom build.
+The module was developed using Microsoft Visual C++, so having Visual Studio installed
+is a prerequisite if you want to perform your own build.</p>
+<p>
+You can build the source using the IDE GUI, or using a pure
+commandline build based on nmake. The IDE build currently only
+supports building 32 Bit binaries. The nmake builds are available
+for 32 Bit and 64 Bit binaries.
 </p>
 <p>
-The steps that you need to take are:
-</p>
+The common steps for all build procedures are:
 <ul>
 <li>
-Change directory to the apache-1.3 or apache-2.0 source directory depending on your version of Apache.
+Set up your build environment for 32 Bits or 64 Bits.
+The IDE build only supports 32 Bits.
 </li>
 <li>
-If you want to build mod_jk for Apache 1.3, set an <b>APACHE1_HOME</b> environment variable which points
-to where your Apache 1.3 is installed.
-A mod_jk module for Apache 2.x build will require <b>APACHE2_HOME</b> environment variable to be set.
+Download the sources as a zip file and unpack it.
 </li>
 <li>
-Copy mod_jk.so to Apache's modules directory.
+Change directory to the ISAPI redirector source directory.
+</li>
+<li>
+Set your path to the Apache web server directory in your
+environment.
 </li>
 </ul>
-<p>
-An example on how to build mod_jk for Apache 1.3:
+<p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">Set up 32 or 64 Bit build environment</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">setenv /Release /X86</b></nobr></code><br><div class="screen">or (not available for IDE build)</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">setenv /Release /X64</b></nobr></code><br><div class="screen">Download tomcat-connectors-xxx-src.zip from</div><div class="screen">https://tomcat.apache.org/download-connectors.cgi</div><div class="screen">and unpack it</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">unzip tomcat-connectors-xxx-src.zip</b></nobr></code><br><div class="screen">Change directory to the mod_jk source directory.</div><div class="screen">To build mod_jk for the Apache HTTP server 2.0, 2.2 or 2.4,</div><div class="screen">use the "apache-2.0" directory, for the old</div><div class="screen">Apache HTTP server 1.3, the "apache-1.3" directory.</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">cd tomcat-connectors-xxx-src\native\apache-2.0</b></nobr></code><br><div class="screen">Set the environment variable "APACHE1_HOME" resp.</div><div class="screen">"APACHE2_HOME" resp. "APACHE22_HOME" resp. "APACHE24_HOME"</div><div class="screen">to the installation path of your Apache web server.</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">set APACHE24_HOME=D:\software\Apache\httpd-2.4.16</b></nobr></code><br></td></tr></table></div></p>
 </p>
-<p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">Set location for Apache 1.3 sources</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">set APACHE1_HOME=c:\apache13</b></nobr></code><br><div class="screen">Change directory to the mod_jk module for Apache 1.3</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">cd c:\home\apache\jk\native\apache-1.3</b></nobr></code><br><div class="screen">Build the sources using MSDEV</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">MSDEV mod_jk.dsp /MAKE ALL</b></nobr></code><br><div class="screen">Copy the dll to your apache modules directory</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">cp release\mod_jk.so c:\apache13\modules\</b></nobr></code><br></td></tr></table></div></p>
-
 <p>
-An example on how to build mod_jk for Apache 2.x:
+The steps for an IDE build are then:
+<ul>
+<li>
+Start Visual Studio using "start mod_jk.dsp"
+</li>
+<li>
+During IDE startup choose "Yes" in all conversion popups.
+</li>
+<li>
+Next choose a Configuration form the dropdown. There are pre-defined
+configurations for debug and release builds and in the
+"apache-2.0" directory each of them is available as a configuration
+to build against the web server versions 2.0, 2.2 and 2.4.
+</li>
+<li>
+Finally choose "Build Solution" in the "Build" menu.
+</li>
+</ul>
+The resulting file mod_jk.so (and the debug symbol file
+mod_jk.pdb) is located in the "Debug" resp. "Release" sub
+directory depending on the build Configuration chosen. For
+the "apache-2.0" module the directories are named "Debug_20",
+"Release_20", "Debug_22", "Release_22", "Debug_24" and "Release_24"
+depending on the chosen build configuration.
 </p>
-<p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">Set location for Apache 2.x sources</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">set APACHE2_HOME=c:\apache20</b></nobr></code><br><div class="screen">Change directory to the mod_jk module for Apache 2.x</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">cd c:\home\apache\jk\native\apache-2.0</b></nobr></code><br><div class="screen">Build the sources using MSDEV</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">MSDEV mod_jk.dsp /MAKE ALL</b></nobr></code><br><div class="screen">Copy the dll to your apache modules directory</div><code><nobr><em class="screen">c:\&gt;</em><b class="screen">cp release\mod_jk.so c:\apache20\modules\</b></nobr></code><br></td></tr></table></div></p>
-
 <p>
-If msdev is not in your path, enter the full path to msdev.exe.
-Also, ApacheCore.lib is expected to exist in the <b>${APACHEX_HOME}\src\CoreD</b> and
-<b>${APACHEX_HOME}\src\CoreR</b> directories before linking will succeed.
-You will need to build enough of the Apache source to create these libraries.
-This will build both release and debug versions of the redirector plug-in (mod_jk).
-An alternative will be to open mod_jk.dsp in msdev and build it using the build menu.
+Alternatively the steps for an nmake commandline build are:
+<ul>
+<li>
+Set your target architecture to X86 or X64 by editing the "ARCH="
+line in the file Makefile.vc.
+</li>
+<li>
+Issue "nmake -f Makefile.vc"
+</li>
+</ul>
+The resulting file mod_jk.so (and the debug symbol file
+mod_jk.pdb) is located in the "Debug" resp. "Release" sub
+directory depending on the build Configuration chosen. For
+the "apache-2.0" module the directories are named "Debug_20",
+"Release_20", "Debug_22", "Release_22", "Debug_24" and "Release_24"
+depending on the chosen build configuration.
+</p>
+<p>
+Finally you need to copy the file mod_jk.so to the modules directory
+of your Apache HTTP server (resp. the libexec directory for the old Apache 1.3).
+</p>
+<p>
+For Apache HTTP Server 1.3, ApacheCore.lib is expected to exist before
+linking mod_jk will succeed.
 </p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Building mod_jk for Apache on System I - i5/OS (OS400)"><strong>Building mod_jk for Apache on System I - i5/OS (OS400)</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 Since OS400 V4R5, System I (AS/400) has used Apache 2.0 as their primary web server,
-replacing the old IBM webserver.
+replacing the old IBM web server.
 It's now possible to build mod_jk on System I thanks to the help of the IBM
 Rochester Labs which has provided information and patches to adapt mod_jk to i5/OS.
 </p>
@@ -1060,7 +1097,7 @@ NB: The latest mod_jk known to work on i5/OS V5R3 was 1.2.19.
 New in i5/OS V5R4, UTF is required, also for Apache modules, as such Apache modules do not require
 translations to/from EBCDIC but works should be done to port mod_jk 1.2.23 (and higher) to V5R4.
 
-From the V5R4 Infocenter :
+From the V5R4 Infocenter:
 
 As of i5/OS(tm) V5R4, modules must be recompiled with a UTF locale. This creates an environment where locale-dependent C runtime functions assume
 that string data is encoded in UTF-8. Any hardcoded constants can be encoded in UTF-8 by adding a #pragma convert(1208) statement in the module.
@@ -1085,12 +1122,12 @@ Create a directory in IFS, ie /home/apache
 Send the whole jk source directory to System I directory via FTP.
 </li>
 <li>
-Then go to the System I command line :
+Then go to the System I command line:
 </li>
 </ul>
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">Create mod_jk library</div><code><nobr><em class="screen">===&gt;</em><b class="screen">CRTLIB MOD_JK TEXT(&#145;Apache mod'jk tomcat connector module')</b></nobr></code><br><div class="screen">Create service program source file</div><code><nobr><em class="screen">===&gt;</em><b class="screen">CRTSRCPF MOD_JK/QSRVSRC TEXT(&#145;Service program source file&#146;)</b></nobr></code><br><div class="screen">Create the CL build program source file</div><code><nobr><em class="screen">===&gt;</em><b class="screen">CRTSRCPF FILE(MOD_JK/QCLSRC) TEXT(&#145;Build program source file&#146;)</b></nobr></code><br><div class="screen">Edit the service program source file</div><code><nobr><em class="screen">===&gt;</em><b class="screen">STRSEU MOD_JK/QSRVSRC MOD_JK</b></nobr></code><br></td></tr></table></div></p>
 <p>
-In the edited file, specify that only jk_module should be exported :
+In the edited file, specify that only jk_module should be exported:
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen"> Columns   . . :    1  71     Edit                               MOD_JK/QSRVSRC </div><div class="screen"> SEU==&gt;                                                                  MOD_JK </div><div class="screen">        *************** Beginning of data ************************************* </div><div class="screen">0001.00 STRPGMEXP PGMLVL(*CURRENT)                                              </div><div class="screen">0002.00 EXPORT SYMBOL("jk_module")                                              </div><div class="screen">0003.00 ENDPGMEXP                                                               </div><div class="screen">        ****************** End of data **************************************** </div></td></tr></table></div></p>
 </p>
 <p>
@@ -1104,34 +1141,34 @@ Next, you should restart your Apache 2.0 instance and enjoy this piece of OpenSo
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">ENDTCPSVR SERVER(*HTTP) HTTPSVR(MYSERVER)</div><div class="screen">STRTCPSVR SERVER(*HTTP) HTTPSVR(MYSERVER)</div></td></tr></table></div></p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Building mod_jk for Apache on MacOS/X"><strong>Building mod_jk for Apache on MacOS/X</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-Mac OS X (10.2.x) build notes :
+Mac OS X (10.2.x) build notes:
 </p>
 <p>
-Assuming that you are root :
+Assuming that you are root:
 </p>
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen">For Apache 1.3:</div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./configure --with-apxs=/usr/sbin/apxs</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cd apache-1.3</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make -f Makefile.apxs</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cp mod_jk.so /etc/libexec/httpd</b></nobr></code><br><div class="screen">For Apache 2.x:</div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./configure --with-apxs=/usr/local/apache2/bin/apxs</b></nobr></code><br><div class="screen">(you should point to the directory where you installed Apache 2.x)</div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cd apache-2.0</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make -f Makefile.apxs install</b></nobr></code><br></td></tr></table></div></p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Getting mod_jk linked statically with Apache"><strong>Getting mod_jk linked statically with Apache</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 mod_jk allows to install mod_jk in the Apache source tree to get a statically
-linked mod_jk. Having mod_jk in the httpd executable brings some performance
+linked mod_jk. Having mod_jk in the Apache executable brings some small performance
 improvements. The configure option --with-apache prepare mod_jk to install it
 in the Apache source tree.
 The option --with-apache works both for Apache 1.3 and Apache 2.x.
-The examples below show how to get mod_jk in the httpd process.
+The examples below show how to get mod_jk in the Apache process.
 </p>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Installation in Apache-2.x"><strong>Installation in Apache-2.x</strong></a></font></td></tr><tr><td><blockquote>
-<p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen"> /home/apache20/httpd-2.0.43 is the directory where the httpd-2.0 sources
-are located. </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./configure --with-apache=/home/apache20/httpd-2.0.43</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><div class="screen">Install the mod_jk library and other files in
-/home/apache20/httpd-2.0.43/modules: </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br><div class="screen"> It is not possible to configure Apache directly because the config.m4 of mod_jk must
-be added to the configure of httpd-2.x. </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cd /home/apache20/httpd-2.0.43</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">sh buildconf</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">configure ... --with-mod_jk</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br></td></tr></table></div></p>
+<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Installation for Apache-2.x"><strong>Installation for Apache-2.x</strong></a></font></td></tr><tr><td><blockquote>
+<p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen"> /home/apache24/httpd-2.4.12 is the directory where the Apache HTTP Server sources
+are located. </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./configure --with-apache=/home/apache24/httpd-2.4.12</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><div class="screen">Install the mod_jk library and other files in
+/home/apache24/httpd-2.4.12/modules: </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br><div class="screen"> It is not possible to configure Apache directly because the config.m4 of mod_jk must
+be added to the configure of httpd-2.x. </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cd /home/apache24/httpd-2.4.12</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">sh buildconf</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">configure ... --with-mod_jk</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br></td></tr></table></div></p>
 <p>
 The enable-jk=share and enable-jk=static are not supported. --with-mod_jk only
 allow static linking of mod_jk.
 </p>
 </blockquote></td></tr></table>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Installation in Apache-1.3"><strong>Installation in Apache-1.3</strong></a></font></td></tr><tr><td><blockquote>
+<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Installation for Apache-1.3"><strong>Installation for Apache-1.3</strong></a></font></td></tr><tr><td><blockquote>
 <p class="screen"><div align="left"><table width="80%" border="1" cellspacing="0" cellpadding="2" bgcolor="#000000"><tr><td bgcolor="#000000" align="left"><div class="screen"> /home/apache/apache_1.3.27 is the directory where the apache-1.3 sources
 are located. </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">./configure --with-apache=/home/apache/apache_1.3.27</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><div class="screen">Install the libjk library, mod_jk.c, includes and other files in
 /home/apache/apache_1.3.27/src/modules/jk: </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br><div class="screen"> Configure in the Apache sources: </div><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">cd /home/apache/apache_1.3.27</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">configure ... --enable-module=dir --disable-shared=dir \</b></nobr></code><br><code><nobr><em class="screen"> </em><b class="screen">              --activate-module=src/modules/jk/libjk.a \</b></nobr></code><br><code><nobr><em class="screen"> </em><b class="screen">              --disable-shared=jk</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make</b></nobr></code><br><code><nobr><em class="screen">[user@host] ~ $ </em><b class="screen">make install</b></nobr></code><br></td></tr></table></div></p>
@@ -1142,5 +1179,5 @@ The --enable-shared=jk is also working and builds a dso file.
 </blockquote></td></tr></table>
 
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2015, Apache Software Foundation
+        Copyright &copy; 1999-2016, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>

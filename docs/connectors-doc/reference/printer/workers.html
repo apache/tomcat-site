@@ -1,9 +1,9 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - workers.properties configuration</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>workers.properties configuration</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - workers.properties configuration</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>workers.properties configuration</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 <br>
 <p>
 A <b>Tomcat worker</b> is a Tomcat instance that is waiting to execute servlets or any other content
 on behalf of some web server. For example, we can have a web server such as
-Apache forwarding servlet requests to a Tomcat process (the worker) running behind it.
+the Apache HTTP Server forwarding servlet requests to a Tomcat process (the worker) running behind it.
 </p>
 <p>
 The scenario described above is a very simple one;
@@ -108,7 +108,7 @@ Each worker configuration directive consists of three words separated by a dot:
 <p><strong>worker.&lt;worker name&gt;.&lt;directive&gt;=&lt;value&gt;</strong></p>
 <p>
 The first word is always <b>worker</b>. 
-The second word is the worker name you can choose. In the case of load-balancing,
+The second word is the worker name you can choose. In the case of load balancing,
 the worker name has an additional meaning. Please consult the
 <a href="../../common_howto/loadbalancers.html">Load Balancer HowTo</a>.
 </p>
@@ -181,16 +181,19 @@ This feature has been added in <b>jk 1.2.19</b>.
 be unavailable or will misbehave. Those directives will be marked with a <strong>strong</strong> font in the following tables.
 </p>
 <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Directive</font></th><th width="10%" bgcolor="#023264"><font color="#ffffff">Default</font></th><th width="75%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><strong><code>type</code></strong></td><td align="center" valign="center"><code>ajp13</code></td><td align="left" valign="center">
-Type of the worker (can be one of ajp13, ajp14, jni, lb or status). The type of the worker
+Type of the worker (can be one of ajp12, ajp13, ajp14, jni, lb or status). The type of the worker
 defines the directives that can be applied to the worker.
 <p>Type <b>ajp13</b> is the preferred worker type that JK uses for communication
 between web server and Tomcat. This type of worker uses sockets as communication
-channel. For detailed description of the AJP13 protocol stack browse to
-<a href="../../ajp/ajpv13a.html">AJPv13 protocol specification</a>
+channel. For detailed description of the ajp13 protocol stack browse to
+<a href="../../ajp/ajpv13a.html">AJPv13 protocol specification</a>. Type <b>lb</b> is
+used for <a href="../../common_howto/loadbalancers.html">load balancing workers</a>,
+type <b>status</b> for <a href="../../reference/status.html">status workers</a>.
 </p>
-<p>Type <b>ajp14</b> is experimental and not recommended.
+<p>Type <b>ajp14</b> is experimental and not recommended, type <b>ajp12</b>
+is obsolete.
 </p>
-<p><font color="#ff0000">JNI workers have been deprecated. They will likely not work. Do not use them.</font></p>
+<p><font color="#ff0000">JNI workers are no longer supported and will likely not work. Do not use them.</font></p>
 </td></tr></table>
 </blockquote></td></tr></table>
 
@@ -232,13 +235,13 @@ equal to <b class="code">"socket_timeout</b>.
 This feature has been added in <b>jk 1.2.27</b>.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>socket_keepalive</code></td><td align="center" valign="center"><code>false</code></td><td align="left" valign="center">
-This directive should be used when you have a firewall between your webserver
+This directive should be used when you have a firewall between your web server
 and the Tomcat engine, who tend to drop inactive connections. This flag will tell the Operating System
 to send <b class="code">KEEP_ALIVE</b> messages on inactive connections (interval depend on global OS settings,
 generally 120 minutes), and thus prevent the firewall to cut inactive connections.
 To enable keepalive set this property value to <b>true</b>.
 <p>
-The problem with Firewall cutting inactive connections is that sometimes, neither webserver or Tomcat
+The problem with Firewall cutting inactive connections is that sometimes, neither web server or Tomcat
 have information about the cut and couldn't handle it.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>ping_mode</code></td><td align="center" valign="center"><code>-</code></td><td align="left" valign="center">
@@ -310,15 +313,16 @@ It will limit the number of those connection that each web server child
 process can made.
 <p>
 Connection pool size property is only used for multi threaded
-web servers such as Apache, IIS and Netscape/Sun. The connection_pool_size property
+web servers such as the Apache HTTP Server, Microsoft IIS and the iPlanet Web Server.
+The connection_pool_size property
 needs to reflect the number of requests one web server process should
 be able to send to a backend in parallel. Usually this is the same as
 the number of threads per web server process. JK will discover
-this number for the Apache web server automatically and set the pool size to
+this number for the Apache HTTP Server automatically and set the pool size to
 this value. For IIS the default value is 250 (before version 1.2.20: 10),
-for Netscape/Sun the default value is 1.
+for iPlanet the default value is 1.
 </p>
-<p>We strongly recommend adjusting this value for IIS and the Netscape/Sun
+<p>We strongly recommend adjusting this value for IIS and iPlanet
 to the number of requests one web server process should
 be able to send to a backend in parallel. You should measure how many connections
 you need during peak activity without performance problems, and then add some
@@ -326,13 +330,13 @@ percentage depending on your growth rate. Finally you should check,
 whether your web server processes are able to use at least as many threads,
 as you configured as the pool size.
 </p>
-<p><font color="#ff0000">Do not use connection_pool_size with values higher then 1 on <b>Apache 2.x prefork</b> or <b>Apache 1.3.x</b>!</font></p>
+<p><font color="#ff0000">Do not use connection_pool_size with values higher then 1 on <b>Apache 2.x with prefork MPM</b> or <b>Apache 1.3.x</b>!</font></p>
 </td></tr><tr><td align="left" valign="center"><code>connection_pool_minsize</code></td><td align="center" valign="center"><code>(pool+1)/2</code></td><td align="left" valign="center">
 Minimum size of the connection pool that will be maintained.
 <p>
 Its default value is (connection_pool_size+1)/2.
 </p>
-<p><font color="#ff0000">Do not use connection_pool_size with values higher then 1 on <b>Apache 2.x prefork</b> or <b>Apache 1.3.x</b>!</font></p>
+<p><font color="#ff0000">Do not use connection_pool_minsize with values higher then 1 on <b>Apache 2.x with prefork MPM</b> or <b>Apache 1.3.x</b>!</font></p>
 <p>
 This feature has been added in <b>jk 1.2.16</b>.
 </p>
@@ -346,7 +350,7 @@ a new ajp13 thread on Tomcat side.
 </p>
 <p>
 The problem is that after an ajp13 connection is created, the child won't drop it
-until killed. And since the webserver will keep its childs/threads running
+until killed. And since the web server will keep its childs/threads running
 to handle high-load, even it the child/thread handle only static contents, you could
 finish having many unused ajp13 threads on the Tomcat side.
 </p>
@@ -367,7 +371,7 @@ This feature has been added in <b>jk 1.2.27</b>.
 </td></tr><tr><td align="left" valign="center"><code>lbfactor</code></td><td align="center" valign="center"><code>1</code></td><td align="left" valign="center">
 Only used for a member worker of a load balancer.
 <p>
-The integer number lbfactor (load-balancing factor) is
+The integer number lbfactor (load balancing factor) is
 <i>how much we expect this worker to work</i>, or
 <i>the worker's work quota</i>. Load balancing factor is compared with other workers
 that makes the load balancer. For example if one worker has lb_factor 5 times higher then
@@ -397,21 +401,21 @@ Load balancer management includes:
 Instantiating the workers in the web server.
 </li>
 <li>
-Using the worker's load-balancing factor, perform weighed-round-robin load balancing where
+Using the worker's load balancing factor, perform weighted round-robin load balancing where
 high lbfactor means stronger machine (that is going to handle more requests)
 </li>
 <li>
 Keeping requests belonging to the same session executing on the same Tomcat worker.
 </li>
 <li>
-Identifying failed Tomcat workers, suspending requests to them and instead fall-backing on
+Identifying failed Tomcat workers, suspending requests to them and instead fail over on
 other workers managed by the lb worker.
 </li>
 </ul>
 
 <p>
-The overall result is that workers managed by the same lb worker are load-balanced
-(based on their lbfactor and current user session) and also fall-backed so a single
+The overall result is that workers managed by the same lb worker are load balanced
+(based on their lbfactor and current user session) and also fail over so a single
 Tomcat process death will not "kill" the entire site.
 </p>
 <p><font color="#ff0000">
@@ -446,7 +450,7 @@ sticky_session is set to <b>false</b>. Set sticky_session to <b>false</b> when T
 is using a Session Manager which can persist session data across multiple
 instances of Tomcat.
 <p>
-The <b>sticky_session</b> setting can be overwritten using the Apache httpd
+The <b>sticky_session</b> setting can be overwritten using the Apache HTTP Server
 environment variable <b>JK_STICKY_IGNORE</b> and the worker map extension for
 <b>sticky_ignore</b>. This has been added in version <b>1.2.33</b>.
 </p>
@@ -490,7 +494,7 @@ without a session cookie or URL encoding as a new session. This method will neit
 know, when a session is being invalidated, nor will it correct its load numbers
 according to session timeouts or worker failover. If you know request URLs, that will be
 called without a session ID but should not be counted as new sessions, you should
-add them to the <b>stateless</b> mapping rule extension or set the Apache HTTPD
+add them to the <b>stateless</b> mapping rule extension or set the Apache HTTP Server
 environment variable <b>JK_STATELESS</b> for them.
 </p>
 <p>
@@ -670,7 +674,7 @@ and <b>SUB</b> for the workers used indirectly in a load balancer worker
 as a sub worker or member.
 </p>
 <table border="1" cellpadding="5"><tr><th width="10%" bgcolor="#023264"><font color="#ffffff">Directive</font></th><th width="10%" bgcolor="#023264"><font color="#ffffff">Worker Type</font></th><th width="8%" bgcolor="#023264"><font color="#ffffff">Default</font></th><th width="72%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code>connect_timeout</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
-Connect timeout property told webserver to send a PING request on ajp13 connection after
+Connect timeout property told web server to send a PING request on ajp13 connection after
 connection is established. The parameter is the delay in milliseconds to wait for the PONG reply.
 The default value zero disables the timeout (infinite timeout).
 <p>
@@ -679,7 +683,7 @@ ping/pong support which has been implemented on Tomcat <b>3.3.2+, 4.1.28+ and 5.
 Disabled by default.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>prepost_timeout</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
-Prepost timeout property told webserver to send a PING request on ajp13 connection before
+Prepost timeout property told web server to send a PING request on ajp13 connection before
 forwarding to it a request. The parameter is the delay in milliseconds to wait for the PONG reply.
 The default value zero disables the timeout (infinite timeout).
 <p>
@@ -693,7 +697,7 @@ So this is not a timeout for the complete answer time of a request, but only
 for the maximum time between two packets received from Tomcat. Usually the longest
 pause is between sending the request and getting the first packet of the response.
 <p>
-If the timeout passes without any data received from Tomcat, the webserver will
+If the timeout passes without any data received from Tomcat, the web server will
 no longer wait for the rest of the response and send an error to the client (browser).
 Usually this does not mean, that the request is also aborted on the Tomcat backend.
 If the worker is a member of a load balancer, the load balancer might place the
@@ -701,11 +705,11 @@ worker into an error state and retry the request on another member.
 See also <b>max_reply_timeouts</b>, <b>retries</b> and <b>recovery_options</b>.
 </p>
 <p>
-By default (value zero) the webserver will wait forever which could be an issue for you.
+By default (value zero) the web server will wait forever which could be an issue for you.
 If you set a reply_timeout, adjust it carefully if you have long running servlets.
 </p>
 <p>
-The <b>reply_timeout</b> can be overwritten using the Apache httpd environment variable
+The <b>reply_timeout</b> can be overwritten using the Apache HTTP Server environment variable
 <b>JK_REPLY_TIMEOUT</b> and the worker map extension for <b>reply_timeout</b>.
 </p>
 <p>
@@ -791,11 +795,12 @@ Note that this is not related to the <b>Busyness</b> load balancing
 This feature is experimental and has been added in <b>jk 1.2.41</b>.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>max_packet_size</code></td><td align="left" valign="center"><code>AJP,SUB</code></td><td align="center" valign="center"><code>8192</code></td><td align="left" valign="center">
-This attribute sets the maximal AJP packet size in Bytes.
-The maximum value is 65536. If you change it from the default,
-you <b>must</b> also change the packetSize attribute of your AJP
-connector on the Tomcat side! The attribute packetSize is only available
-in Tomcat 5.5.20+ and 6.0.2+.
+This attribute sets the maximal AJP packet size in Bytes. It should be a
+multiple of 1024. Configuration values that are not a multiple of 1024 will be
+aligned to the next multiple of 1024. The maximum value is 65536. If you change
+it from the default, you <b>must</b> also change the packetSize attribute of
+your AJP connector on the Tomcat side! The attribute packetSize is available in
+Tomcat 6.0.2 onwards.
 <p>
 Normally it is not necessary to change the maximum packet size. Problems
 with the default value have been reported when sending certificates or
@@ -1013,13 +1018,13 @@ It will limit the number of those connection that each web server child
 process can make.
 <p>
 Cachesize property is used only for multi threaded 
-web servers such as Apache 2.0 (worker), IIS and Netscape. The cachesize property
+web servers such as Apache HTTP Server 2.x (all MPMs except prefork), IIS and iPlanet. The cachesize property
 should reflect the number of threads per child process. JK will discover
-the number of threads per child process on Apache 2 web server with worker-mpm and set
-its default value to match the ThreadsPerChild Apache directive. For IIS the default
-value is 10. For other web servers than Apache or IIS this value has to be set manually.
+the number of threads per child process on the Apache HTTP Server with threaded MPM and set
+its default value to match the current ThreadsPerChild Apache configuration. For IIS the default
+value is 10. For web servers other than Apache or IIS this value has to be set manually.
 </p>
-<p><font color="#ff0000">Do not use cachesize with values higher then 1 on <b>Apache 2.x prefork</b> or <b>Apache 1.3.x</b>!</font></p>
+<p><font color="#ff0000">Do not use cachesize with values higher then 1 on <b>Apache 2.x with prefork MPM</b> or <b>Apache 1.3.x</b>!</font></p>
 </td></tr><tr><td align="left" valign="center"><code>cache_timeout</code></td><td align="center" valign="center"><code>connection_pool_timeout</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
 <p><font color="#ff0000">This directive has been deprecated since 1.2.16.</font></p>
 Cache timeout property should be used with <b>cachesize</b> to specify how to time JK should keep
@@ -1031,13 +1036,13 @@ a new ajp13 thread on Tomcat side.
 </p>
 <p>
 The problem is that after an ajp13 connection is created, the child won't drop it
-until killed. And since the webserver will keep its childs/threads running
+until killed. And since the web server will keep its childs/threads running
 to handle high-load, even it the child/thread handle only static contents, you could
 finish having many unused ajp13 threads on the Tomcat side.
 </p>
 </td></tr><tr><td align="left" valign="center"><code>recycle_timeout</code></td><td align="center" valign="center"><code>connection_pool_timeout</code></td><td align="center" valign="center"><code>0</code></td><td align="left" valign="center">
 <p><font color="#ff0000">This directive has been deprecated since 1.2.16.</font></p>
-The number of seconds that told webserver to cut an ajp13 connection after some time of 
+The number of seconds that told web server to cut an ajp13 connection after some time of 
 inactivity. When choosing an endpoint for a request and the assigned socket is open, it will be
 closed if it was not used for the configured time.
 It's a good way to ensure that there won't too old threads living on Tomcat side, 
@@ -1087,5 +1092,5 @@ This feature has been added in <b>jk 1.2.16</b>.
 </blockquote></td></tr></table>
 
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2015, Apache Software Foundation
+        Copyright &copy; 1999-2016, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>

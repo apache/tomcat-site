@@ -1,10 +1,10 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - Configuring IIS</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>Configuring IIS</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Requirements"><strong>Requirements</strong></a></font></td></tr><tr><td><blockquote>
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>The Apache Tomcat Connectors - Reference Guide - Configuring the ISAPI redirector for Microsoft IIS</title><meta name="author" value="Mladen Turk"><meta name="email" value="mturk@apache.org"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - Reference Guide</h1><h2>Configuring the ISAPI redirector for Microsoft IIS</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Requirements"><strong>Requirements</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 The Tomcat redirector requires three entities:
 
 <ul>
 <li>
-<b>isapi_redirect.dll</b> - The IIS server plugin, either obtain a pre-built DLL or build it yourself (see the build section).
+<b>isapi_redirect.dll</b> - The IIS ISAPI redirector plugin, either obtain a pre-built DLL or build it yourself (see the build section).
 </li>
 <li>
 <b>workers.properties</b> - A file that describes the host(s) and port(s) used by the workers (Tomcat processes). 
@@ -38,7 +38,7 @@ because the library is not loadable into a 64 Bit IIS.
 </p>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Registry settings"><strong>Registry settings</strong></a></font></td></tr><tr><td><blockquote>
 <p>
-ISAPI redirector reads configuration from the registry, create a new registry key named :
+ISAPI redirector reads configuration from the registry, create a new registry key named:
 </p>
 <p>
 <b>"HKEY_LOCAL_MACHINE\SOFTWARE\Apache Software Foundation\Jakarta Isapi Redirector\1.0"</b>
@@ -60,7 +60,7 @@ A value pointing to location where log file will be created.
 <br>If one of the log rotation settings (<b>log_rotationtime</b> or <b>log_filesize</b>) are specified then the actual log file name is based on this setting.
 If the log file name includes any '%' characters, then it is treated as a format string for <b class="code">strftime(3)</b>, 
 e.g. <b>c:\tomcat\logs\isapi-%Y-%m-%d-%H_%M_%S.log</b>. Otherwise, the suffix <em>.nnnnnnnnnn</em> is automatically added and is the time in seconds.
-A full list of format string substitutions can be found in the <a href="http://httpd.apache.org/docs/2.0/programs/rotatelogs.html">Apache rotatelogs documentation</a>
+A full list of format string substitutions can be found in the <a href="http://httpd.apache.org/docs/2.4/programs/rotatelogs.html">Apache rotatelogs documentation</a>
 </p></td></tr><tr><td align="left" valign="center"><code>log_level</code></td><td align="left" valign="center"><p>
 A string value for log level 
 (can be debug, info, warn, error or trace).</p>
@@ -218,6 +218,15 @@ The default value is false.
 was considered experimental and only available when a special build containing
 chunking support was used. Starting with 1.2.30 it is no longer considered
 experimental.</p>
+</td></tr><tr><td align="left" valign="center"><code>flush_packets</code></td><td align="left" valign="center"><p>
+A string value representing a boolean. If it is set to <b>true</b>,
+data is flushed immediately to the client as each AJP packet is received.
+Otherwise, IIS buffers the data and only writes to the client when the buffer
+is full or the response is complete.</p>
+<p>
+The default value is false.
+</p>
+<p>This directive has been added in version 1.2.42</p>
 </td></tr></table>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Using a properties file for configuration"><strong>Using a properties file for configuration</strong></a></font></td></tr><tr><td><blockquote>
 <p>
@@ -282,7 +291,7 @@ log_file=$(JKISAPI_PATH)\$(JKISAPI_NAME).log
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Log file rotation"><strong>Log file rotation</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 The ISAPI redirector with version 1.2.31 can perform log rotation, with configuration and behaviour similar to the 
-<a href="http://httpd.apache.org/docs/2.0/programs/rotatelogs.html">rotatelogs</a> program provided with Apache HTTP Server.
+<a href="http://httpd.apache.org/docs/2.4/programs/rotatelogs.html">rotatelogs</a> program provided with Apache HTTP Server.
 </p>
 <p>
 To configure log rotation, configure a <b>log_file</b>, and one of the <b>log_rotationtime</b> or <b>log_filesize</b> options.
@@ -326,34 +335,34 @@ log_filesize=5M
 The log will be rotated whenever the configured limit is reached, but only if the log file name would change. If you configure
  a log file name with <b class="code">strftime(3)</b> format codes in it, then ensure it specifies the same granularity
  as the rotation time configured, e.g. <b>%Y-%m-%d</b> if rotating daily (<b>log_rotationtime=86400</b>).
-<br>See the <a href="http://httpd.apache.org/docs/2.0/programs/rotatelogs.html">rotatelogs</a> documentation for more examples.
+<br>See the <a href="http://httpd.apache.org/docs/2.4/programs/rotatelogs.html">rotatelogs</a> documentation for more examples.
 </p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Using a simple rewrite rules"><strong>Using a simple rewrite rules</strong></a></font></td></tr><tr><td><blockquote>
 <p>
 The ISAPI redirector with version 1.2.16 can do a simple URL rewriting. Although not
-as powerful as Apache Httpd's mod_rewrite, it allows a simple exchange of request URIs
+as powerful as Apache HTTP Server's mod_rewrite, it allows a simple exchange of request URIs
 </p>
 <p>
 The rule is in the form original-url-prefix=forward-url-prefix. For example:
 </p>
 <div class="example"><pre>
-# Simple rewrite rules, making /jsp-examples
-# and /servlets-examples available under shorter URLs
-/jsp/=/jsp-examples/
-/servlets/=/servlets-examples/
+# Simple rewrite rules, making examples
+# available under shorter URLs
+/jsp/=/examples/jsp/
+/servlets/=/examples/servlets/
 </pre></div>
 <p>
 You can also use regular expressions, if you prefix the rule with a tilde <b class="code">~</b>:
 </p>
 <div class="example"><pre>
-# Complex rewrite rule, adding "-examples"
+# Complex rewrite rule, prefixing "/examples/"
 # to the first path component of all requests
-~/([^/]*)=/$1-examples
+~/([^/]*)=/examples/$1
 </pre></div>
 <p>
 Note that uriworkermap.properties must use the URLs before rewriting.
 </p>
 </blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2015, Apache Software Foundation
+        Copyright &copy; 1999-2016, Apache Software Foundation
         </em></font></div></td></tr></table></body></html>
