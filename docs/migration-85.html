@@ -249,6 +249,9 @@
 <a href="#SessionManager">SessionManager</a>
 </li>
 <li>
+<a href="#Cookies">Cookies</a>
+</li>
+<li>
 <a href="#Web_applications">Web applications</a>
 </li>
 <li>
@@ -530,7 +533,7 @@ of Apache Tomcat.</p>
 </ul>
 
     
-<p>Clarify are:</p>
+<p>The replacements are as follows:</p>
     
 <ul>
       
@@ -542,7 +545,7 @@ of Apache Tomcat.</p>
 </li>
       
 <li>The <code>maxInactiveInterval</code> attribute has been deprecated in
-          8.0. If the value is specified, a warning log is Issued. This should
+          8.0. If the value is specified, a warning log is issued. This should
           be configured via the Context. The value is inherited based on the
           value of the <code>&lt;session-timeout&gt;</code> element in
           <code>/WEB-INF/web.xml</code>.</li>
@@ -552,6 +555,22 @@ of Apache Tomcat.</p>
           <code>SessionIdGenerator</code>.</li>
     
 </ul>
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Cookies">Cookies</h4>
+<div class="text">
+  
+    
+<p>The default <code>CookieProcessor</code> is now the
+    <code>Rfc6265CookieProcessor</code>. The <code>CookieProcessor</code> is
+    configurable per <code>Context</code> and the
+    <code>LegacyCookieProcessor</code> may be used to obtain the 8.0.x
+    behaviour.</p>
+
   
 </div>
 </div>

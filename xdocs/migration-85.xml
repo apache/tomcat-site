@@ -162,7 +162,7 @@ of Apache Tomcat.</p>
       <li><code>sessionIdLength</code></li>
     </ul>
 
-    <p>Clarify are:</p>
+    <p>The replacements are as follows:</p>
     <ul>
       <li>The <code>distributable</code> attribute has been deprecated in 8.0
           and specified value is ignored. This should be configured via the
@@ -170,7 +170,7 @@ of Apache Tomcat.</p>
           the <code>&lt;distributable /&gt;</code> element in
           <code>/WEB-INF/web.xml.</code></li>
       <li>The <code>maxInactiveInterval</code> attribute has been deprecated in
-          8.0. If the value is specified, a warning log is Issued. This should
+          8.0. If the value is specified, a warning log is issued. This should
           be configured via the Context. The value is inherited based on the
           value of the <code>&lt;session-timeout&gt;</code> element in
           <code>/WEB-INF/web.xml</code>.</li>
@@ -178,6 +178,16 @@ of Apache Tomcat.</p>
           been replaced by <code>sessionIdLength</code> attribute of
           <code>SessionIdGenerator</code>.</li>
     </ul>
+  </subsection>
+
+  <subsection name="Cookies">
+  
+    <p>The default <code>CookieProcessor</code> is now the
+    <code>Rfc6265CookieProcessor</code>. The <code>CookieProcessor</code> is
+    configurable per <code>Context</code> and the
+    <code>LegacyCookieProcessor</code> may be used to obtain the 8.0.x
+    behaviour.</p>
+
   </subsection>
 
   <subsection name="Web applications">
