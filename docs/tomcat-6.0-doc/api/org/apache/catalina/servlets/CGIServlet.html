@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-CGIServlet (Apache Tomcat 6.0.45 API Documentation)
+CGIServlet (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.servlets.CGIServlet class">
@@ -14,7 +14,7 @@ CGIServlet (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="CGIServlet (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="CGIServlet (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -167,7 +167,7 @@ CGI-invoking servlet for web applications, used to execute scripts which
 
  <B>CGI Specification</B>:<br> derived from
  <a href="http://cgi-spec.golux.com">http://cgi-spec.golux.com</a>.
- A work-in-progress & expired Internet Draft.  Note no actual RFC describing
+ A work-in-progress &amp; expired Internet Draft.  Note no actual RFC describing
  the CGI specification exists.  Where the behavior of this servlet differs
  from the specification cited above, it is either documented here, a bug,
  or an instance where the specification cited differs from Best
@@ -210,7 +210,6 @@ CGI-invoking servlet for web applications, used to execute scripts which
  </p>
  [end excerpt]
 
- </p>
  <h2> Implementation notes</h2>
  <p>
 
@@ -224,12 +223,12 @@ CGI-invoking servlet for web applications, used to execute scripts which
  and stderr (which should not be too hard).
  <br>
  If you find your cgi scripts are timing out receiving input, you can set
- the init parameter <code></code> of your webapps' cgi-handling servlet
- to be
+ the init parameter <code>stderrTimeout</code> of your webapps' cgi-handling
+ servlet.
  </p>
  <p>
 
- <b>Metavariable Values</b>: According to the CGI specificion,
+ <b>Metavariable Values</b>: According to the CGI specification,
  implementations may choose to represent both null or missing values in an
  implementation-specific manner, but must define that manner.  This
  implementation chooses to always define all required metavariables, but
@@ -242,7 +241,7 @@ CGI-invoking servlet for web applications, used to execute scripts which
 
  <b>NPH --  Non-parsed-header implementation</b>:  This implementation does
  not support the CGI NPH concept, whereby server ensures that the data
- supplied to the script are preceisely as supplied by the client and
+ supplied to the script are precisely as supplied by the client and
  unaltered by the server.
  </p>
  <p>
@@ -262,7 +261,6 @@ CGI-invoking servlet for web applications, used to execute scripts which
  <a href="http://cgi-spec.golux.com">http://cgi-spec.golux.com</a>.
 
  </p>
- <p>
  <h3>TODO:</h3>
  <ul>
  <li> Support for setting headers (for example, Location headers don't work)
@@ -277,17 +275,12 @@ CGI-invoking servlet for web applications, used to execute scripts which
  <li> Better documentation
  <li> Confirm use of ServletInputStream.available() in CGIRunner.run() is
       not needed
- <li> Make checking for "." and ".." in servlet & cgi PATH_INFO less
-      draconian
  <li> [add more to this TODO list]
  </ul>
- </p>
 <P>
 
 <P>
 <DL>
-<DT><B>Since:</B></DT>
-  <DD>Tomcat 4.0</DD>
 <DT><B>Author:</B></DT>
   <DD>Martin T Dengler [root@martindengler.com], Amy Roh</DD>
 <DT><B>See Also:</B><DD><A HREF="../../../../serialized-form.html#org.apache.catalina.servlets.CGIServlet">Serialized Form</A></DL>
@@ -327,7 +320,7 @@ CGI-invoking servlet for web applications, used to execute scripts which
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;class</CODE></FONT></TD>
+<CODE>protected static&nbsp;class</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/servlets/CGIServlet.HTTPHeaderInputStream.html" title="class in org.apache.catalina.servlets">CGIServlet.HTTPHeaderInputStream</A></B></CODE>
 
 <BR>
@@ -366,7 +359,7 @@ CGI-invoking servlet for web applications, used to execute scripts which
       javax.servlet.http.HttpServletResponse&nbsp;res)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides CGI Gateway service</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides CGI Gateway service.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -375,7 +368,8 @@ CGI-invoking servlet for web applications, used to execute scripts which
        javax.servlet.http.HttpServletResponse&nbsp;res)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides CGI Gateway service -- delegates to <code>doGet</code></TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides CGI Gateway service -- delegates to
+ <A HREF="../../../../org/apache/catalina/servlets/CGIServlet.html#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)"><CODE>doGet(HttpServletRequest, HttpServletResponse)</CODE></A>.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -393,10 +387,8 @@ CGI-invoking servlet for web applications, used to execute scripts which
                         javax.servlet.http.HttpServletResponse&nbsp;res)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prints out important Servlet API and container information
-
- 
- Copied from SnoopAllServlet by Craig R.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/servlets/CGIServlet.html#printServletEnvironment(javax.servlet.http.HttpServletRequest)"><CODE>printServletEnvironment(HttpServletRequest)</CODE></A>.
+             This will be removed in Tomcat 8.5.X onwards</I></TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_javax.servlet.http.HttpServlet"><!-- --></A>
@@ -486,20 +478,23 @@ public void <B>init</B>(javax.servlet.ServletConfig&nbsp;config)
 <A NAME="printServletEnvironment(javax.servlet.ServletOutputStream, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)"><!-- --></A><H3>
 printServletEnvironment</H3>
 <PRE>
-protected void <B>printServletEnvironment</B>(javax.servlet.ServletOutputStream&nbsp;out,
-                                       javax.servlet.http.HttpServletRequest&nbsp;req,
-                                       javax.servlet.http.HttpServletResponse&nbsp;res)
+<FONT SIZE="-1">@Deprecated
+</FONT>protected void <B>printServletEnvironment</B>(javax.servlet.ServletOutputStream&nbsp;out,
+                                                  javax.servlet.http.HttpServletRequest&nbsp;req,
+                                                  javax.servlet.http.HttpServletResponse&nbsp;res)
                                 throws java.io.IOException</PRE>
 <DL>
-<DD>Prints out important Servlet API and container information
+<DD><B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/servlets/CGIServlet.html#printServletEnvironment(javax.servlet.http.HttpServletRequest)"><CODE>printServletEnvironment(HttpServletRequest)</CODE></A>.
+             This will be removed in Tomcat 8.5.X onwards</I>
+<P>
+<DD>Logs important Servlet API and container information.
 
  <p>
  Copied from SnoopAllServlet by Craig R. McClanahan
  </p>
 <P>
 <DD><DL>
-<DT><B>Parameters:</B><DD><CODE>out</CODE> - ServletOutputStream as target of the information<DD><CODE>req</CODE> - HttpServletRequest object used as source of information<DD><CODE>res</CODE> - HttpServletResponse object currently not used but could
-                provide future information
+<DT><B>Parameters:</B><DD><CODE>out</CODE> - Unused<DD><CODE>req</CODE> - HttpServletRequest object used as source of information<DD><CODE>res</CODE> - Unused
 <DT><B>Throws:</B>
 <DD><CODE>java.io.IOException</CODE> - if a write operation exception occurs</DL>
 </DD>
@@ -514,7 +509,8 @@ protected void <B>doPost</B>(javax.servlet.http.HttpServletRequest&nbsp;req,
                throws java.io.IOException,
                       javax.servlet.ServletException</PRE>
 <DL>
-<DD>Provides CGI Gateway service -- delegates to <code>doGet</code>
+<DD>Provides CGI Gateway service -- delegates to
+ <A HREF="../../../../org/apache/catalina/servlets/CGIServlet.html#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)"><CODE>doGet(HttpServletRequest, HttpServletResponse)</CODE></A>.
 <P>
 <DD><DL>
 <DT><B>Overrides:</B><DD><CODE>doPost</CODE> in class <CODE>javax.servlet.http.HttpServlet</CODE></DL>
@@ -523,7 +519,8 @@ protected void <B>doPost</B>(javax.servlet.http.HttpServletRequest&nbsp;req,
 <DT><B>Parameters:</B><DD><CODE>req</CODE> - HttpServletRequest passed in by servlet container<DD><CODE>res</CODE> - HttpServletResponse passed in by servlet container
 <DT><B>Throws:</B>
 <DD><CODE>javax.servlet.ServletException</CODE> - if a servlet-specific exception occurs
-<DD><CODE>java.io.IOException</CODE> - if a read/write exception occurs<DT><B>See Also:</B><DD><CODE>HttpServlet</CODE></DL>
+<DD><CODE>java.io.IOException</CODE> - if a read/write exception occurs<DT><B>See Also:</B><DD><CODE>ServletOutputStream</CODE>, 
+<CODE>ServletResponse.setContentType(java.lang.String)</CODE></DL>
 </DD>
 </DL>
 <HR>
@@ -536,7 +533,7 @@ protected void <B>doGet</B>(javax.servlet.http.HttpServletRequest&nbsp;req,
               throws javax.servlet.ServletException,
                      java.io.IOException</PRE>
 <DL>
-<DD>Provides CGI Gateway service
+<DD>Provides CGI Gateway service.
 <P>
 <DD><DL>
 <DT><B>Overrides:</B><DD><CODE>doGet</CODE> in class <CODE>javax.servlet.http.HttpServlet</CODE></DL>
@@ -545,7 +542,7 @@ protected void <B>doGet</B>(javax.servlet.http.HttpServletRequest&nbsp;req,
 <DT><B>Parameters:</B><DD><CODE>req</CODE> - HttpServletRequest passed in by servlet container<DD><CODE>res</CODE> - HttpServletResponse passed in by servlet container
 <DT><B>Throws:</B>
 <DD><CODE>javax.servlet.ServletException</CODE> - if a servlet-specific exception occurs
-<DD><CODE>java.io.IOException</CODE> - if a read/write exception occurs<DT><B>See Also:</B><DD><CODE>HttpServlet</CODE></DL>
+<DD><CODE>java.io.IOException</CODE> - if a read/write exception occurs<DT><B>See Also:</B><DD><CODE>ServletResponse.setContentType(java.lang.String)</CODE></DL>
 </DD>
 </DL>
 <!-- ========= END OF CLASS DATA ========= -->
@@ -572,7 +569,7 @@ protected void <B>doGet</B>(javax.servlet.http.HttpServletRequest&nbsp;req,
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 

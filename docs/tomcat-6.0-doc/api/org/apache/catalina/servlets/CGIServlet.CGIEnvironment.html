@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-CGIServlet.CGIEnvironment (Apache Tomcat 6.0.45 API Documentation)
+CGIServlet.CGIEnvironment (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.servlets.CGIServlet.CGIEnvironment class">
@@ -14,7 +14,7 @@ CGIServlet.CGIEnvironment (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="CGIServlet.CGIEnvironment (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="CGIServlet.CGIEnvironment (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -102,16 +102,9 @@ java.lang.Object
 <P>
 Encapsulates the CGI environment and rules to derive
  that environment from the servlet container and request information.
-
- <p>
- </p>
 <P>
 
 <P>
-<DL>
-<DT><B>Since:</B></DT>
-  <DD>Tomcat 4.0</DD>
-</DL>
 <HR>
 
 <P>
@@ -184,7 +177,7 @@ Encapsulates the CGI environment and rules to derive
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;java.util.Hashtable</CODE></FONT></TD>
+<CODE>protected &nbsp;java.util.Hashtable&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/servlets/CGIServlet.CGIEnvironment.html#getEnvironment()">getEnvironment</A></B>()</CODE>
 
 <BR>
@@ -192,7 +185,7 @@ Encapsulates the CGI environment and rules to derive
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;java.util.ArrayList</CODE></FONT></TD>
+<CODE>protected &nbsp;java.util.ArrayList&lt;java.lang.String&gt;</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/servlets/CGIServlet.CGIEnvironment.html#getParameters()">getParameters</A></B>()</CODE>
 
 <BR>
@@ -238,7 +231,7 @@ Encapsulates the CGI environment and rules to derive
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs the CGI environment to be supplied to the invoked CGI
- script; relies heavliy on Servlet API methods and findCGI</TD>
+ script; relies heavily on Servlet API methods and findCGI</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -262,8 +255,8 @@ Encapsulates the CGI environment and rules to derive
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/servlets/CGIServlet.CGIEnvironment.html#toString()">toString</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print important CGI environment information in a easy-to-read HTML
- table</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns important CGI environment information in a multi-line text
+ format.</TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
@@ -303,7 +296,7 @@ protected <B>CGIServlet.CGIEnvironment</B>(javax.servlet.http.HttpServletRequest
                    the Servlet API<DD><CODE>context</CODE> - ServletContext for information provided by the
                    Servlet API
 <DT><B>Throws:</B>
-<DD><CODE>java.io.IOException</CODE></DL>
+<DD><CODE>java.io.IOException</CODE> - an IO error occurred</DL>
 </DL>
 
 <!-- ============ METHOD DETAIL ========== -->
@@ -342,7 +335,7 @@ protected void <B>setupFromRequest</B>(javax.servlet.http.HttpServletRequest&nbs
 <DT><B>Parameters:</B><DD><CODE>req</CODE> - HttpServletRequest for information provided by
                the Servlet API
 <DT><B>Throws:</B>
-<DD><CODE>java.io.UnsupportedEncodingException</CODE></DL>
+<DD><CODE>java.io.UnsupportedEncodingException</CODE> - Unknown encoding</DL>
 </DD>
 </DL>
 <HR>
@@ -360,6 +353,7 @@ protected java.lang.String[] <B>findCGI</B>(java.lang.String&nbsp;pathInfo,
 
  <p>
  Example URI:
+ </p>
  <PRE> /servlet/cgigateway/dir1/realCGIscript/pathinfo1 </PRE>
  <ul>
  <LI><b>path</b> = $CATALINA_HOME/mywebapp/dir1/realCGIscript
@@ -367,7 +361,6 @@ protected java.lang.String[] <B>findCGI</B>(java.lang.String&nbsp;pathInfo,
  <LI><b>cgiName</b> = /dir1/realCGIscript
  <LI><b>name</b> = realCGIscript
  </ul>
- </p>
  <p>
  CGI search algorithm: search the real path below
     &lt;my-webapp-root&gt; and find the first non-directory in
@@ -410,9 +403,7 @@ protected java.lang.String[] <B>findCGI</B>(java.lang.String&nbsp;pathInfo,
  <li>
  <code>name</code> -    simple name (no directories) of the
                         cgi script, or null if no cgi was found
- </ul><DT><B>Since:</B></DT>
-  <DD>Tomcat 4.0</DD>
-</DL>
+ </ul></DL>
 </DD>
 </DL>
 <HR>
@@ -424,15 +415,15 @@ protected boolean <B>setCGIEnvironment</B>(javax.servlet.http.HttpServletRequest
                              throws java.io.IOException</PRE>
 <DL>
 <DD>Constructs the CGI environment to be supplied to the invoked CGI
- script; relies heavliy on Servlet API methods and findCGI
+ script; relies heavily on Servlet API methods and findCGI
 <P>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>req</CODE> - request associated with the CGI
-           invokation
+           Invocation
 <DT><B>Returns:</B><DD>true if environment was set OK, false if there
            was a problem and no environment was set
 <DT><B>Throws:</B>
-<DD><CODE>java.io.IOException</CODE></DL>
+<DD><CODE>java.io.IOException</CODE> - an IO error occurred</DL>
 </DD>
 </DL>
 <HR>
@@ -456,15 +447,15 @@ toString</H3>
 <PRE>
 public java.lang.String <B>toString</B>()</PRE>
 <DL>
-<DD>Print important CGI environment information in a easy-to-read HTML
- table
+<DD>Returns important CGI environment information in a multi-line text
+ format.
 <P>
 <DD><DL>
 <DT><B>Overrides:</B><DD><CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></DL>
 </DD>
 <DD><DL>
 
-<DT><B>Returns:</B><DD>HTML string containing CGI environment info</DL>
+<DT><B>Returns:</B><DD>CGI environment info</DL>
 </DD>
 </DL>
 <HR>
@@ -500,7 +491,7 @@ protected java.io.File <B>getWorkingDirectory</B>()</PRE>
 <A NAME="getEnvironment()"><!-- --></A><H3>
 getEnvironment</H3>
 <PRE>
-protected java.util.Hashtable <B>getEnvironment</B>()</PRE>
+protected java.util.Hashtable&lt;java.lang.String,java.lang.String&gt; <B>getEnvironment</B>()</PRE>
 <DL>
 <DD>Gets derived CGI environment
 <P>
@@ -514,7 +505,7 @@ protected java.util.Hashtable <B>getEnvironment</B>()</PRE>
 <A NAME="getParameters()"><!-- --></A><H3>
 getParameters</H3>
 <PRE>
-protected java.util.ArrayList <B>getParameters</B>()</PRE>
+protected java.util.ArrayList&lt;java.lang.String&gt; <B>getParameters</B>()</PRE>
 <DL>
 <DD>Gets derived CGI query parameters
 <P>
@@ -609,7 +600,7 @@ protected java.lang.String <B>blanksToString</B>(java.lang.String&nbsp;couldBeBl
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 

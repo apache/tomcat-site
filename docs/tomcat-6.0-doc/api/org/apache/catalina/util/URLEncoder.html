@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-URLEncoder (Apache Tomcat 6.0.45 API Documentation)
+URLEncoder (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.util.URLEncoder class">
@@ -14,7 +14,7 @@ URLEncoder (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="URLEncoder (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="URLEncoder (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -123,6 +123,14 @@ This class is very similar to the java.net.URLEncoder class.
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../org/apache/catalina/util/URLEncoder.html" title="class in org.apache.catalina.util">URLEncoder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/util/URLEncoder.html#DEFAULT">DEFAULT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected static&nbsp;char[]</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/util/URLEncoder.html#hexadecimal">hexadecimal</A></B></CODE>
 
@@ -177,7 +185,16 @@ This class is very similar to the java.net.URLEncoder class.
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/util/URLEncoder.html#encode(java.lang.String)">encode</A></B>(java.lang.String&nbsp;path)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/util/URLEncoder.html#encode(java.lang.String, java.lang.String)"><CODE>encode(String, String)</CODE></A></I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/util/URLEncoder.html#encode(java.lang.String, java.lang.String)">encode</A></B>(java.lang.String&nbsp;path,
+       java.lang.String&nbsp;encoding)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL encodes the provided path using the given encoding.</TD>
 </TR>
 </TABLE>
 &nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
@@ -206,6 +223,16 @@ This class is very similar to the java.net.URLEncoder class.
 hexadecimal</H3>
 <PRE>
 protected static final char[] <B>hexadecimal</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="DEFAULT"><!-- --></A><H3>
+DEFAULT</H3>
+<PRE>
+public static final <A HREF="../../../../org/apache/catalina/util/URLEncoder.html" title="class in org.apache.catalina.util">URLEncoder</A> <B>DEFAULT</B></PRE>
 <DL>
 <DL>
 </DL>
@@ -262,10 +289,31 @@ public void <B>addSafeCharacter</B>(char&nbsp;c)</PRE>
 <A NAME="encode(java.lang.String)"><!-- --></A><H3>
 encode</H3>
 <PRE>
-public java.lang.String <B>encode</B>(java.lang.String&nbsp;path)</PRE>
+<FONT SIZE="-1">@Deprecated
+</FONT>public java.lang.String <B>encode</B>(java.lang.String&nbsp;path)</PRE>
 <DL>
+<DD><B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../org/apache/catalina/util/URLEncoder.html#encode(java.lang.String, java.lang.String)"><CODE>encode(String, String)</CODE></A></I>
+<P>
+<DD>URL encodes the provided path using UTF-8.
+<P>
 <DD><DL>
+<DT><B>Parameters:</B><DD><CODE>path</CODE> - The path to encode
+<DT><B>Returns:</B><DD>The encoded path</DL>
+</DD>
 </DL>
+<HR>
+
+<A NAME="encode(java.lang.String, java.lang.String)"><!-- --></A><H3>
+encode</H3>
+<PRE>
+public java.lang.String <B>encode</B>(java.lang.String&nbsp;path,
+                               java.lang.String&nbsp;encoding)</PRE>
+<DL>
+<DD>URL encodes the provided path using the given encoding.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>path</CODE> - The path to encode<DD><CODE>encoding</CODE> - The encoding to use to convert the path to bytes
+<DT><B>Returns:</B><DD>The encoded path</DL>
 </DD>
 </DL>
 <!-- ========= END OF CLASS DATA ========= -->
@@ -292,7 +340,7 @@ public java.lang.String <B>encode</B>(java.lang.String&nbsp;path)</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 

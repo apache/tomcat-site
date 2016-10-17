@@ -1,9 +1,9 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.45) - SSL Configuration HOW-TO</title><meta name="author" content="Christopher Cain"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 6.0 (6.0.47) - SSL Configuration HOW-TO</title><meta name="author" content="Christopher Cain"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
 			.noPrint {display: none;}
 			td#mainBody {width: 100%;}
 		</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="./images/tomcat.gif" align="right" alt="
       The Apache Tomcat Servlet/JSP Container
-    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.45, Feb 1 2016</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade="noshade" size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="nowrap" class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Apache Tomcat 6.0</h1><h2>SSL Configuration HOW-TO</h2><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+    " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 6.0</font></h1><font face="arial,helvetica,sanserif">Version 6.0.47, Oct 13 2016</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="./images/asf-logo.gif" align="right" alt="Apache Logo" border="0"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade="noshade" size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap="nowrap" class="noPrint"><p><strong>Links</strong></p><ul><li><a href="index.html">Docs Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li></ul><p><strong>User Guide</strong></p><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="realm-howto.html">6) Realms and AAA</a></li><li><a href="security-manager-howto.html">7) Security Manager</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptor-howto.html">16) MBean Descriptor</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="extras.html">26) Additional Components</a></li><li><a href="maven-jars.html">27) Mavenized</a></li></ul><p><strong>Reference</strong></p><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Javadocs</a></li><li><a href="http://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul><p><strong>Apache Tomcat Development</strong></p><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="http://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Apache Tomcat 6.0</h1><h2>SSL Configuration HOW-TO</h2><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
 <ul><li><a href="#Quick_Start">Quick Start</a></li><li><a href="#Introduction_to_SSL">Introduction to SSL</a></li><li><a href="#SSL_and_Tomcat">SSL and Tomcat</a></li><li><a href="#Certificates">Certificates</a></li><li><a href="#General_Tips_on_Running_SSL">General Tips on Running SSL</a></li><li><a href="#Configuration">Configuration</a><ol><li><a href="#Prepare_the_Certificate_Keystore">Prepare the Certificate Keystore</a></li><li><a href="#Edit_the_Tomcat_Configuration_File">Edit the Tomcat Configuration File</a></li></ol></li><li><a href="#Installing_a_Certificate_from_a_Certificate_Authority">Installing a Certificate from a Certificate Authority</a><ol><li><a href="#Create_a_local_Certificate_Signing_Request_(CSR)">Create a local Certificate Signing Request (CSR)</a></li><li><a href="#Importing_the_Certificate">Importing the Certificate</a></li></ol></li><li><a href="#Troubleshooting">Troubleshooting</a></li><li><a href="#Miscellaneous_Tips_and_Bits">Miscellaneous Tips and Bits</a></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Quick Start"><!--()--></a><a name="Quick_Start"><strong>Quick Start</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -73,73 +73,40 @@ for each external interface (IP address) that accepts secure connections.
 The theory behind this design is that a server should provide some kind of
 reasonable assurance that its owner is who you think it is, particularly
 before receiving any sensitive information.  While a broader explanation of
-Certificates is beyond the scope of this document, think of a Certificate
-as a "digital driver's license" for an Internet address.  It states what
-company the site is associated with, along with some basic contact
-information about the site owner or administrator.</p>
+Certificates is beyond the scope of this document, think of a Certificate as a
+"digital passport" for an Internet address. It states which organisation the
+site is associated with, along with some basic contact information about the
+site owner or administrator.</p>
 
-<p>This "driver's license" is cryptographically signed by its owner, and is
-therefore extremely difficult for anyone else to forge.  For sites involved
-in e-commerce, or any other business transaction in which authentication of
-identity is important, a Certificate is typically purchased from a well-known
-<em>Certificate Authority</em> (CA) such as VeriSign or Thawte.  Such
-certificates can be electronically verified -- in effect, the Certificate
-Authority will vouch for the authenticity of the certificates that it grants,
-so you can believe that that Certificate is valid if you trust the Certificate
-Authority that granted it.</p>
+<p>This certificate is cryptographically signed by its owner, and is
+therefore extremely difficult for anyone else to forge. For the certificate to
+work in the visitors browsers without warnings, it needs to be signed by a
+trusted third party. These are called <em>Certificate Authorities</em> (CAs). To
+obtain a signed certificate, you need to choose a CA and follow the instructions
+your chosen CA provides to obtain your certificate. A range of CAs is available
+including some that offer certificates at no cost.</p>
 
-<p>In many cases, however, authentication is not really a concern.  An
-administrator may simply want to ensure that the data being transmitted and
-received by the server is private and cannot be snooped by anyone who may be
-eavesdropping on the connection.  Fortunately, Java provides a relatively
-simple command-line tool, called <code>keytool</code>, which can easily create
-a "self-signed" Certificate.  Self-signed Certificates are simply user
-generated Certificates which have not been officially registered with any
-well-known CA, and are therefore not really guaranteed to be authentic at all.
-Again, this may or may not even be important, depending on your needs.</p>
+<p>Java provides a relatively simple command-line tool, called
+<code>keytool</code>, which can easily create a "self-signed" Certificate.
+Self-signed Certificates are simply user generated Certificates which have not
+been signed by a well-known CA and are, therefore, not really guaranteed to be
+authentic at all. While self-signed certificates can be useful for some testing
+scenarios, they are not suitable for any form of production use.</p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="General Tips on Running SSL"><!--()--></a><a name="General_Tips_on_Running_SSL"><strong>General Tips on Running SSL</strong></a></font></td></tr><tr><td><blockquote>
 
-<p>The first time a user attempts to access a secured page on your site,
-he or she is typically presented with a dialog containing the details of
-the certificate (such as the company and contact name), and asked if he or she
-wishes to accept the Certificate as valid and continue with the transaction.
-Some browsers will provide an option for permanently accepting a given
-Certificate as valid, in which case the user will not be bothered with a
-prompt each time they visit your site.  Other browsers do not provide this
-option.  Once approved by the user, a Certificate will be considered valid
-for at least the entire browser session.</p>
+<p>When securing a website with SSL it's important to make sure that all assets
+that the site uses are served over SSL, so that an attacker can't bypass
+the security by injecting malicious content in a javascript file or similar. To
+further enhance the security of your website, you should evaluate to use the
+HSTS header. It allows you to communicate to the browser that your site should
+always be accessed over https.</p>
 
-<p>Also, while the SSL protocol was designed to be as efficient as securely
-possible, encryption/decryption is a computationally expensive process from
-a performance standpoint.  It is not strictly necessary to run an entire
-web application over SSL, and indeed a developer can pick and choose which
-pages require a secure connection and which do not.  For a reasonably busy
-site, it is customary to only run certain pages under SSL, namely those
-pages where sensitive information could possibly be exchanged.  This would
-include things like login pages, personal information pages, and shopping
-cart checkouts, where credit card information could possibly be transmitted.
-Any page within an application can be requested over a secure socket by
-simply prefixing the address with <code>https:</code> instead of
-<code>http:</code>.  Any pages which absolutely <strong>require</strong>
-a secure connection should check the protocol type associated with the
-page request and take the appropriate action if <code>https</code> is not
-specified.</p>
-
-<p>Finally, using name-based virtual hosts on a secured connection can be
-problematic.  This is a design limitation of the SSL protocol itself.  The SSL
-handshake, where the client browser accepts the server certificate, must occur
-before the HTTP request is accessed.  As a result, the request information
-containing the virtual host name cannot be determined prior to authentication,
-and it is therefore not possible to assign multiple certificates to a single
-IP address.  If all virtual hosts on a single IP address need to authenticate
-against the same certificate, the addition of multiple virtual hosts should not
-interfere with normal SSL operations on the server.  Be aware, however, that
-most client browsers will compare the server's domain name against the domain
-name listed in the certificate, if any (applicable primarily to official,
-CA-signed certificates).  If the domain names do not match, these browsers will
-display a warning to the client user.  In general, only address-based virtual
-hosts are commonly used with SSL in a production environment.</p>
+<p>Using name-based virtual hosts on a secured connection requires careful
+configuration of the names specfied in a single certificate or Tomcat 8.5
+onwards where Server Name Indication (SNI) support is available. SNI allows
+multiple certificates with different names to be associated with a single TLS
+connector.</p>
 
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Configuration"><strong>Configuration</strong></a></font></td></tr><tr><td><blockquote>
 
@@ -416,7 +383,7 @@ SSL communications, and what to do about them.</p>
     be named <code>.keystore</code> in the user home directory under which
     Tomcat is running (which may or may not be the same as yours :-).  If
     the keystore file is anywhere else, you will need to add a
-    <code>keystoreFile</code> attribute to the <code>&lt;Factory&gt;</code>
+    <code>keystoreFile</code> attribute to the <code>&lt;Connector&gt;</code>
     element in the <a href="#Edit the Tomcat Configuration File">Tomcat
     configuration file</a>.</p>
     </blockquote></li>

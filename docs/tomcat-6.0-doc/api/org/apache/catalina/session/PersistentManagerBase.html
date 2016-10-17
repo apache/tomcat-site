@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-PersistentManagerBase (Apache Tomcat 6.0.45 API Documentation)
+PersistentManagerBase (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.session.PersistentManagerBase class">
@@ -14,7 +14,7 @@ PersistentManagerBase (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="PersistentManagerBase (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="PersistentManagerBase (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -178,8 +178,8 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#maxIdleSwap">maxIdleSwap</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maximum time a session may be idle before it should be swapped
- to file just on general principle.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The maximum time in seconds a session may be idle before it is eligible
+ to be swapped to disk due to inactivity.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -187,7 +187,9 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#minIdleSwap">minIdleSwap</A></B></CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum time a session must be idle before it is swapped to disk.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The minimum time in seconds a session must be idle before it is eligible
+ to be swapped to disk to keep the active session count below
+ maxActiveSessions.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -342,8 +344,7 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#getMaxIdleSwap()">getMaxIdleSwap</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time in seconds after which a session should be swapped out of
- memory to disk.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -351,9 +352,7 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#getMinIdleSwap()">getMinIdleSwap</A></B>()</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The minimum time in seconds that a session must be idle before
- it can be swapped out of memory, or -1 if it can be swapped out
- at any time.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -532,8 +531,8 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#setMaxIdleSwap(int)">setMaxIdleSwap</A></B>(int&nbsp;max)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the time in seconds after which a session should be swapped out of
- memory to disk.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the maximum time in seconds a session may be idle before it is
+ eligible to be swapped to disk due to inactivity.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -541,8 +540,9 @@ Extends the <b>ManagerBase</b> class to implement most of the
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/session/PersistentManagerBase.html#setMinIdleSwap(int)">setMinIdleSwap</A></B>(int&nbsp;min)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the minimum time in seconds that a session must be idle before
- it can be swapped out of memory due to maxActiveSession.</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the minimum time in seconds a session must be idle before it is
+ eligible to be swapped to disk to keep the active session count below
+ maxActiveSessions.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -744,9 +744,10 @@ minIdleSwap</H3>
 <PRE>
 protected int <B>minIdleSwap</B></PRE>
 <DL>
-<DD>Minimum time a session must be idle before it is swapped to disk.
- This overrides maxActiveSessions, to prevent thrashing if there are lots
- of active sessions. Setting to -1 means it's ignored.
+<DD>The minimum time in seconds a session must be idle before it is eligible
+ to be swapped to disk to keep the active session count below
+ maxActiveSessions. Setting to <code>-1</code> means sessions will not be
+ swapped out to keep the active session count down.
 <P>
 <DL>
 </DL>
@@ -758,9 +759,9 @@ maxIdleSwap</H3>
 <PRE>
 protected int <B>maxIdleSwap</B></PRE>
 <DL>
-<DD>The maximum time a session may be idle before it should be swapped
- to file just on general principle. Setting this to -1 means sessions
- should not be forced out.
+<DD>The maximum time in seconds a session may be idle before it is eligible
+ to be swapped to disk due to inactivity. Setting this to <code>-1</code> means
+ sessions should not be swapped out just because of inactivity.
 <P>
 <DL>
 </DL>
@@ -871,14 +872,14 @@ getMaxIdleSwap</H3>
 <PRE>
 public int <B>getMaxIdleSwap</B>()</PRE>
 <DL>
-<DD>The time in seconds after which a session should be swapped out of
- memory to disk.
-<P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>The maximum time in seconds a session may be idle before it is
+ eligible to be swapped to disk due to inactivity. A value of <code>-1</code>
+ means sessions should not be swapped out just because of inactivity.</DL>
 </DD>
 </DL>
 <HR>
@@ -888,8 +889,10 @@ setMaxIdleSwap</H3>
 <PRE>
 public void <B>setMaxIdleSwap</B>(int&nbsp;max)</PRE>
 <DL>
-<DD>Sets the time in seconds after which a session should be swapped out of
- memory to disk.
+<DD>Sets the maximum time in seconds a session may be idle before it is
+ eligible to be swapped to disk due to inactivity. Setting this to
+ <code>-1</code> means sessions should not be swapped out just because of
+ inactivity.
 <P>
 <DD><DL>
 </DL>
@@ -905,15 +908,15 @@ getMinIdleSwap</H3>
 <PRE>
 public int <B>getMinIdleSwap</B>()</PRE>
 <DL>
-<DD>The minimum time in seconds that a session must be idle before
- it can be swapped out of memory, or -1 if it can be swapped out
- at any time.
-<P>
 <DD><DL>
 </DL>
 </DD>
 <DD><DL>
-</DL>
+
+<DT><B>Returns:</B><DD>The minimum time in seconds a session must be idle before it is
+ eligible to be swapped to disk to keep the active session count below
+ maxActiveSessions. A value of <code>-1</code> means sessions will not be
+ swapped out to keep the active session count down.</DL>
 </DD>
 </DL>
 <HR>
@@ -923,9 +926,10 @@ setMinIdleSwap</H3>
 <PRE>
 public void <B>setMinIdleSwap</B>(int&nbsp;min)</PRE>
 <DL>
-<DD>Sets the minimum time in seconds that a session must be idle before
- it can be swapped out of memory due to maxActiveSession. Set it to -1
- if it can be swapped out at any time.
+<DD>Sets the minimum time in seconds a session must be idle before it is
+ eligible to be swapped to disk to keep the active session count below
+ maxActiveSessions. Setting to <code>-1</code> means sessions will not be
+ swapped out to keep the active session count down.
 <P>
 <DD><DL>
 </DL>
@@ -1435,7 +1439,7 @@ findLifecycleListeners</H3>
 <PRE>
 public <A HREF="../../../../org/apache/catalina/LifecycleListener.html" title="interface in org.apache.catalina">LifecycleListener</A>[] <B>findLifecycleListeners</B>()</PRE>
 <DL>
-<DD>Get the lifecycle listeners associated with this lifecycle. If this 
+<DD>Get the lifecycle listeners associated with this lifecycle. If this
  Lifecycle has no listeners registered, a zero-length array is returned.
 <P>
 <DD><DL>
@@ -1593,7 +1597,7 @@ protected void <B>processMaxIdleBackups</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 

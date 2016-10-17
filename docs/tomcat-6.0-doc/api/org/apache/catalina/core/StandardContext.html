@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-StandardContext (Apache Tomcat 6.0.45 API Documentation)
+StandardContext (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.catalina.core.StandardContext class">
@@ -14,7 +14,7 @@ StandardContext (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="StandardContext (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="StandardContext (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -975,6 +975,14 @@ Standard implementation of the <b>Context</b> interface.  Each
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getClearReferencesRmiTargets()">getClearReferencesRmiTargets</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getClearReferencesStopThreads()">getClearReferencesStopThreads</A></B>()</CODE>
 
 <BR>
@@ -1084,6 +1092,17 @@ Standard implementation of the <b>Context</b> interface.  Each
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSR77 deploymentDescriptor attribute</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#getDispatchersUseEncodedPaths()">getDispatchersUseEncodedPaths</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are paths used in calls to obtain a request dispatcher expected to be
+ encoded?
+ 
+ The default value for this implementation is <code>true</code>.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -2050,6 +2069,14 @@ Standard implementation of the <b>Context</b> interface.  Each
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setClearReferencesRmiTargets(boolean)">setClearReferencesRmiTargets</A></B>(boolean&nbsp;clearReferencesRmiTargets)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setClearReferencesStopThreads(boolean)">setClearReferencesStopThreads</A></B>(boolean&nbsp;clearReferencesStopThreads)</CODE>
 
 <BR>
@@ -2143,6 +2170,15 @@ Standard implementation of the <b>Context</b> interface.  Each
 
 <BR>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the disabling of URL Rewriting.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../org/apache/catalina/core/StandardContext.html#setDispatchersUseEncodedPaths(boolean)">setDispatchersUseEncodedPaths</A></B>(boolean&nbsp;dispatchersUseEncodedPaths)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are paths used in calls to obtain a request dispatcher expected to be
+ encoded?</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -2702,6 +2738,50 @@ public <B>StandardContext</B>()</PRE>
 <B>Method Detail</B></FONT></TH>
 </TR>
 </TABLE>
+
+<A NAME="setDispatchersUseEncodedPaths(boolean)"><!-- --></A><H3>
+setDispatchersUseEncodedPaths</H3>
+<PRE>
+public void <B>setDispatchersUseEncodedPaths</B>(boolean&nbsp;dispatchersUseEncodedPaths)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../org/apache/catalina/Context.html#setDispatchersUseEncodedPaths(boolean)">Context</A></CODE></B></DD>
+<DD>Are paths used in calls to obtain a request dispatcher expected to be
+ encoded? This affects both how Tomcat handles calls to obtain a request
+ dispatcher as well as how Tomcat generates paths used to obtain request
+ dispatchers internally.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#setDispatchersUseEncodedPaths(boolean)">setDispatchersUseEncodedPaths</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>dispatchersUseEncodedPaths</CODE> - <code>true</code> to use encoded paths,
+        otherwise <code>false</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDispatchersUseEncodedPaths()"><!-- --></A><H3>
+getDispatchersUseEncodedPaths</H3>
+<PRE>
+public boolean <B>getDispatchersUseEncodedPaths</B>()</PRE>
+<DL>
+<DD>Are paths used in calls to obtain a request dispatcher expected to be
+ encoded? This applys to both how Tomcat handles calls to obtain a request
+ dispatcher as well as how Tomcat generates paths used to obtain request
+ dispatchers internally.
+ <p>
+ The default value for this implementation is <code>true</code>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/apache/catalina/Context.html#getDispatchersUseEncodedPaths()">getDispatchersUseEncodedPaths</A></CODE> in interface <CODE><A HREF="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>true</code> if encoded paths will be used, otherwise
+         <code>false</code></DL>
+</DD>
+</DL>
+<HR>
 
 <A NAME="setMapperContextRootRedirectEnabled(boolean)"><!-- --></A><H3>
 setMapperContextRootRedirectEnabled</H3>
@@ -4717,6 +4797,34 @@ public void <B>setWorkDir</B>(java.lang.String&nbsp;workDir)</PRE>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>workDir</CODE> - The new work directory</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getClearReferencesRmiTargets()"><!-- --></A><H3>
+getClearReferencesRmiTargets</H3>
+<PRE>
+public boolean <B>getClearReferencesRmiTargets</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setClearReferencesRmiTargets(boolean)"><!-- --></A><H3>
+setClearReferencesRmiTargets</H3>
+<PRE>
+public void <B>setClearReferencesRmiTargets</B>(boolean&nbsp;clearReferencesRmiTargets)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
 </DD>
 </DL>
 <HR>
@@ -7325,7 +7433,7 @@ public boolean <B>isStatisticsProvider</B>()</PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 

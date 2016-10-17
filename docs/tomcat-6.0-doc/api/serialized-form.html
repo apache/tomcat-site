@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-Serialized Form (Apache Tomcat 6.0.45 API Documentation)
+Serialized Form (Apache Tomcat 6.0.47 API Documentation)
 </TITLE>
 
 
@@ -13,7 +13,7 @@ Serialized Form (Apache Tomcat 6.0.45 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="Serialized Form (Apache Tomcat 6.0.45 API Documentation)";
+    parent.document.title="Serialized Form (Apache Tomcat 6.0.47 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -44,7 +44,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
@@ -1300,7 +1300,7 @@ okErrorPage</H3>
 <H3>
 parameters</H3>
 <PRE>
-java.util.HashMap&lt;K,V&gt; <B>parameters</B></PRE>
+java.util.concurrent.ConcurrentMap&lt;K,V&gt; <B>parameters</B></PRE>
 <DL>
 <DD>The context initialization parameters for this web application,
  keyed by name.
@@ -1916,6 +1916,19 @@ java.lang.String <B>sessionCookieName</B></PRE>
 </DL>
 <HR>
 <H3>
+clearReferencesRmiTargets</H3>
+<PRE>
+boolean <B>clearReferencesRmiTargets</B></PRE>
+<DL>
+<DD>Enables the RMI Target memory leak detection to be controlled. This is
+ necessary since the detection can only work on Java 9 if some of the
+ modularity checks are disabled.
+<P>
+<DL>
+</DL>
+</DL>
+<HR>
+<H3>
 clearReferencesStopThreads</H3>
 <PRE>
 boolean <B>clearReferencesStopThreads</B></PRE>
@@ -1991,6 +2004,15 @@ boolean <B>mapperContextRootRedirectEnabled</B></PRE>
 mapperDirectoryRedirectEnabled</H3>
 <PRE>
 boolean <B>mapperDirectoryRedirectEnabled</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+<H3>
+dispatchersUseEncodedPaths</H3>
+<PRE>
+boolean <B>dispatchersUseEncodedPaths</B></PRE>
 <DL>
 <DL>
 </DL>
@@ -5281,6 +5303,9 @@ java.rmi.server.RMIClientSocketFactory <B>factory</B></PRE>
 </TABLE>
 
 <P>
+<B>serialVersionUID:&nbsp;</B>1L
+
+<P>
 <A NAME="serializedForm"><!-- --></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
 <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
@@ -5289,23 +5314,6 @@ java.rmi.server.RMIClientSocketFactory <B>factory</B></PRE>
 </TR>
 </TABLE>
 
-<H3>
-debug</H3>
-<PRE>
-int <B>debug</B></PRE>
-<DL>
-<DD>The debugging detail level for this servlet. Useful values range from 0
- to 5 where 0 means no logging and 5 means maximum logging. Values of 10
- or more mean maximum logging and debug info added to the HTTP response.
- If an error occurs and debug is 10 or more the standard error page
- mechanism will be disabled and a response body with debug information
- will be produced. Note that any value of 10 or more has the same effect
- as a value of 10.
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
 <H3>
 cgiPathPrefix</H3>
 <PRE>
@@ -5360,6 +5368,21 @@ long <B>stderrTimeout</B></PRE>
 <DL>
 <DD>The time (in milliseconds) to wait for the reading of stderr to complete
  before terminating the CGI process.
+<P>
+<DL>
+</DL>
+</DL>
+<HR>
+<H3>
+envHttpHeadersPattern</H3>
+<PRE>
+java.util.regex.Pattern <B>envHttpHeadersPattern</B></PRE>
+<DL>
+<DD>The regular expression used to select HTTP headers to be passed to the
+ CGI process as environment variables. The name of the environment
+ variable will be the name of the HTTP header converter to upper case,
+ prefixed with <code>HTTP_</code> and with all <code>-</code> characters
+ converted to <code>_</code>.
 <P>
 <DL>
 </DL>
@@ -5771,7 +5794,7 @@ protected void <B>writeObject</B>(java.io.ObjectOutputStream&nbsp;stream)
 <H3>
 attributes</H3>
 <PRE>
-java.util.Map&lt;K,V&gt; <B>attributes</B></PRE>
+java.util.concurrent.ConcurrentMap&lt;K,V&gt; <B>attributes</B></PRE>
 <DL>
 <DD>The collection of user data attributes associated with this Session.
 <P>
@@ -6449,7 +6472,7 @@ log</H3>
 <H3>
 innerMap</H3>
 <PRE>
-java.util.concurrent.ConcurrentHashMap&lt;K,V&gt; <B>innerMap</B></PRE>
+java.util.concurrent.ConcurrentMap&lt;K,V&gt; <B>innerMap</B></PRE>
 <DL>
 <DL>
 </DL>
@@ -7607,6 +7630,9 @@ public void <B>writeExternal</B>(java.io.ObjectOutput&nbsp;out)
 <B>Class <A HREF="org/apache/jasper/servlet/JspServlet.html" title="class in org.apache.jasper.servlet">org.apache.jasper.servlet.JspServlet</A> extends javax.servlet.http.HttpServlet implements Serializable</B></FONT></TH>
 </TR>
 </TABLE>
+
+<P>
+<B>serialVersionUID:&nbsp;</B>1L
 
 <P>
 <A NAME="serializedForm"><!-- --></A>
@@ -9448,7 +9474,7 @@ java.lang.String <B>userInfo</B></PRE>
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.45</b></EM>
+<b>Apache Tomcat 6.0.47</b></EM>
 </TD>
 </TR>
 
