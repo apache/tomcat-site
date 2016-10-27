@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.72">Fixed in Apache Tomcat 7.0.72</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.70">Fixed in Apache Tomcat 7.0.70</a>
 </li>
 <li>
@@ -354,6 +357,133 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.72">
+<span style="float: right;">19 September 2016</span> Fixed in Apache Tomcat 7.0.72</h3>
+<div class="text">
+  
+    
+<p>
+<i>Note: The issues below were fixed in Apache Tomcat 7.0.71 but the
+       release vote for the 7.0.71 release candidate did not pass. Therefore,
+       although users must download 7.0.72 to obtain a version that includes
+       fixes for these issues, version 7.0.71 is not included in the list of
+       affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Low: Unrestricted Access to Global Resources</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6797" rel="nofollow">CVE-2016-6797</a>
+</p>
+
+    
+<p>The ResourceLinkFactory did not limit web application access to global
+       JNDI resources to those resources explicitly linked to the web
+       application. Therefore, it was possible for a web application to access
+       any global JNDI resource whether an explicit ResourceLink had been
+       configured or not.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1757275">1757275</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 18
+       January 2016 and made public on 27 October 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.70</p>
+
+    
+<p>
+<strong>Low: Security Manager Bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6796" rel="nofollow">CVE-2016-6796</a>
+</p>
+
+    
+<p>A malicious web application was able to bypass a configured
+       SecurityManager via manipulation of the configuration parameters for the
+       JSP Servlet.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1758495">1758495</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 27
+       December 2015 and made public on 27 October 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.70</p>
+
+    
+<p>
+<strong>Low: System Property Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6794" rel="nofollow">CVE-2016-6794</a>
+</p>
+
+    
+<p>When a SecurityManager is configured, a web application's ability to read
+       system properties should be controlled by the SecurityManager. Tomcat's
+       system property replacement feature for configuration files could be used
+       by a malicious web application to bypass the SecurityManager and read
+       system properties that should not be visible.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1754728">1754728</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 27
+       December 2015 and made public on 27 October 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.70</p>
+
+    
+<p>
+<strong>Low: Security Manager Bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5018" rel="nofollow">CVE-2016-5018</a>
+</p>
+
+    
+<p>A malicious web application was able to bypass a configured
+       SecurityManager via a Tomcat utility method that was accessible to web
+       applications.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1754902">1754902</a>.</p>
+
+    
+<p>This issue was discovered by Alvaro Munoz of the HP Enterprise Security
+       Team and reported to the Apache Tomcat Security Team on 5 July 2016. It
+       was made public on 27 October 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.70</p>
+
+    
+<p>
+<strong>Low: Timing Attack</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0762" rel="nofollow">CVE-2016-0762</a>
+</p>
+
+    
+<p>The Realm implementations did not process the supplied password if the
+       supplied user name did not exist. This made a timing attack possible to
+       determine valid user names. Note that the default configuration includes
+       the LockOutRealm which makes exploitation of this vulnerability
+       harder.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1758502">1758502</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 1 January
+       2016 and made public on 27 October 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.70</p>
 
   
 </div>

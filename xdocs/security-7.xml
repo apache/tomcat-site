@@ -50,6 +50,93 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.72" rtext="19 September 2016">
+  
+    <p><i>Note: The issues below were fixed in Apache Tomcat 7.0.71 but the
+       release vote for the 7.0.71 release candidate did not pass. Therefore,
+       although users must download 7.0.72 to obtain a version that includes
+       fixes for these issues, version 7.0.71 is not included in the list of
+       affected versions.</i></p>
+
+    <p><strong>Low: Unrestricted Access to Global Resources</strong>
+       <cve>CVE-2016-6797</cve></p>
+
+    <p>The ResourceLinkFactory did not limit web application access to global
+       JNDI resources to those resources explicitly linked to the web
+       application. Therefore, it was possible for a web application to access
+       any global JNDI resource whether an explicit ResourceLink had been
+       configured or not.</p>
+
+    <p>This was fixed in revision <revlink rev="1757275">1757275</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 18
+       January 2016 and made public on 27 October 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.70</p>
+
+    <p><strong>Low: Security Manager Bypass</strong>
+       <cve>CVE-2016-6796</cve></p>
+
+    <p>A malicious web application was able to bypass a configured
+       SecurityManager via manipulation of the configuration parameters for the
+       JSP Servlet.</p>
+
+    <p>This was fixed in revision <revlink rev="1758495">1758495</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 27
+       December 2015 and made public on 27 October 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.70</p>
+
+    <p><strong>Low: System Property Disclosure</strong>
+       <cve>CVE-2016-6794</cve></p>
+
+    <p>When a SecurityManager is configured, a web application's ability to read
+       system properties should be controlled by the SecurityManager. Tomcat's
+       system property replacement feature for configuration files could be used
+       by a malicious web application to bypass the SecurityManager and read
+       system properties that should not be visible.</p>
+
+    <p>This was fixed in revision <revlink rev="1754728">1754728</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 27
+       December 2015 and made public on 27 October 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.70</p>
+
+    <p><strong>Low: Security Manager Bypass</strong>
+       <cve>CVE-2016-5018</cve></p>
+
+    <p>A malicious web application was able to bypass a configured
+       SecurityManager via a Tomcat utility method that was accessible to web
+       applications.</p>
+
+    <p>This was fixed in revision <revlink rev="1754902">1754902</revlink>.</p>
+
+    <p>This issue was discovered by Alvaro Munoz of the HP Enterprise Security
+       Team and reported to the Apache Tomcat Security Team on 5 July 2016. It
+       was made public on 27 October 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.70</p>
+
+    <p><strong>Low: Timing Attack</strong>
+       <cve>CVE-2016-0762</cve></p>
+
+    <p>The Realm implementations did not process the supplied password if the
+       supplied user name did not exist. This made a timing attack possible to
+       determine valid user names. Note that the default configuration includes
+       the LockOutRealm which makes exploitation of this vulnerability
+       harder.</p>
+
+    <p>This was fixed in revision <revlink rev="1758502">1758502</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 1 January
+       2016 and made public on 27 October 2016.</p>
+
+    <p>Affects: 7.0.0 to 7.0.70</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 7.0.70" rtext="20 June 2016">
   
     <p><strong>Moderate: Denial of Service</strong>
