@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>HeaderSink (Apache Tomcat 8.5.6 API Documentation)</title>
+<title>HeaderSink (Apache Tomcat 8.5.8 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="HeaderSink (Apache Tomcat 8.5.6 API Documentation)";
+        parent.document.title="HeaderSink (Apache Tomcat 8.5.8 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.6</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -93,15 +93,10 @@
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitter.html" title="interface in org.apache.coyote.http2">HpackDecoder.HeaderEmitter</a></dd>
-</dl>
 <hr>
 <br>
 <pre>public class <span class="strong">HeaderSink</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitter.html" title="interface in org.apache.coyote.http2">HpackDecoder.HeaderEmitter</a></pre>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Purpose of this class is to silently swallow any headers. It is used once
  the connection close process has started if headers for new streams are
  received.</div>
@@ -142,9 +137,16 @@ implements <a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitt
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/coyote/http2/HeaderSink.html#emitHeader(java.lang.String,%20java.lang.String,%20boolean)">emitHeader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
-          boolean&nbsp;neverIndex)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/coyote/http2/HeaderSink.html#emitHeader(java.lang.String,%20java.lang.String)">emitHeader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block">Pass a single header to the recipient.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/coyote/http2/HeaderSink.html#validateHeaders()">validateHeaders</a></strong>()</code>
+<div class="block">Are the headers pass to the recipient so far valid?</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -185,19 +187,35 @@ implements <a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitt
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="emitHeader(java.lang.String, java.lang.String, boolean)">
+<a name="emitHeader(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>emitHeader</h4>
+<pre>public&nbsp;void&nbsp;emitHeader(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
+<div class="block">Pass a single header to the recipient.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Header name</dd><dd><code>value</code> - Header value</dd></dl>
+</li>
+</ul>
+<a name="validateHeaders()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>emitHeader</h4>
-<pre>public&nbsp;void&nbsp;emitHeader(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
-              boolean&nbsp;neverIndex)</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitter.html#emitHeader(java.lang.String,%20java.lang.String,%20boolean)">emitHeader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitter.html" title="interface in org.apache.coyote.http2">HpackDecoder.HeaderEmitter</a></code></dd>
-</dl>
+<h4>validateHeaders</h4>
+<pre>public&nbsp;void&nbsp;validateHeaders()
+                     throws <a href="../../../../org/apache/coyote/http2/StreamException.html" title="class in org.apache.coyote.http2">StreamException</a></pre>
+<div class="block">Are the headers pass to the recipient so far valid? The decoder needs
+ to process all the headers to maintain state even if there is a
+ problem. In addition, it is easy for the the intended recipient to
+ track if the complete set of headers is valid since to do that state
+ needs to be maintained between the parsing of the initial headers and
+ the parsing of any trailer headers. The recipient is the best place
+ to maintain that state.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/coyote/http2/StreamException.html" title="class in org.apache.coyote.http2">StreamException</a></code> - If the headers received to date are not valid</dd></dl>
 </li>
 </ul>
 </li>
@@ -222,7 +240,7 @@ implements <a href="../../../../org/apache/coyote/http2/HpackDecoder.HeaderEmitt
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.6</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
