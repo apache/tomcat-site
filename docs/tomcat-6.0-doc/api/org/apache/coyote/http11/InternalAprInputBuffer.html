@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-InternalAprInputBuffer (Apache Tomcat 6.0.47 API Documentation)
+InternalAprInputBuffer (Apache Tomcat 6.0.48 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.coyote.http11.InternalAprInputBuffer class">
@@ -14,7 +14,7 @@ InternalAprInputBuffer (Apache Tomcat 6.0.47 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="InternalAprInputBuffer (Apache Tomcat 6.0.47 API Documentation)";
+    parent.document.title="InternalAprInputBuffer (Apache Tomcat 6.0.48 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.47</b></EM>
+<b>Apache Tomcat 6.0.48</b></EM>
 </TD>
 </TR>
 
@@ -238,14 +238,6 @@ Implementation of InputBuffer which provides HTTP request header parsing as
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;<A HREF="../../../../org/apache/tomcat/util/res/StringManager.html" title="class in org.apache.tomcat.util.res">StringManager</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/coyote/http11/InternalAprInputBuffer.html#sm">sm</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The string manager for this package.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
 <CODE>protected &nbsp;long</CODE></FONT></TD>
 <TD><CODE><B><A HREF="../../../../org/apache/coyote/http11/InternalAprInputBuffer.html#socket">socket</A></B></CODE>
 
@@ -267,7 +259,7 @@ Implementation of InputBuffer which provides HTTP request header parsing as
 <TH ALIGN="left"><B>Fields inherited from class org.apache.coyote.http11.<A HREF="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" title="class in org.apache.coyote.http11">AbstractInputBuffer</A></B></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#HTTP_TOKEN_CHAR">HTTP_TOKEN_CHAR</A></CODE></TD>
+<TD><CODE><A HREF="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#sm">sm</A></CODE></TD>
 </TR>
 </TABLE>
 &nbsp;
@@ -447,18 +439,6 @@ Implementation of InputBuffer which provides HTTP request header parsing as
 <B>Field Detail</B></FONT></TH>
 </TR>
 </TABLE>
-
-<A NAME="sm"><!-- --></A><H3>
-sm</H3>
-<PRE>
-protected static <A HREF="../../../../org/apache/tomcat/util/res/StringManager.html" title="class in org.apache.tomcat.util.res">StringManager</A> <B>sm</B></PRE>
-<DL>
-<DD>The string manager for this package.
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
 
 <A NAME="request"><!-- --></A><H3>
 request</H3>
@@ -755,7 +735,7 @@ recycle</H3>
 <PRE>
 public void <B>recycle</B>()</PRE>
 <DL>
-<DD>Recycle the input buffer. This should be called when closing the 
+<DD>Recycle the input buffer. This should be called when closing the
  connection.
 <P>
 <DD><DL>
@@ -770,7 +750,7 @@ nextRequest</H3>
 public void <B>nextRequest</B>()</PRE>
 <DL>
 <DD>End processing of current HTTP request.
- Note: All bytes of the current request should have been already 
+ Note: All bytes of the current request should have been already
  consumed. This method only resets all the pointers so that we are ready
  to parse the next HTTP request.
 <P>
@@ -802,13 +782,13 @@ parseRequestLine</H3>
 public boolean <B>parseRequestLine</B>(boolean&nbsp;useAvailableData)
                          throws java.io.IOException</PRE>
 <DL>
-<DD>Read the request line. This function is meant to be used during the 
- HTTP request header parsing. Do NOT attempt to read the request body 
+<DD>Read the request line. This function is meant to be used during the
+ HTTP request header parsing. Do NOT attempt to read the request body
  using it.
 <P>
 <DD><DL>
 
-<DT><B>Returns:</B><DD>true if data is properly fed; false if no data is available 
+<DT><B>Returns:</B><DD>true if data is properly fed; false if no data is available
  immediately and thread should be freed
 <DT><B>Throws:</B>
 <DD><CODE>java.io.IOException</CODE> - If an exception occurs during the underlying socket
@@ -921,7 +901,7 @@ protected boolean <B>fill</B>()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.47</b></EM>
+<b>Apache Tomcat 6.0.48</b></EM>
 </TD>
 </TR>
 
