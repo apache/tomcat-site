@@ -50,6 +50,105 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.0.39" rtext="14 November 2016">
+
+    <p><strong>Important: Remote Code Execution</strong>
+       <cve>CVE-2016-8735</cve></p>
+
+    <p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <cve>CVE-2016-3427</cve>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    <p>This was fixed in revision <revlink rev="1767656">1767656</revlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    <p>Affects: 8.0.0.RC1 to 8.0.38</p>
+
+    <p><strong>Important: Information Disclosure</strong>
+       <cve>CVE-2016-6816</cve></p>
+
+    <p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    <p>This was fixed in revision <revlink rev="1767653">1767653</revlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team on 11
+       October 2016 and made public on 22 November 2016.</p>
+
+    <p>Affects: 8.0.0.RC1 to 8.0.38</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 8.5.8" rtext="8 November 2016">
+
+    <p><i>Note: The issues below were fixed in Apache Tomcat 8.5.7 but the
+       release vote for the 8.5.7 release candidate did not pass. Therefore,
+       although users must download 8.5.8 to obtain a version that includes
+       fixes for these issues, version 8.5.7 is not included in the list of
+       affected versions.</i></p>
+  
+    <p><strong>Important: Remote Code Execution</strong>
+       <cve>CVE-2016-8735</cve></p>
+
+    <p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <cve>CVE-2016-3427</cve>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    <p>This was fixed in revision <revlink rev="1767646">1767646</revlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    <p>Affects: 8.5.0 to 8.5.6</p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2016-6817</cve></p>
+
+    <p>The HTTP/2 header parser entered an infinite loop if a header was
+       received that was larger than the available buffer. This made a denial of
+       service attack possible.</p>
+
+    <p>This was fixed in revision <revlink rev="1765798">1765798</revlink>.</p>
+
+    <p>This issue was reported as <bug>60232</bug> on 10 October 2016 and the
+       security implications identified by the Apache Tomcat Security Team on
+       the same day. It was made public on 22 November 2016.</p>
+
+    <p>Affects: 8.5.0 to 8.5.6</p>
+
+    <p><strong>Important: Information Disclosure</strong>
+       <cve>CVE-2016-6816</cve></p>
+
+    <p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    <p>This was fixed in revision <revlink rev="1767645">1767645</revlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team on 11
+       October 2016 and made public on 22 November 2016.</p>
+
+    <p>Affects: 8.5.0 to 8.5.6</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 8.5.5 and 8.0.37" rtext="5 September 2016">
   
     <p><strong>Low: Unrestricted Access to Global Resources</strong>

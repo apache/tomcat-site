@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.0.M13">Fixed in Apache Tomcat 9.0.0.M13</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.0.M10">Fixed in Apache Tomcat 9.0.0.M10</a>
 </li>
 <li>
@@ -273,6 +276,92 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.0.M13">
+<span style="float: right;">8 November 2016</span> Fixed in Apache Tomcat 9.0.0.M13</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issues below were fixed in Apache Tomcat 9.0.0.M12 but the
+       release vote for the 9.0.0.M12 release candidate did not pass. Therefore,
+       although users must download 9.0.0.M13 to obtain a version that includes
+       fixes for these issues, version 9.0.0.M12 is not included in the list of
+       affected versions.</i>
+</p>
+  
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8735" rel="nofollow">CVE-2016-8735</a>
+</p>
+
+    
+<p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427" rel="nofollow">CVE-2016-3427</a>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767644">1767644</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M11</p>
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6817" rel="nofollow">CVE-2016-6817</a>
+</p>
+
+    
+<p>The HTTP/2 header parser entered an infinite loop if a header was
+       received that was larger than the available buffer. This made a denial of
+       service attack possible.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1765794">1765794</a>.</p>
+
+    
+<p>This issue was reported as <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60232">60232</a> on 10 October 2016 and the
+       security implications identified by the Apache Tomcat Security Team on
+       the same day. It was made public on 22 November 2016.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M11</p>
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a>
+</p>
+
+    
+<p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767641">1767641</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 11 October
+       2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M11</p>
 
   
 </div>

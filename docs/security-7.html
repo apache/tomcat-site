@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.73">Fixed in Apache Tomcat 7.0.73</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.72">Fixed in Apache Tomcat 7.0.72</a>
 </li>
 <li>
@@ -357,6 +360,61 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.73">
+<span style="float: right;">14 November 2016</span> Fixed in Apache Tomcat 7.0.73</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8735" rel="nofollow">CVE-2016-8735</a>
+</p>
+
+    
+<p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427" rel="nofollow">CVE-2016-3427</a>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767676">1767676</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.72</p>
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a>
+</p>
+
+    
+<p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767675">1767675</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 11
+       October 2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.72</p>
 
   
 </div>

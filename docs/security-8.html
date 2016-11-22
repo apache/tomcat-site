@@ -219,6 +219,12 @@
 <a href="#Apache_Tomcat_8.x_vulnerabilities">Apache Tomcat 8.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.0.39">Fixed in Apache Tomcat 8.0.39</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.8">Fixed in Apache Tomcat 8.5.8</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_8.5.5_and_8.0.37">Fixed in Apache Tomcat 8.5.5 and 8.0.37</a>
 </li>
 <li>
@@ -303,6 +309,147 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.0.39">
+<span style="float: right;">14 November 2016</span> Fixed in Apache Tomcat 8.0.39</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8735" rel="nofollow">CVE-2016-8735</a>
+</p>
+
+    
+<p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427" rel="nofollow">CVE-2016-3427</a>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767656">1767656</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 8.0.0.RC1 to 8.0.38</p>
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a>
+</p>
+
+    
+<p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767653">1767653</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 11
+       October 2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 8.0.0.RC1 to 8.0.38</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.8">
+<span style="float: right;">8 November 2016</span> Fixed in Apache Tomcat 8.5.8</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issues below were fixed in Apache Tomcat 8.5.7 but the
+       release vote for the 8.5.7 release candidate did not pass. Therefore,
+       although users must download 8.5.8 to obtain a version that includes
+       fixes for these issues, version 8.5.7 is not included in the list of
+       affected versions.</i>
+</p>
+  
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8735" rel="nofollow">CVE-2016-8735</a>
+</p>
+
+    
+<p>The <code>JmxRemoteLifecycleListener</code> was not updated to take
+       account of Oracle's fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427" rel="nofollow">CVE-2016-3427</a>. Therefore, Tomcat
+       installations using this listener remained vulnerable to a similar remote
+       code execution vulnerability. This issue has been rated as important
+       rather than critical due to the small number of installations using this
+       listener and that it would be highly unusual for the JMX ports to be
+       accessible to an attacker even when the listener is used.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767646">1767646</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 19 October
+       2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.6</p>
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6817" rel="nofollow">CVE-2016-6817</a>
+</p>
+
+    
+<p>The HTTP/2 header parser entered an infinite loop if a header was
+       received that was larger than the available buffer. This made a denial of
+       service attack possible.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1765798">1765798</a>.</p>
+
+    
+<p>This issue was reported as <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60232">60232</a> on 10 October 2016 and the
+       security implications identified by the Apache Tomcat Security Team on
+       the same day. It was made public on 22 November 2016.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.6</p>
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a>
+</p>
+
+    
+<p>The code that parsed the HTTP request line permitted invalid characters.
+       This could be exploited, in conjunction with a proxy that also permitted
+       the invalid characters but with a different interpretation, to inject
+       data into the HTTP response. By manipulating the HTTP response the
+       attacker could poison a web-cache, perform an XSS attack and/or obtain
+       sensitive information from requests other then their own.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1767645">1767645</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team on 11
+       October 2016 and made public on 22 November 2016.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.6</p>
 
   
 </div>
