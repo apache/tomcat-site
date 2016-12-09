@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DomainFilterInterceptor (Apache Tomcat 8.5.8 API Documentation)</title>
+<title>DomainFilterInterceptor (Apache Tomcat 8.5.9 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DomainFilterInterceptor (Apache Tomcat 8.5.8 API Documentation)";
+        parent.document.title="DomainFilterInterceptor (Apache Tomcat 8.5.9 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -150,10 +150,14 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#domain">domain</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#logInterval">logInterval</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../../org/apache/catalina/tribes/membership/Membership.html" title="class in org.apache.catalina.tribes.membership">Membership</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#membership">membership</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="../../../../../../org/apache/catalina/tribes/util/StringManager.html" title="class in org.apache.catalina.tribes.util">StringManager</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#sm">sm</a></strong></code>&nbsp;</td>
 </tr>
@@ -207,49 +211,57 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#getLogInterval()">getLogInterval</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#getMember(org.apache.catalina.tribes.Member)">getMember</a></strong>(<a href="../../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;mbr)</code>
 <div class="block">Intercepts the <code>Channel.getMember(Member)</code> method</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#getMembers()">getMembers</a></strong>()</code>
 <div class="block">Get all current cluster members</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#hasMembers()">hasMembers</a></strong>()</code>
 <div class="block">has members</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#memberAdded(org.apache.catalina.tribes.Member)">memberAdded</a></strong>(<a href="../../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;member)</code>
 <div class="block">A member was added to the group</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#memberDisappeared(org.apache.catalina.tribes.Member)">memberDisappeared</a></strong>(<a href="../../../../../../org/apache/catalina/tribes/Member.html" title="interface in org.apache.catalina.tribes">Member</a>&nbsp;member)</code>
 <div class="block">A member was removed from the group<br>
  If the member left voluntarily, the Member.getCommand will contain the Member.SHUTDOWN_PAYLOAD data</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#messageReceived(org.apache.catalina.tribes.ChannelMessage)">messageReceived</a></strong>(<a href="../../../../../../org/apache/catalina/tribes/ChannelMessage.html" title="interface in org.apache.catalina.tribes">ChannelMessage</a>&nbsp;msg)</code>
 <div class="block">the <code>messageReceived</code> is invoked when a message is received.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#setDomain(byte[])">setDomain</a></strong>(byte[]&nbsp;domain)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#setDomain(java.lang.String)">setDomain</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#setLogInterval(int)">setLogInterval</a></strong>(int&nbsp;logInterval)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -305,10 +317,19 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <a name="domain">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>domain</h4>
 <pre>protected&nbsp;byte[] domain</pre>
+</li>
+</ul>
+<a name="logInterval">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>logInterval</h4>
+<pre>protected&nbsp;int logInterval</pre>
 </li>
 </ul>
 </li>
@@ -490,10 +511,28 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <a name="setDomain(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setDomain</h4>
 <pre>public&nbsp;void&nbsp;setDomain(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain)</pre>
+</li>
+</ul>
+<a name="getLogInterval()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLogInterval</h4>
+<pre>public&nbsp;int&nbsp;getLogInterval()</pre>
+</li>
+</ul>
+<a name="setLogInterval(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setLogInterval</h4>
+<pre>public&nbsp;void&nbsp;setLogInterval(int&nbsp;logInterval)</pre>
 </li>
 </ul>
 </li>
@@ -518,7 +557,7 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

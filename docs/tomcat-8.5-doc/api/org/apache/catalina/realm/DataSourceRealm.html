@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DataSourceRealm (Apache Tomcat 8.5.8 API Documentation)</title>
+<title>DataSourceRealm (Apache Tomcat 8.5.9 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DataSourceRealm (Apache Tomcat 8.5.8 API Documentation)";
+        parent.document.title="DataSourceRealm (Apache Tomcat 8.5.9 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -176,7 +176,9 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <tr class="altColor">
 <td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#name">name</a></strong></code>
-<div class="block">Descriptive information about this Realm implementation.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>This will be removed in Tomcat 9 onwards.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -296,7 +298,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#getName()">getName</a></strong>()</code>
-<div class="block">Return a short name for this Realm implementation.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -352,55 +354,61 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#getUserTable()">getUserTable</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#isAvailable()">isAvailable</a></strong>()</code>
+<div class="block">Return the availability of the realm for authentication.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#open()">open</a></strong>()</code>
 <div class="block">Open the specified database connection.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setDataSourceName(java.lang.String)">setDataSourceName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dataSourceName)</code>
 <div class="block">Set the name of the JNDI JDBC DataSource.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setLocalDataSource(boolean)">setLocalDataSource</a></strong>(boolean&nbsp;localDataSource)</code>
 <div class="block">Set to true to cause the datasource to be looked up in the webapp JNDI
  Context.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setRoleNameCol(java.lang.String)">setRoleNameCol</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;roleNameCol)</code>
 <div class="block">Set the column in the user role table that names a role.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setUserCredCol(java.lang.String)">setUserCredCol</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userCredCol)</code>
 <div class="block">Set the column in the user table that holds the user's credentials.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setUserNameCol(java.lang.String)">setUserNameCol</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userNameCol)</code>
 <div class="block">Set the column in the user table that holds the user's name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setUserRoleTable(java.lang.String)">setUserRoleTable</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userRoleTable)</code>
 <div class="block">Set the table that holds the relation between user's and roles.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#setUserTable(java.lang.String)">setUserTable</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userTable)</code>
 <div class="block">Set the table that holds user data.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/DataSourceRealm.html#startInternal()">startInternal</a></strong>()</code>
 <div class="block">Prepare for the beginning of active use of the public methods of this
@@ -477,7 +485,9 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre>protected static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> name</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> name</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>This will be removed in Tomcat 9 onwards.</i></div>
 <div class="block">Descriptive information about this Realm implementation.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.realm.DataSourceRealm.name">Constant Field Values</a></dd></dl>
 </li>
@@ -730,6 +740,23 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
+<a name="isAvailable()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAvailable</h4>
+<pre>public&nbsp;boolean&nbsp;isAvailable()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html#isAvailable()">Realm</a></code></strong></div>
+<div class="block">Return the availability of the realm for authentication.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/Realm.html#isAvailable()">isAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#isAvailable()">isAvailable</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the realm is able to perform authentication</dd></dl>
+</li>
+</ul>
 <a name="authenticate(java.sql.Connection, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -774,8 +801,9 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
-<div class="block">Return a short name for this Realm implementation.</div>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#getName()">getName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
@@ -893,7 +921,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.8</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
