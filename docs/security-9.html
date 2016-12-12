@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.0.M15">Fixed in Apache Tomcat 9.0.0.M15</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.0.M13">Fixed in Apache Tomcat 9.0.0.M13</a>
 </li>
 <li>
@@ -276,6 +279,47 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.0.M15">
+<span style="float: right;">8 December 2016</span> Fixed in Apache Tomcat 9.0.0.M15</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 9.0.0.M14 but the
+       release vote for the 9.0.0.M14 release candidate did not pass. Therefore,
+       although users must download 9.0.0.M15 to obtain a version that includes
+       the fix for this issue, version 9.0.0.M14 is not included in the list of
+       affected versions.</i>
+</p>
+  
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8745" rel="nofollow">CVE-2016-8745</a>
+</p>
+
+    
+<p>The refactoring of the Connector code for 8.5.x onwards introduced a
+       regression in the error handling of the send file code for the NIO HTTP
+       connector. An error during send file processing resulted in the current
+       Processor object being added to the Processor cache multiple times. This
+       in turn meant that the same Processor could be used for concurrent
+       requests. Sharing a Processor can result in information leakage between
+       requests including, not not limited to, session ID and the response body.
+    </p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1771853">1771853</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 8 December
+       2016 and made public on 12 December 2016.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M13</p>
 
   
 </div>

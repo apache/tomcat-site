@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_8.x_vulnerabilities">Apache Tomcat 8.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.9">Fixed in Apache Tomcat 8.5.9</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_8.0.39">Fixed in Apache Tomcat 8.0.39</a>
 </li>
 <li>
@@ -309,6 +312,38 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.9">
+<span style="float: right;">8 December 2016</span> Fixed in Apache Tomcat 8.5.9</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8745" rel="nofollow">CVE-2016-8745</a>
+</p>
+
+    
+<p>The refactoring of the Connector code for 8.5.x onwards introduced a
+       regression in the error handling of the send file code for the NIO HTTP
+       connector. An error during send file processing resulted in the current
+       Processor object being added to the Processor cache multiple times. This
+       in turn meant that the same Processor could be used for concurrent
+       requests. Sharing a Processor can result in information leakage between
+       requests including, not not limited to, session ID and the response body.
+    </p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1771857">1771857</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 8 December
+       2016 and made public on 12 December 2016.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.8</p>
 
   
 </div>
