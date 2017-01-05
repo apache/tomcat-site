@@ -50,19 +50,38 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.0.40" rtext="not yet released">
+
+    <p><strong>Important: Information Disclosure</strong>
+       <cve>CVE-2016-8745</cve></p>
+
+    <p>A bug in the error handling of the send file code for the NIO HTTP
+       connector resulted in the current Processor object being added to the
+       Processor cache multiple times. This in turn meant that the same
+       Processor could be used for concurrent requests. Sharing a Processor can
+       result in information leakage between requests including, not not limited
+       to, session ID and the response body.</p>
+
+    <p>This was fixed in revision <revlink rev="1777469">1777469</revlink>.</p>
+
+    <p>This issue was identified as affecting 8.0.x by the Apache Tomcat Security
+       Team on 3 January 2016 and made public on 5 January 207.</p>
+
+    <p>Affects: 8.0.0.RC1 to 8.0.39</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.9" rtext="8 December 2016">
 
     <p><strong>Important: Information Disclosure</strong>
        <cve>CVE-2016-8745</cve></p>
 
-    <p>The refactoring of the Connector code for 8.5.x onwards introduced a
-       regression in the error handling of the send file code for the NIO HTTP
-       connector. An error during send file processing resulted in the current
-       Processor object being added to the Processor cache multiple times. This
-       in turn meant that the same Processor could be used for concurrent
-       requests. Sharing a Processor can result in information leakage between
-       requests including, not not limited to, session ID and the response body.
-    </p>
+    <p>A bug in the error handling of the send file code for the NIO HTTP
+       connector resulted in the current Processor object being added to the
+       Processor cache multiple times. This in turn meant that the same
+       Processor could be used for concurrent requests. Sharing a Processor can
+       result in information leakage between requests including, not not limited
+       to, session ID and the response body.</p>
 
     <p>This was fixed in revision <revlink rev="1771857">1771857</revlink>.</p>
 

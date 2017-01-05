@@ -302,14 +302,12 @@
 </p>
 
     
-<p>The refactoring of the Connector code for 8.5.x onwards introduced a
-       regression in the error handling of the send file code for the NIO HTTP
-       connector. An error during send file processing resulted in the current
-       Processor object being added to the Processor cache multiple times. This
-       in turn meant that the same Processor could be used for concurrent
-       requests. Sharing a Processor can result in information leakage between
-       requests including, not not limited to, session ID and the response body.
-    </p>
+<p>A bug in the error handling of the send file code for the NIO HTTP
+       connector resulted in the current Processor object being added to the
+       Processor cache multiple times. This in turn meant that the same
+       Processor could be used for concurrent requests. Sharing a Processor can
+       result in information leakage between requests including, not not limited
+       to, session ID and the response body.</p>
 
     
 <p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1771853">1771853</a>.</p>

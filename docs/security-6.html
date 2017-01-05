@@ -219,6 +219,9 @@
 <a href="#Apache_Tomcat_6.x_vulnerabilities">Apache Tomcat 6.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_6.0.49">Fixed in Apache Tomcat 6.0.49</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_6.0.48">Fixed in Apache Tomcat 6.0.48</a>
 </li>
 <li>
@@ -334,6 +337,36 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_6.0.49">
+<span style="float: right;">not yet released</span> Fixed in Apache Tomcat 6.0.49</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8745" rel="nofollow">CVE-2016-8745</a>
+</p>
+
+    
+<p>A bug in the error handling of the send file code for the NIO HTTP
+       connector resulted in the current Processor object being added to the
+       Processor cache multiple times. This in turn meant that the same
+       Processor could be used for concurrent requests. Sharing a Processor can
+       result in information leakage between requests including, not not limited
+       to, session ID and the response body.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1777472">1777472</a>.</p>
+
+    
+<p>This issue was identified as affecting 6.0.x by the Apache Tomcat Security
+       Team on 3 January 2016 and made public on 5 January 207.</p>
+
+    
+<p>Affects: 6.0.16 to 6.0.48</p>
 
   
 </div>
