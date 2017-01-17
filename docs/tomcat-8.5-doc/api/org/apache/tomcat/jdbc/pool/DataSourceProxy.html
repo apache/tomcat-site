@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DataSourceProxy (Apache Tomcat 8.5.9 API Documentation)</title>
+<title>DataSourceProxy (Apache Tomcat 8.5.11 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DataSourceProxy (Apache Tomcat 8.5.9 API Documentation)";
+        parent.document.title="DataSourceProxy (Apache Tomcat 8.5.11 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.11</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -513,7 +513,7 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#getSuspectTimeout()">getSuspectTimeout</a></strong>()</code>
-<div class="block">Returns the time in seconds to pass before a connection is marked an abanoned suspect.</div>
+<div class="block">Returns the time in seconds to pass before a connection is marked an abandoned suspect.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -699,168 +699,174 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#resetStats()">resetStats</a></strong>()</code>
+<div class="block">reset the statistics of this pool.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setAbandonWhenPercentageFull(int)">setAbandonWhenPercentageFull</a></strong>(int&nbsp;percentage)</code>
 <div class="block">Connections that have been abandoned (timed out) wont get closed and reported up unless the number of connections in use are
  above the percentage defined by abandonWhenPercentageFull.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setAccessToUnderlyingConnectionAllowed(boolean)">setAccessToUnderlyingConnectionAllowed</a></strong>(boolean&nbsp;accessToUnderlyingConnectionAllowed)</code>
 <div class="block">No-op</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setAlternateUsernameAllowed(boolean)">setAlternateUsernameAllowed</a></strong>(boolean&nbsp;alternateUsernameAllowed)</code>
 <div class="block">Set to true if the call <a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#getConnection(java.lang.String,%20java.lang.String)"><code>getConnection(username,password)</code></a> is
  allowed and honored..</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setCommitOnReturn(boolean)">setCommitOnReturn</a></strong>(boolean&nbsp;commitOnReturn)</code>
 <div class="block">Set to true if you want the connection pool to commit any pending transaction when a connection is returned.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setConnectionProperties(java.lang.String)">setConnectionProperties</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;properties)</code>
 <div class="block">The properties that will be passed into <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true#connect(java.lang.String,%20java.util.Properties)" title="class or interface in java.sql"><code>Driver.connect(String, Properties)</code></a> method.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDataSource(java.lang.Object)">setDataSource</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;ds)</code>
 <div class="block">Injects a datasource that will be used to retrieve/create connections.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDataSourceJNDI(java.lang.String)">setDataSourceJNDI</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;jndiDS)</code>
 <div class="block">Configure the connection pool to use a DataSource according to <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#setDataSource(java.lang.Object)"><code>PoolConfiguration.setDataSource(Object)</code></a>
  But instead of injecting the object, specify the JNDI location.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDbProperties(java.util.Properties)">setDbProperties</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;dbProperties)</code>
 <div class="block">Overrides the database properties passed into the  <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true#connect(java.lang.String,%20java.util.Properties)" title="class or interface in java.sql"><code>Driver.connect(String, Properties)</code></a> method.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDefaultAutoCommit(java.lang.Boolean)">setDefaultAutoCommit</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;autocommit)</code>
 <div class="block">The default auto-commit state of connections created by this pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDefaultCatalog(java.lang.String)">setDefaultCatalog</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;catalog)</code>
 <div class="block">If non null, during connection creation the method <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#setCatalog(java.lang.String)" title="class or interface in java.sql"><code>Connection.setCatalog(String)</code></a> will be called with the set value.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDefaultReadOnly(java.lang.Boolean)">setDefaultReadOnly</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;defaultReadOnly)</code>
 <div class="block">If non null, during connection creation the method <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#setReadOnly(boolean)" title="class or interface in java.sql"><code>Connection.setReadOnly(boolean)</code></a> will be called with the set value.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDefaultTransactionIsolation(int)">setDefaultTransactionIsolation</a></strong>(int&nbsp;defaultTransactionIsolation)</code>
 <div class="block">If set to <a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceFactory.html#UNKNOWN_TRANSACTIONISOLATION"><code>DataSourceFactory.UNKNOWN_TRANSACTIONISOLATION</code></a> the method
  <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#setTransactionIsolation(int)" title="class or interface in java.sql"><code>Connection.setTransactionIsolation(int)</code></a> will not be called during connection creation.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setDriverClassName(java.lang.String)">setDriverClassName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;driverClassName)</code>
 <div class="block">The fully qualified Java class name of the JDBC driver to be used.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setFairQueue(boolean)">setFairQueue</a></strong>(boolean&nbsp;fairQueue)</code>
 <div class="block">Set to true if you wish that calls to getConnection
  should be treated fairly in a true FIFO fashion.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setIgnoreExceptionOnPreLoad(boolean)">setIgnoreExceptionOnPreLoad</a></strong>(boolean&nbsp;ignoreExceptionOnPreLoad)</code>
 <div class="block">Set to true if you want to ignore error of connection creation while initializing the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setInitialSize(int)">setInitialSize</a></strong>(int&nbsp;initialSize)</code>
 <div class="block">Set the number of connections that will be established when the connection pool is started.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setInitSQL(java.lang.String)">setInitSQL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;initSQL)</code>
 <div class="block">A custom query to be run when a connection is first created.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setJdbcInterceptors(java.lang.String)">setJdbcInterceptors</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;interceptors)</code>
 <div class="block">A semicolon separated list of classnames extending <a href="../../../../../org/apache/tomcat/jdbc/pool/JdbcInterceptor.html" title="class in org.apache.tomcat.jdbc.pool"><code>JdbcInterceptor</code></a> class.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setJmxEnabled(boolean)">setJmxEnabled</a></strong>(boolean&nbsp;enabled)</code>
 <div class="block">If set to true, the connection pool creates a <a href="../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx"><code>ConnectionPoolMBean</code></a> object
  that can be registered with JMX to receive notifications and state about the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setLogAbandoned(boolean)">setLogAbandoned</a></strong>(boolean&nbsp;logAbandoned)</code>
 <div class="block">boolean flag to set if stack traces should be logged for application code which abandoned a Connection.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setLoginTimeout(int)">setLoginTimeout</a></strong>(int&nbsp;i)</code>
 <div class="block"><a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/CommonDataSource.html?is-external=true#setLoginTimeout(int)" title="class or interface in javax.sql"><code>CommonDataSource.setLoginTimeout(int)</code></a></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setLogValidationErrors(boolean)">setLogValidationErrors</a></strong>(boolean&nbsp;logValidationErrors)</code>
 <div class="block">Set to true if you wish that errors from validation should be logged as error messages.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setLogWriter(java.io.PrintWriter)">setLogWriter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;out)</code>
 <div class="block">no-op
  <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/CommonDataSource.html?is-external=true#setLogWriter(java.io.PrintWriter)" title="class or interface in javax.sql"><code>CommonDataSource.setLogWriter(PrintWriter)</code></a></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMaxActive(int)">setMaxActive</a></strong>(int&nbsp;maxActive)</code>
 <div class="block">The maximum number of active connections that can be allocated from this pool at the same time.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMaxAge(long)">setMaxAge</a></strong>(long&nbsp;maxAge)</code>
 <div class="block">Time in milliseconds to keep this connection alive even when used.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMaxIdle(int)">setMaxIdle</a></strong>(int&nbsp;maxIdle)</code>
 <div class="block">The maximum number of connections that should be kept in the idle pool if <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#isPoolSweeperEnabled()"><code>PoolConfiguration.isPoolSweeperEnabled()</code></a> returns false.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMaxWait(int)">setMaxWait</a></strong>(int&nbsp;maxWait)</code>
 <div class="block">The maximum number of milliseconds that the pool will wait (when there are no available connections and the
@@ -868,41 +874,41 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
  before throwing an exception.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMinEvictableIdleTimeMillis(int)">setMinEvictableIdleTimeMillis</a></strong>(int&nbsp;minEvictableIdleTimeMillis)</code>
 <div class="block">The minimum amount of time an object must sit idle in the pool before it is eligible for eviction.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setMinIdle(int)">setMinIdle</a></strong>(int&nbsp;minIdle)</code>
 <div class="block">The minimum number of established connections that should be kept in the pool at all times.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setName(java.lang.String)">setName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Sets the name of the connection pool</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setNumTestsPerEvictionRun(int)">setNumTestsPerEvictionRun</a></strong>(int&nbsp;numTestsPerEvictionRun)</code>
 <div class="block">Property not used</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setPassword(java.lang.String)">setPassword</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
 <div class="block">Sets the password to establish the connection with.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setPoolProperties(org.apache.tomcat.jdbc.pool.PoolConfiguration)">setPoolProperties</a></strong>(<a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html" title="interface in org.apache.tomcat.jdbc.pool">PoolConfiguration</a>&nbsp;poolProperties)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setPropagateInterruptState(boolean)">setPropagateInterruptState</a></strong>(boolean&nbsp;propagateInterruptState)</code>
 <div class="block">Configure the pool to propagate interrupt state for interrupted threads waiting for a connection
@@ -911,25 +917,25 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
  If set to true, this behavior will change, while the <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolExhaustedException.html" title="class in org.apache.tomcat.jdbc.pool"><code>PoolExhaustedException</code></a> is still thrown, the threads interrupted state is still set.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setRemoveAbandoned(boolean)">setRemoveAbandoned</a></strong>(boolean&nbsp;removeAbandoned)</code>
 <div class="block">boolean flag to remove abandoned connections if they exceed the removeAbandonedTimout.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setRemoveAbandonedTimeout(int)">setRemoveAbandonedTimeout</a></strong>(int&nbsp;removeAbandonedTimeout)</code>
 <div class="block">The time in seconds before a connection can be considered abandoned.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setRollbackOnReturn(boolean)">setRollbackOnReturn</a></strong>(boolean&nbsp;rollbackOnReturn)</code>
 <div class="block">Set to true if you want the connection pool to rollback any pending transaction when a connection is returned.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setSuspectTimeout(int)">setSuspectTimeout</a></strong>(int&nbsp;seconds)</code>
 <div class="block">Similar to <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#setRemoveAbandonedTimeout(int)"><code>PoolConfiguration.setRemoveAbandonedTimeout(int)</code></a> but instead of treating the connection
@@ -937,90 +943,90 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
  <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#isLogAbandoned()"><code>PoolConfiguration.isLogAbandoned()</code></a> returns true.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setTestOnBorrow(boolean)">setTestOnBorrow</a></strong>(boolean&nbsp;testOnBorrow)</code>
 <div class="block">The indication of whether objects will be validated before being borrowed from the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setTestOnConnect(boolean)">setTestOnConnect</a></strong>(boolean&nbsp;testOnConnect)</code>
 <div class="block">Set to true if we should run the validation query when connecting to the database for the first time on a connection.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setTestOnReturn(boolean)">setTestOnReturn</a></strong>(boolean&nbsp;testOnReturn)</code>
 <div class="block">The indication of whether objects will be validated after being returned to the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setTestWhileIdle(boolean)">setTestWhileIdle</a></strong>(boolean&nbsp;testWhileIdle)</code>
 <div class="block">Set to true if query validation should take place while the connection is idle.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setTimeBetweenEvictionRunsMillis(int)">setTimeBetweenEvictionRunsMillis</a></strong>(int&nbsp;timeBetweenEvictionRunsMillis)</code>
 <div class="block">The number of milliseconds to sleep between runs of the idle connection validation, abandoned cleaner
  and idle pool resizing.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUrl(java.lang.String)">setUrl</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)</code>
 <div class="block">Sets the URL used to connect to the database</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUseDisposableConnectionFacade(boolean)">setUseDisposableConnectionFacade</a></strong>(boolean&nbsp;useDisposableConnectionFacade)</code>
 <div class="block">If set to <code>true</code>, the connection will be wrapped with facade that will disallow the connection to be used after
  <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#close()" title="class or interface in java.sql"><code>Connection.close()</code></a> is called.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUseEquals(boolean)">setUseEquals</a></strong>(boolean&nbsp;useEquals)</code>
 <div class="block">Set to true if you wish the <code>ProxyConnection</code> class to use <code>String.equals</code> instead of
  <code>==</code> when comparing method names.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUseLock(boolean)">setUseLock</a></strong>(boolean&nbsp;useLock)</code>
 <div class="block">Set to true if a lock should be used when operations are performed on the connection object.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUsername(java.lang.String)">setUsername</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Sets the username used to establish the connection with
  It will also be a property called 'user' in the database properties.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setValidationInterval(long)">setValidationInterval</a></strong>(long&nbsp;validationInterval)</code>
 <div class="block">avoid excess validation, only run validation at most at this frequency - time in milliseconds.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setValidationQuery(java.lang.String)">setValidationQuery</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;validationQuery)</code>
 <div class="block">The SQL query that will be used to validate connections from this
  pool before returning them to the caller or pool.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setValidationQueryTimeout(int)">setValidationQueryTimeout</a></strong>(int&nbsp;validationQueryTimeout)</code>
 <div class="block">The timeout in seconds before a connection validation queries fail.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setValidator(org.apache.tomcat.jdbc.pool.Validator)">setValidator</a></strong>(<a href="../../../../../org/apache/tomcat/jdbc/pool/Validator.html" title="interface in org.apache.tomcat.jdbc.pool">Validator</a>&nbsp;validator)</code>
 <div class="block">Sets the validator object
@@ -1028,23 +1034,23 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
  If this is null, remove the usage of the validator.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setValidatorClassName(java.lang.String)">setValidatorClassName</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>
 <div class="block">Set the name for an optional validator class which will be used in place of test queries.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#testIdle()">testIdle</a></strong>()</code>
 <div class="block">Performs a validation on idle connections</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#unwrap(java.lang.Class)">unwrap</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;iface)</code>&nbsp;</td>
 </tr>
@@ -1964,12 +1970,12 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 <li class="blockList">
 <h4>getSuspectTimeout</h4>
 <pre>public&nbsp;int&nbsp;getSuspectTimeout()</pre>
-<div class="block">Returns the time in seconds to pass before a connection is marked an abanoned suspect.
+<div class="block">Returns the time in seconds to pass before a connection is marked an abandoned suspect.
  Any value lesser than or equal to 0 means the check is disabled.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#getSuspectTimeout()">getSuspectTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html" title="interface in org.apache.tomcat.jdbc.pool">PoolConfiguration</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>Returns the time in seconds to pass before a connection is marked an abanoned suspect.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>Returns the time in seconds to pass before a connection is marked an abandoned suspect.</dd></dl>
 </li>
 </ul>
 <a name="setSuspectTimeout(int)">
@@ -2160,6 +2166,16 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 <pre>public&nbsp;long&nbsp;getReconnectedCount()</pre>
 <div class="block">The total number of connections reconnected by this pool.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the reconnected connection count</dd></dl>
+</li>
+</ul>
+<a name="resetStats()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetStats</h4>
+<pre>public&nbsp;void&nbsp;resetStats()</pre>
+<div class="block">reset the statistics of this pool.</div>
 </li>
 </ul>
 <a name="getConnectionProperties()">
@@ -3293,7 +3309,7 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.9</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.11</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -3338,6 +3354,6 @@ implements <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2017 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
