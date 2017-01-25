@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ConnectionPool (Apache Tomcat 7.0.73 API Documentation)</title>
+<title>ConnectionPool (Apache Tomcat 7.0.75 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ConnectionPool (Apache Tomcat 7.0.73 API Documentation)";
+        parent.document.title="ConnectionPool (Apache Tomcat 7.0.75 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.73</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.75</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -238,14 +238,22 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getActive()">getActive</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getBorrowedCount()">getBorrowedCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getCommitOnReturn()">getCommitOnReturn</a></strong>()</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getConnectionProperties()">getConnectionProperties</a></strong>()</code>
 <div class="block">The connection properties that will be sent to the JDBC driver when establishing new connections.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getCreatedCount()">getCreatedCount</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
@@ -420,203 +428,229 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getReconnectedCount()">getReconnectedCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getReleasedCount()">getReleasedCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getReleasedIdleCount()">getReleasedIdleCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getRemoveAbandonedCount()">getRemoveAbandonedCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getRemoveAbandonedTimeout()">getRemoveAbandonedTimeout</a></strong>()</code>
 <div class="block">The time in seconds before a connection can be considered abandoned.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getReturnedCount()">getReturnedCount</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getRollbackOnReturn()">getRollbackOnReturn</a></strong>()</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getSize()">getSize</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getSuspectTimeout()">getSuspectTimeout</a></strong>()</code>
-<div class="block">Returns the time in seconds to pass before a connection is marked an abanoned suspect.</div>
+<div class="block">Returns the time in seconds to pass before a connection is marked an abandoned suspect.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getTimeBetweenEvictionRunsMillis()">getTimeBetweenEvictionRunsMillis</a></strong>()</code>
 <div class="block">The number of milliseconds to sleep between runs of the idle connection validation, abandoned cleaner
  and idle pool resizing.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getUrl()">getUrl</a></strong>()</code>
 <div class="block">The URL used to connect to the database</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getUseDisposableConnectionFacade()">getUseDisposableConnectionFacade</a></strong>()</code>
 <div class="block">Returns true if this connection pool is configured to use a connection facade to prevent re-use of connection after
  <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#close()" title="class or interface in java.sql"><code>Connection.close()</code></a> has been invoked</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getUseLock()">getUseLock</a></strong>()</code>
 <div class="block">Return true if a lock should be used when operations are performed on the connection object.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getUsername()">getUsername</a></strong>()</code>
 <div class="block">Returns the username used to establish the connection with</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getValidationInterval()">getValidationInterval</a></strong>()</code>
 <div class="block">avoid excess validation, only run validation at most at this frequency - time in milliseconds.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getValidationQuery()">getValidationQuery</a></strong>()</code>
 <div class="block">The SQL query that will be used to validate connections from this
  pool before returning them to the caller or pool.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getValidationQueryTimeout()">getValidationQueryTimeout</a></strong>()</code>
 <div class="block">The timeout in seconds before a connection validation queries fail.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/Validator.html" title="interface in org.apache.tomcat.jdbc.pool">Validator</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getValidator()">getValidator</a></strong>()</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getValidatorClassName()">getValidatorClassName</a></strong>()</code>
 <div class="block">Return the name of the optional validator class - may be null.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#getWaitCount()">getWaitCount</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isAccessToUnderlyingConnectionAllowed()">isAccessToUnderlyingConnectionAllowed</a></strong>()</code>
 <div class="block">Property not used.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isAlternateUsernameAllowed()">isAlternateUsernameAllowed</a></strong>()</code>
 <div class="block">Returns true if the call <a href="../../../../../../org/apache/tomcat/jdbc/pool/DataSourceProxy.html#getConnection(java.lang.String,%20java.lang.String)"><code>getConnection(username,password)</code></a> is
  allowed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isDefaultAutoCommit()">isDefaultAutoCommit</a></strong>()</code>
 <div class="block">The default auto-commit state of connections created by this pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isDefaultReadOnly()">isDefaultReadOnly</a></strong>()</code>
 <div class="block">If non null, during connection creation the method <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#setReadOnly(boolean)" title="class or interface in java.sql"><code>Connection.setReadOnly(boolean)</code></a> will be called with the set value.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isFairQueue()">isFairQueue</a></strong>()</code>
 <div class="block">Returns true if a fair queue is being used by the connection pool</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isIgnoreExceptionOnPreLoad()">isIgnoreExceptionOnPreLoad</a></strong>()</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isJmxEnabled()">isJmxEnabled</a></strong>()</code>
 <div class="block">If set to true, the connection pool creates a <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx"><code>ConnectionPoolMBean</code></a> object
  that can be registered with JMX to receive notifications and state about the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isLogAbandoned()">isLogAbandoned</a></strong>()</code>
 <div class="block">boolean flag to set if stack traces should be logged for application code which abandoned a Connection.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isPoolSweeperEnabled()">isPoolSweeperEnabled</a></strong>()</code>
 <div class="block">Returns true if the pool sweeper is enabled for the connection pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isRemoveAbandoned()">isRemoveAbandoned</a></strong>()</code>
 <div class="block">boolean flag to remove abandoned connections if they exceed the removeAbandonedTimout.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isTestOnBorrow()">isTestOnBorrow</a></strong>()</code>
 <div class="block">The indication of whether objects will be validated before being borrowed from the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isTestOnConnect()">isTestOnConnect</a></strong>()</code>
 <div class="block">Returns true if we should run the validation query when connecting to the database for the first time on a connection.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isTestOnReturn()">isTestOnReturn</a></strong>()</code>
 <div class="block">The indication of whether objects will be validated after being returned to the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isTestWhileIdle()">isTestWhileIdle</a></strong>()</code>
 <div class="block">Set to true if query validation should take place while the connection is idle.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#isUseEquals()">isUseEquals</a></strong>()</code>
 <div class="block">Set to true if you wish the <code>ProxyConnection</code> class to use <code>String.equals</code> instead of
  <code>==</code> when comparing method names.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#notify(java.lang.String,%20java.lang.String)">notify</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>
 <div class="block">Return true if the notification was sent successfully, false otherwise.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#purge()">purge</a></strong>()</code>
 <div class="block">Purges all connections in the pool.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#purgeOnReturn()">purgeOnReturn</a></strong>()</code>
 <div class="block">Purges connections when they are returned from the pool.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#removeListener(javax.management.NotificationListener)">removeListener</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/javax/management/NotificationListener.html?is-external=true" title="class or interface in javax.management">NotificationListener</a>&nbsp;list)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPool.html#resetStats()">resetStats</a></strong>()</code>
+<div class="block">reset the statistics of this pool.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -1257,6 +1291,97 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 </dl>
 </li>
 </ul>
+<a name="getBorrowedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBorrowedCount</h4>
+<pre>public&nbsp;long&nbsp;getBorrowedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getBorrowedCount()">getBorrowedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getReturnedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReturnedCount</h4>
+<pre>public&nbsp;long&nbsp;getReturnedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getReturnedCount()">getReturnedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getCreatedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCreatedCount</h4>
+<pre>public&nbsp;long&nbsp;getCreatedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getCreatedCount()">getCreatedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getReleasedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReleasedCount</h4>
+<pre>public&nbsp;long&nbsp;getReleasedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getReleasedCount()">getReleasedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getReconnectedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReconnectedCount</h4>
+<pre>public&nbsp;long&nbsp;getReconnectedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getReconnectedCount()">getReconnectedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getRemoveAbandonedCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRemoveAbandonedCount</h4>
+<pre>public&nbsp;long&nbsp;getRemoveAbandonedCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getRemoveAbandonedCount()">getRemoveAbandonedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getReleasedIdleCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReleasedIdleCount</h4>
+<pre>public&nbsp;long&nbsp;getReleasedIdleCount()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#getReleasedIdleCount()">getReleasedIdleCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="checkIdle()">
 <!--   -->
 </a>
@@ -1293,6 +1418,21 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#testIdle()">testIdle</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="resetStats()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetStats</h4>
+<pre>public&nbsp;void&nbsp;resetStats()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#resetStats()">ConnectionPoolMBean</a></code></strong></div>
+<div class="block">reset the statistics of this pool.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html#resetStats()">resetStats</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/ConnectionPoolMBean.html" title="interface in org.apache.tomcat.jdbc.pool.jmx">ConnectionPoolMBean</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -2730,12 +2870,12 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 <li class="blockList">
 <h4>getSuspectTimeout</h4>
 <pre>public&nbsp;int&nbsp;getSuspectTimeout()</pre>
-<div class="block">Returns the time in seconds to pass before a connection is marked an abanoned suspect.
+<div class="block">Returns the time in seconds to pass before a connection is marked an abandoned suspect.
  Any value lesser than or equal to 0 means the check is disabled.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html#getSuspectTimeout()">getSuspectTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html" title="interface in org.apache.tomcat.jdbc.pool">PoolConfiguration</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>Returns the time in seconds to pass before a connection is marked an abanoned suspect.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>Returns the time in seconds to pass before a connection is marked an abandoned suspect.</dd></dl>
 </li>
 </ul>
 <a name="setSuspectTimeout(int)">
@@ -3108,7 +3248,7 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.73</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.75</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -3153,6 +3293,6 @@ implements <a href="../../../../../../org/apache/tomcat/jdbc/pool/jmx/Connection
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2017 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
