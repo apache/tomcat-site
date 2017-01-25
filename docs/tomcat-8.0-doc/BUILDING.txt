@@ -108,6 +108,18 @@ package.
 The location where the source has been placed will be further referred as
 ${tomcat.source}.
 
+The Tomcat local build process does not modify line-endings. The svn repository
+is configured so that all files will be checked out with the line-ending
+appropriate for the current platform. When using a source package you should
+ensure that you use the source package that has the appropriate line-ending
+for your platform:
+
+  zip    -> CRLF
+  tar.gz -> LF
+
+Note that the release build process does modify line-endings to ensure that
+each release package has the appropriate line-endings.
+
 (3.2) Building
 
  1. The build is controlled by creating a ${tomcat.source}/build.properties
@@ -282,7 +294,7 @@ You can build them by using the following commands:
         codesigning.user=request-via-pmc
         codesigning.pwd=request-via-pmc
         codesigning.partnercode=request-via-pmc
-        codesigning.service=Microsoft Signing
+        codesigning.service=Microsoft Windows Signing
 
     Release managers will be provided with the necessary credentials by the PMC.
     It will also be necessary to enable TLS 1.1 and TLS 1.2 by default (they are
@@ -467,6 +479,12 @@ For example:
 
 * NOTE: Findbugs is licensed under LGPL. Using Findbugs during Tomcat build is
   optional and is off by default.
+
+ 10. It is possible to control whether the output of the tests is displayed
+     on the console or not. By default it is displayed and can be disabled
+     by the following property:
+
+        test.verbose=true
 
 (8) Source code checks
 
