@@ -3,9 +3,63 @@
   <p>
   This is the Changelog for Tomcat Native 1.2.
   </p>
+</div><h3 id="Changes_in_1.2.12">Changes in 1.2.12</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Correct a regression in the fix for <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=59797">59797</a> that triggered a JVM
+      crash on shutdown in some Tomcat unit tests when using the APR/native
+      connector. (markt)
+    </li>
+  </ul>
+</div><h3 id="Changes_in_1.2.11">Changes in 1.2.11</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=52627">52627</a>: Prevent a crash in <code>File.infoGet()</code> caused by
+      the use of uninitialised variables. Based on patch by Ilya Maykov. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55113">55113</a>: Document the process for creating a static tc-native
+      library with a FIPS-enabled OpenSSL and update the nmake make file to
+      support the process. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55114">55114</a>: Clean up building instructions for the native component
+      and expand the instructions for building for Windows platforms. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=55938">55938</a>: Resolve remaining clang-analyzer warnings. Note that the
+      use of <code>-1</code> to indicate the full array in
+      <code>File.(read|write)[Full]</code> has been removed since it was only
+      partially implemented and the implementation was faulty. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=58082">58082</a>: Update unit tests to use JUnit 4. Refactor unit tests
+      into separate tests and use an external to reference them in the same way
+      an external is used to reference the main code. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=59797">59797</a>: Ensure that the per thread error hash maintained by
+      OpenSSL is cleaned up as individual threads exit to ensure it does not
+      grow too large. Patch provided by Nate Clark. (markt) 
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=59996">59996</a>: Correctly handle building tc-native on a 64-bit system
+      when using an OpenSSL distribution that is not in <code>/usr</code>.
+      (csutherl)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=60388">60388</a>: The --disable-maintainer-mode option of the configure
+      script no longer enables the maintainer mode. (ebourg)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Update minimum recommended OpenSSL version to 1.0.2k. (markt)
+    </li>
+  </ul>
 </div><h3 id="Changes_in_1.2.10">Changes in 1.2.10</h3><div class="text">
   <ul class="changelog">
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
       Update minimum recommended OpenSSL version to 1.0.2j. (markt)
+    </li>
   </ul>
 </div><h3 id="Changes_in_1.2.9">Changes in 1.2.9</h3><div class="text">
   <ul class="changelog">
@@ -194,5 +248,5 @@
 <p>Please see the <a href="../../native-1.1-doc/miscellaneous/changelog.html">1.1.x
    changelog</a>.</p>
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 2008-2016, The Apache Software Foundation
+    Copyright &copy; 2008-2017, The Apache Software Foundation
   </div></footer></div></body></html>
