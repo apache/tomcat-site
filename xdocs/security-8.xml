@@ -799,6 +799,37 @@
 
   <section name="Not a vulnerability in Tomcat">
 
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2017-6056</cve></p>
+
+    <p>In February 2015 a single user reported high CPU usage (<bug>57544</bug>)
+       which was traced to a tight loop. However, it was not clear how the
+       conditions necessary to enter the loop were being created. There was no
+       evidence that indicated that the loop was user triggerable. The only
+       potential paths identified by code inspection depended on application
+       bugs (retaining references to request objects and accessing after the
+       request had completed).</p>
+
+    <p>It was (and still is) believed that an application bug was the most
+       likely root cause. Therefore, <bug>57544</bug> was not treated as a DoS
+       vulnerability.</p>
+
+    <p>In November 2016, <cve>CVE-2016-6816</cve> was announced. When downstream
+       distributions, notably Debian, back-ported the fix for
+       <cve>CVE-2016-6816</cve> they inadvertently make it trivial for users to
+       trigger the tight loop from <bug>57544</bug>. This made a DoS attack
+       trivial to mount and resulted in multiple reports of problems including
+       <bug>60578</bug> and <bug>60581</bug>.</p>
+
+    <p>Tomcat releases from the Apache Software Foundation were not affected as
+       the ASF did not release any versions that contained the fix for
+       <cve>CVE-2016-6816</cve> but not the fix for <bug>57544</bug>.</p>
+
+    <p>This issue was first announced on 13 February 2017.</p>
+
+    <p>Affects: Debian, Ubuntu and potentially other downstream
+       distributions.</p>
+    
     <p><strong>Important: Remote Memory Read</strong>
        <cve>CVE-2014-0160</cve> (a.k.a. "Heartbleed")</p>
 

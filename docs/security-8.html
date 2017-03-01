@@ -1378,6 +1378,46 @@
 
     
 <p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6056" rel="nofollow">CVE-2017-6056</a>
+</p>
+
+    
+<p>In February 2015 a single user reported high CPU usage (<a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57544">57544</a>)
+       which was traced to a tight loop. However, it was not clear how the
+       conditions necessary to enter the loop were being created. There was no
+       evidence that indicated that the loop was user triggerable. The only
+       potential paths identified by code inspection depended on application
+       bugs (retaining references to request objects and accessing after the
+       request had completed).</p>
+
+    
+<p>It was (and still is) believed that an application bug was the most
+       likely root cause. Therefore, <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57544">57544</a> was not treated as a DoS
+       vulnerability.</p>
+
+    
+<p>In November 2016, <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a> was announced. When downstream
+       distributions, notably Debian, back-ported the fix for
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a> they inadvertently make it trivial for users to
+       trigger the tight loop from <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57544">57544</a>. This made a DoS attack
+       trivial to mount and resulted in multiple reports of problems including
+       <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60578">60578</a> and <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60581">60581</a>.</p>
+
+    
+<p>Tomcat releases from the Apache Software Foundation were not affected as
+       the ASF did not release any versions that contained the fix for
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816" rel="nofollow">CVE-2016-6816</a> but not the fix for <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57544">57544</a>.</p>
+
+    
+<p>This issue was first announced on 13 February 2017.</p>
+
+    
+<p>Affects: Debian, Ubuntu and potentially other downstream
+       distributions.</p>
+    
+    
+<p>
 <strong>Important: Remote Memory Read</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160" rel="nofollow">CVE-2014-0160</a> (a.k.a. "Heartbleed")</p>
 
