@@ -281,6 +281,9 @@
 <a href="#Web_applications">Web applications</a>
 </li>
 <li>
+<a href="#Engine_and_Host_configurations">Engine and Host configurations</a>
+</li>
+<li>
 <a href="#Context_configurations">Context configurations</a>
 </li>
 </ol>
@@ -745,6 +748,21 @@ of Apache Tomcat.</p>
 <p>The Manager and HostManager web applications are configured by default
        with a <code>RemoteAddrValve</code> that limits access to those
        applications to connections from localhost.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Engine_and_Host_configurations">Engine and Host configurations</h4>
+<div class="text">
+
+    
+<p>The behaviour for <code>startStopThreads</code> has changed when the
+    effective value is 1. In this case, children will be started on the current
+    thread rather than via an <code>ExecutorService</code> configured with a
+    single thread.</p>
 
   
 </div>
