@@ -50,6 +50,32 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.0.M17" rtext="16 January 2017">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.0.M16 but the
+       release vote for the 9.0.0.M16 release candidate did not pass. Therefore,
+       although users must download 9.0.0.M17 to obtain a version that includes
+       the fix for this issue, version 9.0.0.M16 is not included in the list of
+       affected versions.</i></p>
+
+  <p><strong>Moderate: Information Disclosure</strong>
+       <cve>CVE-2017-8747</cve></p>
+
+    <p>The refactoring to make wider use of ByteBuffer introduced a regression
+       that could cause information to leak between requests on the same
+       connection. When running behind a reverse proxy, this could result in
+       information leakage between users. All HTTP connector variants are
+       affected but HTTP/2 and AJP are not affected.</p>
+
+    <p>This was fixed in revision <revlink rev="1774161">1774161</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 14
+       December 2016 and made public on 13 March 2017.</p>
+
+    <p>Affects: 9.0.0.M11 to 9.0.0.M15</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.0.M15" rtext="8 December 2016">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.0.M14 but the

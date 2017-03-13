@@ -227,6 +227,9 @@
 <a href="#Apache_Tomcat_8.x_vulnerabilities">Apache Tomcat 8.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.11">Fixed in Apache Tomcat 8.5.11</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_8.0.41">Fixed in Apache Tomcat 8.0.41</a>
 </li>
 <li>
@@ -323,6 +326,44 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.11">
+<span style="float: right;">16 January 2017</span> Fixed in Apache Tomcat 8.5.11</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 8.5.10 but the
+       release vote for the 8.5.10 release candidate did not pass. Therefore,
+       although users must download 8.5.11 to obtain a version that includes
+       the fix for this issue, version 8.5.10 is not included in the list of
+       affected versions.</i>
+</p>
+
+  
+<p>
+<strong>Moderate: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8747" rel="nofollow">CVE-2017-8747</a>
+</p>
+
+    
+<p>The refactoring to make wider use of ByteBuffer introduced a regression
+       that could cause information to leak between requests on the same
+       connection. When running behind a reverse proxy, this could result in
+       information leakage between users. All HTTP connector variants are
+       affected but HTTP/2 and AJP are not affected.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1774166">1774166</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 14
+       December 2016 and made public on 13 March 2017.</p>
+
+    
+<p>Affects: 8.5.7 to 8.5.9</p>
 
   
 </div>
