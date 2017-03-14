@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NioEndpoint (Apache Tomcat 8.5.11 API Documentation)</title>
+<title>NioEndpoint (Apache Tomcat 8.5.12 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="NioEndpoint (Apache Tomcat 8.5.11 API Documentation)";
+        parent.document.title="NioEndpoint (Apache Tomcat 8.5.12 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.11</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.12</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -301,41 +301,49 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#getServerSocket()">getServerSocket</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CountDownLatch.html?is-external=true" title="class or interface in java.util.concurrent">CountDownLatch</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#getStopLatch()">getStopLatch</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#getWriteBufSize()">getWriteBufSize</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setPollerThreadCount(int)">setPollerThreadCount</a></strong>(int&nbsp;pollerThreadCount)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setPollerThreadPriority(int)">setPollerThreadPriority</a></strong>(int&nbsp;pollerThreadPriority)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setProperty(java.lang.String,%20java.lang.String)">setProperty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Generic properties, introspected</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setSelectorPool(org.apache.tomcat.util.net.NioSelectorPool)">setSelectorPool</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/NioSelectorPool.html" title="class in org.apache.tomcat.util.net">NioSelectorPool</a>&nbsp;selectorPool)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setSelectorTimeout(long)">setSelectorTimeout</a></strong>(long&nbsp;timeout)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setSocketOptions(java.nio.channels.SocketChannel)">setSocketOptions</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels">SocketChannel</a>&nbsp;socket)</code>
 <div class="block">Process the specified connection.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setSocketProperties(org.apache.tomcat.util.net.SocketProperties)">setSocketProperties</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/SocketProperties.html" title="class in org.apache.tomcat.util.net">SocketProperties</a>&nbsp;socketProperties)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/NioEndpoint.html#setStopLatch(java.util.concurrent.CountDownLatch)">setStopLatch</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CountDownLatch.html?is-external=true" title="class or interface in java.util.concurrent">CountDownLatch</a>&nbsp;stopLatch)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -654,6 +662,24 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.
 <dt><span class="strong">Returns:</span></dt><dd>the acceptor</dd></dl>
 </li>
 </ul>
+<a name="getStopLatch()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStopLatch</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CountDownLatch.html?is-external=true" title="class or interface in java.util.concurrent">CountDownLatch</a>&nbsp;getStopLatch()</pre>
+</li>
+</ul>
+<a name="setStopLatch(java.util.concurrent.CountDownLatch)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStopLatch</h4>
+<pre>protected&nbsp;void&nbsp;setStopLatch(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CountDownLatch.html?is-external=true" title="class or interface in java.util.concurrent">CountDownLatch</a>&nbsp;stopLatch)</pre>
+</li>
+</ul>
 <a name="setSocketOptions(java.nio.channels.SocketChannel)">
 <!--   -->
 </a>
@@ -730,7 +756,7 @@ extends <a href="../../../../../org/apache/tomcat/util/net/AbstractJsseEndpoint.
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.11</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.12</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
