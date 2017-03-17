@@ -4,7 +4,7 @@
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>
-ELSupport (Apache Tomcat 6.0.48 API Documentation)
+ELSupport (Apache Tomcat 6.0.51 API Documentation)
 </TITLE>
 
 <META NAME="keywords" CONTENT="org.apache.el.lang.ELSupport class">
@@ -14,7 +14,7 @@ ELSupport (Apache Tomcat 6.0.48 API Documentation)
 <SCRIPT type="text/javascript">
 function windowTitle()
 {
-    parent.document.title="ELSupport (Apache Tomcat 6.0.48 API Documentation)";
+    parent.document.title="ELSupport (Apache Tomcat 6.0.51 API Documentation)";
 }
 </SCRIPT>
 <NOSCRIPT>
@@ -45,7 +45,7 @@ function windowTitle()
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.48</b></EM>
+<b>Apache Tomcat 6.0.51</b></EM>
 </TD>
 </TR>
 
@@ -229,7 +229,7 @@ A helper class that implements the EL Specification
         java.lang.Object&nbsp;obj1)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compare two objects, after coercing to the same type if appropriate.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -246,7 +246,7 @@ A helper class that implements the EL Specification
        java.lang.Object&nbsp;obj1)</CODE>
 
 <BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compare two objects for equality, after coercing to the same type if appropriate.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
@@ -388,10 +388,34 @@ public static final int <B>compare</B>(java.lang.Object&nbsp;obj0,
                                 java.lang.Object&nbsp;obj1)
                          throws javax.el.ELException</PRE>
 <DL>
-<DD><DL>
+<DD>Compare two objects, after coercing to the same type if appropriate.
 
+ If the objects are identical, or they are equal according to
+ <A HREF="../../../../org/apache/el/lang/ELSupport.html#equals(java.lang.Object, java.lang.Object)"><CODE>equals(Object, Object)</CODE></A> then return 0.
+
+ If either object is a BigDecimal, then coerce both to BigDecimal first.
+ Similarly for Double(Float), BigInteger, and Long(Integer, Char, Short, Byte).
+
+ Otherwise, check that the first object is an instance of Comparable, and compare
+ against the second object. If that is null, return 1, otherwise
+ return the result of comparing against the second object.
+
+ Similarly, if the second object is Comparable, if the first is null, return -1,
+ else return the result of comparing against the first object.
+
+ A null object is considered as:
+ <ul>
+ <li>ZERO when compared with Numbers</li>
+ <li>the empty string for String compares</li>
+ <li>Otherwise null is considered to be lower than anything else.</li>
+ </ul>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>obj0</CODE> - first object<DD><CODE>obj1</CODE> - second object
+<DT><B>Returns:</B><DD>-1, 0, or 1 if this object is less than, equal to, or greater than val.
 <DT><B>Throws:</B>
-<DD><CODE>javax.el.ELException</CODE></DL>
+<DD><CODE>javax.el.ELException</CODE> - if neither object is Comparable
+<DD><CODE>java.lang.ClassCastException</CODE> - if the objects are not mutually comparable</DL>
 </DD>
 </DL>
 <HR>
@@ -403,8 +427,17 @@ public static final boolean <B>equals</B>(java.lang.Object&nbsp;obj0,
                                    java.lang.Object&nbsp;obj1)
                             throws javax.el.ELException</PRE>
 <DL>
-<DD><DL>
+<DD>Compare two objects for equality, after coercing to the same type if appropriate.
 
+ If the objects are identical (including both null) return true.
+ If either object is null, return false.
+ If either object is Boolean, coerce both to Boolean and check equality.
+ Similarly for Enum, String, BigDecimal, Double(Float), Long(Integer, Short, Byte, Character)
+ Otherwise default to using Object.equals().
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>obj0</CODE> - the first object<DD><CODE>obj1</CODE> - the second object
+<DT><B>Returns:</B><DD>true if the objects are equal
 <DT><B>Throws:</B>
 <DD><CODE>javax.el.ELException</CODE></DL>
 </DD>
@@ -678,7 +711,7 @@ public static final java.lang.Number <B>toNumber</B>(java.lang.String&nbsp;value
 </TABLE>
 </TD>
 <TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-<b>Apache Tomcat 6.0.48</b></EM>
+<b>Apache Tomcat 6.0.51</b></EM>
 </TD>
 </TR>
 
@@ -714,6 +747,6 @@ DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&n
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 
 <HR>
-Copyright &#169; 2000-2016 Apache Software Foundation. All Rights Reserved.
+Copyright &#169; 2000-2017 Apache Software Foundation. All Rights Reserved.
 </BODY>
 </HTML>
