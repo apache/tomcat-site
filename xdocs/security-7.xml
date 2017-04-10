@@ -50,6 +50,48 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.77" rtext="2 April 2017">
+
+  <p><strong>Important: Information Disclosure</strong>
+       <cve>CVE-2017-5647</cve></p>
+
+    <p>A bug in the handling of the pipelined requests when send file was used
+       resulted in the pipelined request being lost when send file processing of
+       the previous request completed. This could result in responses appearing
+       to be sent for the wrong request. For example, a user agent that sent
+       requests A, B and C could see the correct response for request A, the
+       response for request C for request B and no response for request C.</p>
+
+    <p>This was fixed in revision <revlink rev="1789008">1789008</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    <p>Affects: 7.0.0 to 7.0.76</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 7.0.76" rtext="16 March 2017">
+
+  <p><strong>Low: Information Disclosure</strong>
+       <cve>CVE-2017-5648</cve></p>
+
+    <p>While investigating bug 60718, it was noticed that some calls to
+       application listeners did not use the appropriate facade object. When
+       running an untrusted application under a SecurityManager, it was
+       therefore possible for that untrusted application to retain a reference
+       to the request or response object and thereby access and/or modify
+       information associated with another web application.</p>
+
+    <p>This was fixed in revision <revlink rev="1785777">1785777</revlink>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    <p>Affects: 7.0.0 to 7.0.75</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 7.0.75" rtext="24 January 2017">
 
     <p><strong>Important: Information Disclosure</strong>

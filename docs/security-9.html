@@ -227,6 +227,12 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.0.M19">Fixed in Apache Tomcat 9.0.0.M19</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.0.M18">Fixed in Apache Tomcat 9.0.0.M18</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.0.M17">Fixed in Apache Tomcat 9.0.0.M17</a>
 </li>
 <li>
@@ -290,6 +296,114 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.0.M19">
+<span style="float: right;">30 March 2017</span> Fixed in Apache Tomcat 9.0.0.M19</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5651" rel="nofollow">CVE-2017-5651</a>
+</p>
+
+    
+<p>The refactoring of the HTTP connectors for 8.5.x onwards, introduced a
+       regression in the send file processing. If the send file processing
+       completed quickly, it was possible for the Processor to be added to the
+       processor cache twice. This could result in the same Processor being used
+       for multiple requests which in turn could lead to unexpected errors
+       and/or response mix-up.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1788544">1788544</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 24
+       March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M18</p>
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5650" rel="nofollow">CVE-2017-5650</a>
+</p>
+
+    
+<p>The handling of an HTTP/2 GOAWAY frame for a connection did not close
+       streams associated with that connection that were currently waiting for a
+       WINDOW_UPDATE before allowing the application to write more data. These
+       waiting streams each consumed a thread. A malicious client could
+       therefore construct a series of HTTP/2 requests that would consume all
+       available processing threads.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1788460">1788460</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by Chun Han
+       Hsiao on 11 March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M18</p>
+
+  
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5647" rel="nofollow">CVE-2017-5647</a>
+</p>
+
+    
+<p>A bug in the handling of the pipelined requests when send file was used
+       resulted in the pipelined request being lost when send file processing of
+       the previous request completed. This could result in responses appearing
+       to be sent for the wrong request. For example, a user agent that sent
+       requests A, B and C could see the correct response for request A, the
+       response for request C for request B and no response for request C.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1788890">1788890</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M18</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.0.M18">
+<span style="float: right;">13 March 2017</span> Fixed in Apache Tomcat 9.0.0.M18</h3>
+<div class="text">
+
+  
+<p>
+<strong>Low: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5648" rel="nofollow">CVE-2017-5648</a>
+</p>
+
+    
+<p>While investigating bug 60718, it was noticed that some calls to
+       application listeners did not use the appropriate facade object. When
+       running an untrusted application under a SecurityManager, it was
+       therefore possible for that untrusted application to retain a reference
+       to the request or response object and thereby access and/or modify
+       information associated with another web application.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1785774">1785774</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M17</p>
 
   
 </div>

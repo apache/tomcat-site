@@ -227,6 +227,12 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.77">Fixed in Apache Tomcat 7.0.77</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.76">Fixed in Apache Tomcat 7.0.76</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.75">Fixed in Apache Tomcat 7.0.75</a>
 </li>
 <li>
@@ -371,6 +377,66 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.77">
+<span style="float: right;">2 April 2017</span> Fixed in Apache Tomcat 7.0.77</h3>
+<div class="text">
+
+  
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5647" rel="nofollow">CVE-2017-5647</a>
+</p>
+
+    
+<p>A bug in the handling of the pipelined requests when send file was used
+       resulted in the pipelined request being lost when send file processing of
+       the previous request completed. This could result in responses appearing
+       to be sent for the wrong request. For example, a user agent that sent
+       requests A, B and C could see the correct response for request A, the
+       response for request C for request B and no response for request C.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1789008">1789008</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.76</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.76">
+<span style="float: right;">16 March 2017</span> Fixed in Apache Tomcat 7.0.76</h3>
+<div class="text">
+
+  
+<p>
+<strong>Low: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5648" rel="nofollow">CVE-2017-5648</a>
+</p>
+
+    
+<p>While investigating bug 60718, it was noticed that some calls to
+       application listeners did not use the appropriate facade object. When
+       running an untrusted application under a SecurityManager, it was
+       therefore possible for that untrusted application to retain a reference
+       to the request or response object and thereby access and/or modify
+       information associated with another web application.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1785777">1785777</a>.</p>
+
+    
+<p>This issue was identified by the Apache Tomcat Security Team on 20
+       March 2017 and made public on 10 April 2017.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.75</p>
 
   
 </div>
