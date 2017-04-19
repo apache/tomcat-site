@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pipeline (Apache Tomcat 8.5.13 API Documentation)</title>
+<title>Pipeline (Apache Tomcat 8.5.14 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Pipeline (Apache Tomcat 8.5.13 API Documentation)";
+        parent.document.title="Pipeline (Apache Tomcat 8.5.14 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.13</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.14</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -133,42 +133,49 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#findNonAsyncValves(java.util.Set)">findNonAsyncValves</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;result)</code>
+<div class="block">Identifies the Valves, if any, in this Pipeline that do not support
+ async.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#getBasic()">getBasic</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#getContainer()">getContainer</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#getFirst()">getFirst</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#getValves()">getValves</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#isAsyncSupported()">isAsyncSupported</a></strong>()</code>
 <div class="block">Returns true if all the valves in this pipeline support async, false otherwise</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#removeValve(org.apache.catalina.Valve)">removeValve</a></strong>(<a href="../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a>&nbsp;valve)</code>
 <div class="block">Remove the specified Valve from the pipeline associated with this
  Container, if it is found; otherwise, do nothing.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#setBasic(org.apache.catalina.Valve)">setBasic</a></strong>(<a href="../../../org/apache/catalina/Valve.html" title="interface in org.apache.catalina">Valve</a>&nbsp;valve)</code>
 <div class="block">Set the Valve instance that has been distinguished as the basic
  Valve for this Pipeline (if any).</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/Pipeline.html#setContainer(org.apache.catalina.Container)">setContainer</a></strong>(<a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a>&nbsp;container)</code>
 <div class="block">Set the Container with which this Pipeline is associated.</div>
@@ -312,12 +319,26 @@
 <a name="setContainer(org.apache.catalina.Container)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setContainer</h4>
 <pre>void&nbsp;setContainer(<a href="../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a>&nbsp;container)</pre>
 <div class="block">Set the Container with which this Pipeline is associated.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>container</code> - The new associated container</dd></dl>
+</li>
+</ul>
+<a name="findNonAsyncValves(java.util.Set)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>findNonAsyncValves</h4>
+<pre>void&nbsp;findNonAsyncValves(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;result)</pre>
+<div class="block">Identifies the Valves, if any, in this Pipeline that do not support
+ async.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>result</code> - The Set to which the fully qualified class names of each
+               Valve in this Pipeline that does not support async will be
+               added</dd></dl>
 </li>
 </ul>
 </li>
@@ -342,7 +363,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.13</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.14</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
