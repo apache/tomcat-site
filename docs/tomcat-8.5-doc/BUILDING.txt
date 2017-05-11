@@ -35,7 +35,7 @@ source distribution, do the following:
 
  1. If the JDK is already installed, skip to (2).
 
- 2. Download a version 8 of Java Development Kit (JDK) release (use the
+ 2. Download a version 7 of Java Development Kit (JDK) release (use the
     latest update available for your chosen version) from one of:
 
         http://www.oracle.com/technetwork/java/javase/downloads/index.html
@@ -396,6 +396,12 @@ as the separator.
 For example:
 
     test.name=**/TestSsl.java,**/TestWebSocketFrameClientSSL.java
+
+You can exclude specific JUnit test classes by adding the "test.exclude"
+property to the build.properties file. The property specifies an Ant
+excludes pattern for the fileset of test class files to exclude form the run.
+The default value is empty, so no classes are excluded. The syntax is the same
+as for the property "test.name".
 
 
 (7.4) Other configuration options
