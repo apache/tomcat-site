@@ -242,6 +242,9 @@
 <a href="#JavaServer_Pages_2.3">JavaServer Pages 2.3</a>
 </li>
 <li>
+<a href="#Jar_Scanning">Jar Scanning</a>
+</li>
+<li>
 <a href="#Default_connector_implementation">Default connector implementation</a>
 </li>
 <li>
@@ -400,6 +403,42 @@ of Apache Tomcat.</p>
 <p>or similar, using the appropriate scope for where the variable is
     defined.</p>
 
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Jar_Scanning">Jar Scanning</h4>
+<div class="text">
+
+    
+<p>During the implementation of Servlet 3.1 a number of errors were
+    identified in Tomcat 7's Servlet 3.0 pluggability implementation.
+    Specifically:</p>
+
+    
+<ul>
+    
+<li>the SCI scan did not obey class loader ordering;</li>
+    
+<li>fragments in container JARs were processed rather than ignored;</li>
+    
+<li>container provided SCIs were sometimes ignored.</li>
+    
+</ul>
+
+    
+<p>These issues were corrected for Tomcat 8 but not back-ported to Tomcat 7
+    because the fixed required significant API changes to the
+    <code>JarScanner</code> component as well as changes to the configuration
+    options.</p>
+
+    
+<p>When migrating to Tomcat 8, Jar scanning configurations will need to be
+    reviewed and adjusted for the new configuration options and custom
+    <code>JarScanner</code> implementations will need to be updated to implement
+    the new API.</p>    
   
 </div>
 </div>
