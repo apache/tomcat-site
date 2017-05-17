@@ -321,7 +321,6 @@ directory:
 
     output/build/logs
 
-
 By default the testsuite is run three times to test 3 different
 implementations of Tomcat connectors: BIO, NIO and APR. (If you are not
 familiar with Tomcat connectors, see config/http.html in documentation for
@@ -365,8 +364,7 @@ For example:
 
 It is possible to further limit such run to a number of selected test
 methods by adding "test.entry.methods" property. The property specifies a
-comma-separated list of test case methods. (This feature requires
-Apache Ant 1.8.2 or later).
+comma-separated list of test case methods.
 
 For example:
 
@@ -389,6 +387,12 @@ as the separator.
 For example:
 
     test.name=**/TestSsl.java,**/TestWebSocketFrameClientSSL.java
+
+You can exclude specific JUnit test classes by adding the "test.exclude"
+property to the build.properties file. The property specifies an Ant
+excludes pattern for the fileset of test class files to exclude form the run.
+The default value is empty, so no classes are excluded. The syntax is the same
+as for the property "test.name".
 
 
 (7.4) Other configuration options
@@ -434,26 +438,36 @@ For example:
   during Tomcat build is optional and is off by default.
 
  Cobertura can be enabled using the following property:
- 
+
         test.cobertura=true
 
  The report files by default are written to
 
         output/coverage
 
- 6. Some tests include checks that the access log valve entries are as expected.
+ 6. The performance tests are written to run reasonably powerful machines (such
+    as a developer may use day to day) assuming no other resource hungry
+    processes are running.
+
+    These assumptions are not always true (e.g. on CI systems running in a
+    virtual machine) so the performance tests may be disabled by using the
+    following property:
+
+        test.excludePerformance=true
+
+ 7. Some tests include checks that the access log valve entries are as expected.
     These checks include timings. On slower / loaded systems these checks will
     often fail. The checks may be relaxed by using the following property:
 
         test.relaxTiming=true
 
- 7. It is known that some platforms (e.g. OSX El Capitan) require IPv4 to
+ 8. It is known that some platforms (e.g. OSX El Capitan) require IPv4 to
     be the default for the multicast tests to work. This is configured by
     the following property:
 
         java.net.preferIPv4Stack=true
 
- 8. It is possible to control whether the output of the tests is displayed
+ 9. It is possible to control whether the output of the tests is displayed
     on the console or not. By default it is displayed and can be disabled
     by the following property:
 
@@ -465,6 +479,8 @@ For example:
 
 * NOTE: Checkstyle is licensed under LGPL. Using Checkstyle during Tomcat
   build is optional and is off by default.
+
+      See http://checkstyle.sourceforge.net/ for more information.
 
 Tomcat comes with a Checkstyle configuration that tests its source code
 for certain conventions, like presence of the license header.
@@ -481,7 +497,7 @@ is located in the following directory:
 
     output/res/checkstyle
 
-It is possible to run the check separately by invoking the "validate"
+It is possible to run the check separately by calling the "validate"
 target. The command is:
 
     cd ${tomcat.source}
