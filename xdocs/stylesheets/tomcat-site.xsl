@@ -98,7 +98,7 @@
         </xsl:variable>
         <div style="height: 1px;"/>
         <div class="asfLogo noPrint">
-          <a href="http://events.linuxfoundation.org/events/apachecon-north-america/attend/register-" target="_blank"><img src="images/NewTomcatCon.png" alt="Upcoming Event" style="margin-right: 15px;"/></a>
+          <a href="http://apache.org/foundation/contributing.html" target="_blank"><img src="http://www.apache.org/images/SupportApache-small.png" alt="Support Apache" style="height: 83px; margin-right: 15px;"/></a>
           <a href="http://www.apache.org/" target="_blank"><img src="{$src-asf-logo}" alt="The Apache Software Foundation" style="width: 205px; height: 83px; margin-right: 15px;"/></a>
         </div>
         <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/><sup>&#174;</sup></h1>
