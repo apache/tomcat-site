@@ -295,7 +295,10 @@ of Apache Tomcat.</p>
     
 <p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
     removed. Users are recommended to switch to the Java non-blocking IO
-    implementation (NIO).</p>
+    implementation (NIO). As of Tomcat 8.5.17, if a BIO Connector is explicitly
+    configured, rather than failing to start the Connector, Tomcat will
+    automatically switch the Connector to use the NIO implementation and log a
+    warning.</p>
 
   
 </div>
