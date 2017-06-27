@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>FileHandler (Apache Tomcat 8.5.15 API Documentation)</title>
+<title>FileHandler (Apache Tomcat 8.5.16 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="FileHandler (Apache Tomcat 8.5.15 API Documentation)";
+        parent.document.title="FileHandler (Apache Tomcat 8.5.16 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.16</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -142,6 +142,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
    <li><code>formatter</code> - The <code>java.util.logging.Formatter</code>
     implementation class name for this Handler. Default value:
     <code>java.util.logging.SimpleFormatter</code></li>
+   <li><code>maxDays</code> - The maximum number of days to keep the log files.
+    If the specified value is <code>&lt;=0</code> then the log files will be kept
+    on the file system forever, otherwise they will be kept the specified maximum
+    days. Default value: <code>-1</code>.</li>
  </ul></div>
 </li>
 </ul>
@@ -162,6 +166,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/juli/FileHandler.html#DEFAULT_MAX_DAYS">DEFAULT_MAX_DAYS</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReadWriteLock.html?is-external=true" title="class or interface in java.util.concurrent.locks">ReadWriteLock</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/juli/FileHandler.html#writerLock">writerLock</a></strong></code>
 <div class="block">Lock used to control access to the writer.</div>
@@ -188,6 +196,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
 <td class="colOne"><code><strong><a href="../../../org/apache/juli/FileHandler.html#FileHandler(java.lang.String,%20java.lang.String,%20java.lang.String)">FileHandler</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;suffix)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../org/apache/juli/FileHandler.html#FileHandler(java.lang.String,%20java.lang.String,%20java.lang.String,%20int)">FileHandler</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;suffix,
+           int&nbsp;maxDays)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -265,6 +279,16 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="DEFAULT_MAX_DAYS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_MAX_DAYS</h4>
+<pre>public static final&nbsp;int DEFAULT_MAX_DAYS</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../constant-values.html#org.apache.juli.FileHandler.DEFAULT_MAX_DAYS">Constant Field Values</a></dd></dl>
+</li>
+</ul>
 <a name="writerLock">
 <!--   -->
 </a>
@@ -295,12 +319,24 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
 <a name="FileHandler(java.lang.String, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>FileHandler</h4>
 <pre>public&nbsp;FileHandler(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;suffix)</pre>
+</li>
+</ul>
+<a name="FileHandler(java.lang.String, java.lang.String, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>FileHandler</h4>
+<pre>public&nbsp;FileHandler(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix,
+           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;suffix,
+           int&nbsp;maxDays)</pre>
 </li>
 </ul>
 </li>
@@ -403,7 +439,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/Hand
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.15</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.16</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
