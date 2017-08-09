@@ -236,6 +236,67 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 
 </div>
+<h3 id="Tomcat_9.0.0.M26_(alpha)_Released">
+<span style="float: right;">2017-08-08</span> Tomcat 9.0.0.M26 (alpha) Released</h3>
+<div class="text">
+
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.0.M26
+(alpha) of Apache Tomcat. The is a milestone release of the 9.0.x branch and has
+been made to provide users with early access to the new features in Apache
+Tomcat 9.0.x so that they may provide feedback. The notable changes compared to
+9.0.0.M22 include:</p>
+
+<ul>
+
+<li>When generating JSP runtime error messages that quote the relevant JSP
+    source code, switch from using the results of the JSP page parsing process
+    to using the JSR 045 source map data to identify the correct part of the JSP
+    source from the stack trace. This significantly reduces the memory footprint
+    of Jasper in development mode, provides a small performance improvement for
+    error page generation and enables source quotes to continue to be provided
+    after a Tomcat restart.</li>
+
+<li>Add LoadBalancerDrainingValve, a Valve designed to reduce the amount of time
+    required for a node to drain its authenticated users</li>
+
+<li>Improve the Default Servlet's handling of static files when the file
+    encoding is not compatible with the required response encoding.</li>
+
+<li>Add support for a Tomcat specific deployment descriptor,
+    <code>/WEB-INF/tomcat-web.xml</code>. This descriptor has an identical
+    format to <code>/WEB-INF/web.xml</code>. The Tomcat descriptor takes
+    precedence over any settings in conf/web.xml but does not take precedence
+    over any settings in <code>/WEB-INF/web.xml</code>.</li>
+
+<li>Add ExtractingRoot, a new WebResourceRoot implementation that extracts JARs
+    to the work directory for improved performance when deploying packed WAR
+    files.</li>
+
+<li>Add support to the WebSocket client for following redirects when attempting
+    to establish a WebSocket connection. Patch provided by J Fernandez.</li>
+
+<li>Add support for the %X pattern in the AccessLogValve that reports the
+    connection status at the end of the request. Patch provided by Zemian
+    Deng.</li>
+
+</ul>
+
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.0.M26_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+
+<p style="text-align: center;">
+
+<a href="download-90.cgi">Download</a>
+
+</p>
+
+</div>
 <h3 id="Tomcat_8.0.45_Released">
 <span style="float: right;">2017-07-01</span> Tomcat 8.0.45 Released</h3>
 <div class="text">
@@ -351,46 +412,6 @@ changelog</a>.
 <p style="text-align: center;">
 
 <a href="download-80.cgi">Download</a>
-
-</p>
-
-</div>
-<h3 id="Tomcat_9.0.0.M22_(alpha)_Released">
-<span style="float: right;">2017-06-26</span> Tomcat 9.0.0.M22 (alpha) Released</h3>
-<div class="text">
-
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.0.M22
-(alpha) of Apache Tomcat. The is a milestone release of the 9.0.x branch and has
-been made to provide users with early access to the new features in Apache
-Tomcat 9.0.x so that they may provide feedback. The notable changes compared to
-9.0.0.M21 include:</p>
-
-<ul>
-
-<li>Add a new JULI FileHandler configuration for specifying the maximum number
-    of days to keep the log files. By default the log files will be kept for 90
-    days.</li>
-
-<li>Update the Servlet 4.0 implementation to add support for setting trailer
-    fields for HTTP responses.</li>
-
-<li>When pre-compiling with JspC, report all compilation errors rather than
-    stopping after the first error.</li>
-
-</ul>
-
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.0.M22_(markt)">Tomcat 9
-changelog</a>.
-</p>
-
-
-<p style="text-align: center;">
-
-<a href="download-90.cgi">Download</a>
 
 </p>
 
