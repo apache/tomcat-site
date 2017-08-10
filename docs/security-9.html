@@ -210,6 +210,9 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.0.M22">Fixed in Apache Tomcat 9.0.0.M22</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.0.M21">Fixed in Apache Tomcat 9.0.0.M21</a>
 </li>
 <li>
@@ -282,6 +285,57 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.0.M22">
+<span style="float: right;">26 June 2017</span> Fixed in Apache Tomcat 9.0.0.M22</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Security Constraint Bypass</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7675" rel="nofollow">CVE-2017-7675</a>
+</p>
+
+    
+<p>The HTTP/2 implementation bypassed a number of security checks that
+       prevented directory traversal attacks. It was therefore possible to
+       bypass security constraints using an specially crafted URL.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1796090">1796090</a>.</p>
+
+    
+<p>The issue was originally reported as a failure to process URL path
+       parameters in bug <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=61120">61120</a> on 24 May 2017. The full implications
+       of this issue were identified by the Tomcat Security Team the same day.
+       This issue was made public on 10 August 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M21</p>
+
+    
+<p>
+<strong>Moderate: Cache Poisoning</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7674" rel="nofollow">CVE-2017-7674</a>
+</p>
+
+    
+<p>The CORS Filter did not an HTTP Vary header indicating that the response
+       varies depending on Origin. This permitted client and server side cache
+       poisoning in some circumstances.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1795813">1795813</a>.</p>
+
+    
+<p>The issue was reported as bug <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=61101">61101</a> on 16 May 2017. The full
+       implications of this issue were identified by the Tomcat Security Team
+       the same day. This issue was made public on 10 August 2017.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.0.M21</p>
 
   
 </div>

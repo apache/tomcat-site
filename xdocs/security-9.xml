@@ -50,6 +50,41 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.0.M22" rtext="26 June 2017">
+
+    <p><strong>Important: Security Constraint Bypass</strong>
+       <cve>CVE-2017-7675</cve></p>
+
+    <p>The HTTP/2 implementation bypassed a number of security checks that
+       prevented directory traversal attacks. It was therefore possible to
+       bypass security constraints using an specially crafted URL.</p>
+
+    <p>This was fixed in revision <revlink rev="1796090">1796090</revlink>.</p>
+
+    <p>The issue was originally reported as a failure to process URL path
+       parameters in bug <bug>61120</bug> on 24 May 2017. The full implications
+       of this issue were identified by the Tomcat Security Team the same day.
+       This issue was made public on 10 August 2017.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.0.M21</p>
+
+    <p><strong>Moderate: Cache Poisoning</strong>
+       <cve>CVE-2017-7674</cve></p>
+
+    <p>The CORS Filter did not an HTTP Vary header indicating that the response
+       varies depending on Origin. This permitted client and server side cache
+       poisoning in some circumstances.</p>
+
+    <p>This was fixed in revision <revlink rev="1795813">1795813</revlink>.</p>
+
+    <p>The issue was reported as bug <bug>61101</bug> on 16 May 2017. The full
+       implications of this issue were identified by the Tomcat Security Team
+       the same day. This issue was made public on 10 August 2017.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.0.M21</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.0.M21" rtext="10 May 2017">
   
     <p><strong>Important: Security Constraint Bypass</strong>
