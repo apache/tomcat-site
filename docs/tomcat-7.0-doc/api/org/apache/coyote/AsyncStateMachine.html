@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AsyncStateMachine (Apache Tomcat 7.0.79 API Documentation)</title>
+<title>AsyncStateMachine (Apache Tomcat 7.0.81 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AsyncStateMachine (Apache Tomcat 7.0.79 API Documentation)";
+        parent.document.title="AsyncStateMachine (Apache Tomcat 7.0.81 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.79</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.81</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -146,35 +146,35 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                     is called.
  ERROR            - Something went wrong.
 
- |----------------->------|  |--«--------MUST_ERROR---------------«------------------------|
+ |-----------------»------|  |--«--------MUST_ERROR---------------«------------------------|
  |                       \|/\|/                                                            |
- |   |----------<-----E R R O R<-------------------------<-------------------------------| |
- |   |      complete() /|\/|\\ \--<---------------------------------<-----|              | ^
+ |   |----------«-----E R R O R<-------------------------«-------------------------------| |
+ |   |      complete() /|\/|\\ \--«---------------------------------«-----|              | ^
  |   |                  |  |  \                                           |              | |
- |   |    |----->-------|  |   \----------->----------|                   |              | |
+ |   |    |-----»-------|  |   \-----------»----------|                   |              | |
  |   |    |                |                          |dispatch()         |              | |
  |   |    |                |                         \|/                  ^              | |
  |   |    |                |          |--|timeout()   |                   |              | |
  |   |    |     post()     |          | \|/           |     post()        |              | |
  |   |    |    |---------- | -->DISPATCHED<---------- | --------------COMPLETING<-----|  | |
  |   |    |    |           |   /|\/|\ |               |                | /|\ /|\      |  | |
- |   |    |    |    |--->- | ---|  |  |startAsync()   |       timeout()|--|   |       |  | |
+ |   |    |    |    |---»- | ---|  |  |startAsync()   |       timeout()|--|   |       |  | |
  |   |    ^    ^    |      |       |  |               |                       |       |  ^ |
  |   |    |    |    |   |-- \ -----|  |   complete()  |                       |post() |  | |
- |   |    |    |    |   |    \        |     /-->----- | ---COMPLETE_PENDING->-|       |  | |
+ |   |    |    |    |   |    \        |     /--»----- | ---COMPLETE_PENDING-»-|       |  | |
  |   |    |    |    |   |     \       |    /          |                               |  | |
  |   |    |    |    |   ^      \      |   /           |                               |  | |
  |  \|/   |    |    |   |       \    \|/ /   post()   |                               |  | |
- | MUST_COMPLETE-<- | - | --<----STARTING-->--------- | -------------|                ^  | |
+ | MUST_COMPLETE-«- | - | --«----STARTING--»--------- | -------------|                ^  | |
  |         /|\      |   |  complete()  | \            |              |     complete() |  | |
  |          |       |   |              |  \           |    post()    |     /----------|  | |
  |          |       ^   |    dispatch()|   \          |    |-----|   |    /              | |
  |          |       |   |              |    \         |    |     |   |   /               | |
  |          |       |   |             \|/    \        |    |    \|/ \|/ /                | ^
- |          |       |   |--<--MUST_DISPATCH-----<-----|    |--<--STARTED--->-------------| |
+ |          |       |   |--«--MUST_DISPATCH-----«-----|    |--«--STARTED---»-------------| |
  |          |       | dispatched() /|\   |     \                / |     \                  |
  |          |       |               |    |      \              /  |      \  nct-io-error   |
- |          |       |               |    |       \            /   |       \---->-----------|
+ |          |       |               |    |       \            /   |       \----»-----------|
  |          |       |               |    |post()  \           |   |
  ^          ^       |               |    |       \|/          |   |
  |          |       ^               |    |  DISPATCH_PENDING  |   |
@@ -184,18 +184,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  |          |       |               |    |  |      |              |
  |          |       |post()         |    |  |      |     timeout()|
  |          |       |dispatched()   |   \|/\|/    \|/             |
- |          |       |---<---------- | ---DISPATCHING              |
+ |          |       |---«---------- | ---DISPATCHING              |
  |          |                       |     |    ^                  |
  |          |                       |     |----|                  |
  |          |                       |    timeout()                |
  |          |                       |                             |
  |          |                       |       dispatch()           \|/
- |          |                       |-----------<-----------TIMING_OUT
+ |          |                       |-----------«-----------TIMING_OUT
  |          |                                                 |   |
- |          |-------<----------------------------------<------|   |
+ |          |-------«----------------------------------«------|   |
  |                              complete()                        |
  |                                                                |
- |<--------<-------------------<-------------------------------<--|
+ |<--------«-------------------«-------------------------------«--|
                                  error()
  </pre></div>
 </li>
@@ -502,7 +502,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.79</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.81</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

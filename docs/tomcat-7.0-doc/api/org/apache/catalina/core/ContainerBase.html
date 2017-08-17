@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ContainerBase (Apache Tomcat 7.0.79 API Documentation)</title>
+<title>ContainerBase (Apache Tomcat 7.0.81 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ContainerBase (Apache Tomcat 7.0.79 API Documentation)";
+        parent.document.title="ContainerBase (Apache Tomcat 7.0.81 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.79</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.81</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -171,7 +171,7 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
  </table>
  Subclasses that fire additional events should document them in the
  class comments of the implementation class.
- 
+
  TODO: Review synchronisation around background processing. See bug 47024.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Craig R. McClanahan</dd></dl>
@@ -196,7 +196,7 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 <tr class="altColor">
 <td class="colFirst"><code>protected class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.ContainerBackgroundProcessor.html" title="class in org.apache.catalina.core">ContainerBase.ContainerBackgroundProcessor</a></strong></code>
-<div class="block">Private thread class to invoke the backgroundProcess method 
+<div class="block">Private thread class to invoke the backgroundProcess method
  of this container and its children after a fixed delay.</div>
 </td>
 </tr>
@@ -481,13 +481,17 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/Cluster.html" title="interface in org.apache.catalina">Cluster</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getClusterInternal()">getClusterInternal</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getDomainInternal()">getDomainInternal</a></strong>()</code>
 <div class="block">Method implemented by sub-classes to identify the domain in which MBeans
  should be registered.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getInfo()">getInfo</a></strong>()</code>
 <div class="block">Return descriptive information about this Container implementation and
@@ -495,11 +499,15 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
  <code>&lt;description&gt;/&lt;version&gt;</code>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Loader.html" title="interface in org.apache.catalina">Loader</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getLoader()">getLoader</a></strong>()</code>
 <div class="block">Return the Loader with which this Container is associated.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/Loader.html" title="interface in org.apache.catalina">Loader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getLoaderInternal()">getLoaderInternal</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging">Log</a></code></td>
@@ -514,54 +522,62 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getManagerInternal()">getManagerInternal</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getMappingObject()">getMappingObject</a></strong>()</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getName()">getName</a></strong>()</code>
 <div class="block">Return a name string (suitable for use by humans) that describes this
  Container.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getParent()">getParent</a></strong>()</code>
 <div class="block">Return the Container for which this Container is a child, if there is
  one.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getParentClassLoader()">getParentClassLoader</a></strong>()</code>
 <div class="block">Return the parent class loader (if any) for this web application.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Pipeline.html" title="interface in org.apache.catalina">Pipeline</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getPipeline()">getPipeline</a></strong>()</code>
 <div class="block">Return the Pipeline object that manages the Valves associated with
  this Container.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getRealm()">getRealm</a></strong>()</code>
 <div class="block">Return the Realm with which this Container is associated.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getRealmInternal()">getRealmInternal</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getResources()">getResources</a></strong>()</code>
 <div class="block">Return the resources DirContext object with which this Container is
  associated.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ContainerBase.html#getResourcesInternal()">getResourcesInternal</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -1030,10 +1046,10 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 <pre>public&nbsp;int&nbsp;getBackgroundProcessorDelay()</pre>
 <div class="block">Get the delay between the invocation of the backgroundProcess method on
  this container and its children. Child containers will not be invoked
- if their delay value is not negative (which would mean they are using 
- their own thread). Setting this to a positive value will cause 
- a thread to be spawn. After waiting the specified amount of time, 
- the thread will invoke the executePeriodic method on this container 
+ if their delay value is not negative (which would mean they are using
+ their own thread). Setting this to a positive value will cause
+ a thread to be spawn. After waiting the specified amount of time,
+ the thread will invoke the executePeriodic method on this container
  and all its children.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
@@ -1053,7 +1069,7 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Container.html#setBackgroundProcessorDelay(int)">setBackgroundProcessorDelay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>delay</code> - The delay in seconds between the invocation of 
+<dt><span class="strong">Parameters:</span></dt><dd><code>delay</code> - The delay in seconds between the invocation of
               backgroundProcess methods</dd></dl>
 </li>
 </ul>
@@ -1087,6 +1103,15 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Container.html#getLoader()">getLoader</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getLoaderInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLoaderInternal</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/Loader.html" title="interface in org.apache.catalina">Loader</a>&nbsp;getLoaderInternal()</pre>
 </li>
 </ul>
 <a name="setLoader(org.apache.catalina.Loader)">
@@ -1133,6 +1158,15 @@ implements <a href="../../../../org/apache/catalina/Container.html" title="inter
 </dl>
 </li>
 </ul>
+<a name="getManagerInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getManagerInternal</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/Manager.html" title="interface in org.apache.catalina">Manager</a>&nbsp;getManagerInternal()</pre>
+</li>
+</ul>
 <a name="setManager(org.apache.catalina.Manager)">
 <!--   -->
 </a>
@@ -1177,6 +1211,15 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.h
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Container.html#getCluster()">getCluster</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getClusterInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClusterInternal</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/Cluster.html" title="interface in org.apache.catalina">Cluster</a>&nbsp;getClusterInternal()</pre>
 </li>
 </ul>
 <a name="setCluster(org.apache.catalina.Cluster)">
@@ -1389,6 +1432,15 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.h
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Container.html#getResources()">getResources</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Container.html" title="interface in org.apache.catalina">Container</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getResourcesInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResourcesInternal</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;getResourcesInternal()</pre>
 </li>
 </ul>
 <a name="setResources(javax.naming.directory.DirContext)">
@@ -1822,7 +1874,7 @@ public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.h
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.79</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.81</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
