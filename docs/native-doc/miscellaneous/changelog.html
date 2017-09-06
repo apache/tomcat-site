@@ -3,6 +3,65 @@
   <p>
   This is the Changelog for Tomcat Native 1.2.
   </p>
+</div><h3 id="Changes_in_1.2.14">Changes in 1.2.14</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix a small memory leak during certificate initialization. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Replace use of deprecated <code>ASN1_STRING_data</code> with
+      <code>ASN1_STRING_get0_data</code> when building against
+      OpenSSL 1.1.0 and newer. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix a thread local key leak. Only relevant when doing
+      SSL.initialize() and Library.terminate() a lot of times. (rjung)
+    </li>
+  </ul>
+</div><h3 id="Changes_in_1.2.13">Changes in 1.2.13</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Add missing source files to Visual Studio project files. (wrowe)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add support for the OpenSSL SSL_CONF API. (rjung)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add SSLContext.getCiphers(). (rjung)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add method to add a single CA certificate to the list of CA certificates
+      which are accepted as issuers of client certificates. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix an error not announcing the correct CA list for client certificates
+      during TLS handshake. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix renegotiation to obtain a client certificate from a user agent.
+      (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=58434">58434</a>: Allow Tomcat Native to be compiled with LibreSSL. Note
+      that some features may not be available when using LibreSSL. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=60290">60290</a>: When building Tomcat Native, don't ignore the value of
+      <code>CC</code> if explicitly set. Patch provided by Michael Osipov.
+      (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=60301">60301</a>: When building Tomcat Native, allow the user to override
+      the libtool specified by APR by setting the <code>LIBTOOL</code>
+      environment variable. (markt)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Update build to use APR 1.6.x, with 1.6.2 recommended. (markt)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Update recommended OpenSSL version to 1.0.2l. (markt)
+    </li>
+  </ul>
 </div><h3 id="Changes_in_1.2.12">Changes in 1.2.12</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Fix: " class="icon" src="../images/fix.gif">
