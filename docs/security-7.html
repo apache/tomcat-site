@@ -218,6 +218,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.81">Fixed in Apache Tomcat 7.0.81</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.79">Fixed in Apache Tomcat 7.0.79</a>
 </li>
 <li>
@@ -374,6 +377,67 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.81">
+<span style="float: right;">16 August 2017</span> Fixed in Apache Tomcat 7.0.81</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12616" rel="nofollow">CVE-2017-12616</a>
+</p>
+
+    
+<p>When using a VirtualDirContext it was possible to bypass security
+       constraints and/or view the source code of JSPs for resources served by
+       the VirtualDirContext using a specially crafted request.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1804729">1804729</a>.</p>
+
+    
+<p>This issue was identified by the Tomcat Security Team on 10 August 2017
+       and made public on 19 September 2017.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.80</p>
+
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12615" rel="nofollow">CVE-2017-12615</a>
+</p>
+
+    
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 7.0.80 but the
+       release vote for the 7.0.81 release candidate did not pass. Therefore,
+       although users must download 7.0.81 to obtain a version that includes
+       the fix for this issue, version 7.0.80 is not included in the list of
+       affected versions.</i>
+</p>
+
+    
+<p>When running on Windows with HTTP PUTs enabled (e.g. via setting the
+       <code>readonly</code> initialisation parameter of the Default to false)
+       it was possible to upload a JSP file to the server via a specially
+       crafted request. This JSP could then be requested and any code it
+       contained would be executed by the server.</p>
+
+    
+<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1804604">1804604</a> and
+       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1804729">1804729</a>.</p>
+
+    
+<p>This issue was reported responsibly to the Apache Tomcat Security Team by
+       iswin from 360-sg-lab (360观星实验室) on 26 July 2017 and made public on 19
+       September 2017.</p>
+
+    
+<p>Affects: 7.0.0 to 7.0.79</p>
 
   
 </div>
