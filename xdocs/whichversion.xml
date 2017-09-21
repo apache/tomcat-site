@@ -192,7 +192,7 @@ run stably for extended periods of time.</p>
 <section name="Apache Tomcat 9.x">
 
 <p><strong>Apache Tomcat 9.x</strong> is the current focus of development, it
-builds on Tomcat 8.0.x and implements the current draft of the <strong>Servlet
+builds on Tomcat 8.0.x and 8.5.x and implements the current draft of the <strong>Servlet
 4.0</strong> specification and will also implement the
 <strong>JSP 2.4?</strong>, <strong>EL 3.1?</strong>, <strong>WebSocket 1.2?
 </strong> and <strong>JASPIC 1.1</strong>  specifications once work starts on
@@ -200,16 +200,17 @@ updating those specifications for Java EE 8. In addition to this, it includes
 the following significant improvements:
 </p>
 <ul>
-<li>Adds support for HTTP/2 (requires the APR/native library)</li>
-<li>Adds support for TLS virtual hosting</li>
-<li>Adds support for using OpenSSL for TLS support with the JSSE connectors (NIO
-    and NIO2)</li>
+<li>Adds support for HTTP/2 (requires the <a href="/native-doc/"
+    >Tomcat Native</a> library; maybe will work without it when running on Java 9 &#8213; in a later release)</li>
+<li>Adds support for using OpenSSL for TLS support with the JSSE connectors
+    (NIO and NIO2) </li>
+<li>Adds support for TLS virtual hosting (SNI)</li>
 </ul>
 
 </section>
 <section name="Apache Tomcat 8.x">
 
-<p><strong>Apache Tomcat 8.x</strong> builds on Tomcat 7.0.x and implements the
+<p><strong>Apache Tomcat 8.0.x</strong> builds on Tomcat 7.0.x and implements the
 <strong>Servlet 3.1</strong>, <strong>JSP 2.3</strong>, <strong>EL 3.0</strong>
 and <strong>WebSocket 1.1</strong> specifications. In addition
 to that, it includes the following significant improvements:
@@ -222,10 +223,44 @@ to that, it includes the following significant improvements:
 <p>
 <strong>Apache Tomcat 8.5.x</strong> supports the same Servlet, JSP, EL, and
 WebSocket Specification versions as Apache Tomcat 8.0.x. In addition to that,
-it also implements the <strong>JASPIC 1.1</strong> specification. There are
-significant changes in many areas under the hood, resulting in improved
-performance, stability, and total cost of ownership.  Please refer to the
-Apache Tomcat 8.5 Changelog for details.
+it also implements the <strong>JASPIC 1.1</strong> specification.
+</p>
+
+<p>
+It was created in March 2016 as a fork from Tomcat 9.0.0.M4 (alpha)
+milestone release. It provides HTTP/2 support and other features from
+Tomcat 9.x codebase, while being compatible with Tomcat 8.0 runtime and
+specification requirements. (A stable release of Tomcat 9.0 could not be
+created at that time, as Java EE specifications targeted by Tomcat 9 were
+finalized only a few years later).
+</p>
+
+<p>Tomcat 8.5 is thought as a replacement for Tomcat 8.0. Please refer to
+<a href="/migration.html">Migration guide</a> for guidance on migrating to
+Tomcat 8.5.</p>
+
+<p>
+Apache Tomcat 8.5.x includes the following significant improvements:
+</p>
+
+<ul>
+<li>Adds support for HTTP/2 (requires the <a href="/native-doc/"
+    >Tomcat Native</a> library)</li>
+<li>Adds support for using OpenSSL for TLS support with the JSSE connectors
+    (NIO and NIO2) </li>
+<li>Adds support for TLS virtual hosting (SNI)</li>
+</ul>
+
+<p>The following technologies were removed in Apache Tomcat 8.5.x:</p>
+
+<ul>
+<li>BIO implementation of HTTP and AJP connectors</li>
+<li>Support for Comet API</li>
+</ul>
+
+<p>There are significant changes in many areas under the hood, resulting in
+improved performance, stability, and total cost of ownership.  Please refer
+to the Apache Tomcat 8.5 Changelog for details.
 </p>
 
 </section>
