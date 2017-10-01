@@ -50,6 +50,29 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.1" rtext="30 September 2017">
+
+    <p><strong>Important: Remote Code Execution</strong>
+       <cve>CVE-2017-12617</cve></p>
+
+    <p>When running on Windows with HTTP PUTs enabled (e.g. via setting the
+       <code>readonly</code> initialisation parameter of the Default to false)
+       it was possible to upload a JSP file to the server via a specially
+       crafted request. This JSP could then be requested and any code it
+       contained would be executed by the server.</p>
+
+    <p>This was fixed in revisions <revlink rev="1809669">1809669</revlink>,
+       <revlink rev="1809674">1809674</revlink>,
+       <revlink rev="1809684">1809684</revlink> and
+       <revlink rev="1809711">1809711</revlink>.</p>
+
+    <p>This issue was first reported publicly followed by multiple reports to
+       the Apache Tomcat Security Team on 20 September 2017.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.0</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.0.M22" rtext="26 June 2017">
 
     <p><strong>Important: Security Constraint Bypass</strong>

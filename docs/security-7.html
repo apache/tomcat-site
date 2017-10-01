@@ -218,6 +218,9 @@
 <a href="#Apache_Tomcat_7.x_vulnerabilities">Apache Tomcat 7.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_7.0.82">Fixed in Apache Tomcat 7.0.82</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_7.0.81">Fixed in Apache Tomcat 7.0.81</a>
 </li>
 <li>
@@ -377,6 +380,38 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_7.0.82">
+<span style="float: right;">TBD October 2017</span> Fixed in Apache Tomcat 7.0.82</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Remote Code Execution</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12617" rel="nofollow">CVE-2017-12617</a>
+</p>
+
+    
+<p>When running on Windows with HTTP PUTs enabled (e.g. via setting the
+       <code>readonly</code> initialisation parameter of the Default to false)
+       it was possible to upload a JSP file to the server via a specially
+       crafted request. This JSP could then be requested and any code it
+       contained would be executed by the server.</p>
+
+    
+<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1809978">1809978</a>,
+       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1809992">1809992</a>,
+       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1810014">1810014</a> and
+       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1810026">1810026</a>.</p>
+
+    
+<p>This issue was first reported publicly followed by multiple reports to
+       the Apache Tomcat Security Team on 20 September 2017.</p>
+
+    
+<p>Affects: 8.0.0.RC1 to 8.0.46</p>
 
   
 </div>
