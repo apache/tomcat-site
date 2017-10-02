@@ -94,28 +94,6 @@
 
   </target>
 
-  <target name="release-6"
-          depends="docs"
-          description="Used after a release to update the docs for Tomcat 6.0">
-
-    <!-- Download the latest version -->
-    <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat60.loc}"/>
-      <param name="destfile" value="${tomcat60.home}/tomcat-6.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat60.home}"/>
-    </antcall>
-
-    <!-- Delete the old version -->
-    <delete dir="${docs.dest}/tomcat-6.0-doc"/>
-
-    <!-- Copy the latest version -->
-    <copy todir="${docs.dest}/tomcat-6.0-doc" >
-      <fileset dir="${tomcat60.home}/tomcat-6.0-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
-  </target>
-
   <target name="release-7"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 7.0">
