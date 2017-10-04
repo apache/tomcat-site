@@ -177,7 +177,7 @@
         <xsl:when test="starts-with(@href, 'https://')">
             <xsl:value-of select="@href"/>
         </xsl:when>
-        <xsl:when test="contains(@href, 'cgi')">
+        <xsl:when test="contains(@href, '.cgi')">
             <xsl:text>https://tomcat.apache.org</xsl:text><xsl:value-of select="@href"/>
         </xsl:when>
 <!--
@@ -203,7 +203,7 @@
         <xsl:when test="starts-with(@href, 'https://')">
             <xsl:value-of select="@href"/>
         </xsl:when>
-        <xsl:when test="contains(@href, 'cgi')">
+        <xsl:when test="contains(@href, '.cgi')">
             <xsl:text>https://tomcat.apache.org/</xsl:text><xsl:value-of select="@href"/>
         </xsl:when>
         <xsl:otherwise>
