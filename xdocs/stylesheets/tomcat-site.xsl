@@ -171,28 +171,51 @@
   <xsl:template match="item">
     <xsl:variable name="href">
       <xsl:choose>
-            <xsl:when test="starts-with(@href, 'http://')">
-                <xsl:value-of select="@href"/>
-            </xsl:when>
-            <xsl:when test="starts-with(@href, 'https://')">
-                <xsl:value-of select="@href"/>
-            </xsl:when>
-            <xsl:when test="contains(@href, 'cgi')">
-                <xsl:text>https://tomcat.apache.org</xsl:text><xsl:value-of select="@href"/>
-            </xsl:when>
+        <xsl:when test="starts-with(@href, 'http://')">
+            <xsl:value-of select="@href"/>
+        </xsl:when>
+        <xsl:when test="starts-with(@href, 'https://')">
+            <xsl:value-of select="@href"/>
+        </xsl:when>
+        <xsl:when test="contains(@href, 'cgi')">
+            <xsl:text>https://tomcat.apache.org</xsl:text><xsl:value-of select="@href"/>
+        </xsl:when>
 <!--
-            <xsl:when test="starts-with(@href, '/site')">
-                <xsl:text>http://tomcat.apache.org</xsl:text><xsl:value-of select="@href"/>
-            </xsl:when>
+        <xsl:when test="starts-with(@href, '/site')">
+            <xsl:text>http://tomcat.apache.org</xsl:text><xsl:value-of select="@href"/>
+        </xsl:when>
 -->
-            <xsl:otherwise>
-                <xsl:value-of select="$relative-path"/><xsl:value-of select="@href"/>
-            </xsl:otherwise>
+        <xsl:otherwise>
+            <xsl:value-of select="$relative-path"/><xsl:value-of select="@href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <li><a href="{$href}"><xsl:value-of select="@name"/></a></li>
   </xsl:template>
 
+  <!-- Process <a> links -->
+  <xsl:template match="a[@href]">
+    <xsl:variable name="href">
+      <xsl:choose>
+        <xsl:when test="starts-with(@href, 'http://')">
+            <xsl:value-of select="@href"/>
+        </xsl:when>
+        <xsl:when test="starts-with(@href, 'https://')">
+            <xsl:value-of select="@href"/>
+        </xsl:when>
+        <xsl:when test="contains(@href, 'cgi')">
+            <xsl:text>https://tomcat.apache.org/</xsl:text><xsl:value-of select="@href"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="@href"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:copy>
+      <xsl:attribute name="href"><xsl:value-of select="$href"/></xsl:attribute>
+      <xsl:apply-templates select="@*[name()!='href']|*|text()"/>
+    </xsl:copy>
+  </xsl:template>
 
   <!-- Process a documentation section -->
   <xsl:template match="section">
