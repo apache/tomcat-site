@@ -143,7 +143,7 @@
 
   <!-- Footer -->
   <footer><div id="footer">
-    Copyright © 1999-2017, The Apache Software Foundation
+    Copyright © 1999-2018, The Apache Software Foundation
     <br/>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are either registered trademarks or trademarks of the Apache
