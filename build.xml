@@ -50,12 +50,9 @@
 
     <!-- Copy static resource files -->
     <echo message="Copying static resource files..." />
-    <copy todir="${docs.dest}/images" filtering="no" overwrite="${force}">
-      <fileset dir="${docs.src}/images">
-        <include name="**/*.gif"/>
-        <include name="**/*.jpeg"/>
-        <include name="**/*.jpg"/>
-        <include name="**/*.png"/>
+    <copy todir="${docs.dest}/res" filtering="no" overwrite="${force}">
+      <fileset dir="${docs.src}/res">
+        <include name="**"/>
       </fileset>
     </copy>
 
@@ -75,11 +72,10 @@
       </fileset>
     </copy>
 
-    <!-- Copy CSS stylesheets and download CGI -->
-    <echo message="Copying CSS and CGI files..." />
+    <!-- Copy download CGI scripts -->
+    <echo message="Copying CGI scripts..." />
     <copy todir="${docs.dest}" filtering="no" overwrite="${force}">
       <fileset dir="${docs.src}">
-        <include name="**/*.css"/>
         <include name="**/*.cgi"/>
       </fileset>
     </copy>

@@ -33,8 +33,8 @@
 
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
-  <xsl:param    name="home-logo"     select="'/images/tomcat.png'"/>
-  <xsl:param    name="asf-logo"      select="'/images/asf_logo.svg'"/>
+  <xsl:param    name="home-logo"     select="'res/images/tomcat.png'"/>
+  <xsl:param    name="asf-logo"      select="'res/images/asf_logo.svg'"/>
   <xsl:param    name="buglink"       select="'https://bz.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
   <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
@@ -58,7 +58,7 @@
        In XHTML, this is not needed as the encoding will be
        specified in the XML declaration.
   -->
-  <link href="stylesheets/tomcat.css" rel="stylesheet" type="text/css"/>
+  <link href="res/css/tomcat.css" rel="stylesheet" type="text/css"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/>&#174; - <xsl:value-of select="properties/title"/></title>
     <xsl:for-each select="properties/author">
@@ -87,14 +87,14 @@
     <div>
       <div>
         <xsl:variable name="src-home-logo">
-          <xsl:value-of select="$relative-path"/><xsl:value-of select="$home-logo"/>
+          <xsl:value-of select="$home-logo"/>
         </xsl:variable>
         <div class="logo noPrint">
           <a href="{$project/@href}"><img alt="Tomcat Home" src="{$src-home-logo}"/></a>
         </div>
 
         <xsl:variable name="src-asf-logo">
-          <xsl:value-of select="$relative-path"/><xsl:value-of select="$asf-logo"/>
+          <xsl:value-of select="$asf-logo"/>
         </xsl:variable>
         <div style="height: 1px;"/>
         <div class="asfLogo noPrint">
