@@ -30,7 +30,7 @@ Sparse checkout:
     cd tomcat-site
     svn update --set-depth immediates docs
     svn update --set-depth infinity xdocs jk-xdocs native-xdocs
-    svn update --set-depth infinity docs/articles docs/images docs/stylesheets
+    svn update --set-depth infinity docs/articles docs/res
 
   This checkout omits a number of subdirectories inside of docs/. You will
   see them as empty subdirectories there. It you need to work on any of
