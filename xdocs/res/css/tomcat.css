@@ -15,9 +15,6 @@
 * limitations under the License.
 */
 
-/* Fonts */
-@import url("fonts/fonts.css");
-
 /* General style */
 
 h1, h2, h3, h4, h5, h6, th {
@@ -39,6 +36,8 @@ code, pre {
 
 img {
   border: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 table {
@@ -86,21 +85,81 @@ main {
   position: relative;
 }
 
-#header .logo {
+.pull-left {
   float: left;
-  padding-top: 20px;
-  min-width: 190px;
 }
 
-#header .logo  img{
-  /* To avoid that the Font Descender being added to the parent div's height */
-  vertical-align: middle;
-}
-
-#header .asfLogo {
+.pull-right {
   float: right;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.menu-toggler {
+  display: none;
+  margin-top: 20px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+/* draw hamburger menu */
+.hamburger {
+  margin: 20px 0 0 4px;
+  transition: 0.4s;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+  display: block;
+  content: "";
+  height: 4px;
+  width: 36px;
+  background: #333;
+  border-radius: 5px;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+/* transform hamburger menu to X */
+.opened .hamburger {
+  transform: rotate(45deg);
+}
+
+.opened .hamburger::before {
+  opacity: 0;
+}
+
+.opened .hamburger::after {
+  transform: translateY(-4px) rotate(-90deg);
+}
+
+
+.tomcat-logo {
+  height: 92px;
+  width: auto;
+  margin: 12px 37px 12px 12px;
+  transition: 0.4s;
+}
+
+.asf-logos {
   position: relative;
   top: 8px;
+}
+
+.asf-logos img {
+  height: 83px;
+  margin-right: 15px;
+  transition: 0.4s;
 }
 
 #header h1 {
@@ -122,18 +181,14 @@ main {
 #middle > div { display: table-row; }
 #middle > div > div { display: table-cell; vertical-align: top; }
 
-
-
 #mainLeft {
   width: 190px;
+  transition: width 0.4s;
 }
 
-#mainLeft > div {
+#nav-wrapper {
   margin-top: -2px; /* to overwrite border of element above - use 1 additional pixel to hide rendering effects */
-  padding-left: 16px;
-  padding-right: 14px;
-  padding-top: 7px;
-  padding-bottom: 15px;
+  padding: 0.75em;
   background-color: #F8F3E4;
   border-right: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
@@ -262,26 +317,74 @@ table.defaultTable th, table.defaultTable td, table.detail-table th, table.detai
 }
 
 
-.searchbox {
-    text-align: right;
-    margin-top: 8px;
-    margin-right: 10px;
-    margin-bottom: 6px;
-}
-
-.searchbox form {
-    padding: 5px 10px;
-    margin: 0;
-}
-
 .socialmedia {
 	margin-right: 40px;
 	float: left;
 }
 
+
+.searchbox {
+  position: relative;
+}
+
+.searchbox form {
+  margin: 0;
+}
+
+.searchbox input[type=search], .searchbox button {
+  height: 25px;
+}
+
+.searchbox button {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 960px){
+  /* target screens smaller than max-width */
+  #header h1 {
+    margin-top: 20px;
+    font-size: 1.67em;
+  }
+
+  .tomcat-logo {
+    margin-left: 24px;
+  }
+
+  .tomcat-logo, .asf-logos img {
+    height: 63px;
+  }
+
+  /* show the menu-toggler */
+  .menu-toggler {
+    display: block;
+  }
+
+  /* hide the navigation */
+  #mainLeft {
+    width: 0;
+  }
+
+  #nav-wrapper {
+    display: none;
+  }
+
+  /* show the navigation when class opened is added to #mainleft */
+  #mainLeft.opened {
+    width: 190px;
+  }
+
+  #mainLeft.opened #nav-wrapper {
+    display: block;
+  }
+
+}
+
+
 /* Printer-only Styles */
 @media print {
-    .noPrint { display: none; }
-    #middle > div > div#mainLeft { display: none; }
-    a { color: inherit; text-decoration: none; }
+  .noPrint  { display: none; }
+  .asf-logos{ display: none; }
+  #mainLeft { display: none; }
+  a { color: inherit; text-decoration: none; }
 }

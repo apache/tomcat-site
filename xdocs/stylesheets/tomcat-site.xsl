@@ -41,11 +41,15 @@
 
   <!-- Defined variables (non-overrideable) -->
 
-
   <!-- Process an entire document into an HTML page -->
   <xsl:template match="document">
-    <xsl:variable name="project"
-                select="document('project.xml')/project"/>
+  <xsl:variable name="project"       select="document('project.xml')/project"/>
+  <xsl:variable name="src-home-logo">
+    <xsl:value-of select="$home-logo"/>
+  </xsl:variable>
+  <xsl:variable name="src-asf-logo">
+    <xsl:value-of select="$asf-logo"/>
+  </xsl:variable>
 
 <html lang="en">
 <head>
@@ -58,7 +62,9 @@
        In XHTML, this is not needed as the encoding will be
        specified in the XML declaration.
   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="res/css/tomcat.css" rel="stylesheet" type="text/css"/>
+  <link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css"/>
     <xsl:apply-templates select="meta"/>
     <title><xsl:value-of select="$project/title"/>&#174; - <xsl:value-of select="properties/title"/></title>
     <xsl:for-each select="properties/author">
@@ -83,47 +89,31 @@
 
   <body>
   <div id="wrapper">
-  <header><div id="header">
-    <div>
-      <div>
-        <xsl:variable name="src-home-logo">
-          <xsl:value-of select="$home-logo"/>
-        </xsl:variable>
-        <div class="logo noPrint">
-          <a href="{$project/@href}"><img alt="Tomcat Home" src="{$src-home-logo}"/></a>
-        </div>
-
-        <xsl:variable name="src-asf-logo">
-          <xsl:value-of select="$asf-logo"/>
-        </xsl:variable>
-        <div style="height: 1px;"/>
-        <div class="asfLogo noPrint">
-          <a href="https://www.apache.org/foundation/contributing.html" target="_blank"><img src="https://www.apache.org/images/SupportApache-small.png" alt="Support Apache" style="height: 83px; margin-right: 15px;"/></a>
-          <a href="http://www.apache.org/" target="_blank"><img src="{$src-asf-logo}" alt="The Apache Software Foundation" style="width: 205px; height: 83px; margin-right: 15px;"/></a>
-        </div>
-        <h1 style="margin-top: 35px;"><xsl:value-of select="$project/title"/><sup>&#174;</sup></h1>
-        <div style="clear: right;"/>
-
-    <!-- Search box: uses CSS positioning -->
-    <div class="searchbox noPrint">
-      <form action="https://www.google.com/search" method="get">
-        <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
-        <input placeholder="Search the Site…" required="required" size="25" name="q" id="query" type="search" />
-        <button>Search</button>
-      </form>
-    </div>
-    <!-- End search box -->
-
-        <div style="height: 1px;"/>
-        <div style="clear: left;"/>
+  <header id="header">
+    <div class="clearfix">
+      <div class="menu-toggler pull-left">
+        <div class="hamburger"></div>
+      </div>
+      <a href="{$project/@href}"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="{$src-home-logo}"/></a>
+      <h1 class="pull-left"><xsl:value-of select="$project/title"/><sup>&#174;</sup></h1>
+      <div class="asf-logos pull-right">
+        <a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"/></a>
+        <a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="{$src-asf-logo}" class="asf-logo" alt="The Apache Software Foundation"/></a>
       </div>
     </div>
-  </div></header>
+  </header>
 
-  <div id="middle">
+  <main id="middle">
     <div>
-      <div id="mainLeft" class="noprint">
-        <div>
+      <div id="mainLeft">
+        <div id="nav-wrapper">
+          <div class="searchbox">
+            <form action="https://www.google.com/search" method="get">
+              <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
+              <input placeholder="Search…" required="required" name="q" id="query" type="search" />
+              <button>GO</button>
+            </form>
+          </div>
           <!-- Navigation -->
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
@@ -139,17 +129,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Footer -->
-  <footer><div id="footer">
+  <footer id="footer">
     Copyright © 1999-2018, The Apache Software Foundation
     <br/>
     Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are either registered trademarks or trademarks of the Apache
     Software Foundation.
-  </div></footer>
+  </footer>
 </div>
+<script src="res/js/tomcat.js"></script>
+<script>
+  addLiveEventListeners(".menu-toggler", "click", function(evt){
+    toggleClass("#mainLeft", "opened");
+    toggleClass(".menu-toggler", "opened");
+  });
+</script>
 </body>
 </html>
 
@@ -237,7 +234,7 @@
     <h3 id="{$name}">
       <xsl:if test="@rtext">
         <!-- Additional right-aligned text cell in section heading. -->
-        <span style="float: right;">
+        <span class="pull-right">
           <xsl:value-of select="@rtext"/>
         </span><xsl:text>&#x20;</xsl:text> <!-- Ensure a space follows after </span> -->
       </xsl:if>
