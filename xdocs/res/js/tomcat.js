@@ -31,11 +31,21 @@ function addLiveEventListeners(selector, event, handler){
                     handler(evt);
                     return;
                 }
-
                 target = target.parentElement;
             }
         }
         ,true
+    );
+}
+
+
+/** adds event listener to the elements that match the selector */
+function addEventListeners(selector, event, handler, useCapture){
+    [].forEach.call(
+        document.querySelectorAll(selector)
+       ,function(el, ix) {
+          el.addEventListener(event, handler, useCapture || false);
+        }
     );
 }
 
@@ -51,3 +61,19 @@ function toggleClass(selector, className){
     });
 }
 
+
+function toggleMenu(){
+    toggleClass("#mainLeft", "opened");
+    toggleClass(".menu-toggler", "opened");
+}
+
+
+addEventListeners(".menu-toggler", "click", function(evt){
+    toggleMenu();
+});
+
+
+addEventListeners(".menu-toggler", "keyup", function(evt){
+    if (evt.which == 13)
+        toggleMenu();
+});

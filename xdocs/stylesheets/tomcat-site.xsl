@@ -91,7 +91,7 @@
   <div id="wrapper">
   <header id="header">
     <div class="clearfix">
-      <div class="menu-toggler pull-left">
+      <div class="menu-toggler pull-left" tabindex="1">
         <div class="hamburger"></div>
       </div>
       <a href="{$project/@href}"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="{$src-home-logo}"/></a>
@@ -107,13 +107,13 @@
     <div>
       <div id="mainLeft">
         <div id="nav-wrapper">
-          <div class="searchbox">
-            <form action="https://www.google.com/search" method="get">
+          <form action="https://www.google.com/search" method="get">
+            <div class="searchbox">
               <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
               <input placeholder="Search…" required="required" name="q" id="query" type="search" />
               <button>GO</button>
-            </form>
-          </div>
+            </div>
+          </form>
           <!-- Navigation -->
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
@@ -141,12 +141,6 @@
   </footer>
 </div>
 <script src="res/js/tomcat.js"></script>
-<script>
-  addLiveEventListeners(".menu-toggler", "click", function(evt){
-    toggleClass("#mainLeft", "opened");
-    toggleClass(".menu-toggler", "opened");
-  });
-</script>
 </body>
 </html>
 
