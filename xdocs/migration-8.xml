@@ -187,12 +187,19 @@ of Apache Tomcat.</p>
 
   <subsection name="Database Connection Pooling">
 
-    <p>Tomcat 8 embeds a packaged renamed version of
-    <a href="http://commons.apache.org/proper/commons-dbcp/">Apache Commons DBCP</a>
-    2.x as the default implementation of a
-    <a href="tomcat-8.0-doc/jndi-datasource-examples-howto.html">database connection pool</a>.
-    There are a number of notable changes between Commons DBCP 1.x
-    (used by Tomcat 7 and earlier) and Commons DBCP 2.x
+    <p>Tomcat 8, as well as Tomcat 7, is shipped with two implementations
+    of a database connection pool. The
+    <a href="tomcat-8.0-doc/jndi-datasource-examples-howto.html"
+    >first implementation</a> (the default one; though technically this can
+    be changed via <code>javax.sql.DataSource.Factory</code>
+    system property) is a copy of <a
+    href="http://commons.apache.org/proper/commons-dbcp/"
+    >Apache Commons DBCP</a> 2.x project, renamed to a different package.
+    The <a href="tomcat-8.0-doc/jdbc-pool.html">second implementation</a>
+    is Tomcat JDBC Connection Pool, a separate project.</p>
+
+    <p>There are a number of notable changes between Apache Commons DBCP 1.x
+    (used by Tomcat 7 and earlier) and Apache Commons DBCP 2.x
     which are likely to require configuration changes.</p>
     <ul>
       <li>The <code>maxActive</code> configuration option has been renamed
@@ -215,6 +222,10 @@ of Apache Tomcat.</p>
     <p>Additionally, Commons DBCP has added a number of new configuration
     options. These should be reviewed to determine which, if any, should be
     used.</p>
+
+    <p>Note that the above changes are not needed if you are using
+    Tomcat JDBC Connection Pool (or any 3-rd party database connection
+    pool implementation).</p>
 
   </subsection>
 
