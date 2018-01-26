@@ -14,9 +14,6 @@
 * limitations under the License.
 */
 
-/** Author: Igal Sapir */
-
-
 /** adds a live event handler akin to jQuery's on() */
 function addLiveEventListeners(selector, event, handler){
     document.querySelector("body").addEventListener(
