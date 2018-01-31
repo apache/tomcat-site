@@ -208,6 +208,9 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.2">Fixed in Apache Tomcat 9.0.2</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.1">Fixed in Apache Tomcat 9.0.1</a>
 </li>
 <li>
@@ -286,6 +289,37 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.2">
+<span class="pull-right">30 November 2017</span> Fixed in Apache Tomcat 9.0.2</h3>
+<div class="text">
+
+    
+<p>
+<strong>Low: Incorrectly documented CGI search algorithm</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15706" rel="nofollow">CVE-2017-15706</a>
+</p>
+
+    
+<p>As part of the fix for bug <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=61201">61201</a>, the description of the
+       search algorithm used by the CGI Servlet to identify which script to
+       execute was updated. The update was not correct. As a result, some
+       scripts may have failed to execute as expected and other scripts may have
+       been executed unexpectedly. Note that the behaviour of the CGI servlet
+       has remained unchanged in this regard. It is only the documentation of
+       the behaviour that was wrong and has been corrected.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1814825">1814825</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by Michael
+       Grenier on 17 September 2017 and made public on 31 January 2018.</p>
+
+    
+<p>Affects: 9.0.0.M22 to 9.0.1</p>
 
   
 </div>
