@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>WebAnnotationSet (Apache Tomcat 7.0.84 API Documentation)</title>
+<title>WebAnnotationSet (Apache Tomcat 7.0.85 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="WebAnnotationSet (Apache Tomcat 7.0.84 API Documentation)";
+        parent.document.title="WebAnnotationSet (Apache Tomcat 7.0.85 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.84</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.85</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -97,10 +97,9 @@
 <br>
 <pre>public class <span class="strong">WebAnnotationSet</span>
 extends java.lang.Object</pre>
-<div class="block"><p><strong>AnnotationSet</strong> for processing the annotations of the web application
- classes (<code>/WEB-INF/classes</code> and <code>/WEB-INF/lib</code>).</p></div>
-<dl><dt><span class="strong">Author:</span></dt>
-  <dd>Fabien Carrion</dd></dl>
+<div class="block"><strong>AnnotationSet</strong> for processing the annotations of the web
+ application classes (<code>/WEB-INF/classes</code> and
+ <code>/WEB-INF/lib</code>).</div>
 </li>
 </ul>
 </div>
@@ -198,19 +197,19 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/WebAnnotationSet.html#loadClassAnnotation(org.apache.catalina.Context,%20java.lang.Class)">loadClassAnnotation</a></strong>(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                   java.lang.Class&lt;?&gt;&nbsp;classClass)</code>
+                   java.lang.Class&lt;?&gt;&nbsp;clazz)</code>
 <div class="block">Process the annotations on a context for a given className.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/WebAnnotationSet.html#loadFieldsAnnotation(org.apache.catalina.Context,%20java.lang.Class)">loadFieldsAnnotation</a></strong>(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                    java.lang.Class&lt;?&gt;&nbsp;classClass)</code>&nbsp;</td>
+                    java.lang.Class&lt;?&gt;&nbsp;clazz)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/WebAnnotationSet.html#loadMethodsAnnotation(org.apache.catalina.Context,%20java.lang.Class)">loadMethodsAnnotation</a></strong>(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                     java.lang.Class&lt;?&gt;&nbsp;classClass)</code>&nbsp;</td>
+                     java.lang.Class&lt;?&gt;&nbsp;clazz)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -277,6 +276,7 @@ extends java.lang.Object</pre>
 <h4>loadApplicationAnnotations</h4>
 <pre>public static&nbsp;void&nbsp;loadApplicationAnnotations(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</pre>
 <div class="block">Process the annotations on a context.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd></dl>
 </li>
 </ul>
 <a name="loadApplicationListenerAnnotations(org.apache.catalina.Context)">
@@ -287,6 +287,7 @@ extends java.lang.Object</pre>
 <h4>loadApplicationListenerAnnotations</h4>
 <pre>protected static&nbsp;void&nbsp;loadApplicationListenerAnnotations(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</pre>
 <div class="block">Process the annotations for the listeners.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd></dl>
 </li>
 </ul>
 <a name="loadApplicationFilterAnnotations(org.apache.catalina.Context)">
@@ -297,6 +298,7 @@ extends java.lang.Object</pre>
 <h4>loadApplicationFilterAnnotations</h4>
 <pre>protected static&nbsp;void&nbsp;loadApplicationFilterAnnotations(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</pre>
 <div class="block">Process the annotations for the filters.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd></dl>
 </li>
 </ul>
 <a name="loadApplicationServletAnnotations(org.apache.catalina.Context)">
@@ -307,6 +309,7 @@ extends java.lang.Object</pre>
 <h4>loadApplicationServletAnnotations</h4>
 <pre>protected static&nbsp;void&nbsp;loadApplicationServletAnnotations(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context)</pre>
 <div class="block">Process the annotations for the servlets.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd></dl>
 </li>
 </ul>
 <a name="loadClassAnnotation(org.apache.catalina.Context, java.lang.Class)">
@@ -316,8 +319,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>loadClassAnnotation</h4>
 <pre>protected static&nbsp;void&nbsp;loadClassAnnotation(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                       java.lang.Class&lt;?&gt;&nbsp;classClass)</pre>
+                       java.lang.Class&lt;?&gt;&nbsp;clazz)</pre>
 <div class="block">Process the annotations on a context for a given className.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd><dd><code>clazz</code> - The class to examine for Servlet annotations</dd></dl>
 </li>
 </ul>
 <a name="loadFieldsAnnotation(org.apache.catalina.Context, java.lang.Class)">
@@ -327,7 +331,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>loadFieldsAnnotation</h4>
 <pre>protected static&nbsp;void&nbsp;loadFieldsAnnotation(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                        java.lang.Class&lt;?&gt;&nbsp;classClass)</pre>
+                        java.lang.Class&lt;?&gt;&nbsp;clazz)</pre>
 </li>
 </ul>
 <a name="loadMethodsAnnotation(org.apache.catalina.Context, java.lang.Class)">
@@ -337,7 +341,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>loadMethodsAnnotation</h4>
 <pre>protected static&nbsp;void&nbsp;loadMethodsAnnotation(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
-                         java.lang.Class&lt;?&gt;&nbsp;classClass)</pre>
+                         java.lang.Class&lt;?&gt;&nbsp;clazz)</pre>
 </li>
 </ul>
 <a name="addResource(org.apache.catalina.Context, javax.annotation.Resource)">
@@ -352,6 +356,7 @@ extends java.lang.Object</pre>
  Ref JSR 250, equivalent to the resource-ref,
  message-destination-ref, env-ref, resource-env-ref
  or service-ref element in the deployment descriptor.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The context which will have its annotations processed</dd><dd><code>annotation</code> - The annotation that was found</dd></dl>
 </li>
 </ul>
 <a name="addResource(org.apache.catalina.Context, javax.annotation.Resource, java.lang.String, java.lang.Class)">
@@ -388,7 +393,7 @@ extends java.lang.Object</pre>
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.84</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.85</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
