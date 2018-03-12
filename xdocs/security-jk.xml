@@ -28,6 +28,24 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.43">
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2018-1323</cve></p>
+
+    <p>The IIS/ISAPI specific code that normalised the requested path before
+       matching it to the URI-worker map did not handle some edge cases
+       correctly. If only a sub-set of the URLs supported by Tomcat were exposed
+       via IIS, then it was possible for a specially constructed request to
+       expose application functionality through the reverse proxy that was not
+       intended for clients accessing the application via the reverse proxy.</p>
+
+    <p>This was fixed in <revlink rev="1825658">revision 1825658</revlink>.</p>
+
+    <p>Affects: JK 1.2.0-1.2.42</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat JK Connector 1.2.42">
 
     <p><strong>Moderate: Buffer Overflow</strong>
