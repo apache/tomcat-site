@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>FragmentationInterceptor (Apache Tomcat 8.5.29 API Documentation)</title>
+<title>FragmentationInterceptor (Apache Tomcat 8.5.30 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="FragmentationInterceptor (Apache Tomcat 8.5.29 API Documentation)";
+        parent.document.title="FragmentationInterceptor (Apache Tomcat 8.5.30 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.29</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.30</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -100,20 +100,21 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../../org/apache/catalina/tribes/ChannelInterceptor.html" title="interface in org.apache.catalina.tribes">ChannelInterceptor</a>, <a href="../../../../../../org/apache/catalina/tribes/Heartbeat.html" title="interface in org.apache.catalina.tribes">Heartbeat</a>, <a href="../../../../../../org/apache/catalina/tribes/MembershipListener.html" title="interface in org.apache.catalina.tribes">MembershipListener</a></dd>
+<dd><a href="../../../../../../org/apache/catalina/tribes/ChannelInterceptor.html" title="interface in org.apache.catalina.tribes">ChannelInterceptor</a>, <a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a>, <a href="../../../../../../org/apache/catalina/tribes/Heartbeat.html" title="interface in org.apache.catalina.tribes">Heartbeat</a>, <a href="../../../../../../org/apache/catalina/tribes/MembershipListener.html" title="interface in org.apache.catalina.tribes">MembershipListener</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">FragmentationInterceptor</span>
-extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInterceptorBase.html" title="class in org.apache.catalina.tribes.group">ChannelInterceptorBase</a></pre>
+extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInterceptorBase.html" title="class in org.apache.catalina.tribes.group">ChannelInterceptorBase</a>
+implements <a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a></pre>
 <div class="block">The fragmentation interceptor splits up large messages into smaller messages and assembles them on the other end.
  This is very useful when you don't want large messages hogging the sending sockets
  and smaller messages can make it through.
 
  <br><b>Configuration Options</b><br>
- OrderInterceptor.expire=&lt;milliseconds&gt; - how long do we keep the fragments in memory and wait for the rest to arrive<b>default=60,000ms -&gt; 60seconds</b>
+ FragmentationInterceptor.expire=&lt;milliseconds&gt; - how long do we keep the fragments in memory and wait for the rest to arrive <b>default=60,000ms -&gt; 60seconds</b>
  This setting is useful to avoid OutOfMemoryErrors<br>
- OrderInterceptor.maxSize=&lt;max message size&gt; - message size in bytes <b>default=1024*100 (around a tenth of a MB)</b><br></div>
+ FragmentationInterceptor.maxSize=&lt;max message size&gt; - message size in bytes <b>default=1024*100 (around a tenth of a MB)</b><br></div>
 <dl><dt><span class="strong">Version:</span></dt>
   <dd>1.0</dd></dl>
 </li>
@@ -474,6 +475,10 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li class="blockList">
 <h4>getMaxSize</h4>
 <pre>public&nbsp;int&nbsp;getMaxSize()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html#getMaxSize()">getMaxSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="getExpire()">
@@ -483,6 +488,10 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li class="blockList">
 <h4>getExpire</h4>
 <pre>public&nbsp;long&nbsp;getExpire()</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html#getExpire()">getExpire</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="setMaxSize(int)">
@@ -492,6 +501,10 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li class="blockList">
 <h4>setMaxSize</h4>
 <pre>public&nbsp;void&nbsp;setMaxSize(int&nbsp;maxSize)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html#setMaxSize(int)">setMaxSize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="setExpire(long)">
@@ -501,6 +514,10 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li class="blockList">
 <h4>setExpire</h4>
 <pre>public&nbsp;void&nbsp;setExpire(long&nbsp;expire)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html#setExpire(long)">setExpire</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/catalina/tribes/group/interceptors/FragmentationInterceptorMBean.html" title="interface in org.apache.catalina.tribes.group.interceptors">FragmentationInterceptorMBean</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -525,7 +542,7 @@ extends <a href="../../../../../../org/apache/catalina/tribes/group/ChannelInter
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.29</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.30</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
