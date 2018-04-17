@@ -107,6 +107,7 @@
     <div>
       <div id="mainLeft">
         <div id="nav-wrapper">
+          <!-- Search -->
           <form action="https://www.google.com/search" method="get">
             <div class="searchbox">
               <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
@@ -115,6 +116,11 @@
             </div>
           </form>
           <!-- Navigation -->
+          <div class="asfevents">
+            <a href="https://www.apache.org/events/current-event.html">
+              <img src="https://www.apache.org/events/current-event-234x60.png"/>
+            </a>
+          </div>
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
           </nav>
