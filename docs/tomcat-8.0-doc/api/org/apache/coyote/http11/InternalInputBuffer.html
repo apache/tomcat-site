@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>InternalInputBuffer (Apache Tomcat 8.0.51 API Documentation)</title>
+<title>InternalInputBuffer (Apache Tomcat 8.0.52 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="InternalInputBuffer (Apache Tomcat 8.0.51 API Documentation)";
+        parent.document.title="InternalInputBuffer (Apache Tomcat 8.0.52 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.51</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -149,7 +149,7 @@ extends <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" 
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;org.apache.coyote.http11.<a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" title="class in org.apache.coyote.http11">AbstractInputBuffer</a></h3>
-<code><a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#activeFilters">activeFilters</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#buf">buf</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#end">end</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#filterLibrary">filterLibrary</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#headers">headers</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#inputStreamInputBuffer">inputStreamInputBuffer</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#lastActiveFilter">lastActiveFilter</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#lastValid">lastValid</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#parsingHeader">parsingHeader</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#pos">pos</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#rejectIllegalHeaderName">rejectIllegalHeaderName</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#request">request</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#sm">sm</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#swallowInput">swallowInput</a></code></li>
+<code><a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#activeFilters">activeFilters</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#buf">buf</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#end">end</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#filterLibrary">filterLibrary</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#headers">headers</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#httpParser">httpParser</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#inputStreamInputBuffer">inputStreamInputBuffer</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#lastActiveFilter">lastActiveFilter</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#lastValid">lastValid</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#parsingHeader">parsingHeader</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#pos">pos</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#rejectIllegalHeaderName">rejectIllegalHeaderName</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#request">request</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#sm">sm</a>, <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html#swallowInput">swallowInput</a></code></li>
 </ul>
 </li>
 </ul>
@@ -165,9 +165,10 @@ extends <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" 
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../org/apache/coyote/http11/InternalInputBuffer.html#InternalInputBuffer(org.apache.coyote.Request,%20int,%20boolean)">InternalInputBuffer</a></strong>(<a href="../../../../org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a>&nbsp;request,
+<td class="colOne"><code><strong><a href="../../../../org/apache/coyote/http11/InternalInputBuffer.html#InternalInputBuffer(org.apache.coyote.Request,%20int,%20boolean,%20org.apache.tomcat.util.http.parser.HttpParser)">InternalInputBuffer</a></strong>(<a href="../../../../org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a>&nbsp;request,
                    int&nbsp;headerBufferSize,
-                   boolean&nbsp;rejectIllegalHeaderName)</code>
+                   boolean&nbsp;rejectIllegalHeaderName,
+                   <a href="../../../../org/apache/tomcat/util/http/parser/HttpParser.html" title="class in org.apache.tomcat.util.http.parser">HttpParser</a>&nbsp;httpParser)</code>
 <div class="block">Default constructor.</div>
 </td>
 </tr>
@@ -261,7 +262,7 @@ extends <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" 
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="InternalInputBuffer(org.apache.coyote.Request, int, boolean)">
+<a name="InternalInputBuffer(org.apache.coyote.Request, int, boolean, org.apache.tomcat.util.http.parser.HttpParser)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -269,7 +270,8 @@ extends <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" 
 <h4>InternalInputBuffer</h4>
 <pre>public&nbsp;InternalInputBuffer(<a href="../../../../org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a>&nbsp;request,
                    int&nbsp;headerBufferSize,
-                   boolean&nbsp;rejectIllegalHeaderName)</pre>
+                   boolean&nbsp;rejectIllegalHeaderName,
+                   <a href="../../../../org/apache/tomcat/util/http/parser/HttpParser.html" title="class in org.apache.tomcat.util.http.parser">HttpParser</a>&nbsp;httpParser)</pre>
 <div class="block">Default constructor.</div>
 </li>
 </ul>
@@ -433,7 +435,7 @@ extends <a href="../../../../org/apache/coyote/http11/AbstractInputBuffer.html" 
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.51</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
