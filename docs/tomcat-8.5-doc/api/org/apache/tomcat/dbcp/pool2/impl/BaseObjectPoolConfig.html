@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BaseObjectPoolConfig (Apache Tomcat 8.5.31 API Documentation)</title>
+<title>BaseObjectPoolConfig (Apache Tomcat 8.5.32 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="BaseObjectPoolConfig (Apache Tomcat 8.5.31 API Documentation)";
+        parent.document.title="BaseObjectPoolConfig (Apache Tomcat 8.5.32 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.31</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -79,7 +79,7 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.apache.tomcat.dbcp.pool2.impl</div>
-<h2 title="Class BaseObjectPoolConfig" class="title">Class BaseObjectPoolConfig</h2>
+<h2 title="Class BaseObjectPoolConfig" class="title">Class BaseObjectPoolConfig&lt;T&gt;</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -89,7 +89,7 @@
 <li><a href="../../../../../../org/apache/tomcat/dbcp/pool2/BaseObject.html" title="class in org.apache.tomcat.dbcp.pool2">org.apache.tomcat.dbcp.pool2.BaseObject</a></li>
 <li>
 <ul class="inheritance">
-<li>org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig</li>
+<li>org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
@@ -98,6 +98,7 @@
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl><dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - Type of element pooled.</dd></dl>
 <dl>
 <dt>All Implemented Interfaces:</dt>
 <dd>java.lang.Cloneable</dd>
@@ -108,14 +109,15 @@
 </dl>
 <hr>
 <br>
-<pre>public abstract class <span class="strong">BaseObjectPoolConfig</span>
+<pre>public abstract class <span class="strong">BaseObjectPoolConfig&lt;T&gt;</span>
 extends <a href="../../../../../../org/apache/tomcat/dbcp/pool2/BaseObject.html" title="class in org.apache.tomcat.dbcp.pool2">BaseObject</a>
 implements java.lang.Cloneable</pre>
 <div class="block">Provides the implementation for the common attributes shared by the
  sub-classes. New instances of this class will be created using the defaults
  defined by the public constants.
  <p>
- This class is not thread-safe.</div>
+ This class is not thread-safe.
+ </p></div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>2.0</dd></dl>
 </li>
@@ -288,34 +290,41 @@ implements java.lang.Cloneable</pre>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/EvictionPolicy.html" title="interface in org.apache.tomcat.dbcp.pool2.impl">EvictionPolicy</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html" title="type parameter in BaseObjectPoolConfig">T</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getEvictionPolicy()">getEvictionPolicy</a></strong>()</code>
+<div class="block">Get the value for the <code>evictionPolicyClass</code> configuration
+ attribute for pools created with this configuration instance.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getEvictionPolicyClassName()">getEvictionPolicyClassName</a></strong>()</code>
 <div class="block">Get the value for the <code>evictionPolicyClassName</code> configuration
  attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getEvictorShutdownTimeoutMillis()">getEvictorShutdownTimeoutMillis</a></strong>()</code>
 <div class="block">Get the value for the <code>evictorShutdownTimeoutMillis</code> configuration
  attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getFairness()">getFairness</a></strong>()</code>
 <div class="block">Get the value for the <code>fairness</code> configuration attribute for pools
  created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getJmxEnabled()">getJmxEnabled</a></strong>()</code>
 <div class="block">Gets the value of the flag that determines if JMX will be enabled for
  pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getJmxNameBase()">getJmxNameBase</a></strong>()</code>
 <div class="block">Gets the value of the JMX name base that will be used as part of the
@@ -323,7 +332,7 @@ implements java.lang.Cloneable</pre>
  instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getJmxNamePrefix()">getJmxNamePrefix</a></strong>()</code>
 <div class="block">Gets the value of the JMX name prefix that will be used as part of the
@@ -331,35 +340,35 @@ implements java.lang.Cloneable</pre>
  instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getLifo()">getLifo</a></strong>()</code>
 <div class="block">Get the value for the <code>lifo</code> configuration attribute for pools
  created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getMaxWaitMillis()">getMaxWaitMillis</a></strong>()</code>
 <div class="block">Get the value for the <code>maxWait</code> configuration attribute for pools
  created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getMinEvictableIdleTimeMillis()">getMinEvictableIdleTimeMillis</a></strong>()</code>
 <div class="block">Get the value for the <code>minEvictableIdleTimeMillis</code> configuration
  attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getNumTestsPerEvictionRun()">getNumTestsPerEvictionRun</a></strong>()</code>
 <div class="block">Get the value for the <code>numTestsPerEvictionRun</code> configuration
  attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getSoftMinEvictableIdleTimeMillis()">getSoftMinEvictableIdleTimeMillis</a></strong>()</code>
 <div class="block">Get the value for the <code>softMinEvictableIdleTimeMillis</code>
@@ -367,46 +376,53 @@ implements java.lang.Cloneable</pre>
  instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getTestOnBorrow()">getTestOnBorrow</a></strong>()</code>
 <div class="block">Get the value for the <code>testOnBorrow</code> configuration attribute for
  pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getTestOnCreate()">getTestOnCreate</a></strong>()</code>
 <div class="block">Get the value for the <code>testOnCreate</code> configuration attribute for
  pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getTestOnReturn()">getTestOnReturn</a></strong>()</code>
 <div class="block">Get the value for the <code>testOnReturn</code> configuration attribute for
  pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getTestWhileIdle()">getTestWhileIdle</a></strong>()</code>
 <div class="block">Get the value for the <code>testWhileIdle</code> configuration attribute for
  pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#getTimeBetweenEvictionRunsMillis()">getTimeBetweenEvictionRunsMillis</a></strong>()</code>
 <div class="block">Get the value for the <code>timeBetweenEvictionRunsMillis</code> configuration
  attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#setBlockWhenExhausted(boolean)">setBlockWhenExhausted</a></strong>(boolean&nbsp;blockWhenExhausted)</code>
 <div class="block">Set the value for the <code>blockWhenExhausted</code> configuration attribute
  for pools created with this configuration instance.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html#setEvictionPolicy(org.apache.tomcat.dbcp.pool2.impl.EvictionPolicy)">setEvictionPolicy</a></strong>(<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/EvictionPolicy.html" title="interface in org.apache.tomcat.dbcp.pool2.impl">EvictionPolicy</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html" title="type parameter in BaseObjectPoolConfig">T</a>&gt;&nbsp;evictionPolicy)</code>
+<div class="block">Set the value for the <code>evictionPolicyClass</code> configuration
+ attribute for pools created with this configuration instance.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -787,8 +803,7 @@ implements java.lang.Cloneable</pre>
 <div class="block">The default value for the <code>evictionPolicyClassName</code> configuration
  attribute.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicyClassName()"><code>BaseGenericObjectPool.getEvictionPolicyClassName()</code></a>, 
-<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicyClassName()"><code>BaseGenericObjectPool.getEvictionPolicyClassName()</code></a>, 
-<a href="../../../../../../constant-values.html#org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig.DEFAULT_EVICTION_POLICY_CLASS_NAME">Constant Field Values</a></dd></dl>
+<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicyClassName()"><code>BaseGenericObjectPool.getEvictionPolicyClassName()</code></a></dd></dl>
 </li>
 </ul>
 </li>
@@ -1161,6 +1176,22 @@ implements java.lang.Cloneable</pre>
 <a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getTimeBetweenEvictionRunsMillis()"><code>BaseGenericObjectPool.getTimeBetweenEvictionRunsMillis()</code></a></dd></dl>
 </li>
 </ul>
+<a name="getEvictionPolicy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEvictionPolicy</h4>
+<pre>public&nbsp;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/EvictionPolicy.html" title="interface in org.apache.tomcat.dbcp.pool2.impl">EvictionPolicy</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html" title="type parameter in BaseObjectPoolConfig">T</a>&gt;&nbsp;getEvictionPolicy()</pre>
+<div class="block">Get the value for the <code>evictionPolicyClass</code> configuration
+ attribute for pools created with this configuration instance.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The current setting of <code>evictionPolicyClass</code> for this
+          configuration instance</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.6.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicy()"><code>BaseGenericObjectPool.getEvictionPolicy()</code></a>, 
+<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicy()"><code>BaseGenericObjectPool.getEvictionPolicy()</code></a></dd></dl>
+</li>
+</ul>
 <a name="getEvictionPolicyClassName()">
 <!--   -->
 </a>
@@ -1173,6 +1204,22 @@ implements java.lang.Cloneable</pre>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The current setting of <code>evictionPolicyClassName</code> for this
           configuration instance</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicyClassName()"><code>BaseGenericObjectPool.getEvictionPolicyClassName()</code></a>, 
 <a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicyClassName()"><code>BaseGenericObjectPool.getEvictionPolicyClassName()</code></a></dd></dl>
+</li>
+</ul>
+<a name="setEvictionPolicy(org.apache.tomcat.dbcp.pool2.impl.EvictionPolicy)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEvictionPolicy</h4>
+<pre>public&nbsp;void&nbsp;setEvictionPolicy(<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/EvictionPolicy.html" title="interface in org.apache.tomcat.dbcp.pool2.impl">EvictionPolicy</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseObjectPoolConfig.html" title="type parameter in BaseObjectPoolConfig">T</a>&gt;&nbsp;evictionPolicy)</pre>
+<div class="block">Set the value for the <code>evictionPolicyClass</code> configuration
+ attribute for pools created with this configuration instance.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>evictionPolicy</code> - The new setting of
+        <code>evictionPolicyClass</code> for this configuration instance</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.6.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicy()"><code>BaseGenericObjectPool.getEvictionPolicy()</code></a>, 
+<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.html#getEvictionPolicy()"><code>BaseGenericObjectPool.getEvictionPolicy()</code></a></dd></dl>
 </li>
 </ul>
 <a name="setEvictionPolicyClassName(java.lang.String)">
@@ -1339,7 +1386,7 @@ implements java.lang.Cloneable</pre>
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.31</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
