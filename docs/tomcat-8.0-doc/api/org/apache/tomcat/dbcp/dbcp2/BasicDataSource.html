@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BasicDataSource (Apache Tomcat 8.0.52 API Documentation)</title>
+<title>BasicDataSource (Apache Tomcat 8.0.53 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="BasicDataSource (Apache Tomcat 8.0.52 API Documentation)";
+        parent.document.title="BasicDataSource (Apache Tomcat 8.0.53 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.53</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -102,14 +102,13 @@
 <pre>public class <span class="strong">BasicDataSource</span>
 extends java.lang.Object
 implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a>, javax.management.MBeanRegistration, java.lang.AutoCloseable</pre>
-<div class="block"><p>Basic implementation of <code>javax.sql.DataSource</code> that is
- configured via JavaBeans properties.  This is not the only way to
- combine the <em>commons-dbcp2</em> and <em>commons-pool2</em> packages,
- but provides a "one stop shopping" solution for basic requirements.</p></div>
+<div class="block"><p>
+ Basic implementation of <code>javax.sql.DataSource</code> that is configured via JavaBeans properties. This is not
+ the only way to combine the <em>commons-dbcp2</em> and <em>commons-pool2</em> packages, but provides a "one stop
+ shopping" solution for basic requirements.
+ </p></div>
 <dl><dt><span class="strong">Since:</span></dt>
-  <dd>2.0</dd>
-<dt><span class="strong">Author:</span></dt>
-  <dd>Glenn L. Nielsen, Craig R. McClanahan, Dirk Verbeeck</dd></dl>
+  <dd>2.0</dd></dl>
 </li>
 </ul>
 </div>
@@ -149,15 +148,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#addConnectionProperty(java.lang.String,%20java.lang.String)">addConnectionProperty</a></strong>(java.lang.String&nbsp;name,
                      java.lang.String&nbsp;value)</code>
-<div class="block">Add a custom connection property to the set that will be passed to our
- JDBC driver.</div>
+<div class="block">Adds a custom connection property to the set that will be passed to our JDBC driver.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#close()">close</a></strong>()</code>
-<div class="block">Closes and releases all idle connections that are currently stored in the connection pool
- associated with this data source.</div>
+<div class="block">
+ Closes and releases all idle connections that are currently stored in the connection pool associated with this
+ data source.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -175,8 +174,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>protected javax.sql.DataSource</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()">createDataSource</a></strong>()</code>
-<div class="block">Create (if necessary) and return the internal data source we are
- using to manage our connections.</div>
+<div class="block">
+ Creates (if necessary) and return the internal data source we are using to manage our connections.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -188,7 +187,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPool</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnection</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createObjectPool(org.apache.tomcat.dbcp.dbcp2.PoolableConnectionFactory,%20org.apache.tomcat.dbcp.pool2.impl.GenericObjectPoolConfig,%20org.apache.tomcat.dbcp.pool2.impl.AbandonedConfig)">createObjectPool</a></strong>(<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnectionFactory</a>&nbsp;factory,
-                <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPoolConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPoolConfig</a>&nbsp;poolConfig,
+                <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPoolConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPoolConfig</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnection</a>&gt;&nbsp;poolConfig,
                 <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/AbandonedConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">AbandonedConfig</a>&nbsp;abandonedConfig)</code>
 <div class="block">Creates an object pool used to provide pooling support for <code>JDBC connections</code>.</div>
 </td>
@@ -202,17 +201,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>java.io.PrintWriter</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getAbandonedLogWriter()">getAbandonedLogWriter</a></strong>()</code>
-<div class="block">Gets the log writer to be used by this configuration to log
- information on abandoned objects.</div>
+<div class="block">Gets the print writer used by this configuration to log information on abandoned objects.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getAbandonedUsageTracking()">getAbandonedUsageTracking</a></strong>()</code>
 <div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, should the
- connection pool record a stack trace every time a method is called on a
- pooled connection and retain the most recent stack trace to aid debugging
- of abandoned connections?</div>
+ connection pool record a stack trace every time a method is called on a pooled connection and retain the most
+ recent stack trace to aid debugging of abandoned connections?</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -224,7 +221,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>java.sql.Connection</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()">getConnection</a></strong>()</code>
-<div class="block">Create (if necessary) and return a connection to the database.</div>
+<div class="block">Creates (if necessary) and return a connection to the database.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -237,15 +234,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqls()">getConnectionInitSqls</a></strong>()</code>
-<div class="block">Returns the list of SQL statements executed when a physical connection
- is first created.</div>
+<div class="block">Returns the list of SQL statements executed when a physical connection is first created.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqlsAsArray()">getConnectionInitSqlsAsArray</a></strong>()</code>
-<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqls()"><code>getConnectionInitSqls()</code></a> but in an
- array so it is accessible via JMX.</div>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqls()"><code>getConnectionInitSqls()</code></a> but in an array so it is accessible via JMX.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -267,8 +262,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDefaultQueryTimeout()">getDefaultQueryTimeout</a></strong>()</code>
-<div class="block">Obtain the default query timeout that will be used for <code>Statement</code>s
- created from this connection.</div>
+<div class="block">Gets the default query timeout that will be used for <code>Statement</code>s created from this
+ connection.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -292,8 +287,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodesAsArray()">getDisconnectionSqlCodesAsArray</a></strong>()</code>
-<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an
- array so it is accessible via JMX.</div>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an array so it is accessible via JMX.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -317,11 +311,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getEnableAutoCommitOnReturn()">getEnableAutoCommitOnReturn</a></strong>()</code>
-<div class="block">Returns the value of the flag that controls whether or not connections
- being returned to the pool will be checked and configured with
- <code>Connection.setAutoCommit(true)</code>
- if the auto commit setting is <code>false</code> when the connection
- is returned.</div>
+<div class="block">Returns the value of the flag that controls whether or not connections being returned to the pool will be checked
+ and configured with <code>Connection.setAutoCommit(true)</code> if the auto commit
+ setting is <code>false</code> when the connection is returned.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -333,9 +325,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()">getFastFailValidation</a></strong>()</code>
-<div class="block">True means that validation will fail immediately for connections that
- have previously thrown SQLExceptions with SQL_STATE indicating fatal
- disconnection errors.</div>
+<div class="block">True means that validation will fail immediately for connections that have previously thrown SQLExceptions with
+ SQL_STATE indicating fatal disconnection errors.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -359,16 +350,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogAbandoned()">getLogAbandoned</a></strong>()</code>
-<div class="block">Flag to log stack traces for application code which abandoned
- a Statement or Connection.</div>
+<div class="block">
+ Flag to log stack traces for application code which abandoned a Statement or Connection.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogExpiredConnections()">getLogExpiredConnections</a></strong>()</code>
-<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
- this property determines whether or not log messages are generated when the
- pool closes connections due to maximum lifetime exceeded.</div>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime, this property determines whether or
+ not log messages are generated when the pool closes connections due to maximum lifetime exceeded.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -380,7 +370,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>java.io.PrintWriter</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getLogWriter()">getLogWriter</a></strong>()</code>
-<div class="block">Returns the log writer being used by this data source.</div>
+<div class="block">
+ Returns the log writer being used by this data source.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -392,8 +383,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxIdle()">getMaxIdle</a></strong>()</code>
-<div class="block">Returns the maximum number of connections that can remain idle in the
- pool.</div>
+<div class="block">
+ Returns the maximum number of connections that can remain idle in the pool.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -405,15 +396,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()">getMaxTotal</a></strong>()</code>
-<div class="block">Returns the maximum number of active connections that can be
- allocated at the same time.</div>
+<div class="block">
+ Returns the maximum number of active connections that can be allocated at the same time.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxWaitMillis()">getMaxWaitMillis</a></strong>()</code>
-<div class="block">Returns the maximum number of milliseconds that the pool will wait
- for a connection to be returned before throwing an exception.</div>
+<div class="block">Returns the maximum number of milliseconds that the pool will wait for a connection to be returned before
+ throwing an exception.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -431,15 +422,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()">getNumActive</a></strong>()</code>
-<div class="block">[Read Only] The current number of active connections that have been
- allocated from this data source.</div>
+<div class="block">[Read Only] The current number of active connections that have been allocated from this data source.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()">getNumIdle</a></strong>()</code>
-<div class="block">[Read Only] The current number of idle connections that are waiting
- to be allocated from this data source.</div>
+<div class="block">[Read Only] The current number of idle connections that are waiting to be allocated from this data source.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -465,38 +454,37 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()">getRemoveAbandonedOnBorrow</a></strong>()</code>
-<div class="block">Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout when borrowObject is invoked.</div>
+<div class="block">
+ Flag to remove abandoned connections if they exceed the removeAbandonedTimeout when borrowObject is invoked.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()">getRemoveAbandonedOnMaintenance</a></strong>()</code>
-<div class="block">Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout during pool maintenance.</div>
+<div class="block">
+ Flag to remove abandoned connections if they exceed the removeAbandonedTimeout during pool maintenance.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()">getRemoveAbandonedTimeout</a></strong>()</code>
-<div class="block">Timeout in seconds before an abandoned connection can be removed.</div>
+<div class="block">
+ Timeout in seconds before an abandoned connection can be removed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRollbackOnReturn()">getRollbackOnReturn</a></strong>()</code>
-<div class="block">Gets the current value of the flag that controls if a connection will be
- rolled back when it is returned to the pool if auto commit is not enabled
- and the connection is not read only.</div>
+<div class="block">Gets the current value of the flag that controls whether a connection will be rolled back when it is returned to
+ the pool if auto commit is not enabled and the connection is not read only.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getSoftMinEvictableIdleTimeMillis()">getSoftMinEvictableIdleTimeMillis</a></strong>()</code>
-<div class="block">Returns the minimum amount of time a connection may sit idle in the
- pool before it is eligible for eviction by the idle object evictor, with
- the extra condition that at least "minIdle" connections remain in the
- pool.</div>
+<div class="block">
+ Returns the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction by
+ the idle object evictor, with the extra condition that at least "minIdle" connections remain in the pool.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -526,8 +514,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getTimeBetweenEvictionRunsMillis()">getTimeBetweenEvictionRunsMillis</a></strong>()</code>
-<div class="block">Returns the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a>
- property.</div>
+<div class="block">Returns the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a> property.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -539,14 +526,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getUsername()">getUsername</a></strong>()</code>
-<div class="block">Returns the JDBC connection <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a> property.</div>
+<div class="block">Returns the JDBC connection <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#userName"><code>userName</code></a> property.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getValidationQuery()">getValidationQuery</a></strong>()</code>
-<div class="block">Returns the validation query used to validate connections before
- returning them.</div>
+<div class="block">Returns the validation query used to validate connections before returning them.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -558,8 +544,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#invalidateConnection(java.sql.Connection)">invalidateConnection</a></strong>(java.sql.Connection&nbsp;connection)</code>
-<div class="block">Manually invalidates a connection, effectively requesting the pool to try
- to close it, remove it from the pool and reclaim pool capacity.</div>
+<div class="block">Manually invalidates a connection, effectively requesting the pool to try to close it, remove it from the pool
+ and reclaim pool capacity.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -603,34 +589,33 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>javax.management.ObjectName</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#preRegister(javax.management.MBeanServer,%20javax.management.ObjectName)">preRegister</a></strong>(javax.management.MBeanServer&nbsp;server,
-           javax.management.ObjectName&nbsp;name)</code>&nbsp;</td>
+           javax.management.ObjectName&nbsp;objectName)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#removeConnectionProperty(java.lang.String)">removeConnectionProperty</a></strong>(java.lang.String&nbsp;name)</code>
-<div class="block">Remove a custom connection property.</div>
+<div class="block">Removes a custom connection property.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setAbandonedLogWriter(java.io.PrintWriter)">setAbandonedLogWriter</a></strong>(java.io.PrintWriter&nbsp;logWriter)</code>
-<div class="block">Sets the log writer to be used by this configuration to log
- information on abandoned objects.</div>
+<div class="block">Sets the print writer to be used by this configuration to log information on abandoned objects.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setAbandonedUsageTracking(boolean)">setAbandonedUsageTracking</a></strong>(boolean&nbsp;usageTracking)</code>
-<div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, configure
- whether the connection pool should record a stack trace every time a
- method is called on a pooled connection and retain the most recent stack
- trace to aid debugging of abandoned connections.</div>
+<div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, configure whether
+ the connection pool should record a stack trace every time a method is called on a pooled connection and retain
+ the most recent stack trace to aid debugging of abandoned connections.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setAccessToUnderlyingConnectionAllowed(boolean)">setAccessToUnderlyingConnectionAllowed</a></strong>(boolean&nbsp;allow)</code>
-<div class="block">Sets the value of the accessToUnderlyingConnectionAllowed property.</div>
+<div class="block">
+ Sets the value of the accessToUnderlyingConnectionAllowed property.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -642,8 +627,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setConnectionInitSqls(java.util.Collection)">setConnectionInitSqls</a></strong>(java.util.Collection&lt;java.lang.String&gt;&nbsp;connectionInitSqls)</code>
-<div class="block">Sets the list of SQL statements to be executed when a physical
- connection is first created.</div>
+<div class="block">Sets the list of SQL statements to be executed when a physical connection is first created.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -655,34 +639,36 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultAutoCommit(java.lang.Boolean)">setDefaultAutoCommit</a></strong>(java.lang.Boolean&nbsp;defaultAutoCommit)</code>
-<div class="block">Sets default auto-commit state of connections returned by this
- datasource.</div>
+<div class="block">
+ Sets default auto-commit state of connections returned by this datasource.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultCatalog(java.lang.String)">setDefaultCatalog</a></strong>(java.lang.String&nbsp;defaultCatalog)</code>
-<div class="block">Sets the default catalog.</div>
+<div class="block">
+ Sets the default catalog.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultQueryTimeout(java.lang.Integer)">setDefaultQueryTimeout</a></strong>(java.lang.Integer&nbsp;defaultQueryTimeout)</code>
-<div class="block">Set the default query timeout that will be used for <code>Statement</code>s
- created from this connection.</div>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultQueryTimeout(java.lang.Integer)">setDefaultQueryTimeout</a></strong>(java.lang.Integer&nbsp;defaultQueryTimeoutSeconds)</code>
+<div class="block">Sets the default query timeout that will be used for <code>Statement</code>s created from this
+ connection.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultReadOnly(java.lang.Boolean)">setDefaultReadOnly</a></strong>(java.lang.Boolean&nbsp;defaultReadOnly)</code>
-<div class="block">Sets defaultReadonly property.</div>
+<div class="block">
+ Sets defaultReadonly property.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDefaultTransactionIsolation(int)">setDefaultTransactionIsolation</a></strong>(int&nbsp;defaultTransactionIsolation)</code>
-<div class="block">Sets the default transaction isolation state for returned
- connections.</div>
+<div class="block">
+ Sets the default transaction isolation state for returned connections.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -700,23 +686,23 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassLoader(java.lang.ClassLoader)">setDriverClassLoader</a></strong>(java.lang.ClassLoader&nbsp;driverClassLoader)</code>
-<div class="block">Sets the class loader to be used to load the JDBC driver.</div>
+<div class="block">
+ Sets the class loader to be used to load the JDBC driver.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)">setDriverClassName</a></strong>(java.lang.String&nbsp;driverClassName)</code>
-<div class="block">Sets the JDBC driver class name.</div>
+<div class="block">
+ Sets the JDBC driver class name.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setEnableAutoCommitOnReturn(boolean)">setEnableAutoCommitOnReturn</a></strong>(boolean&nbsp;enableAutoCommitOnReturn)</code>
-<div class="block">Sets the value of the flag that controls whether or not connections
- being returned to the pool will be checked and configured with
- <code>Connection.setAutoCommit(true)</code>
- if the auto commit setting is <code>false</code> when the connection
- is returned.</div>
+<div class="block">Sets the value of the flag that controls whether or not connections being returned to the pool will be checked
+ and configured with <code>Connection.setAutoCommit(true)</code> if the auto commit
+ setting is <code>false</code> when the connection is returned.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -732,7 +718,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setInitialSize(int)">setInitialSize</a></strong>(int&nbsp;initialSize)</code>
-<div class="block">Sets the initial size of the connection pool.</div>
+<div class="block">
+ Sets the initial size of the connection pool.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -754,9 +741,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setLogExpiredConnections(boolean)">setLogExpiredConnections</a></strong>(boolean&nbsp;logExpiredConnections)</code>
-<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
- this property determines whether or not log messages are generated when the
- pool closes connections due to maximum lifetime exceeded.</div>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime, this property determines whether or
+ not log messages are generated when the pool closes connections due to maximum lifetime exceeded.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -768,35 +754,34 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setLogWriter(java.io.PrintWriter)">setLogWriter</a></strong>(java.io.PrintWriter&nbsp;logWriter)</code>
-<div class="block">Sets the log writer being used by this data source.</div>
+<div class="block">
+ Sets the log writer being used by this data source.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxConnLifetimeMillis(long)">setMaxConnLifetimeMillis</a></strong>(long&nbsp;maxConnLifetimeMillis)</code>
-<div class="block">Sets the maximum permitted lifetime of a connection in
- milliseconds.</div>
+<div class="block">
+ Sets the maximum permitted lifetime of a connection in milliseconds.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxIdle(int)">setMaxIdle</a></strong>(int&nbsp;maxIdle)</code>
-<div class="block">Sets the maximum number of connections that can remain idle in the
- pool.</div>
+<div class="block">Sets the maximum number of connections that can remain idle in the pool.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxOpenPreparedStatements(int)">setMaxOpenPreparedStatements</a></strong>(int&nbsp;maxOpenStatements)</code>
-<div class="block">Sets the value of the <code>maxOpenPreparedStatements</code>
- property.</div>
+<div class="block">
+ Sets the value of the <code>maxOpenPreparedStatements</code> property.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setMaxTotal(int)">setMaxTotal</a></strong>(int&nbsp;maxTotal)</code>
-<div class="block">Sets the maximum total number of idle and borrows connections that can be
- active at the same time.</div>
+<div class="block">Sets the maximum total number of idle and borrows connections that can be active at the same time.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -826,13 +811,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setPassword(java.lang.String)">setPassword</a></strong>(java.lang.String&nbsp;password)</code>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#password"><code>password</code></a>.</div>
+<div class="block">
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#password"><code>password</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setPoolPreparedStatements(boolean)">setPoolPreparedStatements</a></strong>(boolean&nbsp;poolingStatements)</code>
-<div class="block">Sets whether to pool statements or not.</div>
+<div class="block">
+ Sets whether to pool statements or not.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -846,24 +833,22 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRemoveAbandonedTimeout(int)">setRemoveAbandonedTimeout</a></strong>(int&nbsp;removeAbandonedTimeout)</code>
-<div class="block">Sets the timeout in seconds before an abandoned connection can be
- removed.</div>
+<div class="block">
+ Sets the timeout in seconds before an abandoned connection can be removed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setRollbackOnReturn(boolean)">setRollbackOnReturn</a></strong>(boolean&nbsp;rollbackOnReturn)</code>
-<div class="block">Sets the flag that controls if a connection will be rolled back when it
- is returned to the pool if auto commit is not enabled and the connection
- is not read only.</div>
+<div class="block">Sets the flag that controls if a connection will be rolled back when it is returned to the pool if auto commit is
+ not enabled and the connection is not read only.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setSoftMinEvictableIdleTimeMillis(long)">setSoftMinEvictableIdleTimeMillis</a></strong>(long&nbsp;softMinEvictableIdleTimeMillis)</code>
-<div class="block">Sets the minimum amount of time a connection may sit idle in the pool
- before it is eligible for eviction by the idle object evictor, with the
- extra condition that at least "minIdle" connections remain in the pool.</div>
+<div class="block">Sets the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction by the
+ idle object evictor, with the extra condition that at least "minIdle" connections remain in the pool.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -899,27 +884,29 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setUrl(java.lang.String)">setUrl</a></strong>(java.lang.String&nbsp;url)</code>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.</div>
+<div class="block">
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setUsername(java.lang.String)">setUsername</a></strong>(java.lang.String&nbsp;username)</code>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a>.</div>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setUsername(java.lang.String)">setUsername</a></strong>(java.lang.String&nbsp;userName)</code>
+<div class="block">
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#userName"><code>userName</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setValidationQuery(java.lang.String)">setValidationQuery</a></strong>(java.lang.String&nbsp;validationQuery)</code>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validationQuery"><code>validationQuery</code></a>.</div>
+<div class="block">
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validationQuery"><code>validationQuery</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setValidationQueryTimeout(int)">setValidationQueryTimeout</a></strong>(int&nbsp;timeout)</code>
-<div class="block">Sets the validation query timeout, the amount of time, in seconds, that
- connection validation will wait for a response from the database when
- executing a validation query.</div>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setValidationQueryTimeout(int)">setValidationQueryTimeout</a></strong>(int&nbsp;validationQueryTimeoutSeconds)</code>
+<div class="block">Sets the validation query timeout, the amount of time, in seconds, that connection validation will wait for a
+ response from the database when executing a validation query.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -996,13 +983,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDefaultAutoCommit</h4>
 <pre>public&nbsp;void&nbsp;setDefaultAutoCommit(java.lang.Boolean&nbsp;defaultAutoCommit)</pre>
-<div class="block"><p>Sets default auto-commit state of connections returned by this
- datasource.</p>
+<div class="block"><p>
+ Sets default auto-commit state of connections returned by this datasource.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultAutoCommit</code> - default auto-commit value</dd></dl>
 </li>
 </ul>
@@ -1027,12 +1015,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDefaultReadOnly</h4>
 <pre>public&nbsp;void&nbsp;setDefaultReadOnly(java.lang.Boolean&nbsp;defaultReadOnly)</pre>
-<div class="block"><p>Sets defaultReadonly property.</p>
+<div class="block"><p>
+ Sets defaultReadonly property.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultReadOnly</code> - default read-only value</dd></dl>
 </li>
 </ul>
@@ -1057,15 +1047,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDefaultTransactionIsolation</h4>
 <pre>public&nbsp;void&nbsp;setDefaultTransactionIsolation(int&nbsp;defaultTransactionIsolation)</pre>
-<div class="block"><p>Sets the default transaction isolation state for returned
- connections.</p>
+<div class="block"><p>
+ Sets the default transaction isolation state for returned connections.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultTransactionIsolation</code> - the default transaction isolation
- state</dd><dt><span class="strong">See Also:</span></dt><dd><code>Connection.getTransactionIsolation()</code></dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultTransactionIsolation</code> - the default transaction isolation state</dd><dt><span class="strong">See Also:</span></dt><dd><code>Connection.getTransactionIsolation()</code></dd></dl>
 </li>
 </ul>
 <a name="getDefaultQueryTimeout()">
@@ -1075,9 +1065,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getDefaultQueryTimeout</h4>
 <pre>public&nbsp;java.lang.Integer&nbsp;getDefaultQueryTimeout()</pre>
-<div class="block">Obtain the default query timeout that will be used for <code>Statement</code>s
- created from this connection. <code>null</code> means that the driver
- default will be used.</div>
+<div class="block">Gets the default query timeout that will be used for <code>Statement</code>s created from this
+ connection. <code>null</code> means that the driver default will be used.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The default query timeout in seconds.</dd></dl>
 </li>
 </ul>
 <a name="setDefaultQueryTimeout(java.lang.Integer)">
@@ -1086,10 +1076,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <ul class="blockList">
 <li class="blockList">
 <h4>setDefaultQueryTimeout</h4>
-<pre>public&nbsp;void&nbsp;setDefaultQueryTimeout(java.lang.Integer&nbsp;defaultQueryTimeout)</pre>
-<div class="block">Set the default query timeout that will be used for <code>Statement</code>s
- created from this connection. <code>null</code> means that the driver
- default will be used.</div>
+<pre>public&nbsp;void&nbsp;setDefaultQueryTimeout(java.lang.Integer&nbsp;defaultQueryTimeoutSeconds)</pre>
+<div class="block">Sets the default query timeout that will be used for <code>Statement</code>s created from this
+ connection. <code>null</code> means that the driver default will be used.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultQueryTimeoutSeconds</code> - The default query timeout in seconds.</dd></dl>
 </li>
 </ul>
 <a name="getDefaultCatalog()">
@@ -1113,12 +1103,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDefaultCatalog</h4>
 <pre>public&nbsp;void&nbsp;setDefaultCatalog(java.lang.String&nbsp;defaultCatalog)</pre>
-<div class="block"><p>Sets the default catalog.</p>
+<div class="block"><p>
+ Sets the default catalog.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultCatalog</code> - the default catalog</dd></dl>
 </li>
 </ul>
@@ -1156,10 +1148,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <pre>public&nbsp;java.sql.Driver&nbsp;getDriver()</pre>
 <div class="block">Returns the JDBC Driver that has been configured for use by this pool.
  <p>
- Note: This getter only returns the last value set by a call to
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>. It does not return any driver instance that
- may have been created from the value set via
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)"><code>setDriverClassName(String)</code></a>.</div>
+ Note: This getter only returns the last value set by a call to <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>. It does not return any
+ driver instance that may have been created from the value set via <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)"><code>setDriverClassName(String)</code></a>.
+ </p></div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the JDBC Driver that has been configured for use by this pool</dd></dl>
 </li>
 </ul>
@@ -1172,11 +1163,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <pre>public&nbsp;void&nbsp;setDriver(java.sql.Driver&nbsp;driver)</pre>
 <div class="block">Sets the JDBC Driver instance to use for this pool.
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>driver</code> - </dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>driver</code> - The JDBC Driver instance to use for this pool.</dd></dl>
 </li>
 </ul>
 <a name="getDriverClassName()">
@@ -1188,9 +1179,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <pre>public&nbsp;java.lang.String&nbsp;getDriverClassName()</pre>
 <div class="block">Returns the JDBC driver class name.
  <p>
- Note: This getter only returns the last value set by a call to
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)"><code>setDriverClassName(String)</code></a>. It does not return the class name of
- any driver that may have been set via <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>.</div>
+ Note: This getter only returns the last value set by a call to <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassName(java.lang.String)"><code>setDriverClassName(String)</code></a>. It does not
+ return the class name of any driver that may have been set via <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getDriverClassName()">getDriverClassName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1204,12 +1195,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDriverClassName</h4>
 <pre>public&nbsp;void&nbsp;setDriverClassName(java.lang.String&nbsp;driverClassName)</pre>
-<div class="block"><p>Sets the JDBC driver class name.</p>
+<div class="block"><p>
+ Sets the JDBC driver class name.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>driverClassName</code> - the class name of the JDBC driver</dd></dl>
 </li>
 </ul>
@@ -1220,13 +1213,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getDriverClassLoader</h4>
 <pre>public&nbsp;java.lang.ClassLoader&nbsp;getDriverClassLoader()</pre>
-<div class="block">Returns the class loader specified for loading the JDBC driver. Returns
- <code>null</code> if no class loader has been explicitly specified.
+<div class="block">Returns the class loader specified for loading the JDBC driver. Returns <code>null</code> if no class loader has
+ been explicitly specified.
  <p>
- Note: This getter only returns the last value set by a call to
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassLoader(java.lang.ClassLoader)"><code>setDriverClassLoader(ClassLoader)</code></a>. It does not return the class
- loader of any driver that may have been set via
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>.</div>
+ Note: This getter only returns the last value set by a call to <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriverClassLoader(java.lang.ClassLoader)"><code>setDriverClassLoader(ClassLoader)</code></a>. It
+ does not return the class loader of any driver that may have been set via <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a>.
+ </p></div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The class loader specified for loading the JDBC driver.</dd></dl>
 </li>
 </ul>
 <a name="setDriverClassLoader(java.lang.ClassLoader)">
@@ -1236,14 +1229,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setDriverClassLoader</h4>
 <pre>public&nbsp;void&nbsp;setDriverClassLoader(java.lang.ClassLoader&nbsp;driverClassLoader)</pre>
-<div class="block"><p>Sets the class loader to be used to load the JDBC driver.</p>
+<div class="block"><p>
+ Sets the class loader to be used to load the JDBC driver.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>driverClassLoader</code> - the class loader with which to load the JDBC
-                          driver</dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>driverClassLoader</code> - the class loader with which to load the JDBC driver</dd></dl>
 </li>
 </ul>
 <a name="getLifo()">
@@ -1267,8 +1261,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setLifo</h4>
 <pre>public&nbsp;void&nbsp;setLifo(boolean&nbsp;lifo)</pre>
-<div class="block">Sets the LIFO property. True means the pool behaves as a LIFO queue;
- false means FIFO.</div>
+<div class="block">Sets the LIFO property. True means the pool behaves as a LIFO queue; false means FIFO.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>lifo</code> - the new value for the LIFO property</dd></dl>
 </li>
 </ul>
@@ -1279,10 +1272,12 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getMaxTotal</h4>
 <pre>public&nbsp;int&nbsp;getMaxTotal()</pre>
-<div class="block"><p>Returns the maximum number of active connections that can be
- allocated at the same time.
+<div class="block"><p>
+ Returns the maximum number of active connections that can be allocated at the same time.
  </p>
- <p>A negative number means that there is no limit.</p></div>
+ <p>
+ A negative number means that there is no limit.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getMaxTotal()">getMaxTotal</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1296,8 +1291,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMaxTotal</h4>
 <pre>public&nbsp;void&nbsp;setMaxTotal(int&nbsp;maxTotal)</pre>
-<div class="block">Sets the maximum total number of idle and borrows connections that can be
- active at the same time. Use a negative value for no limit.</div>
+<div class="block">Sets the maximum total number of idle and borrows connections that can be active at the same time. Use a negative
+ value for no limit.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxTotal</code> - the new value for maxTotal</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>getMaxTotal()</code></a></dd></dl>
 </li>
 </ul>
@@ -1308,10 +1303,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getMaxIdle</h4>
 <pre>public&nbsp;int&nbsp;getMaxIdle()</pre>
-<div class="block"><p>Returns the maximum number of connections that can remain idle in the
- pool. Excess idle connections are destroyed on return to the pool.
+<div class="block"><p>
+ Returns the maximum number of connections that can remain idle in the pool. Excess idle connections are destroyed
+ on return to the pool.
  </p>
- <p>A negative value indicates that there is no limit</p></div>
+ <p>
+ A negative value indicates that there is no limit
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getMaxIdle()">getMaxIdle</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1325,8 +1323,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMaxIdle</h4>
 <pre>public&nbsp;void&nbsp;setMaxIdle(int&nbsp;maxIdle)</pre>
-<div class="block">Sets the maximum number of connections that can remain idle in the
- pool. Excess idle connections are destroyed on return to the pool.</div>
+<div class="block">Sets the maximum number of connections that can remain idle in the pool. Excess idle connections are destroyed on
+ return to the pool.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxIdle</code> - the new value for maxIdle</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxIdle()"><code>getMaxIdle()</code></a></dd></dl>
 </li>
 </ul>
@@ -1337,10 +1335,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getMinIdle</h4>
 <pre>public&nbsp;int&nbsp;getMinIdle()</pre>
-<div class="block">Returns the minimum number of idle connections in the pool. The pool attempts
- to ensure that minIdle connections are available when the idle object evictor
- runs. The value of this property has no effect unless <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a>
- has a positive value.</div>
+<div class="block">Returns the minimum number of idle connections in the pool. The pool attempts to ensure that minIdle connections
+ are available when the idle object evictor runs. The value of this property has no effect unless
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a> has a positive value.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getMinIdle()">getMinIdle</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1354,10 +1351,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMinIdle</h4>
 <pre>public&nbsp;void&nbsp;setMinIdle(int&nbsp;minIdle)</pre>
-<div class="block">Sets the minimum number of idle connections in the pool. The pool attempts
- to ensure that minIdle connections are available when the idle object evictor
- runs. The value of this property has no effect unless <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a>
- has a positive value.</div>
+<div class="block">Sets the minimum number of idle connections in the pool. The pool attempts to ensure that minIdle connections are
+ available when the idle object evictor runs. The value of this property has no effect unless
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a> has a positive value.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>minIdle</code> - the new value for minIdle</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html#setMinIdle(int)"><code>GenericObjectPool.setMinIdle(int)</code></a></dd></dl>
 </li>
 </ul>
@@ -1382,14 +1378,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setInitialSize</h4>
 <pre>public&nbsp;void&nbsp;setInitialSize(int&nbsp;initialSize)</pre>
-<div class="block"><p>Sets the initial size of the connection pool.</p>
+<div class="block"><p>
+ Sets the initial size of the connection pool.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>initialSize</code> - the number of connections created when the pool
- is initialized</dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>initialSize</code> - the number of connections created when the pool is initialized</dd></dl>
 </li>
 </ul>
 <a name="getMaxWaitMillis()">
@@ -1399,9 +1396,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getMaxWaitMillis</h4>
 <pre>public&nbsp;long&nbsp;getMaxWaitMillis()</pre>
-<div class="block">Returns the maximum number of milliseconds that the pool will wait
- for a connection to be returned before throwing an exception. A value
- less than or equal to zero means the pool is set to wait indefinitely.</div>
+<div class="block">Returns the maximum number of milliseconds that the pool will wait for a connection to be returned before
+ throwing an exception. A value less than or equal to zero means the pool is set to wait indefinitely.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getMaxWaitMillis()">getMaxWaitMillis</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1415,8 +1411,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMaxWaitMillis</h4>
 <pre>public&nbsp;void&nbsp;setMaxWaitMillis(long&nbsp;maxWaitMillis)</pre>
-<div class="block">Sets the MaxWaitMillis property. Use -1 to make the pool wait
- indefinitely.</div>
+<div class="block">Sets the MaxWaitMillis property. Use -1 to make the pool wait indefinitely.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxWaitMillis</code> - the new value for MaxWaitMillis</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxWaitMillis()"><code>getMaxWaitMillis()</code></a></dd></dl>
 </li>
 </ul>
@@ -1441,12 +1436,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setPoolPreparedStatements</h4>
 <pre>public&nbsp;void&nbsp;setPoolPreparedStatements(boolean&nbsp;poolingStatements)</pre>
-<div class="block"><p>Sets whether to pool statements or not.</p>
+<div class="block"><p>
+ Sets whether to pool statements or not.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>poolingStatements</code> - pooling on or off</dd></dl>
 </li>
 </ul>
@@ -1471,13 +1468,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMaxOpenPreparedStatements</h4>
 <pre>public&nbsp;void&nbsp;setMaxOpenPreparedStatements(int&nbsp;maxOpenStatements)</pre>
-<div class="block"><p>Sets the value of the <code>maxOpenPreparedStatements</code>
- property.</p>
+<div class="block"><p>
+ Sets the value of the <code>maxOpenPreparedStatements</code> property.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxOpenStatements</code> - the new maximum number of prepared statements</dd></dl>
 </li>
 </ul>
@@ -1492,8 +1490,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getTestOnCreate()">getTestOnCreate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if objects are validated immediately after they are created
- by the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnCreate"><code>testOnCreate</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>true if objects are validated immediately after they are created by the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnCreate"><code>testOnCreate</code></a></dd></dl>
 </li>
 </ul>
 <a name="setTestOnCreate(boolean)">
@@ -1503,9 +1500,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setTestOnCreate</h4>
 <pre>public&nbsp;void&nbsp;setTestOnCreate(boolean&nbsp;testOnCreate)</pre>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnCreate"><code>testOnCreate</code></a> property. This property determines
- whether or not the pool will validate objects immediately after they are
- created by the pool</div>
+<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnCreate"><code>testOnCreate</code></a> property. This property determines whether or not the pool will validate objects
+ immediately after they are created by the pool</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>testOnCreate</code> - new value for testOnCreate property</dd></dl>
 </li>
 </ul>
@@ -1520,8 +1516,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getTestOnBorrow()">getTestOnBorrow</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if objects are validated before being borrowed from the
- pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnBorrow"><code>testOnBorrow</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>true if objects are validated before being borrowed from the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnBorrow"><code>testOnBorrow</code></a></dd></dl>
 </li>
 </ul>
 <a name="setTestOnBorrow(boolean)">
@@ -1531,9 +1526,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setTestOnBorrow</h4>
 <pre>public&nbsp;void&nbsp;setTestOnBorrow(boolean&nbsp;testOnBorrow)</pre>
-<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnBorrow"><code>testOnBorrow</code></a> property. This property determines
- whether or not the pool will validate objects before they are borrowed
- from the pool.</div>
+<div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnBorrow"><code>testOnBorrow</code></a> property. This property determines whether or not the pool will validate objects
+ before they are borrowed from the pool.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>testOnBorrow</code> - new value for testOnBorrow property</dd></dl>
 </li>
 </ul>
@@ -1545,8 +1539,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getTestOnReturn</h4>
 <pre>public&nbsp;boolean&nbsp;getTestOnReturn()</pre>
 <div class="block">Returns the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnReturn"><code>testOnReturn</code></a> property.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if objects are validated before being returned to the
- pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnReturn"><code>testOnReturn</code></a></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if objects are validated before being returned to the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testOnReturn"><code>testOnReturn</code></a></dd></dl>
 </li>
 </ul>
 <a name="setTestOnReturn(boolean)">
@@ -1556,9 +1549,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setTestOnReturn</h4>
 <pre>public&nbsp;void&nbsp;setTestOnReturn(boolean&nbsp;testOnReturn)</pre>
-<div class="block">Sets the <code>testOnReturn</code> property. This property determines
- whether or not the pool will validate objects before they are returned
- to the pool.</div>
+<div class="block">Sets the <code>testOnReturn</code> property. This property determines whether or not the pool will validate
+ objects before they are returned to the pool.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>testOnReturn</code> - new value for testOnReturn property</dd></dl>
 </li>
 </ul>
@@ -1569,8 +1561,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getTimeBetweenEvictionRunsMillis</h4>
 <pre>public&nbsp;long&nbsp;getTimeBetweenEvictionRunsMillis()</pre>
-<div class="block">Returns the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a>
- property.</div>
+<div class="block">Returns the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#timeBetweenEvictionRunsMillis"><code>timeBetweenEvictionRunsMillis</code></a> property.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getTimeBetweenEvictionRunsMillis()">getTimeBetweenEvictionRunsMillis</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1599,8 +1590,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getNumTestsPerEvictionRun()">getNumTestsPerEvictionRun</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the number of objects to examine during idle object evictor
- runs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>the number of objects to examine during idle object evictor runs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a></dd></dl>
 </li>
 </ul>
 <a name="setNumTestsPerEvictionRun(int)">
@@ -1611,8 +1601,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>setNumTestsPerEvictionRun</h4>
 <pre>public&nbsp;void&nbsp;setNumTestsPerEvictionRun(int&nbsp;numTestsPerEvictionRun)</pre>
 <div class="block">Sets the value of the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a> property.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>numTestsPerEvictionRun</code> - the new <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a>
- value</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>numTestsPerEvictionRun</code> - the new <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a> value</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#numTestsPerEvictionRun"><code>numTestsPerEvictionRun</code></a></dd></dl>
 </li>
 </ul>
 <a name="getMinEvictableIdleTimeMillis()">
@@ -1637,8 +1626,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>setMinEvictableIdleTimeMillis</h4>
 <pre>public&nbsp;void&nbsp;setMinEvictableIdleTimeMillis(long&nbsp;minEvictableIdleTimeMillis)</pre>
 <div class="block">Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#minEvictableIdleTimeMillis"><code>minEvictableIdleTimeMillis</code></a> property.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>minEvictableIdleTimeMillis</code> - the minimum amount of time an object
- may sit idle in the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#minEvictableIdleTimeMillis"><code>minEvictableIdleTimeMillis</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>minEvictableIdleTimeMillis</code> - the minimum amount of time an object may sit idle in the pool</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#minEvictableIdleTimeMillis"><code>minEvictableIdleTimeMillis</code></a></dd></dl>
 </li>
 </ul>
 <a name="setSoftMinEvictableIdleTimeMillis(long)">
@@ -1648,12 +1636,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setSoftMinEvictableIdleTimeMillis</h4>
 <pre>public&nbsp;void&nbsp;setSoftMinEvictableIdleTimeMillis(long&nbsp;softMinEvictableIdleTimeMillis)</pre>
-<div class="block">Sets the minimum amount of time a connection may sit idle in the pool
- before it is eligible for eviction by the idle object evictor, with the
- extra condition that at least "minIdle" connections remain in the pool.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>softMinEvictableIdleTimeMillis</code> - minimum amount of time a
- connection may sit idle in the pool before it is eligible for eviction,
- assuming there are minIdle idle connections in the pool.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getSoftMinEvictableIdleTimeMillis()"><code>getSoftMinEvictableIdleTimeMillis()</code></a></dd></dl>
+<div class="block">Sets the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction by the
+ idle object evictor, with the extra condition that at least "minIdle" connections remain in the pool.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>softMinEvictableIdleTimeMillis</code> - minimum amount of time a connection may sit idle in the pool before it is eligible for eviction,
+            assuming there are minIdle idle connections in the pool.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getSoftMinEvictableIdleTimeMillis()"><code>getSoftMinEvictableIdleTimeMillis()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getSoftMinEvictableIdleTimeMillis()">
@@ -1663,25 +1649,23 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getSoftMinEvictableIdleTimeMillis</h4>
 <pre>public&nbsp;long&nbsp;getSoftMinEvictableIdleTimeMillis()</pre>
-<div class="block"><p>Returns the minimum amount of time a connection may sit idle in the
- pool before it is eligible for eviction by the idle object evictor, with
- the extra condition that at least "minIdle" connections remain in the
- pool.</p>
+<div class="block"><p>
+ Returns the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction by
+ the idle object evictor, with the extra condition that at least "minIdle" connections remain in the pool.
+ </p>
 
- <p>When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMinEvictableIdleTimeMillis()"><code>minEvictableIdleTimeMillis</code></a>
- is set to a positive value, minEvictableIdleTimeMillis is examined
- first by the idle connection evictor - i.e. when idle connections are
- visited by the evictor, idle time is first compared against
- <code>minEvictableIdleTimeMillis</code> (without considering the number of idle
- connections in the pool) and then against
- <code>softMinEvictableIdleTimeMillis</code>, including the <code>minIdle</code>,
- constraint.</p></div>
+ <p>
+ When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMinEvictableIdleTimeMillis()"><code>minEvictableIdleTimeMillis</code></a> is set to a positive value,
+ minEvictableIdleTimeMillis is examined first by the idle connection evictor - i.e. when idle connections are
+ visited by the evictor, idle time is first compared against <code>minEvictableIdleTimeMillis</code> (without
+ considering the number of idle connections in the pool) and then against <code>softMinEvictableIdleTimeMillis</code>,
+ including the <code>minIdle</code>, constraint.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getSoftMinEvictableIdleTimeMillis()">getSoftMinEvictableIdleTimeMillis</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>minimum amount of time a connection may sit idle in the pool before
- it is eligible for eviction, assuming there are minIdle idle connections
- in the pool</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>minimum amount of time a connection may sit idle in the pool before it is eligible for eviction, assuming
+         there are minIdle idle connections in the pool</dd></dl>
 </li>
 </ul>
 <a name="getEvictionPolicyClassName()">
@@ -1692,6 +1676,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getEvictionPolicyClassName</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getEvictionPolicyClassName()</pre>
 <div class="block">Gets the EvictionPolicy implementation in use with this connection pool.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The EvictionPolicy implementation in use with this connection pool.</dd></dl>
 </li>
 </ul>
 <a name="setEvictionPolicyClassName(java.lang.String)">
@@ -1702,8 +1687,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>setEvictionPolicyClassName</h4>
 <pre>public&nbsp;void&nbsp;setEvictionPolicyClassName(java.lang.String&nbsp;evictionPolicyClassName)</pre>
 <div class="block">Sets the EvictionPolicy implementation to use with this connection pool.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>evictionPolicyClassName</code> - The fully qualified class name of the
-                                  EvictionPolicy implementation</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>evictionPolicyClassName</code> - The fully qualified class name of the EvictionPolicy implementation</dd></dl>
 </li>
 </ul>
 <a name="getTestWhileIdle()">
@@ -1717,8 +1701,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getTestWhileIdle()">getTestWhileIdle</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if objects examined by the idle object evictor are
- validated</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testWhileIdle"><code>testWhileIdle</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>true if objects examined by the idle object evictor are validated</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#testWhileIdle"><code>testWhileIdle</code></a></dd></dl>
 </li>
 </ul>
 <a name="setTestWhileIdle(boolean)">
@@ -1728,8 +1711,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setTestWhileIdle</h4>
 <pre>public&nbsp;void&nbsp;setTestWhileIdle(boolean&nbsp;testWhileIdle)</pre>
-<div class="block">Sets the <code>testWhileIdle</code> property. This property determines
- whether or not the idle object evictor will validate connections.</div>
+<div class="block">Sets the <code>testWhileIdle</code> property. This property determines whether or not the idle object evictor
+ will validate connections.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>testWhileIdle</code> - new value for testWhileIdle property</dd></dl>
 </li>
 </ul>
@@ -1740,8 +1723,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getNumActive</h4>
 <pre>public&nbsp;int&nbsp;getNumActive()</pre>
-<div class="block">[Read Only] The current number of active connections that have been
- allocated from this data source.</div>
+<div class="block">[Read Only] The current number of active connections that have been allocated from this data source.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getNumActive()">getNumActive</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1755,8 +1737,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getNumIdle</h4>
 <pre>public&nbsp;int&nbsp;getNumIdle()</pre>
-<div class="block">[Read Only] The current number of idle connections that are waiting
- to be allocated from this data source.</div>
+<div class="block">[Read Only] The current number of idle connections that are waiting to be allocated from this data source.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getNumIdle()">getNumIdle</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1784,12 +1765,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setPassword</h4>
 <pre>public&nbsp;void&nbsp;setPassword(java.lang.String&nbsp;password)</pre>
-<div class="block"><p>Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#password"><code>password</code></a>.</p>
+<div class="block"><p>
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#password"><code>password</code></a>.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>password</code> - new value for the password</dd></dl>
 </li>
 </ul>
@@ -1804,8 +1787,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getUrl()">getUrl</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a> passed to the JDBC driver to establish
- connections</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a> passed to the JDBC driver to establish connections</dd></dl>
 </li>
 </ul>
 <a name="setUrl(java.lang.String)">
@@ -1815,12 +1797,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setUrl</h4>
 <pre>public&nbsp;void&nbsp;setUrl(java.lang.String&nbsp;url)</pre>
-<div class="block"><p>Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.</p>
+<div class="block"><p>
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>url</code> - the new value for the JDBC connection url</dd></dl>
 </li>
 </ul>
@@ -1831,12 +1815,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getUsername</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getUsername()</pre>
-<div class="block">Returns the JDBC connection <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a> property.</div>
+<div class="block">Returns the JDBC connection <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#userName"><code>userName</code></a> property.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getUsername()">getUsername</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a> passed to the JDBC driver to establish
- connections</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#userName"><code>userName</code></a> passed to the JDBC driver to establish connections</dd></dl>
 </li>
 </ul>
 <a name="setUsername(java.lang.String)">
@@ -1845,14 +1828,16 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <ul class="blockList">
 <li class="blockList">
 <h4>setUsername</h4>
-<pre>public&nbsp;void&nbsp;setUsername(java.lang.String&nbsp;username)</pre>
-<div class="block"><p>Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#username"><code>username</code></a>.</p>
+<pre>public&nbsp;void&nbsp;setUsername(java.lang.String&nbsp;userName)</pre>
+<div class="block"><p>
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#userName"><code>userName</code></a>.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - the new value for the JDBC connection username</dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>userName</code> - the new value for the JDBC connection user name</dd></dl>
 </li>
 </ul>
 <a name="getValidationQuery()">
@@ -1862,8 +1847,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getValidationQuery</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getValidationQuery()</pre>
-<div class="block">Returns the validation query used to validate connections before
- returning them.</div>
+<div class="block">Returns the validation query used to validate connections before returning them.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getValidationQuery()">getValidationQuery</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1877,12 +1861,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setValidationQuery</h4>
 <pre>public&nbsp;void&nbsp;setValidationQuery(java.lang.String&nbsp;validationQuery)</pre>
-<div class="block"><p>Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validationQuery"><code>validationQuery</code></a>.</p>
+<div class="block"><p>
+ Sets the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#validationQuery"><code>validationQuery</code></a>.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>validationQuery</code> - the new value for the validation query</dd></dl>
 </li>
 </ul>
@@ -1906,17 +1892,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <ul class="blockList">
 <li class="blockList">
 <h4>setValidationQueryTimeout</h4>
-<pre>public&nbsp;void&nbsp;setValidationQueryTimeout(int&nbsp;timeout)</pre>
-<div class="block">Sets the validation query timeout, the amount of time, in seconds, that
- connection validation will wait for a response from the database when
- executing a validation query.  Use a value less than or equal to 0 for
- no timeout.
+<pre>public&nbsp;void&nbsp;setValidationQueryTimeout(int&nbsp;validationQueryTimeoutSeconds)</pre>
+<div class="block">Sets the validation query timeout, the amount of time, in seconds, that connection validation will wait for a
+ response from the database when executing a validation query. Use a value less than or equal to 0 for no timeout.
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeout</code> - new validation query timeout value in seconds</dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>validationQueryTimeoutSeconds</code> - new validation query timeout value in seconds</dd></dl>
 </li>
 </ul>
 <a name="getConnectionInitSqls()">
@@ -1926,9 +1910,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getConnectionInitSqls</h4>
 <pre>public&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;getConnectionInitSqls()</pre>
-<div class="block">Returns the list of SQL statements executed when a physical connection
- is first created. Returns an empty list if there are no initialization
- statements configured.</div>
+<div class="block">Returns the list of SQL statements executed when a physical connection is first created. Returns an empty list if
+ there are no initialization statements configured.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>initialization SQL statements</dd></dl>
 </li>
 </ul>
@@ -1939,8 +1922,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getConnectionInitSqlsAsArray</h4>
 <pre>public&nbsp;java.lang.String[]&nbsp;getConnectionInitSqlsAsArray()</pre>
-<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqls()"><code>getConnectionInitSqls()</code></a> but in an
- array so it is accessible via JMX.</div>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnectionInitSqls()"><code>getConnectionInitSqls()</code></a> but in an array so it is accessible via JMX.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getConnectionInitSqlsAsArray()">getConnectionInitSqlsAsArray</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -1954,15 +1936,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setConnectionInitSqls</h4>
 <pre>public&nbsp;void&nbsp;setConnectionInitSqls(java.util.Collection&lt;java.lang.String&gt;&nbsp;connectionInitSqls)</pre>
-<div class="block">Sets the list of SQL statements to be executed when a physical
- connection is first created.
+<div class="block">Sets the list of SQL statements to be executed when a physical connection is first created.
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionInitSqls</code> - Collection of SQL statements to execute
- on connection creation</dd></dl>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionInitSqls</code> - Collection of SQL statements to execute on connection creation</dd></dl>
 </li>
 </ul>
 <a name="isAccessToUnderlyingConnectionAllowed()">
@@ -1976,8 +1956,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#isAccessToUnderlyingConnectionAllowed()">isAccessToUnderlyingConnectionAllowed</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if access to the underlying connection is allowed, false
- otherwise.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>true if access to the underlying connection is allowed, false otherwise.</dd></dl>
 </li>
 </ul>
 <a name="setAccessToUnderlyingConnectionAllowed(boolean)">
@@ -1987,14 +1966,15 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setAccessToUnderlyingConnectionAllowed</h4>
 <pre>public&nbsp;void&nbsp;setAccessToUnderlyingConnectionAllowed(boolean&nbsp;allow)</pre>
-<div class="block"><p>Sets the value of the accessToUnderlyingConnectionAllowed property.
- It controls if the PoolGuard allows access to the underlying connection.
- (Default: false)</p>
+<div class="block"><p>
+ Sets the value of the accessToUnderlyingConnectionAllowed property. It controls if the PoolGuard allows access to
+ the underlying connection. (Default: false)
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>allow</code> - Access to the underlying connection is granted when true.</dd></dl>
 </li>
 </ul>
@@ -2005,8 +1985,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getMaxConnLifetimeMillis</h4>
 <pre>public&nbsp;long&nbsp;getMaxConnLifetimeMillis()</pre>
-<div class="block">Returns the maximum permitted lifetime of a connection in milliseconds. A
- value of zero or less indicates an infinite lifetime.</div>
+<div class="block">Returns the maximum permitted lifetime of a connection in milliseconds. A value of zero or less indicates an
+ infinite lifetime.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getMaxConnLifetimeMillis()">getMaxConnLifetimeMillis</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2020,9 +2000,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getLogExpiredConnections</h4>
 <pre>public&nbsp;boolean&nbsp;getLogExpiredConnections()</pre>
-<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
- this property determines whether or not log messages are generated when the
- pool closes connections due to maximum lifetime exceeded.</div>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime, this property determines whether or
+ not log messages are generated when the pool closes connections due to maximum lifetime exceeded.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getLogExpiredConnections()">getLogExpiredConnections</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2037,13 +2016,16 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setMaxConnLifetimeMillis</h4>
 <pre>public&nbsp;void&nbsp;setMaxConnLifetimeMillis(long&nbsp;maxConnLifetimeMillis)</pre>
-<div class="block"><p>Sets the maximum permitted lifetime of a connection in
- milliseconds. A value of zero or less indicates an infinite lifetime.</p>
+<div class="block"><p>
+ Sets the maximum permitted lifetime of a connection in milliseconds. A value of zero or less indicates an
+ infinite lifetime.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter.</code></p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter.</code>
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxConnLifetimeMillis</code> - The maximum permitted lifetime of a connection in milliseconds.</dd></dl>
 </li>
 </ul>
 <a name="setLogExpiredConnections(boolean)">
@@ -2053,10 +2035,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setLogExpiredConnections</h4>
 <pre>public&nbsp;void&nbsp;setLogExpiredConnections(boolean&nbsp;logExpiredConnections)</pre>
-<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime,
- this property determines whether or not log messages are generated when the
- pool closes connections due to maximum lifetime exceeded.  Set this property
- to false to suppress log messages when connections expire.</div>
+<div class="block">When <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxConnLifetimeMillis()"><code>getMaxConnLifetimeMillis()</code></a> is set to limit connection lifetime, this property determines whether or
+ not log messages are generated when the pool closes connections due to maximum lifetime exceeded. Set this
+ property to false to suppress log messages when connections expire.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>logExpiredConnections</code> - Whether or not log messages are generated when the pool closes connections due to maximum lifetime
+            exceeded.</dd></dl>
 </li>
 </ul>
 <a name="getJmxName()">
@@ -2066,8 +2049,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getJmxName</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getJmxName()</pre>
-<div class="block">Returns the JMX name that has been requested for this DataSource. If the
- requested name is not valid, an alternative may be chosen.</div>
+<div class="block">Returns the JMX name that has been requested for this DataSource. If the requested name is not valid, an
+ alternative may be chosen.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The JMX name that has been requested for this DataSource.</dd></dl>
 </li>
 </ul>
 <a name="setJmxName(java.lang.String)">
@@ -2077,11 +2061,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setJmxName</h4>
 <pre>public&nbsp;void&nbsp;setJmxName(java.lang.String&nbsp;jmxName)</pre>
-<div class="block">Sets the JMX name that has been requested for this DataSource. If the
- requested name is not valid, an alternative may be chosen. This
- DataSource will attempt to register itself using this name. If another
- component registers this DataSource with JMX and this name is valid this
- name will be used in preference to any specified by the other component.</div>
+<div class="block">Sets the JMX name that has been requested for this DataSource. If the requested name is not valid, an alternative
+ may be chosen. This DataSource will attempt to register itself using this name. If another component registers
+ this DataSource with JMX and this name is valid this name will be used in preference to any specified by the
+ other component.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>jmxName</code> - The JMX name that has been requested for this DataSource</dd></dl>
 </li>
 </ul>
 <a name="getEnableAutoCommitOnReturn()">
@@ -2091,11 +2075,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getEnableAutoCommitOnReturn</h4>
 <pre>public&nbsp;boolean&nbsp;getEnableAutoCommitOnReturn()</pre>
-<div class="block">Returns the value of the flag that controls whether or not connections
- being returned to the pool will be checked and configured with
- <code>Connection.setAutoCommit(true)</code>
- if the auto commit setting is <code>false</code> when the connection
- is returned. It is <code>true</code> by default.</div>
+<div class="block">Returns the value of the flag that controls whether or not connections being returned to the pool will be checked
+ and configured with <code>Connection.setAutoCommit(true)</code> if the auto commit
+ setting is <code>false</code> when the connection is returned. It is <code>true</code> by default.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Whether or not connections being returned to the pool will be checked and configured with auto-commit.</dd></dl>
 </li>
 </ul>
 <a name="setEnableAutoCommitOnReturn(boolean)">
@@ -2105,11 +2088,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setEnableAutoCommitOnReturn</h4>
 <pre>public&nbsp;void&nbsp;setEnableAutoCommitOnReturn(boolean&nbsp;enableAutoCommitOnReturn)</pre>
-<div class="block">Sets the value of the flag that controls whether or not connections
- being returned to the pool will be checked and configured with
- <code>Connection.setAutoCommit(true)</code>
- if the auto commit setting is <code>false</code> when the connection
- is returned. It is <code>true</code> by default.</div>
+<div class="block">Sets the value of the flag that controls whether or not connections being returned to the pool will be checked
+ and configured with <code>Connection.setAutoCommit(true)</code> if the auto commit
+ setting is <code>false</code> when the connection is returned. It is <code>true</code> by default.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>enableAutoCommitOnReturn</code> - Whether or not connections being returned to the pool will be checked and configured with auto-commit.</dd></dl>
 </li>
 </ul>
 <a name="getRollbackOnReturn()">
@@ -2119,9 +2101,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getRollbackOnReturn</h4>
 <pre>public&nbsp;boolean&nbsp;getRollbackOnReturn()</pre>
-<div class="block">Gets the current value of the flag that controls if a connection will be
- rolled back when it is returned to the pool if auto commit is not enabled
- and the connection is not read only.</div>
+<div class="block">Gets the current value of the flag that controls whether a connection will be rolled back when it is returned to
+ the pool if auto commit is not enabled and the connection is not read only.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>whether a connection will be rolled back when it is returned to the pool.</dd></dl>
 </li>
 </ul>
 <a name="setRollbackOnReturn(boolean)">
@@ -2131,9 +2113,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setRollbackOnReturn</h4>
 <pre>public&nbsp;void&nbsp;setRollbackOnReturn(boolean&nbsp;rollbackOnReturn)</pre>
-<div class="block">Sets the flag that controls if a connection will be rolled back when it
- is returned to the pool if auto commit is not enabled and the connection
- is not read only.</div>
+<div class="block">Sets the flag that controls if a connection will be rolled back when it is returned to the pool if auto commit is
+ not enabled and the connection is not read only.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>rollbackOnReturn</code> - whether a connection will be rolled back when it is returned to the pool.</dd></dl>
 </li>
 </ul>
 <a name="getDisconnectionSqlCodes()">
@@ -2156,8 +2138,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getDisconnectionSqlCodesAsArray</h4>
 <pre>public&nbsp;java.lang.String[]&nbsp;getDisconnectionSqlCodesAsArray()</pre>
-<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an
- array so it is accessible via JMX.</div>
+<div class="block">Provides the same data as <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getDisconnectionSqlCodes()"><code>getDisconnectionSqlCodes()</code></a> but in an array so it is accessible via JMX.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getDisconnectionSqlCodesAsArray()">getDisconnectionSqlCodesAsArray</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2174,21 +2155,20 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <pre>public&nbsp;void&nbsp;setDisconnectionSqlCodes(java.util.Collection&lt;java.lang.String&gt;&nbsp;disconnectionSqlCodes)</pre>
 <div class="block">Sets the SQL_STATE codes considered to signal fatal conditions.
  <p>
- Overrides the defaults in <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODES"><code>Utils.DISCONNECTION_SQL_CODES</code></a>
- (plus anything starting with <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODE_PREFIX"><code>Utils.DISCONNECTION_SQL_CODE_PREFIX</code></a>).
- If this property is non-null and <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a> is
- <code>true</code>, whenever connections created by this datasource generate exceptions
- with SQL_STATE codes in this list, they will be marked as "fatally disconnected"
- and subsequent validations will fail fast (no attempt at isValid or validation
- query).</p>
+ Overrides the defaults in <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODES"><code>Utils.DISCONNECTION_SQL_CODES</code></a> (plus anything starting with
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Utils.html#DISCONNECTION_SQL_CODE_PREFIX"><code>Utils.DISCONNECTION_SQL_CODE_PREFIX</code></a>). If this property is non-null and <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a>
+ is <code>true</code>, whenever connections created by this datasource generate exceptions with SQL_STATE codes in this
+ list, they will be marked as "fatally disconnected" and subsequent validations will fail fast (no attempt at
+ isValid or validation query).
+ </p>
  <p>
- If <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a> is <code>false</code> setting this property has no
- effect.</p>
+ If <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a> is <code>false</code> setting this property has no effect.
+ </p>
  <p>
- Note: this method currently has no effect once the pool has been
- initialized.  The pool is initialized the first time one of the
- following methods is invoked: <code>getConnection, setLogwriter,
- setLoginTimeout, getLoginTimeout, getLogWriter</code>.</p></div>
+ Note: this method currently has no effect once the pool has been initialized. The pool is initialized the first
+ time one of the following methods is invoked: <code>getConnection, setLogwriter,
+ setLoginTimeout, getLoginTimeout, getLogWriter</code>.
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>disconnectionSqlCodes</code> - SQL_STATE codes considered to signal fatal conditions</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.1</dd></dl>
 </li>
@@ -2200,9 +2180,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getFastFailValidation</h4>
 <pre>public&nbsp;boolean&nbsp;getFastFailValidation()</pre>
-<div class="block">True means that validation will fail immediately for connections that
- have previously thrown SQLExceptions with SQL_STATE indicating fatal
- disconnection errors.</div>
+<div class="block">True means that validation will fail immediately for connections that have previously thrown SQLExceptions with
+ SQL_STATE indicating fatal disconnection errors.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getFastFailValidation()">getFastFailValidation</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2218,8 +2197,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setFastFailValidation</h4>
 <pre>public&nbsp;void&nbsp;setFastFailValidation(boolean&nbsp;fastFailValidation)</pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fastFailValidation</code> - true means connections created by this factory will
- fast fail validation</dd><dt><span class="strong">Since:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fastFailValidation</code> - true means connections created by this factory will fast fail validation</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.1</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getFastFailValidation()"><code>getFastFailValidation()</code></a></dd></dl>
 </li>
@@ -2241,7 +2219,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getConnection</h4>
 <pre>public&nbsp;java.sql.Connection&nbsp;getConnection()
                                   throws java.sql.SQLException</pre>
-<div class="block">Create (if necessary) and return a connection to the database.</div>
+<div class="block">Creates (if necessary) and return a connection to the database.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.DataSource</code></dd>
@@ -2259,15 +2237,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;user,
                                 java.lang.String&nbsp;pass)
                                   throws java.sql.SQLException</pre>
-<div class="block"><strong>BasicDataSource does NOT support this method. </strong></div>
+<div class="block"><strong>BasicDataSource does NOT support this method.</strong></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getConnection</code>&nbsp;in interface&nbsp;<code>javax.sql.DataSource</code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>user</code> - Database user on whose behalf the Connection
-   is being made</dd><dd><code>pass</code> - The database user's password</dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>user</code> - Database user on whose behalf the Connection is being made</dd><dd><code>pass</code> - The database user's password</dd>
 <dt><span class="strong">Returns:</span></dt><dd>nothing - always throws UnsupportedOperationException</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code></dd>
+<dd><code>java.lang.UnsupportedOperationException</code> - always thrown.</dd>
 <dd><code>java.sql.SQLException</code> - if a database access error occurs</dd></dl>
 </li>
 </ul>
@@ -2279,20 +2256,21 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getLoginTimeout</h4>
 <pre>public&nbsp;int&nbsp;getLoginTimeout()
                     throws java.sql.SQLException</pre>
-<div class="block"><strong>BasicDataSource does NOT support this method. </strong>
+<div class="block"><strong>BasicDataSource does NOT support this method.</strong>
 
- <p>Returns the login timeout (in seconds) for connecting to the database.
+ <p>
+ Returns the login timeout (in seconds) for connecting to the database.
  </p>
- <p>Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect
- of initializing the connection pool.</p></div>
+ <p>
+ Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect of initializing the connection pool.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getLoginTimeout</code>&nbsp;in interface&nbsp;<code>javax.sql.CommonDataSource</code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>login timeout in seconds</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - if a database access error occurs</dd>
-<dd><code>java.lang.UnsupportedOperationException</code> - If the DataSource implementation
-   does not support the login timeout feature.</dd></dl>
+<dd><code>java.lang.UnsupportedOperationException</code> - If the DataSource implementation does not support the login timeout feature.</dd></dl>
 </li>
 </ul>
 <a name="getLogWriter()">
@@ -2303,10 +2281,12 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getLogWriter</h4>
 <pre>public&nbsp;java.io.PrintWriter&nbsp;getLogWriter()
                                  throws java.sql.SQLException</pre>
-<div class="block"><p>Returns the log writer being used by this data source.</p>
+<div class="block"><p>
+ Returns the log writer being used by this data source.
+ </p>
  <p>
- Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect
- of initializing the connection pool.</p></div>
+ Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect of initializing the connection pool.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getLogWriter</code>&nbsp;in interface&nbsp;<code>javax.sql.CommonDataSource</code></dd>
@@ -2325,18 +2305,18 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
                      throws java.sql.SQLException</pre>
 <div class="block"><strong>BasicDataSource does NOT support this method. </strong>
 
- <p>Set the login timeout (in seconds) for connecting to the
- database.</p>
  <p>
- Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect
- of initializing the connection pool.</p></div>
+ Set the login timeout (in seconds) for connecting to the database.
+ </p>
+ <p>
+ Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect of initializing the connection pool.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>setLoginTimeout</code>&nbsp;in interface&nbsp;<code>javax.sql.CommonDataSource</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>loginTimeout</code> - The new login timeout, or zero for no timeout</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code> - If the DataSource implementation
-   does not support the login timeout feature.</dd>
+<dd><code>java.lang.UnsupportedOperationException</code> - If the DataSource implementation does not support the login timeout feature.</dd>
 <dd><code>java.sql.SQLException</code> - if a database access error occurs</dd></dl>
 </li>
 </ul>
@@ -2348,10 +2328,12 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>setLogWriter</h4>
 <pre>public&nbsp;void&nbsp;setLogWriter(java.io.PrintWriter&nbsp;logWriter)
                   throws java.sql.SQLException</pre>
-<div class="block"><p>Sets the log writer being used by this data source.</p>
+<div class="block"><p>
+ Sets the log writer being used by this data source.
+ </p>
  <p>
- Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect
- of initializing the connection pool.</p></div>
+ Calls <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#createDataSource()"><code>createDataSource()</code></a>, so has the side effect of initializing the connection pool.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>setLogWriter</code>&nbsp;in interface&nbsp;<code>javax.sql.CommonDataSource</code></dd>
@@ -2367,21 +2349,25 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getRemoveAbandonedOnBorrow</h4>
 <pre>public&nbsp;boolean&nbsp;getRemoveAbandonedOnBorrow()</pre>
-<div class="block"><p>Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout when borrowObject is invoked.</p>
-
- <p>The default value is false.</p>
-
- <p>If set to true a connection is considered abandoned and eligible
- for removal if it has not been used for more than
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.</p>
-
- <p>Abandoned connections are identified and removed when
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> is invoked and all of the following conditions hold:
+<div class="block"><p>
+ Flag to remove abandoned connections if they exceed the removeAbandonedTimeout when borrowObject is invoked.
  </p>
- <ul><li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> </li>
-     <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()"><code>getNumActive()</code></a> &gt; <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>getMaxTotal()</code></a> - 3 </li>
-     <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()"><code>getNumIdle()</code></a> &lt; 2 </li></ul></div>
+ <p>
+ The default value is false.
+ </p>
+ <p>
+ If set to true a connection is considered abandoned and eligible for removal if it has not been used for more
+ than <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.
+ </p>
+ <p>
+ Abandoned connections are identified and removed when <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> is invoked and all of the
+ following conditions hold:
+ </p>
+ <ul>
+ <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a></li>
+ <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()"><code>getNumActive()</code></a> &gt; <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>getMaxTotal()</code></a> - 3</li>
+ <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()"><code>getNumIdle()</code></a> &lt; 2</li>
+ </ul></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getRemoveAbandonedOnBorrow()">getRemoveAbandonedOnBorrow</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2395,8 +2381,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setRemoveAbandonedOnMaintenance</h4>
 <pre>public&nbsp;void&nbsp;setRemoveAbandonedOnMaintenance(boolean&nbsp;removeAbandonedOnMaintenance)</pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnMaintenance</code> - true means abandoned connections may
-                                     be removed on pool maintenance.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnMaintenance</code> - true means abandoned connections may be removed on pool maintenance.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRemoveAbandonedOnMaintenance()">
@@ -2406,14 +2391,18 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getRemoveAbandonedOnMaintenance</h4>
 <pre>public&nbsp;boolean&nbsp;getRemoveAbandonedOnMaintenance()</pre>
-<div class="block"><p>Flag to remove abandoned connections if they exceed the
- removeAbandonedTimeout during pool maintenance.</p>
+<div class="block"><p>
+ Flag to remove abandoned connections if they exceed the removeAbandonedTimeout during pool maintenance.
+ </p>
 
- <p>The default value is false.</p>
+ <p>
+ The default value is false.
+ </p>
 
- <p>If set to true a connection is considered abandoned and eligible
- for removal if it has not been used for more than
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.</p></div>
+ <p>
+ If set to true a connection is considered abandoned and eligible for removal if it has not been used for more
+ than <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>removeAbandonedTimeout</code></a> seconds.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getRemoveAbandonedOnMaintenance()">getRemoveAbandonedOnMaintenance</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2427,8 +2416,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setRemoveAbandonedOnBorrow</h4>
 <pre>public&nbsp;void&nbsp;setRemoveAbandonedOnBorrow(boolean&nbsp;removeAbandonedOnBorrow)</pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnBorrow</code> - true means abandoned connections may be
-                                removed when connections are borrowed from the pool.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedOnBorrow</code> - true means abandoned connections may be removed when connections are borrowed from the pool.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRemoveAbandonedTimeout()">
@@ -2438,21 +2426,24 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getRemoveAbandonedTimeout</h4>
 <pre>public&nbsp;int&nbsp;getRemoveAbandonedTimeout()</pre>
-<div class="block"><p>Timeout in seconds before an abandoned connection can be removed.</p>
-
- <p>Creating a Statement, PreparedStatement or CallableStatement or using
- one of these to execute a query (using one of the execute methods)
- resets the lastUsed property of the parent connection.</p>
-
- <p>Abandoned connection cleanup happens when:</p>
+<div class="block"><p>
+ Timeout in seconds before an abandoned connection can be removed.
+ </p>
+ <p>
+ Creating a Statement, PreparedStatement or CallableStatement or using one of these to execute a query (using one
+ of the execute methods) resets the lastUsed property of the parent connection.
+ </p>
+ <p>
+ Abandoned connection cleanup happens when:
+ </p>
  <ul>
- <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> or
-     <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> = true</li>
+ <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> or <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> = true</li>
  <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumIdle()"><code>numIdle</code></a> &lt; 2</li>
  <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getNumActive()"><code>numActive</code></a> &gt; <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getMaxTotal()"><code>maxTotal</code></a> - 3</li>
  </ul>
-
- <p>The default value is 300 seconds.</p></div>
+ <p>
+ The default value is 300 seconds.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getRemoveAbandonedTimeout()">getRemoveAbandonedTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2466,12 +2457,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setRemoveAbandonedTimeout</h4>
 <pre>public&nbsp;void&nbsp;setRemoveAbandonedTimeout(int&nbsp;removeAbandonedTimeout)</pre>
-<div class="block"><p>Sets the timeout in seconds before an abandoned connection can be
- removed.</p>
+<div class="block"><p>
+ Sets the timeout in seconds before an abandoned connection can be removed.
+ </p>
 
- <p>Setting this property has no effect if
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> and
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> are false.</p></div>
+ <p>
+ Setting this property has no effect if <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a> and
+ <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a> are false.
+ </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>removeAbandonedTimeout</code> - new abandoned timeout in seconds</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedTimeout()"><code>getRemoveAbandonedTimeout()</code></a>, 
 <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnBorrow()"><code>getRemoveAbandonedOnBorrow()</code></a>, 
 <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getRemoveAbandonedOnMaintenance()"><code>getRemoveAbandonedOnMaintenance()</code></a></dd></dl>
@@ -2484,14 +2477,16 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getLogAbandoned</h4>
 <pre>public&nbsp;boolean&nbsp;getLogAbandoned()</pre>
-<div class="block"><p>Flag to log stack traces for application code which abandoned
- a Statement or Connection.
+<div class="block"><p>
+ Flag to log stack traces for application code which abandoned a Statement or Connection.
  </p>
- <p>Defaults to false.
+ <p>
+ Defaults to false.
  </p>
- <p>Logging of abandoned Statements and Connections adds overhead
- for every Connection open or new Statement because a stack
- trace has to be generated. </p></div>
+ <p>
+ Logging of abandoned Statements and Connections adds overhead for every Connection open or new Statement because
+ a stack trace has to be generated.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getLogAbandoned()">getLogAbandoned</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2515,8 +2510,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>getAbandonedLogWriter</h4>
 <pre>public&nbsp;java.io.PrintWriter&nbsp;getAbandonedLogWriter()</pre>
-<div class="block">Gets the log writer to be used by this configuration to log
- information on abandoned objects.</div>
+<div class="block">Gets the print writer used by this configuration to log information on abandoned objects.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The print writer used by this configuration to log information on abandoned objects.</dd></dl>
 </li>
 </ul>
 <a name="setAbandonedLogWriter(java.io.PrintWriter)">
@@ -2526,8 +2521,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setAbandonedLogWriter</h4>
 <pre>public&nbsp;void&nbsp;setAbandonedLogWriter(java.io.PrintWriter&nbsp;logWriter)</pre>
-<div class="block">Sets the log writer to be used by this configuration to log
- information on abandoned objects.</div>
+<div class="block">Sets the print writer to be used by this configuration to log information on abandoned objects.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>logWriter</code> - The new log writer</dd></dl>
 </li>
 </ul>
@@ -2539,9 +2533,8 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>getAbandonedUsageTracking</h4>
 <pre>public&nbsp;boolean&nbsp;getAbandonedUsageTracking()</pre>
 <div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, should the
- connection pool record a stack trace every time a method is called on a
- pooled connection and retain the most recent stack trace to aid debugging
- of abandoned connections?</div>
+ connection pool record a stack trace every time a method is called on a pooled connection and retain the most
+ recent stack trace to aid debugging of abandoned connections?</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html#getAbandonedUsageTracking()">getAbandonedUsageTracking</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSourceMXBean.html" title="interface in org.apache.tomcat.dbcp.dbcp2">BasicDataSourceMXBean</a></code></dd>
@@ -2555,13 +2548,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>setAbandonedUsageTracking</h4>
 <pre>public&nbsp;void&nbsp;setAbandonedUsageTracking(boolean&nbsp;usageTracking)</pre>
-<div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, configure
- whether the connection pool should record a stack trace every time a
- method is called on a pooled connection and retain the most recent stack
- trace to aid debugging of abandoned connections.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>usageTracking</code> - A value of <code>true</code> will enable
-                              the recording of a stack trace on every use
-                              of a pooled connection</dd></dl>
+<div class="block">If the connection pool implements <a href="../../../../../org/apache/tomcat/dbcp/pool2/UsageTracking.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>UsageTracking</code></a>, configure whether
+ the connection pool should record a stack trace every time a method is called on a pooled connection and retain
+ the most recent stack trace to aid debugging of abandoned connections.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>usageTracking</code> - A value of <code>true</code> will enable the recording of a stack trace on every use of a pooled
+            connection</dd></dl>
 </li>
 </ul>
 <a name="addConnectionProperty(java.lang.String, java.lang.String)">
@@ -2572,11 +2563,9 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>addConnectionProperty</h4>
 <pre>public&nbsp;void&nbsp;addConnectionProperty(java.lang.String&nbsp;name,
                          java.lang.String&nbsp;value)</pre>
-<div class="block">Add a custom connection property to the set that will be passed to our
- JDBC driver. This <strong>MUST</strong> be called before the first
- connection is retrieved (along with all the other configuration
- property setters). Calls to this method after the connection pool
- has been initialized have no effect.</div>
+<div class="block">Adds a custom connection property to the set that will be passed to our JDBC driver. This <strong>MUST</strong>
+ be called before the first connection is retrieved (along with all the other configuration property setters).
+ Calls to this method after the connection pool has been initialized have no effect.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the custom connection property</dd><dd><code>value</code> - Value of the custom connection property</dd></dl>
 </li>
 </ul>
@@ -2587,7 +2576,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>removeConnectionProperty</h4>
 <pre>public&nbsp;void&nbsp;removeConnectionProperty(java.lang.String&nbsp;name)</pre>
-<div class="block">Remove a custom connection property.</div>
+<div class="block">Removes a custom connection property.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the custom connection property to remove</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#addConnectionProperty(java.lang.String,%20java.lang.String)"><code>addConnectionProperty(String, String)</code></a></dd></dl>
 </li>
 </ul>
@@ -2599,13 +2588,13 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>setConnectionProperties</h4>
 <pre>public&nbsp;void&nbsp;setConnectionProperties(java.lang.String&nbsp;connectionProperties)</pre>
 <div class="block">Sets the connection properties passed to driver.connect(...).
-
+ <p>
  Format of the string must be [propertyName=property;]*
-
- NOTE - The "user" and "password" properties will be added
- explicitly, so they do not need to be included here.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionProperties</code> - the connection properties used to
- create new connections</dd></dl>
+ </p>
+ <p>
+ NOTE - The "user" and "password" properties will be added explicitly, so they do not need to be included here.
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionProperties</code> - the connection properties used to create new connections</dd></dl>
 </li>
 </ul>
 <a name="close()">
@@ -2616,18 +2605,23 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws java.sql.SQLException</pre>
-<div class="block"><p>Closes and releases all idle connections that are currently stored in the connection pool
- associated with this data source.</p>
-
- <p>Connections that are checked out to clients when this method is invoked are not affected.
- When client applications subsequently invoke <code>Connection.close()</code> to return
- these connections to the pool, the underlying JDBC connections are closed.</p>
-
- <p>Attempts to acquire connections using <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> after this method has been
- invoked result in SQLExceptions.</p>
-
- <p>This method is idempotent - i.e., closing an already closed BasicDataSource has no effect
- and does not generate exceptions.</p></div>
+<div class="block"><p>
+ Closes and releases all idle connections that are currently stored in the connection pool associated with this
+ data source.
+ </p>
+ <p>
+ Connections that are checked out to clients when this method is invoked are not affected. When client
+ applications subsequently invoke <code>Connection.close()</code> to return these connections to the pool, the
+ underlying JDBC connections are closed.
+ </p>
+ <p>
+ Attempts to acquire connections using <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#getConnection()"><code>getConnection()</code></a> after this method has been invoked result in
+ SQLExceptions.
+ </p>
+ <p>
+ This method is idempotent - i.e., closing an already closed BasicDataSource has no effect and does not generate
+ exceptions.
+ </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
@@ -2702,9 +2696,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>invalidateConnection</h4>
 <pre>public&nbsp;void&nbsp;invalidateConnection(java.sql.Connection&nbsp;connection)
                           throws java.lang.IllegalStateException</pre>
-<div class="block">Manually invalidates a connection, effectively requesting the pool to try
- to close it, remove it from the pool and reclaim pool capacity.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<div class="block">Manually invalidates a connection, effectively requesting the pool to try to close it, remove it from the pool
+ and reclaim pool capacity.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The Connection to invalidate.</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if invalidating the connection failed.</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.1</dd></dl>
 </li>
@@ -2717,9 +2712,11 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>createDataSource</h4>
 <pre>protected&nbsp;javax.sql.DataSource&nbsp;createDataSource()
                                          throws java.sql.SQLException</pre>
-<div class="block"><p>Create (if necessary) and return the internal data source we are
- using to manage our connections.</p></div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<div class="block"><p>
+ Creates (if necessary) and return the internal data source we are using to manage our connections.
+ </p></div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The current internal DataSource or a newly created instance if it has not yet been created.</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - if the object pool cannot be created.</dd></dl>
 </li>
 </ul>
@@ -2731,24 +2728,20 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>createConnectionFactory</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactory.html" title="interface in org.apache.tomcat.dbcp.dbcp2">ConnectionFactory</a>&nbsp;createConnectionFactory()
                                              throws java.sql.SQLException</pre>
-<div class="block">Creates a JDBC connection factory for this datasource.  The JDBC driver
- is loaded using the following algorithm:
+<div class="block">Creates a JDBC connection factory for this datasource. The JDBC driver is loaded using the following algorithm:
  <ol>
- <li>If a Driver instance has been specified via
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a> use it</li>
- <li>If no Driver instance was specified and <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a> is
- specified that class is loaded using the <code>ClassLoader</code> of this
- class or, if <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassLoader"><code>driverClassLoader</code></a> is set, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a>
- is loaded with the specified <code>ClassLoader</code>.</li>
- <li>If <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a> is specified and the previous attempt
- fails, the class is loaded using the context class loader of the current
- thread.</li>
- <li>If a driver still isn't loaded one is loaded via the
- <code>DriverManager</code> using the specified <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.
+ <li>If a Driver instance has been specified via <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#setDriver(java.sql.Driver)"><code>setDriver(Driver)</code></a> use it</li>
+ <li>If no Driver instance was specified and <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a> is specified that class is loaded using the
+ <code>ClassLoader</code> of this class or, if <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassLoader"><code>driverClassLoader</code></a> is set, <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a> is loaded
+ with the specified <code>ClassLoader</code>.</li>
+ <li>If <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#driverClassName"><code>driverClassName</code></a> is specified and the previous attempt fails, the class is loaded using the
+ context class loader of the current thread.</li>
+ <li>If a driver still isn't loaded one is loaded via the <code>DriverManager</code> using the specified <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#url"><code>url</code></a>.
  </ol>
  This method exists so subclasses can replace the implementation class.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>A new connection factory.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code> - If the connection factort cannot be created</dd></dl>
 </li>
 </ul>
 <a name="createConnectionPool(org.apache.tomcat.dbcp.dbcp2.PoolableConnectionFactory)">
@@ -2758,14 +2751,14 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>createConnectionPool</h4>
 <pre>protected&nbsp;void&nbsp;createConnectionPool(<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnectionFactory</a>&nbsp;factory)</pre>
-<div class="block">Creates a connection pool for this datasource.  This method only exists
- so subclasses can replace the implementation class.
-
- This implementation configures all pool properties other than
- timeBetweenEvictionRunsMillis.  Setting that property is deferred to
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#startPoolMaintenance()"><code>startPoolMaintenance()</code></a>, since setting timeBetweenEvictionRunsMillis
- to a positive value causes <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html" title="class in org.apache.tomcat.dbcp.pool2.impl"><code>GenericObjectPool</code></a>'s eviction timer
- to be started.</div>
+<div class="block">Creates a connection pool for this datasource. This method only exists so subclasses can replace the
+ implementation class.
+ <p>
+ This implementation configures all pool properties other than timeBetweenEvictionRunsMillis. Setting that
+ property is deferred to <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/BasicDataSource.html#startPoolMaintenance()"><code>startPoolMaintenance()</code></a>, since setting timeBetweenEvictionRunsMillis to a
+ positive value causes <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html" title="class in org.apache.tomcat.dbcp.pool2.impl"><code>GenericObjectPool</code></a>'s eviction timer to be started.
+ </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>factory</code> - The factory to use to create new connections for this pool.</dd></dl>
 </li>
 </ul>
 <a name="createObjectPool(org.apache.tomcat.dbcp.dbcp2.PoolableConnectionFactory, org.apache.tomcat.dbcp.pool2.impl.GenericObjectPoolConfig, org.apache.tomcat.dbcp.pool2.impl.AbandonedConfig)">
@@ -2775,7 +2768,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>createObjectPool</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPool</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnection</a>&gt;&nbsp;createObjectPool(<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnectionFactory</a>&nbsp;factory,
-                                                     <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPoolConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPoolConfig</a>&nbsp;poolConfig,
+                                                     <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/GenericObjectPoolConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPoolConfig</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnection</a>&gt;&nbsp;poolConfig,
                                                      <a href="../../../../../org/apache/tomcat/dbcp/pool2/impl/AbandonedConfig.html" title="class in org.apache.tomcat.dbcp.pool2.impl">AbandonedConfig</a>&nbsp;abandonedConfig)</pre>
 <div class="block">Creates an object pool used to provide pooling support for <code>JDBC connections</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>factory</code> - the object factory</dd><dd><code>poolConfig</code> - the object pool configuration</dd><dd><code>abandonedConfig</code> - the abandoned objects configuration</dd>
@@ -2800,9 +2793,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>createDataSourceInstance</h4>
 <pre>protected&nbsp;javax.sql.DataSource&nbsp;createDataSourceInstance()
                                                  throws java.sql.SQLException</pre>
-<div class="block">Creates the actual data source instance.  This method only exists so
- that subclasses can replace the implementation class.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<div class="block">Creates the actual data source instance. This method only exists so that subclasses can replace the
+ implementation class.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>A new DataSource instance</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - if unable to create a datasource instance</dd></dl>
 </li>
 </ul>
@@ -2814,9 +2808,10 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <h4>createPoolableConnectionFactory</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2">PoolableConnectionFactory</a>&nbsp;createPoolableConnectionFactory(<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactory.html" title="interface in org.apache.tomcat.dbcp.dbcp2">ConnectionFactory</a>&nbsp;driverConnectionFactory)
                                                              throws java.sql.SQLException</pre>
-<div class="block">Creates the PoolableConnectionFactory and attaches it to the connection pool.  This method only exists
- so subclasses can replace the default implementation.</div>
+<div class="block">Creates the PoolableConnectionFactory and attaches it to the connection pool. This method only exists so
+ subclasses can replace the default implementation.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>driverConnectionFactory</code> - JDBC connection factory</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A new PoolableConnectionFactory configured with the current configuration of this BasicDataSource</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - if an error occurs creating the PoolableConnectionFactory</dd></dl>
 </li>
@@ -2849,7 +2844,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li class="blockList">
 <h4>preRegister</h4>
 <pre>public&nbsp;javax.management.ObjectName&nbsp;preRegister(javax.management.MBeanServer&nbsp;server,
-                                      javax.management.ObjectName&nbsp;name)</pre>
+                                      javax.management.ObjectName&nbsp;objectName)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>preRegister</code>&nbsp;in interface&nbsp;<code>javax.management.MBeanRegistration</code></dd>
@@ -2928,7 +2923,7 @@ implements javax.sql.DataSource, <a href="../../../../../org/apache/tomcat/dbcp/
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.53</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

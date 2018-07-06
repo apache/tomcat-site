@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>PoolableCallableStatement (Apache Tomcat 8.0.52 API Documentation)</title>
+<title>PoolableCallableStatement (Apache Tomcat 8.0.53 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="PoolableCallableStatement (Apache Tomcat 8.0.52 API Documentation)";
+        parent.document.title="PoolableCallableStatement (Apache Tomcat 8.0.53 API Documentation)";
     }
 //-->
 </script>
@@ -31,11 +31,11 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.53</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ListException.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -121,8 +121,8 @@
 <br>
 <pre>public class <span class="strong">PoolableCallableStatement</span>
 extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingCallableStatement</a></pre>
-<div class="block">A <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>DelegatingCallableStatement</code></a> that cooperates with
- <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>PoolingConnection</code></a> to implement a pool of <code>CallableStatement</code>s.
+<div class="block">A <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>DelegatingCallableStatement</code></a> that cooperates with <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>PoolingConnection</code></a> to implement a pool of
+ <code>CallableStatement</code>s.
  <p>
  The <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableCallableStatement.html#close()"><code>close()</code></a> method returns this statement to its containing pool. (See <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>PoolingConnection</code></a>.)</div>
 <dl><dt><span class="strong">Since:</span></dt>
@@ -161,10 +161,10 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableCallableStatement.html#PoolableCallableStatement(java.sql.CallableStatement,%20org.apache.tomcat.dbcp.dbcp2.PStmtKey,%20org.apache.tomcat.dbcp.pool2.KeyedObjectPool,%20org.apache.tomcat.dbcp.dbcp2.DelegatingConnection)">PoolableCallableStatement</a></strong>(java.sql.CallableStatement&nbsp;stmt,
+<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableCallableStatement.html#PoolableCallableStatement(java.sql.CallableStatement,%20org.apache.tomcat.dbcp.dbcp2.PStmtKey,%20org.apache.tomcat.dbcp.pool2.KeyedObjectPool,%20org.apache.tomcat.dbcp.dbcp2.DelegatingConnection)">PoolableCallableStatement</a></strong>(java.sql.CallableStatement&nbsp;callableStatement,
                          <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PStmtKey.html" title="class in org.apache.tomcat.dbcp.dbcp2">PStmtKey</a>&nbsp;key,
                          <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2">KeyedObjectPool</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PStmtKey.html" title="class in org.apache.tomcat.dbcp.dbcp2">PStmtKey</a>,<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingPreparedStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingPreparedStatement</a>&gt;&nbsp;pool,
-                         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingConnection</a>&lt;java.sql.Connection&gt;&nbsp;conn)</code>
+                         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingConnection</a>&lt;java.sql.Connection&gt;&nbsp;connection)</code>
 <div class="block">Constructor.</div>
 </td>
 </tr>
@@ -184,7 +184,7 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableCallableStatement.html#activate()">activate</a></strong>()</code>
 <div class="block">Activates after retrieval from the pool.</div>
 </td>
@@ -196,7 +196,7 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected void</code></td>
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableCallableStatement.html#passivate()">passivate</a></strong>()</code>
 <div class="block">Passivates to prepare for return to the pool.</div>
 </td>
@@ -278,12 +278,12 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <ul class="blockListLast">
 <li class="blockList">
 <h4>PoolableCallableStatement</h4>
-<pre>public&nbsp;PoolableCallableStatement(java.sql.CallableStatement&nbsp;stmt,
+<pre>public&nbsp;PoolableCallableStatement(java.sql.CallableStatement&nbsp;callableStatement,
                          <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PStmtKey.html" title="class in org.apache.tomcat.dbcp.dbcp2">PStmtKey</a>&nbsp;key,
                          <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2">KeyedObjectPool</a>&lt;<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PStmtKey.html" title="class in org.apache.tomcat.dbcp.dbcp2">PStmtKey</a>,<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingPreparedStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingPreparedStatement</a>&gt;&nbsp;pool,
-                         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingConnection</a>&lt;java.sql.Connection&gt;&nbsp;conn)</pre>
+                         <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingConnection</a>&lt;java.sql.Connection&gt;&nbsp;connection)</pre>
 <div class="block">Constructor.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>stmt</code> - the underlying <code>CallableStatement</code></dd><dd><code>key</code> - the key for this statement in the <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>KeyedObjectPool</code></a></dd><dd><code>pool</code> - the <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>KeyedObjectPool</code></a> from which this CallableStatement was obtained</dd><dd><code>conn</code> - the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>DelegatingConnection</code></a> that created this CallableStatement</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>callableStatement</code> - the underlying <code>CallableStatement</code></dd><dd><code>key</code> - the key for this statement in the <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>KeyedObjectPool</code></a></dd><dd><code>pool</code> - the <a href="../../../../../org/apache/tomcat/dbcp/pool2/KeyedObjectPool.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>KeyedObjectPool</code></a> from which this CallableStatement was obtained</dd><dd><code>connection</code> - the <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><code>DelegatingConnection</code></a> that created this CallableStatement</dd></dl>
 </li>
 </ul>
 </li>
@@ -302,7 +302,7 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
            throws java.sql.SQLException</pre>
-<div class="block">Returns the CallableStatement to the pool.  If {<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html#isClosed()"><code>DelegatingStatement.isClosed()</code></a>, this is a No-op.</div>
+<div class="block">Returns the CallableStatement to the pool. If {<a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html#isClosed()"><code>DelegatingStatement.isClosed()</code></a>, this is a No-op.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
@@ -320,15 +320,16 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <ul class="blockList">
 <li class="blockList">
 <h4>activate</h4>
-<pre>protected&nbsp;void&nbsp;activate()
-                 throws java.sql.SQLException</pre>
-<div class="block">Activates after retrieval from the pool. Adds a trace for this CallableStatement to the Connection
- that created it.</div>
+<pre>public&nbsp;void&nbsp;activate()
+              throws java.sql.SQLException</pre>
+<div class="block">Activates after retrieval from the pool. Adds a trace for this CallableStatement to the Connection that created
+ it.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html#activate()">activate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingStatement</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
+<dd><code>java.sql.SQLException</code> - thrown by the delegating statement.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.4.0 made public, was protected in 2.3.0.</dd></dl>
 </li>
 </ul>
 <a name="passivate()">
@@ -337,15 +338,16 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <ul class="blockListLast">
 <li class="blockList">
 <h4>passivate</h4>
-<pre>protected&nbsp;void&nbsp;passivate()
-                  throws java.sql.SQLException</pre>
-<div class="block">Passivates to prepare for return to the pool.  Removes the trace associated with this CallableStatement
- from the Connection that created it.  Also closes any associated ResultSets.</div>
+<pre>public&nbsp;void&nbsp;passivate()
+               throws java.sql.SQLException</pre>
+<div class="block">Passivates to prepare for return to the pool. Removes the trace associated with this CallableStatement from the
+ Connection that created it. Also closes any associated ResultSets.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html#passivate()">passivate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingStatement.html" title="class in org.apache.tomcat.dbcp.dbcp2">DelegatingStatement</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
+<dd><code>java.sql.SQLException</code> - thrown by the delegating statement.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.4.0 made public, was protected in 2.3.0.</dd></dl>
 </li>
 </ul>
 </li>
@@ -370,11 +372,11 @@ extends <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DelegatingCallableS
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.52</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.0.53</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ListException.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/PoolableConnection.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
