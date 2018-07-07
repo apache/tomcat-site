@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.88) - Container Provided Filters</title><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.90) - Container Provided Filters</title><style type="text/css" media="print">
     .noPrint {display: none;}
     td#mainBody {width: 100%;}
 </style><style type="text/css">
@@ -76,10 +76,10 @@ p.notice {
     padding: 0.5em;
     margin: 1em 2em 1em 1em;
 }
-</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="http://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
+</style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="https://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.88, May 7 2018</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="http://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Container Provided Filters</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter">Add Default Character Set Filter</a><ol><li><a href="#Add_Default_Character_Set_Filter/Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Add_Default_Character_Set_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CORS_Filter">CORS Filter</a><ol><li><a href="#CORS_Filter/Introduction">Introduction</a></li><li><a href="#CORS_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CORS_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#CORS_Filter_and_HttpServletRequest_attributes">CORS Filter and HttpServletRequest attributes</a></li></ol></li><li><a href="#CSRF_Prevention_Filter">CSRF Prevention Filter</a><ol><li><a href="#CSRF_Prevention_Filter/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs">CSRF Prevention Filter for REST APIs</a><ol><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#RestCsrfPreventionFilter_and_HttpServletRequest_parameters">RestCsrfPreventionFilter and HttpServletRequest parameters</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Expires_Filter">Expires Filter</a><ol><li><a href="#Expires_Filter/Introduction">Introduction</a></li><li><a href="#Expires_Filter/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#Alternate_Syntax">Alternate Syntax</a></li><li><a href="#Expiration_headers_generation_eligibility">Expiration headers generation eligibility</a></li><li><a href="#Expiration_configuration_selection">Expiration configuration selection</a></li><li><a href="#Expires_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Expires_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Troubleshooting">Troubleshooting</a></li></ol></li><li><a href="#Failed_Request_Filter">Failed Request Filter</a><ol><li><a href="#Failed_Request_Filter/Introduction">Introduction</a></li><li><a href="#Failed_Request_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Failed_Request_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#HTTP_Header_Security_Filter">HTTP Header Security Filter</a><ol><li><a href="#HTTP_Header_Security_Filter/Introduction">Introduction</a></li><li><a href="#HTTP_Header_Security_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#HTTP_Header_Security_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Remote_Address_Filter">Remote Address Filter</a><ol><li><a href="#Remote_Address_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Address_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Address_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Example">Example</a></li></ol></li><li><a href="#Remote_Host_Filter">Remote Host Filter</a><ol><li><a href="#Remote_Host_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Host_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Host_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Remote_IP_Filter">Remote IP Filter</a><ol><li><a href="#Remote_IP_Filter/Introduction">Introduction</a></li><li><a href="#Remote_IP_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'">Basic configuration to handle 'x-forwarded-for'</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'_and_'x-forwarded-proto'">Basic configuration to handle 'x-forwarded-for' and 'x-forwarded-proto'</a></li><li><a href="#Advanced_configuration_with_internal_proxies">Advanced configuration with internal proxies</a></li><li><a href="#Advanced_configuration_with_trusted_proxies">Advanced configuration with trusted proxies</a></li><li><a href="#Advanced_configuration_with_internal_and_trusted_proxies">Advanced configuration with internal and trusted proxies</a></li><li><a href="#Advanced_configuration_with_an_untrusted_proxy">Advanced configuration with an untrusted proxy</a></li><li><a href="#Remote_IP_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Request_Dumper_Filter">Request Dumper Filter</a><ol><li><a href="#Request_Dumper_Filter/Introduction">Introduction</a></li><li><a href="#Request_Dumper_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Request_Dumper_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Request_Dumper_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Session_Initializer_Filter">Session Initializer Filter</a><ol><li><a href="#Session_Initializer_Filter/Introduction">Introduction</a></li><li><a href="#Session_Initializer_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Session_Initializer_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Session_Initializer_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Set_Character_Encoding_Filter">Set Character Encoding Filter</a><ol><li><a href="#Set_Character_Encoding_Filter/Introduction">Introduction</a></li><li><a href="#Set_Character_Encoding_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Set_Character_Encoding_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#WebDAV_Fix_Filter">WebDAV Fix Filter</a><ol><li><a href="#WebDAV_Fix_Filter/Introduction">Introduction</a></li><li><a href="#WebDAV_Fix_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#WebDAV_Fix_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li></ul>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.90, Jul 2 2018</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>Container Provided Filters</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter">Add Default Character Set Filter</a><ol><li><a href="#Add_Default_Character_Set_Filter/Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Add_Default_Character_Set_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CORS_Filter">CORS Filter</a><ol><li><a href="#CORS_Filter/Introduction">Introduction</a></li><li><a href="#CORS_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CORS_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#CORS_Filter_and_HttpServletRequest_attributes">CORS Filter and HttpServletRequest attributes</a></li></ol></li><li><a href="#CSRF_Prevention_Filter">CSRF Prevention Filter</a><ol><li><a href="#CSRF_Prevention_Filter/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs">CSRF Prevention Filter for REST APIs</a><ol><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#RestCsrfPreventionFilter_and_HttpServletRequest_parameters">RestCsrfPreventionFilter and HttpServletRequest parameters</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Expires_Filter">Expires Filter</a><ol><li><a href="#Expires_Filter/Introduction">Introduction</a></li><li><a href="#Expires_Filter/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#Alternate_Syntax">Alternate Syntax</a></li><li><a href="#Expiration_headers_generation_eligibility">Expiration headers generation eligibility</a></li><li><a href="#Expiration_configuration_selection">Expiration configuration selection</a></li><li><a href="#Expires_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Expires_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Troubleshooting">Troubleshooting</a></li></ol></li><li><a href="#Failed_Request_Filter">Failed Request Filter</a><ol><li><a href="#Failed_Request_Filter/Introduction">Introduction</a></li><li><a href="#Failed_Request_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Failed_Request_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#HTTP_Header_Security_Filter">HTTP Header Security Filter</a><ol><li><a href="#HTTP_Header_Security_Filter/Introduction">Introduction</a></li><li><a href="#HTTP_Header_Security_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#HTTP_Header_Security_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Remote_Address_Filter">Remote Address Filter</a><ol><li><a href="#Remote_Address_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Address_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Address_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Remote_Address_Filter/Example">Example</a></li></ol></li><li><a href="#Remote_Host_Filter">Remote Host Filter</a><ol><li><a href="#Remote_Host_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Host_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Host_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Remote_CIDR_Filter">Remote CIDR Filter</a><ol><li><a href="#Remote_CIDR_Filter/Introduction">Introduction</a></li><li><a href="#Remote_CIDR_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_CIDR_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Remote_CIDR_Filter/Example">Example</a></li></ol></li><li><a href="#Remote_IP_Filter">Remote IP Filter</a><ol><li><a href="#Remote_IP_Filter/Introduction">Introduction</a></li><li><a href="#Remote_IP_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'">Basic configuration to handle 'x-forwarded-for'</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'_and_'x-forwarded-proto'">Basic configuration to handle 'x-forwarded-for' and 'x-forwarded-proto'</a></li><li><a href="#Advanced_configuration_with_internal_proxies">Advanced configuration with internal proxies</a></li><li><a href="#Advanced_configuration_with_trusted_proxies">Advanced configuration with trusted proxies</a></li><li><a href="#Advanced_configuration_with_internal_and_trusted_proxies">Advanced configuration with internal and trusted proxies</a></li><li><a href="#Advanced_configuration_with_an_untrusted_proxy">Advanced configuration with an untrusted proxy</a></li><li><a href="#Remote_IP_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Request_Dumper_Filter">Request Dumper Filter</a><ol><li><a href="#Request_Dumper_Filter/Introduction">Introduction</a></li><li><a href="#Request_Dumper_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Request_Dumper_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Request_Dumper_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Session_Initializer_Filter">Session Initializer Filter</a><ol><li><a href="#Session_Initializer_Filter/Introduction">Introduction</a></li><li><a href="#Session_Initializer_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Session_Initializer_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Session_Initializer_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Set_Character_Encoding_Filter">Set Character Encoding Filter</a><ol><li><a href="#Set_Character_Encoding_Filter/Introduction">Introduction</a></li><li><a href="#Set_Character_Encoding_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Set_Character_Encoding_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#WebDAV_Fix_Filter">WebDAV Fix Filter</a><ol><li><a href="#WebDAV_Fix_Filter/Introduction">Introduction</a></li><li><a href="#WebDAV_Fix_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#WebDAV_Fix_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>Tomcat provides a number of <strong>Filters</strong> which may be
@@ -138,7 +138,7 @@ p.notice {
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="CORS Filter"><!--()--></a><a name="CORS_Filter"><strong>CORS Filter</strong></a></font></td></tr><tr><td><blockquote>
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="CORS Filter/Introduction"><!--()--></a><a name="CORS_Filter/Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
     <p>This filter is an implementation of W3C's CORS (Cross-Origin Resource
-    Sharing) <a href="http://www.w3.org/TR/cors/">specification</a>, which is a
+    Sharing) <a href="https://www.w3.org/TR/cors/">specification</a>, which is a
     mechanism that enables cross-origin requests.</p>
     <p>The filter works by adding required <code>Access-Control-*</code> headers
     to HttpServletResponse object. The filter also protects against HTTP
@@ -163,12 +163,12 @@ p.notice {
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="CORS Filter/Initialisation parameters"><!--()--></a><a name="CORS_Filter/Initialisation_parameters"><strong>Initialisation parameters</strong></a></font></td></tr><tr><td><blockquote>
     <p>The CORS Filter supports following initialisation parameters:</p>
     <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Attribute</font></th><th width="85%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code class="attributeName">cors.allowed.origins</code></td><td align="left" valign="center">
-        <p>A list of <a href="http://tools.ietf.org/html/rfc6454">origins</a>
+        <p>A list of <a href="https://tools.ietf.org/html/rfc6454">origins</a>
         that are allowed to access the resource. A <code>*</code> can be
         specified to enable access to resource from any origin. Otherwise, a
         whitelist of comma separated origins can be provided. Eg: <code>
-        http://www.w3.org, https://www.apache.org</code>.
-        <strong>Defaults:</strong> <code>*</code> (Any origin is allowed to
+        https://www.w3.org, https://www.apache.org</code>.
+        <strong>Defaults:</strong> The empty String. (No origin is allowed to
         access the resource).</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">cors.allowed.methods</code></td><td align="left" valign="center">
         <p>A comma separated list of HTTP methods that can be used to access the
@@ -204,7 +204,7 @@ p.notice {
         <code>Access-Control-Allow-Credentials</code> header in a pre-flight
         response. It helps browser determine whether or not an actual request
         can be made using credentials. <strong>Defaults:</strong>
-        <code>true</code></p>
+        <code>false</code></p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">cors.request.decorate</code></td><td align="left" valign="center">
         <p>A flag to control if CORS specific attributes should be added to
         HttpServletRequest object or not. <strong>Defaults:</strong>
@@ -477,7 +477,7 @@ HTTP/1.1 200 OK
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Expires Filter/Introduction"><!--()--></a><a name="Expires_Filter/Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>
-    ExpiresFilter is a Java Servlet API port of <a href="http://httpd.apache.org/docs/2.2/mod/mod_expires.html">Apache
+    ExpiresFilter is a Java Servlet API port of <a href="https://httpd.apache.org/docs/2.2/mod/mod_expires.html">Apache
     mod_expires</a>.
     This filter controls the setting of the <code>Expires</code> HTTP header and the
     <code>max-age</code> directive of the <code>Cache-Control</code> HTTP header in
@@ -494,8 +494,8 @@ HTTP/1.1 200 OK
     </p>
     <p>
     To modify <code>Cache-Control</code> directives other than <code>max-age</code> (see
-    <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">RFC
-    2616 section 14.9</a>), you can use other servlet filters or <a href="http://httpd.apache.org/docs/2.2/mod/mod_headers.html">Apache Httpd
+    <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">RFC
+    2616 section 14.9</a>), you can use other servlet filters or <a href="https://httpd.apache.org/docs/2.2/mod/mod_headers.html">Apache Httpd
     mod_headers</a> module.
     </p>
 
@@ -874,7 +874,7 @@ FINE: Request "/docs/config/manager.html" with response status "200"
         <p>Will an HTTP Strict Transport Security (HSTS) header
         (<code>Strict-Transport-Security</code>) be set on the response for
         secure requests. Any HSTS header already present will be replaced. See
-        <a href="http://tools.ietf.org/html/rfc6797">RFC 6797</a> for further
+        <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a> for further
         details of HSTS. If not specified, the default value of
         <code>true</code> will be used.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">hstsMaxAgeSeconds</code></td><td align="left" valign="center">
@@ -978,7 +978,7 @@ FINE: Request "/docs/config/manager.html" with response status "200"
 
   </blockquote></td></tr></table>
 
-  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Example"><strong>Example</strong></a></font></td></tr><tr><td><blockquote>
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote Address Filter/Example"><!--()--></a><a name="Remote_Address_Filter/Example"><strong>Example</strong></a></font></td></tr><tr><td><blockquote>
     <p>To allow access only for the clients connecting from localhost:</p>
 <div class="codeBox"><pre><code>    &lt;filter&gt;
       &lt;filter-name&gt;Remote Address Filter&lt;/filter-name&gt;
@@ -1051,12 +1051,107 @@ FINE: Request "/docs/config/manager.html" with response status "200"
 
   </blockquote></td></tr></table>
 
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote CIDR Filter"><!--()--></a><a name="Remote_CIDR_Filter"><strong>Remote CIDR Filter</strong></a></font></td></tr><tr><td><blockquote>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote CIDR Filter/Introduction"><!--()--></a><a name="Remote_CIDR_Filter/Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The <strong>Remote CIDR Filter</strong> allows you to compare the
+      IP address of the client that submitted this request against one or more
+      netmasks following the CIDR notation, and either allow the request to
+      continue or refuse to process the request from this client. IPv4 and
+      IPv6 are both fully supported.
+    </p>
+
+    <p>This filter mimicks Apache httpd's <code>Order</code>,
+      <code>Allow from</code> and <code>Deny from</code> directives,
+      with the following limitations:
+    </p>
+
+    <ul>
+      <li><code>Order</code> will always be <code>allow, deny</code>;</li>
+      <li>dotted quad notations for netmasks are not supported (that is, you
+        cannot write <code>192.168.1.0/255.255.255.0</code>, you must write
+        <code>192.168.1.0/24</code>;
+      </li>
+      <li>shortcuts, like <code>10.10.</code>, which is equivalent to
+        <code>10.10.0.0/16</code>, are not supported;
+      </li>
+      <li>as the filter name says, this is a CIDR only filter,
+        therefore subdomain notations like <code>.mydomain.com</code> are not
+        supported either.
+      </li>
+    </ul>
+
+    <p>Some more features of this filter are:
+    </p>
+
+    <ul>
+      <li>if you omit the CIDR prefix, this filter becomes a single IP
+      filter;</li>
+      <li>unlike the <a href="#Remote_Host_Filter">Remote Host Filter</a>,
+      it can handle IPv6 addresses in condensed form (<code>::1</code>,
+      <code>fe80::/71</code>, etc).</li>
+    </ul>
+
+  </blockquote></td></tr></table>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote CIDR Filter/Filter Class Name"><!--()--></a><a name="Remote_CIDR_Filter/Filter_Class_Name"><strong>Filter Class Name</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The filter class name for the Remote Address Filter is
+      <strong><code>org.apache.catalina.filters.RemoteCIDRFilter</code>
+      </strong>.</p>
+
+  </blockquote></td></tr></table>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote CIDR Filter/Initialisation parameters"><!--()--></a><a name="Remote_CIDR_Filter/Initialisation_parameters"><strong>Initialisation parameters</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The <strong>Remote CIDR Filter</strong> supports the following
+      initialisation parameters:</p>
+
+    <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Attribute</font></th><th width="85%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code class="attributeName">allow</code></td><td align="left" valign="center">
+        <p>A comma-separated list of IPv4 or IPv6 netmasks or addresses
+          that the remote client's IP address is matched against.
+          If this attribute is specified, the remote address MUST match
+          for this request to be accepted. If this attribute is not specified,
+          all requests will be accepted UNLESS the remote IP is matched by a
+          netmask in the <code>deny</code> attribute.
+        </p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">deny</code></td><td align="left" valign="center">
+        <p>A comma-separated list of IPv4 or IPv6 netmasks or addresses
+          that the remote client's IP address is matched against.
+          If this attribute is specified, the remote address MUST NOT match
+          for this request to be accepted. If this attribute is not specified,
+          request acceptance is governed solely by the <code>accept</code>
+          attribute.
+        </p>
+      </td></tr></table>
+
+  </blockquote></td></tr></table>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote CIDR Filter/Example"><!--()--></a><a name="Remote_CIDR_Filter/Example"><strong>Example</strong></a></font></td></tr><tr><td><blockquote>
+    <p>To allow access only for the clients connecting from localhost:</p>
+    <pre>
+      &lt;filter&gt;
+      &lt;filter-name&gt;Remote CIDR Filter&lt;/filter-name&gt;
+      &lt;filter-class&gt;org.apache.catalina.filters.RemoteCIDRFilter&lt;/filter-class&gt;
+      &lt;init-param&gt;
+      &lt;param-name&gt;allow&lt;/param-name&gt;
+      &lt;param-value&gt;127.0.0.0/8, ::1&lt;/param-value&gt;
+      &lt;/init-param&gt;
+      &lt;/filter&gt;
+      &lt;filter-mapping&gt;
+      &lt;filter-name&gt;Remote CIDR Filter&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+      &lt;/filter-mapping&gt;
+    </pre>
+  </blockquote></td></tr></table>
+
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote IP Filter"><!--()--></a><a name="Remote_IP_Filter"><strong>Remote IP Filter</strong></a></font></td></tr><tr><td><blockquote>
 
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Remote IP Filter/Introduction"><!--()--></a><a name="Remote_IP_Filter/Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>Tomcat port of
-    <a href="http://httpd.apache.org/docs/trunk/mod/mod_remoteip.html">mod_remoteip</a>,
+    <a href="https://httpd.apache.org/docs/trunk/mod/mod_remoteip.html">mod_remoteip</a>,
     this filter replaces the apparent client remote IP address and hostname for
     the request with the IP address list presented by a proxy or a load balancer
     via a request headers (e.g. "X-Forwarded-For").</p>
@@ -1398,7 +1493,7 @@ FINE: Request "/docs/config/manager.html" with response status "200"
         Internal proxies that appear in the <strong>remoteIpHeader</strong> will
         be trusted and will not appear in the <strong>proxiesHeader</strong>
         value. If not specified the default value of <code>
-        10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}
+        10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|0:0:0:0:0:0:0:1
         </code> will be used.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">proxiesHeader</code></td><td align="left" valign="center">
         <p>Name of the HTTP header created by this valve to hold the list of
