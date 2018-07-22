@@ -83,6 +83,33 @@
 
   <section name="Fixed in Apache Tomcat 8.5.32" rtext="26 June 2018">
   
+    <p><strong>Important: Due to a mishandling of close in NIO/NIO2 connectors user
+       sessions can get mixed up</strong>
+       <cve>CVE-2018-8037</cve></p>
+
+    <p>A bug in the tracking of connection closures can lead to reuse of user
+       sessions in a new connection</p>
+
+    <p>This was fixed in revision <revlink rev="1833907">1833907</revlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by Dmitry
+       Treskunov on 16 June 2018 and made public on 22 July 2018.</p>
+
+    <p>Affects: 8.5.5 to 8.5.31</p>
+
+    <p><strong>Low: host name verification missing in WebSocket client</strong>
+       <cve>CVE-2018-8034</cve></p>
+
+    <p>The host name verification when using TLS with the WebSocket client was
+       missing. It is now enabled by default.</p>
+
+    <p>This was fixed in revision <revlink rev="1833758">1833758</revlink>.</p>
+
+    <p>This issue was reported publicly on 11 June 2018 and formally announced as
+       a vulnerability on 22 July 2018.</p>
+
+    <p>Affects: 8.5.0 to 8.5.31</p>
+
     <p><strong>Low: CORS filter has insecure defaults</strong>
        <cve>CVE-2018-8014</cve></p>
 
@@ -114,6 +141,24 @@
        a vulnerability on 22 July 2018.</p>
 
     <p>Affects: 8.0.0.RC1 to 8.0.51</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 8.5.31" rtext="4 May 2018">
+
+    <p><strong>Important: A bug in the UTF-8 decoder can lead to DoS</strong>
+       <cve>CVE-2018-1336</cve></p>
+ 
+    <p>An improper handing of overflow in the UTF-8 decoder with
+       supplementary characters can lead to an infinite loop in the
+       decoder causing a Denial of Service.</p>
+
+    <p>This was fixed in revision <revlink rev="1830374">1830374</revlink>.</p>
+
+    <p>This issue was reported publicly on 6 April 2018 and formally announced as
+       a vulnerability on 22 July 2018.</p>
+
+    <p>Affects: 8.5.0 to 8.5.30</p>
 
   </section>
 
