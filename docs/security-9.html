@@ -222,7 +222,13 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.10">Fixed in Apache Tomcat 9.0.10</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.9">Fixed in Apache Tomcat 9.0.9</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.8">Fixed in Apache Tomcat 9.0.8</a>
 </li>
 <li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.5">Fixed in Apache Tomcat 9.0.5</a>
@@ -312,6 +318,53 @@
 
   
 </div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.10">
+<span class="pull-right">25 June 2018</span> Fixed in Apache Tomcat 9.0.10</h3>
+<div class="text">
+
+    
+<p>
+<strong>Low: host name verification missing in WebSocket client</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8034" rel="nofollow">CVE-2018-8034</a>
+</p>
+
+    
+<p>The host name verification when using TLS with the WebSocket client was
+       missing. It is now enabled by default.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1833757">1833757</a>.</p>
+
+    
+<p>This issue was reported publicly on 11 June 2018 and formally announced as
+       a vulnerability on 22 July 2018.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.9</p>
+
+    
+<p>
+<strong>Important: Due to a mishandling of close in NIO/NIO2 connectors user
+       sessions can get mixed up</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8037" rel="nofollow">CVE-2018-8037</a>
+</p>
+
+    
+<p>A bug in the tracking of connection closures can lead to reuse of user
+       sessions in a new connection</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1833906">1833906</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by Dmitry
+       Treskunov on 16 June 2018 and made public on 22 July 2018.</p>
+
+    
+<p>Affects: 9.0.0.M9 to 9.0.9</p>
+
+  
+</div>
 <h3 id="Fixed_in_Apache_Tomcat_9.0.9">
 <span class="pull-right">not yet released</span> Fixed in Apache Tomcat 9.0.9</h3>
 <div class="text">
@@ -335,6 +388,33 @@
     
 <p>This issue was reported publicly on 1 May 2018 and formally announced as
        a vulnerability on 16 May 2018.</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.8">
+<span class="pull-right">3 May 2018</span> Fixed in Apache Tomcat 9.0.8</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: A bug in the UTF-8 decoder can lead to DoS</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1336" rel="nofollow">CVE-2018-1336</a>
+</p>
+ 
+    
+<p>An improper handing of overflow in the UTF-8 decoder with
+       supplementary characters can lead to an infinite loop in the
+       decoder causing a Denial of Service.</p>
+
+    
+<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1830373">1830373</a>.</p>
+
+    
+<p>This issue was reported publicly on 6 April 2018 and formally announced as
+       a vulnerability on 22 July 2018.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.7</p>
 
   
 </div>
