@@ -65,14 +65,22 @@
 
     <p>Affects: 9.0.0.M1 to 9.0.9</p>
 
-    <p><strong>Important: Due to a mishandling of close in NIO/NIO2 connectors user
-       sessions can get mixed up</strong>
+    <p><strong>Important: Information Disclosure</strong>
        <cve>CVE-2018-8037</cve></p>
 
-    <p>A bug in the tracking of connection closures can lead to reuse of user
-       sessions in a new connection</p>
+    <p>If an async request was completed by the application at the same time as
+       the container triggered the async timeout, a race condition existed that
+       could result in a user seeing a response intended for a different user.
+       An additional issue was present in the NIO and NIO2 connectors that did
+       not correctly track the closure of the connection when an async request
+       was completed by the application and timed out by the container at the
+       same time. This could also result in a user seeing a response intended
+       for another user.</p>
 
-    <p>This was fixed in revision <revlink rev="1833906">1833906</revlink>.</p>
+    <p>This was fixed in revisions <revlink rev="1833825">1833825</revlink>,
+       <revlink rev="1833831">1833831</revlink>,
+       <revlink rev="1837530">1837530</revlink> and
+       <revlink rev="1833906">1833906</revlink>.</p>
 
     <p>This issue was reported to the Apache Tomcat Security Team by Dmitry
        Treskunov on 16 June 2018 and made public on 22 July 2018.</p>
