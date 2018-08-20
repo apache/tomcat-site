@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DelegatingDatabaseMetaData (Apache Tomcat 8.5.32 API Documentation)</title>
+<title>DelegatingDatabaseMetaData (Apache Tomcat 8.5.33 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DelegatingDatabaseMetaData (Apache Tomcat 8.5.32 API Documentation)";
+        parent.document.title="DelegatingDatabaseMetaData (Apache Tomcat 8.5.33 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -985,49 +985,6 @@ implements java.sql.DatabaseMetaData</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getDelegate()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDelegate</h4>
-<pre>public&nbsp;java.sql.DatabaseMetaData&nbsp;getDelegate()</pre>
-<div class="block">Gets the underlying database meta data.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>The underlying database meta data.</dd></dl>
-</li>
-</ul>
-<a name="getInnermostDelegate()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getInnermostDelegate</h4>
-<pre>public&nbsp;java.sql.DatabaseMetaData&nbsp;getInnermostDelegate()</pre>
-<div class="block">If my underlying <code>ResultSet</code> is not a <code>DelegatingResultSet</code>, returns it, otherwise recursively
- invokes this method on my delegate.
- <p>
- Hence this method will return the first delegate that is not a <code>DelegatingResultSet</code>, or <code>null</code> when
- no non-<code>DelegatingResultSet</code> delegate can be found by traversing this chain.
- </p>
- <p>
- This method is useful when you may have nested <code>DelegatingResultSet</code>s, and you want to make sure to obtain
- a "genuine" <code>ResultSet</code>.
- </p></div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the innermost database meta data.</dd></dl>
-</li>
-</ul>
-<a name="handleException(java.sql.SQLException)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>handleException</h4>
-<pre>protected&nbsp;void&nbsp;handleException(java.sql.SQLException&nbsp;e)
-                        throws java.sql.SQLException</pre>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
 <a name="allProceduresAreCallable()">
 <!--   -->
 </a>
@@ -1054,6 +1011,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>allTablesAreSelectable</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="autoCommitFailureClosesAllResultSets()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>autoCommitFailureClosesAllResultSets</h4>
+<pre>public&nbsp;boolean&nbsp;autoCommitFailureClosesAllResultSets()
+                                             throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>autoCommitFailureClosesAllResultSets</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -1118,6 +1090,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="generatedKeyAlwaysReturned()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generatedKeyAlwaysReturned</h4>
+<pre>public&nbsp;boolean&nbsp;generatedKeyAlwaysReturned()
+                                   throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>generatedKeyAlwaysReturned</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="getAttributes(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -1155,6 +1142,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="getCatalogs()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCatalogs</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getCatalogs()
+                               throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getCatalogs</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="getCatalogSeparator()">
 <!--   -->
 </a>
@@ -1185,17 +1187,17 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
-<a name="getCatalogs()">
+<a name="getClientInfoProperties()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getCatalogs</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getCatalogs()
-                               throws java.sql.SQLException</pre>
+<h4>getClientInfoProperties</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getClientInfoProperties()
+                                           throws java.sql.SQLException</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code>getCatalogs</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dd><code>getClientInfoProperties</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -1346,6 +1348,17 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="getDelegate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDelegate</h4>
+<pre>public&nbsp;java.sql.DatabaseMetaData&nbsp;getDelegate()</pre>
+<div class="block">Gets the underlying database meta data.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The underlying database meta data.</dd></dl>
+</li>
+</ul>
 <a name="getDriverMajorVersion()">
 <!--   -->
 </a>
@@ -1434,6 +1447,41 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="getFunctionColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFunctionColumns</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getFunctionColumns(java.lang.String&nbsp;catalog,
+                                    java.lang.String&nbsp;schemaPattern,
+                                    java.lang.String&nbsp;functionNamePattern,
+                                    java.lang.String&nbsp;columnNamePattern)
+                                      throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getFunctionColumns</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getFunctions(java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFunctions</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getFunctions(java.lang.String&nbsp;catalog,
+                              java.lang.String&nbsp;schemaPattern,
+                              java.lang.String&nbsp;functionNamePattern)
+                                throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getFunctions</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="getIdentifierQuoteString()">
 <!--   -->
 </a>
@@ -1483,6 +1531,26 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>getIndexInfo</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getInnermostDelegate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getInnermostDelegate</h4>
+<pre>public&nbsp;java.sql.DatabaseMetaData&nbsp;getInnermostDelegate()</pre>
+<div class="block">If my underlying <code>ResultSet</code> is not a <code>DelegatingResultSet</code>, returns it, otherwise recursively
+ invokes this method on my delegate.
+ <p>
+ Hence this method will return the first delegate that is not a <code>DelegatingResultSet</code>, or <code>null</code> when
+ no non-<code>DelegatingResultSet</code> delegate can be found by traversing this chain.
+ </p>
+ <p>
+ This method is useful when you may have nested <code>DelegatingResultSet</code>s, and you want to make sure to obtain
+ a "genuine" <code>ResultSet</code>.
+ </p></div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the innermost database meta data.</dd></dl>
 </li>
 </ul>
 <a name="getJDBCMajorVersion()">
@@ -1865,21 +1933,6 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
-<a name="getProcedureTerm()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getProcedureTerm</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getProcedureTerm()
-                                  throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getProcedureTerm</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
 <a name="getProcedures(java.lang.String, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -1897,6 +1950,39 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="getProcedureTerm()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProcedureTerm</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getProcedureTerm()
+                                  throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getProcedureTerm</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getPseudoColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPseudoColumns</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getPseudoColumns(java.lang.String&nbsp;catalog,
+                                  java.lang.String&nbsp;schemaPattern,
+                                  java.lang.String&nbsp;tableNamePattern,
+                                  java.lang.String&nbsp;columnNamePattern)
+                                    throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getPseudoColumns</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="getResultSetHoldability()">
 <!--   -->
 </a>
@@ -1908,6 +1994,82 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getResultSetHoldability</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getRowIdLifetime()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRowIdLifetime</h4>
+<pre>public&nbsp;java.sql.RowIdLifetime&nbsp;getRowIdLifetime()
+                                        throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getRowIdLifetime</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getSchemas()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSchemas</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getSchemas()
+                              throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getSchemas</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getSchemas(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSchemas</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getSchemas(java.lang.String&nbsp;catalog,
+                            java.lang.String&nbsp;schemaPattern)
+                              throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getSchemas</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getSchemaTerm()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSchemaTerm</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getSchemaTerm()
+                               throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getSchemaTerm</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getSearchStringEscape()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSearchStringEscape</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getSearchStringEscape()
+                                       throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getSearchStringEscape</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -1938,51 +2100,6 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getSQLStateType</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getSchemaTerm()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSchemaTerm</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getSchemaTerm()
-                               throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getSchemaTerm</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getSchemas()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSchemas</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getSchemas()
-                              throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getSchemas</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getSearchStringEscape()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSearchStringEscape</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getSearchStringEscape()
-                                       throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getSearchStringEscape</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -2068,21 +2185,6 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
-<a name="getTableTypes()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTableTypes</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getTableTypes()
-                                 throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getTableTypes</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
 <a name="getTables(java.lang.String, java.lang.String, java.lang.String, java.lang.String[])">
 <!--   -->
 </a>
@@ -2097,6 +2199,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>getTables</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="getTableTypes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTableTypes</h4>
+<pre>public&nbsp;java.sql.ResultSet&nbsp;getTableTypes()
+                                 throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>getTableTypes</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -2196,6 +2313,18 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="handleException(java.sql.SQLException)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleException</h4>
+<pre>protected&nbsp;void&nbsp;handleException(java.sql.SQLException&nbsp;e)
+                        throws java.sql.SQLException</pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="insertsAreDetected(int)">
 <!--   -->
 </a>
@@ -2237,6 +2366,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>isReadOnly</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="isWrapperFor(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isWrapperFor</h4>
+<pre>public&nbsp;boolean&nbsp;isWrapperFor(java.lang.Class&lt;?&gt;&nbsp;iface)
+                     throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>isWrapperFor</code>&nbsp;in interface&nbsp;<code>java.sql.Wrapper</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -2511,6 +2655,36 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="supportsAlterTableWithAddColumn()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>supportsAlterTableWithAddColumn</h4>
+<pre>public&nbsp;boolean&nbsp;supportsAlterTableWithAddColumn()
+                                        throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>supportsAlterTableWithAddColumn</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
+<a name="supportsAlterTableWithDropColumn()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>supportsAlterTableWithDropColumn</h4>
+<pre>public&nbsp;boolean&nbsp;supportsAlterTableWithDropColumn()
+                                         throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>supportsAlterTableWithDropColumn</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="supportsANSI92EntryLevelSQL()">
 <!--   -->
 </a>
@@ -2552,36 +2726,6 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>supportsANSI92IntermediateSQL</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="supportsAlterTableWithAddColumn()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>supportsAlterTableWithAddColumn</h4>
-<pre>public&nbsp;boolean&nbsp;supportsAlterTableWithAddColumn()
-                                        throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>supportsAlterTableWithAddColumn</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="supportsAlterTableWithDropColumn()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>supportsAlterTableWithDropColumn</h4>
-<pre>public&nbsp;boolean&nbsp;supportsAlterTableWithDropColumn()
-                                         throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>supportsAlterTableWithDropColumn</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -3353,6 +3497,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="supportsStoredFunctionsUsingCallSyntax()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>supportsStoredFunctionsUsingCallSyntax</h4>
+<pre>public&nbsp;boolean&nbsp;supportsStoredFunctionsUsingCallSyntax()
+                                               throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>supportsStoredFunctionsUsingCallSyntax</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="supportsStoredProcedures()">
 <!--   -->
 </a>
@@ -3503,6 +3662,21 @@ implements java.sql.DatabaseMetaData</pre>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
 </ul>
+<a name="unwrap(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unwrap</h4>
+<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;unwrap(java.lang.Class&lt;T&gt;&nbsp;iface)
+         throws java.sql.SQLException</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code>unwrap</code>&nbsp;in interface&nbsp;<code>java.sql.Wrapper</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.sql.SQLException</code></dd></dl>
+</li>
+</ul>
 <a name="updatesAreDetected(int)">
 <!--   -->
 </a>
@@ -3536,7 +3710,7 @@ implements java.sql.DatabaseMetaData</pre>
 <a name="usesLocalFiles()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>usesLocalFiles</h4>
 <pre>public&nbsp;boolean&nbsp;usesLocalFiles()
@@ -3544,180 +3718,6 @@ implements java.sql.DatabaseMetaData</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>usesLocalFiles</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="isWrapperFor(java.lang.Class)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isWrapperFor</h4>
-<pre>public&nbsp;boolean&nbsp;isWrapperFor(java.lang.Class&lt;?&gt;&nbsp;iface)
-                     throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>isWrapperFor</code>&nbsp;in interface&nbsp;<code>java.sql.Wrapper</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="unwrap(java.lang.Class)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>unwrap</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;unwrap(java.lang.Class&lt;T&gt;&nbsp;iface)
-         throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>unwrap</code>&nbsp;in interface&nbsp;<code>java.sql.Wrapper</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getRowIdLifetime()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRowIdLifetime</h4>
-<pre>public&nbsp;java.sql.RowIdLifetime&nbsp;getRowIdLifetime()
-                                        throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getRowIdLifetime</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getSchemas(java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSchemas</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getSchemas(java.lang.String&nbsp;catalog,
-                            java.lang.String&nbsp;schemaPattern)
-                              throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getSchemas</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="autoCommitFailureClosesAllResultSets()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>autoCommitFailureClosesAllResultSets</h4>
-<pre>public&nbsp;boolean&nbsp;autoCommitFailureClosesAllResultSets()
-                                             throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>autoCommitFailureClosesAllResultSets</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="supportsStoredFunctionsUsingCallSyntax()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>supportsStoredFunctionsUsingCallSyntax</h4>
-<pre>public&nbsp;boolean&nbsp;supportsStoredFunctionsUsingCallSyntax()
-                                               throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>supportsStoredFunctionsUsingCallSyntax</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getClientInfoProperties()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getClientInfoProperties</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getClientInfoProperties()
-                                           throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getClientInfoProperties</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getFunctions(java.lang.String, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getFunctions</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getFunctions(java.lang.String&nbsp;catalog,
-                              java.lang.String&nbsp;schemaPattern,
-                              java.lang.String&nbsp;functionNamePattern)
-                                throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getFunctions</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getFunctionColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getFunctionColumns</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getFunctionColumns(java.lang.String&nbsp;catalog,
-                                    java.lang.String&nbsp;schemaPattern,
-                                    java.lang.String&nbsp;functionNamePattern,
-                                    java.lang.String&nbsp;columnNamePattern)
-                                      throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getFunctionColumns</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="getPseudoColumns(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPseudoColumns</h4>
-<pre>public&nbsp;java.sql.ResultSet&nbsp;getPseudoColumns(java.lang.String&nbsp;catalog,
-                                  java.lang.String&nbsp;schemaPattern,
-                                  java.lang.String&nbsp;tableNamePattern,
-                                  java.lang.String&nbsp;columnNamePattern)
-                                    throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>getPseudoColumns</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.sql.SQLException</code></dd></dl>
-</li>
-</ul>
-<a name="generatedKeyAlwaysReturned()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>generatedKeyAlwaysReturned</h4>
-<pre>public&nbsp;boolean&nbsp;generatedKeyAlwaysReturned()
-                                   throws java.sql.SQLException</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>generatedKeyAlwaysReturned</code>&nbsp;in interface&nbsp;<code>java.sql.DatabaseMetaData</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code></dd></dl>
 </li>
@@ -3744,7 +3744,7 @@ implements java.sql.DatabaseMetaData</pre>
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

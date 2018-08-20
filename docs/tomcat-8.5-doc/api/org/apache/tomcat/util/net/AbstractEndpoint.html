@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AbstractEndpoint (Apache Tomcat 8.5.32 API Documentation)</title>
+<title>AbstractEndpoint (Apache Tomcat 8.5.33 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AbstractEndpoint (Apache Tomcat 8.5.32 API Documentation)";
+        parent.document.title="AbstractEndpoint (Apache Tomcat 8.5.33 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -278,37 +278,51 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#bind()">bind</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#closeServerSocketGraceful()">closeServerSocketGraceful</a></strong>()</code>
+<div class="block">Close the server socket (to prevent further connections) if the server
+ socket was originally bound on <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#start()"><code>start()</code></a> (rather than on
+ <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#init()"><code>init()</code></a>).</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#countDownConnection()">countDownConnection</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#countUpOrAwaitConnection()">countUpOrAwaitConnection</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.Acceptor.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint.Acceptor</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createAcceptor()">createAcceptor</a></strong>()</code>
 <div class="block">Hook to allow Endpoints to provide a specific Acceptor implementation.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createExecutor()">createExecutor</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/tomcat/util/net/SocketProcessorBase.html" title="class in org.apache.tomcat.util.net">SocketProcessorBase</a>&lt;<a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html" title="type parameter in AbstractEndpoint">S</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createSocketProcessor(org.apache.tomcat.util.net.SocketWrapperBase,%20org.apache.tomcat.util.net.SocketEvent)">createSocketProcessor</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.html" title="class in org.apache.tomcat.util.net">SocketWrapperBase</a>&lt;<a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html" title="type parameter in AbstractEndpoint">S</a>&gt;&nbsp;socketWrapper,
                      <a href="../../../../../org/apache/tomcat/util/net/SocketEvent.html" title="enum in org.apache.tomcat.util.net">SocketEvent</a>&nbsp;event)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#createSSLContext(org.apache.tomcat.util.net.SSLHostConfig)">createSSLContext</a></strong>(<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;sslHostConfig)</code>
 <div class="block">Create the SSLContextfor the the given SSLHostConfig.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#destroy()">destroy</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#doCloseServerSocket()">doCloseServerSocket</a></strong>()</code>
+<div class="block">Actually close the server socket but don't perform any other clean-up.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>[]</code></td>
@@ -2012,7 +2026,7 @@ public&nbsp;void&nbsp;setSoTimeout(int&nbsp;soTimeout)</pre>
 <a name="handleExceptionWithDelay(int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>handleExceptionWithDelay</h4>
 <pre>protected&nbsp;int&nbsp;handleExceptionWithDelay(int&nbsp;currentErrorDelay)</pre>
@@ -2023,6 +2037,32 @@ public&nbsp;void&nbsp;setSoTimeout(int&nbsp;soTimeout)</pre>
  files is reached.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>currentErrorDelay</code> - The current delay being applied on failure</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The delay to apply on the next failure</dd></dl>
+</li>
+</ul>
+<a name="closeServerSocketGraceful()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>closeServerSocketGraceful</h4>
+<pre>public final&nbsp;void&nbsp;closeServerSocketGraceful()</pre>
+<div class="block">Close the server socket (to prevent further connections) if the server
+ socket was originally bound on <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#start()"><code>start()</code></a> (rather than on
+ <a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#init()"><code>init()</code></a>).</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#getBindOnInit()"><code>getBindOnInit()</code></a></dd></dl>
+</li>
+</ul>
+<a name="doCloseServerSocket()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>doCloseServerSocket</h4>
+<pre>protected abstract&nbsp;void&nbsp;doCloseServerSocket()
+                                     throws java.io.IOException</pre>
+<div class="block">Actually close the server socket but don't perform any other clean-up.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - If an error occurs closing the socket</dd></dl>
 </li>
 </ul>
 </li>
@@ -2047,7 +2087,7 @@ public&nbsp;void&nbsp;setSoTimeout(int&nbsp;soTimeout)</pre>
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.32</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.33</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
