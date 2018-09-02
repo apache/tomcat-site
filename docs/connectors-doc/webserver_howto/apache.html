@@ -68,9 +68,6 @@ WinNT4.0-i386 SP4/SP5/SP6a (should be able to work with other service packs), Wi
 Cygwin (until you have an Apache server and autoconf/automake support tools)
 </li>
 <li>
-Netware
-</li>
-<li>
 i5/OS V5R4 (System I) with Apache HTTP Server 2.0.58. Be sure to have the latest Apache PTF installed.
 </li>
 <li>
@@ -526,37 +523,18 @@ but also slightly more complicated.
 </p>
 
 <p>
-JkOptions <b>CollapseSlashesAll</b> will collapse multiple
-adjacent slashes in request URLs before looking for mount or unmount
-matches.
-<div class="example"><pre>
-  JkOptions     +CollapseSlashesAll
-</pre></div>
-<br>
-<br>
+JkOptions <b>CollapseSlashesAll</b> is deprecated as of 1.2.44 and will be
+ignored if used.
 </p>
 
 <p>
-JkOptions <b>CollapseSlashesUnmount</b> will collapse multiple
-adjacent slashes in request URLs only before looking for unmount
-matches. This is the default value.
-<div class="example"><pre>
-  JkOptions     +CollapseSlashesUnmount
-</pre></div>
-<br>
-<br>
+JkOptions <b>CollapseSlashesUnmount</b> is deprecated as of 1.2.44 and will be
+ignored if used.
 </p>
 
 <p>
-JkOptions <b>CollapseSlashesNone</b> will never collapse multiple
-adjacent slashes in request URLs before looking for mount or unmount
-matches. Using this value might make you vulnerable for attacks
-bypassing your unmount rules.
-<div class="example"><pre>
-  JkOptions     +CollapseSlashesNone
-</pre></div>
-<br>
-<br>
+JkOptions <b>CollapseSlashesNone</b> is deprecated as of 1.2.44 and will be
+ignored if used.
 </p>
 
 <p>
@@ -813,8 +791,7 @@ directive when jk and alias/userdir URLs matches.
       &lt;Directory "/home/dataxxx"&gt;
           Options Indexes MultiViews
           AllowOverride None
-          Order allow,deny
-          Allow from all
+          Require all granted
       &lt;/Directory&gt;
 
       JkMount /* myssys-xxx

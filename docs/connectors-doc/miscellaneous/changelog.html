@@ -6,6 +6,64 @@
   It should contain fixes made only after November 10th 2004, when the
   new documentation project for JK was started.
   </p>
+</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Changes between 1.2.43 and 1.2.44"><strong>Changes between 1.2.43 and 1.2.44</strong></a></font></td></tr><tr><td><blockquote>
+  <br>
+  <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Native"><strong>Native</strong></a></font></td></tr><tr><td><blockquote>
+    <table border="0" cellpadding="2" cellspacing="2">
+      <tr><td valign="top"><img alt="update" class="icon" src="../images/update.gif"></td><td>
+        Remove the Novell Netware make files and Netware specific source code
+        since there has not been a supported version of Netware available for
+        over five years. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="update" class="icon" src="../images/update.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=57946">57946</a>: Apache: Update the documentation to use httpd 2.4.x
+        style access control directives. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="fix" class="icon" src="../images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=58287">58287</a>: Common: Use Local, rather than Global, mutexs on
+        Windows to better support multi-user environments. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="fix" class="icon" src="../images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=59897">59897</a>: Apache: Use poll rather than select to avoid the
+        limitations of select triggering an httpd crash. Patch provided by Koen
+        Wilde. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="fix" class="icon" src="../images/fix.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=60745">60745</a>: ISAPI: Remove the check that rejects requests that
+        contain path segments that match WEB-INF or META-INF as it duplicates
+        a check that Tomcat performs and, because ISAPI does not have visibility
+        of the current context path, it is impossible to implement this check
+        without valid requests being rejected. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="add" class="icon" src="../images/add.gif"></td><td>
+        Clarify the behvaiour of lb workers when all ajp13 workers fail with
+        particular reference to the role of the retries attribute. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="add" class="icon" src="../images/add.gif"></td><td>
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=62408">62408</a>: Add the new load-balancer worker property lb_retries
+        to improve the control over the number of retries. Based on a patch
+        provided by Frederik Nosi. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="fix" class="icon" src="../images/fix.gif"></td><td>
+        Refactor normalisation of request URIs to a common location and align
+        the normalisation implementation for mod_jk with that implemented by
+        Tomcat. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="add" class="icon" src="../images/add.gif"></td><td>
+        Add a note to the documentation that the CollapseSlashes options are
+        now effectively hard-coded to CollpaseSlashesAll due to the changes
+        made to align normalization with that implemented in Tomcat. (markt)
+      </td></tr>
+      <tr><td valign="top"><img alt="update" class="icon" src="../images/update.gif"></td><td>
+        Update PCRE bundled with the ISAPI redirector to 8.42. (rjung)
+      </td></tr>
+      <tr><td valign="top"><img alt="update" class="icon" src="../images/update.gif"></td><td>
+        Update config.guess and config.sub from
+        <a href="https://git.savannah.gnu.org/git/config.git">https://git.savannah.gnu.org/git/config.git</a>.
+        (rjung)
+      </td></tr>
+   </table>
+  </blockquote></td></tr></table>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Changes between 1.2.42 and 1.2.43"><strong>Changes between 1.2.42 and 1.2.43</strong></a></font></td></tr><tr><td><blockquote>
   <br>
   <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Native"><strong>Native</strong></a></font></td></tr><tr><td><blockquote>
@@ -81,7 +139,7 @@
         (rjung)
       </td></tr>
       <tr><td valign="top"><img alt="fix" class="icon" src="../images/fix.gif"></td><td>
-        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=58425">58425</a>: Fix regression in 1.4.41 that prevented  AJP 1.2
+        <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=58425">58425</a>: Fix regression in 1.2.41 that prevented  AJP 1.2
         workers from initialising. Note that the AJP 1.2 protocol is deprecated.
         Patch provided by yagisita. (markt)
       </td></tr>
