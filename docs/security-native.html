@@ -1,414 +1,411 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en">
-<head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
-<link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
-<title>Apache Tomcat&reg; - Apache Tomcat APR/native Connector vulnerabilities</title>
-<meta name="author" content="Apache Tomcat Project">
-</head>
-<body>
-<div id="wrapper">
-<header id="header">
-<div class="clearfix">
-<div class="menu-toggler pull-left" tabindex="1">
-<div class="hamburger"></div>
-</div>
-<a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
-<h1 class="pull-left">Apache Tomcat<sup>&reg;</sup>
-</h1>
-<div class="asf-logos pull-right">
-<a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
-</div>
-</div>
-</header>
-<main id="middle">
-<div>
-<div id="mainLeft">
-<div id="nav-wrapper">
-<form action="https://www.google.com/search" method="get">
-<div class="searchbox">
-<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
-</div>
-</form>
-<div class="asfevents">
-<a href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png"></a>
-</div>
-<nav>
-<div>
-<h2>Apache Tomcat</h2>
-<ul>
-<li>
-<a href="./index.html">Home</a>
-</li>
-<li>
-<a href="./taglibs.html">Taglibs</a>
-</li>
-<li>
-<a href="./maven-plugin.html">Maven Plugin</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>TomcatCon</h2>
-<ul>
-<li>
-<a href="./conference.html">North America</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Download</h2>
-<ul>
-<li>
-<a href="./whichversion.html">Which version?</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
-</li>
-<li>
-<a href="https://archive.apache.org/dist/tomcat/">Archives</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Documentation</h2>
-<ul>
-<li>
-<a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
-</li>
-<li>
-<a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
-</li>
-<li>
-<a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
-</li>
-<li>
-<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
-</li>
-<li>
-<a href="./connectors-doc/">Tomcat Connectors</a>
-</li>
-<li>
-<a href="./native-doc/">Tomcat Native</a>
-</li>
-<li>
-<a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
-</li>
-<li>
-<a href="./migration.html">Migration Guide</a>
-</li>
-<li>
-<a href="./presentations.html">Presentations</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Problems?</h2>
-<ul>
-<li>
-<a href="./security.html">Security Reports</a>
-</li>
-<li>
-<a href="./findhelp.html">Find help</a>
-</li>
-<li>
-<a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
-</li>
-<li>
-<a href="./lists.html">Mailing Lists</a>
-</li>
-<li>
-<a href="./bugreport.html">Bug Database</a>
-</li>
-<li>
-<a href="./irc.html">IRC</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Get Involved</h2>
-<ul>
-<li>
-<a href="./getinvolved.html">Overview</a>
-</li>
-<li>
-<a href="./svn.html">Source code</a>
-</li>
-<li>
-<a href="./ci.html">Buildbot</a>
-</li>
-<li>
-<a href="./tools.html">Tools</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Media</h2>
-<ul>
-<li>
-<a href="https://twitter.com/theapachetomcat">Twitter</a>
-</li>
-<li>
-<a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
-</li>
-<li>
-<a href="https://blogs.apache.org/tomcat/">Blog</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Misc</h2>
-<ul>
-<li>
-<a href="./whoweare.html">Who We Are</a>
-</li>
-<li>
-<a href="./heritage.html">Heritage</a>
-</li>
-<li>
-<a href="http://www.apache.org">Apache Home</a>
-</li>
-<li>
-<a href="./resources.html">Resources</a>
-</li>
-<li>
-<a href="./contact.html">Contact</a>
-</li>
-<li>
-<a href="./legal.html">Legal</a>
-</li>
-<li>
-<a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
-</li>
-<li>
-<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
-</li>
-<li>
-<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
-</li>
-<li>
-<a href="http://www.apache.org/licenses/">License</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</div>
-<div id="mainRight">
-<div id="content">
-<h2 style="display: none;">Content</h2>
-<h3 id="Table_of_Contents">Table of Contents</h3>
-<div class="text">
-
-<ul>
-<li>
-<a href="#Apache_Tomcat_APR/native_Connector_vulnerabilities">Apache Tomcat APR/native Connector vulnerabilities</a>
-</li>
-<li>
-<a href="#Fixed_in_Apache_Tomcat_Native_Connector_1.2.17">Fixed in Apache Tomcat Native Connector 1.2.17</a>
-</li>
-<li>
-<a href="#Fixed_in_Apache_Tomcat_Native_Connector_1.2.16">Fixed in Apache Tomcat Native Connector 1.2.16</a>
-</li>
-<li>
-<a href="#Not_a_vulnerability_in_the_Apache_Tomcat_APR/native_Connector">Not a vulnerability in the Apache Tomcat APR/native Connector</a>
-</li>
-</ul>
-
-</div>
-<h3 id="Apache_Tomcat_APR/native_Connector_vulnerabilities">Apache Tomcat APR/native Connector vulnerabilities</h3>
-<div class="text">
-    
-<p>This page lists all security vulnerabilities fixed in released versions
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
+        <link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
+        <title>Apache Tomcat&reg; - Apache Tomcat APR/native Connector vulnerabilities</title>
+        <meta name="author" content="Apache Tomcat Project">
+    </head>
+    <body>
+        <div id="wrapper">
+            <header id="header">
+                <div class="clearfix">
+                    <div class="menu-toggler pull-left" tabindex="1">
+                        <div class="hamburger"></div>
+                    </div>
+                    <a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
+                    <h1 class="pull-left">
+                        Apache Tomcat<sup>&reg;</sup>
+                    </h1>
+                    <div class="asf-logos pull-right">
+                        <a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
+                    </div>
+                </div>
+            </header>
+            <main id="middle">
+                <div>
+                    <div id="mainLeft">
+                        <div id="nav-wrapper">
+                            <form action="https://www.google.com/search" method="get">
+                                <div class="searchbox">
+                                    <input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
+                                </div>
+                            </form>
+                            <div class="asfevents">
+                                <a href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png"></a>
+                            </div>
+                            <nav>
+                                <div>
+                                    <h2>Apache Tomcat</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./index.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="./taglibs.html">Taglibs</a>
+                                        </li>
+                                        <li>
+                                            <a href="./maven-plugin.html">Maven Plugin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>TomcatCon</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./conference.html">North America</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Download</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./whichversion.html">Which version?</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://archive.apache.org/dist/tomcat/">Archives</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Documentation</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tomcat-8.0-doc/index.html">Tomcat 8.0</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+                                        </li>
+                                        <li>
+                                            <a href="./connectors-doc/">Tomcat Connectors</a>
+                                        </li>
+                                        <li>
+                                            <a href="./native-doc/">Tomcat Native</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+                                        </li>
+                                        <li>
+                                            <a href="./migration.html">Migration Guide</a>
+                                        </li>
+                                        <li>
+                                            <a href="./presentations.html">Presentations</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Problems?</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./security.html">Security Reports</a>
+                                        </li>
+                                        <li>
+                                            <a href="./findhelp.html">Find help</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="./lists.html">Mailing Lists</a>
+                                        </li>
+                                        <li>
+                                            <a href="./bugreport.html">Bug Database</a>
+                                        </li>
+                                        <li>
+                                            <a href="./irc.html">IRC</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Get Involved</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./getinvolved.html">Overview</a>
+                                        </li>
+                                        <li>
+                                            <a href="./svn.html">Source code</a>
+                                        </li>
+                                        <li>
+                                            <a href="./ci.html">Buildbot</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tools.html">Tools</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Media</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="https://twitter.com/theapachetomcat">Twitter</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://blogs.apache.org/tomcat/">Blog</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Misc</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./whoweare.html">Who We Are</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a>
+                                        </li>
+                                        <li>
+                                            <a href="./heritage.html">Heritage</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org">Apache Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="./resources.html">Resources</a>
+                                        </li>
+                                        <li>
+                                            <a href="./contact.html">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="./legal.html">Legal</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org/licenses/">License</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div id="mainRight">
+                        <div id="content">
+                            <h2 style="display: none;">Content</h2>
+                            <h3 id="Table_of_Contents">Table of Contents</h3>
+                            <div class="text">
+                                
+                                <ul>
+                                    <li>
+                                        <a href="#Apache_Tomcat_APR/native_Connector_vulnerabilities">Apache Tomcat APR/native Connector vulnerabilities</a>
+                                    </li>
+                                    <li>
+                                        <a href="#Fixed_in_Apache_Tomcat_Native_Connector_1.2.17">Fixed in Apache Tomcat Native Connector 1.2.17</a>
+                                    </li>
+                                    <li>
+                                        <a href="#Fixed_in_Apache_Tomcat_Native_Connector_1.2.16">Fixed in Apache Tomcat Native Connector 1.2.16</a>
+                                    </li>
+                                    <li>
+                                        <a href="#Not_a_vulnerability_in_the_Apache_Tomcat_APR/native_Connector">Not a vulnerability in the Apache Tomcat APR/native Connector</a>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <h3 id="Apache_Tomcat_APR/native_Connector_vulnerabilities">Apache Tomcat APR/native Connector vulnerabilities</h3>
+                            <div class="text">
+                                    
+                                <p>
+                                    This page lists all security vulnerabilities fixed in released versions
        of Apache Tomcat APR/native Connector. Each vulnerability is given a
        <a href="security-impact.html">security impact rating</a> by the Apache
        Tomcat security team &mdash; please note that this rating may vary from
        platform to platform. We also list the versions of Apache Tomcat APR/native
        Connectors the flaw is known to affect, and where a flaw has not been
-       verified list the version with a question mark.</p>
-
-    
-<p>
-<strong>Note:</strong> Vulnerabilities that are not Tomcat vulnerabilities
+       verified list the version with a question mark.
+                                </p>
+                                    
+                                <p>
+                                    <strong>Note:</strong> Vulnerabilities that are not Tomcat vulnerabilities
        but have either been incorrectly reported against Tomcat or where Tomcat
-       provides a workaround are listed at the end of this page.</p>
-
-    
-<p>This page has been created from a review of the Apache Tomcat archives
+       provides a workaround are listed at the end of this page.
+                                </p>
+                                    
+                                <p>
+                                    This page has been created from a review of the Apache Tomcat archives
        and the CVE list. Please send comments or corrections for these
        vulnerabilities to the <a href="security.html">Tomcat
-       Security Team</a>.</p>
-
-  
-</div>
-<h3 id="Fixed_in_Apache_Tomcat_Native_Connector_1.2.17">Fixed in Apache Tomcat Native Connector 1.2.17</h3>
-<div class="text">
-
-    
-<p>
-<strong>Moderate: Mishandled OCSP invalid response</strong>
+       Security Team</a>.
+                                </p>
+                                  
+                            </div>
+                            <h3 id="Fixed_in_Apache_Tomcat_Native_Connector_1.2.17">Fixed in Apache Tomcat Native Connector 1.2.17</h3>
+                            <div class="text">
+                                    
+                                <p>
+                                    <strong>Moderate: Mishandled OCSP invalid response</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8019" rel="nofollow">CVE-2018-8019</a>
-</p>
-    
-<p>When using an OCSP responder Tomcat Native did not correctly handle
+                                </p>
+                                    
+                                <p>When using an OCSP responder Tomcat Native did not correctly handle
        invalid responses.  This allowed for revoked client certificates to
        be incorrectly identified.  It was therefore possible for users to
        authenticate with revoked certificates when using mutual TLS.</p>
-
-    
-<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1832832">1832832</a>.</p>
-
-    
-<p>Affects: 1.2.0 to 1.2.16 and 1.1.23 to 1.1.34</p>
-
-    
-<p>
-<strong>Important:  Mishandled OCSP responses can allow clients to
+                                    
+                                <p>
+                                    This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1832832">1832832</a>.
+                                </p>
+                                    
+                                <p>Affects: 1.2.0 to 1.2.16 and 1.1.23 to 1.1.34</p>
+                                    
+                                <p>
+                                    <strong>Important:  Mishandled OCSP responses can allow clients to
        authenticate with revoked certificates</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8020" rel="nofollow">CVE-2018-8020</a>
-</p>
-
-    
-<p>Apache Tomcat Native has a flaw that does not properly check OCSP
+                                </p>
+                                    
+                                <p>Apache Tomcat Native has a flaw that does not properly check OCSP
        pre-produced responses, which are lists (multiple entries) of
        certificate statuses. Subsequently, revoked client certificates may not be
        properly identified, allowing for users to authenticate with revoked
        certicates to connections that require mutual TLS.</p>
-
-    
-<p>This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1832863">1832863</a>.</p>
-
-    
-<p>Affects: 1.2.0 to 1.2.16 and 1.1.23 to 1.1.34</p>
-
-  
-</div>
-<h3 id="Fixed_in_Apache_Tomcat_Native_Connector_1.2.16">Fixed in Apache Tomcat Native Connector 1.2.16</h3>
-<div class="text">
-
-    
-<p>
-<i>Note: The issue below was fixed in Apache Tomcat Native Connector
+                                    
+                                <p>
+                                    This was fixed in revision <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1832863">1832863</a>.
+                                </p>
+                                    
+                                <p>Affects: 1.2.0 to 1.2.16 and 1.1.23 to 1.1.34</p>
+                                  
+                            </div>
+                            <h3 id="Fixed_in_Apache_Tomcat_Native_Connector_1.2.16">Fixed in Apache Tomcat Native Connector 1.2.16</h3>
+                            <div class="text">
+                                    
+                                <p>
+                                    <i>Note: The issue below was fixed in Apache Tomcat Native Connector
        1.2.15 but the release vote for the 1.2.15 release candidate did not
        pass. Therefore, although users must download 1.2.16 to obtain a version
        that includes the fix for this issue, version 1.2.15 is not included in
        the list of affected versions.</i>
-</p>
-
-    
-<p>
-<strong>Moderate: OCSP check omitted</strong>
+                                </p>
+                                    
+                                <p>
+                                    <strong>Moderate: OCSP check omitted</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15698" rel="nofollow">CVE-2017-15698</a>
-</p>
-
-    
-<p>When parsing the AIA-Extension field of a client certificate, the Apache
+                                </p>
+                                    
+                                <p>When parsing the AIA-Extension field of a client certificate, the Apache
        Tomcat Native Connector did not correctly handle fields longer than 127
        bytes. The result of the parsing error was to skip the OCSP check. It was
        therefore possible for client certificates that should have been rejected
        (if the OCSP check had been made) to be accepted. Users not using OCSP
        checks are not affected by this vulnerability.
     </p>
-
-    
-<p>This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1815200">1815200</a> and
-       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1815218">1815218</a>.</p>
-
-    
-<p>This issue was reported to the Apache Tomcat Security Team by Jonas
+                                    
+                                <p>
+                                    This was fixed in revisions <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1815200">1815200</a> and
+       <a href="http://svn.apache.org/viewvc?view=rev&amp;rev=1815218">1815218</a>.
+                                </p>
+                                    
+                                <p>This issue was reported to the Apache Tomcat Security Team by Jonas
        Klempel on 6 November 2017 and made public on 31 January 2018.</p>
-
-    
-<p>Affects: 1.2.0 to 1.2.14 and 1.1.23 to 1.1.34</p>
-
-  
-</div>
-<h3 id="Not_a_vulnerability_in_the_Apache_Tomcat_APR/native_Connector">Not a vulnerability in the Apache Tomcat APR/native Connector</h3>
-<div class="text">
-    
-<p>
-<strong>TLS SSL Man In The Middle</strong>
+                                    
+                                <p>Affects: 1.2.0 to 1.2.14 and 1.1.23 to 1.1.34</p>
+                                  
+                            </div>
+                            <h3 id="Not_a_vulnerability_in_the_Apache_Tomcat_APR/native_Connector">Not a vulnerability in the Apache Tomcat APR/native Connector</h3>
+                            <div class="text">
+                                    
+                                <p>
+                                    <strong>TLS SSL Man In The Middle</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555" rel="nofollow">CVE-2009-3555</a>
-</p>
-
-    
-<p>A vulnerability exists in the TLS protocol that allows an attacker to
+                                </p>
+                                    
+                                <p>A vulnerability exists in the TLS protocol that allows an attacker to
        inject arbitrary requests into an TLS stream during renegotiation.</p>
+                                    
     
-    
-<p>The TLS implementation used by Tomcat varies with connector. The
+                                <p>The TLS implementation used by Tomcat varies with connector. The
        APR/native connector uses OpenSSL.</p>
-       
+                                       
     
-<p>The APR/native connector is vulnerable if the OpenSSL version used is
+                                <p>The APR/native connector is vulnerable if the OpenSSL version used is
        vulnerable. Note: Building with OpenSSL 0.9.8l will disable all
        renegotiation and protect against this vulnerability.</p>
-
-    
-<p>From 1.1.18 onwards, client initiated renegotiations are rejected to
+                                    
+                                <p>From 1.1.18 onwards, client initiated renegotiations are rejected to
        provide partial protection against this vulnerability with any OpenSSL
        version.</p>
-       
+                                       
     
-<p>Users should be aware that the impact of disabling renegotiation will
+                                <p>Users should be aware that the impact of disabling renegotiation will
        vary with both application and client. In some circumstances disabling
        renegotiation may result in some clients being unable to access the
        application.</p>
-
-    
-<p>
-<strong>Important: Remote Memory Read</strong>
-       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160" rel="nofollow">CVE-2014-0160</a> (a.k.a. "Heartbleed")</p>
-
-    
-<p>A bug in certain versions of <a href="www.openssl.org">OpenSSL</a>
+                                    
+                                <p>
+                                    <strong>Important: Remote Memory Read</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160" rel="nofollow">CVE-2014-0160</a> (a.k.a. "Heartbleed")
+                                </p>
+                                    
+                                <p>
+                                    A bug in certain versions of <a href="www.openssl.org">OpenSSL</a>
         can allow an unauthenticated remote user to read certain contents of
         the server's memory. Binary versions of tcnative 1.1.24 - 1.1.29
         include this vulnerable version of OpenSSL. tcnative 1.1.30 and later
-        ship with patched versions of OpenSSL.</p>
-
-    
-<p>An explanation of how to deterine whether you are vulnerable and what
+        ship with patched versions of OpenSSL.
+                                </p>
+                                    
+                                <p>
+                                    An explanation of how to deterine whether you are vulnerable and what
         steps to take, see the Tomcat Wiki's
         <a href="https://wiki.apache.org/tomcat/Security/Heartbleed">Heartbleed</a>
-        page.</p>
-
+        page.
+                                </p>
+                                    
+                                <p>This issue was first announced on 7 April 2014.</p>
+                                    
+                                <p>Affects: OpenSSL 1.0.1-1.0.1f, tcnative 1.1.24-1.1.29</p>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer id="footer">
+                    Copyright &copy; 1999-2018, The Apache Software Foundation
     
-<p>This issue was first announced on 7 April 2014.</p>
-
-    
-<p>Affects: OpenSSL 1.0.1-1.0.1f, tcnative 1.1.24-1.1.29</p>
-  
-</div>
-</div>
-</div>
-</div>
-</main>
-<footer id="footer">
-    Copyright &copy; 1999-2018, The Apache Software Foundation
-    <br>
-    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+                <br>
+                    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are either registered trademarks or trademarks of the Apache
     Software Foundation.
-  </footer>
-</div>
-<script src="res/js/tomcat.js"></script>
-</body>
+  
+            </footer>
+        </div>
+        <script src="res/js/tomcat.js"></script>
+    </body>
 </html>
