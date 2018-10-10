@@ -22,14 +22,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="3.0">
 
-
   <!-- Output method -->
   <xsl:output method="html"
               html-version="5.0"
               encoding="UTF-8"
               indent="yes"
               doctype-system="about:legacy-compat"/>
-
 
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
@@ -116,11 +114,13 @@
             </div>
           </form>
           <!-- Navigation -->
+          <!--
           <div class="asfevents">
             <a href="https://www.apache.org/events/current-event.html">
               <img src="https://www.apache.org/events/current-event-234x60.png"/>
             </a>
           </div>
+          -->
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
           </nav>
