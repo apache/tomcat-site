@@ -28,6 +28,51 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.46">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat JK Connector 1.2.45
+       but the release vote for the 1.2.45 release candidate did not pass.
+       Therefore, although users must download 1.2.46 to obtain a version that
+       includes the fix for this issue, version 1.2.45 is not included in the
+       list of affected versions.</i></p>
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2018-11759</cve></p>
+
+    <p>The Apache Web Server (httpd) specific code that normalised the requested 
+       path before matching it to the URI-worker map did not handle some edge
+       cases correctly. If only a sub-set of the URLs supported by Tomcat were
+       exposed via httpd, then it was possible for a specially constructed
+       request to expose application functionality through the reverse proxy
+       that was not intended for clients accessing the application via the
+       reverse proxy. It was also possible in some configurations for a
+       specially constructed request to bypass the access controls configured in
+       httpd. While there is some overlap between this issue and CVE-2018-1323,
+       they are not identical.</p>
+
+    <p>This was fixed in revisions <revlink rev="1838836">1838836</revlink>,
+       <revlink rev="1838857">1838857</revlink>,
+       <revlink rev="1838871">1838871</revlink>,
+       <revlink rev="1838882">1838882</revlink>,
+       <revlink rev="1840444">1840444</revlink>,
+       <revlink rev="1840445">1840445</revlink>,
+       <revlink rev="1840448">1840448</revlink>,
+       <revlink rev="1840449">1840449</revlink>,
+       <revlink rev="1840450">1840450</revlink>,
+       <revlink rev="1840451">1840451</revlink>,
+       <revlink rev="1840491">1840491</revlink>,
+       <revlink rev="1840588">1840588</revlink>,
+       <revlink rev="1840592">1840592</revlink>,
+       <revlink rev="1840603">1840603</revlink>,
+       <revlink rev="1840604">1840604</revlink>,
+       <revlink rev="1840610">1840610</revlink>,
+       <revlink rev="1840629">1840629</revlink> and
+       <revlink rev="1841463">1841463</revlink>.</p>
+
+    <p>Affects: JK 1.2.0-1.2.44</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat JK Connector 1.2.43">
 
     <p><strong>Important: Information disclosure</strong>
