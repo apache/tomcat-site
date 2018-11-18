@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.91) - The LifeCycle Listener Component</title><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.92) - The LifeCycle Listener Component</title><style type="text/css" media="print">
     .noPrint {display: none;}
     td#mainBody {width: 100%;}
 </style><style type="text/css">
@@ -78,8 +78,8 @@ p.notice {
 }
 </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="https://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.91, Sep 13 2018</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The LifeCycle Listener Component</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Standard_Implementations">Standard Implementations</a><ol><li><a href="#APR_Lifecycle_Listener_-_org.apache.catalina.core.AprLifecycleListener">APR Lifecycle Listener - org.apache.catalina.core.AprLifecycleListener</a></li><li><a href="#Jasper_Listener_-_org.apache.catalina.core.JasperListener">Jasper Listener - org.apache.catalina.core.JasperListener</a></li><li><a href="#Global_Resources_Lifecycle_Listener_-_org.apache.catalina.mbeans.GlobalResourcesLifecycleListener">Global Resources Lifecycle Listener - org.apache.catalina.mbeans.GlobalResourcesLifecycleListener</a></li><li><a href="#JRE_Memory_Leak_Prevention_Listener_-_org.apache.catalina.core.JreMemoryLeakPreventionListener">JRE Memory Leak Prevention Listener - org.apache.catalina.core.JreMemoryLeakPreventionListener</a><ol><li><a href="#JreMemoryLeakPreventionListener_Examples">JreMemoryLeakPreventionListener Examples</a></li></ol></li><li><a href="#Security_Lifecycle_Listener_-_org.apache.catalina.security.SecurityListener">Security Lifecycle Listener - org.apache.catalina.security.SecurityListener</a></li><li><a href="#ThreadLocal_Leak_Prevention_Listener_-_org.apache.catalina.core.ThreadLocalLeakPreventionListener">ThreadLocal Leak Prevention Listener - org.apache.catalina.core.ThreadLocalLeakPreventionListener</a></li><li><a href="#UserConfig_-_org.apache.catalina.startup.UserConfig">UserConfig - org.apache.catalina.startup.UserConfig</a></li><li><a href="#Version_Logging_Lifecycle_Listener_-_org.apache.catalina.startup.VersionLoggerListener">Version Logging Lifecycle Listener - org.apache.catalina.startup.VersionLoggerListener</a></li></ol></li><li><a href="#Additional_Implementations">Additional Implementations</a><ol><li><a href="#JMX_Remote_Lifecycle_Listener_-_org.apache.catalina.mbeans.JmxRemoteLifecycleListener">JMX Remote Lifecycle Listener - org.apache.catalina.mbeans.JmxRemoteLifecycleListener</a></li></ol></li></ul>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.92, Nov 9 2018</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The LifeCycle Listener Component</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Standard_Implementations">Standard Implementations</a><ol><li><a href="#APR_Lifecycle_Listener_-_org.apache.catalina.core.AprLifecycleListener">APR Lifecycle Listener - org.apache.catalina.core.AprLifecycleListener</a></li><li><a href="#Jasper_Listener_-_org.apache.catalina.core.JasperListener">Jasper Listener - org.apache.catalina.core.JasperListener</a></li><li><a href="#Global_Resources_Lifecycle_Listener_-_org.apache.catalina.mbeans.GlobalResourcesLifecycleListener">Global Resources Lifecycle Listener - org.apache.catalina.mbeans.GlobalResourcesLifecycleListener</a></li><li><a href="#JNI_Library_Loading_Listener_-_org.apache.catalina.core.JniLifecycleListener">JNI Library Loading Listener - org.apache.catalina.core.JniLifecycleListener</a></li><li><a href="#JRE_Memory_Leak_Prevention_Listener_-_org.apache.catalina.core.JreMemoryLeakPreventionListener">JRE Memory Leak Prevention Listener - org.apache.catalina.core.JreMemoryLeakPreventionListener</a><ol><li><a href="#JreMemoryLeakPreventionListener_Examples">JreMemoryLeakPreventionListener Examples</a></li></ol></li><li><a href="#Security_Lifecycle_Listener_-_org.apache.catalina.security.SecurityListener">Security Lifecycle Listener - org.apache.catalina.security.SecurityListener</a></li><li><a href="#ThreadLocal_Leak_Prevention_Listener_-_org.apache.catalina.core.ThreadLocalLeakPreventionListener">ThreadLocal Leak Prevention Listener - org.apache.catalina.core.ThreadLocalLeakPreventionListener</a></li><li><a href="#UserConfig_-_org.apache.catalina.startup.UserConfig">UserConfig - org.apache.catalina.startup.UserConfig</a></li><li><a href="#Version_Logging_Lifecycle_Listener_-_org.apache.catalina.startup.VersionLoggerListener">Version Logging Lifecycle Listener - org.apache.catalina.startup.VersionLoggerListener</a></li></ol></li><li><a href="#Additional_Implementations">Additional Implementations</a><ol><li><a href="#JMX_Remote_Lifecycle_Listener_-_org.apache.catalina.mbeans.JmxRemoteLifecycleListener">JMX Remote Lifecycle Listener - org.apache.catalina.mbeans.JmxRemoteLifecycleListener</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>A <strong>Listener</strong> element defines a component that performs
@@ -189,6 +189,26 @@ p.notice {
 
   </blockquote></td></tr></table>
 
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JNI Library Loading Listener - org.apache.catalina.core.JniLifecycleListener"><!--()--></a><a name="JNI_Library_Loading_Listener_-_org.apache.catalina.core.JniLifecycleListener"><strong>JNI Library Loading Listener - org.apache.catalina.core.JniLifecycleListener</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>The <strong>JNI Library Loading Listener</strong> makes it possible
+    for multiple Webapps to use a native library, by loading the native
+    library using a shared class loader (typically the Common class loader but
+    may vary in some configurations)</p>
+
+    <p>The listener supports two mutually exclusive attributes, so one of them must be used, but you can not use both together:</p>
+
+    <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Attribute</font></th><th width="85%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code class="attributeName">libraryName</code></td><td align="left" valign="center">
+        <p>The name of the native library, as defined in
+        <code>java.lang.System.loadLibrary()</code>
+        </p>
+      </td></tr><tr><td align="left" valign="center"><code class="attributeName">libraryPath</code></td><td align="left" valign="center">
+        <p>The absolute path of the native library, as defined in
+        <code>java.lang.System.load()</code>
+        </p>
+      </td></tr></table>
+  </blockquote></td></tr></table>
+
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="JRE Memory Leak Prevention Listener - org.apache.catalina.core.JreMemoryLeakPreventionListener"><!--()--></a><a name="JRE_Memory_Leak_Prevention_Listener_-_org.apache.catalina.core.JreMemoryLeakPreventionListener"><strong>JRE Memory Leak Prevention Listener - org.apache.catalina.core.JreMemoryLeakPreventionListener</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>The <strong>JRE Memory Leak Prevention Listener</strong> provides
@@ -275,7 +295,7 @@ p.notice {
         class the PoolCleaner thread will be configured with the thread's
         context class loader set to the web application class loader which in
         turn will trigger a memory leak on reload. Defaults to
-        <code>true</code>. This protection is disabled if running on Java 9 
+        <code>true</code>. This protection is disabled if running on Java 9
         onwards since the leak has been fixed for Java 9 onwards.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">securityLoginConfigurationProtection</code></td><td align="left" valign="center">
         <p>Enables protection so that usage of the
@@ -395,13 +415,13 @@ p.notice {
 
     <p>The <strong>UserConfig</strong> provides feature of User Web Applications.
     User Web Applications map a request URI starting with a tilde character ("~")
-    and a username to a directory (commonly named public_html) in that user's 
+    and a username to a directory (commonly named public_html) in that user's
     home directory on the server.</p>
 
     <p>See the <a href="host.html#User_Web_Applications">User Web Applications</a>
     special feature on the <strong>Host</strong> element for more information.</p>
 
-    <p>The following additional attributes are supported by the 
+    <p>The following additional attributes are supported by the
     <strong>UserConfig</strong>:</p>
 
     <table border="1" cellpadding="5"><tr><th width="15%" bgcolor="#023264"><font color="#ffffff">Attribute</font></th><th width="85%" bgcolor="#023264"><font color="#ffffff">Description</font></th></tr><tr><td align="left" valign="center"><code class="attributeName">directoryName</code></td><td align="left" valign="center">
@@ -409,18 +429,18 @@ p.notice {
         The default is <code>public_html</code>.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">userClass</code></td><td align="left" valign="center">
         <p>The class name of the user database class.
-        There are currently two user database, the 
+        There are currently two user database, the
         <code>org.apache.catalina.startup.PasswdUserDatabase</code> is used on a
         Unix system that uses the /etc/passwd file to identify valid users.
-        The <code>org.apache.catalina.startup.HomesUserDatabase</code> is used on 
-        a server where /etc/passwd is not in use. HomesUserDatabase deploy all 
+        The <code>org.apache.catalina.startup.HomesUserDatabase</code> is used on
+        a server where /etc/passwd is not in use. HomesUserDatabase deploy all
         directories found in a specified base directory.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">homeBase</code></td><td align="left" valign="center">
         <p>The base directory containing user home directories. This is effective
         only when <code>org.apache.catalina.startup.HomesUserDatabase</code> is
         used.</p>
       </td></tr><tr><td align="left" valign="center"><code class="attributeName">allow</code></td><td align="left" valign="center">
-        <p>A regular expression defining user who deployment is allowed. If this 
+        <p>A regular expression defining user who deployment is allowed. If this
         attribute is specified, the user to deploy must match for this pattern.
         If this attribute is not specified, all users will be deployed unless the
         user matches a deny pattern.</p>
@@ -432,7 +452,7 @@ p.notice {
       </td></tr></table>
 
   </blockquote></td></tr></table>
-  
+
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Version Logging Lifecycle Listener - org.apache.catalina.startup.VersionLoggerListener"><!--()--></a><a name="Version_Logging_Lifecycle_Listener_-_org.apache.catalina.startup.VersionLoggerListener"><strong>Version Logging Lifecycle Listener - org.apache.catalina.startup.VersionLoggerListener</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>The <strong>Version Logging Lifecycle Listener</strong> logs Tomcat, Java
@@ -550,7 +570,7 @@ p.notice {
 
   </blockquote></td></tr></table>
 
-</blockquote></td></tr></table></td></tr><tr class="noPrint"><td width="20%" valign="top" nowrap class="noPrint"></td><td width="80%" valign="top" align="left"><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="comments_section" id="comments_section"><strong>Comments</strong></a></font></td></tr><tr><td><blockquote><p class="notice"><strong>Notice: </strong>This comments section collects your suggestions
+</blockquote></td></tr></table></td></tr><tr class="noPrint"><td width="20%" valign="top" nowrap class="noPrint"></td><td width="80%" valign="top" align="left"><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="comments_section" id="comments_section"><strong>Comments</strong></a></font></td></tr><tr><td><blockquote><p class="notice"><strong>Notice:</strong> This comments section collects your suggestions
               on improving documentation for Apache Tomcat.<br><br>
               If you have trouble and need help, read
               <a href="http://tomcat.apache.org/findhelp.html">Find Help</a> page
