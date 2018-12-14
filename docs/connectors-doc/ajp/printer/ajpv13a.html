@@ -1,4 +1,35 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>The Apache Tomcat Connectors - AJP Protocol Reference - AJPv13</title><meta name="author" value="danmil@shore.net"><meta name="email" value="danmil@shore.net"><meta name="author" value="Jean-Frederic Clere"><meta name="email" value="jfrederic.clere@fujitsu-siemens.com"><link href="../../style.css" type="text/css" rel="stylesheet"></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="4"><!--PAGE HEADER--><tr><td colspan="2"><!--TOMCAT LOGO--><a href="http://tomcat.apache.org/"><img src="../../images/tomcat.gif" align="left" alt="Apache Tomcat" border="0"></a><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="http://www.apache.org/images/asf-logo.gif" align="right" alt=" :: Apache Software Foundation" border="0"></a></td></tr><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left"><table border="0" width="100%" cellspacing="4"><tr><td align="left" valign="top"><h1>The Apache Tomcat Connectors - AJP Protocol Reference</h1><h2>AJPv13</h2></td><td align="right" valign="top" nowrap="true"><img src="../../images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0" alt=" "></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Intro"><strong>Intro</strong></a></font></td></tr><tr><td><blockquote>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>The Apache Tomcat Connectors: mod_jk, ISAPI redirector, NSAPI redirector (1.2.x) - AJPv13</title><meta name="author" content="danmil@shore.net"><meta name="author" content="Jean-Frederic Clere"><script type="application/javascript" data-comments-identifier="">
+    "use strict"; // Enable strict mode
+
+    (function() {
+      var thisScript = document.currentScript;
+      if (!thisScript) { // Workaround for IE <= 11
+        var scripts = document.getElementsByTagName("script");
+        thisScript = scripts[scripts.length - 1];
+      }
+      document.addEventListener("DOMContentLoaded", (function() {
+        var commentsDiv = document.getElementById("comments_thread");
+        var commentsShortname = "tomcat";
+        var commentsIdentifier = "https://tomcat.apache.org/" +
+          thisScript.getAttribute("data-comments-identifier") + ".html";
+
+        (function(w, d) {
+          if (w.location.hostname.toLowerCase() == "tomcat.apache.org") {
+            var s = d.createElement("script");
+            s.type = "application/javascript";
+            s.async = true;
+            s.src = "https://comments.apache.org/show_comments.lua?site=" +
+              encodeURIComponent(commentsShortname) +
+              "&page=" + encodeURIComponent(commentsIdentifier);
+            d.head.appendChild(s);
+          } else {
+            commentsDiv.appendChild(d.createTextNode("Comments are disabled for this page at the moment."));
+          }
+        })(window, document);
+      }), false);
+    })();
+  </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>The Apache Tomcat Connectors: mod_jk, ISAPI redirector, NSAPI redirector</h1><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li></ul></div><div><h2>Common HowTo</h2><ul><li><a href="common_howto/quick.html">For the impatient</a></li><li><a href="common_howto/workers.html">All about workers</a></li><li><a href="common_howto/timeouts.html">Timeouts</a></li><li><a href="common_howto/loadbalancers.html">Load Balancing</a></li><li><a href="common_howto/proxy.html">Reverse Proxy</a></li></ul></div><div><h2>Web Server HowTo</h2><ul><li><a href="webserver_howto/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="webserver_howto/iis.html">Microsoft IIS (ISAPI redirector)</a></li><li><a href="webserver_howto/nes.html">iPlanet Web Server (NSAPI redirector)</a></li></ul></div><div><h2>Reference Guide</h2><ul><li><a href="reference/workers.html">workers.properties</a></li><li><a href="reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="reference/status.html">Status Worker</a></li><li><a href="reference/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="reference/iis.html">Microsoft IIS (ISAPI redirector)</a></li></ul></div><div><h2>AJP Protocol Reference</h2><ul><li><a href="ajp/ajpv13a.html">AJPv13 (ajp13)</a></li><li><a href="ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul></div><div><h2>Miscellaneous Documentation</h2><ul><li><a href="miscellaneous/faq.html">Frequently asked questions</a></li><li><a href="miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul></div><div><h2>News</h2><ul><li><a href="news/20180301.html">2018</a></li><li><a href="news/20160901.html">2016</a></li><li><a href="news/20150101.html">2015</a></li><li><a href="news/20140201.html">2014</a></li><li><a href="news/20120301.html">2012</a></li><li><a href="news/20110701.html">2011</a></li><li><a href="news/20100101.html">2010</a></li><li><a href="news/20090301.html">2009</a></li><li><a href="news/20081001.html">2008</a></li><li><a href="news/20070301.html">2007</a></li><li><a href="news/20060101.html">2006</a></li><li><a href="news/20050101.html">2005</a></li><li><a href="news/20041100.html">2004</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>AJPv13</h2><h3 id="Intro">Intro</h3><div class="text">
 
 <p>
 The original document was written by
@@ -16,7 +47,7 @@ make life easier for maintainers of JK, and for anyone who wants to
 port the protocol somewhere (into jakarta 4.x, for example).
 </p>
 
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="author"><strong>author</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="author">author</h3><div class="text">
 
 <p>
 I am not one of the designers of this protocol -- I believe that Gal
@@ -29,7 +60,7 @@ only my guesses.  In general, the C code which Shachor wrote is very clean
 and comprehensible (if almost totally undocumented).  I've cleaned up the
 Java code, and I think it's reasonably readable.
 </p>
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Design Goals"><strong>Design Goals</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Design_Goals">Design Goals</h3><div class="text">
 
 <p>
 According to email from Gal Shachor to the jakarta-dev mailing list,
@@ -40,14 +71,14 @@ relate to communication between the web server and the servlet container):
 <ul>
   <li> Increasing performance (speed, specifically). </li>
 
-  <li> Adding support for SSL, so that <b class="code">isSecure()</b> and
-       <b class="code">getScheme()</b> will function correctly within the servlet
+  <li> Adding support for SSL, so that <code>isSecure()</code> and
+       <code>getScheme()</code> will function correctly within the servlet
        container.  The client certificates and cipher suite will be
        available to servlets as request attributes. </li>
 
 </ul>
 </p>
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Overview of the protocol"><strong>Overview of the protocol</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Overview_of_the_protocol">Overview of the protocol</h3><div class="text">
 
 <p>
 The <b>ajp13</b> protocol is packet-oriented.  A binary format was
@@ -102,7 +133,7 @@ following messages back to the web server:
 Each message is accompanied by a differently formatted packet of data.  See
 Response Packet Structures below for details.
 </p>
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Basic Packet Structure"><strong>Basic Packet Structure</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Basic_Packet_Structure">Basic Packet Structure</h3><div class="text">
 
 <p>
 There is a bit of an XDR heritage to this protocol, but it differs in
@@ -132,7 +163,7 @@ strings.
   <dd>A variable-sized string (length bounded by 2^16). Encoded with the
   length packed into two bytes first, followed by the string (including the
   terminating '\0').  Note that the encoded length does <b>not</b> include
-  the trailing '\0' -- it is like <b class="code">strlen</b>.  This is a touch
+  the trailing '\0' -- it is like <code>strlen</code>.  This is a touch
   confusing on the Java side, which is littered with odd autoincrement
   statements to skip over these terminators.  I believe the reason this was
   done was to allow the C code to be extra efficient when reading strings
@@ -145,19 +176,19 @@ strings.
 </dl>
 </p>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Packet Size"><strong>Packet Size</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Packet_Size">Packet Size</h4><div class="text">
 <p>
 According to much of the code, the max packet
 size is 8 * 1024 bytes (8K).  The actual length of the packet is encoded in the
 header.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Packet Headers"><strong>Packet Headers</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Packet_Headers">Packet Headers</h4><div class="text">
 <p>
 Packets sent from the server to the container begin with
-<b class="code">0x1234</b>.  Packets sent from the container to the server begin
-with <b class="code">AB</b> (that's the ASCII code for A followed by the ASCII
+<code>0x1234</code>.  Packets sent from the container to the server begin
+with <code>AB</code> (that's the ASCII code for A followed by the ASCII
 code for B).  After those first two bytes, there is an integer (encoded as
 above) with the length of the payload.  Although this might suggest that
 the maximum payload could be as large as 2^16, in fact, the code sets the
@@ -254,11 +285,11 @@ The web server can send the following messages to the servlet container:
 </p>
 <p>
 To ensure some
-basic security, the container will only actually do the <b class="code">Shutdown</b> if the
+basic security, the container will only actually do the <code>Shutdown</code> if the
 request comes from the same machine on which it's hosted.
 </p>
 <p>
-The first <b class="code">Data</b> packet is send immediatly after the <b class="code">Forward Request</b> by the web server.
+The first <code>Data</code> packet is send immediatly after the <code>Forward Request</code> by the web server.
 </p>
 
 <p>The servlet container can send the following types of messages to the web
@@ -302,14 +333,13 @@ server:
 <p>
 Each of the above messages has a different internal structure, detailed below.
 </p>
-</blockquote></td></tr></table>
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Request Packet Structure"><strong>Request Packet Structure</strong></a></font></td></tr><tr><td><blockquote>
+</div></div>
+</div><h3 id="Request_Packet_Structure">Request Packet Structure</h3><div class="text">
 
 <p>
 For messages from the server to the container of type "Forward Request":
 </p><p>
-<div class="example"><pre>
-AJP13_FORWARD_REQUEST :=
+<div class="codeBox"><pre><code>AJP13_FORWARD_REQUEST :=
     prefix_code      (byte) 0x02 = JK_AJP13_FORWARD_REQUEST
     method           (byte)
     protocol         (string)
@@ -323,28 +353,25 @@ AJP13_FORWARD_REQUEST :=
     request_headers *(req_header_name req_header_value)
     attributes      *(attribut_name attribute_value)
     request_terminator (byte) OxFF
-</pre></div>
+</code></pre></div>
 </p><p>
-The <b class="code">request_headers</b> have the following structure:
+The <code>request_headers</code> have the following structure:
 </p><p>
-<div class="example"><pre>
-req_header_name := 
+<div class="codeBox"><pre><code>req_header_name := 
     sc_req_header_name | (string)  [see below for how this is parsed]
 
 sc_req_header_name := 0xA0xx (integer)
 
 req_header_value := (string)
-</pre></div>
+</code></pre></div>
 </p><p>
 
-The <b class="code">attributes</b> are optional and have the following structure:
+The <code>attributes</code> are optional and have the following structure:
 </p><p>
-<div class="example"><pre>
-attribute_name := sc_a_name | (sc_a_req_attribute string)
+<div class="codeBox"><pre><code>attribute_name := sc_a_name | (sc_a_req_attribute string)
 
 attribute_value := (string)
-
-</pre></div>
+</code></pre></div>
 </p><p>
 Not that the all-important header is "content-length', because it
 determines whether or not the container looks for another packet
@@ -352,14 +379,14 @@ immediately.
 </p><p>
 Detailed description of the elements of Forward Request.
 </p>
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="request_prefix"><strong>request_prefix</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="request_prefix">request_prefix</h4><div class="text">
 <p>
 For all requests, this will be 2.
 See above for details on other <A HREF="#prefix-codes">prefix codes</A>.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="method"><strong>method</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="method">method</h4><div class="text">
 <p>
 The HTTP method, encoded as a single byte:
 </p>
@@ -401,25 +428,25 @@ The HTTP method, encoded as a single byte:
 additional methods, even if they are not in this list.
 </p>
 
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="protocol, req_uri, remote_addr, remote_host, server_name, server_port, is_ssl"><strong>protocol, req_uri, remote_addr, remote_host, server_name, server_port, is_ssl</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="protocol,_req_uri,_remote_addr,_remote_host,_server_name,_server_port,_is_ssl">protocol, req_uri, remote_addr, remote_host, server_name, server_port, is_ssl</h4><div class="text">
 <p>
   These are all fairly self-explanatory.  Each of these is required, and
   will be sent for every request.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Headers"><strong>Headers</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Headers">Headers</h4><div class="text">
 <p>
-  The structure of <b class="code">request_headers</b> is the following:
-  First, the number of headers <b class="code">num_headers</b> is encoded.
-  Then, a series of header name <b class="code">req_header_name</b> / value
-  <b class="code">req_header_value</b> pairs follows.
+  The structure of <code>request_headers</code> is the following:
+  First, the number of headers <code>num_headers</code> is encoded.
+  Then, a series of header name <code>req_header_name</code> / value
+  <code>req_header_value</code> pairs follows.
   Common header names are encoded as integers,
   to save space.  If the header name is not in the list of basic headers,
   it is encoded normally (as a string, with prefixed length).  The list of
-  common headers <b class="code">sc_req_header_name</b>and their codes
+  common headers <code>sc_req_header_name</code>and their codes
   is as follows (all are case-sensitive):
 </p><p>
 <table>
@@ -441,7 +468,7 @@ additional methods, even if they are not in this list.
 </table>
 </p><p>
   The Java code that reads this grabs the first two-byte integer and if
-  it sees an <b class="code">'0xA0'</b> in the most significant
+  it sees an <code>'0xA0'</code> in the most significant
   byte, it uses the integer in the second byte as an index into an array of
   header names.  If the first byte is not '0xA0', it assumes that the
   two-byte integer is the length of a string, which is then read in.
@@ -454,18 +481,18 @@ additional methods, even if they are not in this list.
   unmanageably huge header names will be showing up in the HTTP spec any time
   soon).
 </p><p>
-  <b>Note:</b> The <b class="code">content-length</b> header is extremely
+  <b>Note:</b> The <code>content-length</code> header is extremely
   important.  If it is present and non-zero, the container assumes that
   the request has a body (a POST request, for example), and immediately
   reads a separate packet off the input stream to get that body.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Attributes"><strong>Attributes</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Attributes">Attributes</h4><div class="text">
 <p>
 
-  The attributes prefixed with a <b class="code">?</b>
-  (e.g. <b class="code">?context</b>) are all optional.  For each, there is a
+  The attributes prefixed with a <code>?</code>
+  (e.g. <code>?context</code>) are all optional.  For each, there is a
   single byte code to indicate the type of attribute, and then a string to
   give its value.  They can be sent in any order (though the C code always
   sends them in the order listed below).  A special terminating code is
@@ -493,30 +520,30 @@ additional methods, even if they are not in this list.
 
 </p><p>
 
-  The <b class="code">context</b> and <b class="code">servlet_path</b> are not currently
+  The <code>context</code> and <code>servlet_path</code> are not currently
   set by the C code, and most of the Java code completely ignores whatever
   is sent over for those fields (and some of it will actually break if a
   string is sent along after one of those codes).  I don't know if this is
   a bug or an unimplemented feature or just vestigial code, but it's
   missing from both sides of the connection.
 </p><p>
-  The <b class="code">remote_user</b> and <b class="code">auth_type</b> presumably refer
+  The <code>remote_user</code> and <code>auth_type</code> presumably refer
   to HTTP-level authentication, and communicate the remote user's username
   and the type of authentication used to establish their identity (e.g. Basic,
   Digest).  I'm not clear on why the password isn't also sent, but I don't
   know HTTP authentication inside and out.
 </p><p>
-  The <b class="code">query_string</b>, <b class="code">ssl_cert</b>,
-  <b class="code">ssl_cipher</b>, and <b class="code">ssl_session</b> refer to the
+  The <code>query_string</code>, <code>ssl_cert</code>,
+  <code>ssl_cipher</code>, and <code>ssl_session</code> refer to the
   corresponding pieces of HTTP and HTTPS.
 </p><p>
-  The <b class="code">route</b>, as I understand it, is used to support sticky
+  The <code>route</code>, as I understand it, is used to support sticky
   sessions -- associating a user's session with a particular Tomcat instance
   in the presence of multiple, load balancing servers.  I don't know the
   details.
 </p><p>
   Beyond this list of basic attributes, any number of other attributes can
-  be sent via the <b class="code">req_attribute</b> code (0x0A).  A pair of strings
+  be sent via the <code>req_attribute</code> code (0x0A).  A pair of strings
   to represent the attribute name and value are sent immediately after each
   instance of that code.  Environment values are passed in via this method.
 </p><p>
@@ -524,15 +551,14 @@ additional methods, even if they are not in this list.
   0xFF, is sent.  This signals both the end of the list of attributes and
   also then end of the Request Packet.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Response Packet Structure"><strong>Response Packet Structure</strong></a></font></td></tr><tr><td><blockquote>
+</div><h3 id="Response_Packet_Structure">Response Packet Structure</h3><div class="text">
 
 <p>
 For messages which the container can send back to the server.
 
-<div class="example"><pre>
-AJP13_SEND_BODY_CHUNK := 
+<div class="codeBox"><pre><code>AJP13_SEND_BODY_CHUNK := 
   prefix_code   3
   chunk_length  (integer)
   chunk        *(byte)
@@ -560,20 +586,20 @@ AJP13_END_RESPONSE :=
 AJP13_GET_BODY_CHUNK :=
   prefix_code       6
   requested_length  (integer)
-</pre></div>
+</code></pre></div>
 
 </p>
 <p>
 Details:
 </p>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Send Body Chunk"><strong>Send Body Chunk</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Send_Body_Chunk">Send Body Chunk</h4><div class="text">
 <p>
   The chunk is basically binary data, and is sent directly back to the browser.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Send Headers"><strong>Send Headers</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Send_Headers">Send Headers</h4><div class="text">
 <p>
   The status code and message are the usual HTTP things (e.g. "200" and "OK").
   The response header names are encoded the same way the request header names are.
@@ -604,25 +630,25 @@ Details:
   encoded.
 </p>
 
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="End Response"><strong>End Response</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="End_Response">End Response</h4><div class="text">
 <p>
   Signals the end of this request-handling cycle.  If the
-  <b class="code">reuse</b> flag is true (anything other than 0 in the actual
+  <code>reuse</code> flag is true (anything other than 0 in the actual
   C code), this TCP connection can now be used to handle new incoming
-  requests.  If <b class="code">reuse</b> is false (==0), the connection
+  requests.  If <code>reuse</code> is false (==0), the connection
   should be closed.
 </p>
-</blockquote></td></tr></table>
+</div></div>
 
-<table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Get Body Chunk"><strong>Get Body Chunk</strong></a></font></td></tr><tr><td><blockquote>
+<div class="subsection"><h4 id="Get_Body_Chunk">Get Body Chunk</h4><div class="text">
 <p>
   The container asks for more data from the request (If the body was
   too large to fit in the first packet sent over or when the request is
   chuncked).
   The server will send a body packet back with an amount of data which is
-  the minimum of the <b class="code">request_length</b>,
+  the minimum of the <code>request_length</code>,
   the maximum send body size (8186 (8 Kbytes - 6)), and the
   number of bytes actually left to send from the request body.
 <br>
@@ -631,8 +657,8 @@ Details:
   "empty" packet, which is a body packet with a payload length of 0.
   (0x12,0x34,0x00,0x00)
 </p>
-</blockquote></td></tr></table>
-</blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2" width="100%"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Questions I Have"><strong>Questions I Have</strong></a></font></td></tr><tr><td><blockquote>
+</div></div>
+</div><h3 id="Questions_I_Have">Questions I Have</h3><div class="text">
 
 <p> What happens if the request headers &gt; max packet size?  There is no
 provision to send a second packet of request headers in case there are more
@@ -647,6 +673,18 @@ fail before trying to send any headers in this case, but I'm not certain.</p>
 of the connection between the web server and the container.  This strikes
 me as potentially dangerous.</p>
 
-</blockquote></td></tr></table></td></tr><!--FOOTER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><!--PAGE FOOTER--><tr><td colspan="2"><div align="center"><font color="#525D76" size="-1"><em>
-        Copyright &copy; 1999-2018, Apache Software Foundation
-        </em></font></div></td></tr></table></body></html>
+</div><div class="noprint"><h3 id="comments_section">
+                  Comments
+                </h3><div class="text"><p class="notice"><strong>Notice:</strong> This comments section collects your suggestions
+                    on improving documentation for Apache Tomcat.<br><br>
+                    If you have trouble and need help, read
+                    <a href="https://tomcat.apache.org/findhelp.html">Find Help</a> page
+                    and ask your question on the tomcat-users
+                    <a href="https://tomcat.apache.org/lists.html">mailing list</a>.
+                    Do not ask such questions here. This is not a Q&amp;A section.<br><br>
+                    The Apache Comments System is explained <a href="../../comments.html">here</a>.
+                    Comments may be removed by our moderators if they are either
+                    implemented or considered invalid/off-topic.
+                  </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
+    Copyright &copy; 1999-yyyy, The Apache Software Foundation
+  </div></footer></div></body></html>
