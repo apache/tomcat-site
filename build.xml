@@ -112,28 +112,6 @@
     </copy>
   </target>
 
-  <target name="release-8"
-          depends="docs"
-          description="Used after a release to update the docs for Tomcat 8.0">
-
-    <!-- Download the latest version -->
-    <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat80.loc}"/>
-      <param name="destfile" value="${tomcat80.home}/tomcat-8.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat80.home}"/>
-    </antcall>
-
-    <!-- Delete the old version -->
-    <delete dir="${docs.dest}/tomcat-8.0-doc"/>
-
-    <!-- Copy the latest version -->
-    <copy todir="${docs.dest}/tomcat-8.0-doc" >
-      <fileset dir="${tomcat80.home}/tomcat-8.0-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
-  </target>
-
   <target name="release-85"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 8.5">
@@ -189,20 +167,6 @@
     <ant dir="native-xdocs" antfile="build.xml" target="build-main">
       <property name="build.dir" value="../docs" />
       <property name="dist.name" value="native-doc" />
-    </ant>
-  </target>
-
-  <target name="release-native-1.1"
-          depends="docs"
-          description="Used after a 1.1.x release to update the docs for Tomcat Native">
-
-    <!-- Delete the old version -->
-    <delete dir="${docs.dest}/native-1.1-doc"/>
-
-    <!-- Update the Tomcat native docs -->
-    <ant dir="native-1.1-xdocs" antfile="build.xml" target="build-main">
-      <property name="build.dir" value="../docs" />
-      <property name="dist.name" value="native-1.1-doc" />
     </ant>
   </target>
 
