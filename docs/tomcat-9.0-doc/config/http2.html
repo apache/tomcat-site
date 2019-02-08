@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.14) - The HTTP2 Upgrade Protocol</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/http2">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.16) - The HTTP2 Upgrade Protocol</title><script type="application/javascript" data-comments-identifier="tomcat-9.0-doc/config/http2">
     "use strict"; // Enable strict mode
 
     (function() {
@@ -30,8 +30,8 @@
       }), false);
     })();
   </script></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
-          Version 9.0.14,
-          <time datetime="2018-12-06">Dec 6 2018</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP2 Upgrade Protocol</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+          Version 9.0.16,
+          <time datetime="2019-02-04">Feb 4 2019</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP2 Upgrade Protocol</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -115,15 +115,15 @@
       <code>65535</code> is used.</p>
     </td></tr><tr><td><code class="attributeName">keepAliveTimeout</code></td><td>
       <p>The time, in milliseconds, that Tomcat will wait between HTTP/2 frames
-      before closing the connection. Negative values will be treated as an
-      infinite timeout. If not specified, a default value of <code>-1</code>
-      will be used.</p>
+      when there is no active Stream before closing the connection. Negative
+      values will be treated as an infinite timeout. If not specified, a default
+      value of <code>20000</code> will be used.</p>
     </td></tr><tr><td><code class="attributeName">maxConcurrentStreamExecution</code></td><td>
       <p>The controls the maximum number of streams for any one connection that
       can be allocated threads from the container thread pool. If more streams
       are active than threads are available, those streams will have to wait
       for a stream to become available. If not specified, the default value of
-      <code>200</code> will be used.</p>
+      <code>20</code> will be used.</p>
     </td></tr><tr><td><code class="attributeName">maxConcurrentStreams</code></td><td>
       <p>The controls the maximum number of active streams permitted for any one
       connection. If a client attempts to open more active streams than this
@@ -162,11 +162,36 @@
       because these clients, although they do advertise support for the
       feature, have a broken implementation.
       The default value is an empty String (regexp matching disabled).</p>
+    </td></tr><tr><td><code class="attributeName">overheadCountFactor</code></td><td>
+      <p>The factor to apply when counting overhead frames to determine if a
+      connection has too high an overhead and should be closed. The overhead
+      count starts at <code>-10</code>. The count is decreased for each
+      data frame sent or received and each headers frame received. The count is
+      increased by the <code>overheadCountFactor</code>for each setting
+      received, priority frame received and ping received. If the overhead count
+      exceeds zero, the connection is closed. A value of less than
+      <code>1</code> disables this protection. In normal usage a value of
+      <code>3</code> or more will close the connection before any streams can
+      complete. If not specified, a default value of <code>1</code> will be
+      used.</p>
     </td></tr><tr><td><code class="attributeName">readTimeout</code></td><td>
       <p>The time, in milliseconds, that Tomcat will wait for additional data
       when a partial HTTP/2 frame has been received. Negative values will be
       treated as an infinite timeout. If not specified, a default value of
-      <code>10000</code> will be used.</p>
+      <code>5000</code> will be used.</p>
+    </td></tr><tr><td><code class="attributeName">streamReadTimeout</code></td><td>
+      <p>The time, in milliseconds, that Tomcat will wait for additional data
+      frames to arrive for the stream when an application is performing a
+      blocking I/O read and additional data is required. Negative values will be
+      treated as an infinite timeout. If not specified, a default value of
+      <code>20000</code> will be used.</p>
+    </td></tr><tr><td><code class="attributeName">streamWriteTimeout</code></td><td>
+      <p>The time, in milliseconds, that Tomcat will wait for additional window
+      update frames to arrive for the stream and/or conenction when an
+      application is performing a blocking I/O write and the stream and/or
+      connection flow control window is too small for the write to complete.
+      Negative values will be treated as an infinite timeout. If not specified,
+      a default value of <code>20000</code> will be used.</p>
     </td></tr><tr><td><code class="attributeName">useSendfile</code></td><td>
       <p>Use this boolean attribute to enable or disable sendfile capability.
       The default value is <code>true</code>.</p>
@@ -174,7 +199,7 @@
       <p>The time, in milliseconds, that Tomcat will wait to write additional
       data when an HTTP/2 frame has been partially written. Negative values will
       be treated as an infinite timeout. If not specified, a default value of
-      <code>10000</code> will be used.</p>
+      <code>5000</code> will be used.</p>
     </td></tr></table>
 
   <p>The HTTP/2 upgrade protocol will also inherit the following limits from the
@@ -210,5 +235,5 @@
                     Comments may be removed by our moderators if they are either
                     implemented or considered invalid/off-topic.
                   </p><div id="comments_thread"></div></div></div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2018, The Apache Software Foundation
+    Copyright &copy; 1999-2019, The Apache Software Foundation
   </div></footer></div></body></html>
