@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AsyncContextImpl (Apache Tomcat 7.0.92 API Documentation)</title>
+<title>AsyncContextImpl (Apache Tomcat 7.0.93 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AsyncContextImpl (Apache Tomcat 7.0.92 API Documentation)";
+        parent.document.title="AsyncContextImpl (Apache Tomcat 7.0.93 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.92</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -224,35 +224,42 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#isStarted()">isStarted</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#isAvailable()">isAvailable</a></strong>()</code>
+<div class="block">Reports if the web application associated with this async request is
+ available.</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#isStarted()">isStarted</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#recycle()">recycle</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#setErrorState(java.lang.Throwable,%20boolean)">setErrorState</a></strong>(java.lang.Throwable&nbsp;t,
              boolean&nbsp;fireOnError)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#setStarted(org.apache.catalina.Context,%20javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20boolean)">setStarted</a></strong>(<a href="../../../../org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a>&nbsp;context,
           <a href="../../../../../servletapi/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a>&nbsp;request,
           <a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true" title="class or interface in javax.servlet">ServletResponse</a>&nbsp;response,
           boolean&nbsp;originalRequestResponse)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#setTimeout(long)">setTimeout</a></strong>(long&nbsp;timeout)</code>
 <div class="block">Set timeout in milliseconds. 0 or less indicates no timeout.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#start(java.lang.Runnable)">start</a></strong>(java.lang.Runnable&nbsp;run)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#timeout()">timeout</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -556,6 +563,23 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 </dl>
 </li>
 </ul>
+<a name="isAvailable()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAvailable</h4>
+<pre>public&nbsp;boolean&nbsp;isAvailable()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#isAvailable()">AsyncContextCallback</a></code></strong></div>
+<div class="block">Reports if the web application associated with this async request is
+ available.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#isAvailable()">isAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html" title="interface in org.apache.coyote">AsyncContextCallback</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the associated web application is available,
+         otherwise <code>false</code></dd></dl>
+</li>
+</ul>
 <a name="setErrorState(java.lang.Throwable, boolean)">
 <!--   -->
 </a>
@@ -588,7 +612,7 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.92</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -633,6 +657,6 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2018 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
