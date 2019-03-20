@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SSLUtilBase (Apache Tomcat 8.5.38 API Documentation)</title>
+<title>SSLUtilBase (Apache Tomcat 8.5.39 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SSLUtilBase (Apache Tomcat 8.5.38 API Documentation)";
+        parent.document.title="SSLUtilBase (Apache Tomcat 8.5.39 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.38</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.39</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -144,6 +144,10 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/util/net/SSLHostConfigCertificate.html" title="class in org.apache.tomcat.util.net">SSLHostConfigCertificate</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#certificate">certificate</a></strong></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#sslHostConfig">sslHostConfig</a></strong></code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -184,36 +188,56 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#configureSessionContext(javax.net.ssl.SSLSessionContext)">configureSessionContext</a></strong>(javax.net.ssl.SSLSessionContext&nbsp;sslSessionContext)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/tomcat/util/net/SSLContext.html" title="interface in org.apache.tomcat.util.net">SSLContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#createSSLContext(java.util.List)">createSSLContext</a></strong>(java.util.List&lt;java.lang.String&gt;&nbsp;negotiableProtocols)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/tomcat/util/net/SSLContext.html" title="interface in org.apache.tomcat.util.net">SSLContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#createSSLContextInternal(java.util.List)">createSSLContextInternal</a></strong>(java.util.List&lt;java.lang.String&gt;&nbsp;negotiableProtocols)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getEnabledCiphers()">getEnabledCiphers</a></strong>()</code>
 <div class="block">The set of enabled ciphers is the intersection of the implemented ciphers
  and the configured ciphers.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getEnabledProtocols()">getEnabledProtocols</a></strong>()</code>
 <div class="block">The set of enabled protocols is the intersection of the implemented
  protocols and the configured protocols.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected abstract java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getImplementedCiphers()">getImplementedCiphers</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected abstract java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getImplementedProtocols()">getImplementedProtocols</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>javax.net.ssl.KeyManager[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getKeyManagers()">getKeyManagers</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging">Log</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getLog()">getLog</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>javax.net.ssl.TrustManager[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#getTrustManagers()">getTrustManagers</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected abstract boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#isTls13Available()">isTls13Available</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected abstract boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SSLUtilBase.html#isTls13RenegAuthAvailable()">isTls13RenegAuthAvailable</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -224,13 +248,6 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.tomcat.util.net.SSLUtil">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;org.apache.tomcat.util.net.<a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></h3>
-<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#configureSessionContext(javax.net.ssl.SSLSessionContext)">configureSessionContext</a>, <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#createSSLContext(java.util.List)">createSSLContext</a>, <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#getKeyManagers()">getKeyManagers</a>, <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#getTrustManagers()">getTrustManagers</a></code></li>
 </ul>
 </li>
 </ul>
@@ -246,6 +263,15 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="sslHostConfig">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sslHostConfig</h4>
+<pre>protected final&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a> sslHostConfig</pre>
+</li>
+</ul>
 <a name="certificate">
 <!--   -->
 </a>
@@ -290,6 +316,49 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="createSSLContext(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSSLContext</h4>
+<pre>public final&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SSLContext.html" title="interface in org.apache.tomcat.util.net">SSLContext</a>&nbsp;createSSLContext(java.util.List&lt;java.lang.String&gt;&nbsp;negotiableProtocols)
+                                  throws java.lang.Exception</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#createSSLContext(java.util.List)">createSSLContext</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
+</li>
+</ul>
+<a name="configureSessionContext(javax.net.ssl.SSLSessionContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configureSessionContext</h4>
+<pre>public&nbsp;void&nbsp;configureSessionContext(javax.net.ssl.SSLSessionContext&nbsp;sslSessionContext)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#configureSessionContext(javax.net.ssl.SSLSessionContext)">configureSessionContext</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getKeyManagers()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeyManagers</h4>
+<pre>public&nbsp;javax.net.ssl.KeyManager[]&nbsp;getKeyManagers()
+                                          throws java.lang.Exception</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#getKeyManagers()">getKeyManagers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
+</li>
+</ul>
 <a name="getEnabledProtocols()">
 <!--   -->
 </a>
@@ -328,6 +397,21 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <dd><code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#getEnabledCiphers()">getEnabledCiphers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>The ciphers currently enabled and available for clients to select
          from for the associated connection</dd></dl>
+</li>
+</ul>
+<a name="getTrustManagers()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTrustManagers</h4>
+<pre>public&nbsp;javax.net.ssl.TrustManager[]&nbsp;getTrustManagers()
+                                              throws java.lang.Exception</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html#getTrustManagers()">getTrustManagers</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" title="interface in org.apache.tomcat.util.net">SSLUtil</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getImplementedProtocols()">
@@ -369,10 +453,22 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <a name="isTls13RenegAuthAvailable()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isTls13RenegAuthAvailable</h4>
 <pre>protected abstract&nbsp;boolean&nbsp;isTls13RenegAuthAvailable()</pre>
+</li>
+</ul>
+<a name="createSSLContextInternal(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>createSSLContextInternal</h4>
+<pre>protected abstract&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SSLContext.html" title="interface in org.apache.tomcat.util.net">SSLContext</a>&nbsp;createSSLContextInternal(java.util.List&lt;java.lang.String&gt;&nbsp;negotiableProtocols)
+                                                throws java.lang.Exception</pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 </li>
@@ -397,7 +493,7 @@ implements <a href="../../../../../org/apache/tomcat/util/net/SSLUtil.html" titl
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.38</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.39</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
