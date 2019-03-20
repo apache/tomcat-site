@@ -57,5 +57,39 @@ file from Tomcat 9.0.13.
 </p>
 </section>
 
+<section name="Tomcat 8.5.38 Released" rtext="2019-02-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.38
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.37 include:</p>
+<ul>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.21 to pick
+    up the memory leak fixes when using NIO/NIO2 with OpenSSL.</li>
+<li>Correct a regression in the fix for 53737 that did not correctly scan the
+    web application directory structure for JSPs.</li>
+<li>Improve HTTP/2 timeout handling</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.38_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p><strong>Warning:</strong> There is a known regression in
+<code>catalina.sh</code> script. In configurations that use a PID file
+(configured via CATALINA_PID environment variable) a wrong PID value may
+be written, or the file is not created at all. See bug <bug>63041</bug>
+(and <bug>53930</bug>). The workaround is to use <code>catalina.sh</code>
+file from Tomcat 8.5.35.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
 </body>
 </document>
