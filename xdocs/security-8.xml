@@ -50,6 +50,41 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.38" rtext="8 February 2019">
+  
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2019-0199</cve></p>
+
+    <p>The HTTP/2 implementation accepted streams with excessive numbers of
+       <code>SETTINGS</code> frames and also permitted clients to keep streams
+       open without reading/writing request/response data. By keeping streams
+       open for requests that utilised the Servlet API's blocking I/O, clients
+       were able to cause server-side threads to block eventually leading to
+       thread exhaustion and a DoS.</p>
+
+    <p>This was fixed in revisions <revlink rev="1852707">1852707</revlink>,
+       <revlink rev="1852711">1852711</revlink>,
+       <revlink rev="1852712">1852712</revlink>,
+       <revlink rev="1852713">1852713</revlink>,
+       <revlink rev="1852714">1852714</revlink>,
+       <revlink rev="1852715">1852715</revlink>,
+       <revlink rev="1852717">1852717</revlink>,
+       <revlink rev="1852718">1852718</revlink>,
+       <revlink rev="1852719">1852719</revlink>,
+       <revlink rev="1852722">1852722</revlink>,
+       <revlink rev="1852723">1852723</revlink>,
+       <revlink rev="1852724">1852724</revlink> and
+       <hashlink hash="60a3af1">60a3af1</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by Michal Karm
+       Babacek from Red Hat, Inc on 4 January 2019 with additional issues
+       identified by the Tomcat Security Team. The issue was made public on 25
+       March 2019.</p>
+
+    <p>Affects: 8.5.0 to 8.5.37</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 8.5.34" rtext="10 September 2018">
   
     <p><strong>Moderate: Open Redirect</strong>

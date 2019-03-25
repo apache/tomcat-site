@@ -34,7 +34,8 @@
   <xsl:param    name="home-logo"     select="'res/images/tomcat.png'"/>
   <xsl:param    name="asf-logo"      select="'res/images/asf_logo.svg'"/>
   <xsl:param    name="buglink"       select="'https://bz.apache.org/bugzilla/show_bug.cgi?id='"/>
-  <xsl:param    name="revlink"       select="'http://svn.apache.org/viewvc?view=rev&amp;rev='"/>
+  <xsl:param    name="revlink"       select="'https://svn.apache.org/viewvc?view=rev&amp;rev='"/>
+  <xsl:param    name="hashlink"      select="'https://github.com/apache/tomcat/commit/'"/>
   <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
 
   <!-- Defined variables (non-overrideable) -->
@@ -342,9 +343,15 @@
   </xsl:template>
 
   <!-- Link to a SVN revision report -->
-  <!-- It is similat to <rev> tag, but allows arbitrary text inside -->
+  <!-- It is similar to <rev> tag, but allows arbitrary text inside -->
   <xsl:template match="revlink">
       <xsl:variable name="link"><xsl:value-of select="$revlink"/><xsl:value-of select="@rev"/></xsl:variable>
+      <a href="{$link}"><xsl:apply-templates/></a>
+  </xsl:template>
+
+  <!-- Link to a git hash -->
+  <xsl:template match="hashlink">
+      <xsl:variable name="link"><xsl:value-of select="$hashlink"/><xsl:value-of select="@hash"/></xsl:variable>
       <a href="{$link}"><xsl:apply-templates/></a>
   </xsl:template>
 
