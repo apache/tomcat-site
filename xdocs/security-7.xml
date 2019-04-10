@@ -50,6 +50,31 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.94" rtext="not yet released">
+
+    <p><strong>Important: Remote Code Execution on Windows</strong>
+       <cve>CVE-2019-0232</cve></p>
+
+    <p>When running on Windows with enableCmdLineArguments enabled, the CGI
+       Servlet is vulnerable to Remote Code Execution due to a bug in the way
+       the JRE passes command line arguments to Windows. The CGI Servlet is
+       disabled by default. For a detailed explanation of the JRE behaviour, see
+       <a href="https://codewhitesec.blogspot.com/2016/02/java-and-command-line-injections-in-windows.html">Markus
+       Wulftange's blog</a> and this archived
+       <a href="https://web.archive.org/web/20161228144344/https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/">MSDN
+       blog</a>.</p>
+
+    <p>This was fixed with commit <hashlink hash="7f0221b">7f0221b</hashlink>.</p>
+
+    <p>This issue was identified by an external security researcher and reported
+       to the Apache Tomcat security team via the bug bounty program sponsored
+       by the EU FOSSA-2 project on 3rd March 2019. The issue was made public on
+       10 April 2019.</p>
+
+    <p>Affects: 7.0.0 to 7.0.93</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.91" rtext="19 September 2018">
   
     <p><strong>Moderate: Open Redirect</strong>

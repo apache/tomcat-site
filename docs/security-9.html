@@ -211,6 +211,9 @@
 <a href="#Apache_Tomcat_9.x_vulnerabilities">Apache Tomcat 9.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_9.0.18">Fixed in Apache Tomcat 9.0.18</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_9.0.16">Fixed in Apache Tomcat 9.0.16</a>
 </li>
 <li>
@@ -310,6 +313,42 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_9.0.18">
+<span class="pull-right">not yet released</span> Fixed in Apache Tomcat 9.0.18</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Remote Code Execution on Windows</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0232" rel="nofollow">CVE-2019-0232</a>
+</p>
+
+    
+<p>When running on Windows with enableCmdLineArguments enabled, the CGI
+       Servlet is vulnerable to Remote Code Execution due to a bug in the way
+       the JRE passes command line arguments to Windows. The CGI Servlet is
+       disabled by default. The CGI option enableCmdLineArguments is disabled by
+       default in Tomcat 9.0.x. For a detailed explanation of the JRE behaviour,
+       see
+       <a href="https://codewhitesec.blogspot.com/2016/02/java-and-command-line-injections-in-windows.html">Markus
+       Wulftange's blog</a> and this archived
+       <a href="https://web.archive.org/web/20161228144344/https://blogs.msdn.microsoft.com/twistylittlepassagesallalike/2011/04/23/everyone-quotes-command-line-arguments-the-wrong-way/">MSDN
+       blog</a>.</p>
+
+    
+<p>This was fixed with commit <a href="https://github.com/apache/tomcat/commit/4b244d8">4b244d8</a>.</p>
+
+    
+<p>This issue was identified by an external security researcher and reported
+       to the Apache Tomcat security team via the bug bounty program sponsored
+       by the EU FOSSA-2 project on 3rd March 2019. The issue was made public on
+       10 April 2019.</p>
+
+    
+<p>Affects: 9.0.0.M1 to 9.0.17</p>
 
   
 </div>
