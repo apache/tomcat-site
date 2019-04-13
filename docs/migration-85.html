@@ -1,381 +1,378 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en">
-<head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
-<link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
-<title>Apache Tomcat&reg; - Migration Guide - Tomcat 8.5.x</title>
-<meta name="author" content="Apache Tomcat Project">
-</head>
-<body>
-<div id="wrapper">
-<header id="header">
-<div class="clearfix">
-<div class="menu-toggler pull-left" tabindex="1">
-<div class="hamburger"></div>
-</div>
-<a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
-<h1 class="pull-left">Apache Tomcat<sup>&reg;</sup>
-</h1>
-<div class="asf-logos pull-right">
-<a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
-</div>
-</div>
-</header>
-<main id="middle">
-<div>
-<div id="mainLeft">
-<div id="nav-wrapper">
-<form action="https://www.google.com/search" method="get">
-<div class="searchbox">
-<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
-</div>
-</form>
-<nav>
-<div>
-<h2>Apache Tomcat</h2>
-<ul>
-<li>
-<a href="./index.html">Home</a>
-</li>
-<li>
-<a href="./taglibs.html">Taglibs</a>
-</li>
-<li>
-<a href="./maven-plugin.html">Maven Plugin</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Download</h2>
-<ul>
-<li>
-<a href="./whichversion.html">Which version?</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
-</li>
-<li>
-<a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
-</li>
-<li>
-<a href="https://archive.apache.org/dist/tomcat/">Archives</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Documentation</h2>
-<ul>
-<li>
-<a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
-</li>
-<li>
-<a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
-</li>
-<li>
-<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
-</li>
-<li>
-<a href="./connectors-doc/">Tomcat Connectors</a>
-</li>
-<li>
-<a href="./native-doc/">Tomcat Native</a>
-</li>
-<li>
-<a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
-</li>
-<li>
-<a href="./migration.html">Migration Guide</a>
-</li>
-<li>
-<a href="./presentations.html">Presentations</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Problems?</h2>
-<ul>
-<li>
-<a href="./security.html">Security Reports</a>
-</li>
-<li>
-<a href="./findhelp.html">Find help</a>
-</li>
-<li>
-<a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
-</li>
-<li>
-<a href="./lists.html">Mailing Lists</a>
-</li>
-<li>
-<a href="./bugreport.html">Bug Database</a>
-</li>
-<li>
-<a href="./irc.html">IRC</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Get Involved</h2>
-<ul>
-<li>
-<a href="./getinvolved.html">Overview</a>
-</li>
-<li>
-<a href="./source.html">Source code</a>
-</li>
-<li>
-<a href="./ci.html">Buildbot</a>
-</li>
-<li>
-<a href="./tools.html">Tools</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Media</h2>
-<ul>
-<li>
-<a href="https://twitter.com/theapachetomcat">Twitter</a>
-</li>
-<li>
-<a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
-</li>
-<li>
-<a href="https://blogs.apache.org/tomcat/">Blog</a>
-</li>
-</ul>
-</div>
-<div>
-<h2>Misc</h2>
-<ul>
-<li>
-<a href="./whoweare.html">Who We Are</a>
-</li>
-<li>
-<a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a>
-</li>
-<li>
-<a href="./heritage.html">Heritage</a>
-</li>
-<li>
-<a href="http://www.apache.org">Apache Home</a>
-</li>
-<li>
-<a href="./resources.html">Resources</a>
-</li>
-<li>
-<a href="./contact.html">Contact</a>
-</li>
-<li>
-<a href="./legal.html">Legal</a>
-</li>
-<li>
-<a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
-</li>
-<li>
-<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
-</li>
-<li>
-<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
-</li>
-<li>
-<a href="http://www.apache.org/licenses/">License</a>
-</li>
-</ul>
-</div>
-</nav>
-</div>
-</div>
-<div id="mainRight">
-<div id="content">
-<h2 style="display: none;">Content</h2>
-<h3 id="Table_of_Contents">Table of Contents</h3>
-<div class="text">
-
-<ul>
-<li>
-<a href="#General">General</a>
-</li>
-<li>
-<a href="#Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</a>
-<ol>
-<li>
-<a href="#BIO_connector_removed">BIO connector removed</a>
-</li>
-<li>
-<a href="#HTTP_connector_changes">HTTP connector changes</a>
-</li>
-<li>
-<a href="#Comet_support_removed">Comet support removed</a>
-</li>
-<li>
-<a href="#HTTP/2_support_added">HTTP/2 support added</a>
-</li>
-<li>
-<a href="#TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</a>
-</li>
-<li>
-<a href="#Internal_APIs">Internal APIs</a>
-</li>
-<li>
-<a href="#JSR-77_implementation_removed">JSR-77 implementation removed</a>
-</li>
-<li>
-<a href="#Clustering">Clustering</a>
-</li>
-<li>
-<a href="#InstanceListener_removed">InstanceListener removed</a>
-</li>
-<li>
-<a href="#SessionManager">SessionManager</a>
-</li>
-<li>
-<a href="#Cookies">Cookies</a>
-</li>
-<li>
-<a href="#Web_applications">Web applications</a>
-</li>
-<li>
-<a href="#Context_configurations">Context configurations</a>
-</li>
-</ol>
-</li>
-<li>
-<a href="#Upgrading_8.5.x">Upgrading 8.5.x</a>
-<ol>
-<li>
-<a href="#Tomcat_8.5.x_noteable_changes">Tomcat 8.5.x noteable changes</a>
-</li>
-<li>
-<a href="#Tomcat_8.5.x_configuration_file_differences">Tomcat 8.5.x configuration file differences</a>
-</li>
-</ol>
-</li>
-</ul>
-
-</div>
-<h3 id="General">General</h3>
-<div class="text">
-
-
-<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
+        <link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
+        <title>Apache Tomcat&reg; - Migration Guide - Tomcat 8.5.x</title>
+        <meta name="author" content="Apache Tomcat Project">
+    </head>
+    <body>
+        <div id="wrapper">
+            <header id="header">
+                <div class="clearfix">
+                    <div class="menu-toggler pull-left" tabindex="1">
+                        <div class="hamburger"></div>
+                    </div>
+                    <a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
+                    <h1 class="pull-left">
+                        Apache Tomcat<sup>&reg;</sup>
+                    </h1>
+                    <div class="asf-logos pull-right">
+                        <a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
+                    </div>
+                </div>
+            </header>
+            <main id="middle">
+                <div>
+                    <div id="mainLeft">
+                        <div id="nav-wrapper">
+                            <form action="https://www.google.com/search" method="get">
+                                <div class="searchbox">
+                                    <input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
+                                </div>
+                            </form>
+                            <nav>
+                                <div>
+                                    <h2>Apache Tomcat</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./index.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="./taglibs.html">Taglibs</a>
+                                        </li>
+                                        <li>
+                                            <a href="./maven-plugin.html">Maven Plugin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Download</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./whichversion.html">Which version?</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://archive.apache.org/dist/tomcat/">Archives</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Documentation</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+                                        </li>
+                                        <li>
+                                            <a href="./connectors-doc/">Tomcat Connectors</a>
+                                        </li>
+                                        <li>
+                                            <a href="./native-doc/">Tomcat Native</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+                                        </li>
+                                        <li>
+                                            <a href="./migration.html">Migration Guide</a>
+                                        </li>
+                                        <li>
+                                            <a href="./presentations.html">Presentations</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Problems?</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./security.html">Security Reports</a>
+                                        </li>
+                                        <li>
+                                            <a href="./findhelp.html">Find help</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="./lists.html">Mailing Lists</a>
+                                        </li>
+                                        <li>
+                                            <a href="./bugreport.html">Bug Database</a>
+                                        </li>
+                                        <li>
+                                            <a href="./irc.html">IRC</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Get Involved</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./getinvolved.html">Overview</a>
+                                        </li>
+                                        <li>
+                                            <a href="./source.html">Source code</a>
+                                        </li>
+                                        <li>
+                                            <a href="./ci.html">Buildbot</a>
+                                        </li>
+                                        <li>
+                                            <a href="./tools.html">Tools</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Media</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="https://twitter.com/theapachetomcat">Twitter</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://blogs.apache.org/tomcat/">Blog</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Misc</h2>
+                                    <ul>
+                                        <li>
+                                            <a href="./whoweare.html">Who We Are</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a>
+                                        </li>
+                                        <li>
+                                            <a href="./heritage.html">Heritage</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org">Apache Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="./resources.html">Resources</a>
+                                        </li>
+                                        <li>
+                                            <a href="./contact.html">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="./legal.html">Legal</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.apache.org/licenses/">License</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div id="mainRight">
+                        <div id="content">
+                            <h2 style="display: none;">Content</h2>
+                            <h3 id="Table_of_Contents">Table of Contents</h3>
+                            <div class="text">
+                                
+                                <ul>
+                                    <li>
+                                        <a href="#General">General</a>
+                                    </li>
+                                    <li>
+                                        <a href="#Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</a>
+                                        <ol>
+                                            <li>
+                                                <a href="#BIO_connector_removed">BIO connector removed</a>
+                                            </li>
+                                            <li>
+                                                <a href="#HTTP_connector_changes">HTTP connector changes</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Comet_support_removed">Comet support removed</a>
+                                            </li>
+                                            <li>
+                                                <a href="#HTTP/2_support_added">HTTP/2 support added</a>
+                                            </li>
+                                            <li>
+                                                <a href="#TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Internal_APIs">Internal APIs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#JSR-77_implementation_removed">JSR-77 implementation removed</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Clustering">Clustering</a>
+                                            </li>
+                                            <li>
+                                                <a href="#InstanceListener_removed">InstanceListener removed</a>
+                                            </li>
+                                            <li>
+                                                <a href="#SessionManager">SessionManager</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Cookies">Cookies</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Web_applications">Web applications</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Context_configurations">Context configurations</a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li>
+                                        <a href="#Upgrading_8.5.x">Upgrading 8.5.x</a>
+                                        <ol>
+                                            <li>
+                                                <a href="#Tomcat_8.5.x_noteable_changes">Tomcat 8.5.x noteable changes</a>
+                                            </li>
+                                            <li>
+                                                <a href="#Tomcat_8.5.x_configuration_file_differences">Tomcat 8.5.x configuration file differences</a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <h3 id="General">General</h3>
+                            <div class="text">
+                                
+                                <p>
+                                    Please read general <a href="migration.html">Migration Guide page</a> first,
 for common considerations that apply to migration or upgrade between versions
-of Apache Tomcat.</p>
-
-
-</div>
-<h3 id="Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</h3>
-<div class="text">
-
-  
-<p> This section lists all the known changes between 8.0.x and 8.5.x which may
+of Apache Tomcat.
+                                </p>
+                                
+                            </div>
+                            <h3 id="Migrating_from_8.0.x_to_8.5.x">Migrating from 8.0.x to 8.5.x</h3>
+                            <div class="text">
+                                  
+                                <p> This section lists all the known changes between 8.0.x and 8.5.x which may
   cause backwards compatibility problems when upgrading.</p>
-
-  
-<div class="subsection">
-<h4 id="BIO_connector_removed">BIO connector removed</h4>
-<div class="text">
-
-    
-<p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
+                                  
+                                <div class="subsection">
+                                    <h4 id="BIO_connector_removed">BIO connector removed</h4>
+                                    <div class="text">
+                                            
+                                        <p>The Java blocking IO implementation (BIO) for both HTTP and AJP has been
     removed. Users are recommended to switch to the Java non-blocking IO
     implementation (NIO). As of Tomcat 8.5.17, if a BIO Connector is explicitly
     configured, rather than failing to start the Connector, Tomcat will
     automatically switch the Connector to use the NIO implementation and log a
     warning.</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="HTTP_connector_changes">HTTP connector changes</h4>
-<div class="text">
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="HTTP_connector_changes">HTTP connector changes</h4>
+                                    <div class="text">
+                                            
+                                        <p>
+                                                  HTTP reason phrases have been <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60362">removed by default</a>,
+      but can be re-enabled using the 
+                                            <div class="codeBox">
+                                                <pre>
+                                                    <code>sendReasonPhrase</code>
+                                                </pre>
+                                            </div>
+                                                  <a href="https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#Common_Attributes">configuration attribute</a>.
     
-<p>
-      HTTP reason phrases have been <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60362">removed by default</a>,
-      but can be re-enabled using the <div class="codeBox">
-<pre>
-<code>sendReasonPhrase</code>
-</pre>
-</div>
-      
-<a href="https://tomcat.apache.org/tomcat-8.5-doc/config/http.html#Common_Attributes">configuration attribute</a>.
-    </p>
-  
-</div>
-</div>
-  
-<div class="subsection">
-<h4 id="Comet_support_removed">Comet support removed</h4>
-<div class="text">
-
-    
-<p>Comet support has been removed without a direct replacement. Applications
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Comet_support_removed">Comet support removed</h4>
+                                    <div class="text">
+                                            
+                                        <p>Comet support has been removed without a direct replacement. Applications
     using Comet are recommended to migrate to WebSockets.</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="HTTP/2_support_added">HTTP/2 support added</h4>
-<div class="text">
-
-    
-<p>HTTP/2 is supported for h2 (over TLS, negotiated via ALPN) and h2c (clear
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="HTTP/2_support_added">HTTP/2 support added</h4>
+                                    <div class="text">
+                                            
+                                        <p>
+                                            HTTP/2 is supported for h2 (over TLS, negotiated via ALPN) and h2c (clear
     text, negotiated via HTTP/1.1 upgrade). HTTP/2 needs to be explicitly
     enabled for a connector. To enable it, insert
-    <div class="codeBox">
-<pre>
-<code>&lt;UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" /&gt;</code>
-</pre>
-</div>
-    inside the connector for which you wish to enable HTTP/2. Note that to
-    enable HTTP/2 for a secure NIO or NIO2 connector, those connectors must be
-    using the OpenSSL engine for TLS.</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</h4>
-<div class="text">
-
     
-<p>Tomcat 8.5 supports multiple TLS virtual hosts for a single connector with
+                                            <div class="codeBox">
+                                                <pre>
+                                                    <code>&lt;UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" /&gt;</code>
+                                                </pre>
+                                            </div>
+                                                inside the connector for which you wish to enable HTTP/2. Note that to
+    enable HTTP/2 for a secure NIO or NIO2 connector, those connectors must be
+    using the OpenSSL engine for TLS.
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="TLS_virtual_hosting_and_multiple_certificate_support_added">TLS virtual hosting and multiple certificate support added</h4>
+                                    <div class="text">
+                                            
+                                        <p>
+                                            Tomcat 8.5 supports multiple TLS virtual hosts for a single connector with
     each virtual host able to support multiple certificates. Virtual host
     definitions are nested inside the Connector element with the default
     specified using the <strong>defaultSSLHostConfigName</strong> attribute on the
     Connector if more than one virtual host is specified. Certificate
-    definitions are nested inside the virtual host.</p>
+    definitions are nested inside the virtual host.
+                                        </p>
+                                            
     
-    
-<p>The following example shows how to use this to configure a single
+                                        <p>
+                                            The following example shows how to use this to configure a single
     APR/native connector for multiple TLS virtual hosts with each host having
     both an RSA and EC certificate.
     
-<div class="codeBox">
-<pre>
-<code>
+
+                                            <div class="codeBox">
+                                                <pre>
+                                                    <code>
 &lt;Connector port="8443"
            protocol="org.apache.coyote.http11.Http11AprProtocol"
            maxThreads="150"
@@ -399,282 +396,269 @@ of Apache Tomcat.</p>
     &lt;/SSLHostConfig&gt;
 &lt;/Connector&gt;
 </code>
-</pre>
-</div>
-</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="Internal_APIs">Internal APIs</h4>
-<div class="text">
-  
+                                                </pre>
+                                            </div>
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Internal_APIs">Internal APIs</h4>
+                                    <div class="text">
+                                          
     
-<p>Whilst the Tomcat 8.5 internal API is broadly compatible with Tomcat 8.0
+                                        <p>Whilst the Tomcat 8.5 internal API is broadly compatible with Tomcat 8.0
     there have been many changes at the detail level and they are not binary
     compatible. Developers of custom components that interact with Tomcat's
     internals should review the JavaDoc for the relevant API.</p>
-
-    
-<p>Of particular note are:</p>
-    
-<ul>
-      
-<li>Significant refactoring has taken place throughout the connectors to
+                                            
+                                        <p>Of particular note are:</p>
+                                            
+                                        <ul>
+                                                  
+                                            <li>Significant refactoring has taken place throughout the connectors to
           reduce duplicate code and to align behaviour across
           implementations.</li>
-      
-<li>The deprecated <code>digest</code> attribute has been removed from the
+                                                  
+                                            <li>
+                                                The deprecated <code>digest</code> attribute has been removed from the
           <code>Realm</code>. This must now be configured via a
-          <code>CredentialHandler</code>.</li>
-      
-<li>The <code>AuthenticatorBase</code> implementation has been changed to
+          <code>CredentialHandler</code>.
+                                            </li>
+                                                  
+                                            <li>
+                                                The <code>AuthenticatorBase</code> implementation has been changed to
           call <code>doAuthenticate()</code> rather than
-          <code>authenticate()</code> on sub-classes.</li>
-    
-</ul>
-
+          <code>authenticate()</code> on sub-classes.
+                                            </li>
+                                                
+                                        </ul>
+                                          
+                                    </div>
+                                </div>
+                                  
   
-</div>
-</div>
-  
-  
-<div class="subsection">
-<h4 id="JSR-77_implementation_removed">JSR-77 implementation removed</h4>
-<div class="text">
-
-    
-<p>The JSR-77 implementation is incomplete and has been removed in 8.5.x.
+                                <div class="subsection">
+                                    <h4 id="JSR-77_implementation_removed">JSR-77 implementation removed</h4>
+                                    <div class="text">
+                                            
+                                        <p>The JSR-77 implementation is incomplete and has been removed in 8.5.x.
     Specifically, the following methods that exposed to JMX have been removed.
     </p>
-
-    
-<ul>
-      
-<li>
-<code>StandardContext.getServlets()</code>
-</li>
-      
-<li>
-<code>StandardContext.isStateManageable()</code>
-</li>
-      
-<li>
-<code>StandardContext.getDeploymentDescriptor()</code>
-</li>
-      
-<li>
-<code>StandardWrapper.isStateManageable()</code>
-</li>
-    
-</ul>
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="Clustering">Clustering</h4>
-<div class="text">
-
-    
-<p>
-<code>MessageDispatch15Interceptor</code> had been used to add the Java 5
+                                            
+                                        <ul>
+                                                  
+                                            <li>
+                                                <code>StandardContext.getServlets()</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>StandardContext.isStateManageable()</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>StandardContext.getDeploymentDescriptor()</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>StandardWrapper.isStateManageable()</code>
+                                            </li>
+                                                
+                                        </ul>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Clustering">Clustering</h4>
+                                    <div class="text">
+                                            
+                                        <p>
+                                            <code>MessageDispatch15Interceptor</code> had been used to add the Java 5
     features to MessageDispatchInterceptor.
     <code>MessageDispatch15Interceptor</code> has been removed in Tomcat 8.5.x
     by merging the Java 5 features to <code>MessageDispatchInterceptor</code>.
-    </p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="InstanceListener_removed">InstanceListener removed</h4>
-<div class="text">
-
     
-<p>The support of InstanceListener has been removed in 8.5.x.
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="InstanceListener_removed">InstanceListener removed</h4>
+                                    <div class="text">
+                                            
+                                        <p>The support of InstanceListener has been removed in 8.5.x.
     Specifically, the following classes have been removed.
     </p>
-
-    
-<ul>
-      
-<li>
-<code>org.apache.catalina.InstanceListener</code>
-</li>
-      
-<li>
-<code>org.apache.catalina.InstanceEvent</code>
-</li>
-      
-<li>
-<code>org.apache.catalina.util.InstanceSupport</code>
-</li>
-    
-</ul>
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="SessionManager">SessionManager</h4>
-<div class="text">
-
-    
-<p>The following session manager attributes have been completely removed in
+                                            
+                                        <ul>
+                                                  
+                                            <li>
+                                                <code>org.apache.catalina.InstanceListener</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>org.apache.catalina.InstanceEvent</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>org.apache.catalina.util.InstanceSupport</code>
+                                            </li>
+                                                
+                                        </ul>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="SessionManager">SessionManager</h4>
+                                    <div class="text">
+                                            
+                                        <p>The following session manager attributes have been completely removed in
     8.5.</p>
-
-    
-<ul>
-      
-<li>
-<code>distributable</code>
-</li>
-      
-<li>
-<code>maxInactiveInterval</code>
-</li>
-      
-<li>
-<code>sessionIdLength</code>
-</li>
-    
-</ul>
-
-    
-<p>The replacements are as follows:</p>
-    
-<ul>
-      
-<li>The <code>distributable</code> attribute has been deprecated in 8.0
+                                            
+                                        <ul>
+                                                  
+                                            <li>
+                                                <code>distributable</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>maxInactiveInterval</code>
+                                            </li>
+                                                  
+                                            <li>
+                                                <code>sessionIdLength</code>
+                                            </li>
+                                                
+                                        </ul>
+                                            
+                                        <p>The replacements are as follows:</p>
+                                            
+                                        <ul>
+                                                  
+                                            <li>
+                                                The <code>distributable</code> attribute has been deprecated in 8.0
           and specified value is ignored. This should be configured via the
           Context. The value is inherited based on the presence or absence of
           the <code>&lt;distributable /&gt;</code> element in
           <code>/WEB-INF/web.xml.</code>
-</li>
-      
-<li>The <code>maxInactiveInterval</code> attribute has been deprecated in
+                                            </li>
+                                                  
+                                            <li>
+                                                The <code>maxInactiveInterval</code> attribute has been deprecated in
           8.0. If the value is specified, a warning log is issued. This should
           be configured via the Context. The value is inherited based on the
           value of the <code>&lt;session-timeout&gt;</code> element in
-          <code>/WEB-INF/web.xml</code>.</li>
-      
-<li>The <code>sessionIdLength</code> attribute of <code>Manager</code> has
+          <code>/WEB-INF/web.xml</code>.
+                                            </li>
+                                                  
+                                            <li>
+                                                The <code>sessionIdLength</code> attribute of <code>Manager</code> has
           been replaced by <code>sessionIdLength</code> attribute of
-          <code>SessionIdGenerator</code>.</li>
+          <code>SessionIdGenerator</code>.
+                                            </li>
+                                                
+                                        </ul>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Cookies">Cookies</h4>
+                                    <div class="text">
+                                          
     
-</ul>
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="Cookies">Cookies</h4>
-<div class="text">
-  
-    
-<p>The default <code>CookieProcessor</code> is now the
+                                        <p>
+                                            The default <code>CookieProcessor</code> is now the
     <code>Rfc6265CookieProcessor</code>. The <code>CookieProcessor</code> is
     configurable per <code>Context</code> and the
     <code>LegacyCookieProcessor</code> may be used to obtain the 8.0.x
-    behaviour.</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="Web_applications">Web applications</h4>
-<div class="text">
-  
+    behaviour.
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Web_applications">Web applications</h4>
+                                    <div class="text">
+                                          
     
-<p>The Manager and HostManager web applications are configured by default
+                                        <p>
+                                            The Manager and HostManager web applications are configured by default
        with a <code>RemoteAddrValve</code> that limits access to those
-       applications to connections from localhost.</p>
-
-  
-</div>
-</div>
-
-  
-<div class="subsection">
-<h4 id="Context_configurations">Context configurations</h4>
-<div class="text">
-
-    
-<p>The <code>clearReferencesStatic</code> attribute has been removed in
-    8.5.x.</p>
-
-  
-</div>
-</div>
-
-
-</div>
-<h3 id="Upgrading_8.5.x">Upgrading 8.5.x</h3>
-<div class="text">
-  
-<p>When upgrading instances of Apache Tomcat from one version of Tomcat 8 to
+       applications to connections from localhost.
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                  
+                                <div class="subsection">
+                                    <h4 id="Context_configurations">Context configurations</h4>
+                                    <div class="text">
+                                            
+                                        <p>
+                                            The <code>clearReferencesStatic</code> attribute has been removed in
+    8.5.x.
+                                        </p>
+                                          
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <h3 id="Upgrading_8.5.x">Upgrading 8.5.x</h3>
+                            <div class="text">
+                                  
+                                <p>When upgrading instances of Apache Tomcat from one version of Tomcat 8 to
   another, particularly when using separate locations for $CATALINA_HOME and
   $CATALINA_BASE, it is necessary to ensure that any changes in the
   configuration files such as new attributes and changes to defaults are applied
   as part of the upgrade. To assist with the identification of these changes,
   the form below may be used to view the differences between the configuration
   files in different versions of Tomcat 8.</p>
-
-  
-<div class="subsection">
-<h4 id="Tomcat_8.5.x_noteable_changes">Tomcat 8.5.x noteable changes</h4>
-<div class="text">
-    
-<p>The Tomcat developers aim for each patch release to be fully backwards
+                                  
+                                <div class="subsection">
+                                    <h4 id="Tomcat_8.5.x_noteable_changes">Tomcat 8.5.x noteable changes</h4>
+                                    <div class="text">
+                                            
+                                        <p>The Tomcat developers aim for each patch release to be fully backwards
        compatible with the previous release.  Occasionally, it is necessary to
        break backwards compatibility in order to fix a bug. In most cases, these
        changes will go unnoticed. This section lists changes that are not fully
        backwards compatible and might cause breakage when upgrading.</p>
-    
-<ul>
-      
-<li>None.</li>
-    
-</ul>
+                                            
+                                        <ul>
+                                                  
+                                            <li>None.</li>
+                                                
+                                        </ul>
+                                          
+                                    </div>
+                                </div>
+                                  
   
-</div>
-</div>
-  
-  
-<div class="subsection">
-<h4 id="Tomcat_8.5.x_configuration_file_differences">Tomcat 8.5.x configuration file differences</h4>
-<div class="text">
-
-    
-<p>Select a configuration file, old version and new version from the boxes
+                                <div class="subsection">
+                                    <h4 id="Tomcat_8.5.x_configuration_file_differences">Tomcat 8.5.x configuration file differences</h4>
+                                    <div class="text">
+                                            
+                                        <p>Select a configuration file, old version and new version from the boxes
     below and then click "View differences" to see the differences.
     The differences will be shown in a new tab/window.</p>
-
-    
-<p>
-<b>Note:</b> If there are no differences you will see an error page.</p>
-
-    
-<form action="https://gitbox.apache.org/repos/asf" method="get" target="_blank">
-
-    
-<input type="hidden" name="p" value="tomcat.git">
+                                            
+                                        <p>
+                                            <b>Note:</b> If there are no differences you will see an error page.
+                                        </p>
+                                            
+                                        <form action="https://gitbox.apache.org/repos/asf" method="get" target="_blank">
+                                                <input type="hidden" name="p" value="tomcat.git">
     <input type="hidden" name="a" value="blobdiff">
 
     
-<p>
-<label>Configuration file:
+                                            <p>
+                                                <label>Configuration file:
     <select name="f">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
@@ -685,10 +669,10 @@ of Apache Tomcat.</p>
     <option value="conf/web.xml">web.xml</option>
     </select></label>
     
-</p>
-    
-<p>
-<label>Old version:
+                                            </p>
+                                                
+                                            <p>
+                                                <label>Old version:
     <select name="hpb">
     <option value="8.5.0">8.5.0</option>
     <option value="8.5.2">8.5.2</option>
@@ -718,8 +702,9 @@ of Apache Tomcat.</p>
     <option value="8.5.34">8.5.34</option>
     <option value="8.5.35">8.5.35</option>
     <option value="8.5.37">8.5.37</option>
-    <option value="8.5.38" selected>8.5.38</option>
-    <option value="8.5.39">8.5.39</option>
+    <option value="8.5.38">8.5.38</option>
+    <option value="8.5.39" selected>8.5.39</option>
+    <option value="8.5.40">8.5.40</option>
     </select>,</label> <label>new version:
     <select name="hb">
     <option value="8.5.0">8.5.0</option>
@@ -751,47 +736,48 @@ of Apache Tomcat.</p>
     <option value="8.5.35">8.5.35</option>
     <option value="8.5.37">8.5.37</option>
     <option value="8.5.38">8.5.38</option>
-    <option value="8.5.39" selected>8.5.39</option>
+    <option value="8.5.39">8.5.39</option>
+    <option value="8.5.40" selected>8.5.40</option>
     <option value="HEAD">trunk (unreleased)</option>
     </select></label>
     
-</p>
-
+                                            </p>
+                                                
+                                            <p>
+                                                    <button>View Differences</button>
     
-<p>
-    
-<button>View Differences</button>
-    
-</p>
-    
-</form>
-    
-<p>You can also use a Git command similar to the following from within a
+                                            </p>
+                                                
+                                        </form>
+                                            
+                                        <p>You can also use a Git command similar to the following from within a
        working copy:</p>
-    
-<div class="codeBox">
-<pre>
-<code>git diff 8.5.0 8.5.20 -- conf/</code>
-</pre>
-</div>
-  
-</div>
-</div>
-  
+                                            
+                                        <div class="codeBox">
+                                            <pre>
+                                                <code>git diff 8.5.0 8.5.20 -- conf/</code>
+                                            </pre>
+                                        </div>
+                                          
+                                    </div>
+                                </div>
+                                  
 
-</div>
-</div>
-</div>
-</div>
-</main>
-<footer id="footer">
-    Copyright &copy; 1999-2019, The Apache Software Foundation
-    <br>
-    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer id="footer">
+                    Copyright &copy; 1999-2019, The Apache Software Foundation
+    
+                <br>
+                    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are either registered trademarks or trademarks of the Apache
     Software Foundation.
-  </footer>
-</div>
-<script src="res/js/tomcat.js"></script>
-</body>
+  
+            </footer>
+        </div>
+        <script src="res/js/tomcat.js"></script>
+    </body>
 </html>
