@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Serialized Form (Apache Tomcat 7.0.93 API Documentation)</title>
+<title>Serialized Form (Apache Tomcat 7.0.94 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Serialized Form (Apache Tomcat 7.0.93 API Documentation)";
+        parent.document.title="Serialized Form (Apache Tomcat 7.0.94 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="index-all.html">Index</a></li>
 <li><a href="help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -2110,12 +2110,27 @@
 <pre>java.util.Hashtable&lt;K,V&gt; shellEnv</pre>
 <div class="block">the shell environment variables to be passed to the CGI script</div>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>enableCmdLineArguments</h4>
 <pre>boolean enableCmdLineArguments</pre>
 <div class="block">Enable creation of script command line arguments from query-string.
  See https://tools.ietf.org/html/rfc3875#section-4.4
  4.4.  The Script Command Line</div>
+</li>
+<li class="blockList">
+<h4>cmdLineArgumentsEncodedPattern</h4>
+<pre>java.util.regex.Pattern cmdLineArgumentsEncodedPattern</pre>
+<div class="block">Limits the encoded form of individual command line arguments. By default
+ values are limited to those allowed by the RFC.
+ See https://tools.ietf.org/html/rfc3875#section-4.4
+
+ Uses \Q...\E to avoid individual quoting.</div>
+</li>
+<li class="blockListLast">
+<h4>cmdLineArgumentsDecodedPattern</h4>
+<pre>java.util.regex.Pattern cmdLineArgumentsDecodedPattern</pre>
+<div class="block">Limits the decoded form of individual command line arguments. Default
+ varies by platform.</div>
 </li>
 </ul>
 </li>
@@ -3851,6 +3866,375 @@
 </ul>
 </li>
 <li class="blockList">
+<h2 title="Package">Package&nbsp;org.apache.tomcat.dbcp.dbcp</h2>
+<ul class="blockList">
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.DbcpException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/DbcpException.html" title="class in org.apache.tomcat.dbcp.dbcp">org.apache.tomcat.dbcp.dbcp.DbcpException</a> extends java.lang.RuntimeException implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>2477800549022838103L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>cause</h4>
+<pre>java.lang.Throwable cause</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
+<div class="block">The root cause of this exception (typically an
+ <code>SQLException</code> but this is not required).</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.SQLNestedException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/SQLNestedException.html" title="class in org.apache.tomcat.dbcp.dbcp">org.apache.tomcat.dbcp.dbcp.SQLNestedException</a> extends java.sql.SQLException implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1046151479543081202L</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;org.apache.tomcat.dbcp.dbcp.cpdsadapter</h2>
+<ul class="blockList">
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.cpdsadapter.DriverAdapterCPDS">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/cpdsadapter/DriverAdapterCPDS.html" title="class in org.apache.tomcat.dbcp.dbcp.cpdsadapter">org.apache.tomcat.dbcp.dbcp.cpdsadapter.DriverAdapterCPDS</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>-4820523787212147844L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>description</h4>
+<pre>java.lang.String description</pre>
+<div class="block">Description</div>
+</li>
+<li class="blockList">
+<h4>password</h4>
+<pre>java.lang.String password</pre>
+<div class="block">Password</div>
+</li>
+<li class="blockList">
+<h4>url</h4>
+<pre>java.lang.String url</pre>
+<div class="block">Url name</div>
+</li>
+<li class="blockList">
+<h4>user</h4>
+<pre>java.lang.String user</pre>
+<div class="block">User name</div>
+</li>
+<li class="blockList">
+<h4>driver</h4>
+<pre>java.lang.String driver</pre>
+<div class="block">Driver class name</div>
+</li>
+<li class="blockList">
+<h4>loginTimeout</h4>
+<pre>int loginTimeout</pre>
+<div class="block">Login TimeOut in seconds</div>
+</li>
+<li class="blockList">
+<h4>poolPreparedStatements</h4>
+<pre>boolean poolPreparedStatements</pre>
+</li>
+<li class="blockList">
+<h4>maxActive</h4>
+<pre>int maxActive</pre>
+</li>
+<li class="blockList">
+<h4>maxIdle</h4>
+<pre>int maxIdle</pre>
+</li>
+<li class="blockList">
+<h4>_timeBetweenEvictionRunsMillis</h4>
+<pre>int _timeBetweenEvictionRunsMillis</pre>
+</li>
+<li class="blockList">
+<h4>_numTestsPerEvictionRun</h4>
+<pre>int _numTestsPerEvictionRun</pre>
+</li>
+<li class="blockList">
+<h4>_minEvictableIdleTimeMillis</h4>
+<pre>int _minEvictableIdleTimeMillis</pre>
+</li>
+<li class="blockList">
+<h4>_maxPreparedStatements</h4>
+<pre>int _maxPreparedStatements</pre>
+</li>
+<li class="blockList">
+<h4>getConnectionCalled</h4>
+<pre>boolean getConnectionCalled</pre>
+<div class="block">Whether or not getConnection has been called</div>
+</li>
+<li class="blockList">
+<h4>connectionProperties</h4>
+<pre>java.util.Properties connectionProperties</pre>
+<div class="block">Connection properties passed to JDBC Driver</div>
+</li>
+<li class="blockListLast">
+<h4>accessToUnderlyingConnectionAllowed</h4>
+<pre>boolean accessToUnderlyingConnectionAllowed</pre>
+<div class="block">Controls access to the underlying connection</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h2 title="Package">Package&nbsp;org.apache.tomcat.dbcp.dbcp.datasources</h2>
+<ul class="blockList">
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.datasources.InstanceKeyDataSource">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/datasources/InstanceKeyDataSource.html" title="class in org.apache.tomcat.dbcp.dbcp.datasources">org.apache.tomcat.dbcp.dbcp.datasources.InstanceKeyDataSource</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>-4243533936955098795L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConnectionCalled</h4>
+<pre>boolean getConnectionCalled</pre>
+<div class="block">Guards property setters - once true, setters throw IllegalStateException</div>
+</li>
+<li class="blockList">
+<h4>dataSource</h4>
+<pre>javax.sql.ConnectionPoolDataSource dataSource</pre>
+<div class="block">Underlying source of PooledConnections</div>
+</li>
+<li class="blockList">
+<h4>dataSourceName</h4>
+<pre>java.lang.String dataSourceName</pre>
+<div class="block">DataSource Name used to find the ConnectionPoolDataSource</div>
+</li>
+<li class="blockList">
+<h4>defaultAutoCommit</h4>
+<pre>boolean defaultAutoCommit</pre>
+</li>
+<li class="blockList">
+<h4>defaultTransactionIsolation</h4>
+<pre>int defaultTransactionIsolation</pre>
+</li>
+<li class="blockList">
+<h4>defaultReadOnly</h4>
+<pre>boolean defaultReadOnly</pre>
+</li>
+<li class="blockList">
+<h4>description</h4>
+<pre>java.lang.String description</pre>
+<div class="block">Description</div>
+</li>
+<li class="blockList">
+<h4>jndiEnvironment</h4>
+<pre>java.util.Properties jndiEnvironment</pre>
+<div class="block">Environment that may be used to set up a jndi initial context.</div>
+</li>
+<li class="blockList">
+<h4>loginTimeout</h4>
+<pre>int loginTimeout</pre>
+<div class="block">Login TimeOut in seconds</div>
+</li>
+<li class="blockList">
+<h4>logWriter</h4>
+<pre>java.io.PrintWriter logWriter</pre>
+<div class="block">Log stream</div>
+</li>
+<li class="blockList">
+<h4>_testOnBorrow</h4>
+<pre>boolean _testOnBorrow</pre>
+</li>
+<li class="blockList">
+<h4>_testOnReturn</h4>
+<pre>boolean _testOnReturn</pre>
+</li>
+<li class="blockList">
+<h4>_timeBetweenEvictionRunsMillis</h4>
+<pre>int _timeBetweenEvictionRunsMillis</pre>
+</li>
+<li class="blockList">
+<h4>_numTestsPerEvictionRun</h4>
+<pre>int _numTestsPerEvictionRun</pre>
+</li>
+<li class="blockList">
+<h4>_minEvictableIdleTimeMillis</h4>
+<pre>int _minEvictableIdleTimeMillis</pre>
+</li>
+<li class="blockList">
+<h4>_testWhileIdle</h4>
+<pre>boolean _testWhileIdle</pre>
+</li>
+<li class="blockList">
+<h4>validationQuery</h4>
+<pre>java.lang.String validationQuery</pre>
+</li>
+<li class="blockList">
+<h4>rollbackAfterValidation</h4>
+<pre>boolean rollbackAfterValidation</pre>
+</li>
+<li class="blockList">
+<h4>testPositionSet</h4>
+<pre>boolean testPositionSet</pre>
+<div class="block">true iff one of the setters for testOnBorrow, testOnReturn, testWhileIdle has been called.</div>
+</li>
+<li class="blockListLast">
+<h4>instanceKey</h4>
+<pre>java.lang.String instanceKey</pre>
+<div class="block">Instance key</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.datasources.PerUserPoolDataSource">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/datasources/PerUserPoolDataSource.html" title="class in org.apache.tomcat.dbcp.dbcp.datasources">org.apache.tomcat.dbcp.dbcp.datasources.PerUserPoolDataSource</a> extends <a href="org/apache/tomcat/dbcp/dbcp/datasources/InstanceKeyDataSource.html" title="class in org.apache.tomcat.dbcp.dbcp.datasources">InstanceKeyDataSource</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>-3104731034410444060L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serialized_methods">
+<!--   -->
+</a>
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast"><a name="readObject(java.io.ObjectInputStream)">
+<!--   -->
+</a>
+<h4>readObject</h4>
+<pre>private&nbsp;void&nbsp;readObject(java.io.ObjectInputStream&nbsp;in)
+                 throws java.io.IOException,
+                        java.lang.ClassNotFoundException</pre>
+<div class="block">Supports Serialization interface.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - if an error occurs</dd>
+<dd><code>java.lang.ClassNotFoundException</code> - if an error occurs</dd></dl>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>defaultMaxActive</h4>
+<pre>int defaultMaxActive</pre>
+</li>
+<li class="blockList">
+<h4>defaultMaxIdle</h4>
+<pre>int defaultMaxIdle</pre>
+</li>
+<li class="blockList">
+<h4>defaultMaxWait</h4>
+<pre>int defaultMaxWait</pre>
+</li>
+<li class="blockList">
+<h4>perUserDefaultAutoCommit</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserDefaultAutoCommit</pre>
+</li>
+<li class="blockList">
+<h4>perUserDefaultTransactionIsolation</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserDefaultTransactionIsolation</pre>
+</li>
+<li class="blockList">
+<h4>perUserMaxActive</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserMaxActive</pre>
+</li>
+<li class="blockList">
+<h4>perUserMaxIdle</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserMaxIdle</pre>
+</li>
+<li class="blockList">
+<h4>perUserMaxWait</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserMaxWait</pre>
+</li>
+<li class="blockListLast">
+<h4>perUserDefaultReadOnly</h4>
+<pre>java.util.Map&lt;K,V&gt; perUserDefaultReadOnly</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.tomcat.dbcp.dbcp.datasources.SharedPoolDataSource">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/tomcat/dbcp/dbcp/datasources/SharedPoolDataSource.html" title="class in org.apache.tomcat.dbcp.dbcp.datasources">org.apache.tomcat.dbcp.dbcp.datasources.SharedPoolDataSource</a> extends <a href="org/apache/tomcat/dbcp/dbcp/datasources/InstanceKeyDataSource.html" title="class in org.apache.tomcat.dbcp.dbcp.datasources">InstanceKeyDataSource</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>-8132305535403690372L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList"><a name="serialized_methods">
+<!--   -->
+</a>
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast"><a name="readObject(java.io.ObjectInputStream)">
+<!--   -->
+</a>
+<h4>readObject</h4>
+<pre>private&nbsp;void&nbsp;readObject(java.io.ObjectInputStream&nbsp;in)
+                 throws java.io.IOException,
+                        java.lang.ClassNotFoundException</pre>
+<div class="block">Supports Serialization interface.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - if an error occurs</dd>
+<dd><code>java.lang.ClassNotFoundException</code> - if an error occurs</dd></dl>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="serializedForm">
+<!--   -->
+</a>
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxActive</h4>
+<pre>int maxActive</pre>
+</li>
+<li class="blockList">
+<h4>maxIdle</h4>
+<pre>int maxIdle</pre>
+</li>
+<li class="blockListLast">
+<h4>maxWait</h4>
+<pre>int maxWait</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
 <h2 title="Package">Package&nbsp;org.apache.tomcat.jdbc.pool</h2>
 <ul class="blockList">
 <li class="blockList"><a name="org.apache.tomcat.jdbc.pool.PoolExhaustedException">
@@ -5159,7 +5543,7 @@
 <li><a href="index-all.html">Index</a></li>
 <li><a href="help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

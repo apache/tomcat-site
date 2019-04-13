@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LogFactory (Apache Tomcat 7.0.93 API Documentation)</title>
+<title>LogFactory (Apache Tomcat 7.0.94 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="LogFactory (Apache Tomcat 7.0.93 API Documentation)";
+        parent.document.title="LogFactory (Apache Tomcat 7.0.94 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -101,34 +101,34 @@ extends java.lang.Object</pre>
  If you like a different logging implementation - use either the discovery-based
  commons-logging, or better - another implementation hardcoded to your favourite
  logging impl.
- 
- Why ? Each application and deployment can choose a logging implementation - 
+
+ Why ? Each application and deployment can choose a logging implementation -
  that involves configuration, installing the logger jar and optional plugins, etc.
  As part of this process - they can as well install the commons-logging implementation
  that corresponds to their logger of choice. This completely avoids any discovery
- problem, while still allowing the user to switch. 
- 
+ problem, while still allowing the user to switch.
+
  Note that this implementation is not just a wrapper around JDK logging ( like
  the original commons-logging impl ). It adds 2 features - a simpler configuration
- ( which is in fact a subset of log4j.properties ) and a formatter that is 
- less ugly.   
- 
+ ( which is in fact a subset of log4j.properties ) and a formatter that is
+ less ugly.
+
  The removal of 'abstract' preserves binary backward compatibility. It is possible
- to preserve the abstract - and introduce another ( hardcoded ) factory - but I 
- see no benefit. 
- 
+ to preserve the abstract - and introduce another ( hardcoded ) factory - but I
+ see no benefit.
+
  Since this class is not intended to be extended - and provides
  no plugin for other LogFactory implementation - all protected methods are removed.
  This can be changed - but again, there is little value in keeping dead code.
- Just take a quick look at the removed code ( and it's complexity)  
- 
+ Just take a quick look at the removed code ( and it's complexity)
+
  --------------
- 
+
  Original comment:
  <p>Factory for creating <a href="../../../../org/apache/juli/logging/Log.html" title="interface in org.apache.juli.logging"><code>Log</code></a> instances, with discovery and
  configuration features similar to that employed by standard Java APIs
  such as JAXP.</p>
- 
+
  <p><strong>IMPLEMENTATION NOTE</strong> - This implementation is heavily
  based on the SAXParserFactory and DocumentBuilderFactory implementations
  (corresponding to the JAXP pluggability APIs) found in Apache Xerces.</p></div>
@@ -364,13 +364,13 @@ extends java.lang.Object</pre>
  </p>
  <p>
  <strong>Usage:</strong> Set this property when Java is invoked
- and <code>LogFactory</code> will attempt to load a new instance 
+ and <code>LogFactory</code> will attempt to load a new instance
  of the given implementation class.
  For example, running the following ant scriptlet:
  <code><pre>
   &lt;java classname="${test.runner}" fork="yes" failonerror="${test.failonerror}"&gt;
      ...
-     &lt;sysproperty 
+     &lt;sysproperty
         key="org.apache.commons.logging.LogFactory.HashtableImpl"
         value="org.apache.commons.logging.AltHashtable"/&gt;
   &lt;/java&gt;
@@ -635,7 +635,7 @@ extends java.lang.Object</pre>
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.93</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
