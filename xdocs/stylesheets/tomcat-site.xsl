@@ -115,13 +115,12 @@
             </div>
           </form>
           <!-- Navigation -->
-          <!--
           <div class="asfevents">
             <a href="https://www.apache.org/events/current-event.html">
-              <img src="https://www.apache.org/events/current-event-234x60.png"/>
+              <img src="https://www.apache.org/events/current-event-234x60.png"/><br/>
+              Save the date!
             </a>
           </div>
-          -->
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
           </nav>

@@ -1,698 +1,685 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html lang="en">
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
-        <link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
-        <title>Apache Tomcat&reg; - Migration Guide - Tomcat 7.0.x</title>
-        <meta name="author" content="Apache Tomcat Project">
-    </head>
-    <body>
-        <div id="wrapper">
-            <header id="header">
-                <div class="clearfix">
-                    <div class="menu-toggler pull-left" tabindex="1">
-                        <div class="hamburger"></div>
-                    </div>
-                    <a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
-                    <h1 class="pull-left">
-                        Apache Tomcat<sup>&reg;</sup>
-                    </h1>
-                    <div class="asf-logos pull-right">
-                        <a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
-                    </div>
-                </div>
-            </header>
-            <main id="middle">
-                <div>
-                    <div id="mainLeft">
-                        <div id="nav-wrapper">
-                            <form action="https://www.google.com/search" method="get">
-                                <div class="searchbox">
-                                    <input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
-                                </div>
-                            </form>
-                            <nav>
-                                <div>
-                                    <h2>Apache Tomcat</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./index.html">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="./taglibs.html">Taglibs</a>
-                                        </li>
-                                        <li>
-                                            <a href="./maven-plugin.html">Maven Plugin</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Download</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./whichversion.html">Which version?</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://archive.apache.org/dist/tomcat/">Archives</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Documentation</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
-                                        </li>
-                                        <li>
-                                            <a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
-                                        </li>
-                                        <li>
-                                            <a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
-                                        </li>
-                                        <li>
-                                            <a href="./connectors-doc/">Tomcat Connectors</a>
-                                        </li>
-                                        <li>
-                                            <a href="./native-doc/">Tomcat Native</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
-                                        </li>
-                                        <li>
-                                            <a href="./migration.html">Migration Guide</a>
-                                        </li>
-                                        <li>
-                                            <a href="./presentations.html">Presentations</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Problems?</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./security.html">Security Reports</a>
-                                        </li>
-                                        <li>
-                                            <a href="./findhelp.html">Find help</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
-                                        </li>
-                                        <li>
-                                            <a href="./lists.html">Mailing Lists</a>
-                                        </li>
-                                        <li>
-                                            <a href="./bugreport.html">Bug Database</a>
-                                        </li>
-                                        <li>
-                                            <a href="./irc.html">IRC</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Get Involved</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./getinvolved.html">Overview</a>
-                                        </li>
-                                        <li>
-                                            <a href="./source.html">Source code</a>
-                                        </li>
-                                        <li>
-                                            <a href="./ci.html">Buildbot</a>
-                                        </li>
-                                        <li>
-                                            <a href="./tools.html">Tools</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Media</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="https://twitter.com/theapachetomcat">Twitter</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://blogs.apache.org/tomcat/">Blog</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h2>Misc</h2>
-                                    <ul>
-                                        <li>
-                                            <a href="./whoweare.html">Who We Are</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a>
-                                        </li>
-                                        <li>
-                                            <a href="./heritage.html">Heritage</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.apache.org">Apache Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="./resources.html">Resources</a>
-                                        </li>
-                                        <li>
-                                            <a href="./contact.html">Contact</a>
-                                        </li>
-                                        <li>
-                                            <a href="./legal.html">Legal</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.apache.org/licenses/">License</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                    <div id="mainRight">
-                        <div id="content">
-                            <h2 style="display: none;">Content</h2>
-                            <h3 id="Table_of_Contents">Table of Contents</h3>
-                            <div class="text">
-                                
-                                <ul>
-                                    <li>
-                                        <a href="#General">General</a>
-                                    </li>
-                                    <li>
-                                        <a href="#Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</a>
-                                        <ol>
-                                            <li>
-                                                <a href="#Java_6_required">Java 6 required</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Servlet_3.0_API">Servlet 3.0 API</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Regular_expressions">Regular expressions</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Deployment">Deployment</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Manager_application">Manager application</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Host_Manager_application">Host Manager application</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Session_manager_configuration">Session manager configuration</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Session_cookie_configuration">Session cookie configuration</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Cookies">Cookies</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Request_attributes">Request attributes</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Comet">Comet</a>
-                                            </li>
-                                            <li>
-                                                <a href="#XML_validation">XML validation</a>
-                                            </li>
-                                            <li>
-                                                <a href="#System_properties">System properties</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Processing_of_conf/web.xml_file">Processing of conf/web.xml file</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Welcome_files_processing">Welcome files processing</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Annotation_scanning">Annotation scanning</a>
-                                            </li>
-                                            <li>
-                                                <a href="#TLD_processing">TLD processing</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Internal_APIs">Internal APIs</a>
-                                            </li>
-                                            <li>
-                                                <a href="#JSP_compiler">JSP compiler</a>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                    <li>
-                                        <a href="#Upgrading_7.0.x">Upgrading 7.0.x</a>
-                                        <ol>
-                                            <li>
-                                                <a href="#Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</a>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                </ul>
-                                
-                            </div>
-                            <h3 id="General">General</h3>
-                            <div class="text">
-                                
-                                <p>
-                                    Please read general <a href="migration.html">Migration Guide page</a> first,
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="res/css/tomcat.css" rel="stylesheet" type="text/css">
+<link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css">
+<title>Apache Tomcat&reg; - Migration Guide - Tomcat 7.0.x</title>
+<meta name="author" content="Apache Tomcat Project">
+</head>
+<body>
+<div id="wrapper">
+<header id="header">
+<div class="clearfix">
+<div class="menu-toggler pull-left" tabindex="1">
+<div class="hamburger"></div>
+</div>
+<a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a>
+<h1 class="pull-left">Apache Tomcat<sup>&reg;</sup>
+</h1>
+<div class="asf-logos pull-right">
+<a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a>
+</div>
+</div>
+</header>
+<main id="middle">
+<div>
+<div id="mainLeft">
+<div id="nav-wrapper">
+<form action="https://www.google.com/search" method="get">
+<div class="searchbox">
+<input value="tomcat.apache.org" name="sitesearch" type="hidden"><input placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button>
+</div>
+</form>
+<div class="asfevents">
+<a href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png"><br>
+              Save the date!
+            </a>
+</div>
+<nav>
+<div>
+<h2>Apache Tomcat</h2>
+<ul>
+<li>
+<a href="./index.html">Home</a>
+</li>
+<li>
+<a href="./taglibs.html">Taglibs</a>
+</li>
+<li>
+<a href="./maven-plugin.html">Maven Plugin</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Download</h2>
+<ul>
+<li>
+<a href="./whichversion.html">Which version?</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-70.cgi">Tomcat 7</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a>
+</li>
+<li>
+<a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a>
+</li>
+<li>
+<a href="https://archive.apache.org/dist/tomcat/">Archives</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Documentation</h2>
+<ul>
+<li>
+<a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a>
+</li>
+<li>
+<a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a>
+</li>
+<li>
+<a href="./tomcat-7.0-doc/index.html">Tomcat 7.0</a>
+</li>
+<li>
+<a href="./connectors-doc/">Tomcat Connectors</a>
+</li>
+<li>
+<a href="./native-doc/">Tomcat Native</a>
+</li>
+<li>
+<a href="https://wiki.apache.org/tomcat/FrontPage">Wiki</a>
+</li>
+<li>
+<a href="./migration.html">Migration Guide</a>
+</li>
+<li>
+<a href="./presentations.html">Presentations</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Problems?</h2>
+<ul>
+<li>
+<a href="./security.html">Security Reports</a>
+</li>
+<li>
+<a href="./findhelp.html">Find help</a>
+</li>
+<li>
+<a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a>
+</li>
+<li>
+<a href="./lists.html">Mailing Lists</a>
+</li>
+<li>
+<a href="./bugreport.html">Bug Database</a>
+</li>
+<li>
+<a href="./irc.html">IRC</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Get Involved</h2>
+<ul>
+<li>
+<a href="./getinvolved.html">Overview</a>
+</li>
+<li>
+<a href="./source.html">Source code</a>
+</li>
+<li>
+<a href="./ci.html">Buildbot</a>
+</li>
+<li>
+<a href="./tools.html">Tools</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Media</h2>
+<ul>
+<li>
+<a href="https://twitter.com/theapachetomcat">Twitter</a>
+</li>
+<li>
+<a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a>
+</li>
+<li>
+<a href="https://blogs.apache.org/tomcat/">Blog</a>
+</li>
+</ul>
+</div>
+<div>
+<h2>Misc</h2>
+<ul>
+<li>
+<a href="./whoweare.html">Who We Are</a>
+</li>
+<li>
+<a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a>
+</li>
+<li>
+<a href="./heritage.html">Heritage</a>
+</li>
+<li>
+<a href="http://www.apache.org">Apache Home</a>
+</li>
+<li>
+<a href="./resources.html">Resources</a>
+</li>
+<li>
+<a href="./contact.html">Contact</a>
+</li>
+<li>
+<a href="./legal.html">Legal</a>
+</li>
+<li>
+<a href="https://www.apache.org/foundation/contributing.html">Support Apache</a>
+</li>
+<li>
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</li>
+<li>
+<a href="http://www.apache.org/foundation/thanks.html">Thanks</a>
+</li>
+<li>
+<a href="http://www.apache.org/licenses/">License</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div id="mainRight">
+<div id="content">
+<h2 style="display: none;">Content</h2>
+<h3 id="Table_of_Contents">Table of Contents</h3>
+<div class="text">
+
+<ul>
+<li>
+<a href="#General">General</a>
+</li>
+<li>
+<a href="#Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</a>
+<ol>
+<li>
+<a href="#Java_6_required">Java 6 required</a>
+</li>
+<li>
+<a href="#Servlet_3.0_API">Servlet 3.0 API</a>
+</li>
+<li>
+<a href="#Regular_expressions">Regular expressions</a>
+</li>
+<li>
+<a href="#Deployment">Deployment</a>
+</li>
+<li>
+<a href="#Manager_application">Manager application</a>
+</li>
+<li>
+<a href="#Host_Manager_application">Host Manager application</a>
+</li>
+<li>
+<a href="#Session_manager_configuration">Session manager configuration</a>
+</li>
+<li>
+<a href="#Session_cookie_configuration">Session cookie configuration</a>
+</li>
+<li>
+<a href="#Cookies">Cookies</a>
+</li>
+<li>
+<a href="#Request_attributes">Request attributes</a>
+</li>
+<li>
+<a href="#Comet">Comet</a>
+</li>
+<li>
+<a href="#XML_validation">XML validation</a>
+</li>
+<li>
+<a href="#System_properties">System properties</a>
+</li>
+<li>
+<a href="#Processing_of_conf/web.xml_file">Processing of conf/web.xml file</a>
+</li>
+<li>
+<a href="#Welcome_files_processing">Welcome files processing</a>
+</li>
+<li>
+<a href="#Annotation_scanning">Annotation scanning</a>
+</li>
+<li>
+<a href="#TLD_processing">TLD processing</a>
+</li>
+<li>
+<a href="#Internal_APIs">Internal APIs</a>
+</li>
+<li>
+<a href="#JSP_compiler">JSP compiler</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="#Upgrading_7.0.x">Upgrading 7.0.x</a>
+<ol>
+<li>
+<a href="#Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</a>
+</li>
+<li>
+<a href="#Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</a>
+</li>
+</ol>
+</li>
+</ul>
+
+</div>
+<h3 id="General">General</h3>
+<div class="text">
+
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
 for common considerations that apply to migration or upgrade between versions
-of Apache Tomcat.
-                                </p>
-                                
-                            </div>
-                            <h3 id="Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</h3>
-                            <div class="text">
-                                  
-                                <p> This section lists all the known changes between 6.0.x and 7.0.x which may
+of Apache Tomcat.</p>
+
+
+</div>
+<h3 id="Migrating_from_6.0.x_to_7.0.x">Migrating from 6.0.x to 7.0.x</h3>
+<div class="text">
+
+  
+<p> This section lists all the known changes between 6.0.x and 7.0.x which may
   cause backwards compatibility problems when upgrading.</p>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Java_6_required">Java 6 required</h4>
-                                    <div class="text">
-                                            
-                                        <p>Apache Tomcat 7.0.x requires Java 6 or later. Apache Tomcat 6.0.x
+
+  
+<div class="subsection">
+<h4 id="Java_6_required">Java 6 required</h4>
+<div class="text">
+
+    
+<p>Apache Tomcat 7.0.x requires Java 6 or later. Apache Tomcat 6.0.x
     required Java 5.</p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Servlet_3.0_API">Servlet 3.0 API</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            Apache Tomcat 7 supports Java Servlet 3.0, JavaServer Pages 2.2,
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Servlet_3.0_API">Servlet 3.0 API</h4>
+<div class="text">
+
+    
+<p>Apache Tomcat 7 supports Java Servlet 3.0, JavaServer Pages 2.2,
     Expression Language 2.2 and WebSocket 1.1
     <a href="https://wiki.apache.org/tomcat/Specifications">specifications</a>.
     The changes between versions of specifications may be found in the
     <em>Changes</em> appendix in each of specification documents.
+    </p>
+
     
-                                        </p>
-                                            
-                                        <p>
-                                            In JSP pages that use wildcard import syntax the new classes added in
+<p>In JSP pages that use wildcard import syntax the new classes added in
     Servlet API may conflict with ones in web applications.
     For example, if package <code>"a"</code> contains class <code>Part</code>,
-    the following JSP page will cease to compile in Tomcat 7:
-                                        </p>
-                                            
-                                        <div class="codeBox">
-                                            <pre>
-                                                <code>&lt;%@page import="a.*"%&gt;
+    the following JSP page will cease to compile in Tomcat 7:</p>
+
+    
+<div class="codeBox">
+<pre>
+<code>&lt;%@page import="a.*"%&gt;
 &lt;% Part page = new Part(); %&gt;</code>
-                                            </pre>
-                                        </div>
-                                            
-                                        <p>
-                                            That happens because implicit import of <code>javax.servlet.http.*</code>
+</pre>
+</div>
+
+    
+<p>That happens because implicit import of <code>javax.servlet.http.*</code>
     and explicit import of <code>a.*</code> will provide conflicting
     definitions of class <code>Part</code> that was added in Servlet 3.0.
-    The solution is to use explicit import, <code>import="a.Part"</code>.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Regular_expressions">Regular expressions</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            All configuration options that use regular expression now require a
+    The solution is to use explicit import, <code>import="a.Part"</code>.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Regular_expressions">Regular expressions</h4>
+<div class="text">
+
+    
+<p>All configuration options that use regular expression now require a
     single regular expression (using <code>java.util.regex</code>) rather than a
-    list of comma-separated or semi-colon-separated expressions.
-                                        </p>
-                                            
-                                        <p>This concerns the following:</p>
-                                            
-                                        <ul>
-                                                  
-                                            <li>
-                                                <code>allow</code> and <code>deny</code> attributes in
+    list of comma-separated or semi-colon-separated expressions.</p>
+
+    
+<p>This concerns the following:</p>
+
+    
+<ul>
+      
+<li>
+<code>allow</code> and <code>deny</code> attributes in
         RemoteAddrFilter, RemoteHostFilter
         <a href="/tomcat-7.0-doc/config/filter.html">filters</a>
         and in RemoteAddrValve, RemoteHostValve
         <a href="/tomcat-7.0-doc/config/valve.html">valves</a>;
+      </li>
       
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>internalProxies</code>, <code>trustedProxies</code> attributes in
+<li>
+<code>internalProxies</code>, <code>trustedProxies</code> attributes in
         <a href="/tomcat-7.0-doc/config/filter.html#Remote_IP_Filter">RemoteIpFilter</a>,
         <a href="/tomcat-7.0-doc/config/valve.html#Remote_IP_Valve">RemoteIpValve</a>;
+      </li>
       
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>filter</code> attribute in
+<li>
+<code>filter</code> attribute in
         <a href="/tomcat-7.0-doc/config/cluster-valve.html#org.apache.catalina.ha.tcp.ReplicationValve">
-        ReplicationValve</a>;
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>restrictedUserAgents</code>, <code>noCompressionUserAgents</code>
+        ReplicationValve</a>;</li>
+      
+<li>
+<code>restrictedUserAgents</code>, <code>noCompressionUserAgents</code>
         attributes in
-        <a href="/tomcat-7.0-doc/config/http.html">HTTP connectors</a>.
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>
-                                            Note that separate regular expressions can be concatenated using the
-     "<code>|</code>" operator (or). Using "<code>|</code>" works both in this
-     and in earlier Tomcat versions.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Deployment">Deployment</h4>
-                                    <div class="text">
-                                          
+        <a href="/tomcat-7.0-doc/config/http.html">HTTP connectors</a>.</li>
     
-                                        <p>
-                                            XML context descriptors (<code>META-INF/context.xml</code> files)
+</ul>
+
+    
+<p>Note that separate regular expressions can be concatenated using the
+     "<code>|</code>" operator (or). Using "<code>|</code>" works both in this
+     and in earlier Tomcat versions.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Deployment">Deployment</h4>
+<div class="text">
+  
+    
+<p>XML context descriptors (<code>META-INF/context.xml</code> files)
     are no longer copied from deployed WARs and directories to the host's
     <code>xmlBase</code>. The default
     Tomcat 6 behavior can be enabled by setting the <code>copyXML</code>
-    attribute of the <strong>Host</strong> element to <code>true</code>.
-                                        </p>
-                                            
-                                        <p>
-                                            The WARs outside of the host's <code>appBase</code> are not unpacked,
+    attribute of the <strong>Host</strong> element to <code>true</code>.</p>
+
+    
+<p>The WARs outside of the host's <code>appBase</code> are not unpacked,
     regardless of the value of the <code>Host</code>'s <code>unpackWARs</code>
     setting in versions 7.0.12 to 7.0.47 inclusive. Note that this unpacking is
     only supported in 7.0.48 onwards. See issue
     <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=51294#c1">51294</a>.
-    
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
+    </p>
   
-                                <div class="subsection">
-                                    <h4 id="Manager_application">Manager application</h4>
-                                    <div class="text">
-                                          
+</div>
+</div>
+  
+  
+<div class="subsection">
+<h4 id="Manager_application">Manager application</h4>
+<div class="text">
+  
     
-                                        <p>The Manager application has been re-structured for Tomcat 7 onwards and
+<p>The Manager application has been re-structured for Tomcat 7 onwards and
     some URLs have changed. All URLs used to access the Manager application
     should now start with one of the following options:</p>
-                                            
     
-                                        <ul>
-                                                  
-                                            <li>&lt;ContextPath&gt;/html for the HTML GUI</li>
-                                                  
-                                            <li>&lt;ContextPath&gt;/text for the text interface</li>
-                                                  
-                                            <li>&lt;ContextPath&gt;/jmxproxy for the JMX proxy</li>
-                                                  
-                                            <li>&lt;ContextPath&gt;/status for the status pages</li>
-                                                
-                                        </ul>
-                                            
+    
+<ul>
+      
+<li>&lt;ContextPath&gt;/html for the HTML GUI</li>
+      
+<li>&lt;ContextPath&gt;/text for the text interface</li>
+      
+<li>&lt;ContextPath&gt;/jmxproxy for the JMX proxy</li>
+      
+<li>&lt;ContextPath&gt;/status for the status pages</li>
+    
+</ul>
+    
    
-                                        <p>Note that the URL for the text interface has changed from
+<p>Note that the URL for the text interface has changed from
    "&lt;ContextPath&gt;" to "&lt;ContextPath&gt;/text".</p>
-                                            
-                                        <p>
-                                            The roles required to use the Manager application were changed from the
+
+    
+<p>The roles required to use the Manager application were changed from the
     single <code>manager</code> role to the following four roles. You will need to
-    assign the role(s) required for the functionality you wish to access.
-                                        </p>
-                                            
+    assign the role(s) required for the functionality you wish to access.</p>
     
-                                        <ul>
-                                                  
-                                            <li>
-                                                <code>manager-gui</code> - allows access to the HTML GUI
-          and the status pages
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>manager-script</code> - allows access to the text interface
-          and the status pages
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>manager-jmx</code> - allows access to the JMX proxy
-          and the status pages
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>manager-status</code> - allows access to
-          the status pages only
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>The HTML interface is protected against CSRF but the text and JMX
+    
+<ul>
+      
+<li>
+<code>manager-gui</code> - allows access to the HTML GUI
+          and the status pages</li>
+      
+<li>
+<code>manager-script</code> - allows access to the text interface
+          and the status pages</li>
+      
+<li>
+<code>manager-jmx</code> - allows access to the JMX proxy
+          and the status pages</li>
+      
+<li>
+<code>manager-status</code> - allows access to
+          the status pages only</li>
+    
+</ul>
+
+    
+<p>The HTML interface is protected against CSRF but the text and JMX
     interfaces are not. To maintain the CSRF protection:</p>
-                                            
     
-                                        <ul>
-                                                  
-                                            <li>
-                                                users with the <code>manager-gui</code> role should not be granted
-          either the <code>manager-script</code> or <code>manager-jmx</code> roles.
-                                            </li>
-                                                  
-                                            <li>
-                                                if the Manager application is accessed through a browser by a user
+    
+<ul>
+      
+<li>users with the <code>manager-gui</code> role should not be granted
+          either the <code>manager-script</code> or <code>manager-jmx</code> roles.</li>
+      
+<li>if the Manager application is accessed through a browser by a user
           who has <code>manager-script</code> or <code>manager-jmx</code> roles
           (e.g. for testing the text or jmx interfaces since these interfaces
           are intended for tools not humans) then all browser windows
-          must be closed afterwards to terminate the session.
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>The roles command has been removed from the Manager application since it
+          must be closed afterwards to terminate the session.</li>
+    
+</ul>
+
+    
+<p>The roles command has been removed from the Manager application since it
     did not work with the default configuration and most Realms do not support
     providing a list of roles.</p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Host_Manager_application">Host Manager application</h4>
-                                    <div class="text">
-                                          
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Host_Manager_application">Host Manager application</h4>
+<div class="text">
+  
     
-                                        <p>The Host Manager application has been re-structured for Tomcat 7 onwards
+<p>The Host Manager application has been re-structured for Tomcat 7 onwards
     and some URLs have changed. All URLs used to access the Host Manager
     application should now start with one of the following options:</p>
-                                            
     
-                                        <ul>
-                                                  
-                                            <li>&lt;ContextPath&gt;/html for the HTML GUI</li>
-                                                  
-                                            <li>&lt;ContextPath&gt;/text for the text interface</li>
-                                                
-                                        </ul>
-                                            
+    
+<ul>
+      
+<li>&lt;ContextPath&gt;/html for the HTML GUI</li>
+      
+<li>&lt;ContextPath&gt;/text for the text interface</li>
+    
+</ul>
+    
    
-                                        <p>Note that the URL for the text interface has changed from
+<p>Note that the URL for the text interface has changed from
    "&lt;ContextPath&gt;" to "&lt;ContextPath&gt;/text".</p>
-                                            
-                                        <p>
-                                            The roles required to use the Host Manager application were changed from
+
+    
+<p>The roles required to use the Host Manager application were changed from
     the single <code>admin</code> role to the following two roles. You will need to
-    assign the role(s) required for the functionality you wish to access.
-                                        </p>
-                                            
+    assign the role(s) required for the functionality you wish to access.</p>
     
-                                        <ul>
-                                                  
-                                            <li>
-                                                <code>admin-gui</code> - allows access to the HTML GUI
-          and the status pages
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>admin-script</code> - allows access to the text interface
-          and the status pages
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>The HTML interface is protected against CSRF but the text interface is
+    
+<ul>
+      
+<li>
+<code>admin-gui</code> - allows access to the HTML GUI
+          and the status pages</li>
+      
+<li>
+<code>admin-script</code> - allows access to the text interface
+          and the status pages</li>
+    
+</ul>
+
+    
+<p>The HTML interface is protected against CSRF but the text interface is
     not. To maintain the CSRF protection:</p>
-                                            
     
-                                        <ul>
-                                                  
-                                            <li>
-                                                users with the <code>admin-gui</code> role should not be granted the
-          <code>admin-script</code> role.
-                                            </li>
-                                                  
-                                            <li>
-                                                if the Host Manager application is accessed through a browser
+    
+<ul>
+      
+<li>users with the <code>admin-gui</code> role should not be granted the
+          <code>admin-script</code> role.</li>
+      
+<li>if the Host Manager application is accessed through a browser
           by a user who has <code>admin-script</code> role (e.g. for testing
           the text interface since this interface is intended for tools
           not humans) then all browser windows
-          must be closed afterwards to terminate the session.
-                                            </li>
-                                                
-                                        </ul>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Session_manager_configuration">Session manager configuration</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            A number of changes have been made to the session manager to improve the
+          must be closed afterwards to terminate the session.</li>
+    
+</ul>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Session_manager_configuration">Session manager configuration</h4>
+<div class="text">
+    
+<p>A number of changes have been made to the session manager to improve the
     performance of session generation and destruction including changes to
     session ID generation. The session ID generation changes take advantages of
     improvements in <code>java.secure.SecureRandom</code> since the session ID
-    generation was first written. The configuration changes are:
-                                        </p>
-                                            
+    generation was first written. The configuration changes are:</p>
     
-                                        <ul>
-                                                  
-                                            <li>
-                                                <code>randomClass</code> attribute of <strong>Manager</strong>
+    
+<ul>
+      
+<li>
+<code>randomClass</code> attribute of <strong>Manager</strong>
       has changed to <code>secureRandomClass</code> and the provided class
       must extend <code>java.secure.SecureRandom</code>
-                                            </li>
-                                                  
-                                            <li>
-                                                Two new properties <code>secureRandomAlgorithm</code> and
+</li>
+      
+<li>Two new properties <code>secureRandomAlgorithm</code> and
       <code>secureRandomProvider</code> have been added to enable the selection
-      of a SecureRandom implementation.
-                                            </li>
-                                                  
-                                            <li>
-                                                The <code>algorithm</code> attribute has been removed
-                                            </li>
-                                                  
-                                            <li>
-                                                The <code>entropy</code> attribute has been removed
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>
-                                            One known issue with <code>java.secure.SecureRandom</code> is that
+      of a SecureRandom implementation.</li>
+      
+<li>The <code>algorithm</code> attribute has been removed</li>
+      
+<li>The <code>entropy</code> attribute has been removed</li>
+    
+</ul>
+
+    
+<p>One known issue with <code>java.secure.SecureRandom</code> is that
     it initialization requires some random data from an entropy source. With
     some entropy source implementations it may require some time to gather
     enough random data. If initialization of session id generator takes
     noticeable time (more than 100ms), a diagnostic message will be logged.
-    E.g.:
-                                        </p>
-                                            
-                                        <p>
-                                                <code><em>DATE</em> org.apache.catalina.util.SessionIdGenerator createSecureRandom</code>
-                                            <br>
-                                                <code>INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [406] milliseconds.</code>
+    E.g.:</p>
+
     
-                                        </p>
-                                            
-                                        <p>
-                                            It is possible to change the entropy source used by JRE by defining
-    a system property. E.g.:
-                                            <br>
-                                                <code>-Djava.security.egd=file:/dev/./urandom</code>
-                                        </p>
-                                            
-                                        <p>
-                                            The "/./" characters in the above value are to workaround
-    <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6202721">JRE issue #6202721</a>.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
+<p>
+    
+<code><em>DATE</em> org.apache.catalina.util.SessionIdGenerator createSecureRandom</code>
+<br>
+    
+<code>INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [406] milliseconds.</code>
+    
+</p>
+
+    
+<p>It is possible to change the entropy source used by JRE by defining
+    a system property. E.g.:<br>
+    
+<code>-Djava.security.egd=file:/dev/./urandom</code>
+</p>
+
+    
+<p>The "/./" characters in the above value are to workaround
+    <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6202721">JRE issue #6202721</a>.</p>
   
-                                <div class="subsection">
-                                    <h4 id="Session_cookie_configuration">Session cookie configuration</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            With the addition of <code>SessionCookieConfig</code> in the Servlet 3.0
+</div>
+</div>
+  
+  
+<div class="subsection">
+<h4 id="Session_cookie_configuration">Session cookie configuration</h4>
+<div class="text">
+
+    
+<p>With the addition of <code>SessionCookieConfig</code> in the Servlet 3.0
     specification, a number of session cookie configuration options have been
-    removed to reduce configuration and code complexity.
-                                        </p>
-                                            
-                                        <ul>
-                                                  
-                                            <li>
-                                                <strong>Connector</strong><code>.emptySessionPath</code>: This has been removed. An equivalent
+    removed to reduce configuration and code complexity.</p>
+
+    
+<ul>
+      
+<li>
+<strong>Connector</strong><code>.emptySessionPath</code>: This has been removed. An equivalent
       effect can be obtained by configuring sessionCookiePath="/" in the global
-      context.xml (in <code>CATALINA_BASE/conf/context.xml</code>).
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>org.apache.catalina.SESSION_COOKIE_NAME</code> system property: This has been
+      context.xml (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
+
+      
+<li>
+<code>org.apache.catalina.SESSION_COOKIE_NAME</code> system property: This has been
       removed. An equivalent effect can be obtained by configuring the
       <code>sessionCookieName</code> attribute for the global context.xml
-      (in <code>CATALINA_BASE/conf/context.xml</code>).
-                                            </li>
-                                                  
-                                            <li>
-                                                <code>org.apache.catalina.SESSION_PARAMETER_NAME</code> system property: This has
+      (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
+
+      
+<li>
+<code>org.apache.catalina.SESSION_PARAMETER_NAME</code> system property: This has
       been removed. An equivalent effect can be obtained by configuring the
       <code>sessionCookieName</code> attribute for the global context.xml
-      (in <code>CATALINA_BASE/conf/context.xml</code>).
-                                            </li>
-                                                  
-                                            <li>
-                                                <strong>Context</strong><code>.disableURLRewriting</code>: This has
+      (in <code>CATALINA_BASE/conf/context.xml</code>).</li>
+
+      
+<li>
+<strong>Context</strong><code>.disableURLRewriting</code>: This has
       been removed. An equivalent effect can be obtained by configuring the
       <code>session-config/tracking-mode</code> elements in a web application
-      or in the global <code>CATALINA_BASE/conf/web.xml</code> file.
-                                            </li>
-                                                
-                                        </ul>
-                                            
-                                        <p>
-                                            The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
+      or in the global <code>CATALINA_BASE/conf/web.xml</code> file.</li>
+    
+</ul>
+
+    
+<p>The session and SSO cookies in Tomcat 7 are being sent with HttpOnly
     flag by default, to instruct browsers to prevent access to those cookies
     from JavaScript. This is considered more secure, but it will prevent
     JavaScripts from accessing the value of the cookie.
@@ -702,25 +689,25 @@ of Apache Tomcat.
     but is off by default. It can be enabled by setting
     <code>useHttpOnly="true"</code> on <strong>Context</strong> element in
     a web application or in the global
-    <code>CATALINA_BASE/conf/context.xml</code> file).
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Cookies">Cookies</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            Tomcat no longer accepts non-specification compliant name-only cookies by
+    <code>CATALINA_BASE/conf/context.xml</code> file).</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Cookies">Cookies</h4>
+<div class="text">
+
+    
+<p>Tomcat no longer accepts non-specification compliant name-only cookies by
     default. However, a new system property has been added,
     <code>org.apache.tomcat.util.http.ServerCookie.ALLOW_NAME_ONLY</code>, that
-    can be used to accept name-only cookies.
-                                        </p>
-                                            
-                                        <p>
-                                            If a cookie value or path contain characters that have to be quoted
+    can be used to accept name-only cookies.</p>
+
+    
+<p>If a cookie value or path contain characters that have to be quoted
     (per RFC2109 specification), the cookie will be automatically converted
     from "version 0" cookie into "version 1" cookie before sending it to
     the client and those values will be surrounded by double quotes. What
@@ -729,51 +716,52 @@ of Apache Tomcat.
     <code>org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR</code>.
     It is known that Internet Explorer has problem processing "version 1"
     cookies. (Bug <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57872">57872</a>).
+    </p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Request_attributes">Request attributes</h4>
+<div class="text">
+
     
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Request_attributes">Request attributes</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            The custom request attribute
+<p>The custom request attribute
     <code>javax.servlet.request.ssl_session</code> provided to access the SSL
     session ID has been deprecated in favour of the new standard request
     attribute that is defined in the Servlet specification,
     <code>javax.servlet.request.ssl_session_id</code>. Support
-    for the custom attribute will be removed in Tomcat 8.
-                                        </p>
-                                            
+    for the custom attribute will be removed in Tomcat 8.</p>
+    
   
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Comet">Comet</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            To enable Comet to work correctly when running under a security manager,
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Comet">Comet</h4>
+<div class="text">
+
+    
+<p>To enable Comet to work correctly when running under a security manager,
     the Comet classes have been moved from the <code>org.apache.catalina</code>
     package to the <code>org.apache.catalina.comet</code> package. Code that
     uses Comet will need to be updated and recompiled to reflect the new
-    package name.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="XML_validation">XML validation</h4>
-                                    <div class="text">
-                                          
+    package name.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="XML_validation">XML validation</h4>
+<div class="text">
+  
     
-                                        <p>
-                                            The configuration of XML validation has been simplified. The
+<p>The configuration of XML validation has been simplified. The
     <code>xmlValidation</code> and <code>xmlNamespaceAware</code> attributes
     have been removed from the <strong>Host</strong> element. These
     attributes, along with <code>tldValidation</code> and
@@ -783,18 +771,19 @@ of Apache Tomcat.
     specification, if the
     <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> system
     property is set to <code>true</code>, XML validation and namespace
-    awareness will be enabled by default.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="System_properties">System properties</h4>
-                                    <div class="text">
-                                            
-                                        <p>
-                                            The <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> system
+    awareness will be enabled by default.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="System_properties">System properties</h4>
+<div class="text">
+
+    
+<p>The <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> system
     property has been modified to provide greater control over its effects. Each
     behavioural change is now controlled by a dedicated system property. The
     default behaviour is unchanged. The
@@ -803,65 +792,66 @@ of Apache Tomcat.
     the other system properties. Even if
     <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code> is
     <code>true</code>, setting the individual system properties will always take
-    priority.
-                                        </p>
-                                            
-                                        <p>
-                                            The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
+    priority.</p>
+
+    
+<p>The <code>org.apache.coyote.MAX_TRAILER_SIZE</code> has been removed and
     is replaced by the maxTrailerSize attribute of the
-    <strong>Connector</strong>.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Processing_of_conf/web.xml_file">Processing of conf/web.xml file</h4>
-                                    <div class="text">
-                                          
-                                        <p>
-                                            Servlet 3.0 specification defines how web.xml file of an application
+    <strong>Connector</strong>.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Processing_of_conf/web.xml_file">Processing of conf/web.xml file</h4>
+<div class="text">
+
+  
+<p>Servlet 3.0 specification defines how web.xml file of an application
   can be combined from web fragments and annotations. Processing of the
   global <code>conf/web.xml</code> file that defines server-wide defaults
-  was changed as a result of implementing those rules.
-                                        </p>
-                                          
-                                        <p>
-                                            One noticeable
+  was changed as a result of implementing those rules.</p>
+
+  
+<p>One noticeable
   difference is that Filters defined in the global <code>conf/web.xml</code>
   now follow the ones defined in a web application, instead of preceding
   them. See issues
   <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=51754#c1">51754</a>
   and
   <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=52138#c4">52138</a>
-  for clarifications.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Welcome_files_processing">Welcome files processing</h4>
-                                    <div class="text">
-                                          
-                                        <p>
-                                            The welcome file processing was changed to follow clarifications in the
+  for clarifications.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Welcome_files_processing">Welcome files processing</h4>
+<div class="text">
+
+  
+<p>The welcome file processing was changed to follow clarifications in the
   Servlet 3.0 specification. If your list of welcome files includes ones that
   are processed by a servlet (such as *.jsp), you may observe the change in
   behaviour. See the <code>resourceOnlyServlets</code> option on
   <strong>Context</strong>.
+  </p>
+
   
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="Annotation_scanning">Annotation scanning</h4>
-                                    <div class="text">
-                                          
-                                        <p>
-                                            The annotation scanning required by the Servlet 3.0 specification
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="Annotation_scanning">Annotation scanning</h4>
+<div class="text">
+
+  
+<p>The annotation scanning required by the Servlet 3.0 specification
   may have impact on the startup time of your web application, as well as
   increase requirements on the memory needed to load scanned classes.
   Note, that upon clarification from the Servlet EG, even applications
@@ -869,48 +859,43 @@ of Apache Tomcat.
   See issue
   <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=53619">53619</a>
   and related discussions on the users mailing list.
+  </p>
+
   
-                                        </p>
-                                          
-                                        <p>
-                                            There are several ways to deal with this issue. The recommended way is
+<p>There are several ways to deal with this issue. The recommended way is
   to mark those applications that do not require annotation scanning as such.
   It can be done in the <code>WEB-INF/web.xml</code> of your application by
-  the following steps:
-                                        </p>
-                                          
-                                        <ul>
-                                                
-                                            <li>
-                                                      Update the <code>web-app</code> element to indicate that the web
+  the following steps:</p>
+
+  
+<ul>
+    
+<li>
+      Update the <code>web-app</code> element to indicate that the web
       application is using specification version 3.0. You may copy the values
       for the <code>version</code>, <code>xsi:schemaLocation</code>,
       <code>xmlns</code> and <code>xmlns:xsi</code> attributes from the default
       <code>conf/web.xml</code> file.
+    </li>
     
-                                            </li>
-                                                
-                                            <li>
-                                                      Add <code>metadata-complete="true"</code> attribute to the
+<li>
+      Add <code>metadata-complete="true"</code> attribute to the
       <code>web-app</code> element.
+    </li>
     
-                                            </li>
-                                                
-                                            <li>
-                                                      Add an empty <code>&lt;absolute-ordering /&gt;</code> element.
-    
-                                            </li>
-                                              
-                                        </ul>
-                                          
-                                        <p>
-                                            The <code>metadata-complete</code> attribute is supported starting with
+<li>
+      Add an empty <code>&lt;absolute-ordering /&gt;</code> element.
+    </li>
+  
+</ul>
+
+  
+<p>The <code>metadata-complete</code> attribute is supported starting with
   Servlet 2.5 specification. The <code>absolute-ordering</code> element
-  requires Servlet 3.0.
-                                        </p>
-                                          
-                                        <p>
-                                            The second way is to configure JarScanner component to ignore certain JAR
+  requires Servlet 3.0.</p>
+
+  
+<p>The second way is to configure JarScanner component to ignore certain JAR
   files according to their names. This is usually configured in the
   <code>conf/catalina.properties</code> file. See documentation on the
   <code>jarsToSkip</code> properties in the
@@ -919,149 +904,151 @@ of Apache Tomcat.
   Starting with Tomcat 7.0.30 it is possible to separately configure
   which JARs are skipped for Servlet 3.0 scanning (scanning for annotations
   and web application fragments), TLD scanning (tag libraries) or both.
-  Further versions of Tomcat may provide better ways to control this feature.
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="TLD_processing">TLD processing</h4>
-                                    <div class="text">
-                                            
-                                        <p>There have been a number of improvements to TLD processing. In addition
+  Further versions of Tomcat may provide better ways to control this feature.</p>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="TLD_processing">TLD processing</h4>
+<div class="text">
+    
+<p>There have been a number of improvements to TLD processing. In addition
     to some internal refactoring to improve consistency and reduce duplication,
     there are a number of functional improvements. These are:</p>
-                                            
-                                        <ul>
-                                                  
-                                            <li>EL processing within tag files is now consistent with the JSP version
-      declared for the tag file.</li>
-                                                  
-                                            <li>
-                                                The requirements of section JSP.7.3.1 of the JSP specification are
-      now enforced and TLD files are not permitted to be placed in
-      <code>WEB-INF/lib</code> or <code>WEB-INF/classes</code>.
-                                            </li>
-                                                
-                                        </ul>
-                                          
-                                    </div>
-                                </div>
-                                  
-  
-                                <div class="subsection">
-                                    <h4 id="Internal_APIs">Internal APIs</h4>
-                                    <div class="text">
-                                          
     
-                                        <p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
+<ul>
+      
+<li>EL processing within tag files is now consistent with the JSP version
+      declared for the tag file.</li>
+      
+<li>The requirements of section JSP.7.3.1 of the JSP specification are
+      now enforced and TLD files are not permitted to be placed in
+      <code>WEB-INF/lib</code> or <code>WEB-INF/classes</code>.</li>
+    
+</ul>
+  
+</div>
+</div>
+  
+  
+<div class="subsection">
+<h4 id="Internal_APIs">Internal APIs</h4>
+<div class="text">
+  
+    
+<p>Whilst the Tomcat 7 internal API is broadly compatible with Tomcat 6
     there have been many changes at the detail level and they are not binary
     compatible. Developers of custom components that interact with Tomcat's
     internals should review the JavaDoc for the relevant API.</p>
-                                            
-                                        <p>Of particular note are:</p>
-                                            
-                                        <ul>
-                                                  
-                                            <li>A standard implementation of the Lifecycle interface that all
+
+    
+<p>Of particular note are:</p>
+    
+<ul>
+      
+<li>A standard implementation of the Lifecycle interface that all
       components extend.</li>
-                                                  
-                                            <li>Use of generics.</li>
-                                                  
-                                            <li>The use of Context name rather than Context path as the unique
+      
+<li>Use of generics.</li>
+      
+<li>The use of Context name rather than Context path as the unique
       identifier for a Context within a Host.</li>
-                                                
-                                        </ul>
-                                          
-                                    </div>
-                                </div>
-                                  
-                                <div class="subsection">
-                                    <h4 id="JSP_compiler">JSP compiler</h4>
-                                    <div class="text">
-                                          
-                                        <p>
-                                            Initialization parameter of <code>JspServlet</code> that controls
+    
+</ul>
+
+  
+</div>
+</div>
+
+  
+<div class="subsection">
+<h4 id="JSP_compiler">JSP compiler</h4>
+<div class="text">
+
+  
+<p>Initialization parameter of <code>JspServlet</code> that controls
   one of performance optimizations has been renamed from
   <strong>genStrAsCharArray</strong> to <strong>genStringAsCharArray</strong>
   and is now consistent with the name of related attribute in Jasper task
   for Apache Ant.
+  </p>
+
   
-                                        </p>
-                                          
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <h3 id="Upgrading_7.0.x">Upgrading 7.0.x</h3>
-                            <div class="text">
-                                  
-                                <div class="subsection">
-                                    <h4 id="Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</h4>
-                                    <div class="text">
-                                            
-                                        <p>The Tomcat developers aim for each patch release to be fully backwards
+</div>
+</div>
+
+
+</div>
+<h3 id="Upgrading_7.0.x">Upgrading 7.0.x</h3>
+<div class="text">
+  
+<div class="subsection">
+<h4 id="Tomcat_7.0.x_noteable_changes">Tomcat 7.0.x noteable changes</h4>
+<div class="text">
+    
+<p>The Tomcat developers aim for each patch release to be fully backwards
        compatible with the previous release.  Occasionally, it is necessary to
        break backwards compatibility in order to fix a bug. In most cases, these
        changes will go unnoticed. This section lists changes that are not fully
        backwards compatible and might cause breakage when upgrading.</p>
-                                            
-                                        <ul>
-                                                  
-                                            <li>In 7.0.51 onwards, the web application class loader is now a higher
+    
+<ul>
+      
+<li>In 7.0.51 onwards, the web application class loader is now a higher
           priority for loading classes than the system class loader.</li>
-                                                  
-                                            <li>
-                                                <p>
-                                                    In 7.0.63 onwards, the meaning of value 0 for <code>maxPostSize</code>
+      
+<li>
+<p>In 7.0.63 onwards, the meaning of value 0 for <code>maxPostSize</code>
         attribute on connectors was changed to mean a limit of zero rather
         than no limit to align it with <code>maxSavePostSize</code> and to
-        be more intuitive.
-                                                </p>
-                                                        
-                                                <p>
-                                                    Reference: <a href="tomcat-8.0-doc/config/http.html">HTTP connector</a>,
-        <a href="tomcat-8.0-doc/config/ajp.html">AJP connector</a>.
-                                                </p>
-                                                      
-                                            </li>
-                                                
-                                        </ul>
-                                          
-                                    </div>
-                                </div>
-                                  
+        be more intuitive.</p>
+        
+<p>Reference: <a href="tomcat-8.0-doc/config/http.html">HTTP connector</a>,
+        <a href="tomcat-8.0-doc/config/ajp.html">AJP connector</a>.</p>
+      
+</li>
+    
+</ul>
   
-                                <div class="subsection">
-                                    <h4 id="Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</h4>
-                                    <div class="text">
-                                            
-                                        <p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
+</div>
+</div>
+  
+  
+<div class="subsection">
+<h4 id="Tomcat_7.0.x_configuration_file_differences">Tomcat 7.0.x configuration file differences</h4>
+<div class="text">
+
+    
+<p>When upgrading instances of Apache Tomcat from one version of Tomcat 7 to
     another, particularly when using separate locations for $CATALINA_HOME and
     $CATALINA_BASE, it is necessary to ensure that any changes in the
     configuration files such as new attributes and changes to defaults are
     applied as part of the upgrade. To assist with the identification of these
     changes, the form below may be used to view the differences between the
     configuration files in different versions of Tomcat 7.</p>
-                                          
+  
     
-                                        <p>Select a configuration file, old version and new version from the boxes
+<p>Select a configuration file, old version and new version from the boxes
     below and then click "View differences" to see the differences.
     The differences will be shown in a new tab/window.</p>
-                                            
     
-                                        <p>
-                                            <b>Note:</b> If there are no differences you will see an error page.
-                                        </p>
-                                            
-                                        <form action="https://gitbox.apache.org/repos/asf" method="get" target="_blank">
-                                                <input type="hidden" name="p" value="tomcat.git">
+    
+<p>
+<b>Note:</b> If there are no differences you will see an error page.</p>
+
+    
+<form action="https://gitbox.apache.org/repos/asf" method="get" target="_blank">
+
+    
+<input type="hidden" name="p" value="tomcat.git">
     <input type="hidden" name="a" value="blobdiff">
 
     
-                                            <p>
-                                                <label>Configuration file:
+<p>
+<label>Configuration file:
     <select name="f">
     <option value="conf/catalina.policy">catalina.policy</option>
     <option value="conf/catalina.properties">catalina.properties</option>
@@ -1072,10 +1059,10 @@ of Apache Tomcat.
     <option value="conf/web.xml">web.xml</option>
     </select></label>
     
-                                            </p>
-                                                
-                                            <p>
-                                                <label>Old version:
+</p>
+    
+<p>
+<label>Old version:
     <select name="hpb">
     <option value="7.0.0">7.0.0</option>
     <option value="7.0.2">7.0.2</option>
@@ -1216,43 +1203,43 @@ of Apache Tomcat.
     <option value="HEAD">trunk (unreleased)</option>
     </select></label>
     
-                                            </p>
-                                                
-                                            <p>
-                                                    <button>View Differences</button>
-    
-                                            </p>
-                                                
-                                        </form>
-                                            
-                                        <p>You can also use a Git command similar to the following from within a
-       working copy:</p>
-                                            
-                                        <div class="codeBox">
-                                            <pre>
-                                                <code>git diff 7.0.0 7.0.80 -- conf/</code>
-                                            </pre>
-                                        </div>
-                                          
-                                    </div>
-                                </div>
-                                  
+</p>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <footer id="footer">
-                    Copyright &copy; 1999-2019, The Apache Software Foundation
     
-                <br>
-                    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+<p>
+    
+<button>View Differences</button>
+    
+</p>
+    
+</form>
+    
+<p>You can also use a Git command similar to the following from within a
+       working copy:</p>
+    
+<div class="codeBox">
+<pre>
+<code>git diff 7.0.0 7.0.80 -- conf/</code>
+</pre>
+</div>
+  
+</div>
+</div>
+  
+
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer id="footer">
+    Copyright &copy; 1999-2019, The Apache Software Foundation
+    <br>
+    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
     project logo are either registered trademarks or trademarks of the Apache
     Software Foundation.
-  
-            </footer>
-        </div>
-        <script src="res/js/tomcat.js"></script>
-    </body>
+  </footer>
+</div>
+<script src="res/js/tomcat.js"></script>
+</body>
 </html>
