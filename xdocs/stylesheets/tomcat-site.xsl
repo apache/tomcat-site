@@ -110,14 +110,14 @@
           <form action="https://www.google.com/search" method="get">
             <div class="searchbox">
               <input value="tomcat.apache.org" name="sitesearch" type="hidden" />
-              <input placeholder="Search…" required="required" name="q" id="query" type="search" />
+              <input aria-label="Search text" placeholder="Search…" required="required" name="q" id="query" type="search" />
               <button>GO</button>
             </div>
           </form>
           <!-- Navigation -->
           <div class="asfevents">
             <a href="https://www.apache.org/events/current-event.html">
-              <img src="https://www.apache.org/events/current-event-234x60.png"/><br/>
+              <img src="https://www.apache.org/events/current-event-234x60.png" alt="Next ASF event"/><br/>
               Save the date!
             </a>
           </div>
