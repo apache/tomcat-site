@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DriverManagerConnectionFactory (Apache Tomcat 8.5.40 API Documentation)</title>
+<title>DriverManagerConnectionFactory (Apache Tomcat 8.5.41 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DriverManagerConnectionFactory (Apache Tomcat 8.5.40 API Documentation)";
+        parent.document.title="DriverManagerConnectionFactory (Apache Tomcat 8.5.41 API Documentation)";
     }
 //-->
 </script>
@@ -31,12 +31,12 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.40</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.41</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ListException.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Jdbc41Bridge.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html" target="_top">Frames</a></li>
@@ -134,6 +134,13 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#DriverManagerConnectionFactory(java.lang.String,%20java.lang.String,%20char[])">DriverManagerConnectionFactory</a></strong>(java.lang.String&nbsp;connectionUri,
+                              java.lang.String&nbsp;userName,
+                              char[]&nbsp;userPassword)</code>
+<div class="block">Constructor for DriverManagerConnectionFactory.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#DriverManagerConnectionFactory(java.lang.String,%20java.lang.String,%20java.lang.String)">DriverManagerConnectionFactory</a></strong>(java.lang.String&nbsp;connectionUri,
                               java.lang.String&nbsp;userName,
                               java.lang.String&nbsp;userPassword)</code>
@@ -160,6 +167,18 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#createConnection()">createConnection</a></strong>()</code>
 <div class="block">Create a new <code>Connection</code> in an implementation specific fashion.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#getConnectionUri()">getConnectionUri</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.Properties</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#getProperties()">getProperties</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html#getUserName()">getUserName</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -208,6 +227,19 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
             "password" property should be included.</dd></dl>
 </li>
 </ul>
+<a name="DriverManagerConnectionFactory(java.lang.String, java.lang.String, char[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DriverManagerConnectionFactory</h4>
+<pre>public&nbsp;DriverManagerConnectionFactory(java.lang.String&nbsp;connectionUri,
+                              java.lang.String&nbsp;userName,
+                              char[]&nbsp;userPassword)</pre>
+<div class="block">Constructor for DriverManagerConnectionFactory.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionUri</code> - a database url of the form <code>jdbc:<em>subprotocol</em>:<em>subname</em></code></dd><dd><code>userName</code> - the database user</dd><dd><code>userPassword</code> - the user's password</dd></dl>
+</li>
+</ul>
 <a name="DriverManagerConnectionFactory(java.lang.String, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -232,7 +264,7 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
 <a name="createConnection()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>createConnection</h4>
 <pre>public&nbsp;java.sql.Connection&nbsp;createConnection()
@@ -245,6 +277,39 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
 <dt><span class="strong">Returns:</span></dt><dd>a new <code>Connection</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.sql.SQLException</code> - if a database error occurs creating the connection</dd></dl>
+</li>
+</ul>
+<a name="getConnectionUri()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConnectionUri</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getConnectionUri()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The connection URI.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.6.0</dd></dl>
+</li>
+</ul>
+<a name="getProperties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperties</h4>
+<pre>public&nbsp;java.util.Properties&nbsp;getProperties()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The Properties.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.6.0</dd></dl>
+</li>
+</ul>
+<a name="getUserName()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getUserName</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getUserName()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The user name.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.6.0</dd></dl>
 </li>
 </ul>
 </li>
@@ -269,12 +334,12 @@ implements <a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ConnectionFactor
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.40</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.41</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/DriverConnectionFactory.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/ListException.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/tomcat/dbcp/dbcp2/Jdbc41Bridge.html" title="class in org.apache.tomcat.dbcp.dbcp2"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/tomcat/dbcp/dbcp2/DriverManagerConnectionFactory.html" target="_top">Frames</a></li>
