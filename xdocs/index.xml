@@ -62,24 +62,26 @@ changelog</a>.
 </p>
 </section>
 
-<section name="Tomcat 8.5.40 Released" rtext="2019-04-12">
+<section name="Tomcat 8.5.41 Released" rtext="2019-05-13">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 8.5.40
+The Apache Tomcat Project is proud to announce the release of version 8.5.41
 of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
 pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
 specification versions remain unchanged. The notable changes compared
-to 8.5.39 include:</p>
+to 8.5.40 include:</p>
 <ul>
-<li>Fix for CVE-2019-0232, an RCE vulnerability on Windows</li>
-<li>Add support for Java 11 to the JSP compiler. Java 12 and 13 are also
-    now supported if used with a ECJ version with support for those  Java
-    versions</li>
-<li>Various NIO2 stability improvements</li>
+<li>Stack traces written by the OneLineFormatter are fully indented. The
+    entire stack trace is now indented by an additional TAB character.</li>
+<li>Avoid OutOfMemoryErrors and ArrayIndexOutOfBoundsExceptions when
+    accessing large files via the default servlet when resource caching
+    has been disabled.</li>
+<li>When running on newer JREs that don't support SSLv2Hello, don't
+    warn that it is not available unless explicitly configured.</li>
 </ul>
 
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.40_(markt)">Tomcat 8.5
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.41_(markt)">Tomcat 8.5
 changelog</a>.
 </p>
 
