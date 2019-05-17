@@ -52,7 +52,7 @@
 
   <section name="Fixed in Apache Tomcat 9.0.19" rtext="13 April 2019">
 
-    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.18 but the
+    <p><i>Note: The issues below were fixed in Apache Tomcat 9.0.18 but the
        release vote for the 9.0.18 release candidate did not pass. Therefore,
        although users must download 9.0.19 to obtain a version that includes a
        fix for these issues, version 9.0.18 is not included in the list of 
@@ -79,6 +79,24 @@
        reported to the Apache Tomcat security team via the bug bounty program
        sponsored by the EU FOSSA-2 project on 3rd March 2019. The issue was made
        public on 10 April 2019.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.17</p>
+
+    <p><strong>Low: XSS in SSI printenv</strong>
+       <cve>CVE-2019-0221</cve></p>
+
+    <p>The SSI printenv command echoes user provided data without escaping and
+       is, therefore, vulnerable to XSS. SSI is disabled by default. The
+       printenv command is intended for debugging and is unlikely to be present
+       in a production website.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="15fcd16">15fcd16</hashlink>.</p>
+
+    <p>This issue was identified by Nightwatch Cybersecurity Research and
+       reported to the Apache Tomcat security team via the bug bounty program
+       sponsored by the EU FOSSA-2 project on 7th March 2019. The issue was made
+       public on 17 May 2019.</p>
 
     <p>Affects: 9.0.0.M1 to 9.0.17</p>
 
