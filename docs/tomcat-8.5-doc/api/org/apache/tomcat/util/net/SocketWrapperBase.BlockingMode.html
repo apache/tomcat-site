@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SocketWrapperBase.BlockingMode (Apache Tomcat 8.5.41 API Documentation)</title>
+<title>SocketWrapperBase.BlockingMode (Apache Tomcat 8.5.42 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SocketWrapperBase.BlockingMode (Apache Tomcat 8.5.41 API Documentation)";
+        parent.document.title="SocketWrapperBase.BlockingMode (Apache Tomcat 8.5.42 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.41</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.42</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -133,11 +133,16 @@ extends java.lang.Enum&lt;<a href="../../../../../org/apache/tomcat/util/net/Soc
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html#NON_BLOCK">NON_BLOCK</a></strong></code>
-<div class="block">The operation will now block.</div>
+<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html#CLASSIC">CLASSIC</a></strong></code>
+<div class="block">The operation will not block.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html#NON_BLOCK">NON_BLOCK</a></strong></code>
+<div class="block">The operation will not block.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html#SEMI_BLOCK">SEMI_BLOCK</a></strong></code>
 <div class="block">The operation will block until pending operations are completed, but
  will not block after performing it.</div>
@@ -200,6 +205,17 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
+<a name="CLASSIC">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CLASSIC</h4>
+<pre>public static final&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html" title="enum in org.apache.tomcat.util.net">SocketWrapperBase.BlockingMode</a> CLASSIC</pre>
+<div class="block">The operation will not block. If there are pending operations,
+ the operation will throw a pending exception.</div>
+</li>
+</ul>
 <a name="NON_BLOCK">
 <!--   -->
 </a>
@@ -207,7 +223,7 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>NON_BLOCK</h4>
 <pre>public static final&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SocketWrapperBase.BlockingMode.html" title="enum in org.apache.tomcat.util.net">SocketWrapperBase.BlockingMode</a> NON_BLOCK</pre>
-<div class="block">The operation will now block. If there are pending operations,
+<div class="block">The operation will not block. If there are pending operations,
  the operation will return CompletionState.NOT_DONE.</div>
 </li>
 </ul>
@@ -297,7 +313,7 @@ not permitted.)</div>
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.41</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.42</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
