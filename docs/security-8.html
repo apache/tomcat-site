@@ -216,6 +216,9 @@
 <a href="#Apache_Tomcat_8.x_vulnerabilities">Apache Tomcat 8.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.41">Fixed in Apache Tomcat 8.5.41</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_8.5.40">Fixed in Apache Tomcat 8.5.40</a>
 </li>
 <li>
@@ -378,6 +381,39 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.41">
+<span class="pull-right">13 May 2019</span> Fixed in Apache Tomcat 8.5.41</h3>
+<div class="text">
+
+    
+<p>
+<strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10072" rel="nofollow">CVE-2019-10072</a>
+</p>
+
+    
+<p>The fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0199" rel="nofollow">CVE-2019-0199</a> was incomplete and did not address
+       HTTP/2 connection window exhaustion on write. By not sending
+       WINDOW_UPDATE messages for the connection window (stream 0) clients were
+       able to cause server-side threads to block eventually leading to thread
+       exhaustion and a DoS.</p>
+
+    
+<p>This was fixed with commits
+       <a href="https://github.com/apache/tomcat/commit/0bcd69c">0bcd69c</a> and
+       <a href="https://github.com/apache/tomcat/commit/8d14c6f">8d14c6f</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by John
+       Simpson of Trend Micro Security Research working with Trend Micro's Zero
+       Day Initiative on 26 April 2019. The issue was made public on 20 June
+       2019.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.40</p>
 
   
 </div>

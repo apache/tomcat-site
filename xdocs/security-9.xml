@@ -50,6 +50,30 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.20" rtext="13 May 2019">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2019-10072</cve></p>
+
+    <p>The fix for <cve>CVE-2019-0199</cve> was incomplete and did not address
+       HTTP/2 connection window exhaustion on write. By not sending
+       WINDOW_UPDATE messages for the connection window (stream 0) clients were
+       able to cause server-side threads to block eventually leading to thread
+       exhaustion and a DoS.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="7f748eb">7f748eb</hashlink> and
+       <hashlink hash="ada725a">ada725a</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by John
+       Simpson of Trend Micro Security Research working with Trend Micro's Zero
+       Day Initiative on 26 April 2019. The issue was made public on 20 June
+       2019.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.19</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.19" rtext="13 April 2019">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 9.0.18 but the
