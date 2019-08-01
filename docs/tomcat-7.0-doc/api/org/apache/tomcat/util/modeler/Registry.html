@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registry (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>Registry (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Registry (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="Registry (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -102,7 +102,7 @@
 <pre>public class <span class="strong">Registry</span>
 extends java.lang.Object
 implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html" title="interface in org.apache.tomcat.util.modeler">RegistryMBean</a>, javax.management.MBeanRegistration</pre>
-<div class="block">Registry for modeler MBeans. 
+<div class="block">Registry for modeler MBeans.
 
  This is the main entry point into modeler. It provides methods to create
  and manipulate model mbeans and simplify their use.
@@ -110,10 +110,10 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
  Starting with version 1.1, this is no longer a singleton and the static
  methods are strongly deprecated. In a container environment we can expect
  different applications to use different registries.
- 
+
  This class is itself an mbean.
- 
- IMPORTANT: public methods not marked with @since x.x are experimental or 
+
+ IMPORTANT: public methods not marked with @since x.x are experimental or
  internal. Should not be used.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Craig R. McClanahan, Costin Manolache</dd></dl>
@@ -296,7 +296,7 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/modeler/Registry.html#registerComponent(java.lang.Object,%20javax.management.ObjectName,%20java.lang.String)">registerComponent</a></strong>(java.lang.Object&nbsp;bean,
                  javax.management.ObjectName&nbsp;oname,
                  java.lang.String&nbsp;type)</code>
-<div class="block">Register a component 
+<div class="block">Register a component
  XXX make it private</div>
 </td>
 </tr>
@@ -305,7 +305,7 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/modeler/Registry.html#registerComponent(java.lang.Object,%20java.lang.String,%20java.lang.String)">registerComponent</a></strong>(java.lang.Object&nbsp;bean,
                  java.lang.String&nbsp;oname,
                  java.lang.String&nbsp;type)</code>
-<div class="block">Register a bean by creating a modeler mbean and adding it to the 
+<div class="block">Register a bean by creating a modeler mbean and adding it to the
  MBeanServer.</div>
 </td>
 </tr>
@@ -406,7 +406,7 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
  The current version uses a static - future versions could use
  the thread class loader.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - Support for application isolation. If null, the context class
- loader will be used ( if setUseContextClassLoader is called ) or the 
+ loader will be used ( if setUseContextClassLoader is called ) or the
  default registry is returned.</dd><dd><code>guard</code> - Prevent access to the registry by untrusted components</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd></dl>
 </li>
@@ -451,9 +451,9 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
                                                      java.lang.ClassLoader&nbsp;cl)
                                                        throws java.lang.Exception</pre>
 <div class="block">Load an extended mlet file. The source can be an URL, File or
- InputStream. 
- 
- All mbeans will be instantiated, registered and the attributes will be 
+ InputStream.
+
+ All mbeans will be instantiated, registered and the attributes will be
  set. The result is a list of ObjectNames.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
@@ -474,10 +474,10 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <h4>loadMetadata</h4>
 <pre>public&nbsp;void&nbsp;loadMetadata(java.lang.Object&nbsp;source)
                   throws java.lang.Exception</pre>
-<div class="block">Load descriptors. The source can be a File or URL or InputStream for the 
+<div class="block">Load descriptors. The source can be a File or URL or InputStream for the
  descriptors file. In the case of File and URL, if the extension is ".ser"
- a serialized version will be loaded. 
- 
+ a serialized version will be loaded.
+
  This method should be used to explicitly load metadata - but this is not
  required in most cases. The registerComponent() method will find metadata
  in the same package.</div>
@@ -499,9 +499,9 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
                      java.lang.String&nbsp;oname,
                      java.lang.String&nbsp;type)
                        throws java.lang.Exception</pre>
-<div class="block">Register a bean by creating a modeler mbean and adding it to the 
+<div class="block">Register a bean by creating a modeler mbean and adding it to the
  MBeanServer.
- 
+
  If metadata is not loaded, we'll look up and read a file named
  "mbeans-descriptors.ser" or "mbeans-descriptors.xml" in the same package
  or parent.
@@ -510,11 +510,11 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
  to a model mbean and we'll wrap it - so modeler services will be supported
 
  If the metadata is still not found, introspection will be used to extract
- it automatically. 
- 
+ it automatically.
+
  If an mbean is already registered under this name, it'll be first
  unregistered.
- 
+
  If the component implements MBeanRegistration, the methods will be called.
  If the method has a method "setRegistry" that takes a RegistryMBean as
  parameter, it'll be called with the current registry.</div>
@@ -757,7 +757,7 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
                      javax.management.ObjectName&nbsp;oname,
                      java.lang.String&nbsp;type)
                        throws java.lang.Exception</pre>
-<div class="block">Register a component 
+<div class="block">Register a component
  XXX make it private</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>bean</code> - </dd><dd><code>oname</code> - </dd><dd><code>type</code> - </dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -892,7 +892,7 @@ public&nbsp;<a href="../../../../../org/apache/tomcat/util/modeler/ManagedBean.h
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

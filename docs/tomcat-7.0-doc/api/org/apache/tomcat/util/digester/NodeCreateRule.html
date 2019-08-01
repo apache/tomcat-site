@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>NodeCreateRule (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>NodeCreateRule (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="NodeCreateRule (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="NodeCreateRule (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -113,11 +113,11 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
    <code>DocumentFragment</code>, which will contain
    only the XML content under the element the rule was triggered on.</li>
  </ul>
- The created node will be normalized, meaning it will not contain text nodes 
+ The created node will be normalized, meaning it will not contain text nodes
  that only contain white space characters.
- 
 
- 
+
+
  <p>The created <code>Node</code> will be pushed on Digester's object stack
  when done. To use it in the context of another DOM
  <code>Document</code>, it must be imported first, using the
@@ -126,12 +126,12 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
  </p>
 
  <p><strong>Important Note:</strong> This is implemented by replacing the SAX
- <code>ContentHandler</code> in the parser used by 
- Digester, and resetting it when the matched element is closed. As a side 
- effect, rules that would match XML nodes under the element that matches 
- a <code>NodeCreateRule</code> will never be triggered by Digester, which 
+ <code>ContentHandler</code> in the parser used by
+ Digester, and resetting it when the matched element is closed. As a side
+ effect, rules that would match XML nodes under the element that matches
+ a <code>NodeCreateRule</code> will never be triggered by Digester, which
  usually is the behavior one would expect.</p>
- 
+
  <p><strong>Note</strong> that the current implementation does not set the namespace prefixes
  in the exported nodes. The (usually more important) namespace URIs are set,
  of course.</p></div>
@@ -210,7 +210,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/digester/NodeCreateRule.html#begin(java.lang.String,%20java.lang.String,%20org.xml.sax.Attributes)">begin</a></strong>(java.lang.String&nbsp;namespaceURI,
      java.lang.String&nbsp;name,
      org.xml.sax.Attributes&nbsp;attributes)</code>
-<div class="block">Implemented to replace the content handler currently in use by a 
+<div class="block">Implemented to replace the content handler currently in use by a
  NodeBuilder.</div>
 </td>
 </tr>
@@ -272,7 +272,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <h4>NodeCreateRule</h4>
 <pre>public&nbsp;NodeCreateRule(javax.xml.parsers.DocumentBuilder&nbsp;documentBuilder)</pre>
 <div class="block">Constructor. Creates an instance of this rule that will create a DOM
- <code>Element</code>, but lets you specify the JAXP 
+ <code>Element</code>, but lets you specify the JAXP
  <code>DocumentBuilder</code> that should be used when constructing the
  node tree.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>documentBuilder</code> - the JAXP <code>DocumentBuilder</code> to use</dd></dl>
@@ -286,12 +286,12 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <h4>NodeCreateRule</h4>
 <pre>public&nbsp;NodeCreateRule(int&nbsp;nodeType)
                throws javax.xml.parsers.ParserConfigurationException</pre>
-<div class="block">Constructor. Creates an instance of this rule that will create either a 
- DOM <code>Element</code> or a DOM 
+<div class="block">Constructor. Creates an instance of this rule that will create either a
+ DOM <code>Element</code> or a DOM
  <code>DocumentFragment</code>, depending on the
  value of the <code>nodeType</code> parameter.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>nodeType</code> - the type of node to create, which can be either
-   <code>Node.ELEMENT_NODE</code> or 
+   <code>Node.ELEMENT_NODE</code> or
    <code>Node.DOCUMENT_FRAGMENT_NODE</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if the node type is not supported</dd>
@@ -306,14 +306,14 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <h4>NodeCreateRule</h4>
 <pre>public&nbsp;NodeCreateRule(int&nbsp;nodeType,
               javax.xml.parsers.DocumentBuilder&nbsp;documentBuilder)</pre>
-<div class="block">Constructor. Creates an instance of this rule that will create either a 
- DOM <code>Element</code> or a DOM 
+<div class="block">Constructor. Creates an instance of this rule that will create either a
+ DOM <code>Element</code> or a DOM
  <code>DocumentFragment</code>, depending on the
  value of the <code>nodeType</code> parameter. This constructor lets you
  specify the JAXP <code>DocumentBuilder</code> that should be used when
  constructing the node tree.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>nodeType</code> - the type of node to create, which can be either
-   <code>Node.ELEMENT_NODE</code> or 
+   <code>Node.ELEMENT_NODE</code> or
    <code>Node.DOCUMENT_FRAGMENT_NODE</code></dd><dd><code>documentBuilder</code> - the JAXP <code>DocumentBuilder</code> to use</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if the node type is not supported</dd></dl>
@@ -337,14 +337,14 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
          java.lang.String&nbsp;name,
          org.xml.sax.Attributes&nbsp;attributes)
            throws java.lang.Exception</pre>
-<div class="block">Implemented to replace the content handler currently in use by a 
+<div class="block">Implemented to replace the content handler currently in use by a
  NodeBuilder.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#begin(java.lang.String,%20java.lang.String,%20org.xml.sax.Attributes)">begin</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespaceURI</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespaceURI</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd><dd><code>attributes</code> - The attribute list of this element</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code> - indicates a JAXP configuration problem</dd></dl>
@@ -363,9 +363,9 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#end(java.lang.String,%20java.lang.String)">end</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd></dl>
@@ -393,7 +393,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

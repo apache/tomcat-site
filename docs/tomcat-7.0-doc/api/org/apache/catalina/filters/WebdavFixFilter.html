@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>WebdavFixFilter (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>WebdavFixFilter (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="WebdavFixFilter (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="WebdavFixFilter (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -111,13 +111,13 @@ implements <a href="../../../../../servletapi/javax/servlet/Filter.html?is-exter
    <li>Cancelling the first authentication dialog box and then trying to
        reconnect.</li>
  </ul>
- 
+
  Generally each different version of the MS client has a different set of
  problems.
  <p>
  TODO: Update this filter to recognise specific MS clients and apply the
        appropriate workarounds for that particular client
- <p>      
+ <p>
  As a filter, this is configured in web.xml like any other Filter. You usually
  want to map this filter to whatever your WebDAV servlet is mapped to.
  <p>
@@ -239,17 +239,22 @@ implements <a href="../../../../../servletapi/javax/servlet/Filter.html?is-exter
 <div class="block">Called by the web container to indicate to a filter that it is being
  placed into service. The servlet container calls the init method exactly
  once after instantiating the filter. The init method must complete
- successfully before the filter is asked to do any filtering work. <br>
- <br>
+ successfully before the filter is asked to do any filtering work.
+ <p>
  The web container cannot place the filter into service if the init method
- either<br>
- 1.Throws a ServletException <br>
- 2.Does not return within a time period defined by the web container</div>
+ either:
+ <ul>
+ <li>Throws a ServletException</li>
+ <li>Does not return within a time period defined by the web
+     container</li>
+ </ul></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true#init(javax.servlet.FilterConfig)" title="class or interface in javax.servlet">init</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>filterConfig</code> - The configuration information associated with the
+                     filter instance being initialised</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd></dl>
+<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if the initialisation fails</dd></dl>
 </li>
 </ul>
 <a name="destroy()">
@@ -266,7 +271,7 @@ implements <a href="../../../../../servletapi/javax/servlet/Filter.html?is-exter
  passed. After the web container calls this method, it will not call the
  doFilter method again on this instance of the filter. <br>
  <br>
- 
+
  This method gives the filter an opportunity to clean up any resources
  that are being held (for example, memory, file handles, threads) and make
  sure that any persistent state is synchronized with the filter's current
@@ -293,9 +298,13 @@ implements <a href="../../../../../servletapi/javax/servlet/Filter.html?is-exter
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)" title="class or interface in javax.servlet">doFilter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The request to process</dd><dd><code>response</code> - The response associated with the request</dd><dd><code>chain</code> - Provides access to the next filter in the chain for this
+                 filter to pass the request and response to for further
+                 processing</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd></dl>
+<dd><code>java.io.IOException</code> - if an I/O error occurs during this filter's
+                     processing of the request</dd>
+<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if the processing fails for any other reason</dd></dl>
 </li>
 </ul>
 </li>
@@ -320,7 +329,7 @@ implements <a href="../../../../../servletapi/javax/servlet/Filter.html?is-exter
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

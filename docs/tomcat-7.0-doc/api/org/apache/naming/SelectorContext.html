@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SelectorContext (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>SelectorContext (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SelectorContext (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="SelectorContext (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -515,6 +515,7 @@ implements javax.naming.Context</pre>
 <h4>SelectorContext</h4>
 <pre>public&nbsp;SelectorContext(java.util.Hashtable&lt;java.lang.String,java.lang.Object&gt;&nbsp;env)</pre>
 <div class="block">Builds a Catalina selector context using the given environment.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>env</code> - The environment</dd></dl>
 </li>
 </ul>
 <a name="SelectorContext(java.util.Hashtable, boolean)">
@@ -526,6 +527,8 @@ implements javax.naming.Context</pre>
 <pre>public&nbsp;SelectorContext(java.util.Hashtable&lt;java.lang.String,java.lang.Object&gt;&nbsp;env,
                boolean&nbsp;initialContext)</pre>
 <div class="block">Builds a Catalina selector context using the given environment.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>env</code> - The environment</dd><dd><code>initialContext</code> - <code>true</code> if this is the main
+  initial context</dd></dl>
 </li>
 </ul>
 </li>
@@ -687,7 +690,7 @@ implements javax.naming.Context</pre>
 <dd><code>unbind</code>&nbsp;in interface&nbsp;<code>javax.naming.Context</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name to bind; may not be empty</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>javax.naming</code> - NameNotFoundException if an intermediate context
+<dd><code>javax.naming.NameNotFoundException</code> - if an intermediate context
  does not exist</dd>
 <dd><code>javax.naming.NamingException</code> - if a naming exception is encountered</dd></dl>
 </li>
@@ -706,7 +709,7 @@ implements javax.naming.Context</pre>
 <dd><code>unbind</code>&nbsp;in interface&nbsp;<code>javax.naming.Context</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name to bind; may not be empty</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>javax.naming</code> - NameNotFoundException if an intermediate context
+<dd><code>javax.naming.NameNotFoundException</code> - if an intermediate context
  does not exist</dd>
 <dd><code>javax.naming.NamingException</code> - if a naming exception is encountered</dd></dl>
 </li>
@@ -873,7 +876,7 @@ implements javax.naming.Context</pre>
 <dd><code>destroySubcontext</code>&nbsp;in interface&nbsp;<code>javax.naming.Context</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name of the context to be destroyed; may not be empty</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>javax.naming</code> - NameNotFoundException if an intermediate context
+<dd><code>javax.naming.NameNotFoundException</code> - if an intermediate context
  does not exist</dd>
 <dd><code>javax.naming.NotContextException</code> - if the name is bound but does
  not name a context, or does not name a context of the appropriate type</dd>
@@ -894,7 +897,7 @@ implements javax.naming.Context</pre>
 <dd><code>destroySubcontext</code>&nbsp;in interface&nbsp;<code>javax.naming.Context</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name of the context to be destroyed; may not be empty</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>javax.naming</code> - NameNotFoundException if an intermediate context
+<dd><code>javax.naming.NameNotFoundException</code> - if an intermediate context
  does not exist</dd>
 <dd><code>javax.naming.NotContextException</code> - if the name is bound but does
  not name a context, or does not name a context of the appropriate type</dd>
@@ -1195,8 +1198,10 @@ implements javax.naming.Context</pre>
 <pre>protected&nbsp;javax.naming.Context&nbsp;getBoundContext()
                                         throws javax.naming.NamingException</pre>
 <div class="block">Get the bound context.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code>javax.naming.NamingException</code></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the Context bound with either the current thread or
+  the current classloader</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>javax.naming.NamingException</code> - Bindings exception</dd></dl>
 </li>
 </ul>
 <a name="parseName(java.lang.String)">
@@ -1208,7 +1213,8 @@ implements javax.naming.Context</pre>
 <pre>protected&nbsp;java.lang.String&nbsp;parseName(java.lang.String&nbsp;name)
                               throws javax.naming.NamingException</pre>
 <div class="block">Strips the URL header.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the parsed name</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the parsed name</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>javax.naming.NamingException</code> - if there is no "java:" header or if no
  naming context has been bound to this thread</dd></dl>
@@ -1223,7 +1229,8 @@ implements javax.naming.Context</pre>
 <pre>protected&nbsp;javax.naming.Name&nbsp;parseName(javax.naming.Name&nbsp;name)
                                throws javax.naming.NamingException</pre>
 <div class="block">Strips the URL header.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the parsed name</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the parsed name</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>javax.naming.NamingException</code> - if there is no "java:" header or if no
  naming context has been bound to this thread</dd></dl>
@@ -1251,7 +1258,7 @@ implements javax.naming.Context</pre>
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

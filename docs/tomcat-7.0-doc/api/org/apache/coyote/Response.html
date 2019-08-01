@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Response (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>Response (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Response (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="Response (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -99,7 +99,7 @@
 extends java.lang.Object</pre>
 <div class="block">Response object.</div>
 <dl><dt><span class="strong">Author:</span></dt>
-  <dd>James Duncan Davidson [duncan@eng.sun.com], Jason Hunter [jch@eng.sun.com], James Todd [gonzo@eng.sun.com], Harish Prabandham, Hans Bergsten <hans@gefionsoftware.com>, Remy Maucherat</dd></dl>
+  <dd>James Duncan Davidson [duncan@eng.sun.com], Jason Hunter [jch@eng.sun.com], James Todd [gonzo@eng.sun.com], Harish Prabandham, Hans Bergsten [hans@gefionsoftware.com], Remy Maucherat</dd></dl>
 </li>
 </ul>
 </div>
@@ -173,8 +173,7 @@ extends java.lang.Object</pre>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#containsHeader(java.lang.String)">containsHeader</a></strong>(java.lang.String&nbsp;name)</code>
-<div class="block">Warning: This method always returns <code>false<code> for Content-Type
- and Content-Length.</div>
+<div class="block">Does the response contain the given header.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -230,8 +229,7 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>java.lang.Exception</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#getErrorException()">getErrorException</a></strong>()</code>
-<div class="block">Get the Exception that occurred during request
- processing.</div>
+<div class="block">Get the Exception that occurred during request processing.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -274,6 +272,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#isError()">isError</a></strong>()</code>
+<div class="block">Error flag accessor.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#isErrorReportRequired()">isErrorReportRequired</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#isExceptionPresent()">isExceptionPresent</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -292,7 +300,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setCharacterEncoding(java.lang.String)">setCharacterEncoding</a></strong>(java.lang.String&nbsp;charset)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setCharacterEncoding(java.lang.String)">setCharacterEncoding</a></strong>(java.lang.String&nbsp;characterEncoding)</code>
+<div class="block">Overrides the character encoding used in the body of the response.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -313,11 +323,20 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setContentTypeNoCharset(java.lang.String)">setContentTypeNoCharset</a></strong>(java.lang.String&nbsp;type)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setError()">setError</a></strong>()</code>
+<div class="block">Set the error flag.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setErrorException(java.lang.Exception)">setErrorException</a></strong>(java.lang.Exception&nbsp;ex)</code>
-<div class="block">Set the error Exception that occurred during
- request processing.</div>
+<div class="block">Set the error Exception that occurred during request processing.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setErrorReported()">setErrorReported</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -331,8 +350,8 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setLocale(java.util.Locale)">setLocale</a></strong>(java.util.Locale&nbsp;locale)</code>
-<div class="block">Called explicitly by user to set the Content-Language and
- the default encoding</div>
+<div class="block">Called explicitly by user to set the Content-Language and the default
+ encoding.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -357,7 +376,7 @@ extends java.lang.Object</pre>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/coyote/Response.html#setStatus(int)">setStatus</a></strong>(int&nbsp;status)</code>
-<div class="block">Set the response status</div>
+<div class="block">Set the response status.</div>
 </td>
 </tr>
 </table>
@@ -388,7 +407,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>hook</h4>
-<pre>public&nbsp;<a href="../../../org/apache/coyote/ActionHook.html" title="interface in org.apache.coyote">ActionHook</a> hook</pre>
+<pre>public volatile&nbsp;<a href="../../../org/apache/coyote/ActionHook.html" title="interface in org.apache.coyote">ActionHook</a> hook</pre>
 <div class="block">Action hook.</div>
 </li>
 </ul>
@@ -525,7 +544,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setStatus</h4>
 <pre>public&nbsp;void&nbsp;setStatus(int&nbsp;status)</pre>
-<div class="block">Set the response status</div>
+<div class="block">Set the response status.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>status</code> - The status value to set</dd></dl>
 </li>
 </ul>
 <a name="getMessage()">
@@ -536,6 +556,7 @@ extends java.lang.Object</pre>
 <h4>getMessage</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getMessage()</pre>
 <div class="block">Get the status message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The message associated with the current status</dd></dl>
 </li>
 </ul>
 <a name="setMessage(java.lang.String)">
@@ -546,6 +567,7 @@ extends java.lang.Object</pre>
 <h4>setMessage</h4>
 <pre>public&nbsp;void&nbsp;setMessage(java.lang.String&nbsp;message)</pre>
 <div class="block">Set the status message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The status message to set</dd></dl>
 </li>
 </ul>
 <a name="isCommitted()">
@@ -584,8 +606,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setErrorException</h4>
 <pre>public&nbsp;void&nbsp;setErrorException(java.lang.Exception&nbsp;ex)</pre>
-<div class="block">Set the error Exception that occurred during
- request processing.</div>
+<div class="block">Set the error Exception that occurred during request processing.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>ex</code> - The exception that occurred</dd></dl>
 </li>
 </ul>
 <a name="getErrorException()">
@@ -595,8 +617,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getErrorException</h4>
 <pre>public&nbsp;java.lang.Exception&nbsp;getErrorException()</pre>
-<div class="block">Get the Exception that occurred during request
- processing.</div>
+<div class="block">Get the Exception that occurred during request processing.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The exception that occurred</dd></dl>
 </li>
 </ul>
 <a name="isExceptionPresent()">
@@ -606,6 +628,46 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isExceptionPresent</h4>
 <pre>public&nbsp;boolean&nbsp;isExceptionPresent()</pre>
+</li>
+</ul>
+<a name="setError()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setError</h4>
+<pre>public&nbsp;boolean&nbsp;setError()</pre>
+<div class="block">Set the error flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>false</code> if the error flag was already set</dd></dl>
+</li>
+</ul>
+<a name="isError()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isError</h4>
+<pre>public&nbsp;boolean&nbsp;isError()</pre>
+<div class="block">Error flag accessor.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the response has encountered an error</dd></dl>
+</li>
+</ul>
+<a name="isErrorReportRequired()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isErrorReportRequired</h4>
+<pre>public&nbsp;boolean&nbsp;isErrorReportRequired()</pre>
+</li>
+</ul>
+<a name="setErrorReported()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setErrorReported</h4>
+<pre>public&nbsp;boolean&nbsp;setErrorReported()</pre>
 </li>
 </ul>
 <a name="reset()">
@@ -645,8 +707,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>containsHeader</h4>
 <pre>public&nbsp;boolean&nbsp;containsHeader(java.lang.String&nbsp;name)</pre>
-<div class="block">Warning: This method always returns <code>false<code> for Content-Type
+<div class="block">Does the response contain the given header.
+ <br>
+ Warning: This method always returns <code>false</code> for Content-Type
  and Content-Length.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name of the header of interest</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the response contains the header.</dd></dl>
 </li>
 </ul>
 <a name="setHeader(java.lang.String, java.lang.String)">
@@ -697,8 +763,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setLocale</h4>
 <pre>public&nbsp;void&nbsp;setLocale(java.util.Locale&nbsp;locale)</pre>
-<div class="block">Called explicitly by user to set the Content-Language and
- the default encoding</div>
+<div class="block">Called explicitly by user to set the Content-Language and the default
+ encoding.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>locale</code> - The locale to use for this response</dd></dl>
 </li>
 </ul>
 <a name="getContentLanguage()">
@@ -709,6 +776,8 @@ extends java.lang.Object</pre>
 <h4>getContentLanguage</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getContentLanguage()</pre>
 <div class="block">Return the content language.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The language code for the language currently associated with this
+         response</dd></dl>
 </li>
 </ul>
 <a name="setCharacterEncoding(java.lang.String)">
@@ -717,7 +786,10 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setCharacterEncoding</h4>
-<pre>public&nbsp;void&nbsp;setCharacterEncoding(java.lang.String&nbsp;charset)</pre>
+<pre>public&nbsp;void&nbsp;setCharacterEncoding(java.lang.String&nbsp;characterEncoding)</pre>
+<div class="block">Overrides the character encoding used in the body of the response. This
+ method must be called prior to writing output using getWriter().</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>characterEncoding</code> - The name of character encoding.</dd></dl>
 </li>
 </ul>
 <a name="getCharacterEncoding()">
@@ -727,6 +799,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCharacterEncoding</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getCharacterEncoding()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The name of the current encoding</dd></dl>
 </li>
 </ul>
 <a name="setContentType(java.lang.String)">
@@ -819,6 +892,9 @@ extends java.lang.Object</pre>
 <h4>getContentWritten</h4>
 <pre>public&nbsp;long&nbsp;getContentWritten()</pre>
 <div class="block">Bytes written by application - i.e. before compression, chunking, etc.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The total number of bytes written to the response by the
+         application. This will not be the number of bytes written to the
+         network which may be more or less than this value.</dd></dl>
 </li>
 </ul>
 <a name="getBytesWritten(boolean)">
@@ -829,6 +905,10 @@ extends java.lang.Object</pre>
 <h4>getBytesWritten</h4>
 <pre>public&nbsp;long&nbsp;getBytesWritten(boolean&nbsp;flush)</pre>
 <div class="block">Bytes written to socket - i.e. after compression, chunking, etc.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>flush</code> - Should any remaining bytes be flushed before returning the
+              total? If <code>false</code> bytes remaining in the buffer will
+              not be included in the returned value</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The total number of bytes written to the socket for this response</dd></dl>
 </li>
 </ul>
 </li>
@@ -853,7 +933,7 @@ extends java.lang.Object</pre>
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

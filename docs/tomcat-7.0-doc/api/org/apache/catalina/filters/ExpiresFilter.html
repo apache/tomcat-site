@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ExpiresFilter (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>ExpiresFilter (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ExpiresFilter (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="ExpiresFilter (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -113,7 +113,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  '<code>Cache-Control: max-age=</code>' headers to HTTP response according to its
  '<code>Content-Type</code>'.
  </p>
- 
+
  <p>
  Following documentation is inspired by <a
  href="https://httpd.apache.org/docs/2.2/mod/mod_expires.html">mod_expires</a>
@@ -174,7 +174,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  </pre>
 
  <h2>Configuration Parameters</h2>
- 
+
  <h3><code>ExpiresByType &lt;content-type&gt;</code></h3>
  <p>
  This directive defines the value of the <code>Expires</code> header and the
@@ -214,7 +214,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
     &lt;param-name&gt;ExpiresByType text/html&lt;/param-name&gt;
     &lt;param-value&gt;access plus 1 month 15 days 2 hours&lt;/param-value&gt;
  &lt;/init-param&gt;
-  
+
  &lt;init-param&gt;
     &lt;!-- 2592000 seconds = 30 days --&gt;
     &lt;param-name&gt;ExpiresByType image/gif&lt;/param-name&gt;
@@ -277,7 +277,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
     &lt;param-name&gt;ExpiresDefault&lt;/param-name&gt;
     &lt;param-value&gt;&lt;base&gt; [plus] {&lt;num&gt; &lt;type&gt;}*&lt;/param-value&gt;
  &lt;/init-param&gt;
-  
+
  &lt;init-param&gt;
     &lt;param-name&gt;ExpiresByType type/encoding&lt;/param-name&gt;
     &lt;param-value&gt;&lt;base&gt; [plus] {&lt;num&gt; &lt;type&gt;}*&lt;/param-value&gt;
@@ -314,12 +314,12 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
     &lt;param-name&gt;ExpiresDefault&lt;/param-name&gt;
     &lt;param-value&gt;access plus 1 month&lt;/param-value&gt;
  &lt;/init-param&gt;
-  
+
  &lt;init-param&gt;
     &lt;param-name&gt;ExpiresDefault&lt;/param-name&gt;
     &lt;param-value&gt;access plus 4 weeks&lt;/param-value&gt;
  &lt;/init-param&gt;
-  
+
  &lt;init-param&gt;
     &lt;param-name&gt;ExpiresDefault&lt;/param-name&gt;
     &lt;param-value&gt;access plus 30 days&lt;/param-value&gt;
@@ -336,7 +336,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
     &lt;param-name&gt;ExpiresByType text/html&lt;/param-name&gt;
     &lt;param-value&gt;access plus 1 month 15 days 2 hours&lt;/param-value&gt;
  &lt;/init-param&gt;
-  
+
  &lt;init-param&gt;
     &lt;param-name&gt;ExpiresByType image/gif&lt;/param-name&gt;
     &lt;param-value&gt;modification plus 5 hours 3 minutes&lt;/param-value&gt;
@@ -442,29 +442,29 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <p>
  Extract of logging.properties
  </p>
- 
+
  <code><pre>
  org.apache.catalina.filters.ExpiresFilter.level = FINE
  </pre></code>
  <p>
  Sample of initialization log message :
  </p>
- 
+
  <code><pre>
  Mar 26, 2010 2:01:41 PM org.apache.catalina.filters.ExpiresFilter init
  FINE: Filter initialized with configuration ExpiresFilter[
-    excludedResponseStatusCode=[304], 
-    default=null, 
+    excludedResponseStatusCode=[304],
+    default=null,
     byType={
-       image=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]], 
-       text/css=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]], 
+       image=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]],
+       text/css=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]],
        application/javascript=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]]}]
  </pre></code>
  <p>
  Sample of per-request log message where <code>ExpiresFilter</code> adds an
  expiration date
  </p>
- 
+
  <code><pre>
  Mar 26, 2010 2:09:47 PM org.apache.catalina.filters.ExpiresFilter onBeforeWriteResponseBody
  FINE: Request "/tomcat.gif" with response status "200" content-type "image/gif", set expiration date 3/26/10 2:19 PM
@@ -473,7 +473,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  Sample of per-request log message where <code>ExpiresFilter</code> does not add
  an expiration date
  </p>
- 
+
  <code><pre>
  Mar 26, 2010 2:10:27 PM org.apache.catalina.filters.ExpiresFilter onBeforeWriteResponseBody
  FINE: Request "/docs/config/manager.html" with response status "200" content-type "text/html", no expiration configured
@@ -917,9 +917,13 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  next entity in the filter chain to block the request processing<br>
  5. Directly set headers on the response after invocation of the next
  entity in the filter chain.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The request to process</dd><dd><code>response</code> - The response associated with the request</dd><dd><code>chain</code> - Provides access to the next filter in the chain for this
+                 filter to pass the request and response to for further
+                 processing</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.io.IOException</code> - if an I/O error occurs during this filter's
+                     processing of the request</dd>
+<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if the processing fails for any other reason</dd></dl>
 </li>
 </ul>
 <a name="getDefaultExpiresConfiguration()">
@@ -1145,7 +1149,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

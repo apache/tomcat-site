@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Local (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>Local (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Local (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="Local (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -97,7 +97,7 @@
 <br>
 <pre>public class <span class="strong">Local</span>
 extends java.lang.Object</pre>
-<div class="block">Local socket</div>
+<div class="block">Local socket.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Mladen Turk</dd></dl>
 </li>
@@ -222,7 +222,7 @@ extends java.lang.Object</pre>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>path</code> - The address of the new socket.</dd><dd><code>cont</code> - The parent pool to use</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The new socket that has been set up.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd></dl>
+<dd><code>java.lang.Exception</code> - If socket creation failed</dd></dl>
 </li>
 </ul>
 <a name="bind(long, long)">
@@ -236,7 +236,8 @@ extends java.lang.Object</pre>
 <div class="block">Bind the socket to its associated port</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sock</code> - The socket to bind</dd><dd><code>sa</code> - The socket address to bind to
  This may be where we will find out if there is any other process
-      using the selected port.</dd></dl>
+      using the selected port.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the operation status</dd></dl>
 </li>
 </ul>
 <a name="listen(long, int)">
@@ -250,7 +251,8 @@ extends java.lang.Object</pre>
 <div class="block">Listen to a bound socket for connections.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sock</code> - The socket to listen on</dd><dd><code>backlog</code> - The number of outstanding connections allowed in the sockets
                 listen queue.  If this value is less than zero, for NT pipes
-                the number of instances is unlimited.</dd></dl>
+                the number of instances is unlimited.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the operation status</dd></dl>
 </li>
 </ul>
 <a name="accept(long)">
@@ -267,7 +269,7 @@ extends java.lang.Object</pre>
           made the connection request.  This is the socket which should
           be used for all future communication.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd></dl>
+<dd><code>java.lang.Exception</code> - If accept failed</dd></dl>
 </li>
 </ul>
 <a name="connect(long, long)">
@@ -281,7 +283,8 @@ extends java.lang.Object</pre>
 <div class="block">Issue a connection request to a socket either on the same machine
  or a different one.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sock</code> - The socket we wish to use for our side of the connection</dd><dd><code>sa</code> - The address of the machine we wish to connect to.
-           Unused for NT Pipes.</dd></dl>
+           Unused for NT Pipes.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the operation status</dd></dl>
 </li>
 </ul>
 </li>
@@ -306,7 +309,7 @@ extends java.lang.Object</pre>
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

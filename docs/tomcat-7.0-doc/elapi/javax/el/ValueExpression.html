@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ValueExpression (EL 2.2 API Documentation - Apache Tomcat 7.0.94)</title>
+<title>ValueExpression (EL 2.2 API Documentation - Apache Tomcat 7.0.96)</title>
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ValueExpression (EL 2.2 API Documentation - Apache Tomcat 7.0.94)";
+        parent.document.title="ValueExpression (EL 2.2 API Documentation - Apache Tomcat 7.0.96)";
     }
 //-->
 </script>
@@ -30,7 +30,7 @@
 <li><a href="../../index-all.html">Index</a></li>
 <li><a href="../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>EL 2.2 - Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>EL 2.2 - Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -212,48 +212,15 @@ extends <a href="../../javax/el/Expression.html" title="class in javax.el">Expre
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getExpectedType()">
+<a name="getValue(javax.el.ELContext)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getExpectedType</h4>
-<pre>public abstract&nbsp;java.lang.Class&lt;?&gt;&nbsp;getExpectedType()</pre>
-</li>
-</ul>
-<a name="getType(javax.el.ELContext)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getType</h4>
-<pre>public abstract&nbsp;java.lang.Class&lt;?&gt;&nbsp;getType(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)
-                                    throws java.lang.NullPointerException,
-                                           <a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a>,
-                                           <a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></pre>
+<h4>getValue</h4>
+<pre>public abstract&nbsp;java.lang.Object&nbsp;getValue(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)</pre>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The EL context for this evaluation</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The type of the result of this value expression</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.NullPointerException</code> - If the supplied context is <code>null</code></dd>
-<dd><code><a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a></code> - If a property/variable resolution failed because no match
-              was found or a match was found but was not readable</dd>
-<dd><code><a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></code> - Wraps any exception throw whilst resolving a property or
-              variable</dd></dl>
-</li>
-</ul>
-<a name="isReadOnly(javax.el.ELContext)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isReadOnly</h4>
-<pre>public abstract&nbsp;boolean&nbsp;isReadOnly(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)
-                            throws java.lang.NullPointerException,
-                                   <a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a>,
-                                   <a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The EL context for this evaluation</dd>
-<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if this expression is read only otherwise
-         <code>false</code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>The result of evaluating this value expression</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.NullPointerException</code> - If the supplied context is <code>null</code></dd>
 <dd><code><a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a></code> - If a property/variable resolution failed because no match
@@ -269,11 +236,7 @@ extends <a href="../../javax/el/Expression.html" title="class in javax.el">Expre
 <li class="blockList">
 <h4>setValue</h4>
 <pre>public abstract&nbsp;void&nbsp;setValue(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context,
-            java.lang.Object&nbsp;value)
-                       throws java.lang.NullPointerException,
-                              <a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a>,
-                              <a href="../../javax/el/PropertyNotWritableException.html" title="class in javax.el">PropertyNotWritableException</a>,
-                              <a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></pre>
+            java.lang.Object&nbsp;value)</pre>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The EL context for this evaluation</dd><dd><code>value</code> - The value to set the property to which this value
                 expression refers</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -286,24 +249,48 @@ extends <a href="../../javax/el/Expression.html" title="class in javax.el">Expre
               variable</dd></dl>
 </li>
 </ul>
-<a name="getValue(javax.el.ELContext)">
+<a name="isReadOnly(javax.el.ELContext)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getValue</h4>
-<pre>public abstract&nbsp;java.lang.Object&nbsp;getValue(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)
-                                   throws java.lang.NullPointerException,
-                                          <a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a>,
-                                          <a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></pre>
+<h4>isReadOnly</h4>
+<pre>public abstract&nbsp;boolean&nbsp;isReadOnly(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)</pre>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The EL context for this evaluation</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The result of evaluating this value expression</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if this expression is read only otherwise
+         <code>false</code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.NullPointerException</code> - If the supplied context is <code>null</code></dd>
 <dd><code><a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a></code> - If a property/variable resolution failed because no match
               was found or a match was found but was not readable</dd>
 <dd><code><a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></code> - Wraps any exception throw whilst resolving a property or
               variable</dd></dl>
+</li>
+</ul>
+<a name="getType(javax.el.ELContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getType</h4>
+<pre>public abstract&nbsp;java.lang.Class&lt;?&gt;&nbsp;getType(<a href="../../javax/el/ELContext.html" title="class in javax.el">ELContext</a>&nbsp;context)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The EL context for this evaluation</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The type of the result of this value expression</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.NullPointerException</code> - If the supplied context is <code>null</code></dd>
+<dd><code><a href="../../javax/el/PropertyNotFoundException.html" title="class in javax.el">PropertyNotFoundException</a></code> - If a property/variable resolution failed because no match
+              was found or a match was found but was not readable</dd>
+<dd><code><a href="../../javax/el/ELException.html" title="class in javax.el">ELException</a></code> - Wraps any exception throw whilst resolving a property or
+              variable</dd></dl>
+</li>
+</ul>
+<a name="getExpectedType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExpectedType</h4>
+<pre>public abstract&nbsp;java.lang.Class&lt;?&gt;&nbsp;getExpectedType()</pre>
 </li>
 </ul>
 <a name="getValueReference(javax.el.ELContext)">
@@ -339,7 +326,7 @@ extends <a href="../../javax/el/Expression.html" title="class in javax.el">Expre
 <li><a href="../../index-all.html">Index</a></li>
 <li><a href="../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>EL 2.2 - Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>EL 2.2 - Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

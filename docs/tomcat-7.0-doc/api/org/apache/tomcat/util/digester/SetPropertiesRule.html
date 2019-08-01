@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SetPropertiesRule (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>SetPropertiesRule (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="SetPropertiesRule (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="SetPropertiesRule (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -106,7 +106,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
  stack, based on attributes with corresponding names.</p>
 
  <p>This rule supports custom mapping of attribute names to property names.
- The default mapping for particular attributes can be overridden by using 
+ The default mapping for particular attributes can be overridden by using
  <a href="../../../../../org/apache/tomcat/util/digester/SetPropertiesRule.html#SetPropertiesRule(java.lang.String[],%20java.lang.String[])"><code>SetPropertiesRule(String[] attributeNames, String[] propertyNames)</code></a>.
  This allows attributes to be mapped to properties with different names.
  Certain attributes can also be marked to be ignored.</p></div>
@@ -150,7 +150,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../../../org/apache/tomcat/util/digester/SetPropertiesRule.html#SetPropertiesRule(org.apache.tomcat.util.digester.Digester)">SetPropertiesRule</a></strong>(<a href="../../../../../org/apache/tomcat/util/digester/Digester.html" title="class in org.apache.tomcat.util.digester">Digester</a>&nbsp;digester)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>The digester instance is now set in the <a href="../../../../../org/apache/tomcat/util/digester/Digester.html#addRule(java.lang.String,%20org.apache.tomcat.util.digester.Rule)"><code>Digester.addRule(java.lang.String, org.apache.tomcat.util.digester.Rule)</code></a> method. 
+<div class="block"><i>The digester instance is now set in the <a href="../../../../../org/apache/tomcat/util/digester/Digester.html#addRule(java.lang.String,%20org.apache.tomcat.util.digester.Rule)"><code>Digester.addRule(java.lang.String, org.apache.tomcat.util.digester.Rule)</code></a> method.
  Use <a href="../../../../../org/apache/tomcat/util/digester/SetPropertiesRule.html#SetPropertiesRule()"><code>SetPropertiesRule()</code></a> instead.</i></div>
 </div>
 </td>
@@ -240,7 +240,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <h4>SetPropertiesRule</h4>
 <pre>@Deprecated
 public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/digester/Digester.html" title="class in org.apache.tomcat.util.digester">Digester</a>&nbsp;digester)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>The digester instance is now set in the <a href="../../../../../org/apache/tomcat/util/digester/Digester.html#addRule(java.lang.String,%20org.apache.tomcat.util.digester.Rule)"><code>Digester.addRule(java.lang.String, org.apache.tomcat.util.digester.Rule)</code></a> method. 
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>The digester instance is now set in the <a href="../../../../../org/apache/tomcat/util/digester/Digester.html#addRule(java.lang.String,%20org.apache.tomcat.util.digester.Rule)"><code>Digester.addRule(java.lang.String, org.apache.tomcat.util.digester.Rule)</code></a> method.
  Use <a href="../../../../../org/apache/tomcat/util/digester/SetPropertiesRule.html#SetPropertiesRule()"><code>SetPropertiesRule()</code></a> instead.</i></div>
 <div class="block">Default constructor sets only the the associated Digester.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>digester</code> - The digester with which this rule is associated</dd></dl>
@@ -281,7 +281,7 @@ public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/dig
                  java.lang.String[]&nbsp;propertyNames)</pre>
 <div class="block"><p>Constructor allows attribute->property mapping to be overridden.</p>
 
- <p>Two arrays are passed in. 
+ <p>Two arrays are passed in.
  One contains the attribute names and the other the property names.
  The attribute name / property name pairs are match by position
  In order words, the first string in the attribute name list matches
@@ -289,15 +289,15 @@ public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/dig
 
  <p>If a property name is null or the attribute name has no matching
  property name, then this indicates that the attribute should be ignored.</p>
- 
+
  <h5>Example One</h5>
  <p> The following constructs a rule that maps the <code>alt-city</code>
  attribute to the <code>city</code> property and the <code>alt-state</code>
- to the <code>state</code> property. 
+ to the <code>state</code> property.
  All other attributes are mapped as usual using exact name matching.
  <code><pre>
       SetPropertiesRule(
-                new String[] {"alt-city", "alt-state"}, 
+                new String[] {"alt-city", "alt-state"},
                 new String[] {"city", "state"});
  </pre></code>
 
@@ -308,7 +308,7 @@ public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/dig
  All other attributes are mapped as usual using exact name matching.
  <code><pre>
       SetPropertiesRule(
-                new String[] {"class", "ignore-me"}, 
+                new String[] {"class", "ignore-me"},
                 new String[] {"className"});
  </pre></code></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>attributeNames</code> - names of attributes to map</dd><dd><code>propertyNames</code> - names of properties mapped to</dd></dl>
@@ -336,9 +336,9 @@ public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/dig
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#begin(java.lang.String,%20java.lang.String,%20org.xml.sax.Attributes)">begin</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>theName</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>theName</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd><dd><code>attributes</code> - The attribute list for this element</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd></dl>
@@ -392,7 +392,7 @@ public&nbsp;SetPropertiesRule(<a href="../../../../../org/apache/tomcat/util/dig
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

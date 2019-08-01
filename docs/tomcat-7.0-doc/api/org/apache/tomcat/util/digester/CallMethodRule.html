@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CallMethodRule (Apache Tomcat 7.0.94 API Documentation)</title>
+<title>CallMethodRule (Apache Tomcat 7.0.96 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="CallMethodRule (Apache Tomcat 7.0.94 API Documentation)";
+        parent.document.title="CallMethodRule (Apache Tomcat 7.0.96 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -103,15 +103,15 @@
 <pre>public class <span class="strong">CallMethodRule</span>
 extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></pre>
 <div class="block"><p>Rule implementation that calls a method on an object on the stack
- (normally the top/parent object), passing arguments collected from 
+ (normally the top/parent object), passing arguments collected from
  subsequent <code>CallParamRule</code> rules or from the body of this
  element. </p>
 
- <p>By using <a href="../../../../../org/apache/tomcat/util/digester/CallMethodRule.html#CallMethodRule(java.lang.String)"><code>CallMethodRule(String methodName)</code></a> 
+ <p>By using <a href="../../../../../org/apache/tomcat/util/digester/CallMethodRule.html#CallMethodRule(java.lang.String)"><code>CallMethodRule(String methodName)</code></a>
  a method call can be made to a method which accepts no
  arguments.</p>
 
- <p>Incompatible method parameter types are converted 
+ <p>Incompatible method parameter types are converted
  using <code>org.apache.commons.beanutils.ConvertUtils</code>.
  </p>
 
@@ -121,16 +121,16 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
  </a> by default.
  This increases the kinds of methods successfully and allows primitives
  to be matched by passing in wrapper classes.
- There are rare cases when org.apache.commons.beanutils.MethodUtils#invokeExactMethod 
+ There are rare cases when org.apache.commons.beanutils.MethodUtils#invokeExactMethod
  (the old default) is required.
  This method is much stricter in its reflection.
- Setting the <code>UseExactMatch</code> to true reverts to the use of this 
+ Setting the <code>UseExactMatch</code> to true reverts to the use of this
  method.</p>
 
  <p>Note that the target method is invoked when the  <i>end</i> of
  the tag the CallMethodRule fired on is encountered, <i>not</i> when the
  last parameter becomes available. This implies that rules which fire on
- tags nested within the one associated with the CallMethodRule will 
+ tags nested within the one associated with the CallMethodRule will
  fire before the CallMethodRule invokes the target method. This behaviour is
  not configurable. </p>
 
@@ -334,7 +334,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/digester/CallMethodRule.html#processMethodCallResult(java.lang.Object)">processMethodCallResult</a></strong>(java.lang.Object&nbsp;result)</code>
-<div class="block">Subclasses may override this method to perform additional processing of the 
+<div class="block">Subclasses may override this method to perform additional processing of the
  invoked method's result.</div>
 </td>
 </tr>
@@ -495,7 +495,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <div class="block">Construct a "call method" rule with the specified method name.  The
  parameter types (if any) default to java.lang.String.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>targetOffset</code> - location of the target object. Positive numbers are
- relative to the top of the digester object stack. Negative numbers 
+ relative to the top of the digester object stack. Negative numbers
  are relative to the bottom of the stack. Zero implies the top
  object on the stack.</dd><dd><code>methodName</code> - Method name of the parent method to call</dd><dd><code>paramCount</code> - The number of parameters to collect, or
   zero for a single argument from the body of this element.</dd></dl>
@@ -508,7 +508,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <li class="blockList">
 <h4>CallMethodRule</h4>
 <pre>public&nbsp;CallMethodRule(java.lang.String&nbsp;methodName)</pre>
-<div class="block">Construct a "call method" rule with the specified method name.  
+<div class="block">Construct a "call method" rule with the specified method name.
  The method should accept no parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>methodName</code> - Method name of the parent method to call</dd></dl>
 </li>
@@ -521,10 +521,10 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <h4>CallMethodRule</h4>
 <pre>public&nbsp;CallMethodRule(int&nbsp;targetOffset,
               java.lang.String&nbsp;methodName)</pre>
-<div class="block">Construct a "call method" rule with the specified method name.  
+<div class="block">Construct a "call method" rule with the specified method name.
  The method should accept no parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>targetOffset</code> - location of the target object. Positive numbers are
- relative to the top of the digester object stack. Negative numbers 
+ relative to the top of the digester object stack. Negative numbers
  are relative to the bottom of the stack. Zero implies the top
  object on the stack.</dd><dd><code>methodName</code> - Method name of the parent method to call</dd></dl>
 </li>
@@ -566,7 +566,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
  method, unless <code>paramTypes</code> is null or empty, in this
  case the rule will call the specified method with no arguments.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>targetOffset</code> - location of the target object. Positive numbers are
- relative to the top of the digester object stack. Negative numbers 
+ relative to the top of the digester object stack. Negative numbers
  are relative to the bottom of the stack. Zero implies the top
  object on the stack.</dd><dd><code>methodName</code> - Method name of the parent method to call</dd><dd><code>paramCount</code> - The number of parameters to collect, or
   zero for a single argument from the body of this element</dd><dd><code>paramTypes</code> - The Java class names of the arguments
@@ -613,7 +613,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
  method, unless <code>paramTypes</code> is null or empty, in this
  case the rule will call the specified method with no arguments.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>targetOffset</code> - location of the target object. Positive numbers are
- relative to the top of the digester object stack. Negative numbers 
+ relative to the top of the digester object stack. Negative numbers
  are relative to the bottom of the stack. Zero implies the top
  object on the stack.</dd><dd><code>methodName</code> - Method name of the parent method to call</dd><dd><code>paramCount</code> - The number of parameters to collect, or
   zero for a single argument from the body of this element</dd><dd><code>paramTypes</code> - The Java classes that represent the
@@ -682,9 +682,9 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#begin(java.lang.String,%20java.lang.String,%20org.xml.sax.Attributes)">begin</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd><dd><code>attributes</code> - The attribute list for this element</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd></dl>
@@ -704,9 +704,9 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#body(java.lang.String,%20java.lang.String,%20java.lang.String)">body</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd><dd><code>bodyText</code> - The body text of this element</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd></dl>
@@ -725,9 +725,9 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html#end(java.lang.String,%20java.lang.String)">end</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title="class in org.apache.tomcat.util.digester">Rule</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an 
+<dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the namespace URI of the matching element, or an
    empty string if the parser is not namespace aware or the element has
-   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just 
+   no namespace</dd><dd><code>name</code> - the local name if the parser is namespace aware, or just
    the element name otherwise</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd></dl>
@@ -756,7 +756,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <li class="blockList">
 <h4>processMethodCallResult</h4>
 <pre>protected&nbsp;void&nbsp;processMethodCallResult(java.lang.Object&nbsp;result)</pre>
-<div class="block">Subclasses may override this method to perform additional processing of the 
+<div class="block">Subclasses may override this method to perform additional processing of the
  invoked method's result.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>result</code> - the Object returned by the method invoked, possibly null</dd></dl>
 </li>
@@ -797,7 +797,7 @@ extends <a href="../../../../../org/apache/tomcat/util/digester/Rule.html" title
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.94</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
