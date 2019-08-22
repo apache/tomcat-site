@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Base64 (Apache Tomcat 8.5.43 API Documentation)</title>
+<title>Base64 (Apache Tomcat 8.5.45 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Base64 (Apache Tomcat 8.5.43 API Documentation)";
+        parent.document.title="Base64 (Apache Tomcat 8.5.45 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.43</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.45</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -122,7 +122,7 @@ extends <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCode
  <li>Line separator: Default is CRLF ("\r\n")</li>
  </ul>
  <p>
- The URL-safe parameter is only applied to encode operations. Decoding seamlessly handles both modes.
+ The URL-safe parameter is only applied to encode operations. Decoding only handles standard mode.
  </p>
  <p>
  Since this class operates directly on byte streams, and not character streams, it is hard-coded to only
@@ -464,7 +464,7 @@ extends <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCode
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>lineLength</code> - Each line of encoded data will be at most of the given length (rounded down to nearest multiple of
             4). If lineLength &lt;= 0, then the output will not be divided into lines (chunks). Ignored when
             decoding.</dd><dd><code>lineSeparator</code> - Each line of encoded data will end with this sequence of bytes.</dd><dd><code>urlSafe</code> - Instead of emitting '+' and '/' we emit '-' and '_' respectively. urlSafe is only applied to encode
-            operations. Decoding seamlessly handles both modes.
+            operations. Decoding only handles standard mode.
             <b>Note: no padding is added when using the URL-safe alphabet.</b></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - The provided lineSeparator included some base64 characters. That's not going to work!</dd><dt><span class="strong">Since:</span></dt>
@@ -665,7 +665,7 @@ extends <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCode
 <pre>public static&nbsp;byte[]&nbsp;decodeBase64(java.lang.String&nbsp;base64String)</pre>
 <div class="block">Decodes a Base64 String into octets.
  <p>
- <b>Note:</b> this method seamlessly handles data encoded in URL-safe or normal mode.
+ <b>Note:</b> this method only handles data encoded in standard mode.
  </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>base64String</code> - String containing Base64 data</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Array containing decoded data.</dd><dt><span class="strong">Since:</span></dt>
@@ -681,7 +681,7 @@ extends <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCode
 <pre>public static&nbsp;byte[]&nbsp;decodeBase64(byte[]&nbsp;base64Data)</pre>
 <div class="block">Decodes Base64 data into octets.
  <p>
- <b>Note:</b> this method seamlessly handles data encoded in URL-safe or normal mode.
+ <b>Note:</b> this method only handles data encoded in standard mode.
  </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>base64Data</code> - Byte array containing Base64 data</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Array containing decoded data.</dd></dl>
@@ -763,7 +763,7 @@ extends <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCode
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.43</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.45</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

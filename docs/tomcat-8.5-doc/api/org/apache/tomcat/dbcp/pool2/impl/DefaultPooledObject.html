@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DefaultPooledObject (Apache Tomcat 8.5.43 API Documentation)</title>
+<title>DefaultPooledObject (Apache Tomcat 8.5.45 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DefaultPooledObject (Apache Tomcat 8.5.43 API Documentation)";
+        parent.document.title="DefaultPooledObject (Apache Tomcat 8.5.45 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.43</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.45</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -133,7 +133,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html#DefaultPooledObject(T)">DefaultPooledObject</a></strong>(<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html" title="type parameter in DefaultPooledObject">T</a>&nbsp;object)</code>
-<div class="block">Create a new instance that wraps the provided object so that the pool can
+<div class="block">Creates a new instance that wraps the provided object so that the pool can
  track the state of the pooled object.</div>
 </td>
 </tr>
@@ -189,7 +189,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html#getBorrowedCount()">getBorrowedCount</a></strong>()</code>
-<div class="block">Get the number of times this object has been borrowed.</div>
+<div class="block">Gets the number of times this object has been borrowed.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -222,7 +222,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html#getLastUsedTime()">getLastUsedTime</a></strong>()</code>
-<div class="block">Return an estimate of the last time this object was used.</div>
+<div class="block">Returns an estimate of the last time this object was used.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -334,7 +334,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <li class="blockList">
 <h4>DefaultPooledObject</h4>
 <pre>public&nbsp;DefaultPooledObject(<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html" title="type parameter in DefaultPooledObject">T</a>&nbsp;object)</pre>
-<div class="block">Create a new instance that wraps the provided object so that the pool can
+<div class="block">Creates a new instance that wraps the provided object so that the pool can
  track the state of the pooled object.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>object</code> - The object to wrap</dd></dl>
 </li>
@@ -450,8 +450,11 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <li class="blockList">
 <h4>getBorrowedCount</h4>
 <pre>public&nbsp;long&nbsp;getBorrowedCount()</pre>
-<div class="block">Get the number of times this object has been borrowed.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>The number of times this object has been borrowed.</dd><dt><span class="strong">Since:</span></dt>
+<div class="block">Gets the number of times this object has been borrowed.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.html#getBorrowedCount()">getBorrowedCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.html" title="interface in org.apache.tomcat.dbcp.pool2">PooledObject</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html" title="type parameter in DefaultPooledObject">T</a>&gt;</code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>The number of times this object has been borrowed.</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.1</dd></dl>
 </li>
 </ul>
@@ -462,7 +465,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <li class="blockList">
 <h4>getLastUsedTime</h4>
 <pre>public&nbsp;long&nbsp;getLastUsedTime()</pre>
-<div class="block">Return an estimate of the last time this object was used.  If the class
+<div class="block">Returns an estimate of the last time this object was used.  If the class
  of the pooled object implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/TrackedUse.html" title="interface in org.apache.tomcat.dbcp.pool2"><code>TrackedUse</code></a>, what is returned is
  the maximum of <a href="../../../../../../org/apache/tomcat/dbcp/pool2/TrackedUse.html#getLastUsed()"><code>TrackedUse.getLastUsed()</code></a> and
  <a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html#getLastBorrowTime()"><code>getLastBorrowTime()</code></a>; otherwise this method gives the same
@@ -699,7 +702,10 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
  detailed stack traces are required. When set to false, abandoned logs may
  only include caller class information rather than method names, line numbers,
  and other normal metadata available in a full stack trace.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>requireFullStackTrace</code> - the new configuration setting for abandoned object
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.html#setRequireFullStackTrace(boolean)">setRequireFullStackTrace</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.html" title="interface in org.apache.tomcat.dbcp.pool2">PooledObject</a>&lt;<a href="../../../../../../org/apache/tomcat/dbcp/pool2/impl/DefaultPooledObject.html" title="type parameter in DefaultPooledObject">T</a>&gt;</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>requireFullStackTrace</code> - the new configuration setting for abandoned object
                               logging</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.5</dd></dl>
 </li>
@@ -726,7 +732,7 @@ implements <a href="../../../../../../org/apache/tomcat/dbcp/pool2/PooledObject.
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.43</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.45</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
