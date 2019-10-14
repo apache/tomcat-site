@@ -40,23 +40,23 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
-<section name="Tomcat 9.0.26 Released" rtext="2019-09-19">
+<section name="Tomcat 9.0.27 Released" rtext="2019-10-11">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.26
-of Apache Tomcat. The notable changes compared to 9.0.24 include:</p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.27
+of Apache Tomcat. The notable changes compared to 9.0.26 include:</p>
 <ul>
-<li>Update to Commons Daemon 1.2.1 to pick up fixes for regressions in
-    Commons Daemon 1.2.0, most notably a failure to start when using
-    a 32-bit JVM on Windows.</li>
-<li>Avoid an NPE when accessing an https port using http.</li>
-<li>Correct the invalid automatic module names for the embedded JARs.</li>
-<li>Fix a potential hang when using HTTP/2 with the asynchronous Servlet
-    API.</li>
+<li>Update to Commons Daemon 1.2.2 to pick up the fix for a regression in
+    Commons Daemon 1.2.0 and 1.2.1 that triggered a crash on startup when
+    running on a Windows OS that had not been fully updated.</li>
+<li>Fix some edge cases with NIO2 and TLS that could cause a request to
+    hang.</li>
+<li>Fix a memory leak introduced by the HTTP/2 timeout refactoring in 9.0.23
+    that could occur when HTTP/2 or WebSocket was used.</li>
 </ul>
 
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.26_(markt)">Tomcat 9
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.27_(markt)">Tomcat 9
 changelog</a>.
 </p>
 
