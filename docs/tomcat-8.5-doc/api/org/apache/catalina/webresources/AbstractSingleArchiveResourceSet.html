@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AbstractSingleArchiveResourceSet (Apache Tomcat 8.5.46 API Documentation)</title>
+<title>AbstractSingleArchiveResourceSet (Apache Tomcat 8.5.47 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AbstractSingleArchiveResourceSet (Apache Tomcat 8.5.46 API Documentation)";
+        parent.document.title="AbstractSingleArchiveResourceSet (Apache Tomcat 8.5.47 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.46</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -223,7 +223,10 @@ extends <a href="../../../../org/apache/catalina/webresources/AbstractArchiveRes
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/webresources/AbstractSingleArchiveResourceSet.html#initInternal()">initInternal</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/webresources/AbstractSingleArchiveResourceSet.html#initInternal()">initInternal</a></strong>()</code>
+<div class="block">Sub-classes implement this method to perform any instance initialisation
+ required.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
@@ -249,7 +252,7 @@ extends <a href="../../../../org/apache/catalina/webresources/AbstractArchiveRes
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.catalina.util.<a href="../../../../org/apache/catalina/util/LifecycleBase.html" title="class in org.apache.catalina.util">LifecycleBase</a></h3>
-<code><a href="../../../../org/apache/catalina/util/LifecycleBase.html#addLifecycleListener(org.apache.catalina.LifecycleListener)">addLifecycleListener</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#destroy()">destroy</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#findLifecycleListeners()">findLifecycleListeners</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#fireLifecycleEvent(java.lang.String,%20java.lang.Object)">fireLifecycleEvent</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#getState()">getState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#getStateName()">getStateName</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#init()">init</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#removeLifecycleListener(org.apache.catalina.LifecycleListener)">removeLifecycleListener</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#setState(org.apache.catalina.LifecycleState)">setState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#setState(org.apache.catalina.LifecycleState,%20java.lang.Object)">setState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#start()">start</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#stop()">stop</a></code></li>
+<code><a href="../../../../org/apache/catalina/util/LifecycleBase.html#addLifecycleListener(org.apache.catalina.LifecycleListener)">addLifecycleListener</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#destroy()">destroy</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#findLifecycleListeners()">findLifecycleListeners</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#fireLifecycleEvent(java.lang.String,%20java.lang.Object)">fireLifecycleEvent</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#getState()">getState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#getStateName()">getStateName</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#getThrowOnFailure()">getThrowOnFailure</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#init()">init</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#removeLifecycleListener(org.apache.catalina.LifecycleListener)">removeLifecycleListener</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#setState(org.apache.catalina.LifecycleState)">setState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#setState(org.apache.catalina.LifecycleState,%20java.lang.Object)">setState</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#setThrowOnFailure(boolean)">setThrowOnFailure</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#start()">start</a>, <a href="../../../../org/apache/catalina/util/LifecycleBase.html#stop()">stop</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -373,11 +376,14 @@ extends <a href="../../../../org/apache/catalina/webresources/AbstractArchiveRes
 <h4>initInternal</h4>
 <pre>protected&nbsp;void&nbsp;initInternal()
                      throws <a href="../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/util/LifecycleBase.html#initInternal()">LifecycleBase</a></code></strong></div>
+<div class="block">Sub-classes implement this method to perform any instance initialisation
+ required.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/util/LifecycleBase.html#initInternal()">initInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/util/LifecycleBase.html" title="class in org.apache.catalina.util">LifecycleBase</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code></dd></dl>
+<dd><code><a href="../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></code> - If the initialisation fails</dd></dl>
 </li>
 </ul>
 </li>
@@ -402,7 +408,7 @@ extends <a href="../../../../org/apache/catalina/webresources/AbstractArchiveRes
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.46</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
