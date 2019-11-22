@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registry (Apache Tomcat 8.5.47 API Documentation)</title>
+<title>Registry (Apache Tomcat 8.5.49 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Registry (Apache Tomcat 8.5.47 API Documentation)";
+        parent.document.title="Registry (Apache Tomcat 8.5.49 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -104,8 +104,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html" title="interface in org.apache.tomcat.util.modeler">RegistryMBean</a>, <a href="https://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a></pre>
 <div class="block">Registry for modeler MBeans.
 
- This is the main entry point into modeler. It provides methods to create
- and manipulate model mbeans and simplify their use.
+ This is the main entry point into modeler. It provides methods to create and
+ manipulate model mbeans and simplify their use.
 
  This class is itself an mbean.
 
@@ -172,8 +172,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/tomcat/util/modeler/ManagedBean.html" title="class in org.apache.tomcat.util.modeler">ManagedBean</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/modeler/Registry.html#findManagedBean(java.lang.String)">findManagedBean</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Find and return the managed bean definition for the specified
- bean name, if any; otherwise return <code>null</code>.</div>
+<div class="block">Find and return the managed bean definition for the specified bean name,
+ if any; otherwise return <code>null</code>.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -232,8 +232,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/modeler/Registry.html#loadDescriptors(java.lang.String,%20java.lang.ClassLoader)">loadDescriptors</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName,
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>
-<div class="block">Lookup the component descriptor in the package and
- in the parent packages.</div>
+<div class="block">Lookup the component descriptor in the package and in the parent
+ packages.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -336,13 +336,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <pre>public static&nbsp;<a href="../../../../../org/apache/tomcat/util/modeler/Registry.html" title="class in org.apache.tomcat.util.modeler">Registry</a>&nbsp;getRegistry(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;guard)</pre>
 <div class="block">Factory method to create (if necessary) and return our
- <code>Registry</code> instance.
-
- The current version uses a static - future versions could use
- the thread class loader.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - Support for application isolation. If null, the context class
- loader will be used ( if setUseContextClassLoader is called ) or the
- default registry is returned.</dd><dd><code>guard</code> - Prevent access to the registry by untrusted components</dd>
+ <code>Registry</code> instance.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - Unused</dd><dd><code>guard</code> - Prevent access to the registry by untrusted components</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the registry</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd></dl>
 </li>
@@ -380,8 +375,9 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
  "mbeans-descriptors.ser" or "mbeans-descriptors.xml" in the same package
  or parent.
 
- If the bean is an instance of DynamicMBean. it's metadata will be converted
- to a model mbean and we'll wrap it - so modeler services will be supported
+ If the bean is an instance of DynamicMBean. it's metadata will be
+ converted to a model mbean and we'll wrap it - so modeler services will
+ be supported
 
  If the metadata is still not found, introspection will be used to extract
  it automatically.
@@ -389,15 +385,15 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
  If an mbean is already registered under this name, it'll be first
  unregistered.
 
- If the component implements MBeanRegistration, the methods will be called.
- If the method has a method "setRegistry" that takes a RegistryMBean as
- parameter, it'll be called with the current registry.</div>
+ If the component implements MBeanRegistration, the methods will be
+ called. If the method has a method "setRegistry" that takes a
+ RegistryMBean as parameter, it'll be called with the current registry.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html#registerComponent(java.lang.Object,%20java.lang.String,%20java.lang.String)">registerComponent</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html" title="interface in org.apache.tomcat.util.modeler">RegistryMBean</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>bean</code> - Object to be registered</dd><dd><code>oname</code> - Name used for registration</dd><dd><code>type</code> - The type of the mbean, as declared in mbeans-descriptors. If
- null, the name of the class will be used. This can be used as a hint or
- by subclasses.</dd>
+            null, the name of the class will be used. This can be used as
+            a hint or by subclasses.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code> - if a registration error occurred</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd></dl>
@@ -410,8 +406,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <li class="blockList">
 <h4>unregisterComponent</h4>
 <pre>public&nbsp;void&nbsp;unregisterComponent(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;oname)</pre>
-<div class="block">Unregister a component. We'll first check if it is registered,
- and mask all errors. This is mostly a helper.</div>
+<div class="block">Unregister a component. We'll first check if it is registered, and mask
+ all errors. This is mostly a helper.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html#unregisterComponent(java.lang.String)">unregisterComponent</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.html" title="interface in org.apache.tomcat.util.modeler">RegistryMBean</a></code></dd>
@@ -465,8 +461,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <li class="blockList">
 <h4>addManagedBean</h4>
 <pre>public&nbsp;void&nbsp;addManagedBean(<a href="../../../../../org/apache/tomcat/util/modeler/ManagedBean.html" title="class in org.apache.tomcat.util.modeler">ManagedBean</a>&nbsp;bean)</pre>
-<div class="block">Add a new bean metadata to the set of beans known to this registry.
- This is used by internal components.</div>
+<div class="block">Add a new bean metadata to the set of beans known to this registry. This
+ is used by internal components.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>bean</code> - The managed bean to be added</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.0</dd></dl>
 </li>
@@ -478,10 +474,10 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <li class="blockList">
 <h4>findManagedBean</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/tomcat/util/modeler/ManagedBean.html" title="class in org.apache.tomcat.util.modeler">ManagedBean</a>&nbsp;findManagedBean(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Find and return the managed bean definition for the specified
- bean name, if any; otherwise return <code>null</code>.</div>
+<div class="block">Find and return the managed bean definition for the specified bean name,
+ if any; otherwise return <code>null</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the managed bean to be returned. Since 1.1, both
-   short names or the full name of the class can be used.</dd>
+            short names or the full name of the class can be used.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the managed bean</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.0</dd></dl>
 </li>
@@ -520,8 +516,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <li class="blockList">
 <h4>unregisterComponent</h4>
 <pre>public&nbsp;void&nbsp;unregisterComponent(<a href="https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html?is-external=true" title="class or interface in javax.management">ObjectName</a>&nbsp;oname)</pre>
-<div class="block">Unregister a component. This is just a helper that
- avoids exceptions by checking if the mbean is already registered</div>
+<div class="block">Unregister a component. This is just a helper that avoids exceptions by
+ checking if the mbean is already registered</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>oname</code> - The bean name</dd></dl>
 </li>
 </ul>
@@ -563,8 +559,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;convertValue(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
 <div class="block">EXPERIMENTAL Convert a string to object, based on type. Used by several
- components. We could provide some pluggability. It is here to keep
- things consistent and avoid duplication in other tasks</div>
+ components. We could provide some pluggability. It is here to keep things
+ consistent and avoid duplication in other tasks</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - Fully qualified class name of the resulting value</dd><dd><code>value</code> - String value to be converted</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Converted value</dd></dl>
 </li>
@@ -610,8 +606,8 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <h4>loadDescriptors</h4>
 <pre>public&nbsp;void&nbsp;loadDescriptors(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName,
                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</pre>
-<div class="block">Lookup the component descriptor in the package and
- in the parent packages.</div>
+<div class="block">Lookup the component descriptor in the package and in the parent
+ packages.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>packageName</code> - The package name</dd><dd><code>classLoader</code> - The class loader</dd></dl>
 </li>
 </ul>
@@ -694,7 +690,7 @@ implements <a href="../../../../../org/apache/tomcat/util/modeler/RegistryMBean.
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

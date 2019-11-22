@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ServletMapping (Apache Tomcat 8.5.47 API Documentation)</title>
+<title>HttpServletMapping (Apache Tomcat 8.5.49 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ServletMapping (Apache Tomcat 8.5.47 API Documentation)";
+        parent.document.title="HttpServletMapping (Apache Tomcat 8.5.49 API Documentation)";
     }
 //-->
 </script>
@@ -31,16 +31,16 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/catalina/servlet4preview/http/PushBuilder.html" title="interface in org.apache.catalina.servlet4preview.http"><span class="strong">Prev Class</span></a></li>
-<li>Next Class</li>
+<li><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpFilter.html" title="class in org.apache.catalina.servlet4preview.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletRequest.html" title="interface in org.apache.catalina.servlet4preview.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/catalina/servlet4preview/http/ServletMapping.html" target="_top">Frames</a></li>
-<li><a href="ServletMapping.html" target="_top">No Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/catalina/servlet4preview/http/HttpServletMapping.html" target="_top">Frames</a></li>
+<li><a href="HttpServletMapping.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
 <li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
@@ -79,7 +79,7 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.apache.catalina.servlet4preview.http</div>
-<h2 title="Interface ServletMapping" class="title">Interface ServletMapping</h2>
+<h2 title="Interface HttpServletMapping" class="title">Interface HttpServletMapping</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -87,7 +87,7 @@
 <li class="blockList">
 <hr>
 <br>
-<pre>public interface <span class="strong">ServletMapping</span></pre>
+<pre>public interface <span class="strong">HttpServletMapping</span></pre>
 <div class="block">Represents how the request from which this object was obtained was mapped to
  the associated servlet.</div>
 <dl><dt><span class="strong">Since:</span></dt>
@@ -112,19 +112,19 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/catalina/servlet4preview/http/MappingMatch.html" title="enum in org.apache.catalina.servlet4preview.http">MappingMatch</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/ServletMapping.html#getMappingMatch()">getMappingMatch</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletMapping.html#getMappingMatch()">getMappingMatch</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/ServletMapping.html#getMatchValue()">getMatchValue</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletMapping.html#getMatchValue()">getMatchValue</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/ServletMapping.html#getPattern()">getPattern</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletMapping.html#getPattern()">getPattern</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/ServletMapping.html#getServletName()">getServletName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletMapping.html#getServletName()">getServletName</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -162,20 +162,10 @@
          String if not known.</dd></dl>
 </li>
 </ul>
-<a name="getMappingMatch()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMappingMatch</h4>
-<pre><a href="../../../../../org/apache/catalina/servlet4preview/http/MappingMatch.html" title="enum in org.apache.catalina.servlet4preview.http">MappingMatch</a>&nbsp;getMappingMatch()</pre>
-<dl><dt><span class="strong">Returns:</span></dt><dd>The type of match (<a href="../../../../../org/apache/catalina/servlet4preview/http/MappingMatch.html#UNKNOWN"><code>MappingMatch.UNKNOWN</code></a> if not known)</dd></dl>
-</li>
-</ul>
 <a name="getServletName()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getServletName</h4>
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getServletName()</pre>
@@ -184,6 +174,16 @@
          <a href="../../../../../../servletapi/javax/servlet/ServletContext.html?is-external=true#addServlet(java.lang.String,%20java.lang.Class)" title="class or interface in javax.servlet"><code>ServletContext.addServlet(String, Class)</code></a> or
          one of the other <code>addServlet()</code> methods) that the
          request was mapped to.</dd></dl>
+</li>
+</ul>
+<a name="getMappingMatch()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getMappingMatch</h4>
+<pre><a href="../../../../../org/apache/catalina/servlet4preview/http/MappingMatch.html" title="enum in org.apache.catalina.servlet4preview.http">MappingMatch</a>&nbsp;getMappingMatch()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The type of match (<code>null</code> if not known)</dd></dl>
 </li>
 </ul>
 </li>
@@ -208,16 +208,16 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.47</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/catalina/servlet4preview/http/PushBuilder.html" title="interface in org.apache.catalina.servlet4preview.http"><span class="strong">Prev Class</span></a></li>
-<li>Next Class</li>
+<li><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpFilter.html" title="class in org.apache.catalina.servlet4preview.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/catalina/servlet4preview/http/HttpServletRequest.html" title="interface in org.apache.catalina.servlet4preview.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/catalina/servlet4preview/http/ServletMapping.html" target="_top">Frames</a></li>
-<li><a href="ServletMapping.html" target="_top">No Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/catalina/servlet4preview/http/HttpServletMapping.html" target="_top">Frames</a></li>
+<li><a href="HttpServletMapping.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">
 <li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
