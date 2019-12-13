@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CombinedRealm (Apache Tomcat 8.5.49 API Documentation)</title>
+<title>CombinedRealm (Apache Tomcat 8.5.50 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="CombinedRealm (Apache Tomcat 8.5.49 API Documentation)";
+        parent.document.title="CombinedRealm (Apache Tomcat 8.5.50 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -110,7 +110,7 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="../../../../org/apache/catalina/JmxEnabled.html" title="interface in org.apache.catalina">JmxEnabled</a>, <a href="../../../../org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a>, <a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></dd>
+<dd><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/MBeanRegistration.html?is-external=true" title="class or interface in javax.management">MBeanRegistration</a>, <a href="../../../../org/apache/catalina/GSSRealm.html" title="interface in org.apache.catalina">GSSRealm</a>, <a href="../../../../org/apache/catalina/JmxEnabled.html" title="interface in org.apache.catalina">JmxEnabled</a>, <a href="../../../../org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a>, <a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -247,12 +247,19 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss">GSSName</a>&nbsp;gssName,
+            <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</code>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.lang.String)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Return the Principal associated with the specified user name otherwise
  return <code>null</code>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.lang.String,%20java.lang.String)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials)</code>
@@ -260,7 +267,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  credentials, if there is one; otherwise return <code>null</code>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientDigest,
@@ -275,50 +282,59 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  method described in RFC 2069; otherwise return <code>null</code>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.security.cert.X509Certificate[])">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>[]&nbsp;certs)</code>
 <div class="block">Return the Principal associated with the specified chain of X509
  client certificates.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#backgroundProcess()">backgroundProcess</a></strong>()</code>
 <div class="block">Delegate the backgroundProcess call to all sub-realms.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#destroyInternal()">destroyInternal</a></strong>()</code>
 <div class="block">Ensure child Realms are destroyed when this Realm is destroyed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#getName()">getName</a></strong>()</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#getNestedRealms()">getNestedRealms</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#getPassword(java.lang.String)">getPassword</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Get the password for the specified user.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#getPrincipal(java.lang.String)">getPrincipal</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Get the principal associated with the specified user.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html?is-external=true" title="class or interface in javax.management">ObjectName</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#getRealms()">getRealms</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#hasRole(org.apache.catalina.Wrapper,%20java.security.Principal,%20java.lang.String)">hasRole</a></strong>(<a href="../../../../org/apache/catalina/Wrapper.html" title="interface in org.apache.catalina">Wrapper</a>&nbsp;wrapper,
+       <a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;principal,
+       <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;role)</code>
+<div class="block">Check if the specified Principal has the specified
+ security role, within the context of this Realm.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -354,7 +370,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.catalina.realm.<a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></h3>
-<code><a href="../../../../org/apache/catalina/realm/RealmBase.html#addPropertyChangeListener(java.beans.PropertyChangeListener)">addPropertyChangeListener</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#Digest(java.lang.String,%20java.lang.String,%20java.lang.String)">Digest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#findSecurityConstraints(org.apache.catalina.connector.Request,%20org.apache.catalina.Context)">findSecurityConstraints</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getAllRolesMode()">getAllRolesMode</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getContainer()">getContainer</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getCredentialHandler()">getCredentialHandler</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getDigest(java.lang.String,%20java.lang.String)">getDigest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getDomainInternal()">getDomainInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getObjectNameKeyProperties()">getObjectNameKeyProperties</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.lang.String,%20org.ietf.jgss.GSSCredential)">getPrincipal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.security.cert.X509Certificate)">getPrincipal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRealmPath()">getRealmPath</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRealmSuffix()">getRealmSuffix</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRoles(java.security.Principal)">getRoles</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getServer()">getServer</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getTransportGuaranteeRedirectStatus()">getTransportGuaranteeRedirectStatus</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getValidate()">getValidate</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getX509UsernameRetrieverClassName()">getX509UsernameRetrieverClassName</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasMessageDigest()">hasMessageDigest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasResourcePermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.tomcat.util.descriptor.web.SecurityConstraint[],%20org.apache.catalina.Context)">hasResourcePermission</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasRole(org.apache.catalina.Wrapper,%20java.security.Principal,%20java.lang.String)">hasRole</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasRoleInternal(java.security.Principal,%20java.lang.String)">hasRoleInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasUserDataPermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.tomcat.util.descriptor.web.SecurityConstraint[])">hasUserDataPermission</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#initInternal()">initInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#isStripRealmForGss()">isStripRealmForGss</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#main(java.lang.String[])">main</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#removePropertyChangeListener(java.beans.PropertyChangeListener)">removePropertyChangeListener</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setAllRolesMode(java.lang.String)">setAllRolesMode</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setCredentialHandler(org.apache.catalina.CredentialHandler)">setCredentialHandler</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setRealmPath(java.lang.String)">setRealmPath</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setStripRealmForGss(boolean)">setStripRealmForGss</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setTransportGuaranteeRedirectStatus(int)">setTransportGuaranteeRedirectStatus</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setValidate(boolean)">setValidate</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setX509UsernameRetrieverClassName(java.lang.String)">setX509UsernameRetrieverClassName</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#toString()">toString</a></code></li>
+<code><a href="../../../../org/apache/catalina/realm/RealmBase.html#addPropertyChangeListener(java.beans.PropertyChangeListener)">addPropertyChangeListener</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#Digest(java.lang.String,%20java.lang.String,%20java.lang.String)">Digest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#findSecurityConstraints(org.apache.catalina.connector.Request,%20org.apache.catalina.Context)">findSecurityConstraints</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getAllRolesMode()">getAllRolesMode</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getContainer()">getContainer</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getCredentialHandler()">getCredentialHandler</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getDigest(java.lang.String,%20java.lang.String)">getDigest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getDomainInternal()">getDomainInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getObjectNameKeyProperties()">getObjectNameKeyProperties</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">getPrincipal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.lang.String,%20org.ietf.jgss.GSSCredential)">getPrincipal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.security.cert.X509Certificate)">getPrincipal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRealmPath()">getRealmPath</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRealmSuffix()">getRealmSuffix</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getRoles(java.security.Principal)">getRoles</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getServer()">getServer</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getTransportGuaranteeRedirectStatus()">getTransportGuaranteeRedirectStatus</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getValidate()">getValidate</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#getX509UsernameRetrieverClassName()">getX509UsernameRetrieverClassName</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasMessageDigest()">hasMessageDigest</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasResourcePermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.tomcat.util.descriptor.web.SecurityConstraint[],%20org.apache.catalina.Context)">hasResourcePermission</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasRoleInternal(java.security.Principal,%20java.lang.String)">hasRoleInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasUserDataPermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.tomcat.util.descriptor.web.SecurityConstraint[])">hasUserDataPermission</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#initInternal()">initInternal</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#isStripRealmForGss()">isStripRealmForGss</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#main(java.lang.String[])">main</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#removePropertyChangeListener(java.beans.PropertyChangeListener)">removePropertyChangeListener</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setAllRolesMode(java.lang.String)">setAllRolesMode</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setCredentialHandler(org.apache.catalina.CredentialHandler)">setCredentialHandler</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setRealmPath(java.lang.String)">setRealmPath</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setStripRealmForGss(boolean)">setStripRealmForGss</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setTransportGuaranteeRedirectStatus(int)">setTransportGuaranteeRedirectStatus</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setValidate(boolean)">setValidate</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#setX509UsernameRetrieverClassName(java.lang.String)">setX509UsernameRetrieverClassName</a>, <a href="../../../../org/apache/catalina/realm/RealmBase.html#toString()">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.catalina.util.LifecycleMBeanBase">
@@ -663,6 +679,52 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
 </li>
 </ul>
+<a name="authenticate(org.ietf.jgss.GSSName, org.ietf.jgss.GSSCredential)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>authenticate</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;authenticate(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss">GSSName</a>&nbsp;gssName,
+                     <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</pre>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a></div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/GSSRealm.html#authenticate(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/GSSRealm.html" title="interface in org.apache.catalina">GSSRealm</a></code></dd>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#authenticate(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">authenticate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>gssName</code> - The <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a> of the principal to look up</dd><dd><code>gssCredential</code> - The <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSCredential</code></a> of the principal, may be
+                      <code>null</code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
+</li>
+</ul>
+<a name="hasRole(org.apache.catalina.Wrapper, java.security.Principal, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasRole</h4>
+<pre>public&nbsp;boolean&nbsp;hasRole(<a href="../../../../org/apache/catalina/Wrapper.html" title="interface in org.apache.catalina">Wrapper</a>&nbsp;wrapper,
+              <a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;principal,
+              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;role)</pre>
+<div class="block">Check if the specified Principal has the specified
+ security role, within the context of this Realm.
+
+ This method or <a href="../../../../org/apache/catalina/realm/RealmBase.html#hasRoleInternal(java.security.Principal,%20java.lang.String)"><code>RealmBase.hasRoleInternal(Principal,
+ String)</code></a> can be overridden by Realm implementations, but the default is
+ adequate when an instance of <code>GenericPrincipal</code> is used to
+ represent authenticated Principals from this Realm.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/Realm.html#hasRole(org.apache.catalina.Wrapper,%20java.security.Principal,%20java.lang.String)">hasRole</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/realm/RealmBase.html#hasRole(org.apache.catalina.Wrapper,%20java.security.Principal,%20java.lang.String)">hasRole</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/RealmBase.html" title="class in org.apache.catalina.realm">RealmBase</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>wrapper</code> - wrapper context for evaluating role</dd><dd><code>principal</code> - Principal for whom the role is to be checked</dd><dd><code>role</code> - Security role to be checked</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the specified Principal has the specified
+         security role, within the context of this Realm; otherwise return
+         <code>false</code>.</dd></dl>
+</li>
+</ul>
 <a name="getName()">
 <!--   -->
 </a>
@@ -750,7 +812,7 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Stri
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CsrfPreventionFilter (Apache Tomcat 8.5.49 API Documentation)</title>
+<title>CsrfPreventionFilter (Apache Tomcat 8.5.50 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="CsrfPreventionFilter (Apache Tomcat 8.5.49 API Documentation)";
+        parent.document.title="CsrfPreventionFilter (Apache Tomcat 8.5.50 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -204,12 +204,20 @@ extends <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBas
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilter.html#init(javax.servlet.FilterConfig)">init</a></strong>(<a href="../../../../../servletapi/javax/servlet/FilterConfig.html?is-external=true" title="class or interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)</code>
+<div class="block">Iterates over the configuration parameters and either logs a warning,
+ or throws an exception for any parameter that does not have a matching
+ setter in this filter.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilter.html#setEntryPoints(java.lang.String)">setEntryPoints</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;entryPoints)</code>
 <div class="block">Entry points are URLs that will not be tested for the presence of a valid
  nonce.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilter.html#setNonceCacheSize(int)">setNonceCacheSize</a></strong>(int&nbsp;nonceCacheSize)</code>
 <div class="block">Sets the number of previously issued nonces that will be cached on a LRU
@@ -218,13 +226,19 @@ extends <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBas
  of a previous nonce rather than the current one.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilter.html#setNonceRequestParameterName(java.lang.String)">setNonceRequestParameterName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameterName)</code>
+<div class="block">Sets the request parameter name to use for CSRF nonces.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.catalina.filters.CsrfPreventionFilterBase">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.catalina.filters.<a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html" title="class in org.apache.catalina.filters">CsrfPreventionFilterBase</a></h3>
-<code><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#generateNonce()">generateNonce</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getDenyStatus()">getDenyStatus</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getLogger()">getLogger</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getRequestedPath(javax.servlet.http.HttpServletRequest)">getRequestedPath</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#init(javax.servlet.FilterConfig)">init</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#isConfigProblemFatal()">isConfigProblemFatal</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#setDenyStatus(int)">setDenyStatus</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#setRandomClass(java.lang.String)">setRandomClass</a></code></li>
+<code><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#generateNonce()">generateNonce</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getDenyStatus()">getDenyStatus</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getLogger()">getLogger</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#getRequestedPath(javax.servlet.http.HttpServletRequest)">getRequestedPath</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#isConfigProblemFatal()">isConfigProblemFatal</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#setDenyStatus(int)">setDenyStatus</a>, <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#setRandomClass(java.lang.String)">setRandomClass</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.catalina.filters.FilterBase">
@@ -302,6 +316,43 @@ extends <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBas
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>nonceCacheSize</code> - The number of nonces to cache</dd></dl>
 </li>
 </ul>
+<a name="setNonceRequestParameterName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNonceRequestParameterName</h4>
+<pre>public&nbsp;void&nbsp;setNonceRequestParameterName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameterName)</pre>
+<div class="block">Sets the request parameter name to use for CSRF nonces.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameterName</code> - The request parameter name to use
+        for CSRF nonces.</dd></dl>
+</li>
+</ul>
+<a name="init(javax.servlet.FilterConfig)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>init</h4>
+<pre>public&nbsp;void&nbsp;init(<a href="../../../../../servletapi/javax/servlet/FilterConfig.html?is-external=true" title="class or interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)
+          throws <a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/filters/FilterBase.html#init(javax.servlet.FilterConfig)">FilterBase</a></code></strong></div>
+<div class="block">Iterates over the configuration parameters and either logs a warning,
+ or throws an exception for any parameter that does not have a matching
+ setter in this filter.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true#init(javax.servlet.FilterConfig)" title="class or interface in javax.servlet">init</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html#init(javax.servlet.FilterConfig)">init</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBase.html" title="class in org.apache.catalina.filters">CsrfPreventionFilterBase</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>filterConfig</code> - The configuration information associated with the
+                     filter instance being initialised</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if <a href="../../../../org/apache/catalina/filters/FilterBase.html#isConfigProblemFatal()"><code>FilterBase.isConfigProblemFatal()</code></a> returns
+                          <code>true</code> and a configured parameter does not
+                          have a matching setter</dd></dl>
+</li>
+</ul>
 <a name="doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)">
 <!--   -->
 </a>
@@ -364,7 +415,7 @@ extends <a href="../../../../org/apache/catalina/filters/CsrfPreventionFilterBas
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.49</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
