@@ -214,6 +214,12 @@
 <a href="#Apache_Tomcat_8.x_vulnerabilities">Apache Tomcat 8.x vulnerabilities</a>
 </li>
 <li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.50">Fixed in Apache Tomcat 8.5.50</a>
+</li>
+<li>
+<a href="#Fixed_in_Apache_Tomcat_8.5.49">Fixed in Apache Tomcat 8.5.49</a>
+</li>
+<li>
 <a href="#Fixed_in_Apache_Tomcat_8.5.41">Fixed in Apache Tomcat 8.5.41</a>
 </li>
 <li>
@@ -379,6 +385,85 @@
        please report them privately to the
        <a href="security.html">Tomcat Security Team</a>. Thank you.
     </p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.50">
+<span class="pull-right">12 December 2019</span> Fixed in Apache Tomcat 8.5.50</h3>
+<div class="text">
+
+    
+<p>
+<strong>Low: Session fixation</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17563" rel="nofollow">CVE-2019-17563</a>
+</p>
+
+    
+<p>When using FORM authentication there was a narrow window where an
+       attacker could perform a session fixation attack. The window was
+       considered too narrow for an exploit to be practical but, erring on the
+       side of caution, this issue has been treated as a security
+       vulnerability.</p>
+
+    
+<p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/e19a202">e19a202</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by William
+       Marlow (IBM) on 19 November 2019. The issue was made public on 18
+       December 2019.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.49</p>
+
+  
+</div>
+<h3 id="Fixed_in_Apache_Tomcat_8.5.49">
+<span class="pull-right">21 November 2019</span> Fixed in Apache Tomcat 8.5.49</h3>
+<div class="text">
+
+    
+<p>
+<i>Note: The issue below was fixed in Apache Tomcat 8.0.48 but the
+       release vote for the 8.0.48 release candidate did not pass. Therefore,
+       although users must download 8.0.49 to obtain a version that includes
+       the fix for this issue, version 8.0.48 is not included in the list of
+       affected versions.</i>
+</p>
+
+    
+<p>
+<strong>Moderate: Local Privilege Escalation</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12418" rel="nofollow">CVE-2019-12418</a>
+</p>
+
+    
+<p>When Tomcat is configured with the JMX Remote Lifecycle Listener, a local
+       attacker without access to the Tomcat process or configuration files is
+       able to manipulate the RMI registry to perform a man-in-the-middle attack
+       to capture user names and passwords used to access the JMX interface. The
+       attacker can then use these credentials to access the JMX interface and
+       gain complete control over the Tomcat instance.</p>
+    
+<p>The JMX Remote Lifecycle Listener will be deprecated in future Tomcat
+       releases, will be removed for Tomcat 10 and may be removed from all
+       Tomcat releases some time after 31 December 2020.</p>
+    
+<p>Users should also be aware of <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2684" rel="nofollow">CVE-2019-2684</a>, a JRE
+       vulnerability that enables this issue to be exploited remotely.</p>
+
+    
+<p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/a91d7db">a91d7db</a>.</p>
+
+    
+<p>This issue was reported to the Apache Tomcat Security Team by An Trinh of
+       Viettel Cyber Security on 10 October 2019. The issue was made public on 18
+       December 2019.</p>
+
+    
+<p>Affects: 8.5.0 to 8.5.47</p>
 
   
 </div>

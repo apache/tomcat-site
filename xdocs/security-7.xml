@@ -50,6 +50,58 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.99" rtext="17 December 2019">
+
+    <p><strong>Low: Session fixation</strong>
+       <cve>CVE-2019-17563</cve></p>
+
+    <p>When using FORM authentication there was a narrow window where an
+       attacker could perform a session fixation attack. The window was
+       considered too narrow for an exploit to be practical but, erring on the
+       side of caution, this issue has been treated as a security
+       vulnerability.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="ab72a10">ab72a10</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by William
+       Marlow (IBM) on 19 November 2019. The issue was made public on 18
+       December 2019.</p>
+
+    <p>Affects: 7.0.0 to 7.0.98</p>
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 7.0.98 but the
+       release vote for the 7.0.98 release candidate did not pass. Therefore,
+       although users must download 7.0.99 to obtain a version that includes
+       the fix for this issue, version78.0.98 is not included in the list of
+       affected versions.</i></p>
+
+    <p><strong>Moderate: Local Privilege Escalation</strong>
+       <cve>CVE-2019-12418</cve></p>
+
+    <p>When Tomcat is configured with the JMX Remote Lifecycle Listener, a local
+       attacker without access to the Tomcat process or configuration files is
+       able to manipulate the RMI registry to perform a man-in-the-middle attack
+       to capture user names and passwords used to access the JMX interface. The
+       attacker can then use these credentials to access the JMX interface and
+       gain complete control over the Tomcat instance.</p>
+    <p>The JMX Remote Lifecycle Listener will be deprecated in future Tomcat
+       releases, will be removed for Tomcat 10 and may be removed from all
+       Tomcat releases some time after 31 December 2020.</p>
+    <p>Users should also be aware of <cve>CVE-2019-2684</cve>, a JRE
+       vulnerability that enables this issue to be exploited remotely.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="bef3f40">bef3f40</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by An Trinh of
+       Viettel Cyber Security on 10 October 2019. The issue was made public on 18
+       December 2019.</p>
+
+    <p>Affects: 7.0.0 to 7.0.97</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 7.0.94" rtext="12 April 2019">
 
     <p><strong>Important: Remote Code Execution on Windows</strong>
