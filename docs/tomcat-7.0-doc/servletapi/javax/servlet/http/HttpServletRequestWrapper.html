@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HttpServletRequestWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.96)</title>
+<title>HttpServletRequestWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.99)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="HttpServletRequestWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.96)";
+        parent.document.title="HttpServletRequestWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.99)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -419,7 +419,8 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <h4>HttpServletRequestWrapper</h4>
 <pre>public&nbsp;HttpServletRequestWrapper(<a href="../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Constructs a request object wrapping the given request.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The request to wrap</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if the request is null</dd></dl>
 </li>
 </ul>
@@ -854,7 +855,7 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../javax/servlet/http/HttpServletRequest.html#isRequestedSessionIdFromUrl()">isRequestedSessionIdFromUrl</a></code>&nbsp;in interface&nbsp;<code><a href="../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd><a href="../../../javax/servlet/http/HttpServletRequest.html#isRequestedSessionIdFromURL()"><code>HttpServletRequest.isRequestedSessionIdFromURL()</code></a></dd></dl>
 </li>
 </ul>
 <a name="authenticate(javax.servlet.http.HttpServletResponse)">
@@ -880,8 +881,10 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the user is successfully authenticated and
          <code>false</code> if not</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-<dd><code><a href="../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></code></dd><dt><span class="strong">Since:</span></dt>
+<dd><code>java.io.IOException</code> - if the authentication process attempted to read from
+         the request or write to the response and an I/O error occurred</dd>
+<dd><code><a href="../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></code> - if the authentication failed and the caller is
+         expected to handle the failure</dd><dt><span class="strong">Since:</span></dt>
   <dd>Servlet 3.0</dd></dl>
 </li>
 </ul>
@@ -954,7 +957,8 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <dd><code><a href="../../../javax/servlet/http/HttpServletRequest.html#getParts()">getParts</a></code>&nbsp;in interface&nbsp;<code><a href="../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>A collection of all uploaded Parts.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code> - if size limits are exceeded</dd>
+<dd><code>java.lang.IllegalStateException</code> - if size limits are exceeded or no multipart configuration is
+             provided</dd>
 <dd><code>java.io.IOException</code> - if an I/O error occurs</dd>
 <dd><code><a href="../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></code> - if the request is not multipart/form-data</dd><dt><span class="strong">Since:</span></dt>
   <dd>Servlet 3.0</dd></dl>
@@ -979,6 +983,7 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../javax/servlet/http/HttpServletRequest.html#getPart(java.lang.String)">getPart</a></code>&nbsp;in interface&nbsp;<code><a href="../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The name of the Part to obtain</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The named Part or null if the Part does not exist</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if size limits are exceeded</dd>
@@ -1009,7 +1014,7 @@ implements <a href="../../../javax/servlet/http/HttpServletRequest.html" title="
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

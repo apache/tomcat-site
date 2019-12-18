@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>BaseNCodec (Apache Tomcat 7.0.96 API Documentation)</title>
+<title>BaseNCodec (Apache Tomcat 7.0.99 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="BaseNCodec (Apache Tomcat 7.0.96 API Documentation)";
+        parent.document.title="BaseNCodec (Apache Tomcat 7.0.99 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>org.apache.tomcat.util.codec.binary.BaseNCodec</li>
@@ -104,7 +104,7 @@
 <hr>
 <br>
 <pre>public abstract class <span class="strong">BaseNCodec</span>
-extends java.lang.Object
+extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder.html" title="interface in org.apache.tomcat.util.codec">BinaryEncoder</a>, <a href="../../../../../../org/apache/tomcat/util/codec/BinaryDecoder.html" title="interface in org.apache.tomcat.util.codec">BinaryDecoder</a></pre>
 <div class="block">Abstract superclass for Base-N encoders and decoders.
 
@@ -184,8 +184,17 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
           int&nbsp;encodedBlockSize,
           int&nbsp;lineLength,
           int&nbsp;chunkSeparatorLength)</code>
-<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encodedBlockSize"><code>encodedBlockSize</code></a>
- If <code>chunkSeparatorLength</code> is zero, then chunking is disabled.</div>
+<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of the encoded block size.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#BaseNCodec(int,%20int,%20int,%20int,%20byte)">BaseNCodec</a></strong>(int&nbsp;unencodedBlockSize,
+          int&nbsp;encodedBlockSize,
+          int&nbsp;lineLength,
+          int&nbsp;chunkSeparatorLength,
+          byte&nbsp;pad)</code>
+<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of the encoded block size.</div>
 </td>
 </tr>
 </table>
@@ -222,14 +231,14 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
       int&nbsp;len)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#decode(java.lang.Object)">decode</a></strong>(java.lang.Object&nbsp;obj)</code>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#decode(java.lang.Object)">decode</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>
 <div class="block">Decodes an Object using the Base-N algorithm.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#decode(java.lang.String)">decode</a></strong>(java.lang.String&nbsp;pArray)</code>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#decode(java.lang.String)">decode</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;pArray)</code>
 <div class="block">Decodes a String containing characters in the Base-N alphabet.</div>
 </td>
 </tr>
@@ -240,19 +249,19 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encode(java.lang.Object)">encode</a></strong>(java.lang.Object&nbsp;obj)</code>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encode(java.lang.Object)">encode</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>
 <div class="block">Encodes an Object using the Base-N algorithm.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encodeAsString(byte[])">encodeAsString</a></strong>(byte[]&nbsp;pArray)</code>
 <div class="block">Encodes a byte[] containing binary data, into a String containing characters in the appropriate alphabet.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encodeToString(byte[])">encodeToString</a></strong>(byte[]&nbsp;pArray)</code>
 <div class="block">Encodes a byte[] containing binary data, into a String containing characters in the Base-N alphabet.</div>
 </td>
@@ -291,7 +300,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#isInAlphabet(java.lang.String)">isInAlphabet</a></strong>(java.lang.String&nbsp;basen)</code>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#isInAlphabet(java.lang.String)">isInAlphabet</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;basen)</code>
 <div class="block">Tests a given String to see if it contains only valid characters within the alphabet.</div>
 </td>
 </tr>
@@ -306,8 +315,8 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -412,16 +421,32 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <a name="BaseNCodec(int, int, int, int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>BaseNCodec</h4>
 <pre>protected&nbsp;BaseNCodec(int&nbsp;unencodedBlockSize,
           int&nbsp;encodedBlockSize,
           int&nbsp;lineLength,
           int&nbsp;chunkSeparatorLength)</pre>
-<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of <a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#encodedBlockSize"><code>encodedBlockSize</code></a>
+<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of the encoded block size.
  If <code>chunkSeparatorLength</code> is zero, then chunking is disabled.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>unencodedBlockSize</code> - the size of an unencoded block (e.g. Base64 = 3)</dd><dd><code>encodedBlockSize</code> - the size of an encoded block (e.g. Base64 = 4)</dd><dd><code>lineLength</code> - if &gt; 0, use chunking with a length <code>lineLength</code></dd><dd><code>chunkSeparatorLength</code> - the chunk separator length, if relevant</dd></dl>
+</li>
+</ul>
+<a name="BaseNCodec(int, int, int, int, byte)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>BaseNCodec</h4>
+<pre>protected&nbsp;BaseNCodec(int&nbsp;unencodedBlockSize,
+          int&nbsp;encodedBlockSize,
+          int&nbsp;lineLength,
+          int&nbsp;chunkSeparatorLength,
+          byte&nbsp;pad)</pre>
+<div class="block">Note <code>lineLength</code> is rounded down to the nearest multiple of the encoded block size.
+ If <code>chunkSeparatorLength</code> is zero, then chunking is disabled.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>unencodedBlockSize</code> - the size of an unencoded block (e.g. Base64 = 3)</dd><dd><code>encodedBlockSize</code> - the size of an encoded block (e.g. Base64 = 4)</dd><dd><code>lineLength</code> - if &gt; 0, use chunking with a length <code>lineLength</code></dd><dd><code>chunkSeparatorLength</code> - the chunk separator length, if relevant</dd><dd><code>pad</code> - byte used as padding byte.</dd></dl>
 </li>
 </ul>
 </li>
@@ -440,7 +465,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <h4>getDefaultBufferSize</h4>
 <pre>protected&nbsp;int&nbsp;getDefaultBufferSize()</pre>
 <div class="block">Get the default buffer size. Can be overridden.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd><a href="../../../../../../org/apache/tomcat/util/codec/binary/BaseNCodec.html#DEFAULT_BUFFER_SIZE"><code>DEFAULT_BUFFER_SIZE</code></a></dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the default buffer size.</dd></dl>
 </li>
 </ul>
 <a name="ensureBufferSize(int, org.apache.tomcat.util.codec.binary.BaseNCodec.Context)">
@@ -475,8 +500,8 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>encode</h4>
-<pre>public&nbsp;java.lang.Object&nbsp;encode(java.lang.Object&nbsp;obj)
-                        throws <a href="../../../../../../org/apache/tomcat/util/codec/EncoderException.html" title="class in org.apache.tomcat.util.codec">EncoderException</a></pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;encode(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)
+              throws <a href="../../../../../../org/apache/tomcat/util/codec/EncoderException.html" title="class in org.apache.tomcat.util.codec">EncoderException</a></pre>
 <div class="block">Encodes an Object using the Base-N algorithm. This method is provided in order to satisfy the requirements of
  the Encoder interface, and will throw an EncoderException if the supplied object is not of type byte[].</div>
 <dl>
@@ -494,7 +519,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>encodeToString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;encodeToString(byte[]&nbsp;pArray)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encodeToString(byte[]&nbsp;pArray)</pre>
 <div class="block">Encodes a byte[] containing binary data, into a String containing characters in the Base-N alphabet.
  Uses UTF8 encoding.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>pArray</code> - a byte array containing binary data</dd>
@@ -507,7 +532,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>encodeAsString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;encodeAsString(byte[]&nbsp;pArray)</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encodeAsString(byte[]&nbsp;pArray)</pre>
 <div class="block">Encodes a byte[] containing binary data, into a String containing characters in the appropriate alphabet.
  Uses UTF8 encoding.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>pArray</code> - a byte array containing binary data</dd>
@@ -522,8 +547,8 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>decode</h4>
-<pre>public&nbsp;java.lang.Object&nbsp;decode(java.lang.Object&nbsp;obj)
-                        throws <a href="../../../../../../org/apache/tomcat/util/codec/DecoderException.html" title="class in org.apache.tomcat.util.codec">DecoderException</a></pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;decode(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)
+              throws <a href="../../../../../../org/apache/tomcat/util/codec/DecoderException.html" title="class in org.apache.tomcat.util.codec">DecoderException</a></pre>
 <div class="block">Decodes an Object using the Base-N algorithm. This method is provided in order to satisfy the requirements of
  the Decoder interface, and will throw a DecoderException if the supplied object is not of type byte[] or String.</div>
 <dl>
@@ -542,7 +567,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>decode</h4>
-<pre>public&nbsp;byte[]&nbsp;decode(java.lang.String&nbsp;pArray)</pre>
+<pre>public&nbsp;byte[]&nbsp;decode(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;pArray)</pre>
 <div class="block">Decodes a String containing characters in the Base-N alphabet.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>pArray</code> - A String containing Base-N character data</dd>
 <dt><span class="strong">Returns:</span></dt><dd>a byte array containing binary data</dd></dl>
@@ -586,7 +611,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder.html#encode(byte[])">encode</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder.html" title="interface in org.apache.tomcat.util.codec">BinaryEncoder</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>pArray</code> - a byte array containing binary data</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A byte array containing only the basen alphabetic character data</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>A byte array containing only the base N alphabetic character data</dd></dl>
 </li>
 </ul>
 <a name="isInAlphabet(byte)">
@@ -623,7 +648,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <ul class="blockList">
 <li class="blockList">
 <h4>isInAlphabet</h4>
-<pre>public&nbsp;boolean&nbsp;isInAlphabet(java.lang.String&nbsp;basen)</pre>
+<pre>public&nbsp;boolean&nbsp;isInAlphabet(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;basen)</pre>
 <div class="block">Tests a given String to see if it contains only valid characters within the alphabet.
  The method treats whitespace and PAD as valid.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>basen</code> - String to test</dd>
@@ -655,7 +680,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <div class="block">Calculates the amount of space needed to encode the supplied array.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>pArray</code> - byte[] array which will later be encoded</dd>
 <dt><span class="strong">Returns:</span></dt><dd>amount of space needed to encoded the supplied array.
- Returns a long since a max-len array will require > Integer.MAX_VALUE</dd></dl>
+ Returns a long since a max-len array will require &gt; Integer.MAX_VALUE</dd></dl>
 </li>
 </ul>
 </li>
@@ -680,7 +705,7 @@ implements <a href="../../../../../../org/apache/tomcat/util/codec/BinaryEncoder
 <li><a href="../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ExpiresFilter (Apache Tomcat 7.0.96 API Documentation)</title>
+<title>ExpiresFilter (Apache Tomcat 7.0.99 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ExpiresFilter (Apache Tomcat 7.0.96 API Documentation)";
+        parent.document.title="ExpiresFilter (Apache Tomcat 7.0.99 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>java.lang.Object</li>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li><a href="../../../../org/apache/catalina/filters/FilterBase.html" title="class in org.apache.catalina.filters">org.apache.catalina.filters.FilterBase</a></li>
@@ -100,7 +100,7 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></dd>
+<dd><a href="../../../../javax/servlet/Filter.html" title="interface in javax.servlet">Filter</a></dd>
 </dl>
 <hr>
 <br>
@@ -118,7 +118,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  Following documentation is inspired by <a
  href="https://httpd.apache.org/docs/2.2/mod/mod_expires.html">mod_expires</a>
  </p>
- <h1>Summary</h1>
+ <h2>Summary</h2>
  <p>
  This filter controls the setting of the <code>Expires</code> HTTP header and the
  <code>max-age</code> directive of the <code>Cache-Control</code> HTTP header in
@@ -139,9 +139,9 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  href="https://httpd.apache.org/docs/2.2/mod/mod_headers.html" >Apache Httpd
  mod_headers</a> module.
  </p>
- <h1>Filter Configuration</h1><h2>Basic configuration to add
+ <h2>Filter Configuration</h2><h3>Basic configuration to add
  '<code>Expires</code>' and '<code>Cache-Control: max-age=</code>'
- headers to images, css and javascript</h2>
+ headers to images, css and javascript</h3>
 
  <pre>
  <code>&lt;web-app ...&gt;
@@ -173,9 +173,9 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  </code>
  </pre>
 
- <h2>Configuration Parameters</h2>
+ <h3>Configuration Parameters</h3>
 
- <h3><code>ExpiresByType &lt;content-type&gt;</code></h3>
+ <h4><code>ExpiresByType &lt;content-type&gt;</code></h4>
  <p>
  This directive defines the value of the <code>Expires</code> header and the
  <code>max-age</code> directive of the <code>Cache-Control</code> header generated for
@@ -231,8 +231,8 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  You can also specify the expiration time calculation using an alternate
  syntax, described earlier in this document.
  </p>
- <h3>
- <code>ExpiresExcludedResponseStatusCodes</code></h3>
+ <h4>
+ <code>ExpiresExcludedResponseStatusCodes</code></h4>
  <p>
  This directive defines the http response status codes for which the
  <code>ExpiresFilter</code> will not generate expiration headers. By default, the
@@ -258,7 +258,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  </code>
  </pre>
 
- <h3>ExpiresDefault</h3>
+ <h4>ExpiresDefault</h4>
  <p>
  This directive sets the default algorithm for calculating the expiration time
  for all documents in the affected realm. It can be overridden on a
@@ -266,7 +266,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  description of that directive for details about the syntax of the argument,
  and the "alternate syntax" description as well.
  </p>
- <h1>Alternate Syntax</h1>
+ <h2>Alternate Syntax</h2>
  <p>
  The <code>ExpiresDefault</code> and <code>ExpiresByType</code> directives can also be
  defined in a more readable syntax of the form:
@@ -275,27 +275,28 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <pre>
  <code>&lt;init-param&gt;
     &lt;param-name&gt;ExpiresDefault&lt;/param-name&gt;
-    &lt;param-value&gt;&lt;base&gt; [plus] {&lt;num&gt; &lt;type&gt;}*&lt;/param-value&gt;
+    &lt;param-value&gt;&lt;base&gt; [plus] (&lt;num&gt; &lt;type&gt;)*&lt;/param-value&gt;
  &lt;/init-param&gt;
 
  &lt;init-param&gt;
     &lt;param-name&gt;ExpiresByType type/encoding&lt;/param-name&gt;
-    &lt;param-value&gt;&lt;base&gt; [plus] {&lt;num&gt; &lt;type&gt;}*&lt;/param-value&gt;
+    &lt;param-value&gt;&lt;base&gt; [plus] (&lt;num&gt; &lt;type&gt;)*&lt;/param-value&gt;
  &lt;/init-param&gt;
  </code>
  </pre>
  <p>
  where <code>&lt;base&gt;</code> is one of:
+ </p>
  <ul>
  <li><code>access</code></li>
  <li><code>now</code> (equivalent to &#x27;<code>access</code>&#x27;)</li>
  <li><code>modification</code></li>
  </ul>
- </p>
  <p>
  The <code>plus</code> keyword is optional. <code>&lt;num&gt;</code> should be an
  integer value (acceptable to <code>Integer.parseInt()</code>), and
  <code>&lt;type&gt;</code> is one of:
+ </p>
  <ul>
  <li><code>years</code></li>
  <li><code>months</code></li>
@@ -305,6 +306,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <li><code>minutes</code></li>
  <li><code>seconds</code></li>
  </ul>
+ <p>
  For example, any of the following directives can be used to make documents
  expire 1 month after being accessed, by default:
  </p>
@@ -349,9 +351,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  a file on disk. This is due to the fact that there is no modification time
  for such content.
  </p>
- <h1>Expiration headers generation eligibility</h1>
+ <h2>Expiration headers generation eligibility</h2>
  <p>
  A response is eligible to be enriched by <code>ExpiresFilter</code> if :
+ </p>
  <ol>
  <li>no expiration header is defined (<code>Expires</code> header or the
  <code>max-age</code> directive of the <code>Cache-Control</code> header),</li>
@@ -361,18 +364,18 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  defined the in <code>ExpiresByType</code> directives or the
  <code>ExpiresDefault</code> directive is defined.</li>
  </ol>
- </p>
  <p>
  Note :
+ </p>
  <ul>
  <li>If <code>Cache-Control</code> header contains other directives than
  <code>max-age</code>, they are concatenated with the <code>max-age</code> directive
  that is added by the <code>ExpiresFilter</code>.</li>
  </ul>
- </p>
- <h1>Expiration configuration selection</h1>
+ <h2>Expiration configuration selection</h2>
  <p>
  The expiration configuration if elected according to the following algorithm:
+ </p>
  <ol>
  <li><code>ExpiresByType</code> matching the exact content-type returned by
  <code>HttpServletResponse.getContentType()</code> possibly including the charset
@@ -386,8 +389,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  &#x27;),</li>
  <li><code>ExpiresDefault</code></li>
  </ol>
- </p>
- <h1>Implementation Details</h1><h2>When to write the expiration headers ?</h2>
+ <h2>Implementation Details</h2><h3>When to write the expiration headers ?</h3>
  <p>
  The <code>ExpiresFilter</code> traps the &#x27;on before write response
  body&#x27; event to decide whether it should generate expiration headers or
@@ -403,7 +405,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  case, the <code>ExpiresFilter</code>, at the end of its <code>doFilter()</code>
  method, manually triggers the <code>onBeforeWriteResponseBody()</code> method.
  </p>
- <h2>Configuration syntax</h2>
+ <h3>Configuration syntax</h3>
  <p>
  The <code>ExpiresFilter</code> supports the same configuration syntax as Apache
  Httpd mod_expires.
@@ -419,13 +421,14 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  The workaround has been to declare the content type in the
  <code>&lt;param-name&gt;</code> rather than in the <code>&lt;param-value&gt;</code>.
  </p>
- <h2>Designed for extension : the open/close principle</h2>
+ <h3>Designed for extension : the open/close principle</h3>
  <p>
  The <code>ExpiresFilter</code> has been designed for extension following the
  open/close principle.
  </p>
  <p>
  Key methods to override for extension are :
+ </p>
  <ul>
  <li>
  <a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isEligibleToExpirationHeaderGeneration(javax.servlet.http.HttpServletRequest,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)"><code>isEligibleToExpirationHeaderGeneration(HttpServletRequest, XHttpServletResponse)</code></a>
@@ -433,8 +436,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <li>
  <a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExpirationDate(org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)"><code>getExpirationDate(XHttpServletResponse)</code></a></li>
  </ul>
- </p>
- <h1>Troubleshooting</h1>
+ <h2>Troubleshooting</h2>
  <p>
  To troubleshoot, enable logging on the
  <code>org.apache.catalina.filters.ExpiresFilter</code>.
@@ -443,14 +445,14 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  Extract of logging.properties
  </p>
 
- <code><pre>
+ <code>
  org.apache.catalina.filters.ExpiresFilter.level = FINE
- </pre></code>
+ </code>
  <p>
  Sample of initialization log message :
  </p>
 
- <code><pre>
+ <code>
  Mar 26, 2010 2:01:41 PM org.apache.catalina.filters.ExpiresFilter init
  FINE: Filter initialized with configuration ExpiresFilter[
     excludedResponseStatusCode=[304],
@@ -459,25 +461,25 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
        image=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]],
        text/css=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]],
        application/javascript=ExpiresConfiguration[startingPoint=ACCESS_TIME, duration=[10 MINUTE]]}]
- </pre></code>
+ </code>
  <p>
  Sample of per-request log message where <code>ExpiresFilter</code> adds an
  expiration date
  </p>
 
- <code><pre>
+ <code>
  Mar 26, 2010 2:09:47 PM org.apache.catalina.filters.ExpiresFilter onBeforeWriteResponseBody
  FINE: Request "/tomcat.gif" with response status "200" content-type "image/gif", set expiration date 3/26/10 2:19 PM
- </pre></code>
+ </code>
  <p>
  Sample of per-request log message where <code>ExpiresFilter</code> does not add
  an expiration date
  </p>
 
- <code><pre>
+ <code>
  Mar 26, 2010 2:10:27 PM org.apache.catalina.filters.ExpiresFilter onBeforeWriteResponseBody
  FINE: Request "/docs/config/manager.html" with response status "200" content-type "text/html", no expiration configured
- </pre></code></div>
+ </code></div>
 </li>
 </ul>
 </div>
@@ -525,21 +527,21 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a></strong></code>
 <div class="block">
- Wrapping extension of the <a href="../../../../../servletapi/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServletResponse</code></a> to yrap the
+ Wrapping extension of the <a href="../../../../javax/servlet/http/HttpServletResponse.html" title="interface in javax.servlet.http"><code>HttpServletResponse</code></a> to yrap the
  "Start Write Response Body" event.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.XPrintWriter.html" title="class in org.apache.catalina.filters">ExpiresFilter.XPrintWriter</a></strong></code>
-<div class="block">Wrapping extension of <code>PrintWriter</code> to trap the
+<div class="block">Wrapping extension of <a href="https://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io"><code>PrintWriter</code></a> to trap the
  "Start Write Response Body" event.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.XServletOutputStream.html" title="class in org.apache.catalina.filters">ExpiresFilter.XServletOutputStream</a></strong></code>
-<div class="block">Wrapping extension of <a href="../../../../../servletapi/javax/servlet/ServletOutputStream.html?is-external=true" title="class or interface in javax.servlet"><code>ServletOutputStream</code></a> to trap the
+<div class="block">Wrapping extension of <a href="../../../../javax/servlet/ServletOutputStream.html" title="class in javax.servlet"><code>ServletOutputStream</code></a> to trap the
  "Start Write Response Body" event.</div>
 </td>
 </tr>
@@ -592,29 +594,26 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static int[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#commaDelimitedListToIntArray(java.lang.String)">commaDelimitedListToIntArray</a></strong>(java.lang.String&nbsp;commaDelimitedInts)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#commaDelimitedListToIntArray(java.lang.String)">commaDelimitedListToIntArray</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commaDelimitedInts)</code>
 <div class="block">Convert a comma delimited list of numbers into an <code>int[]</code>.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected static java.lang.String[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#commaDelimitedListToStringArray(java.lang.String)">commaDelimitedListToStringArray</a></strong>(java.lang.String&nbsp;commaDelimitedStrings)</code>
+<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#commaDelimitedListToStringArray(java.lang.String)">commaDelimitedListToStringArray</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commaDelimitedStrings)</code>
 <div class="block">Convert a given comma delimited list of strings into an array of String</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#contains(java.lang.String,%20java.lang.String)">contains</a></strong>(java.lang.String&nbsp;str,
-        java.lang.String&nbsp;searchStr)</code>
-<div class="block">Return <code>true</code> if the given <code>str</code> contains the given
- <code>searchStr</code>.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#contains(java.lang.String,%20java.lang.String)">contains</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str,
+        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;searchStr)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">doFilter</a></strong>(<a href="../../../../../servletapi/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a>&nbsp;request,
-        <a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true" title="class or interface in javax.servlet">ServletResponse</a>&nbsp;response,
-        <a href="../../../../../servletapi/javax/servlet/FilterChain.html?is-external=true" title="class or interface in javax.servlet">FilterChain</a>&nbsp;chain)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">doFilter</a></strong>(<a href="../../../../javax/servlet/ServletRequest.html" title="interface in javax.servlet">ServletRequest</a>&nbsp;request,
+        <a href="../../../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;response,
+        <a href="../../../../javax/servlet/FilterChain.html" title="interface in javax.servlet">FilterChain</a>&nbsp;chain)</code>
 <div class="block">The <code>doFilter</code> method of the Filter is called by the container
  each time a request/response pair is passed through the chain due to a
  client request for a resource at the end of the chain.</div>
@@ -625,7 +624,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getDefaultExpiresConfiguration()">getDefaultExpiresConfiguration</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExcludedResponseStatusCodes()">getExcludedResponseStatusCodes</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -633,16 +632,16 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExcludedResponseStatusCodesAsInts()">getExcludedResponseStatusCodesAsInts</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected java.util.Date</code></td>
+<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExpirationDate(org.apache.catalina.filters.ExpiresFilter.ExpiresConfiguration,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">getExpirationDate</a></strong>(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&nbsp;configuration,
                  <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</code>
 <div class="block">
  Returns the expiration date of the given <a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.ExpiresConfiguration</code></a>,
- <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServletRequest</code></a> and <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a>.</div>
+ <a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http"><code>HttpServletRequest</code></a> and <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.Date</code></td>
+<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExpirationDate(org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">getExpirationDate</a></strong>(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</code>
 <div class="block">
  Returns the expiration date of the given <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a> or
@@ -651,7 +650,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.util.Map&lt;java.lang.String,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#getExpiresConfigurationByContentType()">getExpiresConfigurationByContentType</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -660,21 +659,21 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#init(javax.servlet.FilterConfig)">init</a></strong>(<a href="../../../../../servletapi/javax/servlet/FilterConfig.html?is-external=true" title="class or interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#init(javax.servlet.FilterConfig)">init</a></strong>(<a href="../../../../javax/servlet/FilterConfig.html" title="interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)</code>
 <div class="block">Iterates over the configuration parameters and either logs a warning,
  or throws an exception for any parameter that does not have a matching
  setter in this filter.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#intsToCommaDelimitedString(int[])">intsToCommaDelimitedString</a></strong>(int[]&nbsp;ints)</code>
 <div class="block">Convert an array of ints into a comma delimited string</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isEligibleToExpirationHeaderGeneration(javax.servlet.http.HttpServletRequest,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">isEligibleToExpirationHeaderGeneration</a></strong>(<a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isEligibleToExpirationHeaderGeneration(javax.servlet.http.HttpServletRequest,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">isEligibleToExpirationHeaderGeneration</a></strong>(<a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                                       <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</code>
 <div class="block">
  <code>protected</code> for extension.</div>
@@ -682,21 +681,15 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isEmpty(java.lang.String)">isEmpty</a></strong>(java.lang.String&nbsp;str)</code>
-<div class="block">Return <code>true</code> if the given <code>str</code> is
- <code>null</code> or has a zero characters length.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isEmpty(java.lang.String)">isEmpty</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isNotEmpty(java.lang.String)">isNotEmpty</a></strong>(java.lang.String&nbsp;str)</code>
-<div class="block">Return <code>true</code> if the given <code>str</code> has at least one
- character (can be a withespace).</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#isNotEmpty(java.lang.String)">isNotEmpty</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#onBeforeWriteResponseBody(javax.servlet.http.HttpServletRequest,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">onBeforeWriteResponseBody</a></strong>(<a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#onBeforeWriteResponseBody(javax.servlet.http.HttpServletRequest,%20org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">onBeforeWriteResponseBody</a></strong>(<a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                          <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</code>
 <div class="block">
  If no expiration header has been set by the servlet and an expiration has
@@ -707,7 +700,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#parseExpiresConfiguration(java.lang.String)">parseExpiresConfiguration</a></strong>(java.lang.String&nbsp;inputLine)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#parseExpiresConfiguration(java.lang.String)">parseExpiresConfiguration</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inputLine)</code>
 <div class="block">Parse configuration lines like
  '<code>access plus 1 month 15 days 2 hours</code>' or
  '<code>modification 1 day 2 hours 5 seconds</code>'</div>
@@ -723,26 +716,20 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#setExpiresConfigurationByContentType(java.util.Map)">setExpiresConfigurationByContentType</a></strong>(java.util.Map&lt;java.lang.String,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;expiresConfigurationByContentType)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#setExpiresConfigurationByContentType(java.util.Map)">setExpiresConfigurationByContentType</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;expiresConfigurationByContentType)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#startsWithIgnoreCase(java.lang.String,%20java.lang.String)">startsWithIgnoreCase</a></strong>(java.lang.String&nbsp;string,
-                    java.lang.String&nbsp;prefix)</code>
-<div class="block">Return <code>true</code> if the given <code>string</code> starts with the
- given <code>prefix</code> ignoring case.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#startsWithIgnoreCase(java.lang.String,%20java.lang.String)">startsWithIgnoreCase</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string,
+                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#substringBefore(java.lang.String,%20java.lang.String)">substringBefore</a></strong>(java.lang.String&nbsp;str,
-               java.lang.String&nbsp;separator)</code>
-<div class="block">Return the subset of the given <code>str</code> that is before the first
- occurrence of the given <code>separator</code>.</div>
-</td>
+<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#substringBefore(java.lang.String,%20java.lang.String)">substringBefore</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str,
+               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;separator)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/ExpiresFilter.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
@@ -757,8 +744,8 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -797,7 +784,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>commaDelimitedListToIntArray</h4>
-<pre>protected static&nbsp;int[]&nbsp;commaDelimitedListToIntArray(java.lang.String&nbsp;commaDelimitedInts)</pre>
+<pre>protected static&nbsp;int[]&nbsp;commaDelimitedListToIntArray(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commaDelimitedInts)</pre>
 <div class="block">Convert a comma delimited list of numbers into an <code>int[]</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>commaDelimitedInts</code> - can be <code>null</code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>never <code>null</code> array</dd></dl>
@@ -809,9 +796,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>commaDelimitedListToStringArray</h4>
-<pre>protected static&nbsp;java.lang.String[]&nbsp;commaDelimitedListToStringArray(java.lang.String&nbsp;commaDelimitedStrings)</pre>
+<pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;commaDelimitedListToStringArray(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commaDelimitedStrings)</pre>
 <div class="block">Convert a given comma delimited list of strings into an array of String</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>array of patterns (non <code>null</code>)</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>commaDelimitedStrings</code> - the string to be split</dd>
+<dt><span class="strong">Returns:</span></dt><dd>array of patterns (non <code>null</code>)</dd></dl>
 </li>
 </ul>
 <a name="contains(java.lang.String, java.lang.String)">
@@ -820,10 +808,11 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>contains</h4>
-<pre>protected static&nbsp;boolean&nbsp;contains(java.lang.String&nbsp;str,
-               java.lang.String&nbsp;searchStr)</pre>
-<div class="block">Return <code>true</code> if the given <code>str</code> contains the given
- <code>searchStr</code>.</div>
+<pre>protected static&nbsp;boolean&nbsp;contains(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str,
+               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;searchStr)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - String that will be searched</dd><dd><code>searchStr</code> - The substring to search</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given <code>str</code> contains the given
+ <code>searchStr</code>.</dd></dl>
 </li>
 </ul>
 <a name="intsToCommaDelimitedString(int[])">
@@ -832,8 +821,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>intsToCommaDelimitedString</h4>
-<pre>protected static&nbsp;java.lang.String&nbsp;intsToCommaDelimitedString(int[]&nbsp;ints)</pre>
+<pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;intsToCommaDelimitedString(int[]&nbsp;ints)</pre>
 <div class="block">Convert an array of ints into a comma delimited string</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>ints</code> - The int array</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a comma separated string</dd></dl>
 </li>
 </ul>
 <a name="isEmpty(java.lang.String)">
@@ -842,9 +833,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>isEmpty</h4>
-<pre>protected static&nbsp;boolean&nbsp;isEmpty(java.lang.String&nbsp;str)</pre>
-<div class="block">Return <code>true</code> if the given <code>str</code> is
- <code>null</code> or has a zero characters length.</div>
+<pre>protected static&nbsp;boolean&nbsp;isEmpty(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - The String to check</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given <code>str</code> is
+ <code>null</code> or has a zero characters length.</dd></dl>
 </li>
 </ul>
 <a name="isNotEmpty(java.lang.String)">
@@ -853,9 +845,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>isNotEmpty</h4>
-<pre>protected static&nbsp;boolean&nbsp;isNotEmpty(java.lang.String&nbsp;str)</pre>
-<div class="block">Return <code>true</code> if the given <code>str</code> has at least one
- character (can be a withespace).</div>
+<pre>protected static&nbsp;boolean&nbsp;isNotEmpty(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - The String to check</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given <code>str</code> has at least one
+ character (can be a withespace).</dd></dl>
 </li>
 </ul>
 <a name="startsWithIgnoreCase(java.lang.String, java.lang.String)">
@@ -864,11 +857,11 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>startsWithIgnoreCase</h4>
-<pre>protected static&nbsp;boolean&nbsp;startsWithIgnoreCase(java.lang.String&nbsp;string,
-                           java.lang.String&nbsp;prefix)</pre>
-<div class="block">Return <code>true</code> if the given <code>string</code> starts with the
- given <code>prefix</code> ignoring case.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - can be <code>null</code></dd><dd><code>prefix</code> - can be <code>null</code></dd></dl>
+<pre>protected static&nbsp;boolean&nbsp;startsWithIgnoreCase(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string,
+                           <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;prefix)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - can be <code>null</code></dd><dd><code>prefix</code> - can be <code>null</code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given <code>string</code> starts with the
+ given <code>prefix</code> ignoring case.</dd></dl>
 </li>
 </ul>
 <a name="substringBefore(java.lang.String, java.lang.String)">
@@ -877,13 +870,13 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>substringBefore</h4>
-<pre>protected static&nbsp;java.lang.String&nbsp;substringBefore(java.lang.String&nbsp;str,
-                               java.lang.String&nbsp;separator)</pre>
-<div class="block">Return the subset of the given <code>str</code> that is before the first
+<pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;substringBefore(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;str,
+                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;separator)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - can be <code>null</code></dd><dd><code>separator</code> - can be <code>null</code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the subset of the given <code>str</code> that is before the first
  occurrence of the given <code>separator</code>. Return <code>null</code>
  if the given <code>str</code> or the given <code>separator</code> is
- null. Return and empty string if the <code>separator</code> is empty.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>str</code> - can be <code>null</code></dd><dd><code>separator</code> - can be <code>null</code></dd></dl>
+ null. Return and empty string if the <code>separator</code> is empty.</dd></dl>
 </li>
 </ul>
 <a name="doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)">
@@ -892,12 +885,12 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>doFilter</h4>
-<pre>public&nbsp;void&nbsp;doFilter(<a href="../../../../../servletapi/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a>&nbsp;request,
-            <a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true" title="class or interface in javax.servlet">ServletResponse</a>&nbsp;response,
-            <a href="../../../../../servletapi/javax/servlet/FilterChain.html?is-external=true" title="class or interface in javax.servlet">FilterChain</a>&nbsp;chain)
-              throws java.io.IOException,
-                     <a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)" title="class or interface in javax.servlet">javax.servlet.Filter</a></code></strong></div>
+<pre>public&nbsp;void&nbsp;doFilter(<a href="../../../../javax/servlet/ServletRequest.html" title="interface in javax.servlet">ServletRequest</a>&nbsp;request,
+            <a href="../../../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;response,
+            <a href="../../../../javax/servlet/FilterChain.html" title="interface in javax.servlet">FilterChain</a>&nbsp;chain)
+              throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                     <a href="../../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../javax/servlet/Filter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">Filter</a></code></strong></div>
 <div class="block">The <code>doFilter</code> method of the Filter is called by the container
  each time a request/response pair is passed through the chain due to a
  client request for a resource at the end of the chain. The FilterChain
@@ -921,9 +914,9 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
                  filter to pass the request and response to for further
                  processing</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.io.IOException</code> - if an I/O error occurs during this filter's
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs during this filter's
                      processing of the request</dd>
-<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if the processing fails for any other reason</dd></dl>
+<dd><code><a href="../../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></code> - if the processing fails for any other reason</dd></dl>
 </li>
 </ul>
 <a name="getDefaultExpiresConfiguration()">
@@ -941,7 +934,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>getExcludedResponseStatusCodes</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getExcludedResponseStatusCodes()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getExcludedResponseStatusCodes()</pre>
 </li>
 </ul>
 <a name="getExcludedResponseStatusCodesAsInts()">
@@ -959,7 +952,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>getExpirationDate</h4>
-<pre>protected&nbsp;java.util.Date&nbsp;getExpirationDate(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;getExpirationDate(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
 <div class="block"><p>
  Returns the expiration date of the given <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a> or
  <code>null</code> if no expiration date has been configured for the
@@ -968,7 +961,8 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <p>
  <code>protected</code> for extension.
  </p></div>
-<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true#getContentType()" title="class or interface in javax.servlet"><code>ServletResponse.getContentType()</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>response</code> - The Servlet response</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the expiration date</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../javax/servlet/ServletResponse.html#getContentType()"><code>ServletResponse.getContentType()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getExpirationDate(org.apache.catalina.filters.ExpiresFilter.ExpiresConfiguration, org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">
@@ -977,15 +971,17 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>getExpirationDate</h4>
-<pre>protected&nbsp;java.util.Date&nbsp;getExpirationDate(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&nbsp;configuration,
-                               <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;getExpirationDate(<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&nbsp;configuration,
+                     <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
 <div class="block"><p>
  Returns the expiration date of the given <a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.ExpiresConfiguration</code></a>,
- <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServletRequest</code></a> and <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a>.
+ <a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http"><code>HttpServletRequest</code></a> and <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters"><code>ExpiresFilter.XHttpServletResponse</code></a>.
  </p>
  <p>
  <code>protected</code> for extension.
  </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configuration</code> - The parsed expires</dd><dd><code>response</code> - The Servlet response</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the expiration date</dd></dl>
 </li>
 </ul>
 <a name="getExpiresConfigurationByContentType()">
@@ -994,7 +990,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>getExpiresConfigurationByContentType</h4>
-<pre>public&nbsp;java.util.Map&lt;java.lang.String,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;getExpiresConfigurationByContentType()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;getExpiresConfigurationByContentType()</pre>
 </li>
 </ul>
 <a name="getLogger()">
@@ -1016,21 +1012,21 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>init</h4>
-<pre>public&nbsp;void&nbsp;init(<a href="../../../../../servletapi/javax/servlet/FilterConfig.html?is-external=true" title="class or interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)
-          throws <a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></pre>
+<pre>public&nbsp;void&nbsp;init(<a href="../../../../javax/servlet/FilterConfig.html" title="interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)
+          throws <a href="../../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></pre>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/filters/FilterBase.html#init(javax.servlet.FilterConfig)">FilterBase</a></code></strong></div>
 <div class="block">Iterates over the configuration parameters and either logs a warning,
  or throws an exception for any parameter that does not have a matching
  setter in this filter.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true#init(javax.servlet.FilterConfig)" title="class or interface in javax.servlet">init</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
+<dd><code><a href="../../../../javax/servlet/Filter.html#init(javax.servlet.FilterConfig)">init</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/servlet/Filter.html" title="interface in javax.servlet">Filter</a></code></dd>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/filters/FilterBase.html#init(javax.servlet.FilterConfig)">init</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/filters/FilterBase.html" title="class in org.apache.catalina.filters">FilterBase</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>filterConfig</code> - The configuration information associated with the
                      filter instance being initialised</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../servletapi/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - if <a href="../../../../org/apache/catalina/filters/FilterBase.html#isConfigProblemFatal()"><code>FilterBase.isConfigProblemFatal()</code></a> returns
+<dd><code><a href="../../../../javax/servlet/ServletException.html" title="class in javax.servlet">ServletException</a></code> - if <a href="../../../../org/apache/catalina/filters/FilterBase.html#isConfigProblemFatal()"><code>FilterBase.isConfigProblemFatal()</code></a> returns
                           <code>true</code> and a configured parameter does not
                           have a matching setter</dd></dl>
 </li>
@@ -1041,11 +1037,13 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>isEligibleToExpirationHeaderGeneration</h4>
-<pre>protected&nbsp;boolean&nbsp;isEligibleToExpirationHeaderGeneration(<a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<pre>protected&nbsp;boolean&nbsp;isEligibleToExpirationHeaderGeneration(<a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                                              <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
 <div class="block"><p>
  <code>protected</code> for extension.
  </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The Servlet request</dd><dd><code>response</code> - The Servlet response</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if an expire header may be added</dd></dl>
 </li>
 </ul>
 <a name="onBeforeWriteResponseBody(javax.servlet.http.HttpServletRequest, org.apache.catalina.filters.ExpiresFilter.XHttpServletResponse)">
@@ -1054,7 +1052,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>onBeforeWriteResponseBody</h4>
-<pre>public&nbsp;void&nbsp;onBeforeWriteResponseBody(<a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<pre>public&nbsp;void&nbsp;onBeforeWriteResponseBody(<a href="../../../../javax/servlet/http/HttpServletRequest.html" title="interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                              <a href="../../../../org/apache/catalina/filters/ExpiresFilter.XHttpServletResponse.html" title="class in org.apache.catalina.filters">ExpiresFilter.XHttpServletResponse</a>&nbsp;response)</pre>
 <div class="block"><p>
  If no expiration header has been set by the servlet and an expiration has
@@ -1068,10 +1066,11 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  <p>
  Invocations to <code>Logger.debug(...)</code> are guarded by
  <a href="../../../../org/apache/juli/logging/Log.html#isDebugEnabled()"><code>Log.isDebugEnabled()</code></a> because
- <a href="../../../../../servletapi/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a> and
- <a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true#getContentType()" title="class or interface in javax.servlet"><code>ServletResponse.getContentType()</code></a> costs <code>String</code>
+ <a href="../../../../javax/servlet/http/HttpServletRequest.html#getRequestURI()"><code>HttpServletRequest.getRequestURI()</code></a> and
+ <a href="../../../../javax/servlet/ServletResponse.html#getContentType()"><code>ServletResponse.getContentType()</code></a> costs <code>String</code>
  objects instantiations (as of Tomcat 7).
  </p></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The Servlet request</dd><dd><code>response</code> - The Servlet response</dd></dl>
 </li>
 </ul>
 <a name="parseExpiresConfiguration(java.lang.String)">
@@ -1080,11 +1079,12 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>parseExpiresConfiguration</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&nbsp;parseExpiresConfiguration(java.lang.String&nbsp;inputLine)</pre>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&nbsp;parseExpiresConfiguration(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inputLine)</pre>
 <div class="block">Parse configuration lines like
  '<code>access plus 1 month 15 days 2 hours</code>' or
  '<code>modification 1 day 2 hours 5 seconds</code>'</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>inputLine</code> - </dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>inputLine</code> - the input</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the parsed expires</dd></dl>
 </li>
 </ul>
 <a name="setDefaultExpiresConfiguration(org.apache.catalina.filters.ExpiresFilter.ExpiresConfiguration)">
@@ -1111,7 +1111,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>setExpiresConfigurationByContentType</h4>
-<pre>public&nbsp;void&nbsp;setExpiresConfigurationByContentType(java.util.Map&lt;java.lang.String,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;expiresConfigurationByContentType)</pre>
+<pre>public&nbsp;void&nbsp;setExpiresConfigurationByContentType(<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/catalina/filters/ExpiresFilter.ExpiresConfiguration.html" title="class in org.apache.catalina.filters">ExpiresFilter.ExpiresConfiguration</a>&gt;&nbsp;expiresConfigurationByContentType)</pre>
 </li>
 </ul>
 <a name="toString()">
@@ -1120,10 +1120,10 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -1149,7 +1149,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

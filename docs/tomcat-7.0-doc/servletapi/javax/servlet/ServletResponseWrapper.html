@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ServletResponseWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.96)</title>
+<title>ServletResponseWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.99)</title>
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ServletResponseWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.96)";
+        parent.document.title="ServletResponseWrapper (Servlet 3.0 API Documentation - Apache Tomcat 7.0.99)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../index-all.html">Index</a></li>
 <li><a href="../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -112,8 +112,6 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
  calling through to the wrapped response object.</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>v 2.3</dd>
-<dt><span class="strong">Author:</span></dt>
-  <dd>Various</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet"><code>ServletResponse</code></a></dd></dl>
 </li>
 </ul>
@@ -216,11 +214,15 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../javax/servlet/ServletResponseWrapper.html#isWrapperFor(java.lang.Class)">isWrapperFor</a></strong>(java.lang.Class&nbsp;wrappedType)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../javax/servlet/ServletResponseWrapper.html#isWrapperFor(java.lang.Class)">isWrapperFor</a></strong>(java.lang.Class&nbsp;wrappedType)</code>
+<div class="block">TODO SERVLET3 - Add comments</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../javax/servlet/ServletResponseWrapper.html#isWrapperFor(javax.servlet.ServletResponse)">isWrapperFor</a></strong>(<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;wrapped)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../javax/servlet/ServletResponseWrapper.html#isWrapperFor(javax.servlet.ServletResponse)">isWrapperFor</a></strong>(<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;wrapped)</code>
+<div class="block">TODO SERVLET3 - Add comments</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -307,7 +309,8 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <h4>ServletResponseWrapper</h4>
 <pre>public&nbsp;ServletResponseWrapper(<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;response)</pre>
 <div class="block">Creates a ServletResponse adaptor wrapping the given response object.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>response</code> - The response to wrap</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if the response is null.</dd></dl>
 </li>
 </ul>
@@ -327,6 +330,7 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <h4>getResponse</h4>
 <pre>public&nbsp;<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;getResponse()</pre>
 <div class="block">Return the wrapped ServletResponse object.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The wrapped ServletResponse object.</dd></dl>
 </li>
 </ul>
 <a name="setResponse(javax.servlet.ServletResponse)">
@@ -337,7 +341,8 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <h4>setResponse</h4>
 <pre>public&nbsp;void&nbsp;setResponse(<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;response)</pre>
 <div class="block">Sets the response being wrapped.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>response</code> - The new response to wrap</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if the response is null.</dd></dl>
 </li>
 </ul>
@@ -517,7 +522,7 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../javax/servlet/ServletResponse.html#flushBuffer()">flushBuffer</a></code>&nbsp;in interface&nbsp;<code><a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../javax/servlet/ServletResponse.html#setBufferSize(int)"><code>ServletResponse.setBufferSize(int)</code></a>, 
+<dd><code>java.io.IOException</code> - if an I/O occurs during the flushing of the response</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../javax/servlet/ServletResponse.html#setBufferSize(int)"><code>ServletResponse.setBufferSize(int)</code></a>, 
 <a href="../../javax/servlet/ServletResponse.html#getBufferSize()"><code>ServletResponse.getBufferSize()</code></a>, 
 <a href="../../javax/servlet/ServletResponse.html#isCommitted()"><code>ServletResponse.isCommitted()</code></a>, 
 <a href="../../javax/servlet/ServletResponse.html#reset()"><code>ServletResponse.reset()</code></a></dd></dl>
@@ -606,7 +611,9 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../javax/servlet/ServletResponse.html#getLocale()">getLocale</a></code>&nbsp;in interface&nbsp;<code><a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a></code></dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="../../javax/servlet/ServletResponse.html#setLocale(java.util.Locale)"><code>ServletResponse.setLocale(java.util.Locale)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The locale specified for this response using the
+          <a href="../../javax/servlet/ServletResponse.html#setLocale(java.util.Locale)"><code>ServletResponse.setLocale(java.util.Locale)</code></a> method. If no locale has been specified, the
+          container's default locale is returned.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../javax/servlet/ServletResponse.html#setLocale(java.util.Locale)"><code>ServletResponse.setLocale(java.util.Locale)</code></a></dd></dl>
 </li>
 </ul>
 <a name="isWrapperFor(javax.servlet.ServletResponse)">
@@ -616,8 +623,12 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <li class="blockList">
 <h4>isWrapperFor</h4>
 <pre>public&nbsp;boolean&nbsp;isWrapperFor(<a href="../../javax/servlet/ServletResponse.html" title="interface in javax.servlet">ServletResponse</a>&nbsp;wrapped)</pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>wrapped</code> - </dd><dt><span class="strong">Since:</span></dt>
-  <dd>Servlet 3.0 TODO SERVLET3 - Add comments</dd></dl>
+<div class="block">TODO SERVLET3 - Add comments</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>wrapped</code> - The response to compare to the wrapped response</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the response wrapped by this wrapper (or
+         series of wrappers) is the same as the supplied response,
+         otherwise <code>false</code></dd><dt><span class="strong">Since:</span></dt>
+  <dd>Servlet 3.0</dd></dl>
 </li>
 </ul>
 <a name="isWrapperFor(java.lang.Class)">
@@ -627,8 +638,13 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <li class="blockList">
 <h4>isWrapperFor</h4>
 <pre>public&nbsp;boolean&nbsp;isWrapperFor(java.lang.Class&nbsp;wrappedType)</pre>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>wrappedType</code> - </dd><dt><span class="strong">Since:</span></dt>
-  <dd>Servlet 3.0 TODO SERVLET3 - Add comments</dd></dl>
+<div class="block">TODO SERVLET3 - Add comments</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>wrappedType</code> - The class to compare to the class of the wrapped
+                    response</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the response wrapped by this wrapper (or
+         series of wrappers) is the same type as the supplied type,
+         otherwise <code>false</code></dd><dt><span class="strong">Since:</span></dt>
+  <dd>Servlet 3.0</dd></dl>
 </li>
 </ul>
 </li>
@@ -653,7 +669,7 @@ implements <a href="../../javax/servlet/ServletResponse.html" title="interface i
 <li><a href="../../index-all.html">Index</a></li>
 <li><a href="../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.96</b></em></div>
+<div class="aboutLanguage"><em><b>Servlet 3.0 - Apache Tomcat 7.0.99</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
