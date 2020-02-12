@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MimeHeaders (Apache Tomcat 8.5.50 API Documentation)</title>
+<title>MimeHeaders (Apache Tomcat 8.5.51 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="MimeHeaders (Apache Tomcat 8.5.50 API Documentation)";
+        parent.document.title="MimeHeaders (Apache Tomcat 8.5.51 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.51</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -244,34 +244,40 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#removeHeader(int)">removeHeader</a></strong>(int&nbsp;idx)</code>
+<div class="block">reset and swap with last header</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#removeHeader(java.lang.String)">removeHeader</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes a header field with the specified name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#setLimit(int)">setLimit</a></strong>(int&nbsp;limit)</code>
 <div class="block">Set limit on the number of header fields.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/tomcat/util/buf/MessageBytes.html" title="class in org.apache.tomcat.util.buf">MessageBytes</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#setValue(java.lang.String)">setValue</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Allow "set" operations, which removes all current values
  for this header.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#size()">size</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#toString()">toString</a></strong>()</code>
 <div class="block">EXPENSIVE!!!</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Enumeration.html?is-external=true" title="class or interface in java.util">Enumeration</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/http/MimeHeaders.html#values(java.lang.String)">values</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
@@ -545,13 +551,24 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <a name="removeHeader(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>removeHeader</h4>
 <pre>public&nbsp;void&nbsp;removeHeader(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes a header field with the specified name.  Does nothing
  if such a field could not be found.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name of the header field to be removed</dd></dl>
+</li>
+</ul>
+<a name="removeHeader(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>removeHeader</h4>
+<pre>public&nbsp;void&nbsp;removeHeader(int&nbsp;idx)</pre>
+<div class="block">reset and swap with last header</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>idx</code> - the index of the header to remove.</dd></dl>
 </li>
 </ul>
 </li>
@@ -576,7 +593,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.50</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.51</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -621,6 +638,6 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
