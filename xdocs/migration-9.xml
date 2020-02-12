@@ -297,6 +297,7 @@ of Apache Tomcat.</p>
 </section>
 
 <section name="Upgrading 9.0.x">
+
   <p>When upgrading instances of Apache Tomcat from one version of Tomcat 9 to
   another, particularly when using separate locations for $CATALINA_HOME and
   $CATALINA_BASE, it is necessary to ensure that any changes in the
@@ -304,6 +305,42 @@ of Apache Tomcat.</p>
   as part of the upgrade. To assist with the identification of these changes,
   the form below may be used to view the differences between the configuration
   files in different versions of Tomcat 9.</p>
+
+  <subsection name="Tomcat 9.0.x noteable changes">
+    <p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occasionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    <ul>
+      <li><p>In 9.0.31 onwards, the default listen <strong>address</strong> of
+        the AJP Connector was changed to the loopback address rather than all
+        addresses.</p>
+        <p>Reference:  <a href="tomcat-9.0-doc/config/ajp.html">AJP
+        connector</a>.</p>
+      </li>
+      <li><p>In 9.0.31 onwards, the <strong>requiredSecret</strong> attribute
+        of the AJP Connector was deprecated and replaced by the
+        <strong>secret</strong> attribute.</p>
+        <p>Reference:  <a href="tomcat-9.0-doc/config/ajp.html">AJP
+        connector</a>.</p>
+      </li>
+      <li><p>In 9.0.31 onwards, the <strong>secretRequired</strong> attribute
+        was added to the AJP Connector. If set to <code>true</code>, the
+        default, the AJP Connector will not start unless a
+        <strong>secret</strong> has been specified.</p>
+        <p>Reference:  <a href="tomcat-9.0-doc/config/ajp.html">AJP
+        connector</a>.</p>
+      </li>
+      <li><p>In 9.0.31 onwards, the
+        <strong>allowedRequestAttributesPattern</strong> attribute was added to
+        the AJP Connector. Requests with unrecognised attributes will now be
+        blocked with a 403.</p>
+        <p>Reference:  <a href="tomcat-9.0-doc/config/ajp.html">AJP
+        connector</a>.</p>
+      </li>
+    </ul>
+  </subsection>
 
   <subsection name="Tomcat 9.0.x configuration file differences">
 
