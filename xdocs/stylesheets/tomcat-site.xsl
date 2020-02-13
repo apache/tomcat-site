@@ -23,10 +23,18 @@
   version="3.0">
 
   <!-- Output method -->
+  <!--
+     Note: do not set indent="yes", as that breaks formatting of <source>
+     blocks when XSLT processing is done with recent Java (e.g. 13.0.2).
+
+     An example of broken formatting
+     (see the code block at the bottom of the page):
+     https://svn.apache.org/repos/asf/tomcat/site/trunk/docs/migration-9.html?p=1873527
+  -->
   <xsl:output method="html"
               html-version="5.0"
               encoding="UTF-8"
-              indent="yes"
+              indent="no"
               doctype-system="about:legacy-compat"/>
 
   <!-- Defined parameters (overrideable) -->
