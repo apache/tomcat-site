@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AccessLog (Apache Tomcat 7.0.99 API Documentation)</title>
+<title>AccessLog (Apache Tomcat 7.0.100 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AccessLog (Apache Tomcat 7.0.99 API Documentation)";
+        parent.document.title="AccessLog (Apache Tomcat 7.0.100 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -184,7 +184,7 @@
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/catalina/AccessLog.html#setRequestAttributesEnabled(boolean)">setRequestAttributesEnabled</a></strong>(boolean&nbsp;requestAttributesEnabled)</code>
-<div class="block">Should this valve set request attributes for IP address, hostname,
+<div class="block">Should this valve use request attributes for IP address, hostname,
  protocol and port used for the request?</div>
 </td>
 </tr>
@@ -293,21 +293,20 @@
 <li class="blockList">
 <h4>setRequestAttributesEnabled</h4>
 <pre>void&nbsp;setRequestAttributesEnabled(boolean&nbsp;requestAttributesEnabled)</pre>
-<div class="block">Should this valve set request attributes for IP address, hostname,
- protocol and port used for the request? This are typically used in
- conjunction with the <a href="../../../org/apache/catalina/valves/AccessLogValve.html" title="class in org.apache.catalina.valves"><code>AccessLogValve</code></a>
- which will otherwise log the original values.
+<div class="block">Should this valve use request attributes for IP address, hostname,
+ protocol and port used for the request?
 
- The attributes set are:
+ The attributes used are:
  <ul>
  <li>org.apache.catalina.RemoteAddr</li>
  <li>org.apache.catalina.RemoteHost</li>
  <li>org.apache.catalina.Protocol</li>
+ <li>org.apache.catalina.ServerName</li>
  <li>org.apache.catalina.ServerPost</li>
  </ul></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>requestAttributesEnabled</code> - <code>true</code> causes the attributes
-                                  to be set, <code>false</code> disables
-                                  the setting of the attributes.</dd></dl>
+                                  to be used, <code>false</code> causes
+                                  the original values to be used.</dd></dl>
 </li>
 </ul>
 <a name="getRequestAttributesEnabled()">
@@ -343,7 +342,7 @@
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -388,6 +387,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

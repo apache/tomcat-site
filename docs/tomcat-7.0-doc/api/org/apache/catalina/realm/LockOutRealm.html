@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LockOutRealm (Apache Tomcat 7.0.99 API Documentation)</title>
+<title>LockOutRealm (Apache Tomcat 7.0.100 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="LockOutRealm (Apache Tomcat 7.0.99 API Documentation)";
+        parent.document.title="LockOutRealm (Apache Tomcat 7.0.100 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -286,7 +286,7 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/LockOutRealm.html#authenticate(org.ietf.jgss.GSSContext,%20boolean)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss">GSSContext</a>&nbsp;gssContext,
             boolean&nbsp;storeCreds)</code>
-<div class="block">Return the Principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a>.</div>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -589,7 +589,9 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <dd><code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">authenticate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title="class in org.apache.catalina.realm">CombinedRealm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>clientDigest</code> - Digest which has been submitted by the client</dd><dd><code>nonce</code> - Unique (or supposedly unique) token which has been used
  for this request</dd><dd><code>realmName</code> - Realm name</dd><dd><code>md5a2</code> - Second MD5 digest used to calculate the digest :
- MD5(Method + ":" + uri)</dd></dl>
+ MD5(Method + ":" + uri)</dd><dd><code>nc</code> - the nonce counter</dd><dd><code>cnonce</code> - the client chosen nonce</dd><dd><code>qop</code> - the "quality of protection" (<code>nc</code> and <code>cnonce</code>
+        will only be used, if <code>qop</code> is not <code>null</code>).</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
 <a name="authenticate(java.lang.String, java.lang.String)">
@@ -608,7 +610,8 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.lang.String,%20java.lang.String)">authenticate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title="class in org.apache.catalina.realm">CombinedRealm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>credentials</code> - Password or other credentials to use in
-  authenticating this username</dd></dl>
+  authenticating this username</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
 <a name="authenticate(java.security.cert.X509Certificate[])">
@@ -626,7 +629,8 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(java.security.cert.X509Certificate[])">authenticate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title="class in org.apache.catalina.realm">CombinedRealm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>certs</code> - Array of client certificates, with the first one in
-  the array being the certificate of the client itself.</dd></dl>
+  the array being the certificate of the client itself.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
 </li>
 </ul>
 <a name="authenticate(org.ietf.jgss.GSSContext, boolean)">
@@ -637,15 +641,15 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <h4>authenticate</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;authenticate(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss">GSSContext</a>&nbsp;gssContext,
                      boolean&nbsp;storeCreds)</pre>
-<div class="block">Return the Principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a>.
- If there is none, return <code>null</code>.</div>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(org.ietf.jgss.GSSContext,%20boolean)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html#authenticate(org.ietf.jgss.GSSContext,%20boolean)">authenticate</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title="class in org.apache.catalina.realm">CombinedRealm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>gssContext</code> - The gssContext processed by the <a href="../../../../org/apache/catalina/Authenticator.html" title="interface in org.apache.catalina"><code>Authenticator</code></a>.</dd><dd><code>storeCreds</code> - Should the realm attempt to store the delegated
-                   credentials in the returned Principal?</dd></dl>
+                   credentials in the returned Principal?</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
 </li>
 </ul>
 <a name="authenticate(org.ietf.jgss.GSSName, org.ietf.jgss.GSSCredential)">
@@ -813,7 +817,7 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -858,6 +862,6 @@ extends <a href="../../../../org/apache/catalina/realm/CombinedRealm.html" title
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Catalina (Apache Tomcat 7.0.99 API Documentation)</title>
+<title>Catalina (Apache Tomcat 7.0.100 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Catalina (Apache Tomcat 7.0.99 API Documentation)";
+        parent.document.title="Catalina (Apache Tomcat 7.0.100 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -258,9 +258,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/Catalina.html#arguments(java.lang.String[])">arguments</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
-<div class="block">Process the specified command line arguments, and return
- <code>true</code> if we should continue processing; otherwise
- return <code>false</code>.</div>
+<div class="block">Process the specified command line arguments.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -321,9 +319,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/Catalina.html#isUseNaming()">isUseNaming</a></strong>()</code>
-<div class="block">Return true if naming is enabled.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/startup/Catalina.html#isUseNaming()">isUseNaming</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -573,6 +569,7 @@ protected&nbsp;boolean stopping</pre>
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;file)</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/startup/Catalina.html#setConfigFile(java.lang.String)"><code>setConfigFile(String)</code></a></i></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>file</code> - The configuration file</dd></dl>
 </li>
 </ul>
 <a name="setConfigFile(java.lang.String)">
@@ -656,7 +653,7 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <li class="blockList">
 <h4>isUseNaming</h4>
 <pre>public&nbsp;boolean&nbsp;isUseNaming()</pre>
-<div class="block">Return true if naming is enabled.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if naming is enabled.</dd></dl>
 </li>
 </ul>
 <a name="setUseNaming(boolean)">
@@ -695,10 +692,9 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <li class="blockList">
 <h4>arguments</h4>
 <pre>protected&nbsp;boolean&nbsp;arguments(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
-<div class="block">Process the specified command line arguments, and return
- <code>true</code> if we should continue processing; otherwise
- return <code>false</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - Command line arguments to process</dd></dl>
+<div class="block">Process the specified command line arguments.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - Command line arguments to process</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if we should continue processing</dd></dl>
 </li>
 </ul>
 <a name="configFile()">
@@ -709,6 +705,7 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <h4>configFile</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;configFile()</pre>
 <div class="block">Return a File object representing our configuration file.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the main configuration file</dd></dl>
 </li>
 </ul>
 <a name="createStartDigester()">
@@ -719,6 +716,7 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <h4>createStartDigester</h4>
 <pre>protected&nbsp;<a href="../../../../org/apache/tomcat/util/digester/Digester.html" title="class in org.apache.tomcat.util.digester">Digester</a>&nbsp;createStartDigester()</pre>
 <div class="block">Create and configure the Digester we will be using for startup.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the main digester to parse server.xml</dd></dl>
 </li>
 </ul>
 <a name="createStopDigester()">
@@ -729,6 +727,7 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <h4>createStopDigester</h4>
 <pre>protected&nbsp;<a href="../../../../org/apache/tomcat/util/digester/Digester.html" title="class in org.apache.tomcat.util.digester">Digester</a>&nbsp;createStopDigester()</pre>
 <div class="block">Create and configure the Digester we will be using for shutdown.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the digester to process the stop operation</dd></dl>
 </li>
 </ul>
 <a name="stopServer()">
@@ -867,7 +866,7 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -912,6 +911,6 @@ public&nbsp;void&nbsp;setConfig(<a href="https://docs.oracle.com/javase/7/docs/a
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

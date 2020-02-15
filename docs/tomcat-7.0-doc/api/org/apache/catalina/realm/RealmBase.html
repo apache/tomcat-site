@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RealmBase (Apache Tomcat 7.0.99 API Documentation)</title>
+<title>RealmBase (Apache Tomcat 7.0.100 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="RealmBase (Apache Tomcat 7.0.99 API Documentation)";
+        parent.document.title="RealmBase (Apache Tomcat 7.0.100 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -319,7 +319,7 @@ implements <a href="../../../../org/apache/catalina/GSSRealm.html" title="interf
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/RealmBase.html#authenticate(org.ietf.jgss.GSSContext,%20boolean)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss">GSSContext</a>&nbsp;gssContext,
             boolean&nbsp;storeCred)</code>
-<div class="block">Return the Principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a>.</div>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -354,9 +354,9 @@ implements <a href="../../../../org/apache/catalina/GSSRealm.html" title="interf
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;qop,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;realm,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;md5a2)</code>
-<div class="block">Return the Principal associated with the specified username, which
+<div class="block">Try to authenticate with the specified username, which
  matches the digest calculated using the given parameters using the
- method described in RFC 2069; otherwise return <code>null</code>.</div>
+ method described in RFC 2617 (which is a superset of RFC 2069).</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -489,7 +489,7 @@ implements <a href="../../../../org/apache/catalina/GSSRealm.html" title="interf
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(java.lang.String,%20org.ietf.jgss.GSSCredential)">getPrincipal</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
             <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>This will be removed in Tomcat 10. Use
+<div class="block"><i>This will be removed in Tomcat 10 onwards. Use
              <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)"><code>getPrincipal(GSSName, GSSCredential)</code></a> instead.</i></div>
 </div>
 </td>
@@ -927,7 +927,7 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#getContainer()">getContainer</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>the Container with which this Realm has been associated.</dd></dl>
 </li>
 </ul>
 <a name="setContainer(org.apache.catalina.Container)">
@@ -952,6 +952,7 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <h4>getAllRolesMode</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAllRolesMode()</pre>
 <div class="block">Return the all roles mode.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>A string representation of the current all roles mode</dd></dl>
 </li>
 </ul>
 <a name="setAllRolesMode(java.lang.String)">
@@ -962,6 +963,7 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <h4>setAllRolesMode</h4>
 <pre>public&nbsp;void&nbsp;setAllRolesMode(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;allRolesMode)</pre>
 <div class="block">Set the all roles mode.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>allRolesMode</code> - A string representation of the new all roles mode</dd></dl>
 </li>
 </ul>
 <a name="getDigest()">
@@ -1032,7 +1034,9 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#getInfo()">getInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>descriptive information about this Realm implementation and
+ the corresponding version number, in the format
+ <code>&lt;description&gt;/&lt;version&gt;</code>.</dd></dl>
 </li>
 </ul>
 <a name="getValidate()">
@@ -1043,6 +1047,7 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <h4>getValidate</h4>
 <pre>public&nbsp;boolean&nbsp;getValidate()</pre>
 <div class="block">Return the "validate certificate chains" flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The value of the validate certificate chains flag</dd></dl>
 </li>
 </ul>
 <a name="setValidate(boolean)">
@@ -1078,9 +1083,9 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <pre>public&nbsp;void&nbsp;setX509UsernameRetrieverClassName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
 <div class="block">Sets the name of the class that will be used to extract user names
  from X509 client certificates. The class must implement
- (@link X509UsernameRetriever}.</div>
+ X509UsernameRetriever.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>className</code> - The name of the class that will be used to extract user names
-                  from X509 client certificates.</dd></dl>
+                  from X509 client certificates.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/X509UsernameRetriever.html" title="interface in org.apache.catalina.realm"><code>X509UsernameRetriever</code></a></dd></dl>
 </li>
 </ul>
 <a name="isStripRealmForGss()">
@@ -1127,7 +1132,9 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(java.lang.String)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if none is
+         associated.</dd></dl>
 </li>
 </ul>
 <a name="authenticate(java.lang.String, java.lang.String)">
@@ -1144,7 +1151,8 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(java.lang.String,%20java.lang.String)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>credentials</code> - Password or other credentials to use in
-  authenticating this username</dd></dl>
+  authenticating this username</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
 <a name="authenticate(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
@@ -1161,15 +1169,17 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;qop,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;realm,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;md5a2)</pre>
-<div class="block">Return the Principal associated with the specified username, which
+<div class="block">Try to authenticate with the specified username, which
  matches the digest calculated using the given parameters using the
- method described in RFC 2069; otherwise return <code>null</code>.</div>
+ method described in RFC 2617 (which is a superset of RFC 2069).</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>clientDigest</code> - Digest which has been submitted by the client</dd><dd><code>nonce</code> - Unique (or supposedly unique) token which has been used
- for this request</dd><dd><code>realm</code> - Realm name</dd><dd><code>md5a2</code> - Second MD5 digest used to calculate the digest :
- MD5(Method + ":" + uri)</dd></dl>
+ for this request</dd><dd><code>nc</code> - the nonce counter</dd><dd><code>cnonce</code> - the client chosen nonce</dd><dd><code>qop</code> - the "quality of protection" (<code>nc</code> and <code>cnonce</code>
+        will only be used, if <code>qop</code> is not <code>null</code>).</dd><dd><code>realm</code> - Realm name</dd><dd><code>md5a2</code> - Second MD5 digest used to calculate the digest :
+ MD5(Method + ":" + uri)</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
 <a name="authenticate(java.security.cert.X509Certificate[])">
@@ -1185,7 +1195,8 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(java.security.cert.X509Certificate[])">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>certs</code> - Array of client certificates, with the first one in
-  the array being the certificate of the client itself.</dd></dl>
+  the array being the certificate of the client itself.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
 </li>
 </ul>
 <a name="authenticate(org.ietf.jgss.GSSContext, boolean)">
@@ -1196,13 +1207,13 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <h4>authenticate</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;authenticate(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss">GSSContext</a>&nbsp;gssContext,
                      boolean&nbsp;storeCred)</pre>
-<div class="block">Return the Principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a>.
- If there is none, return <code>null</code>.</div>
+<div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSContext.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSContext</code></a></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#authenticate(org.ietf.jgss.GSSContext,%20boolean)">authenticate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>gssContext</code> - The gssContext processed by the <a href="../../../../org/apache/catalina/Authenticator.html" title="interface in org.apache.catalina"><code>Authenticator</code></a>.</dd><dd><code>storeCred</code> - Should the realm attempt to store the delegated
-                   credentials in the returned Principal?</dd></dl>
+                   credentials in the returned Principal?</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none</dd></dl>
 </li>
 </ul>
 <a name="compareCredentials(java.lang.String, java.lang.String)">
@@ -1261,7 +1272,9 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#findSecurityConstraints(org.apache.catalina.connector.Request,%20org.apache.catalina.Context)">findSecurityConstraints</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - Request we are processing</dd><dd><code>context</code> - Context the Request is mapped to</dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - Request we are processing</dd><dd><code>context</code> - Context the Request is mapped to</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the configured <a href="../../../../org/apache/catalina/deploy/SecurityConstraint.html" title="class in org.apache.catalina.deploy"><code>SecurityConstraint</code></a>, of <code>null</code>
+         if there is none</dd></dl>
 </li>
 </ul>
 <a name="hasResourcePermission(org.apache.catalina.connector.Request, org.apache.catalina.connector.Response, org.apache.catalina.deploy.SecurityConstraint[], org.apache.catalina.Context)">
@@ -1282,6 +1295,8 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#hasResourcePermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.catalina.deploy.SecurityConstraint[],%20org.apache.catalina.Context)">hasResourcePermission</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - Request we are processing</dd><dd><code>response</code> - Response we are creating</dd><dd><code>constraints</code> - Security constraint we are enforcing</dd><dd><code>context</code> - The Context to which client of this class is attached.</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if this constraint is satisfied and processing
+         should continue, or <code>false</code> otherwise</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an input/output error occurs</dd></dl>
 </li>
@@ -1304,7 +1319,10 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#hasRole(org.apache.catalina.Wrapper,%20java.security.Principal,%20java.lang.String)">hasRole</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>principal</code> - Principal for whom the role is to be checked</dd><dd><code>role</code> - Security role to be checked</dd><dd><code>wrapper</code> - wrapper context for evaluating role</dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>principal</code> - Principal for whom the role is to be checked</dd><dd><code>role</code> - Security role to be checked</dd><dd><code>wrapper</code> - wrapper context for evaluating role</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the specified Principal has the specified
+         security role, within the context of this Realm; otherwise return
+         <code>false</code>.</dd></dl>
 </li>
 </ul>
 <a name="hasUserDataPermission(org.apache.catalina.connector.Request, org.apache.catalina.connector.Response, org.apache.catalina.deploy.SecurityConstraint[])">
@@ -1325,6 +1343,9 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/Realm.html#hasUserDataPermission(org.apache.catalina.connector.Request,%20org.apache.catalina.connector.Response,%20org.apache.catalina.deploy.SecurityConstraint[])">hasUserDataPermission</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - Request we are processing</dd><dd><code>response</code> - Response we are creating</dd><dd><code>constraints</code> - Security constraint being checked</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if this constraint
+         was not violated and processing should continue, or <code>false</code>
+         if we have created a response already.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an input/output error occurs</dd></dl>
 </li>
@@ -1446,6 +1467,8 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getDigest(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;realmName)</pre>
 <div class="block">Return the digest associated with given principal's user name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - the user name</dd><dd><code>realmName</code> - the realm name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the digest for the specified user</dd></dl>
 </li>
 </ul>
 <a name="getName()">
@@ -1498,8 +1521,11 @@ protected static final&nbsp;<a href="../../../../org/apache/tomcat/util/security
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;getPrincipal(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                                 <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>This will be removed in Tomcat 10. Use
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>This will be removed in Tomcat 10 onwards. Use
              <a href="../../../../org/apache/catalina/realm/RealmBase.html#getPrincipal(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)"><code>getPrincipal(GSSName, GSSCredential)</code></a> instead.</i></div>
+<div class="block">Get the principal associated with the specified user name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - The user name</dd><dd><code>gssCredential</code> - the GSS credential of the principal</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the principal associated with the given user name.</dd></dl>
 </li>
 </ul>
 <a name="getPrincipal(org.ietf.jgss.GSSName, org.ietf.jgss.GSSCredential)">
@@ -1638,7 +1664,7 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.99</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -1683,6 +1709,6 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2019 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
