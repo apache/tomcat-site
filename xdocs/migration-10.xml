@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Migration Guide - Tomcat 10.0.x</title>
+  </properties>
+
+<body>
+
+<section name="Table of Contents">
+<toc/>
+</section>
+
+<section name="General">
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+</section>
+
+<section name="Migrating from 9.0.x to 10.0.x">
+
+  <p>This section lists all the known changes between 9.0.x and 10.0.x
+  which may cause backwards compatibility problems when upgrading.</p>
+
+  <p>Until Tomcat 10 is declared stable, there may be additional changes made
+  that cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="Java 8 required">
+
+    <p>Apache Tomcat 10.0.x requires Java 8 or later. This is unchanged from
+    Tomcat 9.0.x.</p>
+
+  </subsection>
+
+  <subsection name="Specification APIs">
+
+    <p>Apache Tomcat 10 supports the Jakarta Servlet 5.0,
+    Jakarta Server Pages 3.0, Jakarta Expression Language 4.0,
+    JakartaWebSocket 2.0 and Jakarta Authentication 2.0
+    <a href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications">specifications</a>.
+    </p>
+    <p>There is a significant breaking change between Tomcat 9.0.x and Tomcat
+    10.0.x. The Java package used by the specification APIs has changed from
+    <scode>javax...</scode> to <scode>jakarta...</scode>.</p>
+
+  </subsection>
+  
+  <subsection name="Servlet 5.0 API">
+  
+    <p>The Java package has changed from <scode>javax.servlet</scode> to
+    <scode>jakarta.servlet</scode>.</p>
+
+  </subsection>
+
+  <subsection name="Server Pages 3.0">
+  
+    <p>The Java package has changed from <scode>javax.servlet.jsp</scode> to
+    <scode>jakarta.servlet.jsp</scode>.</p>
+
+  </subsection>
+
+  <subsection name="Expression Language 4.0">
+  
+    <p>The Java package has changed from <scode>javax.el</scode> to
+    <scode>jakarta.el</scode>.</p>
+
+  </subsection>
+
+  <subsection name="WebSocket 2.0">
+
+    <p>The Java package has changed from <scode>javax.websocket</scode> to
+    <scode>jakarta.websocket</scode>.</p>
+    
+  </subsection>
+
+  <subsection name="Authentication 4.0">
+  
+    <p>The Java package has changed from <scode>javax.security.auth.message</scode> to
+    <scode>jakarta.security.auth.message</scode>.</p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 10 internal API is broadly compatible with Tomcat 9
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+    <p>Of particular note are:</p>
+    <ul>
+      <li><scode>GenericPrincipal.getPassword()</scode> has been removed.</li>
+    </ul>
+
+  </subsection>
+
+  <subsection name="web.xml defaults">
+
+    <p><code>conf/web.xml</code> sets the default request and response character
+    encoding to UTF-8.</p>
+
+  </subsection>
+
+  <subsection name="Session management">
+
+    <p>Session persistence on restart has been disabled by default. It may be
+    re-enabled globally in <scode>conf/context.xml</scode> or per web
+    application.</p>
+
+  </subsection>  
+  
+  <subsection name="HTTP/2">
+
+    <p>The configuration settings that were duplicated between the HTTP/1.1 and
+    HTTP/2 connectors have been removed from the HTTP/2 connector which will now
+    inherit them from the associated HTTP/1.1 connector.</p>
+
+  </subsection>
+
+  <subsection name="Logging">
+
+    <p>The logging implementation now only creates log files once there is
+    something to write to the log files.</p>
+
+  </subsection>
+
+</section>
+
+<section name="Upgrading 10.0.x">
+
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 9 to
+  another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 9.</p>
+
+  <subsection name="Tomcat 10.0.x noteable changes">
+    <p>The Tomcat developers aim for each patch release to be fully backwards
+       compatible with the previous release.  Occasionally, it is necessary to
+       break backwards compatibility in order to fix a bug. In most cases, these
+       changes will go unnoticed. This section lists changes that are not fully
+       backwards compatible and might cause breakage when upgrading.</p>
+    <ul>
+      <li><p>None as yet.</p></li>
+    </ul>
+  </subsection>
+
+  <subsection name="Tomcat 10.0.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <p><b>Note:</b> If there are no differences you will see an error page.</p>
+
+    <form action="https://gitbox.apache.org/repos/asf"
+          method="get"
+          target="_blank">
+
+    <input type="hidden" name="p" value="tomcat.git"/>
+    <input type="hidden" name="a" value="blobdiff"/>
+
+    <p><label>Configuration file:
+    <select name="f">
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
+    </select></label>
+    </p>
+    <p><label>Old version:
+    <select name="hpb">
+    <option value="10.0.0-M1" selected="selected">10.0.0-M1</option>
+    </select>,</label> <label>new version:
+    <select name="hb">
+    <option value="10.0.0-M1" selected="selected">10.0.0-M1</option>
+    <option value="HEAD">trunk (unreleased)</option>
+    </select></label>
+    </p>
+
+    <p>
+    <button>View Differences</button>
+    </p>
+    </form>
+    <p>You can also use a Git command similar to the following from within a
+       working copy:</p>
+    <source>git diff 10.0.0 10.0.12 -- conf/</source>
+  </subsection>
+  
+</section>
+
+</body>
+</document>
