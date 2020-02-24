@@ -50,6 +50,101 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.51" rtext="11 February 2020">
+
+    <p><strong>High: AJP Request Injection and potential Remote Code Execution</strong>
+       <cve>CVE-2020-1938</cve></p>
+
+    <p>When using the Apache JServ Protocol (AJP), care must be taken when
+       trusting incoming connections to Apache Tomcat. Tomcat treats AJP
+       connections as having higher trust than, for example, a similar HTTP
+       connection. If such connections are available to an attacker, they can be
+       exploited in ways that may be surprising. Prior to Tomcat 8.5.51, Tomcat
+       shipped with an AJP Connector enabled by default that listened on all
+       configured IP addresses. It was expected (and recommended in the security
+       guide) that this Connector would be disabled if not required.</p>
+    <p>Prior to this vulnerability report, the known risks of an attacker being
+       able to access the AJP port directly were:</p>
+    <ul>
+       <li>bypassing security checks based on client IP address</li>
+       <li>bypassing user authentication if Tomcat was configured to trust
+           authentication data provided by the reverse proxy</li>
+       </ul>
+    <p>This vulnerability report identified a mechanism that allowed the
+       following:</p>
+    <ul>
+       <li>returning arbitrary files from anywhere in the web application
+           including under the WEB-INF and META-INF directories or any other
+           location reachable via ServletContext.getResourceAsStream()</li>
+       <li>processing any file in the web application as a JSP</li>
+    </ul>
+    <p>Further, if the web application allowed file upload and stored those
+       files within the web application (or the attacker was able to control
+       the content of the web application by some other means) then this, along
+       with the ability to process a file as a JSP, made remote code execution
+       possible.</p>
+    <p>It is important to note that mitigation is only required if an AJP port
+       is accessible to untrusted users. Users wishing to take a
+       defence-in-depth approach and block the vector that permits returning
+       arbitrary files and execution as JSP may upgrade to Apache Tomcat 9.0.31
+       or later. Users should note that a number of changes were made to the
+       default AJP Connector configuration in 8.5.51 to harden the default
+       configuration. It is likely that users upgrading to 8.5.51 or later
+       will need to make small changes to their configurations as a result.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="69c5608">69c5608</hashlink>,
+       <hashlink hash="b962835">b962835</hashlink>,
+       <hashlink hash="5a5494f">5a5494f</hashlink>,
+       <hashlink hash="9be5760">9be5760</hashlink>,
+       <hashlink hash="64159aa">64159aa</hashlink> and
+       <hashlink hash="03c4361">03c4361</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team on 3 January
+       2020. The issue was made public on 24 February 2020.</p>
+
+    <p>Affects: 8.5.0 to 8.5.50</p>
+
+    <p><strong>Low: HTTP Request Smuggling</strong>
+       <cve>CVE-2020-1935</cve></p>
+
+    <p>The HTTP header parsing code used an approach to end-of-line (EOL)
+    parsing that allowed some invalid HTTP headers to be parsed as valid. This
+    led to a possibility of HTTP Request Smuggling if Tomcat was
+    located behind a reverse proxy that incorrectly handled the invalid
+    Transfer-Encoding header in a particular manner. Such a reverse proxy is
+    considered unlikely.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="8fbe2e9">8fbe2e9</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by @ZeddYu
+       on 25 December 2019. The issue was made public on 24
+       February 2020.</p>
+
+    <p>Affects: 8.5.0 to 8.5.50</p>
+
+    <p><strong>Low: HTTP Request Smuggling</strong>
+       <cve>CVE-2019-17569</cve></p>
+
+    <p>The refactoring in 8.5.48 introduced a regression. The result of the
+    regression was that invalid Transfer-Encoding headers were incorrectly
+    processed leading to a possibility of HTTP Request Smuggling if Tomcat was
+    located behind a reverse proxy that incorrectly handled the invalid
+    Transfer-Encoding header in a particular manner. Such a reverse proxy is
+    considered unlikely.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="959f1df">959f1df</hashlink>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by @ZeddYu
+       on 12 December 2019. The issue was made public on 24
+       February 2020.</p>
+
+    <p>Affects: 8.5.48 to 8.5.50</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.50" rtext="12 December 2019">
 
     <p><strong>Low: Session fixation</strong>
