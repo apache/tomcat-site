@@ -359,7 +359,7 @@
   <!-- Link to a git hash -->
   <xsl:template match="hashlink">
       <xsl:variable name="link"><xsl:value-of select="$hashlink"/><xsl:value-of select="@hash"/></xsl:variable>
-      <a href="{$link}"><xsl:apply-templates/></a>
+      <a href="{$link}"><xsl:value-of select="substring(@hash, 0, 9)"/></a>
   </xsl:template>
 
   <!-- Link to a CVE report -->
