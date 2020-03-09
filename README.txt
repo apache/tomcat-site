@@ -141,50 +141,12 @@ One way to update documentation is to:
 Another way is to call the bring the sources into this project and build
 them here.
 
-For the latter:
-
-1. One of two variants:
-
-A)
-
-   Use "svn switch" command to switch jk-xdocs, native-xdocs or native-1.1-xdocs
-   directories to xdocs directory of trunk or tag in those projects.
-
-   The command looks like the following:
-
-   To switch to current development versions:
-
-      svn switch "^/tomcat/jk/trunk/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/trunk/xdocs" native-xdocs
-      svn switch --ignore-ancestry "^/tomcat/native/branches/1.1.x/xdocs" native-1.1-xdocs
-
-   To switch to tags for released versions:
-
-      svn switch "^/tomcat/jk/tags/JK_1_2_xx/xdocs" jk-xdocs
-      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_2_xx/xdocs" native-xdocs
-      svn switch "^/tomcat/native/tags/TOMCAT_NATIVE_1_1_xx/xdocs" native-1.1-xdocs
-
-   To switch back to empty directories:
-
-      svn switch "^/tomcat/site/trunk/jk-xdocs" jk-xdocs
-      svn switch "^/tomcat/site/trunk/native-xdocs" native-xdocs
-      svn switch "^/tomcat/site/trunk/native-1.1-xdocs" native-1.1-xdocs
-
-
-   To check to what URLs switched directories are mapped:
-
-      svn info jk-xdocs
-      svn info native-xdocs
-      svn info native-1.1-xdocs
-
-B)
-
-   Or just copy the contents of "xdocs" directory from source
+1. Copy the contents of "xdocs" directory from source
    distributive of released version into empty jk-xdocs or native-xdocs
    directories.
 
 2. cd into your tomcat-site directory and execute one of the following
-commands:
+   commands:
 
    ant release-jk
    ant release-native
@@ -192,7 +154,7 @@ commands:
 
 3. Check the changes with "svn status" command.
 
- - Remember that there may be deleted / missing files or new files.
+   - Remember that there may be deleted / missing files or new files.
 
 4. Commit the changes.
 
