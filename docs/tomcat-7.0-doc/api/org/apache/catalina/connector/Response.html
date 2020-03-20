@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Response (Apache Tomcat 7.0.100 API Documentation)</title>
+<title>Response (Apache Tomcat 7.0.103 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Response (Apache Tomcat 7.0.100 API Documentation)";
+        parent.document.title="Response (Apache Tomcat 7.0.103 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.103</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -435,11 +435,7 @@ implements <a href="../../../../javax/servlet/http/HttpServletResponse.html" tit
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Response.html#getInfo()">getInfo</a></strong>()</code>
-<div class="block">Return descriptive information about this Response implementation and
- the corresponding version number, in the format
- <code>&lt;description&gt;/&lt;version&gt;</code>.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Response.html#getInfo()">getInfo</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a></code></td>
@@ -958,7 +954,7 @@ protected&nbsp;<a href="../../../../org/apache/catalina/connector/Connector.html
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;<a href="../../../../org/apache/catalina/connector/Connector.html" title="class in org.apache.catalina.connector">Connector</a>&nbsp;getConnector()</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
-<div class="block">Return the Connector through which this Request was received.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the Connector through which this Request was received.</dd></dl>
 </li>
 </ul>
 <a name="setConnector(org.apache.catalina.connector.Connector)">
@@ -1095,7 +1091,7 @@ public&nbsp;void&nbsp;setContext(<a href="../../../../org/apache/catalina/Contex
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;boolean&nbsp;getIncluded()</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
-<div class="block">Return the "processing inside an include" flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the "processing inside an include" flag.</dd></dl>
 </li>
 </ul>
 <a name="setIncluded(boolean)">
@@ -1119,9 +1115,9 @@ public&nbsp;void&nbsp;setIncluded(boolean&nbsp;included)</pre>
 <li class="blockList">
 <h4>getInfo</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getInfo()</pre>
-<div class="block">Return descriptive information about this Response implementation and
+<dl><dt><span class="strong">Returns:</span></dt><dd>descriptive information about this Response implementation and
  the corresponding version number, in the format
- <code>&lt;description&gt;/&lt;version&gt;</code>.</div>
+ <code>&lt;description&gt;/&lt;version&gt;</code>.</dd></dl>
 </li>
 </ul>
 <a name="getRequest()">
@@ -1165,7 +1161,7 @@ public&nbsp;void&nbsp;setIncluded(boolean&nbsp;included)</pre>
 <pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
 public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;getStream()</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
-<div class="block">Return the output stream associated with this Response.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the output stream associated with this Response.</dd></dl>
 </li>
 </ul>
 <a name="setSuspended(boolean)">
@@ -1253,7 +1249,9 @@ public&nbsp;<a href="../../../../javax/servlet/ServletOutputStream.html" title="
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Create and return a ServletOutputStream to write the content
  associated with this Response.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The ServletOutpuStream to write the content associated with this
+           response</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an input/output error occurs</dd></dl>
 </li>
 </ul>
@@ -1710,7 +1708,8 @@ public&nbsp;void&nbsp;reset(int&nbsp;status,
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Reset this response, and specify the values for the HTTP status code
  and corresponding message.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>status</code> - The new HTTP status</dd><dd><code>message</code> - The associated text message</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if this response has already been
   committed</dd></dl>
 </li>
@@ -2125,7 +2124,7 @@ public&nbsp;void&nbsp;setStatus(int&nbsp;status,
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.100</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.103</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
