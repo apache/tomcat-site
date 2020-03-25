@@ -4,12 +4,24 @@ The Apache Tomcat Website Instructions
 ---------------------------------------
 
 ***NOTE***
-DO NOT EDIT THE .html files in the docs directory.
-Please follow the directions below for updating the website.
-***NOTE***
+You might be puzzled when you find this repository does not contain the xml or
+html file or files you were hoping to update. This is because the external
+Apache Tomcat web site appears to be a single entity, but it is constructed from
+several distinct segments.
 
+Each major version of Tomcat ships with, and is capable of hosting, its own
+documentation on its own local web site. Therefore, the source files for those
+web pages can be found in the webapps/docs subdirectory of the specific version
+of Tomcat.
+
+***NOTE***
 The Tomcat web site is based on .xml files which are transformed
 into .html files using XSLT and Ant.
+
+***NOTE***
+DO NOT EDIT THE .html files in the docs directory!
+Please follow the directions below for updating the website.
+
 
 In order to make modifications to the Tomcat web site, you need to first check out
 the Tomcat site from SVN. To check out the Tomcat site into a sub-directory
