@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.0.0-M3) - Jasper 2 JSP Engine How To</title><meta name="author" content="Glenn L. Nielsen"><meta name="author" content="Peter Rossbach"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
-          Version 10.0.0-M3,
-          <time datetime="2020-03-10">Mar 10 2020</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 5.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.0 Javadocs</a></li><li><a href="elapi/index.html">EL 4.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.0 Javadocs</a></li><li><a href="jaspicapi/index.html">JASPIC 2.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.0 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Jasper 2 JSP Engine How To</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.0.0-M4) - Jasper 2 JSP Engine How To</title><meta name="author" content="Glenn L. Nielsen"><meta name="author" content="Peter Rossbach"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
+          Version 10.0.0-M4,
+          <time datetime="2020-04-03">Apr 3 2020</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 5.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.0 Javadocs</a></li><li><a href="elapi/index.html">EL 4.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.0 Javadocs</a></li><li><a href="jaspicapi/index.html">JASPIC 2.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.0 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://wiki.apache.org/tomcat/TomcatVersions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="funcspecs/index.html">Functional Specs.</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Jasper 2 JSP Engine How To</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Configuration">Configuration</a></li><li><a href="#Known_issues">Known issues</a></li><li><a href="#Production_Configuration">Production Configuration</a></li><li><a href="#Web_Application_Compilation">Web Application Compilation</a></li><li><a href="#Optimisation">Optimisation</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -178,6 +178,85 @@ characters be strictly applied? <code>true</code> or <code>false</code>, default
 on a JSP page, should the rules for quoting of attributes described in JSP.1.6
 be applied to the expression? <code>true</code> or <code>false</code>, default
 <code>true</code>.</li>
+
+<li><strong>variableForExpressionFactory</strong> - The name of the variable
+ to use for the expression language expression factory. If not specified, the
+  default value of <code>_el_expressionfactory</code> will be used.</li>
+
+<li><strong>variableForInstanceManager</strong> - The name of the variable
+ to use for the instance manager factory. If not specified, the default value
+ of <code>_jsp_instancemanager</code> will be used.</li>
+
+<li><strong>poolTagsWithExtends</strong> - By default, JSPs that use
+ their own base class via the extends
+ attribute of the page directive, will have Tag pooling disabled since
+ Jasper cannot guarantee that the necessary initialisation will have taken
+ place. This can have a negative impact on performance. Providing the
+ alternative base class calls _jspInit() from Servlet.init(), setting  this
+ property to <code>true</code> will enable pooling with an alternative base
+ class. If the alternative base class does not call _jspInit() and this
+ property is <code>true</code>, NPEs will occur when attempting to use
+ tags. <code>true</code> or <code>false</code>, default
+ <code>false</code>.</li>
+
+<li><strong>strictGetProperty</strong> - If <code>true</code>, the requirement
+ to have the object referenced in
+ <code>jsp:getProperty</code> action to be previously "introduced"
+ to the JSP processor, as specified in the chapter JSP.5.3 of JSP 2.0 and
+ later specifications, is enforced. <code>true</code> or <code>false</code>, default
+ <code>true</code>.</li>
+
+<li><strong>strictWhitespace</strong> - If <code>false</code> the requirements
+ for whitespace before an
+ attribute name will be relaxed so that the lack of whitespace will not
+ cause an error. <code>true</code> or <code>false</code>, default
+ <code>true</code>.</li>
+
+<li><strong>jspServletBase</strong> - The base class of the Servlets generated
+ from the JSPs.If not specified, the default value of
+ <code>org.apache.jasper.runtime.HttpJspBase</code> will be used.</li>
+
+<li><strong>serviceMethodName</strong> - The name of the service method
+ called by the base class. If not specified, the default value of
+ <code>_jspService</code> will be used.</li>
+
+<li><strong>servletClasspathAttribute</strong> - The name of the ServletContext
+ attribute that provides the classpath for the JSP. If not specified, the default
+ value of <code>org.apache.catalina.jsp_classpath</code> will be used.</li>
+
+<li><strong>jspPrecompilationQueryParameter</strong> - The name of the query
+ parameter that causes the JSP engine to just pregenerate the servlet but
+ not invoke it. If not specified, the default value of
+ <code>jsp_precompile</code> will be used, as defined by JSP specification
+ (JSP.11.4.2).</li>
+
+<li><strong>generatedJspPackageName</strong> - The default package name
+ for compiled JSPs. If not specified, the default value of
+ <code>org.apache.jsp</code> will be used.</li>
+
+<li><strong>generatedTagFilePackageName</strong> - The default package name
+ for tag handlers generated from tag files. If not specified, the default
+ value of <code>org.apache.jsp.tag</code> will be used.</li>
+
+<li><strong>tempVariableNamePrefix</strong> - Prefix to use for generated
+ temporary variable names. If not specified, the default value of
+ <code>_jspx_temp</code> will be used.</li>
+
+<li><strong>useInstanceManagerForTags</strong> - If <code>true</code>,
+ the instance manager is used to obtain tag handler instances.
+ <code>true</code> or <code>false</code>, default <code>false</code>.</li>
+
+<li><strong>limitBodyContentBuffer</strong> - If <code>true</code>, any
+ tag buffer that expands beyond the value of the
+ <code>bodyContentTagBufferSize</code> init parameter will be
+ destroyed and a new buffer created.
+ <code>true</code> or <code>false</code>, default <code>false</code>.</li>
+
+<li><strong>bodyContentTagBufferSize</strong> - The size (in characters)
+ to use when creating a tag buffer. If not specified, the default value of
+ <code>org.apache.jasper.Constants.DEFAULT_TAG_BUFFER_SIZE</code> (512)
+ will be used.</li>
+
 </ul>
 
 <p>The Java compiler from Eclipse JDT in included as the default compiler. It is
@@ -347,10 +426,10 @@ and the compile JSP servlet classes at
 <ul>
 <li> When you switch to another Tomcat release, then regenerate and recompile
 your JSP's with the new Tomcat version.</li>
-<li>Use java system property at server runtime to disable PageContext pooling
-<code>org.apache.jasper.runtime.JspFactoryImpl.USE_POOL=false</code>.
-and limit the buffering with
-<code>org.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true</code>. Note
+<li>Use a Servlet context parameter to disable PageContext pooling
+<code>org.apache.jasper.runtime.JspFactoryImpl.POOL_SIZE=-1</code>
+and limit the buffering with the JSP Servlet init-param
+<code>limitBodyContentBuffer=true</code>. Note
 that changing from the defaults may affect performance, but it will vary
 depending on the application.</li>
 </ul>
