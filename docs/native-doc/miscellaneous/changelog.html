@@ -1,8 +1,43 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><link href="../images/style.css" rel="stylesheet" type="text/css"><title>The Apache Tomcat Native - Miscellaneous Documentation - </title><meta name="author" content="Jean-Frederic Clere"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>The Apache Tomcat Native - Miscellaneous Documentation</h1><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="../index.html">Docs Home</a></li></ul></div><div><h2><strong>Miscellaneous Documentation</strong></h2><ul><li><a href="../miscellaneous/changelog.html">Changelog</a></li></ul></div><div><h2><strong>News</strong></h2><ul><li><a href="../news/2017.html">2017</a></li><li><a href="../news/2016.html">2016</a></li><li><a href="../news/2015.html">2015</a></li><li><a href="../news/2014.html">2014</a></li><li><a href="../news/2013.html">2013</a></li><li><a href="../news/2012.html">2012</a></li><li><a href="../news/2011.html">2011</a></li><li><a href="../news/2010.html">2010</a></li><li><a href="../news/2009.html">2009</a></li><li><a href="../news/2008.html">2008</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2></h2><h3 id="Preface">Preface</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><link href="../images/style.css" rel="stylesheet" type="text/css"><title>The Apache Tomcat Native - Miscellaneous Documentation - </title><meta name="author" content="Jean-Frederic Clere"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="http://www.apache.org/" target="_blank"><img src="../images/asf-feather.png" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>The Apache Tomcat Native - Miscellaneous Documentation</h1><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2><strong>Links</strong></h2><ul><li><a href="../index.html">Docs Home</a></li></ul></div><div><h2><strong>Miscellaneous Documentation</strong></h2><ul><li><a href="../miscellaneous/changelog.html">Changelog</a></li></ul></div><div><h2><strong>News</strong></h2><ul><li><a href="../news/2020.html">2020</a></li><li><a href="../news/2019.html">2019</a></li><li><a href="../news/2018.html">2018</a></li><li><a href="../news/2017.html">2017</a></li><li><a href="../news/2016.html">2016</a></li><li><a href="../news/2015.html">2015</a></li><li><a href="../news/2014.html">2014</a></li><li><a href="../news/2013.html">2013</a></li><li><a href="../news/2012.html">2012</a></li><li><a href="../news/2011.html">2011</a></li><li><a href="../news/2010.html">2010</a></li><li><a href="../news/2009.html">2009</a></li><li><a href="../news/2008.html">2008</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2></h2><h3 id="Preface">Preface</h3><div class="text">
   <p>
   This is the Changelog for Tomcat Native 1.2.
   </p>
+</div><h3 id="Changes_in_1.2.24">Changes in 1.2.24</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=63671">63671</a>: libtcnative does not compile with OpenSSL &lt; 1.1.0
+      and APR w/o threading support. (michaelo)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Correct configure message for OpenSSL libdir. (michaelo)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=64260">64260</a>: Clean up install target. (michaelo)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=64315">64315</a>: configure output for OpenSSL wrong/incomplete sometimes.
+      (michaelo)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Drop obsolete build time workarounds for HP-UX. (michaelo)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add support for FreeBSD's pthread_getthreadid_np() in our
+      ssl_thread_id(void). (michaelo)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      <a href="http://issues.apache.org/bugzilla/show_bug.cgi?id=63701">63701</a>: Use new OpenSSL initialisation process when building with
+      OpenSSL 1.1.0 onwards. (mturk)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Introduce tcn_get_thread_id(void) to reduce code duplication. (michaelo)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix linking against OpenSSL in non-standard locations on FreeBSD.
+      (michaelo)
+    </li>
+  </ul>
 </div><h3 id="Changes_in_1.2.23">Changes in 1.2.23</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Fix: " class="icon" src="../images/fix.gif">
@@ -442,5 +477,5 @@
 <p>Please see the <a href="../../native-1.1-doc/miscellaneous/changelog.html">1.1.x
    changelog</a>.</p>
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 2008-2019, The Apache Software Foundation
+    Copyright &copy; 2008-2020, The Apache Software Foundation
   </div></footer></div></body></html>
