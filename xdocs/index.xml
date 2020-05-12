@@ -40,7 +40,7 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
-<section name="Tomcat 9.0.34 Released" rtext="2020-05-11">
+<section name="Tomcat 9.0.35 Released" rtext="2020-05-11">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.35
 of Apache Tomcat. The notable changes compared to 9.0.34 include:</p>
@@ -60,6 +60,33 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.55 Released" rtext="2020-05-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.55
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.54 include:</p>
+<ul>
+<li>Improve the handling of requests that use an expectation. Do not
+    disable keep-alive where the response has a non-2xx status code
+    but the request body has been fully read.</li>
+<li>Change default value separator for property replacement to ":-"
+    due to possible conflicts. The syntax is now "${name:-default}".</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.24.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.55_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
 </p>
 </section>
 
@@ -107,39 +134,6 @@ Tomcat Native. The notable changes since 1.2.23 include:
 <p style="text-align: center;">
 <a href="download-native.cgi">Download</a> |
 <a href="native-doc/miscellaneous/changelog.html">ChangeLog for 1.2.24</a>
-</p>
-</section>
-
-<section name="Tomcat 8.5.54 Released" rtext="2020-04-08">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 8.5.54
-of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
-pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
-specification versions remain unchanged. The notable changes compared
-to 8.5.53 include:</p>
-<ul>
-<li>Add support for default values when using <code>${...}</code> property
-    replacement in configuration files. Based on a pull request provided by
-    Bernd Bohmann.</li>
-<li>When configuring an HTTP Connector, warn if the encoding specified for
-    <code>URIEncoding</code> is not a superset of US-ASCII as required by RFC
-    7230.</li>
-<li>Replace the system property
-    <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> with
-    the Connector attribute <code>encodedSolidusHandling</code> that adds an
-    additional option to pass the <code>%2f</code> sequence through to the
-    application without decoding it in addition to rejecting such sequences and
-    decoding such sequences.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.54_(markt)">Tomcat 8.5
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-80.cgi">Download</a>
 </p>
 </section>
 
