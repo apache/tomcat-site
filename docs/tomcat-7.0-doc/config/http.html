@@ -1,4 +1,4 @@
-<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.103) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
+<html><head><META http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>Apache Tomcat 7 Configuration Reference (7.0.104) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"><style type="text/css" media="print">
     .noPrint {display: none;}
     td#mainBody {width: 100%;}
 </style><style type="text/css">
@@ -78,8 +78,8 @@ p.notice {
 }
 </style></head><body bgcolor="#ffffff" text="#000000" link="#525D76" alink="#525D76" vlink="#525D76"><table border="0" width="100%" cellspacing="0"><!--PAGE HEADER--><tr><td><!--PROJECT LOGO--><a href="https://tomcat.apache.org/"><img src="../images/tomcat.gif" align="right" alt="
     The Apache Tomcat Servlet/JSP Container
-  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.103, Mar 16 2020</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The HTTP Connector</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#BIO_specific_configuration">BIO specific configuration</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a><ol><li><a href="#SSL_Support_-_BIO_and_NIO">SSL Support - BIO and NIO</a></li><li><a href="#SSL_Support_-_APR/Native">SSL Support - APR/Native</a></li></ol></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
+  " border="0"></a></td><td><h1><font face="arial,helvetica,sanserif">Apache Tomcat 7</font></h1><font face="arial,helvetica,sanserif">Version 7.0.104, May 7 2020</font></td><td><!--APACHE LOGO--><a href="http://www.apache.org/"><img src="../images/asf-logo.svg" align="right" alt="Apache Logo" border="0" style="width: 266px;height: 83px;"></a></td></tr></table><table border="0" width="100%" cellspacing="4"><!--HEADER SEPARATOR--><tr><td colspan="2"><hr noshade size="1"></td></tr><tr><!--LEFT SIDE NAVIGATION--><td width="20%" valign="top" nowrap class="noPrint"><p><strong>Links</strong></p><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul><p><strong>Top Level Elements</strong></p><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul><p><strong>Executors</strong></p><ul><li><a href="executor.html">Executor</a></li></ul><p><strong>Connectors</strong></p><ul><li><a href="http.html">HTTP</a></li><li><a href="ajp.html">AJP</a></li></ul><p><strong>Containers</strong></p><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul><p><strong>Nested Components</strong></p><ul><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul><p><strong>Cluster Elements</strong></p><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul><p><strong>web.xml</strong></p><ul><li><a href="filter.html">Filter</a></li></ul><p><strong>Other</strong></p><ul><li><a href="systemprops.html">System properties</a></li></ul></td><!--RIGHT SIDE MAIN BODY--><td width="80%" valign="top" align="left" id="mainBody"><h1>The HTTP Connector</h1><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Table of Contents"><!--()--></a><a name="Table_of_Contents"><strong>Table of Contents</strong></a></font></td></tr><tr><td><blockquote>
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#BIO_specific_configuration">BIO specific configuration</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#SSL_Support">SSL Support</a><ol><li><a href="#SSL_Support_-_BIO_and_NIO">SSL Support - BIO and NIO</a></li><li><a href="#SSL_Support_-_APR/Native">SSL Support - APR/Native</a></li></ol></li><li><a href="#Key_store_types">Key store types</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </blockquote></td></tr></table><table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#525D76"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Introduction"><strong>Introduction</strong></a></font></td></tr><tr><td><blockquote>
 
   <p>The <strong>HTTP Connector</strong> element represents a
@@ -137,6 +137,19 @@ p.notice {
       to <code>false</code> to skip the DNS lookup and return the IP
       address in String form instead (thereby improving performance).
       By default, DNS lookups are disabled.</p>
+    </td></tr><tr><td align="left" valign="center"><code class="attributeName">encodedSolidusHandling</code></td><td align="left" valign="center">
+      <p>When set to <code>reject</code> request paths containing a
+      <code>%2f</code> sequence will be rejected with a 400 response. When set
+      to <code>decode</code> request paths containing a <code>%2f</code>
+      sequence will have that sequence decoded to <code>/</code> at the same
+      time other <code>%nn</code> sequences are decoded. When set to
+      <code>passthrough</code> request paths containing a <code>%2f</code>
+      sequence will be processed with the <code>%2f</code> sequence unchanged.
+      If not specified the default value is <code>reject</code>. This default
+      may be modified if the deprecated <a href="systemprops.html">system
+      property</a>
+      <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> is
+      set.</p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">maxHeaderCount</code></td><td align="left" valign="center">
       <p>The maximum number of headers in a request that are allowed by the
       container. A request that contains more headers than the specified limit
@@ -978,7 +991,8 @@ p.notice {
       </p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">keystoreType</code></td><td align="left" valign="center">
       <p>The type of keystore file to be used for the server certificate.
-      If not specified, the default value is "<code>JKS</code>".</p>
+      If not specified, the default value is "<code>JKS</code>". See the notes
+      on <a href="#Key_store_types">key store types</a> below.</p>
     </td></tr><tr><td align="left" valign="center"><code class="attributeName">sessionCacheSize</code></td><td align="left" valign="center">
       <p>The number of SSL sessions to maintain in the session cache. Specify
       <code>-1</code> to use the implementation default. Values of zero and
@@ -1062,7 +1076,8 @@ p.notice {
       <p>The type of key store used for the trust store. The default is the
       value of the <code>javax.net.ssl.trustStoreType</code> system property. If
       that property is null, the value of <code>keystoreType</code> is used as
-      the default.</p>
+      the default. See the notes on <a href="#Key_store_types">key store
+      types</a> below.</p>
      </td></tr></table>
 
   </blockquote></td></tr></table>
@@ -1175,6 +1190,43 @@ p.notice {
   </blockquote></td></tr></table>
 
   </blockquote></td></tr></table>
+
+  <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Key store types"><!--()--></a><a name="Key_store_types"><strong>Key store types</strong></a></font></td></tr><tr><td><blockquote>
+
+    <p>In addition to the standard key store types (JKS and PKCS12), most Java
+    runtimes support additional key store types such as Windows-ROOT,
+    Windows-My, DKS as well as hardware security modules. Generally, to use
+    these additional keystore types with a TLS Conector in Tomcat:</p>
+
+    <ul>
+      <li>Set the certificateKeystoreType and/or truststoreType Connector
+          attribute (as appropriate) to the necessary type</li>
+      <li>If a configuration file is required, set the certificateKeystoreFile
+          and/or truststoreFile Connector attribute (as appropriate) to point to
+          the file</li>
+      <li>If no configuration file is required then you will almost certainly
+          need to explicitly set the certificateKeystoreFile and/or
+          truststoreFile Connector attribute (as appropriate) to the empty
+          string ("")</li>
+      <li>If a password is required, set the certificateKeystorePassword and/or
+          truststorePassword Connector attribute (as appropriate) to the
+          required password</li>
+      <li>If no password is required then you will almost certainly need to
+          explicitly set the certificateKeystorePassword and/or
+          truststorePassword Connector attribute (as appropriate) to the empty
+          string ("")</li>
+    </ul>
+
+    <p>Variations in key store implementations, combined with the key store
+    manipulation Tomcat does in the background to allow interoperability between
+    JSSE and OpenSSL configuration styles, means that some keystores may need
+    slightly different configuration. Assitance is always available from the
+    <a href="http://tomcat.apache.org/lists.html#tomcat-users">Apache Tomcat
+    users mailing list</a>. We aim to document any key stores that vary from the
+    above advice here. Currently there are none we are aware of.</p>
+
+  </blockquote></td></tr></table>
+
   <table border="0" cellspacing="0" cellpadding="2"><tr><td bgcolor="#828DA6"><font color="#ffffff" face="arial,helvetica.sanserif"><a name="Connector Comparison"><!--()--></a><a name="Connector_Comparison"><strong>Connector Comparison</strong></a></font></td></tr><tr><td><blockquote>
 
     <p>Below is a small chart that shows how the connectors differ.</p>
@@ -1182,7 +1234,7 @@ p.notice {
                        Java Blocking Connector   Java Non Blocking Connector   APR/native Connector
                                  BIO                         NIO                       APR
     Classname              Http11Protocol             Http11NioProtocol         Http11AprProtocol
-    Tomcat Version           3.x onwards                 6.x onwards              5.5.x onwards
+    Tomcat Version            since 3.x                  since 6.0.x               since 5.5.x
     Support Polling              NO                          YES                       YES
     Polling Size                 N/A                   maxConnections             maxConnections
     Read Request Headers      Blocking                  Non Blocking                 Blocking

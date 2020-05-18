@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Connector (Apache Tomcat 7.0.103 API Documentation)</title>
+<title>Connector (Apache Tomcat 7.0.104 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Connector (Apache Tomcat 7.0.103 API Documentation)";
+        parent.document.title="Connector (Apache Tomcat 7.0.104 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.103</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.104</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -412,7 +412,10 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#getAttribute(java.lang.String)">getAttribute</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Return a property from the protocol handler.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../org/apache/catalina/connector/Connector.html#getProperty(java.lang.String)"><code>getProperty(String)</code></a>. This will be removed in
+             Tomcat 10 onwards.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -429,6 +432,14 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#getEnableLookups()">getEnableLookups</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#getEncodedSolidusHandling()">getEncodedSolidusHandling</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/tomcat/util/buf/EncodedSolidusHandling.html" title="enum in org.apache.tomcat.util.buf">EncodedSolidusHandling</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#getEncodedSolidusHandlingInternal()">getEncodedSolidusHandlingInternal</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -580,7 +591,10 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setAttribute(java.lang.String,%20java.lang.Object)">setAttribute</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
-<div class="block">Set a property on the protocol handler.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../org/apache/catalina/connector/Connector.html#setProperty(java.lang.String,%20java.lang.String)"><code>setProperty(String, String)</code></a>. This will be
+             removed in Tomcat 10 onwards.</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -597,122 +611,126 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setEncodedSolidusHandling(java.lang.String)">setEncodedSolidusHandling</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encodedSolidusHandling)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setMaxHeaderCount(int)">setMaxHeaderCount</a></strong>(int&nbsp;maxHeaderCount)</code>
 <div class="block">Set the maximum number of headers in a request that are allowed by the
  container.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setMaxParameterCount(int)">setMaxParameterCount</a></strong>(int&nbsp;maxParameterCount)</code>
 <div class="block">Set the maximum number of parameters (GET plus POST) that will be
  automatically parsed by the container.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setMaxPostSize(int)">setMaxPostSize</a></strong>(int&nbsp;maxPostSize)</code>
 <div class="block">Set the maximum size of a POST which will be automatically
  parsed by the container.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setMaxSavePostSize(int)">setMaxSavePostSize</a></strong>(int&nbsp;maxSavePostSize)</code>
 <div class="block">Set the maximum size of a POST which will be saved by the container
  during authentication.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setParseBodyMethods(java.lang.String)">setParseBodyMethods</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methods)</code>
 <div class="block">Set list of HTTP methods which should allow body parameter
  parsing.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setPort(int)">setPort</a></strong>(int&nbsp;port)</code>
 <div class="block">Set the port number on which we listen for requests.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setProperty(java.lang.String,%20java.lang.String)">setProperty</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Set a property on the protocol handler.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setProtocol(java.lang.String)">setProtocol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol)</code>
 <div class="block">Set the Coyote protocol which will be used by the connector.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setProtocolHandlerClassName(java.lang.String)">setProtocolHandlerClassName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocolHandlerClassName)</code>
 <div class="block">Set the class name of the Coyote protocol handler which will be used
  by the connector.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setProxyName(java.lang.String)">setProxyName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;proxyName)</code>
 <div class="block">Set the proxy server name for this Connector.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setProxyPort(int)">setProxyPort</a></strong>(int&nbsp;proxyPort)</code>
 <div class="block">Set the proxy server port for this Connector.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setRedirectPort(int)">setRedirectPort</a></strong>(int&nbsp;redirectPort)</code>
 <div class="block">Set the redirect port number.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setScheme(java.lang.String)">setScheme</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scheme)</code>
 <div class="block">Set the scheme that will be assigned to requests received through
  this connector.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setSecure(boolean)">setSecure</a></strong>(boolean&nbsp;secure)</code>
 <div class="block">Set the secure connection flag that will be assigned to requests
  received through this connector.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setService(org.apache.catalina.Service)">setService</a></strong>(<a href="../../../../org/apache/catalina/Service.html" title="interface in org.apache.catalina">Service</a>&nbsp;service)</code>
 <div class="block">Set the <code>Service</code> with which we are associated (if any).</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setURIEncoding(java.lang.String)">setURIEncoding</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;URIEncoding)</code>
 <div class="block">Set the URI encoding to be used for the URI.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setUseBodyEncodingForURI(boolean)">setUseBodyEncodingForURI</a></strong>(boolean&nbsp;useBodyEncodingForURI)</code>
 <div class="block">Set if the entity body encoding should be used for the URI.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setUseIPVHosts(boolean)">setUseIPVHosts</a></strong>(boolean&nbsp;useIPVHosts)</code>
 <div class="block">Enable the use of IP-based virtual hosting.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#setXpoweredBy(boolean)">setXpoweredBy</a></strong>(boolean&nbsp;xpoweredBy)</code>
 <div class="block">Enables or disables the generation of an X-Powered-By header (with value
@@ -720,19 +738,19 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
  Connector.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#startInternal()">startInternal</a></strong>()</code>
 <div class="block">Begin processing requests via this Connector.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#stopInternal()">stopInternal</a></strong>()</code>
 <div class="block">Terminate processing requests via this Connector.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/connector/Connector.html#toString()">toString</a></strong>()</code>
 <div class="block">Provide a useful toString() implementation as it may be used when logging
@@ -1147,7 +1165,10 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <ul class="blockList">
 <li class="blockList">
 <h4>getAttribute</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getAttribute(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getAttribute(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/connector/Connector.html#getProperty(java.lang.String)"><code>getProperty(String)</code></a>. This will be removed in
+             Tomcat 10 onwards.</i></div>
 <div class="block">Return a property from the protocol handler.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the property name</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the property value</dd></dl>
@@ -1159,8 +1180,11 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <ul class="blockList">
 <li class="blockList">
 <h4>setAttribute</h4>
-<pre>public&nbsp;void&nbsp;setAttribute(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;void&nbsp;setAttribute(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                           <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/catalina/connector/Connector.html#setProperty(java.lang.String,%20java.lang.String)"><code>setProperty(String, String)</code></a>. This will be
+             removed in Tomcat 10 onwards.</i></div>
 <div class="block">Set a property on the protocol handler.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the property name</dd><dd><code>value</code> - the property value</dd></dl>
 </li>
@@ -1721,6 +1745,33 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getExecutorName()</pre>
 </li>
 </ul>
+<a name="getEncodedSolidusHandling()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEncodedSolidusHandling</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getEncodedSolidusHandling()</pre>
+</li>
+</ul>
+<a name="setEncodedSolidusHandling(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodedSolidusHandling</h4>
+<pre>public&nbsp;void&nbsp;setEncodedSolidusHandling(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encodedSolidusHandling)</pre>
+</li>
+</ul>
+<a name="getEncodedSolidusHandlingInternal()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEncodedSolidusHandlingInternal</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/tomcat/util/buf/EncodedSolidusHandling.html" title="enum in org.apache.tomcat.util.buf">EncodedSolidusHandling</a>&nbsp;getEncodedSolidusHandlingInternal()</pre>
+</li>
+</ul>
 <a name="createRequest()">
 <!--   -->
 </a>
@@ -1914,7 +1965,7 @@ extends <a href="../../../../org/apache/catalina/util/LifecycleMBeanBase.html" t
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.103</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.104</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
