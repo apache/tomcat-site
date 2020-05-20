@@ -50,6 +50,49 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.35" rtext="11 May 2020">
+
+    <p><strong>High: Remote Code Execution via session persistence</strong>
+       <cve>CVE-2020-9484</cve></p>
+
+    <p>If:</p>
+    <ul>
+      <li>an attacker is able to control the contents and name of a file on the
+          server; and</li>
+      <li>the server is configured to use the <code>PersistenceManager</code>
+          with a <code>FileStore</code>; and</li>
+      <li>the <code>PersistenceManager</code> is configured with
+          <code>sessionAttributeValueClassNameFilter="null"</code> (the default
+          unless a <code>SecurityManager</code> is used) or a sufficiently lax
+          filter to allow the attacker provided object to be deserialized;
+          and</li>
+      <li>the attacker knows the relative file path from the storage location
+          used by <code>FileStore</code> to the file the attacker has control
+          over;</li>
+    </ul>
+    <p>then, using a specifically crafted request, the attacker will be able to
+       trigger remote code execution via deserialization of the file under their
+       control.</p>
+       
+    <p><strong>Note:</strong> All of conditions above must be true for the
+       attack to succeed.</p>
+
+    <p>As an alternative to upgrading to 9.0.35 or later, users may configure
+       the <code>PersistenceManager</code> with an appropriate value for
+       <code>sessionAttributeValueClassNameFilter</code> to ensure that only
+       application provided attributes are serialized and deserialized.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="3aa8f28db7efb311cdd1b6fe15a9cd3b167a2222"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by by jarvis
+       threedr3am of pdd security research on 12 April 2020. The issue was made 
+       public on 20 May 2020.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.34</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.31" rtext="11 February 2020">
 
     <p><strong>High: AJP Request Injection and potential Remote Code Execution</strong>

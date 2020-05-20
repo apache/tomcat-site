@@ -50,9 +50,46 @@
 
   </section>
 
-  <section name="Fixed in Apache Tomcat 10.0.x">
+  <section name="Fixed in Apache Tomcat 10.0.0-M5" rtext="11 May 2020">
 
-    <p>There are currently no known vulnerabilities for Apache Tomcat 10.0.x <sup><strong>alpha</strong></sup></p>
+    <p><strong>High: Remote Code Execution via session persistence</strong>
+       <cve>CVE-2020-9484</cve></p>
+
+    <p>If:</p>
+    <ul>
+      <li>an attacker is able to control the contents and name of a file on the
+          server; and</li>
+      <li>the server is configured to use the <code>PersistenceManager</code>
+          with a <code>FileStore</code>; and</li>
+      <li>the <code>PersistenceManager</code> is configured with
+          <code>sessionAttributeValueClassNameFilter="null"</code> (the default
+          unless a <code>SecurityManager</code> is used) or a sufficiently lax
+          filter to allow the attacker provided object to be deserialized;
+          and</li>
+      <li>the attacker knows the relative file path from the storage location
+          used by <code>FileStore</code> to the file the attacker has control
+          over;</li>
+    </ul>
+    <p>then, using a specifically crafted request, the attacker will be able to
+       trigger remote code execution via deserialization of the file under their
+       control.</p>
+       
+    <p><strong>Note:</strong> All of conditions above must be true for the
+       attack to succeed.</p>
+
+    <p>As an alternative to upgrading to 10.0.0-M5 or later, users may configure
+       the <code>PersistenceManager</code> with an appropriate value for
+       <code>sessionAttributeValueClassNameFilter</code> to ensure that only
+       application provided attributes are serialized and deserialized.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="bb33048e3f9b4f2b70e4da2e6c4e34ca89023b1b"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security Team by by jarvis
+       threedr3am of pdd security research on 12 April 2020. The issue was made 
+       public on 20 May 2020.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.0-M4</p>
 
   </section>
 
