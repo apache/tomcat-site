@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>StandardContext (Apache Tomcat 8.5.55 API Documentation)</title>
+<title>StandardContext (Apache Tomcat 8.5.56 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="StandardContext (Apache Tomcat 8.5.55 API Documentation)";
+        parent.document.title="StandardContext (Apache Tomcat 8.5.56 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.55</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.56</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -1069,7 +1069,9 @@ implements <a href="../../../../org/apache/catalina/Context.html" title="interfa
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/MBeanNotificationInfo.html?is-external=true" title="class or interface in javax.management">MBeanNotificationInfo</a>[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardContext.html#getNotificationInfo()">getNotificationInfo</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardContext.html#getNotificationInfo()">getNotificationInfo</a></strong>()</code>
+<div class="block">Get JMX Broadcaster Info</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -1446,7 +1448,9 @@ implements <a href="../../../../org/apache/catalina/Context.html" title="interfa
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/StandardContext.html#removeNotificationListener(javax.management.NotificationListener,%20javax.management.NotificationFilter,%20java.lang.Object)">removeNotificationListener</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationListener.html?is-external=true" title="class or interface in javax.management">NotificationListener</a>&nbsp;listener,
                           <a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationFilter.html?is-external=true" title="class or interface in javax.management">NotificationFilter</a>&nbsp;filter,
-                          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>&nbsp;</td>
+                          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>
+<div class="block">Remove a JMX notificationListener</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -6162,9 +6166,7 @@ public&nbsp;<a href="../../../../../servletapi/javax/servlet/ServletRegistration
  we should have the same state as if a fresh start was done - i.e
  read modified web.xml, etc. This can only be done by completely
  removing the context object and remapping a new one, or by cleaning
- up everything.
-
- XXX Should this be done in stop() ?</div>
+ up everything.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/core/ContainerBase.html#destroyInternal()">destroyInternal</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/core/ContainerBase.html" title="class in org.apache.catalina.core">ContainerBase</a></code></dd>
@@ -6577,11 +6579,12 @@ public&nbsp;<a href="../../../../../servletapi/javax/servlet/ServletRegistration
                               <a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationFilter.html?is-external=true" title="class or interface in javax.management">NotificationFilter</a>&nbsp;filter,
                               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)
                                 throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/management/ListenerNotFoundException.html?is-external=true" title="class or interface in javax.management">ListenerNotFoundException</a></pre>
+<div class="block">Remove a JMX notificationListener</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationEmitter.html?is-external=true#removeNotificationListener(javax.management.NotificationListener,%20javax.management.NotificationFilter,%20java.lang.Object)" title="class or interface in javax.management">removeNotificationListener</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationEmitter.html?is-external=true" title="class or interface in javax.management">NotificationEmitter</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/ListenerNotFoundException.html?is-external=true" title="class or interface in javax.management">ListenerNotFoundException</a></code></dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/ListenerNotFoundException.html?is-external=true" title="class or interface in javax.management">ListenerNotFoundException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationEmitter.html?is-external=true#removeNotificationListener(javax.management.NotificationListener,%20javax.management.NotificationFilter,%20java.lang.Object)" title="class or interface in javax.management"><code>NotificationEmitter.removeNotificationListener(javax.management.NotificationListener, javax.management.NotificationFilter, java.lang.Object)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getNotificationInfo()">
@@ -6591,10 +6594,11 @@ public&nbsp;<a href="../../../../../servletapi/javax/servlet/ServletRegistration
 <li class="blockList">
 <h4>getNotificationInfo</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/management/MBeanNotificationInfo.html?is-external=true" title="class or interface in javax.management">MBeanNotificationInfo</a>[]&nbsp;getNotificationInfo()</pre>
+<div class="block">Get JMX Broadcaster Info</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationBroadcaster.html?is-external=true#getNotificationInfo()" title="class or interface in javax.management">getNotificationInfo</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationBroadcaster.html?is-external=true" title="class or interface in javax.management">NotificationBroadcaster</a></code></dd>
-</dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="https://docs.oracle.com/javase/7/docs/api/javax/management/NotificationBroadcaster.html?is-external=true#getNotificationInfo()" title="class or interface in javax.management"><code>NotificationBroadcaster.getNotificationInfo()</code></a></dd></dl>
 </li>
 </ul>
 <a name="addNotificationListener(javax.management.NotificationListener, javax.management.NotificationFilter, java.lang.Object)">
@@ -6840,7 +6844,7 @@ public&nbsp;<a href="../../../../../servletapi/javax/servlet/ServletRegistration
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.55</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.56</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
