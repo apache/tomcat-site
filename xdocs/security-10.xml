@@ -50,9 +50,31 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.0.0-M6" rtext="7 June 2020">
+
+    <p><strong>Important: HTTP/2 DoS</strong>
+       <cve>CVE-2020-11996</cve></p>
+
+    <p>A specially crafted sequence of HTTP/2 requests could trigger high CPU
+       usage for several seconds. If a sufficient number of such requests were
+       made on concurrent HTTP/2 connections, the server could become
+       unresponsive.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="9434a44d3449d620b1be70206819f8275b4a7509"/>.</p>
+
+    <p>This issue was reported publicly via the Apache Tomcat Users mailing list
+       on 21 May 2020 without reference to the potential for DoS. The DoS risks
+       were identified by the Apache Tomcat Security Team the same day. The
+       issue was made  public on 25 June 2020.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.0-M5</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 10.0.0-M5" rtext="11 May 2020">
 
-    <p><strong>High: Remote Code Execution via session persistence</strong>
+    <p><strong>Important: Remote Code Execution via session persistence</strong>
        <cve>CVE-2020-9484</cve></p>
 
     <p>If:</p>
@@ -85,7 +107,7 @@
     <p>This was fixed with commit
        <hashlink hash="bb33048e3f9b4f2b70e4da2e6c4e34ca89023b1b"/>.</p>
 
-    <p>This issue was reported to the Apache Tomcat Security Team by by jarvis
+    <p>This issue was reported to the Apache Tomcat Security Team by jarvis
        threedr3am of pdd security research on 12 April 2020. The issue was made 
        public on 20 May 2020.</p>
 
