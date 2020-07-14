@@ -50,6 +50,29 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.105" rtext="7 July 2020">
+
+    <p><strong>Important: WebSocket DoS</strong>
+       <cve>CVE-2020-13935</cve></p>
+
+    <p>The payload length in a WebSocket frame was not correctly validated.
+       Invalid payload lengths could trigger an infinite loop. Multiple requests
+       with invalid payload lengths could lead to a denial of service.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="f9f75c14678b68633f79030ddf4ff827f014cc84"/> and
+       <hashlink hash="4c04982870d6e730c38e21e58fb653b7cf723784"/>.</p>
+
+    <p>This issue was reported publicly via the Apache Bugzilla instance on 28
+       June 2020 and included references to high CPU but no specific reference
+       to denial of service. The associated DoS risks were identified by the
+       Apache Tomcat Security Team the same day. The issue was made public on 14
+       July 2020.</p>
+
+    <p>Affects: 7.0.27 to 7.0.104</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 7.0.104" rtext="16 May 2020">
 
     <p><strong>High: Remote Code Execution via session persistence</strong>

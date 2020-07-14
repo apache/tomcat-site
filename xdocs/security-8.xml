@@ -56,6 +56,47 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.57" rtext="5 July 2020">
+
+    <p><strong>Important: WebSocket DoS</strong>
+       <cve>CVE-2020-13935</cve></p>
+
+    <p>The payload length in a WebSocket frame was not correctly validated.
+       Invalid payload lengths could trigger an infinite loop. Multiple requests
+       with invalid payload lengths could lead to a denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="12d715676038efbf9c728af10163f8277fc019d5"/>.</p>
+
+    <p>This issue was reported publicly via the Apache Bugzilla instance on 28
+       June 2020 and included references to high CPU but no specific reference
+       to denial of service. The associated DoS risks were identified by the
+       Apache Tomcat Security Team the same day. The issue was made public on 14
+       July 2020.</p>
+
+    <p>Affects: 8.5.0 to 8.5.56</p>
+
+    <p><strong>Moderate: HTTP/2 DoS</strong>
+       <cve>CVE-2020-13934</cve></p>
+
+    <p>An h2c direct connection did not release the HTTP/1.1 processor after the
+       upgrade to HTTP/2. If a sufficient number of such requests were made, an
+       OutOfMemoryException could occur leading to a denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="923d834500802a61779318911d7898bd85fc950e"/>.</p>
+
+    <p>This issue was reported publicly via the Apache Tomcat Users mailing list
+       on 22 June 2020 without reference to the potential for DoS. After further
+       discussion to identify the steps necessary to reproduce the issue, the
+       root cause of the issue and the associated DoS risks were identified by
+       the Apache Tomcat Security Team on 26 June 2020. The issue was made
+       public on 14 July 2020.</p>
+
+    <p>Affects: 8.5.1 to 8.5.56</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.56" rtext="7 June 2020">
 
     <p><strong>Important: HTTP/2 DoS</strong>
