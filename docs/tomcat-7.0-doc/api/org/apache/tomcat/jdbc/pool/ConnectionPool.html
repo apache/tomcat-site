@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ConnectionPool (Apache Tomcat 7.0.105 API Documentation)</title>
+<title>ConnectionPool (Apache Tomcat 7.0.106 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ConnectionPool (Apache Tomcat 7.0.105 API Documentation)";
+        parent.document.title="ConnectionPool (Apache Tomcat 7.0.106 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.105</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.106</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>org.apache.tomcat.jdbc.pool.ConnectionPool</li>
@@ -96,10 +96,10 @@
 <hr>
 <br>
 <pre>public class <span class="strong">ConnectionPool</span>
-extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">Implementation of simple connection pool.
  The ConnectionPool uses a <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.html" title="class in org.apache.tomcat.jdbc.pool"><code>PoolProperties</code></a> object for storing all the meta information about the connection pool.
- As the underlying implementation, the connection pool uses <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/BlockingQueue.html?is-external=true" title="class or interface in java.util.concurrent"><code>BlockingQueue</code></a> to store active and idle connections.
+ As the underlying implementation, the connection pool uses <code>BlockingQueue</code> to store active and idle connections.
  A custom implementation of a fair <a href="../../../../../org/apache/tomcat/jdbc/pool/FairBlockingQueue.html" title="class in org.apache.tomcat.jdbc.pool"><code>FairBlockingQueue</code></a> blocking queue is provided with the connection pool itself.</div>
 <dl><dt><span class="strong">Version:</span></dt>
   <dd>1.0</dd></dl>
@@ -156,13 +156,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#POOL_JMX_DOMAIN">POOL_JMX_DOMAIN</a></strong></code>
 <div class="block">Default domain for objects registering with an mbean server</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#POOL_JMX_TYPE_PREFIX">POOL_JMX_TYPE_PREFIX</a></strong></code>
 <div class="block">Prefix type for JMX registration</div>
 </td>
@@ -212,8 +212,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#borrowConnection(long,%20org.apache.tomcat.jdbc.pool.PooledConnection,%20java.lang.String,%20java.lang.String)">borrowConnection</a></strong>(long&nbsp;now,
                 <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+                java.lang.String&nbsp;username,
+                java.lang.String&nbsp;password)</code>
 <div class="block">Validates and configures a previously idle connection</div>
 </td>
 </tr>
@@ -242,7 +242,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#close(boolean)">close</a></strong>(boolean&nbsp;force)</code>
 <div class="block">Closes the pool and all disconnects all idle connections
- Active connections will be closed upon the <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#close()" title="class or interface in java.sql"><code>close</code></a> method is called
+ Active connections will be closed upon the <code>close</code> method is called
  on the underlying connection instead of being returned to the pool</div>
 </td>
 </tr>
@@ -256,8 +256,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#createConnection(long,%20org.apache.tomcat.jdbc.pool.PooledConnection,%20java.lang.String,%20java.lang.String)">createConnection</a></strong>(long&nbsp;now,
                 <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;notUsed,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+                java.lang.String&nbsp;username,
+                java.lang.String&nbsp;password)</code>
 <div class="block">Creates a JDBC connection and tries to connect to the database.</div>
 </td>
 </tr>
@@ -293,20 +293,20 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
+<td class="colFirst"><code>java.sql.Connection</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getConnection()">getConnection</a></strong>()</code>
 <div class="block">Borrows a connection from the pool.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getConnection(java.lang.String,%20java.lang.String)">getConnection</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+<td class="colFirst"><code>java.sql.Connection</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getConnection(java.lang.String,%20java.lang.String)">getConnection</a></strong>(java.lang.String&nbsp;username,
+             java.lang.String&nbsp;password)</code>
 <div class="block">Borrows a connection from the pool.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html?is-external=true" title="class or interface in java.util.concurrent">Future</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.concurrent.Future&lt;java.sql.Connection&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getConnectionAsync()">getConnectionAsync</a></strong>()</code>
 <div class="block">Retrieves a Connection future.</div>
 </td>
@@ -330,13 +330,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getName()">getName</a></strong>()</code>
 <div class="block">Returns the name of this pool</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html?is-external=true" title="class or interface in java.util">TimerTask</a>&gt;</code></td>
+<td class="colFirst"><code>static java.util.Set&lt;java.util.TimerTask&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getPoolCleaners()">getPoolCleaners</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -346,7 +346,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Timer.html?is-external=true" title="class or interface in java.util">Timer</a></code></td>
+<td class="colFirst"><code>static java.util.Timer</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getPoolTimer()">getPoolTimer</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -354,9 +354,9 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getPoolVersion()">getPoolVersion</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Constructor.html?is-external=true" title="class or interface in java.lang.reflect">Constructor</a>&lt;?&gt;</code></td>
+<td class="colFirst"><code>java.lang.reflect.Constructor&lt;?&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getProxyConstructor(boolean)">getProxyConstructor</a></strong>(boolean&nbsp;xa)</code>
-<div class="block">Creates and caches a <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Constructor.html?is-external=true" title="class or interface in java.lang.reflect"><code>Constructor</code></a> used to instantiate the proxy object.</div>
+<div class="block">Creates and caches a <code>Constructor</code> used to instantiate the proxy object.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -396,13 +396,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getStackTrace(java.lang.Throwable)">getStackTrace</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;x)</code>
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getStackTrace(java.lang.Throwable)">getStackTrace</a></strong>(java.lang.Throwable&nbsp;x)</code>
 <div class="block">Convert an exception into a String</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>protected static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#getThreadDump()">getThreadDump</a></strong>()</code>
 <div class="block">Creates a stack trace representing the existing thread's current state.</div>
 </td>
@@ -462,7 +462,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
+<td class="colFirst"><code>protected java.sql.Connection</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/jdbc/pool/ConnectionPool.html#setupConnection(org.apache.tomcat.jdbc.pool.PooledConnection)">setupConnection</a></strong>(<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)</code>
 <div class="block">configures a pooled connection as a proxy.</div>
 </td>
@@ -514,8 +514,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -537,7 +537,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>POOL_JMX_DOMAIN</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> POOL_JMX_DOMAIN</pre>
+<pre>public static final&nbsp;java.lang.String POOL_JMX_DOMAIN</pre>
 <div class="block">Default domain for objects registering with an mbean server</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.tomcat.jdbc.pool.ConnectionPool.POOL_JMX_DOMAIN">Constant Field Values</a></dd></dl>
 </li>
@@ -548,7 +548,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>POOL_JMX_TYPE_PREFIX</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> POOL_JMX_TYPE_PREFIX</pre>
+<pre>public static final&nbsp;java.lang.String POOL_JMX_TYPE_PREFIX</pre>
 <div class="block">Prefix type for JMX registration</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.tomcat.jdbc.pool.ConnectionPool.POOL_JMX_TYPE_PREFIX">Constant Field Values</a></dd></dl>
 </li>
@@ -578,12 +578,12 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>ConnectionPool</h4>
 <pre>public&nbsp;ConnectionPool(<a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html" title="interface in org.apache.tomcat.jdbc.pool">PoolConfiguration</a>&nbsp;prop)
-               throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+               throws java.sql.SQLException</pre>
 <div class="block">Instantiate a connection pool. This will create connections if initialSize is larger than 0.
  The <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.html" title="class in org.apache.tomcat.jdbc.pool"><code>PoolProperties</code></a> should not be reused for another connection pool.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>prop</code> - PoolProperties - all the properties for this connection pool</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - Pool initialization error</dd></dl>
+<dd><code>java.sql.SQLException</code> - Pool initialization error</dd></dl>
 </li>
 </ul>
 </li>
@@ -600,15 +600,15 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getConnectionAsync</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html?is-external=true" title="class or interface in java.util.concurrent">Future</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&gt;&nbsp;getConnectionAsync()
-                                      throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+<pre>public&nbsp;java.util.concurrent.Future&lt;java.sql.Connection&gt;&nbsp;getConnectionAsync()
+                                                                    throws java.sql.SQLException</pre>
 <div class="block">Retrieves a Connection future. If a connection is not available, one can block using future.get()
  until a connection has become available.
  If a connection is not retrieved, the Future must be cancelled in order for the connection to be returned
  to the pool.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>a Future containing a reference to the connection or the future connection</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - Cannot use asynchronous connect</dd></dl>
+<dd><code>java.sql.SQLException</code> - Cannot use asynchronous connect</dd></dl>
 </li>
 </ul>
 <a name="getConnection()">
@@ -617,14 +617,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getConnection</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;getConnection()
-                         throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+<pre>public&nbsp;java.sql.Connection&nbsp;getConnection()
+                                  throws java.sql.SQLException</pre>
 <div class="block">Borrows a connection from the pool. If a connection is available (in the idle queue) or the pool has not reached
  <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.html#maxActive"><code>maxActive</code></a> connections a connection is returned immediately.
  If no connection is available, the pool will attempt to fetch a connection for <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.html#maxWait"><code>maxWait</code></a> milliseconds.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>Connection - a java.sql.Connection/javax.sql.PooledConnection reflection proxy, wrapping the underlying object.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - - if the wait times out or a failure occurs creating a connection</dd></dl>
+<dd><code>java.sql.SQLException</code> - - if the wait times out or a failure occurs creating a connection</dd></dl>
 </li>
 </ul>
 <a name="getConnection(java.lang.String, java.lang.String)">
@@ -633,9 +633,9 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getConnection</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;getConnection(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-                       <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)
-                         throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+<pre>public&nbsp;java.sql.Connection&nbsp;getConnection(java.lang.String&nbsp;username,
+                                java.lang.String&nbsp;password)
+                                  throws java.sql.SQLException</pre>
 <div class="block">Borrows a connection from the pool. If a connection is available (in the
  idle queue) or the pool has not reached <a href="../../../../../org/apache/tomcat/jdbc/pool/PoolProperties.html#maxActive"><code>maxActive</code></a> connections a connection is returned immediately. If no
  connection is available, the pool will attempt to fetch a connection for
@@ -644,7 +644,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <dt><span class="strong">Returns:</span></dt><dd>Connection - a java.sql.Connection/javax.sql.PooledConnection
          reflection proxy, wrapping the underlying object.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - - if the wait times out or a failure occurs creating a
+<dd><code>java.sql.SQLException</code> - - if the wait times out or a failure occurs creating a
              connection</dd></dl>
 </li>
 </ul>
@@ -654,7 +654,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
+<pre>public&nbsp;java.lang.String&nbsp;getName()</pre>
 <div class="block">Returns the name of this pool</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>String - the name of the pool</dd></dl>
 </li>
@@ -731,16 +731,16 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>setupConnection</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;setupConnection(<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+<pre>protected&nbsp;java.sql.Connection&nbsp;setupConnection(<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con)
+                                       throws java.sql.SQLException</pre>
 <div class="block">configures a pooled connection as a proxy.
- This Proxy implements <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql"><code>Connection</code></a> and <a href="https://docs.oracle.com/javase/7/docs/api/javax/sql/PooledConnection.html?is-external=true" title="class or interface in javax.sql"><code>PooledConnection</code></a> interfaces.
- All calls on <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql"><code>Connection</code></a> methods will be propagated down to the actual JDBC connection except for the
- <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#close()" title="class or interface in java.sql"><code>Connection.close()</code></a> method.</div>
+ This Proxy implements <code>Connection</code> and <code>PooledConnection</code> interfaces.
+ All calls on <code>Connection</code> methods will be propagated down to the actual JDBC connection except for the
+ <code>Connection.close()</code> method.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>con</code> - a <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool"><code>PooledConnection</code></a> to wrap in a Proxy</dd>
-<dt><span class="strong">Returns:</span></dt><dd>a <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql"><code>Connection</code></a> object wrapping a pooled connection.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a <code>Connection</code> object wrapping a pooled connection.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - if an interceptor can't be configured, if the proxy can't be instantiated</dd></dl>
+<dd><code>java.sql.SQLException</code> - if an interceptor can't be configured, if the proxy can't be instantiated</dd></dl>
 </li>
 </ul>
 <a name="getProxyConstructor(boolean)">
@@ -749,14 +749,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getProxyConstructor</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Constructor.html?is-external=true" title="class or interface in java.lang.reflect">Constructor</a>&lt;?&gt;&nbsp;getProxyConstructor(boolean&nbsp;xa)
-                                   throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/NoSuchMethodException.html?is-external=true" title="class or interface in java.lang">NoSuchMethodException</a></pre>
-<div class="block">Creates and caches a <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Constructor.html?is-external=true" title="class or interface in java.lang.reflect"><code>Constructor</code></a> used to instantiate the proxy object.
+<pre>public&nbsp;java.lang.reflect.Constructor&lt;?&gt;&nbsp;getProxyConstructor(boolean&nbsp;xa)
+                                                     throws java.lang.NoSuchMethodException</pre>
+<div class="block">Creates and caches a <code>Constructor</code> used to instantiate the proxy object.
  We cache this, since the creation of a constructor is fairly slow.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>xa</code> - Use a XA connection</dd>
 <dt><span class="strong">Returns:</span></dt><dd>constructor used to instantiate the wrapper object</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/NoSuchMethodException.html?is-external=true" title="class or interface in java.lang">NoSuchMethodException</a></code> - Failed to get a constructor</dd></dl>
+<dd><code>java.lang.NoSuchMethodException</code> - Failed to get a constructor</dd></dl>
 </li>
 </ul>
 <a name="close(boolean)">
@@ -767,7 +767,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <h4>close</h4>
 <pre>protected&nbsp;void&nbsp;close(boolean&nbsp;force)</pre>
 <div class="block">Closes the pool and all disconnects all idle connections
- Active connections will be closed upon the <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true#close()" title="class or interface in java.sql"><code>close</code></a> method is called
+ Active connections will be closed upon the <code>close</code> method is called
  on the underlying connection instead of being returned to the pool</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>force</code> - - true to even close the active connections</dd></dl>
 </li>
@@ -779,11 +779,11 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>init</h4>
 <pre>protected&nbsp;void&nbsp;init(<a href="../../../../../org/apache/tomcat/jdbc/pool/PoolConfiguration.html" title="interface in org.apache.tomcat.jdbc.pool">PoolConfiguration</a>&nbsp;properties)
-             throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+             throws java.sql.SQLException</pre>
 <div class="block">Initialize the connection pool - called from the constructor</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>properties</code> - PoolProperties - properties used to initialize the pool with</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - if initialization fails</dd></dl>
+<dd><code>java.sql.SQLException</code> - if initialization fails</dd></dl>
 </li>
 </ul>
 <a name="checkPoolConfiguration(org.apache.tomcat.jdbc.pool.PoolConfiguration)">
@@ -859,14 +859,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <h4>createConnection</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;createConnection(long&nbsp;now,
                                 <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;notUsed,
-                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)
-                                     throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+                                java.lang.String&nbsp;username,
+                                java.lang.String&nbsp;password)
+                                     throws java.sql.SQLException</pre>
 <div class="block">Creates a JDBC connection and tries to connect to the database.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>now</code> - timestamp of when this was called</dd><dd><code>notUsed</code> - Argument not used</dd><dd><code>username</code> - The user name to use for the connection</dd><dd><code>password</code> - The password for the connection</dd>
 <dt><span class="strong">Returns:</span></dt><dd>a PooledConnection that has been connected</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - Failed to get a connection</dd></dl>
+<dd><code>java.sql.SQLException</code> - Failed to get a connection</dd></dl>
 </li>
 </ul>
 <a name="borrowConnection(long, org.apache.tomcat.jdbc.pool.PooledConnection, java.lang.String, java.lang.String)">
@@ -877,14 +877,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <h4>borrowConnection</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;borrowConnection(long&nbsp;now,
                                 <a href="../../../../../org/apache/tomcat/jdbc/pool/PooledConnection.html" title="class in org.apache.tomcat.jdbc.pool">PooledConnection</a>&nbsp;con,
-                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
-                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)
-                                     throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+                                java.lang.String&nbsp;username,
+                                java.lang.String&nbsp;password)
+                                     throws java.sql.SQLException</pre>
 <div class="block">Validates and configures a previously idle connection</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>now</code> - - timestamp</dd><dd><code>con</code> - - the connection to validate and configure</dd><dd><code>username</code> - The user name to use for the connection</dd><dd><code>password</code> - The password for the connection</dd>
 <dt><span class="strong">Returns:</span></dt><dd>a connection</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></code> - if a validation error happens</dd></dl>
+<dd><code>java.sql.SQLException</code> - if a validation error happens</dd></dl>
 </li>
 </ul>
 <a name="terminateTransaction(org.apache.tomcat.jdbc.pool.PooledConnection)">
@@ -996,10 +996,10 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getThreadDump</h4>
-<pre>protected static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getThreadDump()</pre>
+<pre>protected static&nbsp;java.lang.String&nbsp;getThreadDump()</pre>
 <div class="block">Creates a stack trace representing the existing thread's current state.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>a string object representing the current state.
- TODO investigate if we simply should store <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html?is-external=true#getStackTrace()" title="class or interface in java.lang"><code>Thread.getStackTrace()</code></a> elements</dd></dl>
+ TODO investigate if we simply should store <code>Thread.getStackTrace()</code> elements</dd></dl>
 </li>
 </ul>
 <a name="getStackTrace(java.lang.Throwable)">
@@ -1008,7 +1008,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getStackTrace</h4>
-<pre>public static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getStackTrace(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;x)</pre>
+<pre>public static&nbsp;java.lang.String&nbsp;getStackTrace(java.lang.Throwable&nbsp;x)</pre>
 <div class="block">Convert an exception into a String</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>x</code> - - the throwable</dd>
 <dt><span class="strong">Returns:</span></dt><dd>a string representing the stack trace</dd></dl>
@@ -1189,7 +1189,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getPoolCleaners</h4>
-<pre>public static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html?is-external=true" title="class or interface in java.util">TimerTask</a>&gt;&nbsp;getPoolCleaners()</pre>
+<pre>public static&nbsp;java.util.Set&lt;java.util.TimerTask&gt;&nbsp;getPoolCleaners()</pre>
 </li>
 </ul>
 <a name="getPoolVersion()">
@@ -1207,7 +1207,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getPoolTimer</h4>
-<pre>public static&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Timer.html?is-external=true" title="class or interface in java.util">Timer</a>&nbsp;getPoolTimer()</pre>
+<pre>public static&nbsp;java.util.Timer&nbsp;getPoolTimer()</pre>
 </li>
 </ul>
 </li>
@@ -1232,7 +1232,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.105</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.106</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
