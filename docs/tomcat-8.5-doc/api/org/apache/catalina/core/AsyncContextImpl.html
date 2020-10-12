@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AsyncContextImpl (Apache Tomcat 8.5.58 API Documentation)</title>
+<title>AsyncContextImpl (Apache Tomcat 8.5.59 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AsyncContextImpl (Apache Tomcat 8.5.58 API Documentation)";
+        parent.document.title="AsyncContextImpl (Apache Tomcat 8.5.59 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -183,42 +183,54 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#dispatch()">dispatch</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#decrementInProgressAsyncCount()">decrementInProgressAsyncCount</a></strong>()</code>
+<div class="block">Used to notify the Context that async processing has ended.</div>
+</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#dispatch()">dispatch</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#dispatch(javax.servlet.ServletContext,%20java.lang.String)">dispatch</a></strong>(<a href="../../../../../servletapi/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#dispatch(java.lang.String)">dispatch</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#doInternalDispatch()">doInternalDispatch</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#fireOnComplete()">fireOnComplete</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../servletapi/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#getRequest()">getRequest</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../servletapi/javax/servlet/ServletResponse.html?is-external=true" title="class or interface in javax.servlet">ServletResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#getResponse()">getResponse</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#getTimeout()">getTimeout</a></strong>()</code>
 <div class="block">Get the current timeout.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#hasOriginalRequestAndResponse()">hasOriginalRequestAndResponse</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/AsyncContextImpl.html#incrementInProgressAsyncCount()">incrementInProgressAsyncCount</a></strong>()</code>
+<div class="block">Used to notify the Context that async processing has started.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -586,11 +598,47 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 <a name="setErrorState(java.lang.Throwable, boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setErrorState</h4>
 <pre>public&nbsp;void&nbsp;setErrorState(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t,
                  boolean&nbsp;fireOnError)</pre>
+</li>
+</ul>
+<a name="incrementInProgressAsyncCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>incrementInProgressAsyncCount</h4>
+<pre>public&nbsp;void&nbsp;incrementInProgressAsyncCount()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#incrementInProgressAsyncCount()">AsyncContextCallback</a></code></strong></div>
+<div class="block">Used to notify the Context that async processing has started.
+ Specifically, for the counting of in-progress async requests to work
+ correctly, this must be called exactly once every time the
+ <a href="../../../../org/apache/coyote/AsyncStateMachine.html" title="class in org.apache.coyote"><code>AsyncStateMachine</code></a> transitions from DISPATCHED to any other state.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#incrementInProgressAsyncCount()">incrementInProgressAsyncCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html" title="interface in org.apache.coyote">AsyncContextCallback</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="decrementInProgressAsyncCount()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>decrementInProgressAsyncCount</h4>
+<pre>public&nbsp;void&nbsp;decrementInProgressAsyncCount()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#decrementInProgressAsyncCount()">AsyncContextCallback</a></code></strong></div>
+<div class="block">Used to notify the Context that async processing has ended.
+ Specifically, for the counting of in-progress async requests to work
+ correctly, this must be called exactly once every time the
+ <a href="../../../../org/apache/coyote/AsyncStateMachine.html" title="class in org.apache.coyote"><code>AsyncStateMachine</code></a> transitions to DISPATCHED from any other state.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../org/apache/coyote/AsyncContextCallback.html#decrementInProgressAsyncCount()">decrementInProgressAsyncCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/coyote/AsyncContextCallback.html" title="interface in org.apache.coyote">AsyncContextCallback</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -615,7 +663,7 @@ implements <a href="../../../../../servletapi/javax/servlet/AsyncContext.html?is
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ApplicationServletRegistration (Apache Tomcat 8.5.58 API Documentation)</title>
+<title>ApplicationServletRegistration (Apache Tomcat 8.5.59 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ApplicationServletRegistration (Apache Tomcat 8.5.58 API Documentation)";
+        parent.document.title="ApplicationServletRegistration (Apache Tomcat 8.5.59 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -156,7 +156,8 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletRegistration.
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ApplicationServletRegistration.html#addMapping(java.lang.String...)">addMapping</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;urlPatterns)</code>
-<div class="block">TODO</div>
+<div class="block">Adds a servlet mapping with the given URL patterns for the Servlet
+ represented by this ServletRegistration.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -177,7 +178,10 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletRegistration.
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ApplicationServletRegistration.html#getMappings()">getMappings</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/core/ApplicationServletRegistration.html#getMappings()">getMappings</a></strong>()</code>
+<div class="block">Gets the currently available mappings of the Servlet represented by this
+ ServletRegistration.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -436,12 +440,21 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletRegistration.
 <h4>addMapping</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;addMapping(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;urlPatterns)</pre>
 <div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true#addMapping(java.lang.String...)" title="class or interface in javax.servlet">javax.servlet.ServletRegistration</a></code></strong></div>
-<div class="block">TODO</div>
+<div class="block">Adds a servlet mapping with the given URL patterns for the Servlet
+ represented by this ServletRegistration. If any of the specified URL
+ patterns are already mapped to a different Servlet, no updates will
+ be performed.
+
+ If this method is called multiple times, each successive call adds to
+ the effects of the former. The returned set is not backed by the
+ ServletRegistration object, so changes in the returned set are not
+ reflected in the ServletRegistration object, and vice-versa.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true#addMapping(java.lang.String...)" title="class or interface in javax.servlet">addMapping</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet">ServletRegistration</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>urlPatterns</code> - The URL patterns that this Servlet should be mapped to</dd>
-<dt><span class="strong">Returns:</span></dt><dd>TODO</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>the (possibly empty) Set of URL patterns that are already mapped
+ to a different Servlet</dd></dl>
 </li>
 </ul>
 <a name="getMappings()">
@@ -451,10 +464,17 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletRegistration.
 <li class="blockList">
 <h4>getMappings</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getMappings()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true#getMappings()" title="class or interface in javax.servlet">javax.servlet.ServletRegistration</a></code></strong></div>
+<div class="block">Gets the currently available mappings of the Servlet represented by this
+ ServletRegistration.
+
+ If permitted, any changes to the returned Collection must not affect this
+ ServletRegistration.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true#getMappings()" title="class or interface in javax.servlet">getMappings</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../servletapi/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet">ServletRegistration</a></code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>a (possibly empty) Collection of the currently available mappings
+ of the Servlet represented by this ServletRegistration</dd></dl>
 </li>
 </ul>
 <a name="getRunAsRole()">
@@ -492,7 +512,7 @@ implements <a href="../../../../../servletapi/javax/servlet/ServletRegistration.
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

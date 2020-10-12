@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>FailedRequestFilter (Apache Tomcat 8.5.58 API Documentation)</title>
+<title>FailedRequestFilter (Apache Tomcat 8.5.59 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="FailedRequestFilter (Apache Tomcat 8.5.58 API Documentation)";
+        parent.document.title="FailedRequestFilter (Apache Tomcat 8.5.59 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -111,11 +111,12 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
  submitted by client are lost.
 
  <p>
- Note that it has side effect that it triggers parameter parsing and thus
- consumes the body for POST requests. Parameter parsing does check content
- type of the request, so there should not be problems with addresses that use
- <code>request.getInputStream()</code> and <code>request.getReader()</code>,
- if requests parsed by them do not use standard value for content mime-type.</div>
+ Note that parameter parsing may consume the body of an HTTP request, so
+ caution is needed if the servlet protected by this filter uses
+ <code>request.getInputStream()</code> or <code>request.getReader()</code>
+ calls. In general the risk of breaking a web application by adding this
+ filter is not so high, because parameter parsing does check content type
+ of the request before consuming the request body.</div>
 </li>
 </ul>
 </div>
@@ -327,7 +328,7 @@ extends <a href="../../../../org/apache/catalina/filters/FilterBase.html" title=
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.58</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
