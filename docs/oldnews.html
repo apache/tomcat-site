@@ -16,6 +16,40 @@
   <li><a href="oldnews-2011.html">year 2011</a></li>
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
+</div><h3 id="Tomcat_10.0.0-M8_Released"><span class="pull-right">2020-09-14</span> Tomcat 10.0.0-M8 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M8
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>For requests containing the <code>Expect: 100-continue</code> header,
+    optional support has been added to delay sending an intermediate 100 status
+    response until the servlet reads the request body, allowing the servlet the
+    opportunity to respond without asking for the request body. Based on a pull
+    request by malaysf.</li>
+<li>Add support for a read idle timeout and a write idle timeout to the
+    WebSocket session via custom properties in the user properties instance
+    associated with the session. Based on a pull request by sakshamverma.</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.25</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M8_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_7.0.105_Released"><span class="pull-right">2020-07-07</span> Tomcat 7.0.105 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 7.0.105 of
