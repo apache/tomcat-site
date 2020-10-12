@@ -50,6 +50,28 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.38" rtext="15 September 2020">
+
+    <p><strong>Moderate: HTTP/2 request mix-up</strong>
+       <cve>CVE-2020-13943</cve></p>
+
+    <p>If an HTTP/2 client exceeded the agreed maximum number of concurrent
+       streams for a connection (in violation of the HTTP/2 protocol), it was
+       possible that a subsequent request made on that connection could contain
+       HTTP headers - including HTTP/2 pseudo headers - from a previous request
+       rather than the intended headers. This could lead to users seeing
+       responses for unexpected resources.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="55911430df13f8c9998fbdee1f9716994d2db59b"/>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security team on 23 July
+       2020. The issue was made public on 12 October 2020.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.37</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.37" rtext="5 July 2020">
 
     <p><strong>Important: WebSocket DoS</strong>
