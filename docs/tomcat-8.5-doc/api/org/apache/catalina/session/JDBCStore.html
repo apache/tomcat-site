@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JDBCStore (Apache Tomcat 8.5.59 API Documentation)</title>
+<title>JDBCStore (Apache Tomcat 8.5.60 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JDBCStore (Apache Tomcat 8.5.59 API Documentation)";
+        parent.document.title="JDBCStore (Apache Tomcat 8.5.60 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.60</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -107,9 +107,18 @@
 <dt>All Implemented Interfaces:</dt>
 <dd><a href="../../../../org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a>, <a href="../../../../org/apache/catalina/Store.html" title="interface in org.apache.catalina">Store</a></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/apache/catalina/session/DataSourceStore.html" title="class in org.apache.catalina.session">DataSourceStore</a></dd>
+</dl>
 <hr>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Removed in Tomcat 10 and replaced by DataSourceStore
+  with removal of legacy JDBC code</i></div>
+</div>
 <br>
-<pre>public class <span class="strong">JDBCStore</span>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public class <span class="strong">JDBCStore</span>
 extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="class in org.apache.catalina.session">StoreBase</a></pre>
 <div class="block">Implementation of the <a href="../../../../org/apache/catalina/Store.html" title="interface in org.apache.catalina"><code>Store</code></a>
  interface that stores serialized session objects in a database.
@@ -153,126 +162,147 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#connectionName">connectionName</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">The connection username to use when trying to connect to the database.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#connectionPassword">connectionPassword</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">The connection URL to use when trying to connect to the database.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#connectionURL">connectionURL</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Connection string to use when connecting to the DB.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#dataSource">dataSource</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">DataSource to use</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#dataSourceName">dataSourceName</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">name of the JNDI resource</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true" title="class or interface in java.sql">Driver</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#driver">driver</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Instance of the JDBC Driver class we use as a connection factory.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#driverName">driverName</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Driver to use.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#preparedClearSql">preparedClearSql</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Variable to hold the <code>clear()</code> prepared statement.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#preparedLoadSql">preparedLoadSql</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Variable to hold the <code>load()</code> prepared statement.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#preparedRemoveSql">preparedRemoveSql</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Variable to hold the <code>remove()</code> prepared statement.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#preparedSaveSql">preparedSaveSql</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Variable to hold the <code>save()</code> prepared statement.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#preparedSizeSql">preparedSizeSql</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Variable to hold the <code>getSize()</code> prepared statement.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionAppCol">sessionAppCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Column to use for /Engine/Host/Context name</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionDataCol">sessionDataCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Data column to use.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionIdCol">sessionIdCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Id column to use.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionLastAccessedCol">sessionLastAccessedCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Last Accessed column to use.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionMaxInactiveCol">sessionMaxInactiveCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Max Inactive column to use.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionTable">sessionTable</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Table to use.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#sessionValidCol">sessionValidCol</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block"><code>Is Valid</code> column to use.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#storeName">storeName</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Name to register for this Store, used for logging.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#threadName">threadName</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Name to register for the background thread.</div>
 </td>
 </tr>
@@ -305,7 +335,9 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#JDBCStore()">JDBCStore</a></strong>()</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#JDBCStore()">JDBCStore</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -325,18 +357,21 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#clear()">clear</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Remove all of the Sessions in this Store.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#close(java.sql.Connection)">close</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;dbConnection)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Close the specified database connection.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#expiredKeys()">expiredKeys</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Get only those keys of sessions, that are saved in the Store and are to
  be expired.</div>
 </td>
@@ -344,94 +379,132 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnection()">getConnection</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Check the connection associated with this store, if it's
  <code>null</code> or closed try to reopen it.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionName()">getConnectionName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionName()">getConnectionName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionPassword()">getConnectionPassword</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionPassword()">getConnectionPassword</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionURL()">getConnectionURL</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getConnectionURL()">getConnectionURL</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getDataSourceName()">getDataSourceName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getDataSourceName()">getDataSourceName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getDriverName()">getDriverName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getDriverName()">getDriverName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getLocalDataSource()">getLocalDataSource</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getLocalDataSource()">getLocalDataSource</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getName()">getName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getName()">getName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionAppCol()">getSessionAppCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionAppCol()">getSessionAppCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionDataCol()">getSessionDataCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionDataCol()">getSessionDataCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionIdCol()">getSessionIdCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionIdCol()">getSessionIdCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionLastAccessedCol()">getSessionLastAccessedCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionLastAccessedCol()">getSessionLastAccessedCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionMaxInactiveCol()">getSessionMaxInactiveCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionMaxInactiveCol()">getSessionMaxInactiveCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionTable()">getSessionTable</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionTable()">getSessionTable</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionValidCol()">getSessionValidCol</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSessionValidCol()">getSessionValidCol</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getSize()">getSize</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Return an integer containing a count of all Sessions
  currently saved in this Store.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getStoreName()">getStoreName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getStoreName()">getStoreName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getThreadName()">getThreadName</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#getThreadName()">getThreadName</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#keys()">keys</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#keys()">keys</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#load(java.lang.String)">load</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Load the Session associated with the id <code>id</code>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#open()">open</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Open (if necessary) and return a database connection for use by
  this Store.</div>
 </td>
@@ -439,6 +512,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#release(java.sql.Connection)">release</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;conn)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Release the connection, if it
  is associated with a connection pool.</div>
 </td>
@@ -446,6 +520,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#remove(java.lang.String)">remove</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Remove the Session with the specified session identifier from
  this Store, if present.</div>
 </td>
@@ -453,42 +528,49 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#save(org.apache.catalina.Session)">save</a></strong>(<a href="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Save a session to the Store.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setConnectionName(java.lang.String)">setConnectionName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionName)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the username to use to connect to the database.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setConnectionPassword(java.lang.String)">setConnectionPassword</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionPassword)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the password to use to connect to the database.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setConnectionURL(java.lang.String)">setConnectionURL</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionURL)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the Connection URL for this Store.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setDataSourceName(java.lang.String)">setDataSourceName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dataSourceName)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the JNDI name of a DataSource-factory to use for db access</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setDriverName(java.lang.String)">setDriverName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;driverName)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the driver for this Store.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setLocalDataSource(boolean)">setLocalDataSource</a></strong>(boolean&nbsp;localDataSource)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set to <code>true</code> to cause the datasource to be looked up in the webapp
  JNDI Context.</div>
 </td>
@@ -496,48 +578,56 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionAppCol(java.lang.String)">setSessionAppCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionAppCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the App column for the table.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionDataCol(java.lang.String)">setSessionDataCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionDataCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the Data column for the table</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionIdCol(java.lang.String)">setSessionIdCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionIdCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the Id column for the table.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionLastAccessedCol(java.lang.String)">setSessionLastAccessedCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionLastAccessedCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the <code>Last Accessed</code> column for the table</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionMaxInactiveCol(java.lang.String)">setSessionMaxInactiveCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionMaxInactiveCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the <code>Max Inactive</code> column for the table</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionTable(java.lang.String)">setSessionTable</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionTable)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the table for this Store.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#setSessionValidCol(java.lang.String)">setSessionValidCol</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionValidCol)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Set the <code>Is Valid</code> column for the table</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#startInternal()">startInternal</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Start this component and implement the requirements
  of <a href="../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
 </td>
@@ -545,6 +635,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/session/JDBCStore.html#stopInternal()">stopInternal</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 <div class="block">Stop this component and implement the requirements
  of <a href="../../../../org/apache/catalina/util/LifecycleBase.html#stopInternal()"><code>LifecycleBase.stopInternal()</code></a>.</div>
 </td>
@@ -592,6 +683,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>storeName</h4>
 <pre>protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> storeName</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Name to register for this Store, used for logging.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.session.JDBCStore.storeName">Constant Field Values</a></dd></dl>
 </li>
@@ -603,6 +695,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>threadName</h4>
 <pre>protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> threadName</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Name to register for the background thread.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.session.JDBCStore.threadName">Constant Field Values</a></dd></dl>
 </li>
@@ -614,6 +707,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>connectionName</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> connectionName</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">The connection username to use when trying to connect to the database.</div>
 </li>
 </ul>
@@ -624,6 +718,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>connectionPassword</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> connectionPassword</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">The connection URL to use when trying to connect to the database.</div>
 </li>
 </ul>
@@ -634,6 +729,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>connectionURL</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> connectionURL</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Connection string to use when connecting to the DB.</div>
 </li>
 </ul>
@@ -644,6 +740,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>driver</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Driver.html?is-external=true" title="class or interface in java.sql">Driver</a> driver</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Instance of the JDBC Driver class we use as a connection factory.</div>
 </li>
 </ul>
@@ -654,6 +751,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>driverName</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> driverName</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Driver to use.</div>
 </li>
 </ul>
@@ -664,6 +762,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>dataSourceName</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> dataSourceName</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">name of the JNDI resource</div>
 </li>
 </ul>
@@ -674,6 +773,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>dataSource</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html?is-external=true" title="class or interface in javax.sql">DataSource</a> dataSource</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">DataSource to use</div>
 </li>
 </ul>
@@ -684,6 +784,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionTable</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionTable</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Table to use.</div>
 </li>
 </ul>
@@ -694,6 +795,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionAppCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionAppCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Column to use for /Engine/Host/Context name</div>
 </li>
 </ul>
@@ -704,6 +806,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionIdCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionIdCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Id column to use.</div>
 </li>
 </ul>
@@ -714,6 +817,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionDataCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionDataCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Data column to use.</div>
 </li>
 </ul>
@@ -724,6 +828,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionValidCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionValidCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><code>Is Valid</code> column to use.</div>
 </li>
 </ul>
@@ -734,6 +839,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionMaxInactiveCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionMaxInactiveCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Max Inactive column to use.</div>
 </li>
 </ul>
@@ -744,6 +850,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>sessionLastAccessedCol</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> sessionLastAccessedCol</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Last Accessed column to use.</div>
 </li>
 </ul>
@@ -754,6 +861,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>preparedSizeSql</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a> preparedSizeSql</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Variable to hold the <code>getSize()</code> prepared statement.</div>
 </li>
 </ul>
@@ -764,6 +872,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>preparedSaveSql</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a> preparedSaveSql</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Variable to hold the <code>save()</code> prepared statement.</div>
 </li>
 </ul>
@@ -774,6 +883,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>preparedClearSql</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a> preparedClearSql</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Variable to hold the <code>clear()</code> prepared statement.</div>
 </li>
 </ul>
@@ -784,6 +894,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>preparedRemoveSql</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a> preparedRemoveSql</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Variable to hold the <code>remove()</code> prepared statement.</div>
 </li>
 </ul>
@@ -794,6 +905,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>preparedLoadSql</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html?is-external=true" title="class or interface in java.sql">PreparedStatement</a> preparedLoadSql</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Variable to hold the <code>load()</code> prepared statement.</div>
 </li>
 </ul>
@@ -812,6 +924,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>JDBCStore</h4>
 <pre>public&nbsp;JDBCStore()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -829,6 +942,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the name for this instance (built from container name)</dd></dl>
 </li>
 </ul>
@@ -839,6 +953,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getThreadName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getThreadName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the thread name for this Store.</dd></dl>
 </li>
 </ul>
@@ -849,6 +964,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getStoreName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getStoreName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/catalina/session/StoreBase.html#getStoreName()">getStoreName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/catalina/session/StoreBase.html" title="class in org.apache.catalina.session">StoreBase</a></code></dd>
@@ -862,6 +978,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setDriverName</h4>
 <pre>public&nbsp;void&nbsp;setDriverName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;driverName)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the driver for this Store.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>driverName</code> - The new driver</dd></dl>
 </li>
@@ -873,6 +990,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getDriverName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getDriverName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the driver for this Store.</dd></dl>
 </li>
 </ul>
@@ -883,6 +1001,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getConnectionName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getConnectionName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the username to use to connect to the database.</dd></dl>
 </li>
 </ul>
@@ -893,6 +1012,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setConnectionName</h4>
 <pre>public&nbsp;void&nbsp;setConnectionName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionName)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the username to use to connect to the database.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionName</code> - Username</dd></dl>
 </li>
@@ -904,6 +1024,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getConnectionPassword</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getConnectionPassword()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the password to use to connect to the database.</dd></dl>
 </li>
 </ul>
@@ -914,6 +1035,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setConnectionPassword</h4>
 <pre>public&nbsp;void&nbsp;setConnectionPassword(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionPassword)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the password to use to connect to the database.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionPassword</code> - User password</dd></dl>
 </li>
@@ -925,6 +1047,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setConnectionURL</h4>
 <pre>public&nbsp;void&nbsp;setConnectionURL(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionURL)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the Connection URL for this Store.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionURL</code> - The new Connection URL</dd></dl>
 </li>
@@ -936,6 +1059,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getConnectionURL</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getConnectionURL()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the Connection URL for this Store.</dd></dl>
 </li>
 </ul>
@@ -946,6 +1070,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionTable</h4>
 <pre>public&nbsp;void&nbsp;setSessionTable(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionTable)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the table for this Store.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionTable</code> - The new table</dd></dl>
 </li>
@@ -957,6 +1082,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionTable</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionTable()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the table for this Store.</dd></dl>
 </li>
 </ul>
@@ -967,6 +1093,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionAppCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionAppCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionAppCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the App column for the table.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionAppCol</code> - the column name</dd></dl>
 </li>
@@ -978,6 +1105,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionAppCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionAppCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the web application name column for the table.</dd></dl>
 </li>
 </ul>
@@ -988,6 +1116,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionIdCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionIdCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionIdCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the Id column for the table.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionIdCol</code> - the column name</dd></dl>
 </li>
@@ -999,6 +1128,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionIdCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionIdCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the Id column for the table.</dd></dl>
 </li>
 </ul>
@@ -1009,6 +1139,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionDataCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionDataCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionDataCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the Data column for the table</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionDataCol</code> - the column name</dd></dl>
 </li>
@@ -1020,6 +1151,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionDataCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionDataCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the data column for the table</dd></dl>
 </li>
 </ul>
@@ -1030,6 +1162,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionValidCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionValidCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionValidCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the <code>Is Valid</code> column for the table</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionValidCol</code> - The column name</dd></dl>
 </li>
@@ -1041,6 +1174,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionValidCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionValidCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the <code>Is Valid</code> column</dd></dl>
 </li>
 </ul>
@@ -1051,6 +1185,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionMaxInactiveCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionMaxInactiveCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionMaxInactiveCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the <code>Max Inactive</code> column for the table</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionMaxInactiveCol</code> - The column name</dd></dl>
 </li>
@@ -1062,6 +1197,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionMaxInactiveCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionMaxInactiveCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the <code>Max Inactive</code> column</dd></dl>
 </li>
 </ul>
@@ -1072,6 +1208,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setSessionLastAccessedCol</h4>
 <pre>public&nbsp;void&nbsp;setSessionLastAccessedCol(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sessionLastAccessedCol)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the <code>Last Accessed</code> column for the table</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>sessionLastAccessedCol</code> - The column name</dd></dl>
 </li>
@@ -1083,6 +1220,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getSessionLastAccessedCol</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSessionLastAccessedCol()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the <code>Last Accessed</code> column</dd></dl>
 </li>
 </ul>
@@ -1093,6 +1231,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setDataSourceName</h4>
 <pre>public&nbsp;void&nbsp;setDataSourceName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dataSourceName)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set the JNDI name of a DataSource-factory to use for db access</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>dataSourceName</code> - The JNDI name of the DataSource-factory</dd></dl>
 </li>
@@ -1104,6 +1243,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getDataSourceName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getDataSourceName()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the name of the JNDI DataSource-factory</dd></dl>
 </li>
 </ul>
@@ -1114,6 +1254,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getLocalDataSource</h4>
 <pre>public&nbsp;boolean&nbsp;getLocalDataSource()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>if the datasource will be looked up in the webapp JNDI Context.</dd></dl>
 </li>
 </ul>
@@ -1124,6 +1265,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>setLocalDataSource</h4>
 <pre>public&nbsp;void&nbsp;setLocalDataSource(boolean&nbsp;localDataSource)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Set to <code>true</code> to cause the datasource to be looked up in the webapp
  JNDI Context.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>localDataSource</code> - the new flag value</dd></dl>
@@ -1137,6 +1279,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>expiredKeys</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;expiredKeys()
                      throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/apache/catalina/session/StoreBase.html#expiredKeys()">StoreBase</a></code></strong></div>
 <div class="block">Get only those keys of sessions, that are saved in the Store and are to
  be expired.</div>
@@ -1156,6 +1299,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>keys</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;keys()
               throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>an array containing the session identifiers of all Sessions
  currently saved in this Store.  If there are no such Sessions, a
  zero-length array is returned.</dd>
@@ -1171,6 +1315,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>getSize</h4>
 <pre>public&nbsp;int&nbsp;getSize()
             throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Return an integer containing a count of all Sessions
  currently saved in this Store.  If there are no Sessions,
  <code>0</code> is returned.</div>
@@ -1188,6 +1333,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <pre>public&nbsp;<a href="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;load(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)
              throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a>,
                     <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Load the Session associated with the id <code>id</code>.
  If no such session is found <code>null</code> is returned.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>id</code> - a value of type <code>String</code></dd>
@@ -1205,6 +1351,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>remove</h4>
 <pre>public&nbsp;void&nbsp;remove(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)
             throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Remove the Session with the specified session identifier from
  this Store, if present.  If no such Session is present, this method
  takes no action.</div>
@@ -1221,6 +1368,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>clear</h4>
 <pre>public&nbsp;void&nbsp;clear()
            throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Remove all of the Sessions in this Store.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an input/output error occurs</dd></dl>
@@ -1234,6 +1382,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>save</h4>
 <pre>public&nbsp;void&nbsp;save(<a href="../../../../org/apache/catalina/Session.html" title="interface in org.apache.catalina">Session</a>&nbsp;session)
           throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Save a session to the Store.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>session</code> - the session to be stored</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -1247,6 +1396,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>getConnection</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;getConnection()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Check the connection associated with this store, if it's
  <code>null</code> or closed try to reopen it.
  Returns <code>null</code> if the connection could not be established.</div>
@@ -1261,6 +1411,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>open</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;open()
                    throws <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/SQLException.html?is-external=true" title="class or interface in java.sql">SQLException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Open (if necessary) and return a database connection for use by
  this Store.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>database connection ready to use</dd>
@@ -1275,6 +1426,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>close</h4>
 <pre>protected&nbsp;void&nbsp;close(<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;dbConnection)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Close the specified database connection.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>dbConnection</code> - The connection to be closed</dd></dl>
 </li>
@@ -1286,6 +1438,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li class="blockList">
 <h4>release</h4>
 <pre>protected&nbsp;void&nbsp;release(<a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html?is-external=true" title="class or interface in java.sql">Connection</a>&nbsp;conn)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Release the connection, if it
  is associated with a connection pool.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>conn</code> - The connection to be released</dd></dl>
@@ -1299,6 +1452,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>startInternal</h4>
 <pre>protected&nbsp;void&nbsp;startInternal()
                       throws <a href="../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Start this component and implement the requirements
  of <a href="../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
 <dl>
@@ -1317,6 +1471,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <h4>stopInternal</h4>
 <pre>protected&nbsp;void&nbsp;stopInternal()
                      throws <a href="../../../../org/apache/catalina/LifecycleException.html" title="class in org.apache.catalina">LifecycleException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;</div>
 <div class="block">Stop this component and implement the requirements
  of <a href="../../../../org/apache/catalina/util/LifecycleBase.html#stopInternal()"><code>LifecycleBase.stopInternal()</code></a>.</div>
 <dl>
@@ -1349,7 +1504,7 @@ extends <a href="../../../../org/apache/catalina/session/StoreBase.html" title="
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.60</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">

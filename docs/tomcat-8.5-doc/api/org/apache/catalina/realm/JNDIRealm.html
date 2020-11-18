@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JNDIRealm (Apache Tomcat 8.5.59 API Documentation)</title>
+<title>JNDIRealm (Apache Tomcat 8.5.60 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JNDIRealm (Apache Tomcat 8.5.59 API Documentation)";
+        parent.document.title="JNDIRealm (Apache Tomcat 8.5.60 API Documentation)";
     }
 //-->
 </script>
@@ -31,12 +31,12 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.60</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/catalina/realm/JDBCRealm.html" title="class in org.apache.catalina.realm"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/catalina/realm/JNDIRealm.html" target="_top">Frames</a></li>
@@ -217,10 +217,6 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
      directory server itself.</li>
  </ul>
 
- <p><strong>TODO</strong> - Support connection pooling (including message
- format objects) so that <code>authenticate()</code> does not have to be
- synchronized.</p>
-
  <p><strong>WARNING</strong> - There is a reported bug against the Netscape
  provider code (com.netscape.jndi.ldap.LdapContextFactory) with respect to
  successfully authenticated a non-existing user. The
@@ -248,6 +244,13 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <th class="colLast" scope="col">Class and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected static class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a></strong></code>
+<div class="block">Class holding the connection to the directory plus the associated
+ non thread safe message formats.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected static class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></strong></code>
 <div class="block">A protected class representing a User</div>
@@ -325,6 +328,18 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/tomcat/util/collections/SynchronizedStack.html" title="class in org.apache.tomcat.util.collections">SynchronizedStack</a>&lt;<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#connectionPool">connectionPool</a></strong></code>
+<div class="block">Connection pool.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#connectionPoolSize">connectionPoolSize</a></strong></code>
+<div class="block">The pool size limit.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#connectionTimeout">connectionTimeout</a></strong></code>
 <div class="block">The timeout, in milliseconds, to use when trying to create a connection
@@ -338,31 +353,25 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#context">context</a></strong></code>
-<div class="block">The directory context linking us to our directory server.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#contextFactory">contextFactory</a></strong></code>
 <div class="block">The JNDI context factory used to acquire our InitialContext.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#DEREF_ALIASES">DEREF_ALIASES</a></strong></code>
 <div class="block">Constant that holds the name of the environment property for specifying
  the manner in which aliases should be dereferenced.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#derefAliases">derefAliases</a></strong></code>
 <div class="block">How aliases should be dereferenced during search operations.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#name">name</a></strong></code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
@@ -370,97 +379,101 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#protocol">protocol</a></strong></code>
 <div class="block">The protocol that will be used in the communication with the
  directory server.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#readTimeout">readTimeout</a></strong></code>
 <div class="block">The timeout, in milliseconds, to use when trying to read from a connection
  to the directory.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#referrals">referrals</a></strong></code>
 <div class="block">How should we handle referrals?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleBase">roleBase</a></strong></code>
 <div class="block">The base element for role searches.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleBaseFormat">roleBaseFormat</a></strong></code>
-<div class="block">The MessageFormat object associated with the current
- <code>roleBase</code>.</div>
-</td>
-</tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleFormat">roleFormat</a></strong></code>
-<div class="block">The MessageFormat object associated with the current
- <code>roleSearch</code>.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleName">roleName</a></strong></code>
 <div class="block">The name of the attribute containing roles held elsewhere</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleNested">roleNested</a></strong></code>
 <div class="block">Should we look for nested group in order to determine roles?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleSearch">roleSearch</a></strong></code>
 <div class="block">The message format used to select roles for a user, with "{0}" marking
  the spot where the distinguished name of the user goes.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleSearchAsUser">roleSearchAsUser</a></strong></code>
 <div class="block">When searching for user roles, should the search be performed as the user
  currently being authenticated?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#roleSubtree">roleSubtree</a></strong></code>
 <div class="block">Should we search the entire subtree for matching memberships?</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#singleConnection">singleConnection</a></strong></code>
+<div class="block">Non pooled connection to our directory server.</div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html?is-external=true" title="class or interface in java.util.concurrent.locks">Lock</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#singleConnectionLock">singleConnectionLock</a></strong></code>
+<div class="block">The lock to ensure single connection thread safety.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#sizeLimit">sizeLimit</a></strong></code>
 <div class="block">The sizeLimit (also known as the countLimit) to use when the realm is
  configured with <a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userSearch"><code>userSearch</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#spnegoDelegationQop">spnegoDelegationQop</a></strong></code>
 <div class="block">The QOP that should be used for the connection to the LDAP server after
  authentication.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#timeLimit">timeLimit</a></strong></code>
 <div class="block">The timeLimit (in milliseconds) to use when the realm is configured with
  <a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userSearch"><code>userSearch</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#useContextClassLoader">useContextClassLoader</a></strong></code>
+<div class="block">Whether to use context ClassLoader or default ClassLoader.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -500,13 +513,6 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a>[]</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userPatternFormatArray">userPatternFormatArray</a></strong></code>
-<div class="block">An array of MessageFormat objects associated with the current
- <code>userPatternArray</code>.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userRoleAttribute">userRoleAttribute</a></strong></code>
 <div class="block">The name of the attribute inside the users
@@ -515,25 +521,18 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  This attribute is not used during a nested search</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userRoleName">userRoleName</a></strong></code>
 <div class="block">The name of an attribute in the user's entry containing
  roles for that user</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userSearch">userSearch</a></strong></code>
 <div class="block">The message format used to search for a user, with "{0}" marking
  the spot where the username goes.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#userSearchFormat">userSearchFormat</a></strong></code>
-<div class="block">The MessageFormat object associated with the current
- <code>userSearch</code>.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -597,7 +596,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#authenticate(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String)">authenticate</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#authenticate(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String)">authenticate</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials)</code>
 <div class="block">Return the Principal associated with the specified username and
@@ -631,11 +630,17 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#close(javax.naming.directory.DirContext)">close</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#close(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">close</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)</code>
 <div class="block">Close any open connection to the directory server for this Realm.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#closePooledConnections()">closePooledConnections</a></strong>()</code>
+<div class="block">Close all pooled connections.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#compareCredentials(javax.naming.directory.DirContext,%20org.apache.catalina.realm.JNDIRealm.User,%20java.lang.String)">compareCredentials</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
                   <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;info,
@@ -644,9 +649,16 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  retrieved from the directory.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#convertToHexEscape(java.lang.String)">convertToHexEscape</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#create()">create</a></strong>()</code>
+<div class="block">Create a new connection wrapper, along with the
+ message formats.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -656,30 +668,41 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#get()">get</a></strong>()</code>
+<div class="block">Open (if necessary) and return a connection to the configured
+ directory server for this Realm.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getAdCompat()">getAdCompat</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getAlternateURL()">getAlternateURL</a></strong>()</code>
 <div class="block">Getter for property alternateURL.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getAuthentication()">getAuthentication</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getCommonRole()">getCommonRole</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getConnectionName()">getConnectionName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getConnectionPassword()">getConnectionPassword</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getConnectionPoolSize()">getConnectionPoolSize</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -737,17 +760,17 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getPrincipal(javax.naming.directory.DirContext,%20java.lang.String,%20org.ietf.jgss.GSSCredential)">getPrincipal</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
-            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getPrincipal(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">getPrincipal</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss">GSSName</a>&nbsp;gssName,
             <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</code>
-<div class="block">Get the principal associated with the specified certificate.</div>
+<div class="block">Get the principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getPrincipal(org.ietf.jgss.GSSName,%20org.ietf.jgss.GSSCredential)">getPrincipal</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss">GSSName</a>&nbsp;gssName,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getPrincipal(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20org.ietf.jgss.GSSCredential)">getPrincipal</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
+            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
             <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)</code>
-<div class="block">Get the principal associated with the specified <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a>.</div>
+<div class="block">Get the principal associated with the specified certificate.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -789,7 +812,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getRoles(javax.naming.directory.DirContext,%20org.apache.catalina.realm.JNDIRealm.User)">getRoles</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getRoles(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20org.apache.catalina.realm.JNDIRealm.User)">getRoles</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
         <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;user)</code>
 <div class="block">Return a List of roles associated with the given User.</div>
 </td>
@@ -816,7 +839,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(javax.naming.directory.DirContext,%20java.lang.String)">getUser</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String)">getUser</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
 <div class="block">Return a User object containing information about the user
  with the specified username, if found in the directory;
@@ -825,7 +848,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String)">getUser</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String)">getUser</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials)</code>
 <div class="block">Return a User object containing information about the user
@@ -835,7 +858,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String,%20int)">getUser</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String,%20int)">getUser</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials,
        int&nbsp;curUserPattern)</code>
@@ -861,7 +884,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUserByPattern(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20int)">getUserByPattern</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUserByPattern(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20int)">getUserByPattern</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;attrIds,
@@ -874,7 +897,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUserBySearch(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String[])">getUserBySearch</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUserBySearch(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String[])">getUserBySearch</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;attrIds)</code>
 <div class="block">Search the directory to return a User object containing
@@ -922,20 +945,25 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUseDelegatedCredential()">isUseDelegatedCredential</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUserSearchAsUser()">isUserSearchAsUser</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#open()">open</a></strong>()</code>
-<div class="block">Open (if necessary) and return a connection to the configured
- directory server for this Realm.</div>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUseContextClassLoader()">isUseContextClassLoader</a></strong>()</code>
+<div class="block">Returns whether to use the context or default ClassLoader.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUseDelegatedCredential()">isUseDelegatedCredential</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#isUserSearchAsUser()">isUserSearchAsUser</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#open(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">open</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)</code>
+<div class="block">Create a new connection to the directory server.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#parseUserPatternString(java.lang.String)">parseUserPatternString</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPatternString)</code>
 <div class="block">Given a string containing LDAP patterns for user locations (separated by
@@ -943,52 +971,58 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  "(location1)(location2)", returns an array of those paths.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#release(javax.naming.directory.DirContext)">release</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#release(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">release</a></strong>(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)</code>
 <div class="block">Release our use of this connection so that it can be recycled.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAdCompat(boolean)">setAdCompat</a></strong>(boolean&nbsp;adCompat)</code>
 <div class="block">How do we handle PartialResultExceptions?</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAlternateURL(java.lang.String)">setAlternateURL</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;alternateURL)</code>
 <div class="block">Setter for property alternateURL.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setAuthentication(java.lang.String)">setAuthentication</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authentication)</code>
 <div class="block">Set the type of authentication to use.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setCipherSuites(java.lang.String)">setCipherSuites</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;suites)</code>
 <div class="block">Set the allowed cipher suites when opening a connection using StartTLS.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setCommonRole(java.lang.String)">setCommonRole</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;commonRole)</code>
 <div class="block">Set the common role</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionName(java.lang.String)">setConnectionName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionName)</code>
 <div class="block">Set the connection username for this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionPassword(java.lang.String)">setConnectionPassword</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;connectionPassword)</code>
 <div class="block">Set the connection password for this Realm.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setConnectionPoolSize(int)">setConnectionPoolSize</a></strong>(int&nbsp;connectionPoolSize)</code>
+<div class="block">Set the connection pool size</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1105,59 +1139,65 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUseDelegatedCredential(boolean)">setUseDelegatedCredential</a></strong>(boolean&nbsp;useDelegatedCredential)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUseContextClassLoader(boolean)">setUseContextClassLoader</a></strong>(boolean&nbsp;useContext)</code>
+<div class="block">Sets whether to use the context or default ClassLoader.</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUseDelegatedCredential(boolean)">setUseDelegatedCredential</a></strong>(boolean&nbsp;useDelegatedCredential)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserBase(java.lang.String)">setUserBase</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userBase)</code>
 <div class="block">Set the base element for user searches.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserPassword(java.lang.String)">setUserPassword</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPassword)</code>
 <div class="block">Set the password attribute used to retrieve the user password.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserPattern(java.lang.String)">setUserPattern</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userPattern)</code>
 <div class="block">Set the message format pattern for selecting users in this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserRoleAttribute(java.lang.String)">setUserRoleAttribute</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userRoleAttribute)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserRoleName(java.lang.String)">setUserRoleName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userRoleName)</code>
 <div class="block">Set the user role name attribute name for this Realm.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserSearch(java.lang.String)">setUserSearch</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userSearch)</code>
 <div class="block">Set the message format pattern for selecting users in this Realm.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserSearchAsUser(boolean)">setUserSearchAsUser</a></strong>(boolean&nbsp;userSearchAsUser)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUserSubtree(boolean)">setUserSubtree</a></strong>(boolean&nbsp;userSubtree)</code>
 <div class="block">Set the "search subtree for users" flag.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#setUseStartTls(boolean)">setUseStartTls</a></strong>(boolean&nbsp;useStartTls)</code>
 <div class="block">Flag whether StartTLS should be used when connecting to the ldap server</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#startInternal()">startInternal</a></strong>()</code>
 <div class="block">Prepare for the beginning of active use of the public methods of this
@@ -1165,7 +1205,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
  <a href="../../../../org/apache/catalina/util/LifecycleBase.html#startInternal()"><code>LifecycleBase.startInternal()</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#stopInternal()">stopInternal</a></strong>()</code>
 <div class="block">Gracefully terminate the active use of the public methods of this
@@ -1254,16 +1294,6 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <h4>connectionURL</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> connectionURL</pre>
 <div class="block">The connection URL for the server we will contact.</div>
-</li>
-</ul>
-<a name="context">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>context</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a> context</pre>
-<div class="block">The directory context linking us to our directory server.</div>
 </li>
 </ul>
 <a name="contextFactory">
@@ -1372,17 +1402,6 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
  the spot where the username goes.</div>
 </li>
 </ul>
-<a name="userSearchFormat">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>userSearchFormat</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a> userSearchFormat</pre>
-<div class="block">The MessageFormat object associated with the current
- <code>userSearch</code>.</div>
-</li>
-</ul>
 <a name="userSubtree">
 <!--   -->
 </a>
@@ -1443,17 +1462,6 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
  goes.</div>
 </li>
 </ul>
-<a name="userPatternFormatArray">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>userPatternFormatArray</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a>[] userPatternFormatArray</pre>
-<div class="block">An array of MessageFormat objects associated with the current
- <code>userPatternArray</code>.</div>
-</li>
-</ul>
 <a name="roleBase">
 <!--   -->
 </a>
@@ -1462,28 +1470,6 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <h4>roleBase</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> roleBase</pre>
 <div class="block">The base element for role searches.</div>
-</li>
-</ul>
-<a name="roleBaseFormat">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>roleBaseFormat</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a> roleBaseFormat</pre>
-<div class="block">The MessageFormat object associated with the current
- <code>roleBase</code>.</div>
-</li>
-</ul>
-<a name="roleFormat">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>roleFormat</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true" title="class or interface in java.text">MessageFormat</a> roleFormat</pre>
-<div class="block">The MessageFormat object associated with the current
- <code>roleSearch</code>.</div>
 </li>
 </ul>
 <a name="userRoleName">
@@ -1641,7 +1627,7 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <a name="spnegoDelegationQop">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>spnegoDelegationQop</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> spnegoDelegationQop</pre>
@@ -1649,6 +1635,58 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
  authentication. This value is used to set the
  <code>javax.security.sasl.qop</code> environment property for the LDAP
  connection.</div>
+</li>
+</ul>
+<a name="singleConnection">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>singleConnection</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a> singleConnection</pre>
+<div class="block">Non pooled connection to our directory server.</div>
+</li>
+</ul>
+<a name="singleConnectionLock">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>singleConnectionLock</h4>
+<pre>protected final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html?is-external=true" title="class or interface in java.util.concurrent.locks">Lock</a> singleConnectionLock</pre>
+<div class="block">The lock to ensure single connection thread safety.</div>
+</li>
+</ul>
+<a name="connectionPool">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>connectionPool</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/tomcat/util/collections/SynchronizedStack.html" title="class in org.apache.tomcat.util.collections">SynchronizedStack</a>&lt;<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&gt; connectionPool</pre>
+<div class="block">Connection pool.</div>
+</li>
+</ul>
+<a name="connectionPoolSize">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>connectionPoolSize</h4>
+<pre>protected&nbsp;int connectionPoolSize</pre>
+<div class="block">The pool size limit. If 1, pooling is not used.</div>
+</li>
+</ul>
+<a name="useContextClassLoader">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>useContextClassLoader</h4>
+<pre>protected&nbsp;boolean useContextClassLoader</pre>
+<div class="block">Whether to use context ClassLoader or default ClassLoader.
+ True means use context ClassLoader, and True is the default
+ value.</div>
 </li>
 </ul>
 </li>
@@ -2366,6 +2404,28 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>suites</code> - comma separated list of allowed cipher suites</dd></dl>
 </li>
 </ul>
+<a name="getConnectionPoolSize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConnectionPoolSize</h4>
+<pre>public&nbsp;int&nbsp;getConnectionPoolSize()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the connection pool size, or the default value 1 if pooling
+   is disabled</dd></dl>
+</li>
+</ul>
+<a name="setConnectionPoolSize(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setConnectionPoolSize</h4>
+<pre>public&nbsp;void&nbsp;setConnectionPoolSize(int&nbsp;connectionPoolSize)</pre>
+<div class="block">Set the connection pool size</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connectionPoolSize</code> - the new pool size</dd></dl>
+</li>
+</ul>
 <a name="getHostnameVerifierClassName()">
 <!--   -->
 </a>
@@ -2427,6 +2487,30 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>protocol</code> - one of the allowed ssl protocol names</dd></dl>
 </li>
 </ul>
+<a name="setUseContextClassLoader(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUseContextClassLoader</h4>
+<pre>public&nbsp;void&nbsp;setUseContextClassLoader(boolean&nbsp;useContext)</pre>
+<div class="block">Sets whether to use the context or default ClassLoader.
+ True means use context ClassLoader.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>useContext</code> - True means use context ClassLoader</dd></dl>
+</li>
+</ul>
+<a name="isUseContextClassLoader()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isUseContextClassLoader</h4>
+<pre>public&nbsp;boolean&nbsp;isUseContextClassLoader()</pre>
+<div class="block">Returns whether to use the context or default ClassLoader.
+ True means to use the context ClassLoader.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The value of useContextClassLoader</dd></dl>
+</li>
+</ul>
 <a name="authenticate(java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -2452,69 +2536,69 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd></dl>
 </li>
 </ul>
-<a name="authenticate(javax.naming.directory.DirContext, java.lang.String, java.lang.String)">
+<a name="authenticate(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>authenticate</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;authenticate(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;authenticate(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials)
                        throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Return the Principal associated with the specified username and
  credentials, if there is one; otherwise return <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>credentials</code> - Password or other credentials to use in
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - Username of the Principal to look up</dd><dd><code>credentials</code> - Password or other credentials to use in
   authenticating this username</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the associated principal, or <code>null</code> if there is none.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
 </ul>
-<a name="getUser(javax.naming.directory.DirContext, java.lang.String)">
+<a name="getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUser</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)
                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Return a User object containing information about the user
  with the specified username, if found in the directory;
  otherwise return <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the User object</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String,%20int)"><code>getUser(DirContext, String, String, int)</code></a></dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String,%20int)"><code>getUser(JNDIConnection, String, String, int)</code></a></dd></dl>
 </li>
 </ul>
-<a name="getUser(javax.naming.directory.DirContext, java.lang.String, java.lang.String)">
+<a name="getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUser</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials)
                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Return a User object containing information about the user
  with the specified username, if found in the directory;
  otherwise return <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd><dd><code>credentials</code> - User credentials (optional)</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd><dd><code>credentials</code> - User credentials (optional)</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the User object</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String,%20int)"><code>getUser(DirContext, String, String, int)</code></a></dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection,%20java.lang.String,%20java.lang.String,%20int)"><code>getUser(JNDIConnection, String, String, int)</code></a></dd></dl>
 </li>
 </ul>
-<a name="getUser(javax.naming.directory.DirContext, java.lang.String, java.lang.String, int)">
+<a name="getUser(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, java.lang.String, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUser</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUser(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials,
                      int&nbsp;curUserPattern)
@@ -2528,7 +2612,7 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
  user's directory entry. If the <code>userRoleName</code>
  configuration attribute is specified, all values of that
  attribute are retrieved from the directory entry.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd><dd><code>credentials</code> - User credentials (optional)</dd><dd><code>curUserPattern</code> - Index into userPatternFormatArray</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - Username to be looked up</dd><dd><code>credentials</code> - User credentials (optional)</dd><dd><code>curUserPattern</code> - Index into userPatternFormatArray</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the User object</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
@@ -2555,13 +2639,13 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
 </ul>
-<a name="getUserByPattern(javax.naming.directory.DirContext, java.lang.String, java.lang.String, java.lang.String[], int)">
+<a name="getUserByPattern(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, java.lang.String, java.lang.String[], int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUserByPattern</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUserByPattern(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUserByPattern(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;credentials,
                               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;attrIds,
@@ -2571,26 +2655,26 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
  locate the directory entry for the user with the specified
  username and return a User object; otherwise return
  <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - The username</dd><dd><code>credentials</code> - User credentials (optional)</dd><dd><code>attrIds</code> - String[]containing names of attributes to</dd><dd><code>curUserPattern</code> - Index into userPatternFormatArray</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - The username</dd><dd><code>credentials</code> - User credentials (optional)</dd><dd><code>attrIds</code> - String[]containing names of attributes to</dd><dd><code>curUserPattern</code> - Index into userPatternFormatArray</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the User object</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#getUserByPattern(javax.naming.directory.DirContext,%20java.lang.String,%20java.lang.String[],%20java.lang.String)"><code>getUserByPattern(DirContext, String, String[], String)</code></a></dd></dl>
 </li>
 </ul>
-<a name="getUserBySearch(javax.naming.directory.DirContext, java.lang.String, java.lang.String[])">
+<a name="getUserBySearch(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, java.lang.String[])">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUserBySearch</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUserBySearch(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;getUserBySearch(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;attrIds)
                                   throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Search the directory to return a User object containing
  information about the user with the specified username, if
  found in the directory; otherwise return <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - The username</dd><dd><code>attrIds</code> - String[]containing names of attributes to retrieve.</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - The username</dd><dd><code>attrIds</code> - String[]containing names of attributes to retrieve.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the User object</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
@@ -2654,34 +2738,44 @@ protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/j
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
 </ul>
-<a name="getRoles(javax.naming.directory.DirContext, org.apache.catalina.realm.JNDIRealm.User)">
+<a name="getRoles(org.apache.catalina.realm.JNDIRealm.JNDIConnection, org.apache.catalina.realm.JNDIRealm.User)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRoles</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getRoles(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getRoles(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                     <a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm">JNDIRealm.User</a>&nbsp;user)
                          throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Return a List of roles associated with the given User.  Any
  roles present in the user's directory entry are supplemented by
  a directory search. If no roles are associated with this user,
  a zero-length List is returned.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context we are searching</dd><dd><code>user</code> - The User to be checked</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context we are searching</dd><dd><code>user</code> - The User to be checked</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the list of role names</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
 </ul>
-<a name="close(javax.naming.directory.DirContext)">
+<a name="close(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
-<pre>protected&nbsp;void&nbsp;close(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context)</pre>
+<pre>protected&nbsp;void&nbsp;close(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)</pre>
 <div class="block">Close any open connection to the directory server for this Realm.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context to be closed</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context to be closed</dd></dl>
+</li>
+</ul>
+<a name="closePooledConnections()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>closePooledConnections</h4>
+<pre>protected&nbsp;void&nbsp;closePooledConnections()</pre>
+<div class="block">Close all pooled connections.</div>
 </li>
 </ul>
 <a name="getName()">
@@ -2764,34 +2858,71 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Stri
 <dt><span class="strong">Returns:</span></dt><dd>the principal associated with the given user name.</dd></dl>
 </li>
 </ul>
-<a name="getPrincipal(javax.naming.directory.DirContext, java.lang.String, org.ietf.jgss.GSSCredential)">
+<a name="getPrincipal(org.apache.catalina.realm.JNDIRealm.JNDIConnection, java.lang.String, org.ietf.jgss.GSSCredential)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getPrincipal</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;getPrincipal(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context,
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a>&nbsp;getPrincipal(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
                      <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSCredential.html?is-external=true" title="class or interface in org.ietf.jgss">GSSCredential</a>&nbsp;gssCredential)
                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
 <div class="block">Get the principal associated with the specified certificate.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context</dd><dd><code>username</code> - The user name</dd><dd><code>gssCredential</code> - The credentials</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context</dd><dd><code>username</code> - The user name</dd><dd><code>gssCredential</code> - The credentials</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the Principal associated with the given certificate.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
 </ul>
-<a name="open()">
+<a name="get()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>get</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;get()
+                                throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
+<div class="block">Open (if necessary) and return a connection to the configured
+ directory server for this Realm.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the connection</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
+</li>
+</ul>
+<a name="release(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>release</h4>
+<pre>protected&nbsp;void&nbsp;release(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)</pre>
+<div class="block">Release our use of this connection so that it can be recycled.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory context to release</dd></dl>
+</li>
+</ul>
+<a name="create()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>create</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;create()</pre>
+<div class="block">Create a new connection wrapper, along with the
+ message formats.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the new connection</dd></dl>
+</li>
+</ul>
+<a name="open(org.apache.catalina.realm.JNDIRealm.JNDIConnection)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>open</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;open()
-                   throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
-<div class="block">Open (if necessary) and return a connection to the configured
- directory server for this Realm.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the directory context</dd>
+<pre>protected&nbsp;void&nbsp;open(<a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm">JNDIRealm.JNDIConnection</a>&nbsp;connection)
+             throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></pre>
+<div class="block">Create a new connection to the directory server.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>connection</code> - The directory server connection wrapper</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
 </li>
@@ -2822,17 +2953,6 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Stri
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getDirectoryContextEnvironment()</pre>
 <div class="block">Create our directory context configuration.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>java.util.Hashtable the configuration for the directory context.</dd></dl>
-</li>
-</ul>
-<a name="release(javax.naming.directory.DirContext)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>release</h4>
-<pre>protected&nbsp;void&nbsp;release(<a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/directory/DirContext.html?is-external=true" title="class or interface in javax.naming.directory">DirContext</a>&nbsp;context)</pre>
-<div class="block">Release our use of this connection so that it can be recycled.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The directory context to release</dd></dl>
 </li>
 </ul>
 <a name="startInternal()">
@@ -2958,12 +3078,12 @@ protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Stri
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.59</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.60</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/catalina/realm/JDBCRealm.html" title="class in org.apache.catalina.realm"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/catalina/realm/JNDIRealm.User.html" title="class in org.apache.catalina.realm"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/catalina/realm/JNDIRealm.JNDIConnection.html" title="class in org.apache.catalina.realm"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/catalina/realm/JNDIRealm.html" target="_top">Frames</a></li>
