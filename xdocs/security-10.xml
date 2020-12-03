@@ -50,6 +50,29 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.0.0-M10" rtext="17 November 2020">
+
+    <p><strong>Moderate: HTTP/2 request header mix-up</strong>
+       <cve>CVE-2020-17527</cve></p>
+
+    <p>While investigating issue <bug>64830</bug> it was discovered that Apache
+       Tomcat could re-use an HTTP request header value from the previous stream
+       received on an HTTP/2 connection for the request associated with the
+       subsequent stream. While this would most likely lead to an error and the
+       closure of the HTTP/2 connection, it is possible that information could
+       leak between requests.
+    </p>
+
+    <p>This was fixed with commit
+       <hashlink hash="8d2fe6894d6e258a6d615d7f786acca80e6020cb"/>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security team on 10
+       November 2020. The issue was made public on 3 December 2020.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.0-M9</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.0-M8" rtext="14 September 2020">
 
     <p><strong>Moderate: HTTP/2 request mix-up</strong>
