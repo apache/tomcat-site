@@ -28,6 +28,41 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_10.0.0_Released"><span class="pull-right">beta, 2020-12-08</span> Tomcat 10.0.0 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0
+(beta) of Apache Tomcat. This release is a beta release and is targeted at
+Jakarta EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>The Jakarta EE specifications are now final. Tomcat passes the TCKs apart
+    from a number of expected failures that don't impact specification
+    compliance.</li>
+<li>The APR/Native AJP and HTTP connectors have been deprecated. Tomcat Native
+    will continue to be used to support OpenSSL use with NIO and NIO2.</li>
+<li>Align the behaviour of <code>ServletContext.getRealPath(String path)</code>
+    with the recent clarification from the Servlet specification project. If the
+    path parameter does not start with <code>/</code> then Tomcat processes the
+    call as if <code>/</code> is appended to the beginning of the provided path.
+    </li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M10_(markt)">Tomcat 10
+<strong>(beta)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_7.0.107_Released"><span class="pull-right">2020-11-23</span> Tomcat 7.0.107 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 7.0.107 of
@@ -91,35 +126,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-80.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_10.0.0-M10_Released"><span class="pull-right">2020-11-17</span> Tomcat 10.0.0-M10 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.0.0-M10
-of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
-EE 9.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is under development to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Statistics are now available (via JMX) for HTTP/2, WebSocket and HTTP/1.1
-    upgraded connections</li>
-<li>Stability improvements for HTTP/2</li>
-<li>Stability improvements for the NIO connector</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M10_(markt)">Tomcat 10
-<strong>(alpha)</strong> changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_1.2.25_Released"><span class="pull-right">2020-09-03</span> Tomcat Native 1.2.25 Released</h3><div class="text">
 <p>
