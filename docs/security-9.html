@@ -41,6 +41,25 @@
 
   </div><h3 id="Fixed_in_Apache_Tomcat_9.0.40"><span class="pull-right">17 November 2020</span> Fixed in Apache Tomcat 9.0.40</h3><div class="text">
 
+    <p><strong>Important: Information disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24122" rel="nofollow">CVE-2021-24122</a></p>
+
+    <p>When serving resources from a network location using the NTFS file system
+       it was possible to bypass security constraints and/or view the source
+       code for JSPs in some configurations. The root cause was the unexpected
+       behaviour of the JRE API <code>File.getCanonicalPath()</code> which in
+       turn was caused by the inconsistent behaviour of the Windows API
+       (<code>FindFirstFileW</code>) in some circumstances.
+    </p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/935fc5582dc25ae10bab6f9d5629ff8d996cb533">935fc558</a>.</p>
+
+    <p>This issue was reported the Apache Tomcat Security team by Ilja Brander
+       on 26 October 2020. The issue was made public on 14 January 2021.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.39</p>
+
     <p><strong>Moderate: HTTP/2 request header mix-up</strong>
        <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17527" rel="nofollow">CVE-2020-17527</a></p>
 
