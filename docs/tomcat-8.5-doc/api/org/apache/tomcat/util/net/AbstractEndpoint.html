@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AbstractEndpoint (Apache Tomcat 8.5.61 API Documentation)</title>
+<title>AbstractEndpoint (Apache Tomcat 8.5.63 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="AbstractEndpoint (Apache Tomcat 8.5.61 API Documentation)";
+        parent.document.title="AbstractEndpoint (Apache Tomcat 8.5.63 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.61</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.63</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -492,7 +492,9 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#getSSLHostConfig(java.lang.String)">getSSLHostConfig</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sniHostName)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/tomcat/util/net/AbstractEndpoint.html#getSSLHostConfig(java.lang.String)">getSSLHostConfig</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sniHostName)</code>
+<div class="block">Look up the SSLHostConfig for the given host name.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -978,6 +980,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getDefaultSSLHostConfigName</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getDefaultSSLHostConfigName()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The host name for the default SSL configuration for this endpoint
+         - always in lower case.</dd></dl>
 </li>
 </ul>
 <a name="setDefaultSSLHostConfigName(java.lang.String)">
@@ -1122,6 +1126,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>getSSLHostConfig</h4>
 <pre>protected&nbsp;<a href="../../../../../org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a>&nbsp;getSSLHostConfig(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;sniHostName)</pre>
+<div class="block">Look up the SSLHostConfig for the given host name. Lookup order is:
+ <ol>
+ <li>exact match</li>
+ <li>wild card match</li>
+ <li>default SSLHostConfig</li>
+ </ol></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sniHostName</code> - Host name - must be in lower case</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The SSLHostConfig for the given host name.</dd></dl>
 </li>
 </ul>
 <a name="getUseSendfile()">
@@ -2129,7 +2141,7 @@ public&nbsp;void&nbsp;setSoTimeout(int&nbsp;soTimeout)</pre>
 <li><a href="../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.61</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.63</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -2174,6 +2186,6 @@ public&nbsp;void&nbsp;setSoTimeout(int&nbsp;soTimeout)</pre>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2021 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
