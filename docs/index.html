@@ -65,6 +65,33 @@ changelog</a>.
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
+</div><h3 id="Tomcat_9.0.43_Released"><span class="pull-right">2021-02-02</span> Tomcat 9.0.43 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.43
+of Apache Tomcat. The notable changes compared to 9.0.41 include:</p>
+<ul>
+<li>Add support for using Unix domain sockets for NIO when running on
+    Java 16 or later.</li>
+<li>Add a new <code>StringInterpreter</code> interface that allows applications
+    to provide customised string attribute value to type conversion within JSPs.
+    This allows applications to provide a conversion implementation that is
+    optimised for the application.</li>
+<li>Add <code>peerAddress</code> to coyote request, which contains the IP
+    address of the direct connection peer. If a reverse proxy sits in front of
+    Tomcat and the RemoteIp(Valve|Filter) is used, the peerAddress is likely to
+    differ from the remoteAddress. The remoteAddress is likely to contain the
+    address of the client in front of the reverse proxy, not the address of the
+    proxy itself.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.43_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-90.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_Native_1.2.26_Released"><span class="pull-right">2020-12-21</span> Tomcat Native 1.2.26 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 1.2.26 of
@@ -77,31 +104,6 @@ Tomcat Native. The notable changes since 1.2.25 include:
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-native.cgi">Download</a> |
 <a href="native-doc/miscellaneous/changelog.html">ChangeLog for 1.2.26</a>
-</p>
-</div><h3 id="Tomcat_9.0.41_Released"><span class="pull-right">2020-12-08</span> Tomcat 9.0.41 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.41
-of Apache Tomcat. The notable changes compared to 9.0.40 include:</p>
-<ul>
-<li>Align the behaviour of <code>ServletContext.getRealPath(String path)</code>
-    with the recent clarification from the Servlet specification project. If the
-    path parameter does not start with <code>/</code> then Tomcat processes the
-    call as if <code>/</code> is appended to the beginning of the provided path.
-    </li>
-<li>Fix a potential file descriptor leak when WebSocket connections are
-    attempted and fail. Patch provided by Maurizio Adami.</li>
-<li>Ensure that the LoadBalancerDrainingValve uses the correct setting
-    for the secure attribute for any session cookies it creates. Based on
-    a pull request by Andreas Kurth.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.41_(markt)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-90.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_8.5.61_Released"><span class="pull-right">2020-12-08</span> Tomcat 8.5.61 Released</h3><div class="text">
 <p>
