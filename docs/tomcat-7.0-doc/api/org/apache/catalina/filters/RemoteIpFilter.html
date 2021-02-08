@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RemoteIpFilter (Apache Tomcat 7.0.107 API Documentation)</title>
+<title>RemoteIpFilter (Apache Tomcat 7.0.108 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="RemoteIpFilter (Apache Tomcat 7.0.107 API Documentation)";
+        parent.document.title="RemoteIpFilter (Apache Tomcat 7.0.108 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.107</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.108</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -216,6 +216,13 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
  <td>N/A</td>
  <td>integer</td>
  <td>443</td>
+ </tr>
+ <tr>
+ <td>enableLookups</td>
+ <td>Should a DNS lookup be performed to provide a host name when calling <a href="../../../../javax/servlet/ServletRequest.html#getRemoteHost()"><code>ServletRequest.getRemoteHost()</code></a></td>
+ <td>N/A</td>
+ <td>boolean</td>
+ <td>false</td>
  </tr>
  </table>
  <p>
@@ -538,45 +545,49 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#HOST_HEADER_PARAMETER">HOST_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#ENABLE_LOOKUPS_PARAMETER">ENABLE_LOOKUPS_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#HOST_HEADER_PARAMETER">HOST_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#HTTP_SERVER_PORT_PARAMETER">HTTP_SERVER_PORT_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#HTTPS_SERVER_PORT_PARAMETER">HTTPS_SERVER_PORT_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#INTERNAL_PROXIES_PARAMETER">INTERNAL_PROXIES_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#PORT_HEADER_PARAMETER">PORT_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#PROTOCOL_HEADER_HTTPS_VALUE_PARAMETER">PROTOCOL_HEADER_HTTPS_VALUE_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#PROTOCOL_HEADER_PARAMETER">PROTOCOL_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#PROXIES_HEADER_PARAMETER">PROXIES_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#REMOTE_IP_HEADER_PARAMETER">REMOTE_IP_HEADER_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static <a href="../../../../org/apache/tomcat/util/res/StringManager.html" title="class in org.apache.tomcat.util.res">StringManager</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#sm">sm</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#TRUSTED_PROXIES_PARAMETER">TRUSTED_PROXIES_PARAMETER</a></strong></code>&nbsp;</td>
 </tr>
@@ -640,63 +651,67 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getEnableLookups()">getEnableLookups</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getHttpsServerPort()">getHttpsServerPort</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true" title="class or interface in java.util.regex">Pattern</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getInternalProxies()">getInternalProxies</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getPortHeader()">getPortHeader</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getProtocolHeader()">getProtocolHeader</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getProtocolHeaderHttpsValue()">getProtocolHeaderHttpsValue</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getProxiesHeader()">getProxiesHeader</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getRemoteIpHeader()">getRemoteIpHeader</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getRequestAttributesEnabled()">getRequestAttributesEnabled</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true" title="class or interface in java.util.regex">Pattern</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#getTrustedProxies()">getTrustedProxies</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#init(javax.servlet.FilterConfig)">init</a></strong>(<a href="../../../../javax/servlet/FilterConfig.html" title="interface in javax.servlet">FilterConfig</a>&nbsp;filterConfig)</code>
 <div class="block">Called by the web container to indicate to a filter that it is being
  placed into service.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#isChangeLocalName()">isChangeLocalName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#isChangeLocalPort()">isChangeLocalPort</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#listToCommaDelimitedString(java.util.List)">listToCommaDelimitedString</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;stringList)</code>
 <div class="block">Convert a list of strings in a comma delimited string.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#setChangeLocalName(boolean)">setChangeLocalName</a></strong>(boolean&nbsp;changeLocalName)</code>
 <div class="block">
@@ -705,7 +720,7 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
  <a href="../../../../javax/servlet/ServletRequest.html#getServerName()"><code>ServletRequest.getServerName()</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#setChangeLocalPort(boolean)">setChangeLocalPort</a></strong>(boolean&nbsp;changeLocalPort)</code>
 <div class="block">
@@ -713,6 +728,10 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
  will be modified by this Filter rather than just
  <a href="../../../../javax/servlet/ServletRequest.html#getServerPort()"><code>ServletRequest.getServerPort()</code></a>.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/filters/RemoteIpFilter.html#setEnableLookups(boolean)">setEnableLookups</a></strong>(boolean&nbsp;enableLookups)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -943,11 +962,21 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 <a name="TRUSTED_PROXIES_PARAMETER">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>TRUSTED_PROXIES_PARAMETER</h4>
 <pre>protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> TRUSTED_PROXIES_PARAMETER</pre>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.filters.RemoteIpFilter.TRUSTED_PROXIES_PARAMETER">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ENABLE_LOOKUPS_PARAMETER">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ENABLE_LOOKUPS_PARAMETER</h4>
+<pre>protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ENABLE_LOOKUPS_PARAMETER</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.filters.RemoteIpFilter.ENABLE_LOOKUPS_PARAMETER">Constant Field Values</a></dd></dl>
 </li>
 </ul>
 </li>
@@ -1182,6 +1211,15 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 <li class="blockList">
 <h4>getTrustedProxies</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true" title="class or interface in java.util.regex">Pattern</a>&nbsp;getTrustedProxies()</pre>
+</li>
+</ul>
+<a name="getEnableLookups()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnableLookups</h4>
+<pre>public&nbsp;boolean&nbsp;getEnableLookups()</pre>
 </li>
 </ul>
 <a name="init(javax.servlet.FilterConfig)">
@@ -1438,7 +1476,7 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 <a name="setTrustedProxies(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setTrustedProxies</h4>
 <pre>public&nbsp;void&nbsp;setTrustedProxies(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;trustedProxies)</pre>
@@ -1450,6 +1488,15 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
  Default value : empty list, no external proxy is trusted.
  </p></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>trustedProxies</code> - The trusted proxies regexp</dd></dl>
+</li>
+</ul>
+<a name="setEnableLookups(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setEnableLookups</h4>
+<pre>public&nbsp;void&nbsp;setEnableLookups(boolean&nbsp;enableLookups)</pre>
 </li>
 </ul>
 </li>
@@ -1474,7 +1521,7 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.107</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.108</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -1519,6 +1566,6 @@ implements <a href="../../../../javax/servlet/Filter.html" title="interface in j
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2021 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
