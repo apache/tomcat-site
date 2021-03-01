@@ -50,6 +50,51 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.0.2" rtext="2 February 2021">
+
+    <p><i>Note: The issues below were fixed in Apache Tomcat 10.0.1 but the
+       release vote for the 10.0.1 release candidate did not pass. Therefore,
+       although users must download 10.0.2 to obtain a version that includes a
+       fix for these issues, version 10.0.1 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Low: Fix for <cve>CVE-2020-9484</cve> was incomplete</strong>
+       <cve>CVE-2021-25329</cve></p>
+
+    <p>The fix for <cve>CVE-2020-9484</cve> was incomplete. When using a
+    highly unlikely configuration edge case, the Tomcat instance was still
+    vulnerable to <cve>CVE-2020-9484</cve>. Note that both the previously
+    published prerequisites for <cve>CVE-2020-9484</cve> and the previously
+    published non-upgrade mitigations for <cve>CVE-2020-9484</cve> also apply to
+    this issue.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6d66e99ef85da93e4d2c2a536ca51aa3418bfaf4"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Trung Pham
+       of Viettel Cyber Security on 12 January 2021. The issue was made public
+       on 1 March 2021.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.0</p>
+
+    <p><strong>Important: Request mix-up with h2c</strong>
+       <cve>CVE-2021-25122</cve></p>
+
+    <p>When responding to new h2c connection requests, Apache Tomcat could
+    duplicate request headers and a limited amount of request body from one
+    request to another meaning user A and user B could both see the results of
+    user A&apos;s request.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="dd757c0a893e2e35f8bc1385d6967221ae8b9b9b"/>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security team on 11
+       January 2021. The issue was made public on 1 March 2021.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.0</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.0-M10" rtext="17 November 2020">
 
     <p><strong>Important: Information disclosure</strong>
