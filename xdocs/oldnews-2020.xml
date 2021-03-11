@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Old news!</title>
+  </properties>
+
+<body>
+
+<section name="Older news">
+<p>Announcements from previous years can be found here:</p>
+<ul>
+  <li>year 2020</li>
+  <li><a href="oldnews-2019.html">year 2019</a></li>
+  <li><a href="oldnews-2018.html">year 2018</a></li>
+  <li><a href="oldnews-2017.html">year 2017</a></li>
+  <li><a href="oldnews-2016.html">year 2016</a></li>
+  <li><a href="oldnews-2015.html">year 2015</a></li>
+  <li><a href="oldnews-2014.html">year 2014</a></li>
+  <li><a href="oldnews-2013.html">year 2013</a></li>
+  <li><a href="oldnews-2012.html">year 2012</a></li>
+  <li><a href="oldnews-2011.html">year 2011</a></li>
+  <li><a href="oldnews-2010.html">year 2010</a></li>
+</ul>
+</section>
+
+<section name="Tomcat 10.0.0 Released" rtext="beta, 2020-12-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0
+(beta) of Apache Tomcat. This release is a beta release and is targeted at
+Jakarta EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>The Jakarta EE specifications are now final. Tomcat passes the TCKs apart
+    from a number of expected failures that don't impact specification
+    compliance.</li>
+<li>The APR/Native AJP and HTTP connectors have been deprecated. Tomcat Native
+    will continue to be used to support OpenSSL use with NIO and NIO2.</li>
+<li>Align the behaviour of <code>ServletContext.getRealPath(String path)</code>
+    with the recent clarification from the Servlet specification project. If the
+    path parameter does not start with <code>/</code> then Tomcat processes the
+    call as if <code>/</code> is appended to the beginning of the provided path.
+    </li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0_(markt)">Tomcat 10
+<strong>(beta)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.41 Released" rtext="2020-12-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.41
+of Apache Tomcat. The notable changes compared to 9.0.40 include:</p>
+<ul>
+<li>Align the behaviour of <code>ServletContext.getRealPath(String path)</code>
+    with the recent clarification from the Servlet specification project. If the
+    path parameter does not start with <code>/</code> then Tomcat processes the
+    call as if <code>/</code> is appended to the beginning of the provided path.
+    </li>
+<li>Fix a potential file descriptor leak when WebSocket connections are
+    attempted and fail. Patch provided by Maurizio Adami.</li>
+<li>Ensure that the LoadBalancerDrainingValve uses the correct setting
+    for the secure attribute for any session cookies it creates. Based on
+    a pull request by Andreas Kurth.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.41_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.61 Released" rtext="2020-12-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.61
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.60 include:</p>
+<ul>
+<li>Align the behaviour of <code>ServletContext.getRealPath(String path)</code>
+    with the recent clarification from the Servlet specification project. If the
+    path parameter does not start with <code>/</code> then Tomcat processes the
+    call as if <code>/</code> is appended to the beginning of the provided path.
+    </li>
+<li>Fix a potential file descriptor leak when WebSocket connections are
+    attempted and fail. Patch provided by Maurizio Adami.</li>
+<li>Ensure that the LoadBalancerDrainingValve uses the correct setting
+    for the secure attribute for any session cookies it creates. Based on
+    a pull request by Andreas Kurth.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.61_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.107 Released" rtext="2020-11-23">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.107 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.106.</p>
+<ul>
+<li>Ensure that none of the methods on a ServletContext instance always
+    fail when running under a SecurityManager. Pull request provided by
+    Kyle Stiemann.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.107_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.40 Released" rtext="2020-11-17">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.40
+of Apache Tomcat. The notable changes compared to 9.0.39 include:</p>
+<ul>
+<li>Statistics are now available (via JMX) for HTTP/2, WebSocket and HTTP/1.1
+    upgraded connections</li>
+<li>Stability improvements for HTTP/2</li>
+<li>Stability improvements for the NIO connector</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.40_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.60 Released" rtext="2020-11-17">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.60
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.59 include:</p>
+<ul>
+<li>Statistics are now available (via JMX) for HTTP/2, WebSocket and HTTP/1.1
+    upgraded connections</li>
+<li>Stability improvements for HTTP/2</li>
+<li>Improvements to error handling in the connection pool used by the JNDI
+    Realm</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.60_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M10 Released" rtext="2020-11-17">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M10
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Statistics are now available (via JMX) for HTTP/2, WebSocket and HTTP/1.1
+    upgraded connections</li>
+<li>Stability improvements for HTTP/2</li>
+<li>Stability improvements for the NIO connector</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M10_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M9 Released" rtext="2020-10-09">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M9
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Refactor the handling of closed HTTP/2 streams to reduce the heap usage
+    associated with used streams and to retain information for more streams in
+    the priority tree.</li>
+<li>Allow using the utility executor for annotation scanning. Patch provided by
+    Jatin Kamnani.</li>
+<li>Add a bloom filter to speed up archive lookup and improve deployment speed
+    of applications with a large number of JARs. Patch provided by Jatin
+    Kamnani.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M9_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.39 Released" rtext="2020-10-09">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.39
+of Apache Tomcat. The notable changes compared to 9.0.38 include:</p>
+<ul>
+<li>Refactor the handling of closed HTTP/2 streams to reduce the heap usage
+    associated with used streams and to retain information for more streams in
+    the priority tree.</li>
+<li>Allow using the utility executor for annotation scanning. Patch provided by
+    Jatin Kamnani.</li>
+<li>Add a bloom filter to speed up archive lookup and improve deployment speed
+    of applications with a large number of JARs. Patch provided by Jatin
+    Kamnani.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.39_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.59 Released" rtext="2020-10-09">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.59
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.58 include:</p>
+<ul>
+<li>Refactor the handling of closed HTTP/2 streams to reduce the heap usage
+    associated with used streams and to retain information for more streams in
+    the priority tree.</li>
+<li>Deprecate the JDBCRealm.</li>
+<li>Ensure that none of the methods on a ServletContext instance always
+    fail when running under a SecurityManager. Pull request provided by
+    Kyle Stiemann.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.59_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.106 Released" rtext="2020-09-20">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.106 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.105.</p>
+<ul>
+<li>Add support for a read idle timeout and a write idle timeout to the
+    WebSocket session via custom properties in the user properties instance
+    associated with the session. Based on a pull request by sakshamverma.</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.25</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.106_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M8 Released" rtext="2020-09-14">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M8
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>For requests containing the <code>Expect: 100-continue</code> header,
+    optional support has been added to delay sending an intermediate 100 status
+    response until the servlet reads the request body, allowing the servlet the
+    opportunity to respond without asking for the request body. Based on a pull
+    request by malaysf.</li>
+<li>Add support for a read idle timeout and a write idle timeout to the
+    WebSocket session via custom properties in the user properties instance
+    associated with the session. Based on a pull request by sakshamverma.</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.25</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M8_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.38 Released" rtext="2020-09-15">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.38
+of Apache Tomcat. The notable changes compared to 9.0.37 include:</p>
+<ul>
+<li>For requests containing the <code>Expect: 100-continue</code> header,
+    optional support has been added to delay sending an intermediate 100 status
+    response until the servlet reads the request body, allowing the servlet the
+    opportunity to respond without asking for the request body. Based on a pull
+    request by malaysf.</li>
+<li>Add support for a read idle timeout and a write idle timeout to the
+    WebSocket session via custom properties in the user properties instance
+    associated with the session. Based on a pull request by sakshamverma.</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.25</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.38_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.58 Released" rtext="2020-09-15">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.58
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.57 include:</p>
+<ul>
+<li>For requests containing the <code>Expect: 100-continue</code> header,
+    optional support has been added to delay sending an intermediate 100 status
+    response until the servlet reads the request body, allowing the servlet the
+    opportunity to respond without asking for the request body. Based on a pull
+    request by malaysf.</li>
+<li>Add support for a read idle timeout and a write idle timeout to the
+    WebSocket session via custom properties in the user properties instance
+    associated with the session. Based on a pull request by sakshamverma.</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.25</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.58_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat Native 1.2.25 Released" rtext="2020-09-03">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 1.2.25 of
+Tomcat Native. The notable changes since 1.2.24 include:
+</p>
+<ul>
+  <li>Various improvements to the build process</li>
+  <li>Add an option to allow the OCSP check to be bypassed</li>
+</ul>
+<p style="text-align: center;">
+<a href="download-native.cgi">Download</a> |
+<a href="native-doc/miscellaneous/changelog.html">ChangeLog for 1.2.25</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.105 Released" rtext="2020-07-07">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.105 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.104.</p>
+<ul>
+<li>Add support for the CATALINA_OUT_CMD environment variable that defines a
+    command to which captured stdout and stderr will be redirected. For use
+    with, for example, rotatelogs. Patch provided by Harald Dunkel.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.105_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.37 Released" rtext="2020-07-05">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.37
+of Apache Tomcat. The notable changes compared to 9.0.36 include:</p>
+<ul>
+<li>Implement a significant portion of the TLS environment variables for the
+    rewrite valve.</li>
+<li>Improvements to the creation of OSGi manifests.</li>
+<li>Reduce the memory footprint of closed HTTP/2 streams</li>
+<li>Improve parsing of RFC 2109 cookies</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.37_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.57 Released" rtext="2020-07-05">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.57
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.56 include:</p>
+<ul>
+<li>Improvements to the creation of OSGi manifests.</li>
+<li>Reduce the memory footprint of closed HTTP/2 streams</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.57_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M7 Released" rtext="2020-07-05">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M7
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Implement a significant portion of the TLS environment variables for the
+    rewrite valve.</li>
+<li>Add the Jakarta EE 9 schema.</li>
+<li>Improvements to the creation of OSGi manifests.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M7_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.36 Released" rtext="2020-06-07">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.36
+of Apache Tomcat. The notable changes compared to 9.0.35 include:</p>
+<ul>
+<li>Add support for ALPN on recent OpenJDK 8 releases.</li>
+<li>Add support for the CATALINA_OUT_CMD environment variable that defines a
+    command to which captured stdout and stderr will be redirected. For use
+    with, for example, rotatelogs. Patch provided by Harald Dunkel.</li>
+<li>Be more flexible with respect to the ordering of groups, roles and users in
+    the tomcat-users.xml file</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.36_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.56 Released" rtext="2020-06-07">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.56
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.55 include:</p>
+<ul>
+<li>Add support for ALPN on recent OpenJDK 8 releases.</li>
+<li>Add support for the CATALINA_OUT_CMD environment variable that defines a
+    command to which captured stdout and stderr will be redirected. For use
+    with, for example, rotatelogs. Patch provided by Harald Dunkel.</li>
+<li>Be more flexible with respect to the ordering of groups, roles and users in
+    the tomcat-users.xml file.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.56_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M6 Released" rtext="2020-06-07">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M6
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add support for ALPN on recent OpenJDK 8 releases.</li>
+<li>Add support for the CATALINA_OUT_CMD environment variable that defines a
+    command to which captured stdout and stderr will be redirected. For use
+    with, for example, rotatelogs. Patch provided by Harald Dunkel.</li>
+<li>Be more flexible with respect to the ordering of groups, roles and users in
+    the tomcat-users.xml file</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M6_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.104 Released" rtext="2020-05-16">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.104 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.103.</p>
+<ul>
+<li>Add support for default values when using <code>${...}</code> property
+    replacement in configuration files. Based on a pull request provided by
+    Bernd Bohmann.</li>
+<li>When configuring an HTTP Connector, warn if the encoding specified for
+    <code>URIEncoding</code> is not a superset of US-ASCII as required by RFC
+    7230.</li>
+<li>Replace the system property
+    <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> with
+    the Connector attribute <code>encodedSolidusHandling</code> that adds an
+    additional option to pass the <code>%2f</code> sequence through to the
+    application without decoding it in addition to rejecting such sequences and
+    decoding such sequences.</li>
+<li>Change default value separator for property replacement to ":-"
+    due to possible conflicts. The syntax is now "${name:-default}".</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.24.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.104_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.35 Released" rtext="2020-05-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.35
+of Apache Tomcat. The notable changes compared to 9.0.34 include:</p>
+<ul>
+<li>Improve the handling of requests that use an expectation. Do not
+    disable keep-alive where the response has a non-2xx status code
+    but the request body has been fully read.</li>
+<li>Change default value separator for property replacement to ":-"
+    due to possible conflicts. The syntax is now "${name:-default}".</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.24.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.35_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.55 Released" rtext="2020-05-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.55
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.54 include:</p>
+<ul>
+<li>Improve the handling of requests that use an expectation. Do not
+    disable keep-alive where the response has a non-2xx status code
+    but the request body has been fully read.</li>
+<li>Change default value separator for property replacement to ":-"
+    due to possible conflicts. The syntax is now "${name:-default}".</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.24.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.55_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M5 Released" rtext="2020-05-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M5
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Remove useAprConnector flag from AprLifecycleListener so that the
+    only way to use the APR connectors is to set the full class name.</li>
+<li>Change default value separator for property replacement to ":-"
+    due to possible conflicts. The syntax is now "${name:-default}".</li>
+<li>Update the packaged version of the Tomcat Native Library to 1.2.24.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M5_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat Native 1.2.24 Released" rtext="2020-04-29">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 1.2.24 of
+Tomcat Native. The notable changes since 1.2.23 include:
+</p>
+<ul>
+  <li>Various improvements to the build process</li>
+  <li>Update Windows binaries to OpenSSL 1.1.1g.</li>
+</ul>
+<p style="text-align: center;">
+<a href="download-native.cgi">Download</a> |
+<a href="native-doc/miscellaneous/changelog.html">ChangeLog for 1.2.24</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.34 Released" rtext="2020-04-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.34
+of Apache Tomcat. The notable changes compared to 9.0.33 include:</p>
+<ul>
+<li>Add support for default values when using <code>${...}</code> property
+    replacement in configuration files. Based on a pull request provided by
+    Bernd Bohmann.</li>
+<li>When configuring an HTTP Connector, warn if the encoding specified for
+    <code>URIEncoding</code> is not a superset of US-ASCII as required by RFC
+    7230.</li>
+<li>Replace the system property
+    <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> with
+    the Connector attribute <code>encodedSolidusHandling</code> that adds an
+    additional option to pass the <code>%2f</code> sequence through to the
+    application without decoding it in addition to rejecting such sequences and
+    decoding such sequences.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.34_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M4 Released" rtext="2020-04-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M4
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Replace configuration via system property with configuration via an
+    attribute on the appropriate element where practical. A large number of
+    system properties have been replaced.</li>
+<li>Add support for default values when using <code>${...}</code> property
+    replacement in configuration files. Based on a pull request provided by
+    Bernd Bohmann.</li>
+<li>Replace the system property
+    <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> with
+    the Connector attribute <code>encodedSolidusHandling</code> that adds an
+    additional option to pass the <code>%2f</code> sequence through to the
+    application without decoding it in addition to rejecting such sequences and
+    decoding such sequences.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M4_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.54 Released" rtext="2020-04-08">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.54
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.53 include:</p>
+<ul>
+<li>Add support for default values when using <code>${...}</code> property
+    replacement in configuration files. Based on a pull request provided by
+    Bernd Bohmann.</li>
+<li>When configuring an HTTP Connector, warn if the encoding specified for
+    <code>URIEncoding</code> is not a superset of US-ASCII as required by RFC
+    7230.</li>
+<li>Replace the system property
+    <code>org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH</code> with
+    the Connector attribute <code>encodedSolidusHandling</code> that adds an
+    additional option to pass the <code>%2f</code> sequence through to the
+    application without decoding it in addition to rejecting such sequences and
+    decoding such sequences.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.54_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.103 Released" rtext="2020-03-19">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.103 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.100.</p>
+<ul>
+<li>Add new attribute persistAuthentication to both StandardManager and
+    PersistentManager to support authentication persistence. Patch provided by
+    Carsten Klein</li>
+<li>A zero length AJP secret will now behave as if it has not been
+    specified.</li>
+<li>Add the TLS request attributes used by IIS to the attributes that
+    an AJP Connector will always accept.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.103_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.33 Released" rtext="2020-03-16">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.33
+of Apache Tomcat. The notable changes compared to 9.0.31 include:</p>
+<ul>
+<li>Add new attribute persistAuthentication to both StandardManager and
+    PersistentManager to support authentication persistence. Patch provided by
+    Carsten Klein</li>
+<li>A zero length AJP secret will now behave as if it has not been
+    specified.</li>
+<li>Add the TLS request attributes used by IIS to the attributes that
+    an AJP Connector will always accept.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.33_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.53 Released" rtext="2020-03-16">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.53
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.51 include:</p>
+<ul>
+<li>Add new attribute persistAuthentication to both StandardManager and
+    PersistentManager to support authentication persistence. Patch provided by
+    Carsten Klein</li>
+<li>A zero length AJP secret will now behave as if it has not been
+    specified.</li>
+<li>Add the TLS request attributes used by IIS to the attributes that
+    an AJP Connector will always accept.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.53_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M3 Released" rtext="2020-03-16">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M3
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Disable session persistence by default on restart</li>
+<li>Add new attribute persistAuthentication to both StandardManager and
+    PersistentManager to support authentication persistence. Patch provided by
+    Carsten Klein</li>
+<li>A zero length AJP secret will now behave as if it has not been
+    specified.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M3_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 10.0.0-M1 Released" rtext="2020-02-20">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.0-M1
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 9.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is under development to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Update to Jakarta Servlet 5.0, Jakarta Server Pages 3.0. Jakarta Expression
+    Language 4.0, Jakarta WebSocket 2.0, Jakarta Authentication 2.0 and Jakarta
+    Annotations 2.0 specifications.</li>
+<li>Use <code>&lt;request-character-encoding&gt;</code> and
+    <code>&lt;response-character-encoding&gt;</code> in
+    <code>conf/web.xml</code> to set the default request and response character
+    encodings to UTF-8.</li>
+<li>Remove duplication of HTTP/1.1 configuration on the HTTP/2 UpgradeProtocol
+    element. Configuration from the main Connector element will now be used.
+    </li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.0-M1_(markt)">Tomcat 10
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 7.0.100 Released" rtext="2020-02-14">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 7.0.100 of
+Apache Tomcat. This release contains a number of bug fixes and improvements
+compared to version 7.0.99.</p>
+<ul>
+<li>AJP defaults changed to listen the loopback address, require a secret
+    and to be disabled in the sample server.xml file. If you are using the
+    AJP protocol, please refer to the <a
+    href="migration-7.html#Tomcat_7.0.x_noteable_changes">Migration Guide</a>
+    and update your configuration.</li>
+<li>The JmxRemoteLifecycleListener is now deprecated</li>
+<li>The HTTP Connector attribute rejectIllegalHeaderName is renamed to
+    rejectIllegalHeader and expanded to include header values as well as
+    names</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-7.0-doc/changelog.html#Tomcat_7.0.100_(violetagg)">Tomcat 7 changelog</a>.
+</p>
+
+<p><strong>Note:</strong> End of life date for Apache Tomcat 7.0.x is announced.
+<a href="tomcat-70-eol.html">Read more...</a>
+</p>
+
+<p style="text-align: center;">
+<a href="download-70.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.31 Released" rtext="2020-02-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.31
+of Apache Tomcat. The notable changes compared to 9.0.30 include:</p>
+<ul>
+<li>AJP defaults changed to listen the loopback address, require a secret
+    and to be disabled in the sample server.xml file. If you are using the
+    AJP protocol, please refer to the <a
+    href="migration-9.html#Tomcat_9.0.x_noteable_changes">Migration Guide</a>
+    and update your configuration.</li>
+<li>The JmxRemoteLifecycleListener is now deprecated</li>
+<li>The HTTP Connector attribute rejectIllegalHeaderName is renamed to
+    rejectIllegalHeader and expanded to include header values as well as
+    names</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.31_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.51 Released" rtext="2020-02-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.51
+of Apache Tomcat. Apache Tomcat 8.5.x replaces 8.0.x and includes new features
+pulled forward from Tomcat 9.0.x. The minimum Java version and implemented
+specification versions remain unchanged. The notable changes compared
+to 8.5.50 include:</p>
+<ul>
+<li>AJP defaults changed to listen the loopback address, require a secret
+    and to be disabled in the sample server.xml file. If you are using the
+    AJP protocol, please refer to the <a
+    href="migration-85.html#Tomcat_8.5.x_noteable_changes">Migration Guide</a>
+    and update your configuration.</li>
+<li>The JmxRemoteLifecycleListener is now deprecated</li>
+<li>The HTTP Connector attribute rejectIllegalHeaderName is renamed to
+    rejectIllegalHeader and expanded to include header values as well as
+    names</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.51_(markt)">Tomcat 8.5
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+</body>
+</document>
