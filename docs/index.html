@@ -28,6 +28,34 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_10.0.4_Released"><span class="pull-right">2021-03-10</span> Tomcat 10.0.4 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.4
+of Apache Tomcat. This release is targeted at Jakarta EE 9.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE applications designed for Tomcat 9 and earlier may be
+placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and Tomcat
+will automatically convert them to Jakarta EE and copy them to the webapps
+directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Integration of the Apache Tomcat Migration Tool for Jakarta EE via the
+    webapps-javaee directory</li>
+<li>Improvements to Async and non-blocking IO error handling</li>
+<li>Add support for Unix Domain Sockets to the APR/Native connector</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.2_(markt)">Tomcat 10
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_Migration_Tool_for_Jakarta_EE_0.2.0_Released"><span class="pull-right">2021-02-18</span> Tomcat Migration Tool for Jakarta EE 0.2.0 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of 0.2.0 of the
@@ -68,43 +96,6 @@ Full details of these changes, and all the other changes, are available in the
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-70.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_10.0.2_Released"><span class="pull-right">2021-02-02</span> Tomcat 10.0.2 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.0.2
-of Apache Tomcat. This release is the first stable release in the 10.0.x series
-and is targeted at Jakarta EE 9.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is under development to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Add support for using Unix domain sockets for NIO when running on
-    Java 16 or later.</li>
-<li>Add a new <code>StringInterpreter</code> interface that allows applications
-    to provide customised string attribute value to type conversion within JSPs.
-    This allows applications to provide a conversion implementation that is
-    optimised for the application.</li>
-<li>Add <code>peerAddress</code> to coyote request, which contains the IP
-    address of the direct connection peer. If a reverse proxy sits in front of
-    Tomcat and the RemoteIp(Valve|Filter) is used, the peerAddress is likely to
-    differ from the remoteAddress. The remoteAddress is likely to contain the
-    address of the client in front of the reverse proxy, not the address of the
-    proxy itself.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.2_(markt)">Tomcat 10
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_9.0.43_Released"><span class="pull-right">2021-02-02</span> Tomcat 9.0.43 Released</h3><div class="text">
 <p>
