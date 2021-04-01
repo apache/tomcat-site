@@ -150,8 +150,7 @@ One way to update documentation is to:
    and to replace docs/native-doc or docs/connectors-doc with the docs
    that you have built.
 
-Another way is to call the bring the sources into this project and build
-them here.
+Another way is to bring the sources into this project and build them here.
 
 1. Copy the contents of "xdocs" directory from source
    distributive of released version into empty jk-xdocs or native-xdocs
