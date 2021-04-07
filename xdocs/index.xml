@@ -40,6 +40,63 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.0.5 Released" rtext="2021-04-06">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.5
+of Apache Tomcat. This release is targeted at Jakarta EE 9.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE applications designed for Tomcat 9 and earlier may be
+placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and Tomcat
+will automatically convert them to Jakarta EE and copy them to the webapps
+directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Fix a regression in 10.0.4 that meant that an error during an asynchronous
+    read broke all future asynchronous reads associated with the same request
+    instance.</li>
+<li>Prevent concurrent calls to ServletInputStream.isReady() corrupting the
+    input buffer.</li>
+<li>Update the packaged version of Tomcat Native to 1.2.27 to pick up binaries
+    built with OpenSSL 1.1.1k.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.5_(markt)">Tomcat 10
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.45 Released" rtext="2021-04-06">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.45
+of Apache Tomcat. The notable changes compared to 9.0.44 include:</p>
+<ul>
+<li>Fix a regression in 9.0.44 that meant that an error during an asynchronous
+    read broke all future asynchronous reads associated with the same request
+    instance.</li>
+<li>Prevent concurrent calls to ServletInputStream.isReady() corrupting the
+    input buffer.</li>
+<li>Update the packaged version of Tomcat Native to 1.2.27 to pick up binaries
+    built with OpenSSL 1.1.1k.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.45_(markt)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat Native 1.2.28 Released" rtext="2021-04-06">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 1.2.28 of
@@ -53,29 +110,6 @@ Tomcat Native. The notable changes since 1.2.27 include:
 <p style="text-align: center;">
 <a href="download-native.cgi">Download</a> |
 <a href="native-doc/miscellaneous/changelog.html">ChangeLog for 1.2.28</a>
-</p>
-</section>
-
-<section name="Tomcat 9.0.44 Released" rtext="2021-03-10">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.44
-of Apache Tomcat. The notable changes compared to 9.0.43 include:</p>
-<ul>
-<li>Improvements to Async and non-blocking IO error handling</li>
-<li>Improvements to handling of OpenSSL errors</li>
-<li>Align the behaviour when null is passed to the ServletResponse
-    methods setCharacterEncoding(), setContentType() and setLocale()
-    with the recent clarification from the Jakarta Servlet project of
-    the expected behaviour in these cases.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.44_(markt)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
 </p>
 </section>
 
