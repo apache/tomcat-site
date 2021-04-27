@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>JNDIRealm (Apache Tomcat 7.0.108 API Documentation)</title>
+<title>JNDIRealm (Apache Tomcat 7.0.109 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="JNDIRealm (Apache Tomcat 7.0.108 API Documentation)";
+        parent.document.title="JNDIRealm (Apache Tomcat 7.0.109 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.108</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.109</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -371,7 +371,9 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <tr class="altColor">
 <td class="colFirst"><code>protected static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#name">name</a></strong></code>
-<div class="block">Descriptive information about this Realm implementation.</div>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>This will be removed in Tomcat 9 onwards.</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -654,9 +656,24 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#doRFC2254Encoding(java.lang.String)">doRFC2254Encoding</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</code>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#doAttributeValueEscaping(java.lang.String)">doAttributeValueEscaping</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</code>
+<div class="block">Implements the necessary escaping to represent an attribute value as a
+ String as per RFC 4514.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#doFilterEscaping(java.lang.String)">doFilterEscaping</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</code>
 <div class="block">Given an LDAP search string, returns the string with certain characters
  escaped according to RFC 2254 guidelines.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/catalina/realm/JNDIRealm.html#doRFC2254Encoding(java.lang.String)">doRFC2254Encoding</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Will be removed in Tomcat 10.1.x onwards</i></div>
+</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1324,7 +1341,9 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre>protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> name</pre>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> name</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>This will be removed in Tomcat 9 onwards.</i></div>
 <div class="block">Descriptive information about this Realm implementation.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.catalina.realm.JNDIRealm.name">Constant Field Values</a></dd></dl>
 </li>
@@ -2914,7 +2933,30 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <ul class="blockList">
 <li class="blockList">
 <h4>doRFC2254Encoding</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;doRFC2254Encoding(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</pre>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;doRFC2254Encoding(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Will be removed in Tomcat 10.1.x onwards</i></div>
+<div class="block">Given an LDAP search string, returns the string with certain characters
+ escaped according to RFC 2254 guidelines.
+ The character mapping is as follows:
+     char -&gt;  Replacement
+    ---------------------------
+     *  -&gt; \2a
+     (  -&gt; \28
+     )  -&gt; \29
+     \  -&gt; \5c
+     \0 -&gt; \00</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>inString</code> - string to escape according to RFC 2254 guidelines</dd>
+<dt><span class="strong">Returns:</span></dt><dd>String the escaped/encoded result</dd></dl>
+</li>
+</ul>
+<a name="doFilterEscaping(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>doFilterEscaping</h4>
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;doFilterEscaping(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;inString)</pre>
 <div class="block">Given an LDAP search string, returns the string with certain characters
  escaped according to RFC 2254 guidelines.
  The character mapping is as follows:
@@ -2944,6 +2986,19 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <dt><span class="strong">Returns:</span></dt><dd>String containing the distinguished name</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/naming/NamingException.html?is-external=true" title="class or interface in javax.naming">NamingException</a></code> - if a directory server error occurs</dd></dl>
+</li>
+</ul>
+<a name="doAttributeValueEscaping(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>doAttributeValueEscaping</h4>
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;doAttributeValueEscaping(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</pre>
+<div class="block">Implements the necessary escaping to represent an attribute value as a
+ String as per RFC 4514.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>input</code> - The original attribute value</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The string representation of the attribute value</dd></dl>
 </li>
 </ul>
 <a name="convertToHexEscape(java.lang.String)">
@@ -2977,7 +3032,7 @@ extends <a href="../../../../org/apache/catalina/realm/RealmBase.html" title="cl
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.108</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 7.0.109</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
