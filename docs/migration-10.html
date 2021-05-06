@@ -32,10 +32,20 @@ of Apache Tomcat.</p>
     <p>There is a significant breaking change between Tomcat 9.0.x and Tomcat
     10.0.x. The Java package used by the specification APIs has changed from
     <scode>javax...</scode> to <scode>jakarta...</scode>. It will be necessary
-    to recompile web applications against the new APIs. Alternatively, users can
-    convert an existing WAR file from Java EE 8 to Jakarta EE 9 using the 
-    <a href="https://tomcat.apache.org/download-migration.cgi">Apache Tomcat migration tool for Jakarta
-    EE</a>.</p>
+    to recompile web applications against the new APIs.</p>
+
+    <p>Tomcat can convert an existing web application from Java EE 8
+    to Jakarta EE 9 at deployment time using the Apache Tomcat migration tool
+    for Jakarta EE. To make use of the feature, the web application should
+    be placed in the Host <code>legacyAppBase</code> folder (by default named
+    <code>webapps-javaee</code>) and they will be converted to an equivalent
+    Jakarta EE web application in the Host <code>appBase</code> folder (by
+    default named <code>webapps</code>).</p>
+
+    <p>Alternately, the <a href="https://tomcat.apache.org/download-migration.cgi">Apache Tomcat
+    migration tool for Jakarta EE</a> or any similar conversion tool can be
+    used ahead of time to benefit from faster deployment time and more
+    precise conversion configuration options.</p>
 
   </div></div>
   
