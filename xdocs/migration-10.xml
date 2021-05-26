@@ -158,7 +158,14 @@ of Apache Tomcat.</p>
        changes will go unnoticed. This section lists changes that are not fully
        backwards compatible and might cause breakage when upgrading.</p>
     <ul>
-      <li><p>None as yet.</p></li>
+      <li><p>In 10.0.3 onwards, the semantics of the
+        <code>HostConfig.check(String)</code> method have changed. Rather than
+        marking the application as serviced before calling the method, the
+        method will mark the application as serviced before checking
+        resources and then un-mark the application as being serviced after the
+        checks are complete. If the application is marked as serviced when the
+        method is called, the method will be a NO-OP.</p>
+      </li>
     </ul>
   </subsection>
 

@@ -245,6 +245,14 @@ of Apache Tomcat.</p>
         blocked with a 403.</p>
         <p>Reference:  <a href="tomcat-8.5-doc/config/ajp.html">AJP
         connector</a>.</p>
+      <li><p>In 8.5.64 onwards, the semantics of the
+        <code>HostConfig.check(String)</code> method have changed. Rather than
+        marking the application as serviced before calling the method, the
+        method will mark the application as serviced before checking
+        resources and then un-mark the application as being serviced after the
+        checks are complete. If the application is marked as serviced when the
+        method is called, the method will be a NO-OP.</p>
+      </li>
       </li>
     </ul>
   </div></div>
