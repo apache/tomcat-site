@@ -91,15 +91,15 @@
 
   </target>
 
-  <target name="release-7"
+  <target name="release-7.0"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 7.0">
 
     <!-- Download the latest version -->
     <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat70.loc}"/>
-      <param name="destfile" value="${tomcat70.home}/tomcat-7.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat70.home}"/>
+      <param name="sourcefile" value="${tomcat7.0.loc}"/>
+      <param name="destfile" value="${tomcat7.0.home}/tomcat-7.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat7.0.home}"/>
     </antcall>
 
     <!-- Delete the old version -->
@@ -107,21 +107,21 @@
 
     <!-- Copy the latest version -->
     <copy todir="${docs.dest}/tomcat-7.0-doc" >
-      <fileset dir="${tomcat70.home}/tomcat-7.0-doc" >
+      <fileset dir="${tomcat7.0.home}/tomcat-7.0-doc" >
         <exclude name="/WEB-INF/**" />
       </fileset>
     </copy>
   </target>
 
-  <target name="release-85"
+  <target name="release-8.5"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 8.5">
 
     <!-- Download the latest version -->
     <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat85.loc}"/>
-      <param name="destfile" value="${tomcat85.home}/tomcat-8.5-doc/index.html"/>
-      <param name="destdir" value="${tomcat85.home}"/>
+      <param name="sourcefile" value="${tomcat8.5.loc}"/>
+      <param name="destfile" value="${tomcat8.5.home}/tomcat-8.5-doc/index.html"/>
+      <param name="destdir" value="${tomcat8.5.home}"/>
     </antcall>
 
     <!-- Delete the old version -->
@@ -129,21 +129,21 @@
 
     <!-- Copy the latest version -->
     <copy todir="${docs.dest}/tomcat-8.5-doc" >
-      <fileset dir="${tomcat85.home}/tomcat-8.5-doc" >
+      <fileset dir="${tomcat8.5.home}/tomcat-8.5-doc" >
         <exclude name="/WEB-INF/**" />
       </fileset>
     </copy>
   </target>
 
-  <target name="release-9"
+  <target name="release-9.0"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 9.0">
 
     <!-- Download the latest version -->
     <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat90.loc}"/>
-      <param name="destfile" value="${tomcat90.home}/tomcat-9.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat90.home}"/>
+      <param name="sourcefile" value="${tomcat9.0.loc}"/>
+      <param name="destfile" value="${tomcat9.0.home}/tomcat-9.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat9.0.home}"/>
     </antcall>
 
     <!-- Delete the old version -->
@@ -151,21 +151,21 @@
 
     <!-- Copy the latest version -->
     <copy todir="${docs.dest}/tomcat-9.0-doc" >
-      <fileset dir="${tomcat90.home}/tomcat-9.0-doc" >
+      <fileset dir="${tomcat9.0.home}/tomcat-9.0-doc" >
         <exclude name="/WEB-INF/**" />
       </fileset>
     </copy>
   </target>
 
-  <target name="release-10"
+  <target name="release-10.0"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 10.0">
 
-  	<!-- Download the latest version -->
+    <!-- Download the latest version -->
     <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat100.loc}"/>
-      <param name="destfile" value="${tomcat100.home}/tomcat-10.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat100.home}"/>
+      <param name="sourcefile" value="${tomcat10.0.loc}"/>
+      <param name="destfile" value="${tomcat10.0.home}/tomcat-10.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat10.0.home}"/>
     </antcall>
 
     <!-- Delete the old version -->
@@ -173,7 +173,29 @@
 
     <!-- Copy the latest version -->
     <copy todir="${docs.dest}/tomcat-10.0-doc" >
-      <fileset dir="${tomcat100.home}/tomcat-10.0-doc" >
+      <fileset dir="${tomcat10.0.home}/tomcat-10.0-doc" >
+        <exclude name="/WEB-INF/**" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="release-10.1"
+          depends="docs"
+          description="Used after a release to update the docs for Tomcat 10.1">
+
+    <!-- Download the latest version -->
+    <antcall target="downloadgz">
+      <param name="sourcefile" value="${tomcat10.1.loc}"/>
+      <param name="destfile" value="${tomcat10.1.home}/tomcat-10.0-doc/index.html"/>
+      <param name="destdir" value="${tomcat10.1.home}"/>
+    </antcall>
+
+    <!-- Delete the old version -->
+    <delete dir="${docs.dest}/tomcat-10.1-doc"/>
+
+    <!-- Copy the latest version -->
+    <copy todir="${docs.dest}/tomcat-10.1-doc" >
+      <fileset dir="${tomcat10.1.home}/tomcat-10.1-doc" >
         <exclude name="/WEB-INF/**" />
       </fileset>
     </copy>
