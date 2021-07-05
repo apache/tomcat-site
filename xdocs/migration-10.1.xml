@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Migration Guide - Tomcat 10.0.x</title>
+  </properties>
+
+<body>
+
+<section name="Table of Contents">
+<toc/>
+</section>
+
+<section name="General">
+
+<p>Please read general <a href="migration.html">Migration Guide page</a> first,
+for common considerations that apply to migration or upgrade between versions
+of Apache Tomcat.</p>
+
+</section>
+
+<section name="Migrating from 10.0.x to 10.1.x">
+
+  <p>This section lists all the known changes between 10.0.x and 10.1.x
+  which may cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="Java 8 required">
+
+    <p>Apache Tomcat 10.1.x requires Java 8 or later. This is unchanged from
+    Tomcat 10.0.x.</p>
+
+  </subsection>
+
+  <subsection name="Specification APIs">
+
+    <p>Apache Tomcat 10.1 supports the Jakarta Servlet TBD,
+    Jakarta Server Pages TBD, Jakarta Expression Language TBD,
+    JakartaWebSocket TBD and Jakarta Authentication TBD
+    <a href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications">specifications</a>.
+    </p>
+
+  </subsection>
+  
+  <subsection name="Servlet TBD API">
+  
+    <p>A new method, <code>Cookie.setAttribute(String name, String value)</code>
+    has been added.</p>
+
+  </subsection>
+
+  <subsection name="Server Pages TBD">
+  
+    <p>No changes.</p>
+
+  </subsection>
+
+  <subsection name="Expression Language TBD">
+  
+    <p>The EL API now uses generics where appropriate.</p>
+    
+    <p>The deprecated <code>MethodExpression.isParmetersProvided()</code> method
+    has been removed from the API.</p>
+
+  </subsection>
+
+  <subsection name="WebSocket TBD">
+
+    <p>No changes.</p>
+    
+  </subsection>
+
+  <subsection name="Authentication TBD">
+  
+    <p>No changes.</p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 10.1 internal API is broadly compatible with Tomcat 10.0
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+    <p>Of particular note are:</p>
+    <ul>
+      <li>All code marked as deprecated in 10.0.x has been removed.</li>
+    </ul>
+
+  </subsection>
+
+</section>
+
+<section name="Upgrading 10.1.x">
+
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 10.1
+  to another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 10.1.</p>
+
+  <subsection name="Tomcat 10.1.x noteable changes">
+    <p>The Tomcat developers aim for each stable patch release to be fully
+       backwards compatible with the previous release.  Occasionally, it is
+       necessary to break backwards compatibility in order to fix a bug. In most
+       cases, these changes will go unnoticed. This section lists changes that
+       are not fully backwards compatible and might cause breakage when
+       upgrading.</p>
+    <ul>
+      <li>None</li>
+    </ul>
+  </subsection>
+
+  <subsection name="Tomcat 10.1.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <p><b>Note:</b> If there are no differences you will see an error page.</p>
+
+    <form action="https://gitbox.apache.org/repos/asf"
+          method="get"
+          target="_blank">
+
+    <input type="hidden" name="p" value="tomcat.git"/>
+    <input type="hidden" name="a" value="blobdiff"/>
+
+    <p><label>Configuration file:
+    <select name="f">
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
+    </select></label>
+    </p>
+    <p><label>Old version:
+    <select name="hpb">
+    <option value="10.1.0-M1" selected="selected">10.1.0-M1</option>
+    <option value="10.1.0-M2">10.1.0-M2</option>
+    </select>,</label> <label>new version:
+    <select name="hb">
+    <option value="10.1.0-M1">10.1.0-M1</option>
+    <option value="10.1.0-M2" selected="selected">10.1.0-M2</option>
+    <option value="HEAD">trunk (unreleased)</option>
+    </select></label>
+    </p>
+
+    <p>
+    <button>View Differences</button>
+    </p>
+    </form>
+    <p>You can also use a Git command similar to the following from within a
+       working copy:</p>
+    <source>git diff 10.1.0-M1 10.1.0-M2 -- conf/</source>
+  </subsection>
+  
+</section>
+
+</body>
+</document>
