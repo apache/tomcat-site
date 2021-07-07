@@ -117,20 +117,22 @@ Full details of these changes, and all the other changes, are available in the
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
-</div><h3 id="Tomcat_8.5.68_Released"><span class="pull-right">2021-06-15</span> Tomcat 8.5.68 Released</h3><div class="text">
+</div><h3 id="Tomcat_8.5.69_Released"><span class="pull-right">2021-07-05</span> Tomcat 8.5.69 Released</h3><div class="text">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 8.5.68
+The Apache Tomcat Project is proud to announce the release of version 8.5.69
 of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.66 include:</p>
+Java EE 7 platform. The notable changes compared to 8.5.68 include:</p>
 <ul>
-<li>Improve robustness of HTTP/2 HPACK decoding</li>
-<li>Improvements to the handling of the Transfer-Encoding header</li>
-<li>Review code used to generate Java source from JSPs and tags and remove
-   code found to be unnecessary.</li>
+<li>Re-work the HTTP/2 overhead protection to reduce the likelihood of
+    false positives. Note that the default overheadCountFactor has changed
+    from 1 to 10 and that the useful range is now 0 to ~20.</li>
+<li>Fix regressions in JSP compilation in the previous release.</li>
+<li>Improve HTTP header parsing to ignore empty elements in 1#token
+    values, as per RFC 7230 section 7.</li>
 </ul>
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.68_(schultz)">Tomcat 8.5
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.69_(schultz)">Tomcat 8.5
 changelog</a>.
 </p>
 
