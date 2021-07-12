@@ -50,6 +50,90 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.48" rtext="15 June 2021">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.47 but the
+       release vote for the 9.0.47 release candidate did not pass. Therefore,
+       although users must download 9.0.48 to obtain a version that includes a
+       fix for this issue, version 9.0.47 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: Request Smuggling</strong>
+       <cve>CVE-2021-33037</cve></p>
+
+    <p>Apache Tomcat did not correctly parse the HTTP transfer-encoding request
+       header in some circumstances leading to the possibility of request
+       smuggling when used with a reverse proxy. Specifically: Tomcat
+       incorrectly ignored the transfer-encoding header if the client declared
+       it would only accept an HTTP/1.0 response; Tomcat honoured the identify
+       encoding; and Tomcat did not ensure that, if present, the chunked
+       encoding was the final encoding.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="45d70a86a901cbd534f8f570bed2aec9f7f7b88e"/>,
+       <hashlink hash="05f9e8b00f5d9251fcd3c95dcfd6cf84177f46c8"/> and
+       <hashlink hash="a2c3dc4c96168743ac0bab613709a5bbdaec41d0"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Bahruz
+       Jabiyev, Steven Sprecher and Kaan Onarlioglu of NEU seclab on 7 May 2021.
+       The issue was made public on 12 July 2021.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.46</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 9.0.46" rtext="12 May 2021">
+
+      <p><strong>Low: Authentication weakness</strong>
+       <cve>CVE-2021-30640</cve></p>
+
+    <p>Queries made by the JNDI Realm did not always correctly escape
+       parameters. Parameter values could be sourced from user provided data (eg
+       user names) as well as configuration data provided by an administrator.
+       In limited circumstances it was possible for users to authenticate using
+       variations of their user name and/or to bypass some of the protection
+       provided by the LockOut Realm.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="c4df8d44a959a937d507d15e5b1ca35c3dbc41eb"/>,
+       <hashlink hash="749f3cc192c68c34f2375509aea087be45fc4434"/>,
+       <hashlink hash="c6b6e1015ae44c936971b6bf8bce70987935b92e"/>,
+       <hashlink hash="91ecdc61ce3420054c04114baaaf1c1e0cbd5d56"/>,
+       <hashlink hash="e50067486cf86564175ca0cfdcbf7d209c6df862"/>,
+       <hashlink hash="b5585a9e5d4fec020cc5ebadb82f899fae22bc43"/>,
+       <hashlink hash="329932012d3a9b95fde0b18618416e659ecffdc0"/> and
+       <hashlink hash="3ce84512ed8783577d9945df28da5a033465b945"/>.</p>
+
+    <p>This issue was reported publicly as <bug>65224</bug>.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.45</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 9.0.45" rtext="6 April 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-30639</cve></p>
+
+    <p>An error introduced as part of a change to improve error handling during
+       non-blocking I/O meant that the error flag associated with the Request
+       object was not reset between requests. This meant that once a
+       non-blocking I/O error occurred, all future requests handled by that
+       request object would fail. Users were able to trigger non-blocking I/O
+       errors, e.g. by dropping a connection, thereby creating the possibility
+       of triggering a DoS.</p>
+    <o>Applications that do not use non-blocking I/O are not exposed to this
+       vulnerability.</o>
+
+    <p>This was fixed with commit
+       <hashlink hash="8ece47c4a9fb9349e8862c84358a4dd23c643a24"/>.</p>
+
+    <p>This issue was reported publicly as <bug>65203</bug>.</p>
+
+    <p>Affects: 9.0.44</p>
+    
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.43" rtext="2 February 2021">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 9.0.42 but the

@@ -56,6 +56,92 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.68" rtext="15 June 2021">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 8.5.67 but the
+       release vote for the 8.5.67 release candidate did not pass. Therefore,
+       although users must download 8.5.68 to obtain a version that includes a
+       fix for this issue, version 8.5.67 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: Request Smuggling</strong>
+       <cve>CVE-2021-33037</cve></p>
+
+    <p>Apache Tomcat did not correctly parse the HTTP transfer-encoding request
+       header in some circumstances leading to the possibility of request
+       smuggling when used with a reverse proxy. Specifically: Tomcat
+       incorrectly ignored the transfer-encoding header if the client declared
+       it would only accept an HTTP/1.0 response; Tomcat honoured the identify
+       encoding; and Tomcat did not ensure that, if present, the chunked
+       encoding was the final encoding.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="3202703e6d635e39b74262e81f0cb4bcbe2170dc"/>,
+       <hashlink hash="da0e7cb093cf68b052d9175e469dbd0464441b0b"/> and
+       <hashlink hash="8874fa02e9b36baa9ca6b226c0882c0190ca5a02"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Bahruz
+       Jabiyev, Steven Sprecher and Kaan Onarlioglu of NEU seclab on 7 May 2021.
+       The issue was made public on 12 July 2021.</p>
+
+    <p>This issue was identified and reported responsibly .</p>
+
+    <p>Affects: 8.5.0 to 8.5.66</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 8.5.66" rtext="12 May 2021">
+
+      <p><strong>Low: Authentication weakness</strong>
+       <cve>CVE-2021-30640</cve></p>
+
+    <p>Queries made by the JNDI Realm did not always correctly escape
+       parameters. Parameter values could be sourced from user provided data (eg
+       user names) as well as configuration data provided by an administrator.
+       In limited circumstances it was possible for users to authenticate using
+       variations of their user name and/or to bypass some of the protection
+       provided by the LockOut Realm.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="24dfb30076997b640e5123e92c4b8d7f206f609c"/>,
+       <hashlink hash="0a272b00aed57526dbfc8b881ab253c23c61f100"/>,
+       <hashlink hash="c9f21a2a7908c7c4ecd4f9bb495d3ee36a2bd822"/>,
+       <hashlink hash="4e86b4ea0d1a9b00fa93971c31b93ad1bd49c7fe"/>,
+       <hashlink hash="79580e7f70a07c083be07307376511bb864d5a7b"/>,
+       <hashlink hash="d3407672774e372fae8b5898d55f85d16f22b972"/>,
+       <hashlink hash="6a9129ac9bd06555ce04bb564a76fc3987311f38"/> and
+       <hashlink hash="ad22db641dcd61c2e8078f658fa709897b5da375"/>.</p>
+
+    <p>This issue was reported publicly as <bug>65224</bug>.</p>
+
+    <p>Affects: 8.5.0 to 8.5.65</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 8.5.65" rtext="6 April 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-30639</cve></p>
+
+    <p>An error introduced as part of a change to improve error handling during
+       non-blocking I/O meant that the error flag associated with the Request
+       object was not reset between requests. This meant that once a
+       non-blocking I/O error occurred, all future requests handled by that
+       request object would fail. Users were able to trigger non-blocking I/O
+       errors, e.g. by dropping a connection, thereby creating the possibility
+       of triggering a DoS.</p>
+    <o>Applications that do not use non-blocking I/O are not exposed to this
+       vulnerability.</o>
+
+    <p>This was fixed with commit
+       <hashlink hash="411caf29ac1c16e6ac291b6e5543b2371dbd25e2"/>.</p>
+
+    <p>This issue was reported publicly as <bug>65203</bug>.</p>
+
+    <p>Affects: 8.5.64</p>
+    
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.63" rtext="2 February 2021">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 8.5.62 but the

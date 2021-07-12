@@ -50,6 +50,27 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 7.0.109" rtext="26 April 2021">
+
+      <p><strong>Low: Authentication weakness</strong>
+       <cve>CVE-2021-30640</cve></p>
+
+    <p>Queries made by the JNDI Realm did not always correctly escape
+       parameters. Parameter values could be sourced from user provided data (eg
+       user names) as well as configuration data provided by an administrator.
+       In limited circumstances it was possible for users to authenticate using
+       variations of their user name and/or to bypass some of the protection
+       provided by the LockOut Realm.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="e21eb4764ccda55e5a35a5a7c19a6fd2b0757fe9"/>.</p>
+
+    <p>This issue was reported publicly as <bug>65224</bug>.</p>
+
+    <p>Affects: 7.0.0 to 7.0.108</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 7.0.108" rtext="5 February 2021">
 
     <p><strong>Low: Fix for <cve>CVE-2020-9484</cve> was incomplete</strong>
