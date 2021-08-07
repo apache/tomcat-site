@@ -16,7 +16,7 @@
 ================================================================================
 
 
-                     Apache Tomcat Version 10.1.0-M2
+                     Apache Tomcat Version 10.1.0-M4
                             Release Notes
 
 
@@ -38,7 +38,7 @@ CONTENTS:
 ===================
 Dependency Changes:
 ===================
-Tomcat 10.1 is designed to run on Java 8 and later.
+Tomcat 10.1 is designed to run on Java 11 and later.
 
 
 ==============
@@ -78,7 +78,7 @@ for use by web applications (by placing them in "lib"):
 * jasper.jar (Jasper 2 Compiler and Runtime)
 * jasper-el.jar (Jasper 2 EL implementation)
 * jsp-api.jar (JSP 3.0 API)
-* servlet-api.jar (Servlet 5.1 API)
+* servlet-api.jar (Servlet 6.0 API)
 * tomcat-api.jar (Interfaces shared by Catalina and Jasper)
 * tomcat-coyote.jar (Tomcat connectors and utility classes)
 * tomcat-dbcp.jar (package renamed database connection pool based on Commons DBCP 2)
@@ -92,10 +92,8 @@ You can make additional APIs available to all of your web applications by
 putting unpacked classes into a "classes" directory (not created by default),
 or by placing them in JAR files in the "lib" directory.
 
-To override the XML parser implementation or interfaces, use the appropriate
-feature for your JVM. For Java <= 8 use the endorsed standards override
-feature. The default configuration defines JARs located in "endorsed" as endorsed.
-For Java 9+ use the upgradeable modules feature.
+To override the XML parser implementation or interfaces, use the upgradeable
+modules feature.
 
 
 ================================================================
