@@ -1,12 +1,9 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.0-M4) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
-            Version 10.1.0-M4,
-            <time datetime="2021-08-03">Aug 3 2021</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#HTTP/2_Support">HTTP/2 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#Unix_Domain_Socket_Support">Unix Domain Socket Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#Key_store_types">Key store types</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.0-M5) - The HTTP Connector</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
+            Version 10.1.0-M5,
+            <time datetime="2021-09-06">Sep 6 2021</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://wiki.apache.org/tomcat/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#HTTP/2_Support">HTTP/2 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#Unix_Domain_Socket_Support">Unix Domain Socket Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#Key_store_types">Key store types</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
-
-  <p><strong>Note: The APR/Native HTTP Connector is deprecated and will be
-  removed in Tomcat 10.1.x onwards.</strong></p>
 
   <p>The <strong>HTTP Connector</strong> element represents a
   <strong>Connector</strong> component that supports the HTTP/1.1 protocol.
@@ -171,14 +168,10 @@
               non blocking Java NIO connector<br>
         <code>org.apache.coyote.http11.Http11Nio2Protocol</code> -
               non blocking Java NIO2 connector<br>
-        <code>org.apache.coyote.http11.Http11AprProtocol</code> -
-              the APR/native connector (deprecated - will be removed in 10.1.x).<br>
         Custom implementations may also be used.<br>
         Take a look at our <a href="#Connector_Comparison">Connector
-        Comparison</a> chart. The configuration for both Java connectors is
-        identical, for http and https.<br>
-        For more information on the APR connector and APR specific SSL settings
-        please  visit the <a href="../apr.html">APR documentation</a>
+        Comparison</a> chart. The configuration for Java connectors is
+        identical, for http and https.
       </p>
     </td></tr><tr><td><code class="attributeName">proxyName</code></td><td>
       <p>If this <strong>Connector</strong> is being used in a proxy
@@ -245,9 +238,8 @@
 
   <div class="subsection"><h4 id="Standard_Implementation">Standard Implementation</h4><div class="text">
 
-  <p>The standard HTTP connectors (NIO, NIO2 and APR/native) all support the
-  following attributes in addition to the common Connector attributes listed
-  above.</p>
+  <p>The standard HTTP connectors (NIO and NIO2) all support the following
+  attributes in addition to the common Connector attributes listed above.</p>
 
   <table class="defaultTable"><tr><th style="width: 15%;">
           Attribute
@@ -272,11 +264,7 @@
       default, the connector will listen all local addresses. Unless the JVM is
       configured otherwise using system properties, the Java based connectors
       (NIO, NIO2) will listen on both IPv4 and IPv6 addresses when configured
-      with either <code>0.0.0.0</code> or <code>::</code>. The APR/native
-      connector will only listen on IPv4 addresses if configured with
-      <code>0.0.0.0</code> and will listen on IPv6 addresses (and optionally
-      IPv4 addresses depending on the setting of <strong>ipv6v6only</strong>) if
-      configured with <code>::</code>.</p>
+      with either <code>0.0.0.0</code> or <code>::</code>.</p>
     </td></tr><tr><td><code class="attributeName">allowHostHeaderMismatch</code></td><td>
       <p>By default Tomcat will reject requests that specify a host in the
       request line but specify a different host in the host header. This
@@ -295,11 +283,7 @@
       <p>When client certificate information is presented in a form other than
       instances of <code>java.security.cert.X509Certificate</code> it needs to
       be converted before it can be used and this property controls which JSSE
-      provider is used to perform the conversion. For example it is used with
-      the <a href="ajp.html">AJP connectors</a>, the HTTP APR connector and
-      with the <a href="valve.html#SSL_Authenticator_Valve">
-      org.apache.catalina.valves.SSLValve</a>. If not specified, the default
-      provider will be used.</p>
+      provider is used to perform the conversion.</p>
     </td></tr><tr><td><code class="attributeName">compressibleMimeType</code></td><td>
       <p>The value is a comma separated list of MIME types for which HTTP
       compression may be used.
@@ -307,7 +291,7 @@
       <code>
       text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/xml
       </code>.
-      </p>
+      If you specify a type explicitly, the default is over-ridden.</p>
     </td></tr><tr><td><code class="attributeName">compression</code></td><td>
       <p>The <strong>Connector</strong> may use HTTP/1.1 GZIP compression in
       an attempt to save server bandwidth. The acceptable values for the
@@ -333,7 +317,8 @@
     </td></tr><tr><td><code class="attributeName">compressionMinSize</code></td><td>
       <p>If <strong>compression</strong> is set to "on" then this attribute
       may be used to specify the minimum amount of data before the output is
-      compressed. If not specified, this attribute is defaults to "2048".</p>
+      compressed. If not specified, this attribute is defaults to "2048".
+      Units are in bytes.</p>
     </td></tr><tr><td><code class="attributeName">connectionLinger</code></td><td>
       <p>The number of seconds during which the sockets used by this
       <strong>Connector</strong> will linger when they are closed. The default
@@ -529,8 +514,7 @@
       system property.</p>
     </td></tr><tr><td><code class="attributeName">useAsyncIO</code></td><td>
       <p>(bool) Use this attribute to enable or disable usage of the
-      asynchronous IO API. The default value is <code>true</code> except when
-      using the APR connector due to low performance.</p>
+      asynchronous IO API. The default value is <code>true</code>.</p>
     </td></tr><tr><td><code class="attributeName">useKeepAliveResponseHeader</code></td><td>
       <p>(bool) Use this attribute to enable or disable the addition of the
       <code>Keep-Alive</code> HTTP response header as described in
@@ -794,61 +778,6 @@
       </td></tr></table>
   </div></div>
 
-  <div class="subsection"><h4 id="APR/native_specific_configuration">APR/native specific configuration</h4><div class="text">
-
-    <p><strong>Note: The APR/Native HTTP Connector is deprecated and will be
-    removed in Tomcat 10.1.x onwards.</strong></p>
-
-    <p>The following attributes are specific to the APR/native connector.</p>
-
-    <table class="defaultTable"><tr><th style="width: 15%;">
-          Attribute
-        </th><th style="width: 85%;">
-          Description
-        </th></tr><tr><td><code class="attributeName">deferAccept</code></td><td>
-        <p>Sets the <code>TCP_DEFER_ACCEPT</code> flag on the listening socket
-        for this connector. The default value is <code>true</code> where
-        <code>TCP_DEFER_ACCEPT</code> is supported by the operating system,
-        otherwise it is <code>false</code>.</p>
-      </td></tr><tr><td><code class="attributeName">ipv6v6only</code></td><td>
-        <p>If listening on an IPv6 address on a dual stack system, should the
-        connector only listen on the IPv6 address? If not specified the default
-        is <code>false</code> and the connector will listen on the IPv6 address
-        and the equivalent IPv4 address if present.</p>
-      </td></tr><tr><td><code class="attributeName">pollerThreadCount</code></td><td>
-        <p>Number of threads used to poll kept alive connections. On Windows the
-        default is chosen so that the sockets managed by each thread is
-        less than 1024. For Linux the default is 1. Changing the default on
-        Windows is likely to have a negative performance impact.</p>
-      </td></tr><tr><td><code class="attributeName">pollTime</code></td><td>
-        <p>Duration of a poll call in microseconds. Lowering this value will
-        slightly decrease latency of connections being kept alive in some cases,
-        but will use more CPU as more poll calls are being made. The default
-        value is 2000 (2ms).</p>
-      </td></tr><tr><td><code class="attributeName">sendfileSize</code></td><td>
-        <p>Amount of sockets that the poller responsible for sending static
-        files asynchronously can hold at a given time. Extra connections will be
-        closed right away without any data being sent (resulting in a zero
-        length file on the client side). Note that in most cases, sendfile is a
-        call that will return right away (being taken care of "synchronously" by
-        the kernel), and the sendfile poller will not be used, so the amount of
-        static files which can be sent concurrently is much larger than the
-        specified amount. The default value is 1024.</p>
-      </td></tr><tr><td><code class="attributeName">threadPriority</code></td><td>
-        <p>(int)The priority of the acceptor and poller threads.
-        The default value is <code>5</code> (the value of the
-        <code>java.lang.Thread.NORM_PRIORITY</code> constant). See the JavaDoc
-        for the <code>java.lang.Thread</code> class for more details on what
-        this priority means.</p>
-      </td></tr><tr><td><code class="attributeName">useSendfile</code></td><td>
-        <p>(bool)Use this attribute to enable or disable sendfile capability.
-        The default value is <code>true</code>. Note that the use of sendfile
-        will disable any compression that Tomcat may otherwise have performed on
-        the response.</p>
-      </td></tr></table>
-
-  </div></div>
-
 </div><h3 id="Nested_Components">Nested Components</h3><div class="text">
 
   <p>Tomcat supports Server Name Indication (SNI). This allows multiple SSL
@@ -928,10 +857,7 @@
   </p>
 
   <p>For users of Java 16 and higher, support is provided within the NIO
-  connectors. For users of Java earlier than 16, support is provided by
-  the <code>org.apache.coyote.http11.Http11AprProtocol</code> connector when
-  used with the Apache Tomcat Native library v1.2.26 and up, along with
-  Apache Portable Runtime v1.6 and higher.
+  connectors.
   </p>
 
   <p>The socket path is created with read and write permissions for all
@@ -967,14 +893,8 @@
   respectively, to pass correct information to the servlets.</p>
 
   <p>The NIO and NIO2 connectors use either the JSSE Java SSL implementation or
-  an OpenSSL implementation, whereas the APR/native connector uses OpenSSL only.
-  Prior to Tomcat 8.5, different configuration attributes were used for JSSE and
-  OpenSSL. From Tomcat 8.5 onwards, and as far as possible, common configuration
-  attributes are used for both JSSE and OpenSSL. Also if using the JSSE OpenSSL
-  implementation, configuration can be set using either the JSSE or APR
-  attributes (note: but not both types within the same configuration). This is
-  to aid simpler switching between connector implementations for SSL
-  connectors.</p>
+  an OpenSSL implementation. As far as possible, common configuration attributes
+  are used for both JSSE and OpenSSL.</p>
 
   <p>Each secure connector must define at least one
   <strong>SSLHostConfig</strong>. The names of the
@@ -1291,7 +1211,7 @@
     </td></tr><tr><td><code class="attributeName">type</code></td><td>
       <p>The type of certificate. This is used to identify the ciphers that are
       compatible with the certificate. It must be one of <code>UNDEFINED</code>,
-      <code>RSA</code>, <code>DSS</code> or <code>EC</code>. If only one
+      <code>RSA</code>, <code>DSA</code> or <code>EC</code>. If only one
       <strong>Certificate</strong> is nested within a <code>SSLHostConfig</code>
       then this attribute is not required and will default to
       <code>UNDEFINED</code>. If multiple <strong>Certificate</strong>s are
@@ -1333,9 +1253,9 @@
       will be used which wraps JVM's default JSSE provider. Note that the
       JVM can be configured to use a different JSSE provider as the default.
       Tomcat also bundles a special SSL implementation for JSSE that is backed
-      by OpenSSL. To enable it, the native library should be enabled as if
-      intending to use the APR connector, and Tomcat will automatically enable it
-      and the default value of this attribute becomes
+      by OpenSSL. To enable it, the native library should be enabled and Tomcat
+      will automatically enable it and the default value of this attribute
+      becomes
       <code>org.apache.tomcat.util.net.openssl.OpenSSLImplementation</code>.
       In that case, the attributes from either JSSE and OpenSSL
       configuration styles can be used, as long as the two types are not mixed
@@ -1390,23 +1310,19 @@
         <th></th>
         <th style="text-align: center;">Java Nio Connector<br>NIO</th>
         <th style="text-align: center;">Java Nio2 Connector<br>NIO2</th>
-        <th style="text-align: center;">APR/native Connector<br>APR<br>(deprecated)</th>
       </tr>
       <tr>
         <th>Classname</th>
         <td><code class="noHighlight">Http11NioProtocol</code></td>
         <td><code class="noHighlight">Http11Nio2Protocol</code></td>
-        <td><code class="noHighlight">Http11AprProtocol</code></td>
       </tr>
       <tr>
         <th>Tomcat Version</th>
         <td>since 6.0.x</td>
         <td>since 8.0.x</td>
-        <td>since 5.5.x</td>
       </tr>
       <tr>
         <th>Support Polling</th>
-        <td>YES</td>
         <td>YES</td>
         <td>YES</td>
       </tr>
@@ -1414,11 +1330,9 @@
         <th>Polling Size</th>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
-        <td><code class="noHighlight">maxConnections</code></td>
       </tr>
       <tr>
         <th>Read Request Headers</th>
-        <td>Non Blocking</td>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
       </tr>
@@ -1426,11 +1340,9 @@
         <th>Read Request Body</th>
         <td>Blocking</td>
         <td>Blocking</td>
-        <td>Blocking</td>
       </tr>
       <tr>
         <th>Write Response Headers and Body</th>
-        <td>Blocking</td>
         <td>Blocking</td>
         <td>Blocking</td>
       </tr>
@@ -1438,23 +1350,19 @@
         <th>Wait for next Request</th>
         <td>Non Blocking</td>
         <td>Non Blocking</td>
-        <td>Non Blocking</td>
       </tr>
       <tr>
         <th>SSL Support</th>
         <td>Java SSL or OpenSSL</td>
         <td>Java SSL or OpenSSL</td>
-        <td>OpenSSL</td>
       </tr>
       <tr>
         <th>SSL Handshake</th>
         <td>Non blocking</td>
         <td>Non blocking</td>
-        <td>Blocking</td>
       </tr>
       <tr>
         <th>Max Connections</th>
-        <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
         <td><code class="noHighlight">maxConnections</code></td>
       </tr>
