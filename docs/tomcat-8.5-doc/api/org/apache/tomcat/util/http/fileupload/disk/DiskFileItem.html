@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DiskFileItem (Apache Tomcat 8.5.70 API Documentation)</title>
+<title>DiskFileItem (Apache Tomcat 8.5.71 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DiskFileItem (Apache Tomcat 8.5.70 API Documentation)";
+        parent.document.title="DiskFileItem (Apache Tomcat 8.5.71 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li><a href="../../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.70</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.71</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -516,7 +516,8 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <ul class="blockList">
 <li class="blockList">
 <h4>get</h4>
-<pre>public&nbsp;byte[]&nbsp;get()</pre>
+<pre>public&nbsp;byte[]&nbsp;get()
+           throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Returns the contents of the file as an array of bytes.  If the
  contents of the file were not yet cached in memory, they will be
  loaded from the disk storage and cached.</div>
@@ -524,7 +525,9 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../../org/apache/tomcat/util/http/fileupload/FileItem.html#get()">get</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/tomcat/util/http/fileupload/FileItem.html" title="interface in org.apache.tomcat.util.http.fileupload">FileItem</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>The contents of the file as an array of bytes
- or <code>null</code> if the data cannot be read</dd></dl>
+ or <code>null</code> if the data cannot be read</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd></dl>
 </li>
 </ul>
 <a name="getString(java.lang.String)">
@@ -534,7 +537,8 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <li class="blockList">
 <h4>getString</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getString(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charset)
-                 throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></pre>
+                 throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a>,
+                        <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Returns the contents of the file as a String, using the specified
  encoding.  This method uses <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/disk/DiskFileItem.html#get()"><code>get()</code></a> to retrieve the
  contents of the file.</div>
@@ -545,7 +549,8 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <dt><span class="strong">Returns:</span></dt><dd>The contents of the file, as a string.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></code> - if the requested character
-                                      encoding is not available.</dd></dl>
+                                      encoding is not available.</dd>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd></dl>
 </li>
 </ul>
 <a name="getString()">
@@ -681,17 +686,14 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <ul class="blockList">
 <li class="blockList">
 <h4>getOutputStream</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;getOutputStream()
-                             throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;getOutputStream()</pre>
 <div class="block">Returns an <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io"><code>OutputStream</code></a> that can
  be used for storing the contents of the file.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../../org/apache/tomcat/util/http/fileupload/FileItem.html#getOutputStream()">getOutputStream</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/tomcat/util/http/fileupload/FileItem.html" title="interface in org.apache.tomcat.util.http.fileupload">FileItem</a></code></dd>
 <dt><span class="strong">Returns:</span></dt><dd>An <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io"><code>OutputStream</code></a> that can be used
-         for storing the contents of the file.</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an error occurs.</dd></dl>
+         for storing the contents of the file.</dd></dl>
 </li>
 </ul>
 <a name="getStoreLocation()">
@@ -834,7 +836,7 @@ implements <a href="../../../../../../../org/apache/tomcat/util/http/fileupload/
 <li><a href="../../../../../../../index-all.html">Index</a></li>
 <li><a href="../../../../../../../help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.70</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.71</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
