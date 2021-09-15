@@ -142,6 +142,29 @@
     
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.64" rtext="10 March 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-41079</cve></p>
+
+    <p>When Tomcat was configured to use NIO+OpenSSL or NIO2+OpenSSL for TLS, a
+      specially crafted packet could be used to trigger an infinite loop
+      resulting in a denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="b90d4fc1ff44f30e4b3aba622ba6677e3f003822"/>.</p>
+
+    <p>This issue was first reported to the Apache Tomcat Security Team by
+       Thomas Wozenilek on 26 February 2021 but could not be confirmed. A
+       speculative fix was applied on 3 March 2021. On 14 September 2021 David
+       Frankson of Infinite Campus independently reported the issue and included
+       a test case. This allowed both the issue and the speculative fix to be
+       verified. The issue was made public on 15 September 2021.</p>
+       
+    <p>Affects: 8.5.0 to 8.5.63</p>
+    
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.63" rtext="2 February 2021">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 8.5.62 but the

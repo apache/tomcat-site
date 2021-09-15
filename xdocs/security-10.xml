@@ -128,6 +128,35 @@
     
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.0.4" rtext="10 March 2021">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 10.0.3 but the
+       release vote for the 10.0.3 release candidate did not pass. Therefore,
+       although users must download 10.0.4 to obtain a version that includes a
+       fix for these issues, version 10.0.3 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-41079</cve></p>
+
+    <p>When Tomcat was configured to use NIO+OpenSSL or NIO2+OpenSSL for TLS, a
+      specially crafted packet could be used to trigger an infinite loop
+      resulting in a denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="34115fb3c83f6cd97772232316a492a4cc5729e0"/>.</p>
+
+    <p>This issue was first reported to the Apache Tomcat Security Team by
+       Thomas Wozenilek on 26 February 2021 but could not be confirmed. A
+       speculative fix was applied on 3 March 2021. On 14 September 2021 David
+       Frankson of Infinite Campus independently reported the issue and included
+       a test case. This allowed both the issue and the speculative fix to be
+       verified. The issue was made public on 15 September 2021.</p>
+       
+    <p>Affects: 10.0.0-M1 to 10.0.2</p>
+    
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.2" rtext="2 February 2021">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 10.0.1 but the
