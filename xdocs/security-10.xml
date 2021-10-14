@@ -50,6 +50,52 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.0.12" rtext="1 October 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-42340</cve></p>
+
+    <p>The fix for bug <bug>63362</bug> introduced a memory leak. The object
+       introduced to collect metrics for HTTP upgrade connections was not
+       released for WebSocket connections once the WebSocket connection was
+       closed. This created a memory leak that, over time, could lead to a
+       denial of service via an OutOfMemoryError.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="31d62426645824bdfe076a0c0eafa904d90b4fb9"/>.</p>
+
+    <p>The memory leak was reported publicly via the users mailing list on 23
+       September 2021. The security implications were identified by the Tomcat
+       Security team the same day. The issue was made public on 14 October
+       2021.</p>
+
+    <p>Affects: 10.0.0-M10 to 10.0.11</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 10.1.0-M6" rtext="1 October 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-42340</cve></p>
+
+    <p>The fix for bug <bug>63362</bug> introduced a memory leak. The object
+       introduced to collect metrics for HTTP upgrade connections was not
+       released for WebSocket connections once the WebSocket connection was
+       closed. This created a memory leak that, over time, could lead to a
+       denial of service via an OutOfMemoryError.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="d5a6660cba7f51589468937bf3bbad4db7810371"/>.</p>
+
+    <p>The memory leak was reported publicly via the users mailing list on 23
+       September 2021. The security implications were identified by the Tomcat
+       Security team the same day. The issue was made public on 14 October
+       2021.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.0-M5</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.7" rtext="15 June 2021">
 
     <p><strong>Important: Request Smuggling</strong>

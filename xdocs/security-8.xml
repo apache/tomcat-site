@@ -56,6 +56,29 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.72" rtext="6 October 2021">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2021-42340</cve></p>
+
+    <p>The fix for bug <bug>63362</bug> introduced a memory leak. The object
+       introduced to collect metrics for HTTP upgrade connections was not
+       released for WebSocket connections once the WebSocket connection was
+       closed. This created a memory leak that, over time, could lead to a
+       denial of service via an OutOfMemoryError.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="d27535bdee95d252418201eb21e9d29476aa6b6a"/>.</p>
+
+    <p>The memory leak was reported publicly via the users mailing list on 23
+       September 2021. The security implications were identified by the Tomcat
+       Security team the same day. The issue was made public on 14 October
+       2021.</p>
+
+    <p>Affects: 8.5.60 to 8.5.71</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.68" rtext="15 June 2021">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 8.5.67 but the
