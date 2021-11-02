@@ -245,6 +245,7 @@ of Apache Tomcat.</p>
         blocked with a 403.</p>
         <p>Reference:  <a href="tomcat-8.5-doc/config/ajp.html">AJP
         connector</a>.</p>
+      </li>
       <li><p>In 8.5.64 onwards, the semantics of the
         <code>HostConfig.check(String)</code> method have changed. Rather than
         marking the application as serviced before calling the method, the
@@ -253,6 +254,11 @@ of Apache Tomcat.</p>
         checks are complete. If the application is marked as serviced when the
         method is called, the method will be a NO-OP.</p>
       </li>
+      <li><p>In 8.5.71 onwards, as a result of the updated fork of Commons
+        FileUpload now using <code>java.nio.file.Files</code>, applications
+        using multi-part uploads need to ensure that the JVM is configured with
+        sufficient direct memory to store all in progress multi-part
+        uploads.</p>
       </li>
     </ul>
   </div></div>
