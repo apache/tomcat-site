@@ -100,7 +100,15 @@ of Apache Tomcat.</p>
        are not fully backwards compatible and might cause breakage when
        upgrading.</p>
     <ul>
-      <li>None</li>
+      <li><p>In 10.1.0-M3 onwards, Tomcat no longer adds an "Expires" HTTP
+        response header when adding "Cache-Control: private" due to a
+        CONFIDENTIAL transport-guarantee. This will likely cause a change
+        in caching behavior for applications that do not explicitly set
+        their own headers but rely on Tomcat's previous behavior. If you
+        with to disable caching, you will need to configure it explicitly
+        in your application. See https://bz.apache.org/bugzilla/show_bug.cgi?id=65513
+        for more information.</p>
+      </li>
     </ul>
   </div></div>
 

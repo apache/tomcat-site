@@ -254,6 +254,15 @@ of Apache Tomcat.</p>
         checks are complete. If the application is marked as serviced when the
         method is called, the method will be a NO-OP.</p>
       </li>
+      <li><p>In 8.5.70 onwards, Tomcat no longer adds an "Expires" HTTP
+        response header when adding "Cache-Control: private" due to a
+        CONFIDENTIAL transport-guarantee. This will likely cause a change
+        in caching behavior for applications that do not explicitly set
+        their own headers but rely on Tomcat's previous behavior. If you
+        with to disable caching, you will need to configure it explicitly
+        in your application. See https://bz.apache.org/bugzilla/show_bug.cgi?id=65513
+        for more information.</p>
+      </li>
       <li><p>In 8.5.71 onwards, as a result of the updated fork of Commons
         FileUpload now using <code>java.nio.file.Files</code>, applications
         using multi-part uploads need to ensure that the JVM is configured with
