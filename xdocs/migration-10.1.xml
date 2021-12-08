@@ -35,27 +35,39 @@ of Apache Tomcat.</p>
   <subsection name="Specification APIs">
 
     <p>Apache Tomcat 10.1 supports the Jakarta Servlet 6.0,
-    Jakarta Server Pages TBD, Jakarta Expression Language TBD,
-    JakartaWebSocket TBD and Jakarta Authentication TBD
+    Jakarta Server Pages 3.1, Jakarta Expression Language 5.0,
+    JakartaWebSocket 2.1 and Jakarta Authentication TBD
     <a href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications">specifications</a>.
     </p>
 
   </subsection>
   
-  <subsection name="Servlet TBD API">
-  
+  <subsection name="Servlet 6.0 API">
+
+    <p>All methods and classes marked as deprecated in the 5.0 API have been
+    removed.</p>
+
+    <p>Support for Cookie specifications other than RFC 6265 has been removed
+    and a number of methods deprecated as a result.</p>
+
     <p>A new method, <code>Cookie.setAttribute(String name, String value)</code>
     has been added.</p>
 
+    <p>The process for decoding and normalizing URIs has been clarified.</p>
+
+    <p>New methods and classes have been added to provide access to unique
+    identifiers for the current request and/or associated connection.</p>
+
   </subsection>
 
-  <subsection name="Server Pages TBD">
-  
-    <p>No changes.</p>
+  <subsection name="Server Pages 3.1">
+
+    <p>Added an option to raise a <code>PropertyNotFoundException</code> when an
+    EL expression contains an unknown identifier.</p>
 
   </subsection>
 
-  <subsection name="Expression Language TBD">
+  <subsection name="Expression Language 5.0">
   
     <p>The EL API now uses generics where appropriate.</p>
     
@@ -64,9 +76,10 @@ of Apache Tomcat.</p>
 
   </subsection>
 
-  <subsection name="WebSocket TBD">
+  <subsection name="WebSocket 2.1">
 
-    <p>No changes.</p>
+    <p>The packaging of the API JARs has changed to remove duplicate classes.
+    The server API now has a dependency on the client API JAR.</p>
     
   </subsection>
 
