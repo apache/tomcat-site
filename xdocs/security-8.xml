@@ -2041,6 +2041,39 @@
 
   </section>
 
+  <section name="Not a vulnerability in Tomcat">
+
+    <p><strong>Critical: Remote Code Execution via log4j</strong>
+       <cve>CVE-2021-44228</cve></p>
+
+    <p>Apache Tomcat 8.5.x has no dependency on any version of log4j.</p>
+    
+    <p>Web applications deployed on Apache Tomcat may have a dependency on
+       log4j. You should seek support from the application vendor in this
+       instance.</p>
+    
+    <p>It is possible to configure Apache Tomcat 8.5.x to use log4j 2.x for
+       Tomcat's internal logging. This requires explicit configuration and the
+       addition of the log4j 2.x library. Anyone who has switched Tomcat's
+       internal logging to log4j 2.x is likely to need to address this
+       vulnerability.</p>
+
+    <p>The first few releases of 8.5.x (8.5.3 and earlier) provided optional
+       support for switching Tomcat's internal logging to log4j 1.x. Anyone one
+       using these very old (5+ years), unsupported versions of Tomcat that
+       switched to using log4j 1.x may need to address this vulnerability as
+       log4j 1.x may be affected in some (probably rarely used) configurations.
+       Regardless, they'll need to address the Tomcat vulnerabilities that have
+       been made public in those 5+ years </p>
+
+    <p>In most cases, disabling the problematic feature will be the simplest
+       solution. Exactly how to do that depends on the exact version of log4j
+       2.x being used. Details are provided on the
+       <a href="https://logging.apache.org/log4j/2.x/security.html">log4j 2.x
+       security page</a>.</p>
+
+  </section>
+  
 </body>
 </document>
 
