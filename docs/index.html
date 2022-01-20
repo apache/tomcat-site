@@ -34,6 +34,37 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_8.5.75_Released"><span class="pull-right">2022-01-17</span> Tomcat 8.5.75 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.75
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. (Note that 8.5.74 was not released, so the previous version
+was 8.5.73.) The notable changes compared to 8.5.73 include:
+</p>
+<ul>
+  <li>Provide protection against a known OS bug that causes the acceptor to
+      report an incoming connection more than once.</li>
+  <li>Implement a workaround for a JVM bug that can trigger a file
+      descriptor leak when using multi-part upload and the application does
+      not explicitly close an input stream for an uploaded file that was
+      cached on disk.</li>
+  <li>Fix several potential JVM crashes when using the APR connector.</li>
+  <li>Add support for HTTP/1.1 upgrade when the request includes a
+      body. The maximum permitted size of the body is controlled by
+      <code>maxSavePostSize</code>.</li>
+  <li>Improve handling of various cases where one request/response
+      processing thread attempts to manage the asynchronous IO for a
+      different request/response.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.75_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-80.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_9.0.56_Released"><span class="pull-right">2021-12-08</span> Tomcat 9.0.56 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.56
@@ -122,27 +153,6 @@ Full details of these changes, and all the other changes, are available in the
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-10.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_8.5.73_Released"><span class="pull-right">2021-11-17</span> Tomcat 8.5.73 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 8.5.73
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.72 include:
-</p>
-<ul>
-<li>Improvements to native/APR including avoiding a JVM crash if APR fails
-    to properly initialize and improving error handling.</li>
-<li>Improve robustness of JNDIRealm for exceptions occurring when getting
-    the connection.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.73_(schultz)">Tomcat 8
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-80.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_1.2.31_Released"><span class="pull-right">2021-09-01</span> Tomcat Native 1.2.31 Released</h3><div class="text">
 <p>

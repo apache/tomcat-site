@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Index (Apache Tomcat 8.5.73 API Documentation)</title>
+<title>Index (Apache Tomcat 8.5.75 API Documentation)</title>
 <link rel="stylesheet" type="text/css" href="./stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Index (Apache Tomcat 8.5.73 API Documentation)";
+        parent.document.title="Index (Apache Tomcat 8.5.75 API Documentation)";
     }
 //-->
 </script>
@@ -31,7 +31,7 @@
 <li class="navBarCell1Rev">Index</li>
 <li><a href="./help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.73</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.75</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -620,11 +620,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#acceptors">acceptors</a></span> - Variable in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>
-<div class="block">Threads used to accept new connections and pass them to worker threads.</div>
+<div class="block">Thread used to accept new connections and pass them to worker threads.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#acceptorThreadCount">acceptorThreadCount</a></span> - Variable in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>
-<div class="block">Acceptor thread count.</div>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>This attribute is hard-coded to <code>1</code> and is no longer
+              configurable.</i></div>
+</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#acceptorThreadPriority">acceptorThreadPriority</a></span> - Variable in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>
@@ -672,10 +675,6 @@
 <dd>
 <div class="block">Access to an existing object.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#accessFile">accessFile</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ant/jmx/JMXAccessorTask.html#accessJMXConnection(org.apache.tools.ant.Project,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">accessJMXConnection(Project, String, String, String, String, String, String)</a></span> - Static method in class org.apache.catalina.ant.jmx.<a href="./org/apache/catalina/ant/jmx/JMXAccessorTask.html" title="class in org.apache.catalina.ant.jmx">JMXAccessorTask</a></dt>
 <dd>
 <div class="block">Get Current Connection from <em>ref</em> parameter or create a new one!</div>
@@ -4176,9 +4175,7 @@
  Socket poller thread
  Sendfile thread
  Worker threads pool
- 
-
- TODO: Consider using the virtual machine's thread pool.</div>
+ </div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.html#AprEndpoint()">AprEndpoint()</a></span> - Constructor for class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.html" title="class in org.apache.tomcat.util.net">AprEndpoint</a></dt>
 <dd>&nbsp;</dd>
@@ -4595,10 +4592,6 @@
 <div class="block"><span class="strong">Deprecated.</span></div>
 <div class="block">Try to authenticate using a <a href="https://docs.oracle.com/javase/7/docs/api/org/ietf/jgss/GSSName.html?is-external=true" title="class or interface in org.ietf.jgss"><code>GSSName</code></a></div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#authenticate">authenticate</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/Realm.html#authenticate(java.lang.String)">authenticate(String)</a></span> - Method in interface org.apache.catalina.<a href="./org/apache/catalina/Realm.html" title="interface in org.apache.catalina">Realm</a></dt>
 <dd>
 <div class="block">Try to authenticate with the specified username.</div>
@@ -5809,6 +5802,10 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/buf/ByteChunk.html#ByteChunk(int)">ByteChunk(int)</a></span> - Constructor for class org.apache.tomcat.util.buf.<a href="./org/apache/tomcat/util/buf/ByteChunk.html" title="class in org.apache.tomcat.util.buf">ByteChunk</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="./org/apache/tomcat/util/buf/ByteChunk.BufferOverflowException.html" title="class in org.apache.tomcat.util.buf"><span class="strong">ByteChunk.BufferOverflowException</span></a> - Exception in <a href="./org/apache/tomcat/util/buf/package-summary.html">org.apache.tomcat.util.buf</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/buf/ByteChunk.BufferOverflowException.html#ByteChunk.BufferOverflowException(java.lang.String)">ByteChunk.BufferOverflowException(String)</a></span> - Constructor for exception org.apache.tomcat.util.buf.<a href="./org/apache/tomcat/util/buf/ByteChunk.BufferOverflowException.html" title="class in org.apache.tomcat.util.buf">ByteChunk.BufferOverflowException</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./org/apache/tomcat/util/buf/ByteChunk.ByteInputChannel.html" title="interface in org.apache.tomcat.util.buf"><span class="strong">ByteChunk.ByteInputChannel</span></a> - Interface in <a href="./org/apache/tomcat/util/buf/package-summary.html">org.apache.tomcat.util.buf</a></dt>
 <dd>
 <div class="block">Input interface, used when the buffer is empty.</div>
@@ -6887,10 +6884,6 @@
 <dd>
 <div class="block">The Request attribute key for the cipher suite.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#ciphers">ciphers</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/bcel/classfile/ElementValue.html#CLASS">CLASS</a></span> - Static variable in class org.apache.tomcat.util.bcel.classfile.<a href="./org/apache/tomcat/util/bcel/classfile/ElementValue.html" title="class in org.apache.tomcat.util.bcel.classfile">ElementValue</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/Globals.html#CLASS_PATH_ATTR">CLASS_PATH_ATTR</a></span> - Static variable in class org.apache.catalina.<a href="./org/apache/catalina/Globals.html" title="class in org.apache.catalina">Globals</a></dt>
@@ -7076,7 +7069,9 @@
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.RecycledProcessors.html#clear()">clear()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.RecycledProcessors.html" title="class in org.apache.coyote">AbstractProtocol.RecycledProcessors</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/ContainerThreadMarker.html#clear()">clear()</a></span> - Static method in class org.apache.coyote.<a href="./org/apache/coyote/ContainerThreadMarker.html" title="class in org.apache.coyote">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/jasper/runtime/BodyContentImpl.html#clear()">clear()</a></span> - Method in class org.apache.jasper.runtime.<a href="./org/apache/jasper/runtime/BodyContentImpl.html" title="class in org.apache.jasper.runtime">BodyContentImpl</a></dt>
 <dd>
 <div class="block">Clear the contents of the buffer.</div>
@@ -7191,7 +7186,9 @@
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.SocketList.html#clear()">clear()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.SocketList.html" title="class in org.apache.tomcat.util.net">AprEndpoint.SocketList</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html#clear()">clear()</a></span> - Static method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html" title="class in org.apache.tomcat.util.net">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/Context.html#CLEAR_WELCOME_FILES_EVENT">CLEAR_WELCOME_FILES_EVENT</a></span> - Static variable in interface org.apache.catalina.<a href="./org/apache/catalina/Context.html" title="interface in org.apache.catalina">Context</a></dt>
 <dd>
 <div class="block">Container event for clearing welcome files.</div>
@@ -7297,10 +7294,6 @@
 <div class="block">Construct a new ClientAbortException for the specified message
  and throwable.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#clientAuth">clientAuth</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.html#clientCertProvider">clientCertProvider</a></span> - Variable in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.html" title="class in org.apache.coyote">AbstractProtocol</a></dt>
 <dd>
 <div class="block">When client certificate information is presented in a form other than
@@ -9113,18 +9106,24 @@
 </dd>
 <dt><a href="./org/apache/coyote/ContainerThreadMarker.html" title="class in org.apache.coyote"><span class="strong">ContainerThreadMarker</span></a> - Class in <a href="./org/apache/coyote/package-summary.html">org.apache.coyote</a></dt>
 <dd>
-<div class="block">Used to mark threads that have been allocated by the container to process
- data from an incoming connection.</div>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>Unused. Will be removed in Tomcat 10.1.x</i></div>
+</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/coyote/ContainerThreadMarker.html#ContainerThreadMarker()">ContainerThreadMarker()</a></span> - Constructor for class org.apache.coyote.<a href="./org/apache/coyote/ContainerThreadMarker.html" title="class in org.apache.coyote">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html" title="class in org.apache.tomcat.util.net"><span class="strong">ContainerThreadMarker</span></a> - Class in <a href="./org/apache/tomcat/util/net/package-summary.html">org.apache.tomcat.util.net</a></dt>
 <dd>
-<div class="block">Used to mark threads that have been allocated by the container to process
- data from an incoming connection.</div>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>Unused. Will be removed in Tomcat 10.1.x</i></div>
+</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html#ContainerThreadMarker()">ContainerThreadMarker()</a></span> - Constructor for class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html" title="class in org.apache.tomcat.util.net">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/filters/CsrfPreventionFilter.LruCache.html#contains(T)">contains(T)</a></span> - Method in class org.apache.catalina.filters.<a href="./org/apache/catalina/filters/CsrfPreventionFilter.LruCache.html" title="class in org.apache.catalina.filters">CsrfPreventionFilter.LruCache</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/filters/ExpiresFilter.html#contains(java.lang.String,%20java.lang.String)">contains(String, String)</a></span> - Static method in class org.apache.catalina.filters.<a href="./org/apache/catalina/filters/ExpiresFilter.html" title="class in org.apache.catalina.filters">ExpiresFilter</a></dt>
@@ -10510,14 +10509,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/authenticator/jaspic/SimpleServerAuthConfig.html#createServerAuthContext(java.util.List)">createServerAuthContext(List&lt;ServerAuthModule&gt;)</a></span> - Method in class org.apache.catalina.authenticator.jaspic.<a href="./org/apache/catalina/authenticator/jaspic/SimpleServerAuthConfig.html" title="class in org.apache.catalina.authenticator.jaspic">SimpleServerAuthConfig</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiServerBindSocketFactory.html#createServerSocket(int)">createServerSocket(int)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.RmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html#createServerSocket(int)">createServerSocket(int)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/core/ApplicationContext.html#createServlet(java.lang.Class)">createServlet(Class&lt;T&gt;)</a></span> - Method in class org.apache.catalina.core.<a href="./org/apache/catalina/core/ApplicationContext.html" title="class in org.apache.catalina.core">ApplicationContext</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/core/ApplicationContextFacade.html#createServlet(java.lang.Class)">createServlet(Class&lt;T&gt;)</a></span> - Method in class org.apache.catalina.core.<a href="./org/apache/catalina/core/ApplicationContextFacade.html" title="class in org.apache.catalina.core">ApplicationContextFacade</a></dt>
@@ -10542,10 +10533,6 @@
 <dd>
 <div class="block">Creates a new session cookie for the given session ID</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory.html#createSocket(java.lang.String,%20int)">createSocket(String, int)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#createSocketProcessor(org.apache.tomcat.util.net.SocketWrapperBase,%20org.apache.tomcat.util.net.SocketEvent)">createSocketProcessor(SocketWrapperBase&lt;S&gt;, SocketEvent)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.html#createSocketProcessor(org.apache.tomcat.util.net.SocketWrapperBase,%20org.apache.tomcat.util.net.SocketEvent)">createSocketProcessor(SocketWrapperBase&lt;Long&gt;, SocketEvent)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.html" title="class in org.apache.tomcat.util.net">AprEndpoint</a></dt>
@@ -10801,10 +10788,6 @@
 <dd>
 <div class="block">The storage size consumed by the file</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#csPlatform">csPlatform</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/filters/Constants.html#CSRF_NONCE_REQUEST_ATTR_NAME">CSRF_NONCE_REQUEST_ATTR_NAME</a></span> - Static variable in class org.apache.catalina.filters.<a href="./org/apache/catalina/filters/Constants.html" title="class in org.apache.catalina.filters">Constants</a></dt>
 <dd>
 <div class="block">The request attribute key under which the current
@@ -11487,8 +11470,6 @@
 <dd>
 <div class="block">The load factor used when none specified in constructor.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/juli/AsyncFileHandler.html#DEFAULT_LOGGER_SLEEP_TIME">DEFAULT_LOGGER_SLEEP_TIME</a></span> - Static variable in class org.apache.juli.<a href="./org/apache/juli/AsyncFileHandler.html" title="class in org.apache.juli">AsyncFileHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/authenticator/Constants.html#DEFAULT_LOGIN_MODULE_NAME">DEFAULT_LOGIN_MODULE_NAME</a></span> - Static variable in class org.apache.catalina.authenticator.<a href="./org/apache/catalina/authenticator/Constants.html" title="class in org.apache.catalina.authenticator">Constants</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/naming/factory/Constants.html#DEFAULT_LOOKUP_JNDI_FACTORY">DEFAULT_LOOKUP_JNDI_FACTORY</a></span> - Static variable in class org.apache.naming.factory.<a href="./org/apache/naming/factory/Constants.html" title="class in org.apache.naming.factory">Constants</a></dt>
@@ -12034,6 +12015,8 @@
 <dt><span class="strong"><a href="./org/apache/naming/factory/ResourceLinkFactory.html#deregisterGlobalResourceAccess(javax.naming.Context,%20java.lang.String)">deregisterGlobalResourceAccess(Context, String)</a></span> - Static method in class org.apache.naming.factory.<a href="./org/apache/naming/factory/ResourceLinkFactory.html" title="class in org.apache.naming.factory">ResourceLinkFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/naming/factory/ResourceLinkFactory.html#deregisterGlobalResourceAccess(javax.naming.Context)">deregisterGlobalResourceAccess(Context)</a></span> - Static method in class org.apache.naming.factory.<a href="./org/apache/naming/factory/ResourceLinkFactory.html" title="class in org.apache.naming.factory">ResourceLinkFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/juli/AsyncFileHandler.LoggerThread.html#deregisterHandler()">deregisterHandler()</a></span> - Static method in class org.apache.juli.<a href="./org/apache/juli/AsyncFileHandler.LoggerThread.html" title="class in org.apache.juli">AsyncFileHandler.LoggerThread</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReportJmx.html#deregisterJmx()">deregisterJmx()</a></span> - Method in class org.apache.tomcat.jdbc.pool.interceptor.<a href="./org/apache/tomcat/jdbc/pool/interceptor/SlowQueryReportJmx.html" title="class in org.apache.tomcat.jdbc.pool.interceptor">SlowQueryReportJmx</a></dt>
 <dd>&nbsp;</dd>
@@ -14268,10 +14251,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ha/deploy/WarWatcher.WarInfo.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class org.apache.catalina.ha.deploy.<a href="./org/apache/catalina/ha/deploy/WarWatcher.WarInfo.html" title="class in org.apache.catalina.ha.deploy">WarWatcher.WarInfo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/realm/RealmBase.AllRolesMode.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class org.apache.catalina.realm.<a href="./org/apache/catalina/realm/RealmBase.AllRolesMode.html" title="class in org.apache.catalina.realm">RealmBase.AllRolesMode</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/tribes/ChannelException.FaultyMember.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class org.apache.catalina.tribes.<a href="./org/apache/catalina/tribes/ChannelException.FaultyMember.html" title="class in org.apache.catalina.tribes">ChannelException.FaultyMember</a></dt>
@@ -15033,6 +15012,8 @@
 <dt><span class="strong"><a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html#expand(int)">expand(int)</a></span> - Method in class org.apache.coyote.http11.filters.<a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html" title="class in org.apache.coyote.http11.filters">IdentityInputFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/Http11InputBuffer.html#expand(int)">expand(int)</a></span> - Method in class org.apache.coyote.http11.<a href="./org/apache/coyote/http11/Http11InputBuffer.html" title="class in org.apache.coyote.http11">Http11InputBuffer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html#expand(int)">expand(int)</a></span> - Method in class org.apache.coyote.http11.upgrade.<a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html" title="class in org.apache.coyote.http11.upgrade">UpgradeApplicationBufferHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/jni/OS.html#expand(java.lang.String)">expand(String)</a></span> - Static method in class org.apache.tomcat.jni.<a href="./org/apache/tomcat/jni/OS.html" title="class in org.apache.tomcat.jni">OS</a></dt>
 <dd>
@@ -17682,9 +17663,19 @@
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/SSLContext.html#getAcceptedIssuers()">getAcceptedIssuers()</a></span> - Method in interface org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/SSLContext.html" title="interface in org.apache.tomcat.util.net">SSLContext</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.html#getAcceptorThreadCount()">getAcceptorThreadCount()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.html" title="class in org.apache.coyote">AbstractProtocol</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>This attribute is hard-coded to <code>1</code> and is no longer
+              configurable.</i></div>
+</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#getAcceptorThreadCount()">getAcceptorThreadCount()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>This attribute is hard-coded to <code>1</code> and is no longer
+              configurable.</i></div>
+</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.html#getAcceptorThreadPriority()">getAcceptorThreadPriority()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.html" title="class in org.apache.coyote">AbstractProtocol</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#getAcceptorThreadPriority()">getAcceptorThreadPriority()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
@@ -18658,6 +18649,8 @@
 <dt><span class="strong"><a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html#getByteBuffer()">getByteBuffer()</a></span> - Method in class org.apache.coyote.http11.filters.<a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html" title="class in org.apache.coyote.http11.filters">IdentityInputFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/Http11InputBuffer.html#getByteBuffer()">getByteBuffer()</a></span> - Method in class org.apache.coyote.http11.<a href="./org/apache/coyote/http11/Http11InputBuffer.html" title="class in org.apache.coyote.http11">Http11InputBuffer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html#getByteBuffer()">getByteBuffer()</a></span> - Method in class org.apache.coyote.http11.upgrade.<a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html" title="class in org.apache.coyote.http11.upgrade">UpgradeApplicationBufferHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ApplicationBufferHandler.html#getByteBuffer()">getByteBuffer()</a></span> - Method in interface org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ApplicationBufferHandler.html" title="interface in org.apache.tomcat.util.net">ApplicationBufferHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -23399,6 +23392,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/jasper/runtime/InstanceManagerFactory.html#getInstanceManager(javax.servlet.ServletConfig)">getInstanceManager(ServletConfig)</a></span> - Static method in class org.apache.jasper.runtime.<a href="./org/apache/jasper/runtime/InstanceManagerFactory.html" title="class in org.apache.jasper.runtime">InstanceManagerFactory</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/websocket/server/WsServerContainer.html#getInstanceManager(java.lang.ClassLoader)">getInstanceManager(ClassLoader)</a></span> - Method in class org.apache.tomcat.websocket.server.<a href="./org/apache/tomcat/websocket/server/WsServerContainer.html" title="class in org.apache.tomcat.websocket.server">WsServerContainer</a></dt>
+<dd>
+<div class="block">
+
+ Overridden to make it visible to other classes in this package.</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/websocket/WsSession.html#getInstanceManager()">getInstanceManager()</a></span> - Method in class org.apache.tomcat.websocket.<a href="./org/apache/tomcat/websocket/WsSession.html" title="class in org.apache.tomcat.websocket">WsSession</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/websocket/WsWebSocketContainer.html#getInstanceManager(java.lang.ClassLoader)">getInstanceManager(ClassLoader)</a></span> - Method in class org.apache.tomcat.websocket.<a href="./org/apache/tomcat/websocket/WsWebSocketContainer.html" title="class in org.apache.tomcat.websocket">WsWebSocketContainer</a></dt>
@@ -29053,21 +29052,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/SSLHostConfig.html#getRevocationEnabled()">getRevocationEnabled()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#getRmiBindAddress()">getRmiBindAddress()</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Get the inet address on which the Platform RMI server is exported.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#getRmiRegistryPortPlatform()">getRmiRegistryPortPlatform()</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Get the port on which the Platform RMI registry is exported.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#getRmiServerPortPlatform()">getRmiServerPortPlatform()</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Get the port on which the Platform RMI server is exported.</div>
-</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/modeler/OperationInfo.html#getRole()">getRole()</a></span> - Method in class org.apache.tomcat.util.modeler.<a href="./org/apache/tomcat/util/modeler/OperationInfo.html" title="class in org.apache.tomcat.util.modeler">OperationInfo</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/realm/JNDIRealm.html#getRoleBase()">getRoleBase()</a></span> - Method in class org.apache.catalina.realm.<a href="./org/apache/catalina/realm/JNDIRealm.html" title="class in org.apache.catalina.realm">JNDIRealm</a></dt>
@@ -31111,6 +31095,8 @@
 <dd>
 <div class="block">Returns the thread factory used to create new threads.</div>
 </dd>
+<dt><span class="strong"><a href="./org/apache/coyote/Request.html#getThreadId()">getThreadId()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/session/FileStore.html#getThreadName()">getThreadName()</a></span> - Method in class org.apache.catalina.session.<a href="./org/apache/catalina/session/FileStore.html" title="class in org.apache.catalina.session">FileStore</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/session/JDBCStore.html#getThreadName()">getThreadName()</a></span> - Method in class org.apache.catalina.session.<a href="./org/apache/catalina/session/JDBCStore.html" title="class in org.apache.catalina.session">JDBCStore</a></dt>
@@ -31881,12 +31867,6 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/AbstractHttp11Protocol.html#getUseKeepAliveResponseHeader()">getUseKeepAliveResponseHeader()</a></span> - Method in class org.apache.coyote.http11.<a href="./org/apache/coyote/http11/AbstractHttp11Protocol.html" title="class in org.apache.coyote.http11">AbstractHttp11Protocol</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#getUseLocalPorts()">getUseLocalPorts()</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Get the flag that indicates that local ports should be used for all
- connections.</div>
-</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/jdbc/pool/DataSourceProxy.html#getUseLock()">getUseLock()</a></span> - Method in class org.apache.tomcat.jdbc.pool.<a href="./org/apache/tomcat/jdbc/pool/DataSourceProxy.html" title="class in org.apache.tomcat.jdbc.pool">DataSourceProxy</a></dt>
 <dd>
 <div class="block">Return true if a lock should be used when operations are performed on the connection object.</div>
@@ -33337,10 +33317,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ha/deploy/WarWatcher.WarInfo.html#hashCode()">hashCode()</a></span> - Method in class org.apache.catalina.ha.deploy.<a href="./org/apache/catalina/ha/deploy/WarWatcher.WarInfo.html" title="class in org.apache.catalina.ha.deploy">WarWatcher.WarInfo</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html#hashCode()">hashCode()</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/realm/RealmBase.AllRolesMode.html#hashCode()">hashCode()</a></span> - Method in class org.apache.catalina.realm.<a href="./org/apache/catalina/realm/RealmBase.AllRolesMode.html" title="class in org.apache.catalina.realm">RealmBase.AllRolesMode</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/tribes/ChannelException.FaultyMember.html#hashCode()">hashCode()</a></span> - Method in class org.apache.catalina.tribes.<a href="./org/apache/catalina/tribes/ChannelException.FaultyMember.html" title="class in org.apache.catalina.tribes">ChannelException.FaultyMember</a></dt>
@@ -35148,6 +35124,8 @@
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/descriptor/Constants.html#IS_SECURITY_ENABLED">IS_SECURITY_ENABLED</a></span> - Static variable in class org.apache.tomcat.util.descriptor.<a href="./org/apache/tomcat/util/descriptor/Constants.html" title="class in org.apache.tomcat.util.descriptor">Constants</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/net/Constants.html#IS_SECURITY_ENABLED">IS_SECURITY_ENABLED</a></span> - Static variable in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/Constants.html" title="class in org.apache.tomcat.util.net">Constants</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/threads/Constants.html#IS_SECURITY_ENABLED">IS_SECURITY_ENABLED</a></span> - Static variable in class org.apache.tomcat.util.threads.<a href="./org/apache/tomcat/util/threads/Constants.html" title="class in org.apache.tomcat.util.threads">Constants</a></dt>
 <dd>
 <div class="block">Has security been turned on?</div>
@@ -35675,9 +35653,13 @@
 </div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/coyote/ContainerThreadMarker.html#isContainerThread()">isContainerThread()</a></span> - Static method in class org.apache.coyote.<a href="./org/apache/coyote/ContainerThreadMarker.html" title="class in org.apache.coyote">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html#isContainerThread()">isContainerThread()</a></span> - Static method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html" title="class in org.apache.tomcat.util.net">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/jasper/xmlparser/XMLChar.html#isContent(int)">isContent(int)</a></span> - Static method in class org.apache.jasper.xmlparser.<a href="./org/apache/jasper/xmlparser/XMLChar.html" title="class in org.apache.jasper.xmlparser">XMLChar</a></dt>
 <dd>
 <div class="block"><span class="strong">Deprecated.</span></div>
@@ -36844,6 +36826,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/connector/RequestFacade.html#isRequestedSessionIdValid()">isRequestedSessionIdValid()</a></span> - Method in class org.apache.catalina.connector.<a href="./org/apache/catalina/connector/RequestFacade.html" title="class in org.apache.catalina.connector">RequestFacade</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/Request.html#isRequestThread()">isRequestThread()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/valves/PersistentValve.html#isRequestWithoutSession(java.lang.String)">isRequestWithoutSession(String)</a></span> - Method in class org.apache.catalina.valves.<a href="./org/apache/catalina/valves/PersistentValve.html" title="class in org.apache.catalina.valves">PersistentValve</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ha/tcp/ReplicationValve.html#isRequestWithoutSessionChange(java.lang.String)">isRequestWithoutSessionChange(String)</a></span> - Method in class org.apache.catalina.ha.tcp.<a href="./org/apache/catalina/ha/tcp/ReplicationValve.html" title="class in org.apache.catalina.ha.tcp">ReplicationValve</a></dt>
@@ -37183,6 +37167,10 @@
 &nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/http/parser/HttpParser.html#isToken(int)">isToken(int)</a></span> - Static method in class org.apache.tomcat.util.http.parser.<a href="./org/apache/tomcat/util/http/parser/HttpParser.html" title="class in org.apache.tomcat.util.http.parser">HttpParser</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/http/parser/HttpParser.html#isToken(java.lang.String)">isToken(String)</a></span> - Static method in class org.apache.tomcat.util.http.parser.<a href="./org/apache/tomcat/util/http/parser/HttpParser.html" title="class in org.apache.tomcat.util.http.parser">HttpParser</a></dt>
+<dd>
+<div class="block">Is the provided String a token as per RFC 7230?</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/core/JreMemoryLeakPreventionListener.html#isTokenPollerProtection()">isTokenPollerProtection()</a></span> - Method in class org.apache.catalina.core.<a href="./org/apache/catalina/core/JreMemoryLeakPreventionListener.html" title="class in org.apache.catalina.core">JreMemoryLeakPreventionListener</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/catalina/storeconfig/IStoreConfig.html" title="interface in org.apache.catalina.storeconfig"><span class="strong">IStoreConfig</span></a> - Interface in <a href="./org/apache/catalina/storeconfig/package-summary.html">org.apache.catalina.storeconfig</a></dt>
@@ -37426,6 +37414,11 @@
 <dd>
 <div class="block"><a href="https://docs.oracle.com/javase/7/docs/api/java/sql/Wrapper.html?is-external=true#isWrapperFor(java.lang.Class)" title="class or interface in java.sql"><code>Wrapper.isWrapperFor(Class)</code></a> method name</div>
 </dd>
+<dt><span class="strong"><a href="./org/apache/catalina/users/MemoryUserDatabase.html#isWritable()">isWritable()</a></span> - Method in class org.apache.catalina.users.<a href="./org/apache/catalina/users/MemoryUserDatabase.html" title="class in org.apache.catalina.users">MemoryUserDatabase</a></dt>
+<dd>
+<div class="block">Check for permissions to save this user database to persistent storage
+ location.</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/naming/ContextAccessController.html#isWritable(java.lang.Object)">isWritable(Object)</a></span> - Static method in class org.apache.naming.<a href="./org/apache/naming/ContextAccessController.html" title="class in org.apache.naming">ContextAccessController</a></dt>
 <dd>
 <div class="block">Is the context is writable?</div>
@@ -37434,8 +37427,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/users/MemoryUserDatabase.html#isWriteable()">isWriteable()</a></span> - Method in class org.apache.catalina.users.<a href="./org/apache/catalina/users/MemoryUserDatabase.html" title="class in org.apache.catalina.users">MemoryUserDatabase</a></dt>
 <dd>
-<div class="block">Check for permissions to save this user database to persistent storage
- location.</div>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>Use <a href="./org/apache/catalina/users/MemoryUserDatabase.html#isWritable()"><code>MemoryUserDatabase.isWritable()</code></a>. This method will be removed in
+             Tomcat 10.1.x onwards.</i></div>
+</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/modeler/AttributeInfo.html#isWriteable()">isWriteable()</a></span> - Method in class org.apache.tomcat.util.modeler.<a href="./org/apache/tomcat/util/modeler/AttributeInfo.html" title="class in org.apache.tomcat.util.modeler">AttributeInfo</a></dt>
 <dd>
@@ -38054,43 +38049,6 @@
 <dd>&nbsp;</dd>
 <dt><a href="./org/apache/catalina/tribes/jmx/JmxRegistry.html" title="class in org.apache.catalina.tribes.jmx"><span class="strong">JmxRegistry</span></a> - Class in <a href="./org/apache/catalina/tribes/jmx/package-summary.html">org.apache.catalina.tribes.jmx</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans"><span class="strong">JmxRemoteLifecycleListener</span></a> - Class in <a href="./org/apache/catalina/mbeans/package-summary.html">org.apache.catalina.mbeans</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span>
-<div class="block"><i>The features provided by this listener are now available in the
-             remote JMX capability included with the JRE.
-             This listener will be removed in Tomcat 10 and may be removed
-             from Tomcat 8.5.x some time after 2020-12-31.</i></div>
-</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#JmxRemoteLifecycleListener()">JmxRemoteLifecycleListener()</a></span> - Constructor for class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory.html" title="class in org.apache.catalina.mbeans"><span class="strong">JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory</span></a> - Class in <a href="./org/apache/catalina/mbeans/package-summary.html">org.apache.catalina.mbeans</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory.html#JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory(java.rmi.server.RMIClientSocketFactory)">JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory(RMIClientSocketFactory)</a></span> - Constructor for class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.RmiClientLocalhostSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans"><span class="strong">JmxRemoteLifecycleListener.RmiServerBindSocketFactory</span></a> - Class in <a href="./org/apache/catalina/mbeans/package-summary.html">org.apache.catalina.mbeans</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiServerBindSocketFactory.html#JmxRemoteLifecycleListener.RmiServerBindSocketFactory(java.lang.String)">JmxRemoteLifecycleListener.RmiServerBindSocketFactory(String)</a></span> - Constructor for class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.RmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.RmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans"><span class="strong">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory</span></a> - Class in <a href="./org/apache/catalina/mbeans/package-summary.html">org.apache.catalina.mbeans</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html#JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory(java.lang.String[],%20java.lang.String[],%20boolean,%20java.lang.String)">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory(String[], String[], boolean, String)</a></span> - Constructor for class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener.SslRmiServerBindSocketFactory</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ant/jmx/JMXAccessorSetTask.html#jmxSet(javax.management.MBeanServerConnection,%20java.lang.String)">jmxSet(MBeanServerConnection, String)</a></span> - Method in class org.apache.catalina.ant.jmx.<a href="./org/apache/catalina/ant/jmx/JMXAccessorSetTask.html" title="class in org.apache.catalina.ant.jmx">JMXAccessorSetTask</a></dt>
 <dd>
 <div class="block">Set property value.</div>
@@ -38895,10 +38853,6 @@
 <dd>
 <div class="block">Primary entry point for startup and shutdown events.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#lifecycleEvent(org.apache.catalina.LifecycleEvent)">lifecycleEvent(LifecycleEvent)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/security/SecurityListener.html#lifecycleEvent(org.apache.catalina.LifecycleEvent)">lifecycleEvent(LifecycleEvent)</a></span> - Method in class org.apache.catalina.security.<a href="./org/apache/catalina/security/SecurityListener.html" title="class in org.apache.catalina.security">SecurityListener</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/startup/ContextConfig.html#lifecycleEvent(org.apache.catalina.LifecycleEvent)">lifecycleEvent(LifecycleEvent)</a></span> - Method in class org.apache.catalina.startup.<a href="./org/apache/catalina/startup/ContextConfig.html" title="class in org.apache.catalina.startup">ContextConfig</a></dt>
@@ -39823,8 +39777,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/juli/AsyncFileHandler.html#logger">logger</a></span> - Static variable in class org.apache.juli.<a href="./org/apache/juli/AsyncFileHandler.html" title="class in org.apache.juli">AsyncFileHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/juli/AsyncFileHandler.html#LOGGER_SLEEP_TIME">LOGGER_SLEEP_TIME</a></span> - Static variable in class org.apache.juli.<a href="./org/apache/juli/AsyncFileHandler.html" title="class in org.apache.juli">AsyncFileHandler</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/webresources/AbstractFileResourceSet.html#logIgnoredSymlink(java.lang.String,%20java.lang.String,%20java.lang.String)">logIgnoredSymlink(String, String, String)</a></span> - Method in class org.apache.catalina.webresources.<a href="./org/apache/catalina/webresources/AbstractFileResourceSet.html" title="class in org.apache.catalina.webresources">AbstractFileResourceSet</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/authenticator/AuthenticatorBase.html#login(java.lang.String,%20java.lang.String,%20org.apache.catalina.connector.Request)">login(String, String, Request)</a></span> - Method in class org.apache.catalina.authenticator.<a href="./org/apache/catalina/authenticator/AuthenticatorBase.html" title="class in org.apache.catalina.authenticator">AuthenticatorBase</a></dt>
@@ -39864,10 +39816,6 @@
 <dd>
 <div class="block">The JAAS LoginContext, if any, used to authenticate this Principal.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#loginModuleName">loginModuleName</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html#logInterval">logInterval</a></span> - Variable in class org.apache.catalina.tribes.group.interceptors.<a href="./org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.html" title="class in org.apache.catalina.tribes.group.interceptors">DomainFilterInterceptor</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/core/ContainerBase.html#logName">logName</a></span> - Variable in class org.apache.catalina.core.<a href="./org/apache/catalina/core/ContainerBase.html" title="class in org.apache.catalina.core">ContainerBase</a></dt>
@@ -44198,10 +44146,6 @@ for Catalina and Jasper.</div>
 <dd>
 <div class="block">PasswordCallback Interface</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#passwordFile">passwordFile</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ant/AbstractCatalinaCommandTask.html#path">path</a></span> - Variable in class org.apache.catalina.ant.<a href="./org/apache/catalina/ant/AbstractCatalinaCommandTask.html" title="class in org.apache.catalina.ant">AbstractCatalinaCommandTask</a></dt>
 <dd>
 <div class="block">The context path of the web application we are managing.</div>
@@ -45980,6 +45924,10 @@ for Catalina and Jasper.</div>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedGetTccl.html#PrivilegedGetTccl()">PrivilegedGetTccl()</a></span> - Constructor for class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedGetTccl.html" title="class in org.apache.tomcat.util.security">PrivilegedGetTccl</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="./org/apache/tomcat/util/security/PrivilegedSetAccessControlContext.html" title="class in org.apache.tomcat.util.security"><span class="strong">PrivilegedSetAccessControlContext</span></a> - Class in <a href="./org/apache/tomcat/util/security/package-summary.html">org.apache.tomcat.util.security</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedSetAccessControlContext.html#PrivilegedSetAccessControlContext(java.lang.Thread)">PrivilegedSetAccessControlContext(Thread)</a></span> - Constructor for class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedSetAccessControlContext.html" title="class in org.apache.tomcat.util.security">PrivilegedSetAccessControlContext</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./org/apache/tomcat/util/security/PrivilegedSetTccl.html" title="class in org.apache.tomcat.util.security"><span class="strong">PrivilegedSetTccl</span></a> - Class in <a href="./org/apache/tomcat/util/security/package-summary.html">org.apache.tomcat.util.security</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedSetTccl.html#PrivilegedSetTccl(java.lang.ClassLoader)">PrivilegedSetTccl(ClassLoader)</a></span> - Constructor for class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedSetTccl.html" title="class in org.apache.tomcat.util.security">PrivilegedSetTccl</a></dt>
@@ -46459,10 +46407,6 @@ for Catalina and Jasper.</div>
 <dd>
 <div class="block">Vector of protocol handlers object names.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#protocols">protocols</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/ha/backend/TcpSender.html#proxies">proxies</a></span> - Variable in class org.apache.catalina.ha.backend.<a href="./org/apache/catalina/ha/backend/TcpSender.html" title="class in org.apache.catalina.ha.backend">TcpSender</a></dt>
 <dd>
 <div class="block">Proxies.</div>
@@ -47886,6 +47830,8 @@ for Catalina and Jasper.</div>
  <code>FutureToSendHandler</code> completes.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/naming/factory/ResourceLinkFactory.html#registerGlobalResourceAccess(javax.naming.Context,%20java.lang.String,%20java.lang.String)">registerGlobalResourceAccess(Context, String, String)</a></span> - Static method in class org.apache.naming.factory.<a href="./org/apache/naming/factory/ResourceLinkFactory.html" title="class in org.apache.naming.factory">ResourceLinkFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/juli/AsyncFileHandler.LoggerThread.html#registerHandler()">registerHandler()</a></span> - Static method in class org.apache.juli.<a href="./org/apache/juli/AsyncFileHandler.LoggerThread.html" title="class in org.apache.juli">AsyncFileHandler.LoggerThread</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/tribes/jmx/JmxRegistry.html#registerJmx(java.lang.String,%20java.lang.Object)">registerJmx(String, Object)</a></span> - Method in class org.apache.catalina.tribes.jmx.<a href="./org/apache/catalina/tribes/jmx/JmxRegistry.html" title="class in org.apache.catalina.tribes.jmx">JmxRegistry</a></dt>
 <dd>&nbsp;</dd>
@@ -50693,26 +50639,6 @@ for Catalina and Jasper.</div>
 <dd>
 <div class="block">Name of MBean for the Global Request Processor.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#rmiBindAddress">rmiBindAddress</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#rmiRegistryPortPlatform">rmiRegistryPortPlatform</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#rmiRegistrySSL">rmiRegistrySSL</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#rmiServerPortPlatform">rmiServerPortPlatform</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#rmiServerSSL">rmiServerSSL</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><a href="./org/apache/catalina/Role.html" title="interface in org.apache.catalina"><span class="strong">Role</span></a> - Interface in <a href="./org/apache/catalina/package-summary.html">org.apache.catalina</a></dt>
 <dd>
 <div class="block">Abstract representation of a security role, suitable for use in
@@ -51067,6 +50993,8 @@ for Catalina and Jasper.</div>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/SocketProcessorBase.html#run()">run()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/SocketProcessorBase.html" title="class in org.apache.tomcat.util.net">SocketProcessorBase</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedGetTccl.html#run()">run()</a></span> - Method in class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedGetTccl.html" title="class in org.apache.tomcat.util.security">PrivilegedGetTccl</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedSetAccessControlContext.html#run()">run()</a></span> - Method in class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedSetAccessControlContext.html" title="class in org.apache.tomcat.util.security">PrivilegedSetAccessControlContext</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/security/PrivilegedSetTccl.html#run()">run()</a></span> - Method in class org.apache.tomcat.util.security.<a href="./org/apache/tomcat/util/security/PrivilegedSetTccl.html" title="class in org.apache.tomcat.util.security">PrivilegedSetTccl</a></dt>
 <dd>&nbsp;</dd>
@@ -52674,13 +52602,17 @@ for Catalina and Jasper.</div>
 <div class="block"><code>Is Valid</code> column to use.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/coyote/ContainerThreadMarker.html#set()">set()</a></span> - Static method in class org.apache.coyote.<a href="./org/apache/coyote/ContainerThreadMarker.html" title="class in org.apache.coyote">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><a href="./org/apache/jasper/tagplugins/jstl/core/Set.html" title="class in org.apache.jasper.tagplugins.jstl.core"><span class="strong">Set</span></a> - Class in <a href="./org/apache/jasper/tagplugins/jstl/core/package-summary.html">org.apache.jasper.tagplugins.jstl.core</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/jasper/tagplugins/jstl/core/Set.html#Set()">Set()</a></span> - Constructor for class org.apache.jasper.tagplugins.jstl.core.<a href="./org/apache/jasper/tagplugins/jstl/core/Set.html" title="class in org.apache.jasper.tagplugins.jstl.core">Set</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html#set()">set()</a></span> - Static method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ContainerThreadMarker.html" title="class in org.apache.tomcat.util.net">ContainerThreadMarker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span></div>
+&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/jasper/compiler/TagConstants.html#SET_PROPERTY_ACTION">SET_PROPERTY_ACTION</a></span> - Static variable in interface org.apache.jasper.compiler.<a href="./org/apache/jasper/compiler/TagConstants.html" title="interface in org.apache.jasper.compiler">TagConstants</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html#setAbandonedConfig(org.apache.tomcat.dbcp.pool2.impl.AbandonedConfig)">setAbandonedConfig(AbandonedConfig)</a></span> - Method in class org.apache.tomcat.dbcp.pool2.impl.<a href="./org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.html" title="class in org.apache.tomcat.dbcp.pool2.impl">GenericObjectPool</a></dt>
@@ -52719,9 +52651,19 @@ for Catalina and Jasper.</div>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#setAcceptCount(int)">setAcceptCount(int)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.html#setAcceptorThreadCount(int)">setAcceptorThreadCount(int)</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.html" title="class in org.apache.coyote">AbstractProtocol</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>This attribute is hard-coded to <code>1</code> and is no longer
+              configurable.</i></div>
+</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#setAcceptorThreadCount(int)">setAcceptorThreadCount(int)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>This attribute is hard-coded to <code>1</code> and is no longer
+              configurable.</i></div>
+</div>
+</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/AbstractProtocol.html#setAcceptorThreadPriority(int)">setAcceptorThreadPriority(int)</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/AbstractProtocol.html" title="class in org.apache.coyote">AbstractProtocol</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#setAcceptorThreadPriority(int)">setAcceptorThreadPriority(int)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
@@ -53525,6 +53467,8 @@ for Catalina and Jasper.</div>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html#setByteBuffer(java.nio.ByteBuffer)">setByteBuffer(ByteBuffer)</a></span> - Method in class org.apache.coyote.http11.filters.<a href="./org/apache/coyote/http11/filters/IdentityInputFilter.html" title="class in org.apache.coyote.http11.filters">IdentityInputFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/Http11InputBuffer.html#setByteBuffer(java.nio.ByteBuffer)">setByteBuffer(ByteBuffer)</a></span> - Method in class org.apache.coyote.http11.<a href="./org/apache/coyote/http11/Http11InputBuffer.html" title="class in org.apache.coyote.http11">Http11InputBuffer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html#setByteBuffer(java.nio.ByteBuffer)">setByteBuffer(ByteBuffer)</a></span> - Method in class org.apache.coyote.http11.upgrade.<a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html" title="class in org.apache.coyote.http11.upgrade">UpgradeApplicationBufferHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/ApplicationBufferHandler.html#setByteBuffer(java.nio.ByteBuffer)">setByteBuffer(ByteBuffer)</a></span> - Method in interface org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/ApplicationBufferHandler.html" title="interface in org.apache.tomcat.util.net">ApplicationBufferHandler</a></dt>
 <dd>&nbsp;</dd>
@@ -59456,6 +59400,8 @@ for Catalina and Jasper.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/catalina/authenticator/jaspic/MessageInfoImpl.html#setRequestMessage(java.lang.Object)">setRequestMessage(Object)</a></span> - Method in class org.apache.catalina.authenticator.jaspic.<a href="./org/apache/catalina/authenticator/jaspic/MessageInfoImpl.html" title="class in org.apache.catalina.authenticator.jaspic">MessageInfoImpl</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/Request.html#setRequestThread()">setRequestThread()</a></span> - Method in class org.apache.coyote.<a href="./org/apache/coyote/Request.html" title="class in org.apache.coyote">Request</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/descriptor/tld/TldRuleSet.Attribute.html#setRequestTime(boolean)">setRequestTime(boolean)</a></span> - Method in class org.apache.tomcat.util.descriptor.tld.<a href="./org/apache/tomcat/util/descriptor/tld/TldRuleSet.Attribute.html" title="class in org.apache.tomcat.util.descriptor.tld">TldRuleSet.Attribute</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/authenticator/SavedRequest.html#setRequestURI(java.lang.String)">setRequestURI(String)</a></span> - Method in class org.apache.catalina.authenticator.<a href="./org/apache/catalina/authenticator/SavedRequest.html" title="class in org.apache.catalina.authenticator">SavedRequest</a></dt>
@@ -59582,21 +59528,6 @@ for Catalina and Jasper.</div>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/SSLHostConfig.html#setRevocationEnabled(boolean)">setRevocationEnabled(boolean)</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/SSLHostConfig.html" title="class in org.apache.tomcat.util.net">SSLHostConfig</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#setRmiBindAddress(java.lang.String)">setRmiBindAddress(String)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Set the inet address on which the Platform RMI server is exported.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#setRmiRegistryPortPlatform(int)">setRmiRegistryPortPlatform(int)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Set the port on which the Platform RMI registry is exported.</div>
-</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#setRmiServerPortPlatform(int)">setRmiServerPortPlatform(int)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Set the port on which the Platform RMI server is exported.</div>
-</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/modeler/OperationInfo.html#setRole(java.lang.String)">setRole(String)</a></span> - Method in class org.apache.tomcat.util.modeler.<a href="./org/apache/tomcat/util/modeler/OperationInfo.html" title="class in org.apache.tomcat.util.modeler">OperationInfo</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/realm/JNDIRealm.html#setRoleBase(java.lang.String)">setRoleBase(String)</a></span> - Method in class org.apache.catalina.realm.<a href="./org/apache/catalina/realm/JNDIRealm.html" title="class in org.apache.catalina.realm">JNDIRealm</a></dt>
@@ -61491,12 +61422,6 @@ for Catalina and Jasper.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/AbstractHttp11Protocol.html#setUseKeepAliveResponseHeader(boolean)">setUseKeepAliveResponseHeader(boolean)</a></span> - Method in class org.apache.coyote.http11.<a href="./org/apache/coyote/http11/AbstractHttp11Protocol.html" title="class in org.apache.coyote.http11">AbstractHttp11Protocol</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#setUseLocalPorts(boolean)">setUseLocalPorts(boolean)</a></span> - Method in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-<div class="block">Set the flag that indicates that local ports should be used for all
- connections.</div>
-</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/jdbc/pool/DataSourceProxy.html#setUseLock(boolean)">setUseLock(boolean)</a></span> - Method in class org.apache.tomcat.jdbc.pool.<a href="./org/apache/tomcat/jdbc/pool/DataSourceProxy.html" title="class in org.apache.tomcat.jdbc.pool">DataSourceProxy</a></dt>
 <dd>
 <div class="block">Set to true if a lock should be used when operations are performed on the connection object.</div>
@@ -62692,10 +62617,6 @@ for Catalina and Jasper.</div>
 <dd>
 <div class="block">The string manager for this package.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#sm">sm</a></span> - Static variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/mbeans/MBeanFactory.html#sm">sm</a></span> - Static variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/MBeanFactory.html" title="class in org.apache.catalina.mbeans">MBeanFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/realm/DigestCredentialHandlerBase.html#sm">sm</a></span> - Static variable in class org.apache.catalina.realm.<a href="./org/apache/catalina/realm/DigestCredentialHandlerBase.html" title="class in org.apache.catalina.realm">DigestCredentialHandlerBase</a></dt>
@@ -64174,6 +64095,10 @@ for Catalina and Jasper.</div>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#start()">start()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.Poller.html#start()">start()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.Poller.html" title="class in org.apache.tomcat.util.net">AprEndpoint.Poller</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.Sendfile.html#start()">start()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.Sendfile.html" title="class in org.apache.tomcat.util.net">AprEndpoint.Sendfile</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/SocketWrapperBase.OperationState.html#start()">start()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/SocketWrapperBase.OperationState.html" title="class in org.apache.tomcat.util.net">SocketWrapperBase.OperationState</a></dt>
 <dd>
 <div class="block">Start the operation, this will typically call run.</div>
@@ -64775,6 +64700,8 @@ for Catalina and Jasper.</div>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AbstractEndpoint.html#stop()">stop()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AbstractEndpoint.html" title="class in org.apache.tomcat.util.net">AbstractEndpoint</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.Poller.html#stop()">stop()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.Poller.html" title="class in org.apache.tomcat.util.net">AprEndpoint.Poller</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/apache/tomcat/util/net/AprEndpoint.Sendfile.html#stop()">stop()</a></span> - Method in class org.apache.tomcat.util.net.<a href="./org/apache/tomcat/util/net/AprEndpoint.Sendfile.html" title="class in org.apache.tomcat.util.net">AprEndpoint.Sendfile</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/Lifecycle.html#STOP_EVENT">STOP_EVENT</a></span> - Static variable in interface org.apache.catalina.<a href="./org/apache/catalina/Lifecycle.html" title="interface in org.apache.catalina">Lifecycle</a></dt>
 <dd>
@@ -66025,8 +65952,8 @@ for Catalina and Jasper.</div>
 <dt><a href="./org/apache/tomcat/util/collections/SynchronizedStack.html" title="class in org.apache.tomcat.util.collections"><span class="strong">SynchronizedStack</span></a>&lt;<a href="./org/apache/tomcat/util/collections/SynchronizedStack.html" title="type parameter in SynchronizedStack">T</a>&gt; - Class in <a href="./org/apache/tomcat/util/collections/package-summary.html">org.apache.tomcat.util.collections</a></dt>
 <dd>
 <div class="block">This is intended as a (mostly) GC-free alternative to
- <a href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentLinkedQueue.html?is-external=true" title="class or interface in java.util.concurrent"><code>ConcurrentLinkedQueue</code></a> when the requirement is to
- create a pool of re-usable objects with no requirement to shrink the pool.</div>
+ <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html?is-external=true" title="class or interface in java.util"><code>Stack</code></a> when the requirement is to create a pool of re-usable
+ objects with no requirement to shrink the pool.</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/util/collections/SynchronizedStack.html#SynchronizedStack()">SynchronizedStack()</a></span> - Constructor for class org.apache.tomcat.util.collections.<a href="./org/apache/tomcat/util/collections/SynchronizedStack.html" title="class in org.apache.tomcat.util.collections">SynchronizedStack</a></dt>
 <dd>&nbsp;</dd>
@@ -68243,6 +68170,13 @@ for Catalina and Jasper.</div>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/websocket/Constants.html#UPGRADE_HEADER_VALUE">UPGRADE_HEADER_VALUE</a></span> - Static variable in class org.apache.tomcat.websocket.<a href="./org/apache/tomcat/websocket/Constants.html" title="class in org.apache.tomcat.websocket">Constants</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html" title="class in org.apache.coyote.http11.upgrade"><span class="strong">UpgradeApplicationBufferHandler</span></a> - Class in <a href="./org/apache/coyote/http11/upgrade/package-summary.html">org.apache.coyote.http11.upgrade</a></dt>
+<dd>
+<div class="block">Trivial implementation of <a href="./org/apache/tomcat/util/net/ApplicationBufferHandler.html" title="interface in org.apache.tomcat.util.net"><code>ApplicationBufferHandler</code></a> to support saving
+ of HTTP request bodies during an HTTP/1.1 upgrade.</div>
+</dd>
+<dt><span class="strong"><a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html#UpgradeApplicationBufferHandler()">UpgradeApplicationBufferHandler()</a></span> - Constructor for class org.apache.coyote.http11.upgrade.<a href="./org/apache/coyote/http11/upgrade/UpgradeApplicationBufferHandler.html" title="class in org.apache.coyote.http11.upgrade">UpgradeApplicationBufferHandler</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/coyote/http11/upgrade/InternalHttpUpgradeHandler.html#upgradeDispatch(org.apache.tomcat.util.net.SocketEvent)">upgradeDispatch(SocketEvent)</a></span> - Method in interface org.apache.coyote.http11.upgrade.<a href="./org/apache/coyote/http11/upgrade/InternalHttpUpgradeHandler.html" title="interface in org.apache.coyote.http11.upgrade">InternalHttpUpgradeHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.html#upgradeDispatch(org.apache.tomcat.util.net.SocketEvent)">upgradeDispatch(SocketEvent)</a></span> - Method in class org.apache.tomcat.websocket.server.<a href="./org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.html" title="class in org.apache.tomcat.websocket.server">WsHttpUpgradeHandler</a></dt>
@@ -68515,10 +68449,6 @@ for Catalina and Jasper.</div>
 <dd>
 <div class="block">Flag to use IP-based virtual hosting.</div>
 </dd>
-<dt><span class="strong"><a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html#useLocalPorts">useLocalPorts</a></span> - Variable in class org.apache.catalina.mbeans.<a href="./org/apache/catalina/mbeans/JmxRemoteLifecycleListener.html" title="class in org.apache.catalina.mbeans">JmxRemoteLifecycleListener</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span></div>
-&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/catalina/startup/Catalina.html#useNaming">useNaming</a></span> - Variable in class org.apache.catalina.startup.<a href="./org/apache/catalina/startup/Catalina.html" title="class in org.apache.catalina.startup">Catalina</a></dt>
 <dd>
 <div class="block">Is naming enabled ?</div>
@@ -70863,7 +70793,7 @@ the order they are declared.</div>
 <li class="navBarCell1Rev">Index</li>
 <li><a href="./help-doc.html">Help</a></li>
 </ul>
-<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.73</b></em></div>
+<div class="aboutLanguage"><em><b>Apache Tomcat 8.5.75</b></em></div>
 </div>
 <div class="subNav">
 <ul class="navList">
@@ -70893,6 +70823,6 @@ the order they are declared.</div>
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2000-2021 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2000-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
