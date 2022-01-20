@@ -114,6 +114,40 @@ changelog</a>.
 </p>
 </section>
 
+<section name="Tomcat 10.1.0-M10 (alpha) Released" rtext="2022-01-20">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.0-M10
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 10.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add a recycling check in the input and output stream isReady to try to give
+    a more informative ISE when the facade has been recycled.</li>
+<li>Implement support for HTTP/1.1 upgrade when the request includes a body. The
+    maximum permitted size of the body is controlled by maxSavePostSize.</li>
+<li>Improve handling of various cases where one request/response processing
+    thread attempts to manage the asynchronous IO for a different
+    request/response</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.0-M10_(markt)">Tomcat 10.1
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 10.0.14 Released" rtext="2021-12-08">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.0.14
@@ -142,40 +176,6 @@ migration tool for Jakarta EE tool</a> which is also available as a separate
 Full details of these changes, and all the other changes, are available in the
 <a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.14_(markt)">Tomcat 10
 changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 10.1.0-M8 (alpha) Released" rtext="2021-12-08">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.0-M8
-of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
-EE 10.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Limit cookie support to RFC 6265 to align with recent updates to the Servlet
-    specification.</li>
-<li>Update the WebSocket API packaging to remove the copy of the client API from
-    the server API and replace it with a dependency on the client API. This
-    aligns Tomcat with changes in the WebSocket 2.1 specification.</li>
-<li>Provide protection against a known OS bug that causes the acceptor to report
-    an incoming connection more than once.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.0-M8_(markt)">Tomcat 10.1
-<strong>(alpha)</strong> changelog</a>.
 </p>
 
 <p style="text-align: center;">
