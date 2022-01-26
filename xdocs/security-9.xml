@@ -50,6 +50,34 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.58" rtext="20 January 2022">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.57 but the
+       release vote for the 9.0.57 release candidate did not pass. Therefore,
+       although users must download 9.0.58 to obtain a version that includes a
+       fix for these issues, version 9.0.57 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Low: Local Privilege Escalation</strong>
+       <cve>CVE-2022-23181</cve></p>
+
+    <p>The fix for bug <cve>CVE-2020-9484</cve> introduced a time of check, time
+       of use vulnerability that allowed a local attacker to perform actions
+       with the privileges of the user that the Tomcat process is using. This
+       issue is only exploitable when Tomcat is configured to persist sessions
+       using the FileStore.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="1385c624b4a1e994426e810075c850edc38a700e"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Trung Pham
+       of Viettel Cyber Security on 10 December 2021. The issue was made public
+       on 26 January 2022.</p>
+
+    <p>Affects: 9.0.35 to 9.0.56</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.54" rtext="1 October 2021">
 
     <p><strong>Important: Denial of Service</strong>
