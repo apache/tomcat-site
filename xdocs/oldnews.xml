@@ -121,5 +121,38 @@ Full details of these changes, and all the other changes, are available in the
 </p>
 </section>
 
+<section name="Tomcat 8.5.75 Released" rtext="2022-01-17">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 8.5.75
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. (Note that 8.5.74 was not released, so the previous version
+was 8.5.73.) The notable changes compared to 8.5.73 include:
+</p>
+<ul>
+  <li>Provide protection against a known OS bug that causes the acceptor to
+      report an incoming connection more than once.</li>
+  <li>Implement a workaround for a JVM bug that can trigger a file
+      descriptor leak when using multi-part upload and the application does
+      not explicitly close an input stream for an uploaded file that was
+      cached on disk.</li>
+  <li>Fix several potential JVM crashes when using the APR connector.</li>
+  <li>Add support for HTTP/1.1 upgrade when the request includes a
+      body. The maximum permitted size of the body is controlled by
+      <code>maxSavePostSize</code>.</li>
+  <li>Improve handling of various cases where one request/response
+      processing thread attempts to manage the asynchronous IO for a
+      different request/response.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.75_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
 </body>
 </document>
