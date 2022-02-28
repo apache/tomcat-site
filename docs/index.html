@@ -34,6 +34,38 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_10.1.0-M11_(alpha)_Released"><span class="pull-right">2022-02-28</span> Tomcat 10.1.0-M11 (alpha) Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.0-M11
+of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
+EE 10.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add support for additional user attributes to <code>TomcatPrincipal</code>
+    and <code>GenericPrincipal</code>.</li>
+<li>Correct a regression in the fix for <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=65454">65454</a> that meant that
+    <code>minSpareThreads</code> and <code>maxThreads</code> settings were
+    ignored when the Connector used an internal executor.</li>
+<li>Improve the detection of the Linux duplicate accept bug and reduce
+    (hopefully avoid) instances of false positives.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.0-M11_(markt)">Tomcat 10.1
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_10.0.16_Released"><span class="pull-right">2022-01-20</span> Tomcat 10.0.16 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.0.16
@@ -120,38 +152,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-80.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_10.1.0-M10_(alpha)_Released"><span class="pull-right">2022-01-20</span> Tomcat 10.1.0-M10 (alpha) Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.0-M10
-of Apache Tomcat. This release is a milestone release and is targeted at Jakarta
-EE 10.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Add a recycling check in the input and output stream isReady to try to give
-    a more informative ISE when the facade has been recycled.</li>
-<li>Implement support for HTTP/1.1 upgrade when the request includes a body. The
-    maximum permitted size of the body is controlled by maxSavePostSize.</li>
-<li>Improve handling of various cases where one request/response processing
-    thread attempts to manage the asynchronous IO for a different
-    request/response</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.0-M10_(markt)">Tomcat 10.1
-<strong>(alpha)</strong> changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_1.2.31_Released"><span class="pull-right">2021-09-01</span> Tomcat Native 1.2.31 Released</h3><div class="text">
 <p>
