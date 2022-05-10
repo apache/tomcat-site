@@ -50,6 +50,27 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.63" rtext="not yet released">
+  
+    <p><strong>Low: Apache Tomcat EncryptInterceptor DoS</strong>
+       <cve>CVE-2022-29885</cve></p>
+
+    <p>The documentation for the EncryptInterceptor incorrectly stated it
+        enabled Tomcat clustering to run over an untrusted network. This was not
+        correct. While the EncryptInterceptor does provide confidentiality and
+        integrity protection, it does not protect against all risks associated
+        with running over any untrusted network, particularly DoS risks.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="eaafd28296c54d983e28a47953c1f5cb2c334f48"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by 4ra1n on 17
+       April 2022. The issue was made public on 10 May 2022.</p>
+
+    <p>Affects: 9.0.13 to 9.0.62</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.58" rtext="20 January 2022">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.57 but the
