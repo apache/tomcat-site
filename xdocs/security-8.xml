@@ -77,6 +77,29 @@
 
   </section>
   
+  <section name="Fixed in Apache Tomcat 8.5.76" rtext="28 February 2022">
+
+    <p><strong>Important: Request mix-up</strong>
+       <cve>CVE-2022-25762</cve></p>
+
+    <p>If a web application sends a WebSocket message concurrently with the
+       WebSocket connection closing, it is possible that the application will
+       continue to use the socket after it has been closed. The error handling
+       triggered in this case could cause the a pooled object to be placed in
+       the pool twice. This could result in subsequent connections using the
+       same object concurrently which could result in data being returned to the
+       wrong use and/or other errors.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="01f2cf25b270a84d0daeefc4f215aa2f56e1df99"/>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security Team on 21
+       December 2021. The issue was made public on 12 May 2022.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.20</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 8.5.75" rtext="20 January 2022">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 8.5.74 but the
