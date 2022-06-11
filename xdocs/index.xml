@@ -55,6 +55,41 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.0.21 Released" rtext="2022-06-11">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.22
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 9 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Correct a regression in the support added for encrypted PKCS#1 formatted
+    private keys in the previous release that broke support for unencrypted
+    PKCS#1 formatted private keys.</li>
+<li>Increase the default buffer size for cluster messages from 43800 to 65536
+    bytes. This is expected to improve performance for large messages when
+    running on Linux based systems.</li>
+<li>When using TLS with non-blocking writes and the NIO connector, ensure that
+    flushing the buffers attempts to empty all of the output buffers.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.22_(markt)">Tomcat 10
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 9.0.64 Released" rtext="2022-06-09">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.64
@@ -149,43 +184,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="download-80.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 10.0.21 Released" rtext="2022-05-16">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.0.21
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 9 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Provide a property source that sources values from Kubernetes service
-    bindings. Provided by Sumit Kulhadia and Gareth Evans.</li>
-<li>The root cause of the Linux kernel duplicate accept bug has been
-    identified along with the version of the kernel that includes the fix.
-    The error message displayed when this bug occurs has been updated to
-    reflect this new information and to advise users to update to a
-    version of the OS that uses kernel 5.10 or later. Thanks to
-    Christopher Gual for the research into this issue.</li> 
-<li>Update the packaged version of the Tomcat Native Library to 1.2.33 to
-    pick up Windows binaries built with OpenSSL 1.1.1o.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.21_(markt)">Tomcat 10
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
 </p>
 </section>
 
