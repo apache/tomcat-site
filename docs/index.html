@@ -34,6 +34,37 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_8.5.81_Released"><span class="pull-right">2022-06-11</span> Tomcat 8.5.81 Released</h3><div class="text">
+<p> 
+The Apache Tomcat Project is proud to announce the release of version 8.5.81.
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. The notable changes compared to 8.5.79 include:
+</p>
+<ul>
+  <li>Ensure that changes made to a request by the RemoteIPValve persist
+  after the request is put into asynchronous mode.</li>
+
+  <li>Correct a regression in the support added for encrypted PKCS#1
+  formatted private keys in the previous release that broke support
+  for unencrypted PKCS#1 formatted private keys.</li>
+
+  <li>Increase the default buffer size for cluster messages from 43800
+  to 65536 bytes. This is expected to improve performance for large
+  messages when running on Linux based systems.</li>
+
+  <li>When using TLS with non-blocking writes and the NIO connector,
+  ensure that flushing the buffers attempts to empty all of the
+  output buffers.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.81_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-80.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_10.0.22_Released"><span class="pull-right">2022-06-11</span> Tomcat 10.0.22 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.0.22
@@ -125,38 +156,6 @@ Full details of these changes, and all the other changes, are available in the
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-10.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_8.5.79_Released"><span class="pull-right">2022-05-23</span> Tomcat 8.5.79 Released</h3><div class="text">
-<p> 
-The Apache Tomcat Project is proud to announce the release of version 8.5.79
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.78 include:
-</p>
-<ul>
-    <li>Provide a property source that sources values from Kubernetes service
-    bindings. Provided by Sumit Kulhadia and Gareth Evans.</li>
-
-    <li>The root cause of the Linux kernel duplicate accept bug has been
-    identified along with the version of the kernel that includes the fix.
-    The error message displayed when this bug occurs has been updated to
-    reflect this new information and to advise users to update to a
-    version of the OS that uses kernel 5.10 or later. Thanks to
-    Christopher Gual for the research into this issue.</li>
-
-    <li>Update the packaged version of the Tomcat Native Library to 1.2.33 to
-    pick up Windows binaries built with OpenSSL 1.1.1o.</li>
-
-    <li>Add support for encrypted PKCS#1 formatted private keys when
-    configuring the internal, in memory key store.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.79_(schultz)">Tomcat 8
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-80.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_1.2.33_Released"><span class="pull-right">2022-05-09</span> Tomcat Native 1.2.33 Released</h3><div class="text">
 <p>
