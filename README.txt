@@ -142,6 +142,7 @@ relevant Tomcat components are fully present in your working copy.
    cd tomcat-site
    svn up --set-depth infinity docs/connectors-doc
    svn up --set-depth infinity docs/native-doc
+   svn up --set-depth infinity docs/native-1.2-doc
    svn up --set-depth infinity docs/native-1.1-doc
 
 One way to update documentation is to:
@@ -161,7 +162,7 @@ Another way is to bring the sources into this project and build them here.
 
    ant release-jk
    ant release-native
-   ant release-native-1.1
+   ant release-native-1.2
 
 3. Check the changes with "svn status" command.
 
