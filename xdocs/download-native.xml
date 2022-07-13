@@ -1,136 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
-  <properties><title>Tomcat Native Downloads</title></properties>
+  <properties>
+    <title>Tomcat Native Downloads</title>
+  </properties>
+
   <body>
-    <section name="Tomcat Native Downloads">
-
-      <p>Use the links below to download the Apache Tomcat<sup>&#174;</sup> Native software
-      from one of our mirrors. You <strong>must</strong>
-      <a href="#Verify_the_Integrity_of_the_Files">verify the integrity</a> of
-      the downloaded files using signatures downloaded from our main
-      distribution directory.</p>
-
+  
+    <section name="Tomcat Native Software Downloads">
+      <p>Welcome to the Apache Tomcat<sup>&#174;</sup> Native software download
+      page. This page provides download links for obtaining the latest version
+      of Tomcat Native software, as well as links to the archives of older
+      releases.</p>
       <p>Only current recommended releases are available on the main
-      distribution site and its mirrors.  Older releases are available from the
+      distribution site and its mirrors. Older releases are available from the
       <a href="https://archive.apache.org/dist/tomcat/tomcat-connectors/native/">
       archive download site</a>.</p>
+    </section>
 
-      <p>Recent releases (48 hours) may not yet be available from the mirrors.</p>
+    <section name="Quick Navigation">
+      <!--
+        Define variables to hold the current version numbers.
+        Documentation for ezt.py: https://code.google.com/p/ezt/wiki/Syntax
+      -->
+[define v]2.0.1[end]
+[define w]1.2.34[end]
+[define y]3.0.5[end]
+[define z]1.1.1o[end]
+      <a href="https://downloads.apache.org/tomcat/tomcat-connectors/KEYS">KEYS</a> |
+      <a href="#[v]">[v]</a> |
+      <a href="#[w]">[w]</a> |
+      <a href="[preferred]tomcat/tomcat-connectors/native" rel="nofollow">Browse</a> |
+      <a href="https://archive.apache.org/dist/tomcat/tomcat-connectors/native">Archives</a>
+    </section>
 
-      <subsection name="Choose a Mirror">
-        <p>You are currently using <b>[preferred]</b>.  If you
-        encounter a problem with this mirror, please select another
-        mirror.  If all mirrors are failing, there are <i>backup</i>
-        mirrors (at the end of the mirrors list) that should be
-        available.<br/>
-        [if-any logo]
-          <a href="[link]" rel="nofollow"><img alt="Logo" src="[logo]"/></a>
-        [end]
-        </p><form action="[location]" method="get" id="SelectMirror"><p>
-        Other mirrors: <select name="Preferred">
-        [if-any http]
-          [for http]<option value="[http]">[http]</option>[end]
-        [end]
-        [if-any ftp]
-          [for ftp]<option value="[ftp]">[ftp]</option>[end]
-        [end]
-        [if-any backup]
-          [for backup]<option value="[backup]">[backup] (backup)</option>[end]
-        [end]
-        </select><input type="submit" value="Change"/></p></form>
-        <p>You may also consult the <a href="http://www.apache.org/mirrors/">complete
-        list of mirrors</a>.</p>
-      </subsection>
+    <section name="Release Integrity">
+      <p>You <strong>must</strong>
+      <a href="https://www.apache.org/info/verification.html">verify</a> the
+      integrity of the downloaded files. We provide OpenPGP signatures for every
+      release file.  This signature should be matched against the
+      <a href="https://downloads.apache.org/tomcat/tomcat-connectors/KEYS">KEYS</a>
+      file which contains the OpenPGP keys of Tomcat's Release Managers. We also
+      provide <code>SHA-512</code> checksums for every release file. After you
+      download the file, you should calculate a checksum for your download, and
+      make sure it is the same as ours.</p>
+    </section>
 
-      <subsection name="Tomcat Native Connector - 1.2">
-        <p>For more information concerning Tomcat Native, see the
-        <a href="http://tomcat.apache.org/native-doc/" class="name">Tomcat Native</a> site.</p>
-        <ul class="downloads">
-          <li class="download">
-          <div class="links"><span class="label">Source (please choose the correct format for your platform)</span></div>
-          <ul>
-            <li class="download">
-              <a href="[preferred]tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-src.tar.gz" rel="nofollow">
-                Native 1.2.34 Source Release tar.gz</a> (e.g. Unix, Linux, Mac OS)
-            <ul class="attributes">
-              <li>
-                [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-src.tar.gz.asc">PGP</a>],
-                [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-src.tar.gz.sha512">SHA512</a>]
-              </li>
-            </ul>
-            </li>
-            <li class="download">
-              <a href="[preferred]tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-win32-src.zip" rel="nofollow">
-                Native 1.2.34 Source Release zip</a> (e.g. Windows)
-            <ul class="attributes">
-              <li>
-                [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-win32-src.zip.asc">PGP</a>],
-                [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/source/tomcat-native-1.2.34-win32-src.zip.sha512">SHA512</a>]
-              </li>
-            </ul>
-            </li>
-          </ul>
+    <section name="Mirrors">
+      <!--
+        Note: The following CGI code is sensitive to line breaks.
+              Don't "prettify" it.
+      -->
+      <p>You are currently using <b>[preferred]</b>. If you encounter a problem
+      with this mirror, please select another mirror. If all mirrors are
+      failing, there are <i>backup</i> mirrors (at the end of the mirrors list)
+      that should be available.
+      <br/>[if-any logo]<a href="[link]" rel="nofollow"><img alt="Logo" src="[logo]"/></a>[end]</p><form action="[location]" method="get" id="SelectMirror"><p>
+      Other mirrors: <select name="Preferred">
+      [if-any http]
+        [for http]<option value="[http]">[http]</option>[end]
+      [end]
+      [if-any ftp]
+        [for ftp]<option value="[ftp]">[ftp]</option>[end]
+      [end]
+      [if-any backup]
+        [for backup]<option value="[backup]">[backup] (backup)</option>[end]
+      [end]
+      </select><input type="submit" value="Change"/></p></form>
+    </section>
+
+    <section name="[v]">
+      <p>For more information concerning Tomcat Native 2.0.x, see the
+      <a href="http://tomcat.apache.org/native-doc/" class="name">Tomcat
+      Native</a> site.</p>
+
+      <subsection name="Source Distributions">
+        <p>Please choose the correct format for your platform.</p>
+        <ul>
+          <li>
+            <a href="[preferred]tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.tar.gz" rel="nofollow">tar.gz</a>
+            - e.g. Unix, Linux, Mac OS
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.tar.gz.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.tar.gz.sha512">SHA512</a>)
+          </li>
+          <li>
+            <a href="[preferred]tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.zip" rel="nofollow">tar.gz</a>
+            - e.g. Windows
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/source/tomcat-native-[v]-src.zip.sha512">SHA512</a>)
           </li>
         </ul>
-        <p>You can find binaries release too.
-        You may download them from
-          <a href="[preferred]tomcat/tomcat-connectors/native/1.2.34/binaries" rel="nofollow">HERE</a>
-        </p>
-        <ul class="downloads">
-          <li class="download">
-            <div class="links">Binaries for Microsoft Windows</div>
-            <div class="links"><p>The Windows binaries are available in two
-              variants. a) Default. This is what people usually use. This
-              version of library is included in Apache Tomcat distributions.
-              b) OCSP-enabled. This one has enabled support for verification of
-              client SSL certificates via OCSP protocol (<bug>45392</bug>).
-              </p>
-              <p>Each archive contains <code>tcnative-1.dll</code> for 32-bit
-              and 64-bit (x64) CPU architectures. You have to use the DLL that
-              matches CPU architecture of JVM that you use to run Tomcat.</p>
-            </div>
-            <div class="links">Binaries for Microsoft Windows built with OpenSSL 1.1.1o</div>
-            <ul>
-              <li class="download">
-                <a href="[preferred]tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-win32-bin.zip" rel="nofollow">
-                  Native 1.2.34 Windows Binaries zip</a> (recommended)
-              <ul class="attributes">
-                <li>
-                  [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-win32-bin.zip.asc">PGP</a>],
-                  [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-win32-bin.zip.sha512">SHA512</a>]
-                </li>
-              </ul>
-              </li>
-              <li class="download">
-                <a href="[preferred]tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-ocsp-win32-bin.zip" rel="nofollow">
-                  Native 1.2.34 Windows OCSP-enabled Binaries zip</a>
-              <ul class="attributes">
-                <li>
-                  [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-ocsp-win32-bin.zip.asc">PGP</a>],
-                  [<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/1.2.34/binaries/tomcat-native-1.2.34-openssl-1.1.1o-ocsp-win32-bin.zip.sha512">SHA512</a>]
-                </li>
-              </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
       </subsection>
 
-      <subsection name="Verify the Integrity of the Files">
-        <p>You <strong>must</strong>
-        <a href="https://www.apache.org/info/verification.html">verify</a> the
-        integrity of the downloaded files. We provide OpenPGP signatures for
-        every release file. This signature should be matched against the
-        <a href="https://downloads.apache.org/tomcat/tomcat-connectors/KEYS">KEYS</a>
-        file which contains the OpenPGP keys of Tomcat's Release Managers. We
-        also provide <code>SHA512</code> checksums for every release file. After
-        you download the file, you should calculate a checksum for your
-        download, and make sure it is the same as ours.
-        </p>
+      <subsection name="Binary Distributions">
+        <p>Binaries are provided for Microsoft Windows. The Windows binaries are
+        available in two variants. The standard variant is what people usually
+        use. This version of the library is included in the Apache Tomcat
+        distributions. The OCSP-enabled variant has enabled support for
+        verification of client SSL certificates via the OCSP protocol
+        (<bug>45392</bug>).</p>
+        <p>Each archive contains <code>tcnative-2.dll</code> for 32-bit (x86)
+        and 64-bit (x64) CPU architectures. You have to use the DLL that matches
+        CPU architecture of JVM that you use to run Tomcat.</p>
+        <p>These binaries were built with OpenSSL [y].</p>
+        <ul>
+          <li>
+            Standard
+            <a href="[preferred]tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-win32-bin.zip" rel="nofollow">zip</a>
+            - recommended
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-win32-bin.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-win32-bin.zip.sha512">SHA512</a>)
+          </li>
+          <li>
+            OCSP enabled
+            <a href="[preferred]tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-ocsp-win32-bin.zip" rel="nofollow">zip</a>
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-ocsp-win32-bin.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[v]/binaries/tomcat-native-[v]-openssl-[y]-ocsp-win32-bin.zip.sha512">SHA512</a>)
+          </li>
+        </ul>
       </subsection>
 
     </section>
+
+    <section name="[w]">
+      <p>For more information concerning Tomcat Native 1.2.x, see the
+      <a href="http://tomcat.apache.org/native-1.2-doc/" class="name">Tomcat
+      Native</a> site.</p>
+
+      <subsection name="Source Distributions">
+        <p>Please choose the correct format for your platform.</p>
+        <ul>
+          <li>
+            <a href="[preferred]tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.tar.gz" rel="nofollow">tar.gz</a>
+            - e.g. Unix, Linux, Mac OS
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.tar.gz.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.tar.gz.sha512">SHA512</a>)
+          </li>
+          <li>
+            <a href="[preferred]tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.zip" rel="nofollow">tar.gz</a>
+            - e.g. Windows
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/source/tomcat-native-[w]-src.zip.sha512">SHA512</a>)
+          </li>
+        </ul>
+      </subsection>
+
+      <subsection name="Binary Distributions">
+        <p>Binaries are provided for Microsoft Windows. The Windows binaries are
+        available in two variants. The standard variant is what people usually
+        use. This version of the library is included in the Apache Tomcat
+        distributions. The OCSP-enabled variant has enabled support for
+        verification of client SSL certificates via the OCSP protocol
+        (<bug>45392</bug>).</p>
+        <p>Each archive contains <code>tcnative-1.dll</code> for 32-bit (x86)
+        and 64-bit (x64) CPU architectures. You have to use the DLL that matches
+        CPU architecture of JVM that you use to run Tomcat.</p>
+        <p>These binaries were built with OpenSSL [z].</p>
+        <ul>
+          <li>
+            Standard
+            <a href="[preferred]tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-win32-bin.zip" rel="nofollow">zip</a>
+            - recommended
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-win32-bin.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-win32-bin.zip.sha512">SHA512</a>)
+          </li>
+          <li>
+            OCSP enabled
+            <a href="[preferred]tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-ocsp-win32-bin.zip" rel="nofollow">zip</a>
+            (<a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-ocsp-win32-bin.zip.asc">PGP</a>,
+            <a href="https://downloads.apache.org/tomcat/tomcat-connectors/native/[w]/binaries/tomcat-native-[w]-openssl-[z]-ocsp-win32-bin.zip.sha512">SHA512</a>)
+          </li>
+        </ul>
+      </subsection>
+
+    </section>
+
   </body>
+
 </document>
 
