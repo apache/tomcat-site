@@ -19,7 +19,7 @@
             Building The Apache Tomcat 8.5 Servlet/JSP Container
             ====================================================
 
-This subproject contains the source code for Tomcat 8.5, a container that
+This project contains the source code for Tomcat 8.5, a container that
 implements the Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1 and JASPIC 1.1
 specifications from the Java Community Process <https://www.jcp.org/>.
 
@@ -94,7 +94,7 @@ source distribution, do the following:
 (3.1) Checkout or obtain the source code for Tomcat 8.5
 
 Clone the source using git, then checkout a specific major branch or
-master for the latest code development, or download and unpack a source
+main for the latest code development, or download and unpack a source
 package.
 
  *  Tomcat GitHub repository URL:
@@ -298,20 +298,38 @@ You can build them by using the following commands:
         codesigning.storepass=request-via-pmc
 
     Release managers will be provided with the necessary credentials by the PMC.
-    It will also be necessary to enable TLS 1.2 and the correct cipher suite to
-    for the build process to communicate with the code signing service. The
-    simplest way is by setting the ANT_OPTS environment variable.
-    E.g. (for Windows):
-
-    set ANT_OPTS=-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2 -Dhttps.cipherSuites=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-    You will also need to download and install the Java 7 unlimited strength
-    jurisdiction policy files in order to use the above cipher suite.
 
  4. Build the release:
 
+    Apache Tomcat releases are fully reproducible.
+
+    Release managers producing release builds must follow the following
+    procedure:
+
+    cd ${tomcat.source}
+    ant pre-release
+    ant release
+    git commit -a -m "Tag <version-number>"
+    git tag <vesion-number>
+    git push origin <version-number>
+    ant release
+    git reset --hard HEAD~1
+
+    The output from either 'ant release' call may be uploaded as the official
+    release since they will be identical. It is recommended that the output from
+    the second call is used.
+
+    Anyone wishing to reproduce an official build must do so from an official
+    source release. The build tool chain defined in build.properties.release
+    must be used to reproduce an official build. Once unpacked to
+    ${tomcat.source}, the following steps must be followed
+
     cd ${tomcat.source}
     ant release
+
+    Following the same steps without using the defined build tool chain will
+    create a release that is functionally the same as an official release but
+    not bit for bit identical.
 
 
 (7) Tests
