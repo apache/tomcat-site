@@ -128,6 +128,62 @@
 
   </section>
   
+  <section name="Fixed in Apache Tomcat 10.0.20" rtext="1 April 2022">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 10.0.19 but the
+       release vote for the 10.0.19 release candidate did not pass. Therefore,
+       although users must download 10.0.20 to obtain a version that includes a
+       fix for these issues, version 10.0.19 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>High: Information Disclosure</strong>
+       <cve>CVE-2021-43980</cve></p>
+
+    <p>The simplified implementation of blocking reads and writes introduced in
+       Tomcat 10 and back-ported to Tomcat 9.0.47 onwards exposed a long
+       standing (but extremely hard to trigger) concurrency bug that could cause
+       client connections to share an Http11Processor instance resulting in
+       responses, or part responses, to be received by the wrong client.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="17f177eeb7df5938f67ef9ea580411b120195f13"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Adam
+       Thomas, Richard Hernandez and Ryan Schmitt on 11 November 2021. The issue
+       was made public on 28 September 2022.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.18</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 10.1.0-M14" rtext="1 April 2022">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 10.1.0-M13 but the
+       release vote for the 10.1.0-M13 release candidate did not pass. Therefore,
+       although users must download 10.1.0-M14 to obtain a version that includes a
+       fix for these issues, version 10.1.0-M13 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>High: Information Disclosure</strong>
+       <cve>CVE-2021-43980</cve></p>
+
+    <p>The simplified implementation of blocking reads and writes introduced in
+       Tomcat 10 and back-ported to Tomcat 9.0.47 onwards exposed a long
+       standing (but extremely hard to trigger) concurrency bug that could cause
+       client connections to share an Http11Processor instance resulting in
+       responses, or part responses, to be received by the wrong client.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="9651b83a1d04583791525e5f0c4c9089f678d9fc"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Adam
+       Thomas, Richard Hernandez and Ryan Schmitt on 11 November 2021. The issue
+       was made public on 28 September 2022.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.0-M12</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.16" rtext="20 January 2022">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 10.0.15 but the

@@ -89,6 +89,34 @@
 
   </section>
   
+  <section name="Fixed in Apache Tomcat 9.0.62" rtext="1 April 2022">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.61 but the
+       release vote for the 9.0.61 release candidate did not pass. Therefore,
+       although users must download 9.0.62 to obtain a version that includes a
+       fix for these issues, version 9.0.61 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>High: Information Disclosure</strong>
+       <cve>CVE-2021-43980</cve></p>
+
+    <p>The simplified implementation of blocking reads and writes introduced in
+       Tomcat 10 and back-ported to Tomcat 9.0.47 onwards exposed a long
+       standing (but extremely hard to trigger) concurrency bug that could cause
+       client connections to share an Http11Processor instance resulting in
+       responses, or part responses, to be received by the wrong client.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="170e0f792bd18ff031677890ba2fe50eb7a376c1"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team by Adam
+       Thomas, Richard Hernandez and Ryan Schmitt on 11 November 2021. The issue
+       was made public on 28 September 2022.</p>
+
+    <p>Affects: 9.0.0-M1 to 9.0.60</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.58" rtext="20 January 2022">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat 9.0.57 but the
