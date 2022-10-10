@@ -55,6 +55,39 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.0.27 Released" rtext="2022-10-10">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.0.27
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 9 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Fix bug <bug>66277</bug>, a refactoring regression that broke JSP includes
+    amongst other functionality</li>
+<li>Fix unexpected timeouts that may appear as client disconnections when using
+    HTTP/2 and NIO2</li>
+<li>Enforce the requirement of RFC 7230 onwards that a request with a malformed
+    content-length header should always be rejected with a 400 response.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.27_(markt)">Tomcat 10
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 9.0.68 Released" rtext="2022-10-07">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.68
@@ -103,39 +136,6 @@ migration tool for Jakarta EE tool</a> which is also available as a separate
 <p>
 Full details of these changes, and all the other changes, are available in the
 <a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.0_(markt)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 10.0.26 Released" rtext="2022-09-27">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.0.26
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 9 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Add support for authenticating WebSocket clients with an HTTP forward
-    proxy when establishing a connection to a WebSocket endpoint via a
-    forward proxy that requires authentication. Based on a patch provided
-    by Joe Mokos.</li>
-<li>Various fixes for edge case bugs in EL processing.</li>
-<li>Improve host header handling for HTTP/2 requests.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.0-doc/changelog.html#Tomcat_10.0.26_(markt)">Tomcat 10
 changelog</a>.
 </p>
 
