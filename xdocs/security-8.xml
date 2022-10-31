@@ -56,6 +56,28 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.83" rtext="2022-10-11">
+  
+    <p><strong>Low: Apache Tomcat request smuggling</strong>
+       <cve>CVE-2022-42252</cve></p>
+
+    <p>If Tomcat was configured to ignore invalid HTTP headers via setting
+       <code>rejectIllegalHeader</code> to <code>false</code> (the default),
+       Tomcat did not reject a request containing an invalid
+       <code>Content-Length</code> header making a request smuggling attack
+       possible if Tomcat was located behind a reverse proxy that also failed to
+       reject the request with the invalid header.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="a1c07906d8dcaf7957e5cc97f5cdbac7d18a205a"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team on 29
+       September 2022. The issue was made public on 31 October 2022.</p>
+
+    <p>Affects: 8.5.0 to 8.5.82</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.82" rtext="2022-08-13">
   
     <p><strong>Low: Apache Tomcat XSS in examples web application</strong>
