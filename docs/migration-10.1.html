@@ -111,14 +111,24 @@ of Apache Tomcat.</p>
        are not fully backwards compatible and might cause breakage when
        upgrading.</p>
     <ul>
-      <li><p>In 10.1.0-M3 onwards, Tomcat no longer adds an "Expires" HTTP
+      <li>
+        In 10.1.2 onwards the EL API no longer uses a privileged block to obtain
+        the thread context class loader unless explicitly configured to do so
+        via the <code>org.apache.el.GET_CLASSLOADER_USE_PRIVILEGED</code> system
+        property. When using the EL API within Apache Tomcat this system
+        property does not need to be set as all calls are already wrapped in a
+        privileged block further up the stack. It may be required if using the
+        EL API under a SecurityManager outside of Apache Tomcat.
+      </li>
+      <li>
+        In 10.1.0-M3 onwards, Tomcat no longer adds an "Expires" HTTP
         response header when adding "Cache-Control: private" due to a
         CONFIDENTIAL transport-guarantee. This will likely cause a change
         in caching behavior for applications that do not explicitly set
         their own headers but rely on Tomcat's previous behavior. If you
         wish to disable caching, you will need to configure it explicitly
         in your application. See <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=65513">BZ 65513</a>
-        for more information.</p>
+        for more information.
       </li>
     </ul>
   </div></div>
