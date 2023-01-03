@@ -50,6 +50,27 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.69" rtext="2022-11-14">
+  
+    <p><strong>Low: Apache Tomcat JsonErrorReportValve injection</strong>
+       <cve>CVE-2022-45143</cve></p>
+
+    <p>The <code>JsonErrorReportValve</code> did not escape the
+       <code>type</code>, <code>message</code> or <code>description</code>
+       values. In some circumstances these are constructed from user provided
+       data and it was therefore possible for users to supply values that
+       invalidated or manipulated the JSON output.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="b336f4e58893ea35114f1e4a415657f723b1298e"/>.</p>
+
+    <p>This issue was identified by the Apache Tomcat Security team on 2
+       September 2022. The issue was made public on 3 January 2023.</p>
+
+    <p>Affects: 9.0.40 to 9.0.68</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.68" rtext="2022-10-07">
   
     <p><strong>Low: Apache Tomcat request smuggling</strong>
