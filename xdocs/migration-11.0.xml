@@ -25,6 +25,19 @@ versions of Apache Tomcat.</p>
   <p>This section lists all the known changes between 10.1.x and 11.0.x
   which may cause backwards compatibility problems when upgrading.</p>
 
+  <subsection name="Java 17 required">
+
+    <p>Apache Tomcat 11.0.x requires Java 17 or later. Apache Tomcat 10.1.x
+    required Java 11. (Note this may increase to Java 21 before the first stable
+    release of Tomcat 11.0.x.)</p>
+
+    <p>The <code>SecurityManager</code> has been deprecated in Java 17 onwards
+    and support for running under a <code>SecurityManager</code> was removed in
+    the Jakarta EE 11 specification projects. Therefore, support for configuring
+    a <code>SecurityManager</code> has been removed in Tomcat 11.0.x.</p>
+
+  </subsection>
+
   <subsection name="Specification APIs">
 
     <p>Apache Tomcat 11.0 supports the Jakarta Servlet 6.1,
@@ -37,7 +50,8 @@ versions of Apache Tomcat.</p>
   
   <subsection name="Servlet 6.1 API">
 
-    <p>No changes.</p>
+    <p>Support for running under a <code>SecurityManager</code> has been
+    removed.</p>
 
   </subsection>
 
@@ -51,6 +65,9 @@ versions of Apache Tomcat.</p>
   <subsection name="Expression Language 6.0">
   
     <p>All methods and classes marked as deprecated in the 5.0 API have been
+    removed.</p>
+
+    <p>Support for running under a <code>SecurityManager</code> has been
     removed.</p>
 
   </subsection>
