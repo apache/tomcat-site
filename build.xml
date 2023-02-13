@@ -135,28 +135,6 @@
     </copy>
   </target>
 
-  <target name="release-10.0"
-          depends="docs"
-          description="Used after a release to update the docs for Tomcat 10.0">
-
-    <!-- Download the latest version -->
-    <antcall target="downloadgz">
-      <param name="sourcefile" value="${tomcat10.0.loc}"/>
-      <param name="destfile" value="${tomcat10.0.home}/tomcat-10.0-doc/index.html"/>
-      <param name="destdir" value="${tomcat10.0.home}"/>
-    </antcall>
-
-    <!-- Delete the old version -->
-    <delete dir="${docs.dest}/tomcat-10.0-doc"/>
-
-    <!-- Copy the latest version -->
-    <copy todir="${docs.dest}/tomcat-10.0-doc" >
-      <fileset dir="${tomcat10.0.home}/tomcat-10.0-doc" >
-        <exclude name="/WEB-INF/**" />
-      </fileset>
-    </copy>
-  </target>
-
   <target name="release-10.1"
           depends="docs"
           description="Used after a release to update the docs for Tomcat 10.1">
@@ -164,7 +142,7 @@
     <!-- Download the latest version -->
     <antcall target="downloadgz">
       <param name="sourcefile" value="${tomcat10.1.loc}"/>
-      <param name="destfile" value="${tomcat10.1.home}/tomcat-10.0-doc/index.html"/>
+      <param name="destfile" value="${tomcat10.1.home}/tomcat-10.1-doc/index.html"/>
       <param name="destdir" value="${tomcat10.1.home}"/>
     </antcall>
 
