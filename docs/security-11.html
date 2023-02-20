@@ -36,9 +36,34 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <p>There are currently no known public vulnerabilities in Apache Tomcat
-       11.x.</p>
-    <ul></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.0-M3"><span class="pull-right">TBD</span> Fixed in Apache Tomcat 11.0.0-M3</h3><div class="text">
+  
+    <p><i>Note: The issue below was fixed in Apache Tomcat 11.0.0-M2 but the
+       release vote for the 11.0.0-M2 release candidate did not pass. Therefore,
+       although users must download 11.0.0-M3 to obtain a version that includes
+       a fix for these issues, version 11.0.0-M2 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: Apache Tomcat denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24998" rel="nofollow">CVE-2023-24998</a></p>
+
+    <p>Apache Tomcat uses a packaged renamed copy of Apache Commons FileUpload
+       to provide the file upload functionality defined in the Jakarta Servlet
+       specification. Apache Tomcat was, therefore, also vulnerable to the
+       Apache Commons FileUpload vulnerability <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24998" rel="nofollow">CVE-2023-24998</a> as
+       there was no limit to the number of request parts processed. This
+       resulted in the possibility of an attacker triggering a DoS with a
+       malicious upload or series of uploads.</p>
+       
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/063e2e81ede50c287f737cc8e2915ce7217e886e">063e2e81</a>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team on 11
+       December 2022. The issue was made public on 20 February 2023.</p>
+
+    <p>Affects: 11.0.0-M1</p>
+
   </div></div></div></div></main><footer id="footer">
     Copyright &copy; 1999-2023, The Apache Software Foundation
     <br>

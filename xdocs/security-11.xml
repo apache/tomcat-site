@@ -47,9 +47,36 @@
   </section>
 
   <section name="Table of Contents">
-    <p>There are currently no known public vulnerabilities in Apache Tomcat
-       11.x.</p>
     <toc/>
+  </section>
+
+  <section name="Fixed in Apache Tomcat 11.0.0-M3" rtext="TBD">
+  
+    <p><i>Note: The issue below was fixed in Apache Tomcat 11.0.0-M2 but the
+       release vote for the 11.0.0-M2 release candidate did not pass. Therefore,
+       although users must download 11.0.0-M3 to obtain a version that includes
+       a fix for these issues, version 11.0.0-M2 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: Apache Tomcat denial of service</strong>
+       <cve>CVE-2023-24998</cve></p>
+
+    <p>Apache Tomcat uses a packaged renamed copy of Apache Commons FileUpload
+       to provide the file upload functionality defined in the Jakarta Servlet
+       specification. Apache Tomcat was, therefore, also vulnerable to the
+       Apache Commons FileUpload vulnerability <cve>CVE-2023-24998</cve> as
+       there was no limit to the number of request parts processed. This
+       resulted in the possibility of an attacker triggering a DoS with a
+       malicious upload or series of uploads.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="063e2e81ede50c287f737cc8e2915ce7217e886e"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team on 11
+       December 2022. The issue was made public on 20 February 2023.</p>
+
+    <p>Affects: 11.0.0-M1</p>
+
   </section>
 
 </body>

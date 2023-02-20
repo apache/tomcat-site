@@ -56,25 +56,26 @@
     <toc/>
   </section>
 
-  <section name="Fixed in Apache Tomcat 10.0.27" rtext="2022-10-10">
+  <section name="Fixed in Apache Tomcat 10.1.5" rtext="2023-01-13">
   
-    <p><strong>Low: Apache Tomcat request smuggling</strong>
-       <cve>CVE-2022-42252</cve></p>
+    <p><strong>Important: Apache Tomcat denial of service</strong>
+       <cve>CVE-2023-24998</cve></p>
 
-    <p>If Tomcat was configured to ignore invalid HTTP headers via setting
-       <code>rejectIllegalHeader</code> to <code>false</code> (not the default),
-       Tomcat did not reject a request containing an invalid
-       <code>Content-Length</code> header making a request smuggling attack
-       possible if Tomcat was located behind a reverse proxy that also failed to
-       reject the request with the invalid header.</p>
+    <p>Apache Tomcat uses a packaged renamed copy of Apache Commons FileUpload
+       to provide the file upload functionality defined in the Jakarta Servlet
+       specification. Apache Tomcat was, therefore, also vulnerable to the
+       Apache Commons FileUpload vulnerability <cve>CVE-2023-24998</cve> as
+       there was no limit to the number of request parts processed. This
+       resulted in the possibility of an attacker triggering a DoS with a
+       malicious upload or series of uploads.</p>
        
     <p>This was fixed with commit
-       <hashlink hash="0d089a15047faf9cb3c82f80f4d28febd4798920"/>.</p>
+       <hashlink hash="8a2285f13affa961cc65595aad999db5efae45ce"/>.</p>
 
-    <p>This issue was reported to the Apache Tomcat Security team on 29
-       September 2022. The issue was made public on 31 October 2022.</p>
+    <p>This issue was reported to the Apache Tomcat Security team on 11
+       December 2022. The issue was made public on 20 February 2023.</p>
 
-    <p>Affects: 10.0.0-M1 to 10.0.26</p>
+    <p>Affects: 10.1.0-M1 to 10.1.4</p>
 
   </section>
 
@@ -121,6 +122,28 @@
 
   </section>
   
+  <section name="Fixed in Apache Tomcat 10.0.27" rtext="2022-10-10">
+  
+    <p><strong>Low: Apache Tomcat request smuggling</strong>
+       <cve>CVE-2022-42252</cve></p>
+
+    <p>If Tomcat was configured to ignore invalid HTTP headers via setting
+       <code>rejectIllegalHeader</code> to <code>false</code> (not the default),
+       Tomcat did not reject a request containing an invalid
+       <code>Content-Length</code> header making a request smuggling attack
+       possible if Tomcat was located behind a reverse proxy that also failed to
+       reject the request with the invalid header.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="0d089a15047faf9cb3c82f80f4d28febd4798920"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team on 29
+       September 2022. The issue was made public on 31 October 2022.</p>
+
+    <p>Affects: 10.0.0-M1 to 10.0.26</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.0.23" rtext="2022-07-26">
   
     <p><strong>Low: Apache Tomcat XSS in examples web application</strong>

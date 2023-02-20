@@ -50,6 +50,29 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.71" rtext="2023-01-13">
+  
+    <p><strong>Important: Apache Tomcat denial of service</strong>
+       <cve>CVE-2023-24998</cve></p>
+
+    <p>Apache Tomcat uses a packaged renamed copy of Apache Commons FileUpload
+       to provide the file upload functionality defined in the Jakarta Servlet
+       specification. Apache Tomcat was, therefore, also vulnerable to the
+       Apache Commons FileUpload vulnerability <cve>CVE-2023-24998</cve> as
+       there was no limit to the number of request parts processed. This
+       resulted in the possibility of an attacker triggering a DoS with a
+       malicious upload or series of uploads.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="cf77cc545de0488fb89e24294151504a7432df74"/>.</p>
+
+    <p>This issue was reported to the Apache Tomcat Security team on 11
+       December 2022. The issue was made public on 20 February 2023.</p>
+
+    <p>Affects: 9.0.0-M1 to 9.0.70</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.69" rtext="2022-11-14">
   
     <p><strong>Low: Apache Tomcat JsonErrorReportValve injection</strong>
