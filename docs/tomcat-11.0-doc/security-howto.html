@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 (11.0.0-M1) - Security Considerations</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11</h1><div class="versionInfo">
-            Version 11.0.0-M1,
-            <time datetime="2022-12-01">Dec 1 2022</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 4.0 Javadocs</a></li><li><a href="elapi/index.html">EL 6.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.0 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Security Considerations</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 (11.0.0-M3) - Security Considerations</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11</h1><div class="versionInfo">
+            Version 11.0.0-M3,
+            <time datetime="2023-02-17">Feb 17 2023</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="jndi-resources-howto.html">8) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">9) JDBC DataSources</a></li><li><a href="class-loader-howto.html">10) Classloading</a></li><li><a href="jasper-howto.html">11) JSPs</a></li><li><a href="ssl-howto.html">12) SSL/TLS</a></li><li><a href="ssi-howto.html">13) SSI</a></li><li><a href="cgi-howto.html">14) CGI</a></li><li><a href="proxy-howto.html">15) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">16) MBeans Descriptors</a></li><li><a href="default-servlet.html">17) Default Servlet</a></li><li><a href="cluster-howto.html">18) Clustering</a></li><li><a href="balancer-howto.html">19) Load Balancer</a></li><li><a href="connectors.html">20) Connectors</a></li><li><a href="monitoring.html">21) Monitoring and Management</a></li><li><a href="logging.html">22) Logging</a></li><li><a href="apr.html">23) APR/Native</a></li><li><a href="virtual-hosting-howto.html">24) Virtual Hosting</a></li><li><a href="aio.html">25) Advanced IO</a></li><li><a href="maven-jars.html">26) Mavenized</a></li><li><a href="security-howto.html">27) Security Considerations</a></li><li><a href="windows-service-howto.html">28) Windows Service</a></li><li><a href="windows-auth-howto.html">29) Windows Authentication</a></li><li><a href="jdbc-pool.html">30) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">31) WebSocket</a></li><li><a href="rewrite.html">32) Rewrite</a></li><li><a href="cdi.html">33) CDI 2 and JAX-RS</a></li><li><a href="graal.html">34) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 4.0 Javadocs</a></li><li><a href="elapi/index.html">EL 6.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.0 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Security Considerations</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Non-Tomcat_settings">Non-Tomcat settings</a><ol><li><a href="#JMX">JMX</a></li></ol></li><li><a href="#Default_web_applications">Default web applications</a><ol><li><a href="#Default_web_applications/General">General</a></li><li><a href="#ROOT">ROOT</a></li><li><a href="#Documentation">Documentation</a></li><li><a href="#Examples">Examples</a></li><li><a href="#Default_web_applications/Manager">Manager</a></li><li><a href="#Host_Manager">Host Manager</a></li><li><a href="#Securing_Management_Applications">Securing Management Applications</a></li></ol></li><li><a href="#Security_manager">Security manager</a></li><li><a href="#server.xml">server.xml</a><ol><li><a href="#server.xml/General">General</a></li><li><a href="#Server">Server</a></li><li><a href="#Listeners">Listeners</a></li><li><a href="#Connectors">Connectors</a></li><li><a href="#Host">Host</a></li><li><a href="#Context">Context</a></li><li><a href="#Valves">Valves</a></li><li><a href="#Realms">Realms</a></li><li><a href="#server.xml/Manager">Manager</a></li><li><a href="#Cluster">Cluster</a></li></ol></li><li><a href="#web.xml">web.xml</a></li><li><a href="#General">General</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
     <p>Tomcat is configured to be reasonably secure for most use cases by
@@ -143,43 +143,10 @@
      </ul>
    </div></div>
   </div><h3 id="Security_manager">Security manager</h3><div class="text">
-    <p>Enabling the security manager causes web applications to be run in a
-    sandbox, significantly limiting a web application's ability to perform
-    malicious actions such as calling System.exit(), establishing network
-    connections or accessing the file system outside of the web application's
-    root and temporary directories. However, it should be noted that there are
-    some malicious actions, such as triggering high CPU consumption via an
-    infinite loop, that the security manager cannot prevent.</p>
-
-    <p>Enabling the security manager is usually done to limit the potential
-    impact, should an attacker find a way to compromise a trusted web
-    application . A security manager may also be used to reduce the risks of
-    running untrusted web applications (e.g. in hosting environments) but it
-    should be noted that the security manager only reduces the risks of
-    running untrusted web applications, it does not eliminate them. If running
-    multiple untrusted web applications, it is recommended that each web
-    application is deployed to a separate Tomcat instance (and ideally separate
-    hosts) to reduce the ability of a malicious web application impacting the
-    availability of other applications.</p>
-
-    <p>Tomcat is tested with the security manager enabled; but the majority of
-    Tomcat users do not run with a security manager, so Tomcat is not as well
-    user-tested in this configuration. There have been, and continue to be,
-    bugs reported that are triggered by running under a security manager.</p>
-
-    <p>The restrictions imposed by a security manager are likely to break most
-    applications if the security manager is enabled. The security manager should
-    not be used without extensive testing. Ideally, the use of a security
-    manager should be introduced at the start of the development cycle as it can
-    be time-consuming to track down and fix issues caused by enabling a security
-    manager for a mature application.</p>
-
-    <p>Enabling the security manager changes the defaults for the following
-    settings:</p>
-    <ul>
-      <li>The default value for the <strong>deployXML</strong> attribute of the
-      <strong>Host</strong> element is changed to <code>false</code>.</li>
-    </ul>
+    <p>Support for running under a security manager has been removed for Tomcat
+    11 onwards. Similar (arguably better) functionality maybe obtained by
+    running a single web application on a dedicated Tomcat instance in a
+    dedicated environment such as a container or VM.</p>
   </div><h3 id="server.xml">server.xml</h3><div class="text">
     <div class="subsection"><h4 id="server.xml/General">General</h4><div class="text">
       <p>The default server.xml contains a large number of comments, including
@@ -432,6 +399,19 @@
       the <strong>JDBCStore</strong> is able to access the persisted session
       data. In particular, the <strong>JDBCStore</strong> should not be
       accessible via any credentials available to a web application.</p>
+
+      <p>Manager implementations that persist sessions to storage or replicate
+      sessions in a cluster typically use Java serialization. While the session
+      data is considered trusted (since the application is trusted), system
+      administrators may wish to consider placing restrictions on the Java
+      serialization. This can be done using the
+      <strong>sessionAttributeValueClassNameFilter</strong> attribute. A
+      safe starting value for this attribute is
+      <code>java\\.lang\\.(?:Boolean|Integer|Long|Number|String)|org\\.apache\\.catalina\\.realm\\.GenericPrincipal\\$SerializablePrincipal|\\[Ljava.lang.String;</code> which
+      can then be adjusted to meet the needs of the application. If setting a
+      value for <strong>sessionAttributeValueClassNameFilter</strong> it is
+      recommended that <strong>warnOnSessionAttributeFilterFailure</strong> is
+      set to <code>true</code>.</p>
     </div></div>
 
     <div class="subsection"><h4 id="Cluster">Cluster</h4><div class="text">
@@ -513,5 +493,5 @@
     password itself. This usually means authenticating over SSL and continuing
     to use SSL until the session ends.</p>
   </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2022, The Apache Software Foundation
+    Copyright &copy; 1999-2023, The Apache Software Foundation
     </div></footer></div></body></html>

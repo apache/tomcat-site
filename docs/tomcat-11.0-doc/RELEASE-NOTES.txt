@@ -16,7 +16,7 @@
 ================================================================================
 
 
-                     Apache Tomcat Version 11.0.0-M1
+                     Apache Tomcat Version 11.0.0-M3
                             Release Notes
 
 
@@ -28,7 +28,6 @@ CONTENTS:
 * API Stability
 * Bundled APIs
 * Web application reloading and static fields in shared libraries
-* Security manager URLs
 * Symlinking static resources
 * Viewing the Tomcat Change Log
 * Cryptographic software notice
@@ -38,7 +37,7 @@ CONTENTS:
 ===================
 Dependency Changes:
 ===================
-Tomcat 11.0 is designed to run on Java 11 and later.
+Tomcat 11.0 is designed to run on Java 17 and later.
 
 
 ==============
@@ -73,7 +72,7 @@ for use by web applications (by placing them in "lib"):
 * catalina-ssi.jar (Server-side Includes module)
 * catalina-storeconfig.jar (Generation of XML configuration from current state)
 * catalina-tribes.jar (Group communication)
-* ecj-4.25.jar (Eclipse JDT Java compiler)
+* ecj-4.26.jar (Eclipse JDT Java compiler)
 * el-api.jar (EL 6.0 API)
 * jasper.jar (Jasper 2 Compiler and Runtime)
 * jasper-el.jar (Jasper 2 EL implementation)
@@ -109,16 +108,6 @@ Something which might help is to avoid putting classes which would be
 referenced by a shared static field in the web application classloader,
 and putting them in the shared classloader instead (JARs should be put in the
 "lib" folder, and classes should be put in the "classes" folder).
-
-
-======================
-Security manager URLs:
-======================
-In order to grant security permissions to JARs located inside the
-web application repository, use URLs of the following format
-in your policy file:
-
-file:${catalina.base}/webapps/examples/WEB-INF/lib/driver.jar
 
 
 ============================
