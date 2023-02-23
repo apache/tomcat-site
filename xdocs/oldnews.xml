@@ -28,7 +28,36 @@
 </ul>
 </section>
 
+<section name="Tomcat 9.0.71 Released" rtext="2023-01-13">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.71
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.70 include:</p>
+<ul>
+<li>Correct a regression in the refactoring that replaced the use of the
+   URL constructors. The regression broke lookups for resources that
+   contained one or more characters in their name that required escaping
+   when used in a URI path.</li>
+<li>When resetting an HTTP/2 stream because the final response has been
+   generated before the request has been fully read, use the HTTP/2 error
+   code NO_ERROR so that client does not discard the response. Based on a
+   suggestion by Lorenzo Dalla Vecchia.</li>
+<li>Change the default of the org.apache.el.GET_CLASSLOADER_USE_PRIVILEGED
+   system property to true unless the EL library is running on Tomcat in
+   which case the default remains false as the EL library is already
+   called from within a privileged block and skipping the unnecessary
+   privileged block improves performance.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.71_(remm)">Tomcat 9
+changelog</a>.
+</p>
 
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
 
 </body>
 </document>
