@@ -28,6 +28,47 @@
 </ul>
 </section>
 
+<section name="Tomcat 8.5.85 Released" rtext="2023-01-19">
+<p> 
+The Apache Tomcat Project is proud to announce the release of version 8.5.85
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. The notable changes compared to 8.5.84 include:
+</p>
+<ul>
+  <li>The default value of <code>AccessLogValve</code>'s file encoding is
+      now UTF-8.</li>
+
+  <li>Correct a regression in the refactoring that replaced the use of the
+      URL constructors. The regression broke lookups for resources that
+      contained one or more characters in their name that required escaping
+      when used in a URI path.</li>
+
+  <li>When an HTTP/2 stream was reset, the current active stream count was
+      not reduced. If enough resets occurred on a connection, the current
+      active stream count limit was reached and no new streams could be
+      created on that connection.</li>
+
+  <li>Change the default of the org.apache.el.GET_CLASSLOADER_USE_PRIVILEGED
+      system property to true unless the EL library is running on Tomcat in
+      which case the default remains false as the EL library is already
+      called from within a privileged block and skipping the unnecessary
+      privileged block improves performance.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.85_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="font-weight:bold">Please note that Apache Tomcat 8.5.x will
+reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
+(EOL) on 31 March 2024.</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 9.0.71 Released" rtext="2023-01-13">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.71
