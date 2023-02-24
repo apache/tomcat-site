@@ -55,6 +55,43 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.1.6 Released" rtext="2023-02-24">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.6
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Switch to using the ServiceLoader mechanism to load the custom URL
+      protocol handlers that Tomcat uses.</li>
+
+  <li>Update the packaged version of the Apache Tomcat Native Library to
+      2.0.3 to pick up the Windows binaries built with with OpenSSL 3.0.8.</li>
+
+  <li>Add the shared address space specified by RFC 6598 (100.64.0.0/10)
+      to the list of trusted proxies for RemoteIPValve/Filter.</li>
+
+  <li>Limit access to examples web application to localhost by default .</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.6_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 8.5.86 Released" rtext="2023-02-24">
 <p> 
 The Apache Tomcat Project is proud to announce the release of version 8.5.86
@@ -169,46 +206,6 @@ Tomcat Native. The notable changes since 1.2.35 include:
 <p style="text-align: center;">
 <a href="download-native.cgi">Download</a> |
 <a href="native-1.2-doc/miscellaneous/changelog.html">ChangeLog for 1.2.36</a>
-</p>
-</section>
-
-<section name="Tomcat 10.1.5 Released" rtext="2023-01-13">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.5
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Correct a regression in the refactoring that replaced the use of the URL
-    constructors. The regression broke lookups for resources that contained one
-    or more characters in their name that required escaping when used in a URI
-    path.</li>
-<li>When resetting an HTTP/2 stream because the final response has been
-    generated before the request has been fully read, use the HTTP/2 error code
-    NO_ERROR so that client does not discard the response. Based on a suggestion
-    by Lorenzo Dalla Vecchia.</li>
-<li>Change the default of the org.apache.el.GET_CLASSLOADER_USE_PRIVILEGED
-    system property to true unless the EL library is running on Tomcat in which
-    case the default remains false as the EL library is already called from
-    within a privileged block and skipping the unnecessary privileged block
-    improves performance.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.5_(markt)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
 </p>
 </section>
 
