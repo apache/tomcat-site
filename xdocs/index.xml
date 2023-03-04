@@ -55,35 +55,9 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
-<section name="Tomcat 9.0.73 Released" rtext="2023-03-03">
+<section name="Tomcat 10.1.7 Released" rtext="2023-03-03">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.73
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 8 platform. The notable changes compared to 9.0.72 include:</p>
-<ul>
-<li>Correct a regression introduced in the fix for bug
-  66196 that meant that the HTTP headers and/or request line
-  could get corrupted (one part overwriting another part) within a single
-  request.</li>
-<li>Provide a more appropriate response (501 rather than 400) when rejecting
-  an HTTP request using the CONNECT method.</li>
-<li>Add support for txt: and rnd: rewrite map types from mod_rewrite. Based
-  on a pull request provided by Dimitrios Soumis.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.73_(remm)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 10.1.6 Released" rtext="2023-02-24">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.6
+The Apache Tomcat Project is proud to announce the release of version 10.1.7
 of Apache Tomcat. This release implements specifications that are part of the
 Jakarta EE 10 platform.</p>
 <p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
@@ -96,20 +70,27 @@ migration tool for Jakarta EE tool</a> which is also available as a separate
 <a href="download-migration.cgi">download</a> for off-line use.</p>
 <p>The notable changes in this release are:</p>
 <ul>
-  <li>Switch to using the ServiceLoader mechanism to load the custom URL
-      protocol handlers that Tomcat uses.</li>
+  <li>Correct a regression introduced in the fix for bug 66196 that meant
+      that the HTTP headers and/or request line could get corrupted (one
+      part overwriting another part) within a single request.</li>
 
-  <li>Update the packaged version of the Apache Tomcat Native Library to
-      2.0.3 to pick up the Windows binaries built with with OpenSSL 3.0.8.</li>
+  <li>Revert the switch to using the ServiceLoader mechanism to load the
+      custom URL protocol handlers that Tomcat uses. The original system
+      property based approach has been restored.</li>
 
-  <li>Add the shared address space specified by RFC 6598 (100.64.0.0/10)
-      to the list of trusted proxies for RemoteIPValve/Filter.</li>
+  <li>Restore inline state after async operation in NIO2, to account the
+      fact that unexpected exceptions are sometimes thrown by the
+      implementation. Patch submitted by zhougang.</li>
 
-  <li>Limit access to examples web application to localhost by default .</li>
+  <li>Provide a more appropriate response (501 rather than 400) when
+      rejecting an HTTP request using the CONNECT method.</li>
+
+  <li>Add support for txt: and rnd: rewrite map types from mod_rewrite.
+      Based on a pull request provided by Dimitrios Soumis.</li>
 </ul>
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.6_(schultz)">Tomcat 10.1
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.7_(schultz)">Tomcat 10.1
 changelog</a>.
 </p>
 
@@ -148,6 +129,32 @@ reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
 
 <p style="text-align: center;">
 <a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 9.0.73 Released" rtext="2023-03-03">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.73
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.72 include:</p>
+<ul>
+<li>Correct a regression introduced in the fix for bug
+  66196 that meant that the HTTP headers and/or request line
+  could get corrupted (one part overwriting another part) within a single
+  request.</li>
+<li>Provide a more appropriate response (501 rather than 400) when rejecting
+  an HTTP request using the CONNECT method.</li>
+<li>Add support for txt: and rnd: rewrite map types from mod_rewrite. Based
+  on a pull request provided by Dimitrios Soumis.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.73_(remm)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
 </p>
 </section>
 
