@@ -11,6 +11,15 @@ OLD_RELEASE=$1
 NEW_RELEASE=$2
 RELEASE_DATE=${3:-$(date -I)}
 
+function fail_migration_patch() {
+  FAILED_MIGRATION=1
+
+  echo "====="
+  echo "Something went wrong patching ${MIGRATION_FILENAME}; rolling-back changes. File already updated?"
+  echo "====="
+  rm -f "${MIGRATION_FILENAME}.new"
+}
+
 if [ \( "$1" == '-h' \) -o \( "$1" == "--help" \) ] ; then
   echo "Usage: $0 oldrelease newrelease [release date]"
   echo
@@ -74,28 +83,6 @@ sed -i '' -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[en
 echo "Patching xdocs/whichversion.xml..."
 sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
 
-# xdocs/doap_Tomcat.rdf
-# Set the release date and revision number e.g.
-#    <release>
-#      <Version>
-#        <name>Latest Stable 8.5.x Release</name>
-#        <created>2023-03-03</created>
-#        <revision>8.5.88</revision>
-#      </Version>
-#    </release>
-#
-# This is difficult/impossible to do with just sed. This is also difficult to do
-# with XSLT as it will re-format the file in some ways that make it less readable.
-# sed -i '' -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
-#
-# We will do it in Perl
-echo "Patching xdocs/doap_Tomcat.rdf..."
-"${SCRIPT_DIR}/doap.pl" "${NEW_RELEASE}" "${RELEASE_DATE}" "xdocs/doap_Tomcat.rdf" > "xdocs/doap_Tomcat.rdf.new" && mv "xdocs/doap_Tomcat.rdf.new" "xdocs/doap_Tomcat.rdf"
-
-echo "Building release documents..."
-
-ant "release-${MINOR_RELEASE}"
-
 # CHANGELOG
 #
 # The changelog needs to be merged AFTER the javadocs have been built.
@@ -121,7 +108,7 @@ sed -i '' -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RE
 #
 # sed -e "s/<option value=\"${OLD_RELEASE}\" selected=\"selected\">${OLD_RELEASE}<\/option>/<option value=\"${OLD_RELEASE}\">${OLD_RELEASE}<\/option>\n    <option value=\"${NEW_RELEASE}\" selected=\"selected\">${NEW_RELEASE}<\/option>/" "${MIGRATION_FILENAME}" > migration.xml
 echo "Patching ${MIGRATION_FILENAME}..."
-"${SCRIPT_DIR}/migration.pl" "${OLD_RELEASE}" "${NEW_RELEASE}" "${MIGRATION_FILENAME}" > "${MIGRATION_FILENAME}.new" && mv "${MIGRATION_FILENAME}.new" "${MIGRATION_FILENAME}" || ( echo "=====" && echo "Something went wrong patching ${MIGRATION_FILENAME}; rolling-back changes. File already updated?" && echo "=====" && rm -f "${MIGRATION_FILENAME}.new" )
+"${SCRIPT_DIR}/migration.pl" "${OLD_RELEASE}" "${NEW_RELEASE}" "${MIGRATION_FILENAME}" > "${MIGRATION_FILENAME}.new" && mv "${MIGRATION_FILENAME}.new" "${MIGRATION_FILENAME}" || fail_migration_patch
 
 echo
 echo "Now you will have to edit xdocs/index.xml and xdocs/oldnews.xml"
@@ -133,5 +120,31 @@ read
 
 "${EDITOR}" xdocs/index.xml xdocs/oldnews.xml
 
+# xdocs/doap_Tomcat.rdf
+# Set the release date and revision number e.g.
+#    <release>
+#      <Version>
+#        <name>Latest Stable 8.5.x Release</name>
+#        <created>2023-03-03</created>
+#        <revision>8.5.88</revision>
+#      </Version>
+#    </release>
+#
+# This is difficult/impossible to do with just sed. This is also difficult to do
+# with XSLT as it will re-format the file in some ways that make it less readable.
+# sed -i '' -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
+#
+# We will do it in Perl
+echo "Patching xdocs/doap_Tomcat.rdf..."
+"${SCRIPT_DIR}/doap.pl" "${NEW_RELEASE}" "${RELEASE_DATE}" "xdocs/doap_Tomcat.rdf" > "xdocs/doap_Tomcat.rdf.new" && mv "xdocs/doap_Tomcat.rdf.new" "xdocs/doap_Tomcat.rdf"
+
+echo "Building release documents..."
+
+ant "release-${MINOR_RELEASE}"
+
 echo
 echo "Done. You should run 'svn status' to see whcih files changed, and maybe an 'svn diff' on some of them."
+if [ "1" == "$FAILED_MIGRATION" ] ; then
+echo
+echo "NOTE: The patch for ${MIGRATION_FILENAME} failed; you may want to examine the situation manually."
+fi
