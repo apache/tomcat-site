@@ -88,6 +88,7 @@ sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "x
 # sed -i '' -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
 #
 # We will do it in Perl
+echo "Patching xdocs/doap_Tomcat.rdf..."
 "${SCRIPT_DIR}/doap.pl" "${NEW_RELEASE}" "${RELEASE_DATE}" "xdocs/doap_Tomcat.rdf" > "xdocs/doap_Tomcat.rdf.new" && mv "xdocs/doap_Tomcat.rdf.new" "xdocs/doap_Tomcat.rdf"
 
 echo "Building release documents..."
