@@ -18,4 +18,14 @@ else
   MIGRATION_FILENAME=xdocs/migration-${RELEASE}.xml
 fi
 
-vi build.properties.default "${DOWNLOAD_FILENAME}" xdocs/index.xml xdocs/oldnews.xml xdocs/whichversion.xml "${MIGRATION_FILENAME}" xdocs/doap_Tomcat.rdf
+CHANGELOG_FILENAME=docs/tomcat-${RELEASE}-doc/changelog.html
+
+vi build.properties.default \
+   "${DOWNLOAD_FILENAME}" \
+   xdocs/whichversion.xml \
+   xdocs/doap_Tomcat.rdf \
+   "${CHANGELOG_FILENAME}" \
+   "${MIGRATION_FILENAME}" \
+   xdocs/index.xml \
+   xdocs/oldnews.xml
+
