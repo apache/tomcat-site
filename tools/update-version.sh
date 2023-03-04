@@ -5,10 +5,11 @@
 # Run update-version.sh with -h or --help for usage instructions.
 #
 
+SCRIPT_DIR=$( dirname $0 )
+EDITOR=${EDITOR:-vi}
 OLD_RELEASE=$1
 NEW_RELEASE=$2
 RELEASE_DATE=${3:-$(date -I)}
-SCRIPT_DIR=$( dirname $0 )
 
 if [ \( "$1" == '-h' \) -o \( "$1" == "--help" \) ] ; then
   echo "Usage: $0 oldrelease newrelease [release date]"
@@ -130,7 +131,7 @@ echo
 echo "Press ENTER to continue..."
 read
 
-vi xdocs/index.xml xdocs/oldnews.xml
+"${EDITOR}" xdocs/index.xml xdocs/oldnews.xml
 
 echo
 echo "Done. You should run 'svn status' to see whcih files changed, and maybe an 'svn diff' on some of them."
