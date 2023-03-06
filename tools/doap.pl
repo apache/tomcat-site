@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# This script modifies the Tomcaat DOAP file to update to the latest release.
+# This script modifies the Tomcat DOAP file to update to the latest release.
 #
 #    <release>
 #      <Version>
