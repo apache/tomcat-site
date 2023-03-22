@@ -52,6 +52,24 @@
 
   <section name="Fixed in Apache Tomcat 11.0.0-M3" rtext="2023-02-23">
   
+    <p><strong>Important: Apache Tomcat information disclosure</strong>
+       <cve>CVE-2023-28708</cve></p>
+
+    <p>When using the <code>RemoteIpFilter</code> with requests received from a
+    reverse proxy via HTTP that include the <code>X-Forwarded-Proto</code>
+    header set to <code>https</code>, session cookies created by Tomcat did not
+    include the secure attribute. This could result in the user agent
+    transmitting the session cookie over an insecure channel.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="c64d496dda1560b5df113be55fbfaefec349b50f"/>.</p>
+
+    <p><bug>66471</bug> was reported publicly on 8 February 2023. The security
+       implications were identified by the Tomcat Security team on 9 February
+       2023. The issue was made public on 22 March 2023.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.0-M2</p>
+
     <p><i>Note: The issue below was fixed in Apache Tomcat 11.0.0-M2 but the
        release vote for the 11.0.0-M2 release candidate did not pass. Therefore,
        although users must download 11.0.0-M3 to obtain a version that includes

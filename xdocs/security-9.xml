@@ -50,6 +50,28 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.72" rtext="2023-02-23">
+
+    <p><strong>Important: Apache Tomcat information disclosure</strong>
+       <cve>CVE-2023-28708</cve></p>
+
+    <p>When using the <code>RemoteIpFilter</code> with requests received from a
+    reverse proxy via HTTP that include the <code>X-Forwarded-Proto</code>
+    header set to <code>https</code>, session cookies created by Tomcat did not
+    include the secure attribute. This could result in the user agent
+    transmitting the session cookie over an insecure channel.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="3b51230764da595bb19e8d0962dd8c69ab40dfab"/>.</p>
+
+    <p><bug>66471</bug> was reported publicly on 8 February 2023. The security
+       implications were identified by the Tomcat Security team on 9 February
+       2023. The issue was made public on 22 March 2023.</p>
+
+    <p>Affects: 9.0.0-M1 to 9.0.71</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.71" rtext="2023-01-13">
   
     <p><strong>Important: Apache Tomcat denial of service</strong>
