@@ -55,6 +55,32 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 9.0.74 Released" rtext="2023-04-18">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.74
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.73 include:</p>
+<ul>
+<li>Correct a regression in the fix for bug 66442 that meant that streams
+   without a response body did not decrement the active stream count
+   when completing, leading to
+   ERR_HTTP2_SERVER_REFUSED_STREAM for some connections.</li>
+<li>Add an access log valve that uses a json format. Based on a pull request
+   provided by Thomas Meyer.</li>
+<li>Refactor synchronization blocks locking on SocketWrapper to use
+   ReentrantLock to support users wishing to experiment with project Loom.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.74_(remm)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 11.0.0-M4 Released" rtext="2023-03-06">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.0-M4
@@ -166,32 +192,6 @@ reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
 
 <p style="text-align: center;">
 <a href="download-80.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 9.0.73 Released" rtext="2023-03-03">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.73
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 8 platform. The notable changes compared to 9.0.72 include:</p>
-<ul>
-<li>Correct a regression introduced in the fix for bug
-  66196 that meant that the HTTP headers and/or request line
-  could get corrupted (one part overwriting another part) within a single
-  request.</li>
-<li>Provide a more appropriate response (501 rather than 400) when rejecting
-  an HTTP request using the CONNECT method.</li>
-<li>Add support for txt: and rnd: rewrite map types from mod_rewrite. Based
-  on a pull request provided by Dimitrios Soumis.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.73_(remm)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
 </p>
 </section>
 
