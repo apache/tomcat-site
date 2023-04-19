@@ -55,6 +55,42 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 11.0.0-M4 Released" rtext="2023-04-19">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M5
+(alpha) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Reduce the default value of maxParameterCount from 10,000 to 1,000.</li>
+<li>Correct a regression in the fix for bug 66442 that meant that streams
+    without a response body did not decrement the active stream count when
+    completing leading to ERR_HTTP2_SERVER_REFUSED_STREAM for some
+    connections.</li>
+<li>Expand the validation of the value of the Sec-Websocket-Key header in the
+    HTTP upgrade request that initiates a WebSocket connection. The value is not
+    decoded but it is checked for the correct length and that only valid
+    characters from the base64 alphabet are used.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M5_(markt)">Tomcat 11
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 9.0.74 Released" rtext="2023-04-18">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.74
@@ -78,43 +114,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="download-90.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 11.0.0-M4 Released" rtext="2023-03-06">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.0-M4
-(alpha) of Apache Tomcat. This release is a milestone release and is targeted at
-Jakarta EE 11.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is under development to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Revert the switch to using the ServiceLoader mechanism to load the custom
-      URL protocol handlers that Tomcat uses. The original system property based
-      approach has been restored.</li>
-  <li>Provide an implementation of the sub-set of JavaBeans support that does
-      not depend on the java.beans package. This for use by Expression Language
-      when the java.desktop module (which is where the java.beans package
-      resides) is not available.</li>
-  <li>Restore inline state after async operation in NIO2, to account the fact
-      that unexpected exceptions are sometimes thrown by the implementation.
-      Patch submitted by zhougang.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M4_(markt)">Tomcat 11
-<strong>(alpha)</strong> changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
 </p>
 </section>
 
