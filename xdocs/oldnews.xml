@@ -28,6 +28,50 @@
 </ul>
 </section>
 
+<section name="Tomcat 10.1.7 Released" rtext="2023-03-03">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.7
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Correct a regression introduced in the fix for bug 66196 that meant
+      that the HTTP headers and/or request line could get corrupted (one
+      part overwriting another part) within a single request.</li>
+
+  <li>Revert the switch to using the ServiceLoader mechanism to load the
+      custom URL protocol handlers that Tomcat uses. The original system
+      property based approach has been restored.</li>
+
+  <li>Restore inline state after async operation in NIO2, to account the
+      fact that unexpected exceptions are sometimes thrown by the
+      implementation. Patch submitted by zhougang.</li>
+
+  <li>Provide a more appropriate response (501 rather than 400) when
+      rejecting an HTTP request using the CONNECT method.</li>
+
+  <li>Add support for txt: and rnd: rewrite map types from mod_rewrite.
+      Based on a pull request provided by Dimitrios Soumis.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.7_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 8.5.87 Released" rtext="2023-03-03">
 <p> 
 The Apache Tomcat Project is proud to announce the release of version 8.5.87
