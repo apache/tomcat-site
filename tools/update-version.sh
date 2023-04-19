@@ -62,7 +62,7 @@ if [ "8.5" = "${MINOR_RELEASE}" ] ; then
 elif [ "9.0" = "${MINOR_RELEASE}" ] ; then
   MIGRATION_FILENAME=xdocs/migration-90.xml
 else
-  MIGRATION_FILENAME=xdocs/migration-${RELEASE}.xml
+  MIGRATION_FILENAME=xdocs/migration-${MINOR_RELEASE}.xml
 fi
 
 # build.properties.default
