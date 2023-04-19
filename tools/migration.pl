@@ -65,7 +65,7 @@ while(<>) {
     if ( /<option value="$old_release">/ ) {
       $found_old_release_unselected = 1;
 
-      s/">/" selected>/;
+      s/">/" selected="selected">/;
 
       print; # Dump the altered line
 
@@ -84,7 +84,7 @@ while(<>) {
       print; # Dump the altered line
 
       # Add the new release at the end
-      print "    <option value=\"$new_release\" selected>$new_release</option>\n";
+      print "    <option value=\"$new_release\" selected=\"selected\">$new_release</option>\n";
     } else {
       print;
     }
