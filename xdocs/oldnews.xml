@@ -28,6 +28,47 @@
 </ul>
 </section>
 
+<section name="Tomcat 10.1.8 Released" rtext="2023-04-19">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.8
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Reduce the default value of maxParameterCount from 10,000 to 1,000.</li>
+
+  <li>Correct a regression in the fix for bug 66442 that meant that streams
+     without a response body did not decrement the active stream count
+     when completing leading to ERR_HTTP2_SERVER_REFUSED_STREAM for some
+     connections.</li>
+
+  <li>Expand the validation of the value of the Sec-Websocket-Key header in
+      the HTTP upgrade request that initiates a WebSocket connection. The
+      value is not decoded but it is checked for the correct length and that
+      only valid characters from the base64 alphabet are used.</li>
+
+  <li>Implement RFC 9239; note the MIME types for Javascript has changed
+      to text/javascript.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.8_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 8.5.88 Released" rtext="2023-04-19">
 <p> 
 The Apache Tomcat Project is proud to announce the release of version 8.5.88
