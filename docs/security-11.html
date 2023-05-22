@@ -36,7 +36,27 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.0-M5"><span class="pull-right">2023-04-19</span> Fixed in Apache Tomcat 11.0.0-M5</h3><div class="text">
+
+    <p><strong>Moderate: Apache Tomcat denial of service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28709" rel="nofollow">CVE-2023-28709</a></p>
+
+    <p>The fix for <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24998" rel="nofollow">CVE-2023-24998</a> was incomplete. If non-default HTTP
+       connector settings were used such that the <code>maxParameterCount</code>
+       could be reached using query string parameters and a request was
+       submitted that supplied exactly <code>maxParameterCount</code> parameters
+       in the query string, the limit for uploaded request parts could be
+       bypassed with the potential for a denial of service to occur.</p>
+       
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/d53d8e7f77042cc32a3b98f589496a1ef5088e38">d53d8e7f</a>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 13 March 2023. The
+       issue was made public on 22 May 2023.</p>
+
+    <p>Affects: 11.0.0-M2 to 11.0.0-M4</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.0-M3"><span class="pull-right">2023-02-23</span> Fixed in Apache Tomcat 11.0.0-M3</h3><div class="text">
   
     <p><strong>Important: Apache Tomcat information disclosure</strong>

@@ -56,6 +56,28 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.88" rtext="2023-04-19">
+
+    <p><strong>Moderate: Apache Tomcat denial of service</strong>
+       <cve>CVE-2023-28709</cve></p>
+
+    <p>The fix for <cve>CVE-2023-24998</cve> was incomplete. If non-default HTTP
+       connector settings were used such that the <code>maxParameterCount</code>
+       could be reached using query string parameters and a request was
+       submitted that supplied exactly <code>maxParameterCount</code> parameters
+       in the query string, the limit for uploaded request parts could be
+       bypassed with the potential for a denial of service to occur.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="5badf94e79e5de206fc0ef3054fd536b1bb787cd"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 13 March 2023. The
+       issue was made public on 22 May 2023.</p>
+
+    <p>Affects: 8.5.85 to 8.5.87</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.86" rtext="2023-02-24">
 
     <p><strong>Important: Apache Tomcat information disclosure</strong>
