@@ -55,6 +55,74 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.1.10 Released" rtext="2023-06-12">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.10
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Add support for virtual threads. (Java 21+ only)</li>
+
+  <li>Update HTTP/2 to use the RFC-9218 prioritization scheme.</li>
+
+  <li>Deprecate the xssProtectionEnabled from HttpHeaderSecurityFilter
+      and set the default value to false.</li>
+
+  <li>Update Tomcat Native to 2.0.4 which includes binaries for Windows
+      built with OpenSSL 3.0.9.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.10_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 8.5.90 Released" rtext="2023-06-12">
+<p> 
+The Apache Tomcat Project is proud to announce the release of version 8.5.90
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. The notable changes compared to 8.5.89 include:
+</p>
+<ul>
+  <li>Add support for virtual threads. (Java 21+ only)</li>
+
+  <li>Update HTTP/2 to use the RFC-9218 prioritization scheme.</li>
+
+  <li>Deprecate the xssProtectionEnabled from HttpHeaderSecurityFilter
+      and set the default value to false.</li>
+
+  <li>Update Tomcat Native to 1.2.37 which includes binaries for Windows
+      built with OpenSSL 1.1.1u.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.90_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="font-weight:bold">Please note that Apache Tomcat 8.5.x will
+reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
+(EOL) on 31 March 2024.</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 9.0.76 Released" rtext="2023-06-09">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.76
@@ -137,72 +205,6 @@ Tomcat Native. The notable changes since 1.2.36 include:
 <p style="text-align: center;">
 <a href="download-native.cgi">Download</a> |
 <a href="native-1.2-doc/miscellaneous/changelog.html">ChangeLog for 1.2.37</a>
-</p>
-</section>
-
-<section name="Tomcat 10.1.9 Released" rtext="2023-05-19">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.9
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Many improvements to the JSON access log valve.</li>
-
-  <li>Deprecate support for the HTTP Connector settings rejectIllegalHeader
-      and allowHostHeaderMismatch and reject HTTP headers without names.</li>
-
-  <li>Add a RateLimitFilter which can be used to mitigate DoS and Brute
-      Force attacks.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.8_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 8.5.90 Released" rtext="2023-06-12">
-<p> 
-The Apache Tomcat Project is proud to announce the release of version 8.5.90
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.89 include:
-</p>
-<ul>
-  <li>Add support for virtual threads. (Java 21+ only)</li>
-
-  <li>Update HTTP/2 to use the RFC-9218 prioritization scheme.</li>
-
-  <li>Deprecate the xssProtectionEnabled from HttpHeaderSecurityFilter
-      and set the default value to false.</li>
-
-  <li>Update Tomcat Native to 1.2.37 which includes binaries for Windows
-      built with OpenSSL 1.1.1u.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.90_(schultz)">Tomcat 8
-changelog</a>.
-</p>
-
-<p style="font-weight:bold">Please note that Apache Tomcat 8.5.x will
-reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
-(EOL) on 31 March 2024.</p>
-
-<p style="text-align: center;">
-<a href="download-80.cgi">Download</a>
 </p>
 </section>
 
