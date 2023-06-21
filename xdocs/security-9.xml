@@ -50,6 +50,28 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.75" rtext="2023-05-10">
+
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2023-34981</cve></p>
+
+    <p>The fix for bug <bug>66512</bug> introduced a regression that was fixed
+       as bug <bug>66591</bug>. The regression meant that, if a response did not
+       have any HTTP headers set, no AJP <code>SEND_HEADERS</code> message would
+       be sent which in turn meant that at least one AJP based proxy
+       (mod_proxy_ajp) would use the response headers from the previous request
+       for the current request leading to an information leak.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="2f0ca2378415f4cf0748f4bc8fa955f41f803fa5"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 24 May 2023. The
+       issue was made public on 21 June 2023.</p>
+
+    <p>Affects: 9.0.74</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.74" rtext="2023-04-18">
 
     <p><strong>Moderate: Apache Tomcat denial of service</strong>
