@@ -31,9 +31,8 @@ const messages = {
     loading: "Loading search index...",
     searching: "Searching...",
     redirecting: "Redirecting to first result...",
-    copyToClipboard: "Copy",
-    copyUrlToClipboard: "Copy URL",
-    copiedToClipboard: "Copied!"
+    linkIcon: "Link icon",
+    linkToSection: "Link to this section"
 }
 const categories = {
     modules: "Modules",
@@ -367,7 +366,7 @@ $.widget("custom.catcomplete", $.ui.autocomplete, {
             ? item.l
             : getHighlightedText(item.input, item.boundaries, 0, item.input.length);
         var idx = item.indexItem;
-        if (item.category === "searchTags" && idx.h) {
+        if (item.category === "searchTags" && idx && idx.h) {
             if (idx.d) {
                 div.html(label + "<span class='search-tag-holder-result'> (" + idx.h + ")</span><br><span class='search-tag-desc-result'>"
                     + idx.d + "</span><br>");
@@ -409,14 +408,13 @@ $(function() {
     $("input#search-input").focus(collapse);
     $("main").click(collapse);
     $("section[id] > :header, :header[id], :header:has(a[id])").each(function(idx, el) {
-        // Create copy-to-clipboard buttons for headers with an associated id attribute
+        // Create anchor links for headers with an associated id attribute
         var hdr = $(el);
         var id = hdr.attr("id") || hdr.parent("section").attr("id") || hdr.children("a").attr("id");
         if (id) {
-            hdr.append($("<button class='copy copy-header' onclick='copyUrl(this)' aria-label='"
-                + messages.copyUrlToClipboard +"'> " + "<img src='" + pathtoroot + "copy.svg' alt='" +
-                messages.copyUrlToClipboard + "'> " + "<span data-copied='" + messages.copiedToClipboard +
-                "'>" + messages.copyToClipboard + "</span></button>"));
+            hdr.append(" <a href='#" + id + "' class='anchor-link' aria-label='" + messages.linkToSection
+                + "'><img src='" + pathtoroot + "link.svg' alt='" + messages.linkIcon +"' tabindex='0'"
+                + " width='16' height='16'></a>");
         }
     });
     $(window).on("orientationchange", collapse).on("resize", function(e) {
