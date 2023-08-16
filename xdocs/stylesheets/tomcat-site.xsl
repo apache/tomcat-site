@@ -92,6 +92,7 @@
     <xsl:if test="properties/base">
       <base href="{properties/base/@href}"/>
     </xsl:if>
+    <script src="https://www.apachecon.com/event-images/snippet.js"></script>
   </head>
 
   <body>
@@ -123,14 +124,9 @@
             </div>
           </form>
           <!-- Navigation -->
-          <!--
           <div class="asfevents">
-            <a href="https://www.apache.org/events/current-event.html">
-              <img src="https://www.apache.org/events/current-event-234x60.png" alt="Next ASF event"/><br/>
-              Save the date!
-            </a>
+            <a class="acevent" data-format="square" data-width="150"></a>
           </div>
-          -->
           <nav>
             <xsl:apply-templates select="$project/body/menu"/>
           </nav>
