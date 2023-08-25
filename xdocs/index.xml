@@ -55,9 +55,41 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 10.1.13 Released" rtext="2023-08-25">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.13
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>If an application or library sets both a non-500 error code and the
+    <code>jakarta.servlet.error.exception</code> request attribute, use the
+    provided error code during error page processing rather than assuming an
+    error code of 500.</li>
+<li>Fix for FORM authentication open redirect - CVE-2023-41080</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.13_(markt)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 11.0.0-M11 Released" rtext="2023-08-25">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.0-M10
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M11
 (alpha) of Apache Tomcat. This release is a milestone release and is targeted at
 Jakarta EE 11.</p>
 <p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
@@ -83,7 +115,7 @@ tool</a> is available to aid this process.</p>
 </ul>
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M10_(markt)">Tomcat 11
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M11_(markt)">Tomcat 11
 <strong>(alpha)</strong> changelog</a>.
 </p>
 
@@ -112,38 +144,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="download-90.cgi">Download</a>
-</p>
-</section>
-
-<section name="Tomcat 10.1.12 Released" rtext="2023-08-14">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.12
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Refactor HTTP/2 implementation to reduce pinning when using virtual
-    threads.</li>
-<li>Pass through ciphers referring to an OpenSSL profile, such as
-    PROFILE=SYSTEM instead of producing an error trying to parse it.</li>
-<li>Update Tomcat Native to 2.0.5.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.12_(markt)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
 </p>
 </section>
 
