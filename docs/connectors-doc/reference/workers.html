@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>The Apache Tomcat Connectors - Reference Guide (1.2.48) - workers.properties configuration</title><meta name="author" content="Mladen Turk"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>The Apache Tomcat Connectors - Reference Guide</h1><div class="versionInfo">
-          Version 1.2.48,
-          <time datetime="2020-03-09">Mar 9 2020</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li></ul></div><div><h2>Common HowTo</h2><ul><li><a href="../common_howto/quick.html">Quick Start</a></li><li><a href="../common_howto/workers.html">All About Workers</a></li><li><a href="../common_howto/timeouts.html">Timeouts</a></li><li><a href="../common_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../common_howto/proxy.html">Reverse Proxy</a></li></ul></div><div><h2>Web Server HowTo</h2><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="../webserver_howto/iis.html">Microsoft IIS (ISAPI redirector)</a></li><li><a href="../webserver_howto/nes.html">iPlanet Web Server (NSAPI redirector)</a></li></ul></div><div><h2>Reference Guide</h2><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="../reference/iis.html">Microsoft IIS (ISAPI redirector)</a></li></ul></div><div><h2>AJP Protocol Reference</h2><ul><li><a href="../ajp/ajpv13a.html">AJPv13 (ajp13)</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul></div><div><h2>Miscellaneous Documentation</h2><ul><li><a href="../miscellaneous/faq.html">Frequently Asked Questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li><li><a href="http://tomcat.apache.org/connectors-doc-archive/jk2/index.html">Old JK/JK2 documentation</a></li></ul></div><div><h2>News</h2><ul><li><a href="../news/20200201.html">2020</a></li><li><a href="../news/20180301.html">2018</a></li><li><a href="../news/20150901.html">2016</a></li><li><a href="../news/20150101.html">2015</a></li><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>workers.properties configuration</h2><h3 id="Introduction">Introduction</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>The Apache Tomcat Connectors - Reference Guide (1.2.49) - workers.properties configuration</title><meta name="author" content="Mladen Turk"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="http://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>The Apache Tomcat Connectors - Reference Guide</h1><div class="versionInfo">
+            Version 1.2.49,
+            <time datetime="2023-09-12">Sep 12 2023</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li></ul></div><div><h2>Common HowTo</h2><ul><li><a href="../common_howto/quick.html">Quick Start</a></li><li><a href="../common_howto/workers.html">All About Workers</a></li><li><a href="../common_howto/timeouts.html">Timeouts</a></li><li><a href="../common_howto/loadbalancers.html">Load Balancing</a></li><li><a href="../common_howto/proxy.html">Reverse Proxy</a></li></ul></div><div><h2>Web Server HowTo</h2><ul><li><a href="../webserver_howto/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="../webserver_howto/iis.html">Microsoft IIS (ISAPI redirector)</a></li></ul></div><div><h2>Reference Guide</h2><ul><li><a href="../reference/workers.html">workers.properties</a></li><li><a href="../reference/uriworkermap.html">uriworkermap.properties</a></li><li><a href="../reference/status.html">Status Worker</a></li><li><a href="../reference/apache.html">Apache HTTP Server (mod_jk)</a></li><li><a href="../reference/iis.html">Microsoft IIS (ISAPI redirector)</a></li></ul></div><div><h2>AJP Protocol Reference</h2><ul><li><a href="../ajp/ajpv13a.html">AJPv13 (ajp13)</a></li><li><a href="../ajp/ajpv13ext.html">AJPv13 Extension Proposal</a></li></ul></div><div><h2>Miscellaneous Documentation</h2><ul><li><a href="../miscellaneous/faq.html">Frequently Asked Questions</a></li><li><a href="../miscellaneous/changelog.html">Changelog</a></li><li><a href="http://issues.apache.org/bugzilla/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;product=Tomcat+Connectors&amp;long_desc_type=substring&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=substring&amp;email1=&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailcc2=1&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Current Tomcat Connectors bugs</a></li><li><a href="../miscellaneous/doccontrib.html">Contribute documentation</a></li><li><a href="../miscellaneous/jkstatustasks.html">JK Status Ant Tasks</a></li><li><a href="../miscellaneous/reporttools.html">Reporting Tools</a></li></ul></div><div><h2>News</h2><ul><li><a href="../news/20230101.html">2023</a></li><li><a href="../news/20200201.html">2020</a></li><li><a href="../news/20180301.html">2018</a></li><li><a href="../news/20160901.html">2016</a></li><li><a href="../news/20150101.html">2015</a></li><li><a href="../news/20140201.html">2014</a></li><li><a href="../news/20120301.html">2012</a></li><li><a href="../news/20110701.html">2011</a></li><li><a href="../news/20100101.html">2010</a></li><li><a href="../news/20090301.html">2009</a></li><li><a href="../news/20081001.html">2008</a></li><li><a href="../news/20070301.html">2007</a></li><li><a href="../news/20060101.html">2006</a></li><li><a href="../news/20050101.html">2005</a></li><li><a href="../news/20041100.html">2004</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>workers.properties configuration</h2><h3 id="Introduction">Introduction</h3><div class="text">
 <p>
 A <b>Tomcat worker</b> is a Tomcat instance that is waiting to execute servlets or any other content
 on behalf of some web server. For example, we can have a web server such as
@@ -61,7 +61,7 @@ noted in the tables below.
 </p>
 <p>
 Whitespace at the beginning and the end of a property name or value gets ignored.
-Comments can be placed in any line and start with a hash sign '#'.
+Comments can be placed in any line and start with a hash sign '<b>#</b>'.
 Any line contents behind the hash sign get ignored.
 </p>
 <p>
@@ -86,18 +86,18 @@ These directives have global scope.
         </th></tr><tr><td><strong><code class="attributeName">worker.list</code></strong></td><td style="text-align:center"><code>ajp13</code></td><td>
 A comma separated list of workers names that the JK will use. When starting up,
 the web server plugin will instantiate the workers whose name appears in the
-worker.list property, these are also the workers to whom you can map requests.
+<b>worker.list</b> property, these are also the workers to whom you can map requests.
 <p>
 This directive can be used multiple times.
 </p>
 </td></tr><tr><td><code class="attributeName">worker.maintain</code></td><td style="text-align:center"><code>60</code></td><td>
 Worker connection pool maintain interval in seconds. If set to the positive
-value JK will scan all connections for all workers specified in worker.list
+value JK will scan all connections for all workers specified in <b>worker.list</b>
 directive and check if connections needs to be recycled.
 <p>
-Furthermore any load balancer does a global maintenance every worker.maintain
+Furthermore any load balancer does a global maintenance every <b>worker.maintain</b>
 seconds. During global maintenance load counters are decayed and workers
-in error are checked for recover_time.
+in error are checked for <b>recover_time</b>.
 </p>
 <p>
 This feature has been added in <b>jk 1.2.13</b>.
@@ -124,17 +124,17 @@ The name of the worker can contain only the alphanumeric characters
 
 <div class="subsection"><h4 id="Variables,_Environment_Variables">Variables, Environment Variables</h4><div class="text">
 <p>
-You can define and use variables in the workers.properties file.
+You can define and use variables in the <b>workers.properties</b> file.
 To define a variable you use the syntax:
 </p>
 <p><strong>&lt;variable_name&gt;=&lt;value&gt;</strong></p>
 <p>
 Dots are allowed in the variable name, but you have to be careful
 not to use variable names, that clash with standard directives.
-Therefore variable names should never start with "worker.".
+Therefore variable names should never start with "<b>worker.</b>".
 </p>
 <p>
-To use a variable, you can insert "$(variable_name)" at any place
+To use a variable, you can insert "<b>$(variable_name)</b>" at any place
 on the value side of a property line. If a variable has not been
 defined before its use, we will search the process environment for
 a variable with the same name and use their value.
@@ -148,22 +148,22 @@ the file, you can inherit properties from one worker to another, or even
 from a template to real workers.
 </p>
 <p>
-The directive "reference" allows to copy configurations between workers or
-worker templates in a hierarchical way. If worker castor sets
+The directive "<b>reference</b>" allows to copy configurations between workers or
+worker templates in a hierarchical way. If worker <b>castor</b> sets
 <b>worker.castor.reference=worker.pollux</b> then it inherits all properties
 of <b>pollux</b>, except for the ones that are explicitly set for <b>castor</b>.
 </p>
 <p>
 Please note, that the value of the directive is not only the name of the referred worker,
-but the complete prefix including "worker.".
+but the complete prefix including "<b>worker.</b>".
 </p>
 <p>
 To use a template worker simply define it like a real worker, but do not add it
-to the "worker.list" or as a member to any load balancer. Such a template worker
+to the <b>worker.list</b> or as a member to any load balancer. Such a template worker
 does not have to contain mandatory directives. This approach is especially useful,
 if one has a lot of balanced workers in a load balancer
 and these workers share most of their properties. You can set all of these properties
-in a template worker, e.g. using the prefix "worker.template1", and then simply
+in a template worker, e.g. using the prefix "<b>worker.template1</b>", and then simply
 reference those common properties in all balanced workers.
 </p>
 <p>
@@ -187,7 +187,7 @@ be unavailable or will misbehave. Those directives will be marked with a <strong
         </th><th style="width: 75%;">
           Description
         </th></tr><tr><td><strong><code class="attributeName">type</code></strong></td><td style="text-align:center"><code>ajp13</code></td><td>
-Type of the worker (can be one of ajp12, ajp13, ajp14, jni, lb or status). The type of the worker
+Type of the worker (can be one of <b>ajp12</b>, <b>ajp13</b>, <b>ajp14</b>, <b>jni</b>, <b>lb</b> or <b>status</b>). The type of the worker
 defines the directives that can be applied to the worker.
 <p>Type <b>ajp13</b> is the preferred worker type that JK uses for communication
 between web server and Tomcat. This type of worker uses sockets as communication
@@ -240,7 +240,7 @@ and retry again.
 Note that <code>socket_timeout</code> is in seconds, and
 <code>socket_connect_timeout</code> in milliseconds,
 so in absolute terms the default <code>socket_connect_timeout</code> is
-equal to <code>"socket_timeout</code>.
+equal to <code>socket_timeout</code>.
 </p>
 <p>
 This feature has been added in <b>jk 1.2.27</b>.
@@ -324,16 +324,15 @@ It will limit the number of those connection that each web server child
 process can made.
 <p>
 Connection pool size property is only used for multi threaded
-web servers such as the Apache HTTP Server, Microsoft IIS and the iPlanet Web Server.
+web servers such as the Apache HTTP Server and Microsoft IIS.
 The connection_pool_size property
 needs to reflect the number of requests one web server process should
 be able to send to a backend in parallel. Usually this is the same as
 the number of threads per web server process. JK will discover
 this number for the Apache HTTP Server automatically and set the pool size to
-this value. For IIS the default value is 250 (before version 1.2.20: 10),
-for iPlanet the default value is 1.
+this value. For IIS the default value is 250 (before version 1.2.20: 10).
 </p>
-<p>We strongly recommend adjusting this value for IIS and iPlanet
+<p>We strongly recommend adjusting this value for IIS
 to the number of requests one web server process should
 be able to send to a backend in parallel. You should measure how many connections
 you need during peak activity without performance problems, and then add some
@@ -385,7 +384,7 @@ Only used for a member worker of a load balancer.
 The integer number lbfactor (load balancing factor) is
 <i>how much we expect this worker to work</i>, or
 <i>the worker's work quota</i>. Load balancing factor is compared with other workers
-that makes the load balancer. For example if one worker has lb_factor 5 times higher then
+that makes the load balancer. For example if one worker has <b>lbfactor</b> 5 times higher then
 other worker, then it will receive five times more requests.
 </p>
 </td></tr></table>
@@ -472,7 +471,7 @@ environment variable <b>JK_STICKY_IGNORE</b> and the worker map extension for
 </p>
 </td></tr><tr><td><code class="attributeName">sticky_session_force</code></td><td style="text-align:center"><code>false</code></td><td>
 Specifies whether requests with SESSION ID's for workers that are in error state
-should be rejected. If sticky_session_force is set to <b>true</b>
+should be rejected. If <b>sticky_session_force</b> is set to <b>true</b>
 and the worker that matches that SESSION ID is in error state, client will
 receive 500 (Server Error). If set to <b>false</b> failover on
 another worker will be issued with losing client session. This directive is
@@ -515,7 +514,7 @@ environment variable <b>JK_STATELESS</b> for them.
 </p>
 <p>
 If method is set to <b>N[ext]</b> the balancer will again use the number of sessions
-to find the best worker. All remarks concerning the <b>Session</b>method apply as well.
+to find the best worker. All remarks concerning the <b>Session</b> method apply as well.
 The difference to the <b>Session</b> method is how the session count is handled in the
 sliding time window. The <b>Next</b> method does not divide by 2, instead it subtracts
 the current minimum number. This should effectively result in a round-robin session
@@ -704,15 +703,15 @@ This feature has been added in <b>jk 1.2.20</b>.
 </p>
 </td></tr><tr><td><code class="attributeName">ns</code></td><td style="text-align:center"><code>jk:</code></td><td>
 This directive can be used to customise the XML output from the
-status worker. If set to <b>-</b> no namespace will be used.
+status worker. If set to <code>-</code> no namespace will be used.
 <p>
 This feature has been added in <b>jk 1.2.20</b>.
 </p>
 </td></tr><tr><td><code class="attributeName">xmlns</code></td><td style="text-align:center"><code>-</code></td><td>
 This directive can be used to customise the XML output from the
-status worker. If set to <b>-</b> no xmlns will be used.
+status worker. If set to <code>-</code> no xmlns will be used.
 <p>
-Default value is set to xmlns:jk="http://tomcat.apache.org"
+Default value is set to <b>xmlns:jk="http://tomcat.apache.org"</b>
 </p>
 <p>
 This feature has been added in <b>jk 1.2.20</b>.
@@ -768,7 +767,7 @@ See also <b>max_reply_timeouts</b>, <b>retries</b> and <b>recovery_options</b>.
 </p>
 <p>
 By default (value zero) the web server will wait forever which could be an issue for you.
-If you set a reply_timeout, adjust it carefully if you have long running servlets.
+If you set a <b>reply_timeout</b>, adjust it carefully if you have long running servlets.
 </p>
 <p>
 The <b>reply_timeout</b> can be overwritten using the Apache HTTP Server environment variable
@@ -1080,11 +1079,11 @@ It will limit the number of those connection that each web server child
 process can make.
 <p>
 Cachesize property is used only for multi threaded 
-web servers such as Apache HTTP Server 2.x (all MPMs except prefork), IIS and iPlanet. The cachesize property
+web servers such as Apache HTTP Server 2.x (all MPMs except prefork) and IIS. The cachesize property
 should reflect the number of threads per child process. JK will discover
 the number of threads per child process on the Apache HTTP Server with threaded MPM and set
 its default value to match the current ThreadsPerChild Apache configuration. For IIS the default
-value is 10. For web servers other than Apache or IIS this value has to be set manually.
+value is 10.
 </p>
 <warn>Do not use cachesize with values higher then 1 on <b>Apache 2.x with prefork MPM</b> or <b>Apache 1.3.x</b>!</warn>
 </td></tr><tr><td><code class="attributeName">cache_timeout</code></td><td><code>connection_pool_timeout</code></td><td><code>0</code></td><td>
@@ -1154,5 +1153,5 @@ This feature has been added in <b>jk 1.2.16</b>.
 </div></div>
 
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2020, The Apache Software Foundation
-  </div></footer></div></body></html>
+    Copyright &copy; 1999-2023, The Apache Software Foundation
+    </div></footer></div></body></html>
