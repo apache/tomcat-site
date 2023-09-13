@@ -28,6 +28,29 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.49">
+    <p><strong>Important: Information disclosure</strong>
+       <cve>CVE-2023-41081</cve></p>
+
+    <p>In some circumstances, such as when a configuration included
+       <code>JkOptions +ForwardDirectories</code> but the configuration did not
+       provide explicit mounts for all possible proxied requests, mod_jk would
+       use an implicit mapping and map the request to the first defined worker.
+       Such an implicit mapping could result in the unintended exposure of the
+       status worker and/or bypass security constraints configured in httpd. As
+       of JK 1.2.49, the implicit mapping functionality has been removed and all
+       mappings must now be via explicit configuration.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="0095b6cb84f41313ee4c0364b49c766168790792"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 7 July 2023. The
+       issue was made public on 13 September 2023.</p>
+
+    <p>Affects: JK 1.2.0-1.2.48 (mod_jk only)</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat JK Connector 1.2.46">
 
     <p><i>Note: The issue below was fixed in Apache Tomcat JK Connector 1.2.45
