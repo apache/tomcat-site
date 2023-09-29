@@ -44,6 +44,7 @@
   <xsl:param    name="buglink"       select="'https://bz.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'https://svn.apache.org/viewvc?view=rev&amp;rev='"/>
   <xsl:param    name="hashlink"      select="'https://github.com/apache/tomcat/commit/'"/>
+  <xsl:param    name="connectorshashlink"      select="'https://github.com/apache/tomcat-connectors/commit/'"/>
   <xsl:param    name="cvelink"       select="'http://cve.mitre.org/cgi-bin/cvename.cgi?name='"/>
 
   <!-- Defined variables (non-overrideable) -->
@@ -357,6 +358,12 @@
   <!-- Link to a git hash -->
   <xsl:template match="hashlink">
       <xsl:variable name="link"><xsl:value-of select="$hashlink"/><xsl:value-of select="@hash"/></xsl:variable>
+      <a href="{$link}"><xsl:value-of select="substring(@hash, 1, 8)"/></a>
+  </xsl:template>
+
+  <!-- Link to a git hash in tomcat-connector  -->
+  <xsl:template match="connectorshashlink">
+      <xsl:variable name="link"><xsl:value-of select="$connectorshashlink"/><xsl:value-of select="@hash"/></xsl:variable>
       <a href="{$link}"><xsl:value-of select="substring(@hash, 1, 8)"/></a>
   </xsl:template>
 
