@@ -56,6 +56,75 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.94" rtext="2023-10-10">
+
+    <p><strong>Important: Request smuggling</strong>
+       <cve>CVE-2023-45648</cve></p>
+
+    <p>Tomcat did not correctly parse HTTP trailer headers. A specially crafted,
+       invalid trailer header could cause Tomcat to treat a single request as
+       multiple requests leading to the possibility of request smuggling when
+       behind a reverse proxy.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="59583245639d8c42ae0009f4a4a70464d3ea70a0"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 12 September 2023.
+       The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 8.5.0 to 8.5.93</p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2023-44487</cve></p>
+
+    <p>Tomcat's HTTP/2 implementation was vulnerable to the rapid reset
+       attack. The denial of service typically manifested as an
+       <code>OutOfMemoryError</code>.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="944332bb15bd2f3bf76ec2caeb1ff0a58a3bc628"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 14 September 2023.
+       The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 8.5.0 to 8.5.93</p>
+
+    <p><strong>Important: Information Disclosure</strong>
+       <cve>CVE-2023-42795</cve></p>
+
+    <p>When recycling various internal objects, including the request and the
+       response, prior to re-use by the next request/response, an error could
+       cause Tomcat to skip some parts of the recycling process leading to
+       information leaking from the current request/response to the next.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="30f8063d7a9b4c43ae4722f5e382a76af1d7a6bf"/>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 13 September
+       2023. The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 8.5.0 to 8.5.93</p>
+
+    <p><strong>Low: Denial of Service</strong>
+       <cve>CVE-2023-42794</cve></p>
+
+    <p>Tomcat's internal fork of a Commons FileUpload included an unreleased, in
+       progress refactoring that exposed a potential denial of service on
+       Windows if a web application opened a stream for an uploaded file but
+       failed to close the stream. The file would never be deleted from disk
+       creating the possibility of an eventual denial of service due to the disk
+       being full.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="c99ffc30e95ddc4daede564d08cb5ea2b9a9da65"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 1 September
+       2023. The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 8.5.85 to 8.5.93</p>
+
+  </section>
+ 
   <section name="Fixed in Apache Tomcat 8.5.93" rtext="2023-08-25">
 
     <p><strong>Moderate: Open redirect</strong>

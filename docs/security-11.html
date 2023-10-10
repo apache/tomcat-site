@@ -36,7 +36,56 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.0-M12"><span class="pull-right">2023-10-10</span> Fixed in Apache Tomcat 11.0.0-M12</h3><div class="text">
+
+    <p><strong>Important: Request smuggling</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45648" rel="nofollow">CVE-2023-45648</a></p>
+
+    <p>Tomcat did not correctly parse HTTP trailer headers. A specially crafted,
+       invalid trailer header could cause Tomcat to treat a single request as
+       multiple requests leading to the possibility of request smuggling when
+       behind a reverse proxy.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/eb5c094e5560764cda436362254997511a3ca1f6">eb5c094e</a>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 12 September 2023.
+       The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.0-M11</p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44487" rel="nofollow">CVE-2023-44487</a></p>
+
+    <p>Tomcat's HTTP/2 implementation was vulnerable to the rapid reset
+       attack. The denial of service typically manifested as an
+       <code>OutOfMemoryError</code>.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/9cdfe25bad707f34b3e5da2994f3f1952a163c3e">9cdfe25b</a>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 14 September 2023.
+       The issue was made public on 10 October 2023.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.0-M11</p>
+
+    <p><strong>Important: Information Disclosure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-42795" rel="nofollow">CVE-2023-42795</a></p>
+
+    <p>When recycling various internal objects, including the request and the
+       response, prior to re-use by the next request/response, an error could
+       cause Tomcat to skip some parts of the recycling process leading to
+       information leaking from the current request/response to the next.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/d6db22e411307c97ddf78315c15d5889356eca38">d6db22e4</a>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 13 September
+       2023. The issue was made public on 10 October 2023.</p>
+
+   <p>Affects: 11.0.0-M1 to 11.0.0-M11</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.0-M11"><span class="pull-right">2023-08-25</span> Fixed in Apache Tomcat 11.0.0-M11</h3><div class="text">
 
     <p><strong>Moderate: Open redirect</strong>
