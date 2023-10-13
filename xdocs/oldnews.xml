@@ -28,6 +28,39 @@
 </ul>
 </section>
 
+<section name="Tomcat 9.0.81 Released" rtext="2023-10-10">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.81
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.81 include:</p>
+<ul>
+  <li>Update Tomcat Native to 1.2.39 to pick up Windows binaries built with
+      OpenSSL 3.0.11.</li>
+  <li>Provide a lifecycle listener that will automatically reload TLS
+      configurations a set time before the certificate is due to expire.
+      This is intended to be used with third-party tools that regularly
+      renew TLS certificates.</li>
+  <li>Improve performance of EL expressions in JSPs that use implicit
+      objects.</li>
+  <li>Several improvements to thread safety and recycling cleanup.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.81_(remm)">Tomcat 9
+changelog</a>.
+</p>
+
+<p><strong>Note:</strong> There are known regressions:
+with jdbc-pool (see bug <bug>67664</bug>) and
+with Connector configurations when <code>compression</code> is enabled
+(see bug <bug>67670</bug>). They will be fixed in the next release.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 10.1.13 Released" rtext="2023-08-25">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.13
