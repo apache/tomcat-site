@@ -10,6 +10,7 @@ EDITOR=${EDITOR:-vi}
 OLD_RELEASE=$1
 NEW_RELEASE=$2
 RELEASE_DATE=${3:-$(date -I)}
+RELEASE_MANAGER=${4:-${USER}}
 
 function fail_migration_patch() {
   FAILED_MIGRATION=1
@@ -21,20 +22,21 @@ function fail_migration_patch() {
 }
 
 if [ \( "$1" == '-h' \) -o \( "$1" == "--help" \) ] ; then
-  echo "Usage: $0 oldrelease newrelease [release date]"
+  echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
   echo
-  echo e.g. $0 8.5.86 8.5.87 2023-03-03
+  echo e.g. $0 8.5.86 8.5.87 2023-03-03 asfuser
   echo
   echo The release date will default to "today" in your current time zone.
+  echo "The release-manager will default to your current username (${USER})"
   echo
   exit 0
 fi
 if [ \( "" == "$NEW_RELEASE" \) -o \( "" == "$OLD_RELEASE" \) ] ; then
   >&2 echo "You must specify both new and old release numbers"
   >&2 echo
-  >&2 echo "Usage: $0 oldrelease newrelease [release date]"
+  >&2 echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
   >&2 echo
-  >&2 echo e.g. $0 8.5.85 8.5.86 2023-03-03
+  >&2 echo e.g. $0 8.5.85 8.5.86 2023-03-03 asfuser
   >&2 echo
   exit 1
 fi
@@ -110,15 +112,30 @@ sed -i '' -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RE
 echo "Patching ${MIGRATION_FILENAME}..."
 "${SCRIPT_DIR}/migration.pl" "${OLD_RELEASE}" "${NEW_RELEASE}" "${MIGRATION_FILENAME}" > "${MIGRATION_FILENAME}.new" && mv "${MIGRATION_FILENAME}.new" "${MIGRATION_FILENAME}" || fail_migration_patch
 
-echo
-echo "Now you will have to edit xdocs/index.xml and xdocs/oldnews.xml"
-echo "to move the ${OLD_RELEASE} release announcement to xdocs/oldnews.xml"
-echo "and add the ${NEW_RELEASE} release announcement to xdocs/index.xml."
-echo
-echo "Press ENTER to continue..."
-read
+tools/news.pl ${OLD_RELEASE} ${NEW_RELEASE} ${RELEASE_DATE} ${RELEASE_MANAGER}
 
-"${EDITOR}" xdocs/index.xml xdocs/oldnews.xml
+if [ "0" = "$?" ] ; then
+  echo
+  echo Automated news patching was successful. You will have to modify
+  echo the release announcement to include the changelog highlights.
+  echo Just search the template for TODO.
+  echo
+  echo Press ENTER to edit xdocs/index.xml...
+  read
+
+  "${EDITOR}" xdocs/index.xml
+else
+  echo
+  echo Automated news patching was not successful. You will have to edit
+  echo xdocs/index.xml and xdocs/oldnews.xml
+  echo to move the ${OLD_RELEASE} release announcement to xdocs/oldnews.xml
+  echo and add the ${NEW_RELEASE} release announcement to xdocs/index.xml.
+  echo
+  echo "Press ENTER to continue..."
+  read
+
+  "${EDITOR}" xdocs/index.xml xdocs/oldnews.xml
+fi
 
 # xdocs/doap_Tomcat.rdf
 # Set the release date and revision number e.g.
@@ -142,8 +159,31 @@ echo "Building release documents..."
 
 ant "release-${MINOR_RELEASE}"
 
+if [ "0" != "$?" ] ; then
+  echo Building the release documents has failed. You might want to re-run
+  echo this command:
+  echo
+  echo "   ant release-${MINOR_RELEASE}"
+  echo
+  echo and then deal with the revision-control changes. You should run
+  echo \'svn status\' to see which files changed, and maybe an \'svn diff\'
+  echo on some of them.
+else
+  echo "Adding any new files to svn..."
+  svn status | grep '^?' | sed -e 's/^?//' | xargs svn add
+
+  echo "Removing any old files from svn..."
+  svn status | grep '^!' | sed -e 's/^!//' | xargs svn delete
+
+  echo Checking to see if there are other things to be done with svn...
+  svn status | grep '^[^MDA]'
+
+  if [ "1" = "$?" ] ; then
+    echo No further svn changes appear necessary.
+  fi
+fi
+
 echo
-echo "Done. You should run 'svn status' to see which files changed, and maybe an 'svn diff' on some of them."
 if [ "1" == "$FAILED_MIGRATION" ] ; then
 echo
 echo "NOTE: The patch for ${MIGRATION_FILENAME} failed; you may want to examine the situation manually."
