@@ -143,7 +143,7 @@ echo "Building release documents..."
 ant "release-${MINOR_RELEASE}"
 
 echo
-echo "Done. You should run 'svn status' to see whcih files changed, and maybe an 'svn diff' on some of them."
+echo "Done. You should run 'svn status' to see which files changed, and maybe an 'svn diff' on some of them."
 if [ "1" == "$FAILED_MIGRATION" ] ; then
 echo
 echo "NOTE: The patch for ${MIGRATION_FILENAME} failed; you may want to examine the situation manually."
