@@ -65,7 +65,7 @@ while(<NEWS>) {
     print NEWS_NEW;
     print "Found the beginning of the news. Adding new release announcement template.\n";
 
-    open(ANNOUNCEMENT_TEMPLATE, '<', "tools/news-template-${major_version}.txt") or die "Cannot open tools/news-template-${major_version}.txt for reading.\n";
+    open(ANNOUNCEMENT_TEMPLATE, '<', "tools/news-template-${major_version}.xml") or die "Cannot open tools/news-template-${major_version}.txt for reading.\n";
 
     while(<ANNOUNCEMENT_TEMPLATE>) {
       s/\{NEW_RELEASE\}/$new_release/g;
