@@ -63,17 +63,21 @@ changelog</a>.
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
-</div><h3 id="Tomcat_8.5.95_Released"><span class="pull-right">2023-10-16</span> Tomcat 8.5.95 Released</h3><div class="text">
+</div><h3 id="Tomcat_8.5.96_Released"><span class="pull-right">2023-11-13</span> Tomcat 8.5.96 Released</h3><div class="text">
 <p> 
-The Apache Tomcat Project is proud to announce the release of version 8.5.95
+The Apache Tomcat Project is proud to announce the release of version 8.5.96
 of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.94 include:
+Java EE 7 platform. The notable changes compared to 8.5.95 include:
 </p>
 <ul>
-  <li>Correct a regression in 8.5.94 that broke the Tomcat JBDC
-      connection pool</li>
+  <li>Fix reloading TLS configuration could cause the Connector to
+      refuse new connections or the JVM to crash.</li>
 
-  <li>Correct a regression in 8.5.94 that broke HTTP compression</li>
+  <li>Ensure that an IOException during the reading of the request
+      always triggers error handling, regardless of whether the
+      application swallows the exception.</li>
+
+  <li>The status manager servlet can now output statistics as json.</li>
 </ul>
 <p>
 Full details of these changes, and all the other changes, are available in the
