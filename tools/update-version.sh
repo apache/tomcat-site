@@ -21,7 +21,7 @@ fail_migration_patch() {
   rm -f "${MIGRATION_FILENAME}.new"
 }
 
-if [ \( "$1" == '-h' \) -o \( "$1" == "--help" \) ] ; then
+if [ \( "$1" = '-h' \) -o \( "$1" = "--help" \) ] ; then
   echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
   echo
   echo e.g. $0 8.5.86 8.5.87 2023-03-03 asfuser
@@ -31,7 +31,7 @@ if [ \( "$1" == '-h' \) -o \( "$1" == "--help" \) ] ; then
   echo
   exit 0
 fi
-if [ \( "" == "$NEW_RELEASE" \) -o \( "" == "$OLD_RELEASE" \) ] ; then
+if [ \( "" = "$NEW_RELEASE" \) -o \( "" = "$OLD_RELEASE" \) ] ; then
   >&2 echo "You must specify both new and old release numbers"
   >&2 echo
   >&2 echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
@@ -43,8 +43,9 @@ fi
 
 MINOR_RELEASE=$( expr "${NEW_RELEASE}" : '^\([0-9]*\.[0-9]*\)' )
 MAJOR_RELEASE=$( expr "${NEW_RELEASE}" : '^\([0-9]*\)' )
+exit
 
-if [ "$DEBUG" == "1" ] ; then
+if [ "$DEBUG" = "1" ] ; then
   echo major=$MAJOR_RELEASE
   echo minor=$MINOR_RELEASE
   echo $NEW_RELEASE / $OLD_RELEASE
@@ -184,7 +185,7 @@ else
 fi
 
 echo
-if [ "1" == "$FAILED_MIGRATION" ] ; then
+if [ "1" = "$FAILED_MIGRATION" ] ; then
 echo
 echo "NOTE: The patch for ${MIGRATION_FILENAME} failed; you may want to examine the situation manually."
 fi
