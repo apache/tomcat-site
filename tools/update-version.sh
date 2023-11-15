@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Assists updating the web site to include a new release.
 #
@@ -12,7 +12,7 @@ NEW_RELEASE=$2
 RELEASE_DATE=${3:-$(date -I)}
 RELEASE_MANAGER=${4:-${USER}}
 
-function fail_migration_patch() {
+fail_migration_patch() {
   FAILED_MIGRATION=1
 
   echo "====="
