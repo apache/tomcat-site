@@ -56,6 +56,26 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 8.5.95" rtext="2023-11-13">
+
+    <p><strong>Important: Request smuggling</strong>
+       <cve>CVE-2023-46589</cve></p>
+
+    <p>Tomcat did not correctly parse HTTP trailer headers. A specially crafted
+       trailer header that exceeded the header size limit could cause Tomcat to
+       treat a single request as multiple requests leading to the possibility of
+       request smuggling when behind a reverse proxy.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="aa92971e879a519384c517febc39fd04c48d4642"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 20 October 2023.
+       The issue was made public on 28 November 2023.</p>
+
+    <p>Affects: 8.5.0 to 8.5.95</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 8.5.94" rtext="2023-10-10">
 
     <p><strong>Important: Request smuggling</strong>
