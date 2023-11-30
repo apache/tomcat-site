@@ -1,0 +1,168 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="res/css/tomcat.css" rel="stylesheet" type="text/css"><link href="res/css/fonts/fonts.css" rel="stylesheet" type="text/css"><title>Apache Tomcat&reg; - Upgrading Apache Tomcat</title><meta name="author" content="Apache Tomcat Project"><meta name="google-site-verification" content="nA9F0GvGNjVCU9W7HBziONQVx6FehvgQglI1X7WPfRw"><script src="https://www.apachecon.com/event-images/snippet.js"></script></head><body><div id="wrapper"><header id="header"><div class="clearfix"><div class="menu-toggler pull-left" tabindex="1"><div class="hamburger"></div></div><a href="http://tomcat.apache.org/"><img class="tomcat-logo pull-left noPrint" alt="Tomcat Home" src="res/images/tomcat.png"></a><h1 class="pull-left">Apache Tomcat<sup>&reg;</sup></h1><div class="asf-logos pull-right"><a href="https://www.apache.org/foundation/contributing.html" target="_blank" class="pull-left"><img src="https://www.apache.org/images/SupportApache-small.png" class="support-asf" alt="Support Apache"></a><a href="http://www.apache.org/" target="_blank" class="pull-left"><img src="res/images/asf_logo.svg" class="asf-logo" alt="The Apache Software Foundation"></a></div></div></header><main id="middle"><div><div id="mainLeft"><div id="nav-wrapper"><form action="https://www.google.com/search" method="get"><div class="searchbox"><input value="tomcat.apache.org" name="sitesearch" type="hidden"><input aria-label="Search text" placeholder="Search&hellip;" required="required" name="q" id="query" type="search"><button>GO</button></div></form><div class="asfevents"><a class="acevent" data-format="square" data-width="150"></a></div><nav><div><h2>Apache Tomcat</h2><ul><li><a href="./index.html">Home</a></li><li><a href="./taglibs.html">Taglibs</a></li><li><a href="./maven-plugin.html">Maven Plugin</a></li></ul></div><div><h2>Download</h2><ul><li><a href="./whichversion.html">Which version?</a></li><li><a href="https://tomcat.apache.org/download-11.cgi">Tomcat 11 (alpha)</a></li><li><a href="https://tomcat.apache.org/download-10.cgi">Tomcat 10</a></li><li><a href="https://tomcat.apache.org/download-90.cgi">Tomcat 9</a></li><li><a href="https://tomcat.apache.org/download-80.cgi">Tomcat 8</a></li><li><a href="https://tomcat.apache.org/download-migration.cgi">Tomcat Migration Tool for Jakarta EE</a></li><li><a href="https://tomcat.apache.org/download-connectors.cgi">Tomcat Connectors</a></li><li><a href="https://tomcat.apache.org/download-native.cgi">Tomcat Native</a></li><li><a href="https://tomcat.apache.org/download-taglibs.cgi">Taglibs</a></li><li><a href="https://archive.apache.org/dist/tomcat/">Archives</a></li></ul></div><div><h2>Documentation</h2><ul><li><a href="./tomcat-11.0-doc/index.html">Tomcat 11.0 (alpha)</a></li><li><a href="./tomcat-10.1-doc/index.html">Tomcat 10.1</a></li><li><a href="./tomcat-9.0-doc/index.html">Tomcat 9.0</a></li><li><a href="./tomcat-8.5-doc/index.html">Tomcat 8.5</a></li><li><a href="./upgrading.html">Upgrading</a></li><li><a href="./connectors-doc/">Tomcat Connectors</a></li><li><a href="./native-doc/">Tomcat Native 2</a></li><li><a href="./native-1.2-doc/">Tomcat Native 1.2</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT">Wiki</a></li><li><a href="./migration.html">Migration Guide</a></li><li><a href="./presentations.html">Presentations</a></li><li><a href="https://cwiki.apache.org/confluence/x/Bi8lBg">Specifications</a></li></ul></div><div><h2>Problems?</h2><ul><li><a href="./security.html">Security Reports</a></li><li><a href="./findhelp.html">Find help</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="./lists.html">Mailing Lists</a></li><li><a href="./bugreport.html">Bug Database</a></li><li><a href="./irc.html">IRC</a></li></ul></div><div><h2>Get Involved</h2><ul><li><a href="./getinvolved.html">Overview</a></li><li><a href="./source.html">Source code</a></li><li><a href="./ci.html">Buildbot</a></li><li><a href="https://cwiki.apache.org/confluence/x/vIPzBQ">Translations</a></li><li><a href="./tools.html">Tools</a></li></ul></div><div><h2>Media</h2><ul><li><a href="https://twitter.com/theapachetomcat">Twitter</a></li><li><a href="https://www.youtube.com/c/ApacheTomcatOfficial">YouTube</a></li><li><a href="https://blogs.apache.org/tomcat/">Blog</a></li></ul></div><div><h2>Misc</h2><ul><li><a href="./whoweare.html">Who We Are</a></li><li><a href="https://www.redbubble.com/people/comdev/works/30885254-apache-tomcat">Swag</a></li><li><a href="./heritage.html">Heritage</a></li><li><a href="http://www.apache.org">Apache Home</a></li><li><a href="./resources.html">Resources</a></li><li><a href="./contact.html">Contact</a></li><li><a href="./legal.html">Legal</a></li><li><a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy</a></li><li><a href="https://www.apache.org/foundation/contributing.html">Support Apache</a></li><li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li><li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li><li><a href="http://www.apache.org/licenses/">License</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2 style="display: none;">Content</h2><h3 id="Overview">Overview</h3><div class="text">
+    Upgrading Apache Tomcat can be straightforward or complicated, depending
+    upon the complexity of your environment. This document explains some of the
+    basics of upgrading Apache Tomcat and can be used as a starting point for
+    you to establish your own environment-specific upgrade plans and procedures.
+  </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+    <ul><li><a href="#Not_Covered">Not Covered</a><ol><li><a href="#Patches">Patches</a></li><li><a href="#Embdded_Tomcat">Embdded Tomcat</a></li></ol></li><li><a href="#Upgrade_Types">Upgrade Types</a></li><li><a href="#Versioning">Versioning</a></li><li><a href="#Major_Upgrades">Major Upgrades</a><ol><li><a href="#Major_Upgrades/Read_the_Migration_Guide">Read the Migration Guide</a></li><li><a href="#Migrating_your_server.xml_file">Migrating your server.xml file</a></li><li><a href="#Other_Important_Files">Other Important Files</a></li></ol></li><li><a href="#Minor_Upgrades">Minor Upgrades</a><ol><li><a href="#Minor_Upgrades/Read_the_Migration_Guide">Read the Migration Guide</a></li></ol></li><li><a href="#Split_Configurations">Split Configurations</a></li></ul>
+  </div><h3 id="Not_Covered">Not Covered</h3><div class="text">
+    <p>
+      There are some topics <i>not</i> covered by this basic upgrade guide.
+    </p>
+
+    <div class="subsection"><h4 id="Patches">Patches</h4><div class="text">
+      <p>
+        The Apache Tomcat project does not provide patches. If a feature,
+        bug-fix, or security patch is announced in a specific version of
+        Tomcat, then you must upgrade to that version. You may be able to get
+        patches from your OS vendor or other technical-support organization,
+        but the Apache Tomcat project will not supply such patches.
+      </p>
+    </div></div>
+
+    <div class="subsection"><h4 id="Embdded_Tomcat">Embdded Tomcat</h4><div class="text">
+      <p>
+        Upgrading Apache Tomcat being used in an embdded environment is not
+        covered in this documentation. It is assumed that if you are using
+        Apache Tomcat in an embdded environment, then you have the knowledge
+        necessary to perform an upgrade without introductory documentation as
+        is provided, here.
+      </p>
+    </div></div>
+  </div><h3 id="Upgrade_Types">Upgrade Types</h3><div class="text">
+    <p>
+      Upgrades can be separated into two different kinds of upgrades: upgrades
+      between major versions (e.g. from 9.0 to 10.0) &ndash; known as a "major
+      upgrade", and upgrades within a single version (e.g. 9.0.45 to 9.0.85)
+      &ndash; known as a "minor upgrade". The steps to follow are different for
+      each type of upgrade.
+    </p>
+
+    <h3 id="Versioning">Versioning</h3><div class="text">
+      Apache Tomcat version numbers are of the form X.Y.Z where X.Y is the
+      "major" version number, and the Z is the revision-number within the major
+      version. Upgrading between Tomcat 8.0 and 8.5 is considered a "major
+      upgrade" while upgrading from 8.5.25 to 8.5.85 is considered a "minor
+      upgrade".
+    </div>
+  </div><h3 id="Major_Upgrades">Major Upgrades</h3><div class="text">
+    <p>
+      When upgrading between major versions of Tomcat (e.g. 9.0 to 10.0), it is
+      best to start with a stock installation of Tomcat, then and adapt the new
+      configuration files to meet your needs, add your applications, etc.
+    </p>
+
+    <div class="subsection"><h4 id="Major_Upgrades/Read_the_Migration_Guide">Read the Migration Guide</h4><div class="text">
+      <p>
+        You should read the migration guide(s) that are relevant to your
+        particular upgrade page. If you are upgrading from Apache Tomcat 9.0
+        to Apache Tomcat 10.0, you should read the "Tomcat 10.0 Migration
+        Guide" which covers everything that applies for upgrading from the
+        previous version.
+      </p>
+      <p> 
+        If you are upgrading past several versions at once, you should read all
+        the migration guides in between. For example, if you are upgrading from
+        Tomcat 8.5 to Tomcat 10.1, you should read the "Tomcat 9.0 Migration
+        Guide", the "Tomcat 10.0 Migration Guide", and the "Tomcat 10.1
+        Migration Guide".
+      </p>
+    </div></div>
+
+    <div class="subsection"><h4 id="Migrating_your_server.xml_file">Migrating your server.xml file</h4><div class="text">
+      <p>
+        Probably the most important configuration file you will have to migrate
+        is your <code>conf/server.xml</code> file.
+      </p>
+      <p>
+        One way to quickly determine what kinds of changes might be necessary
+        for your <code>server.xml</code> file is to use the <code>diff</code>
+        program to compare your existing old-Tomcat-version file with the stock
+        configuation file that came with your old version of Apache Tomcat.
+      </p>
+      <p>
+        For example:
+      </p>
+      <div class="codeBox"><pre><code>$ diff /path/to/stock/tomcat/conf/server.xml /path/to/your/tomcat/conf/server.xml</code></pre></div>
+
+      <p>
+        This will display the changes made to the original file that are unique
+        to your environment. You can adapt these changes to the new
+        installation of your new Apache Tomcat version.
+      </p>
+    </div></div>
+
+    <div class="subsection"><h4 id="Other_Important_Files">Other Important Files</h4><div class="text">
+      <p>
+        There are some other configuration files you may want to copy or adapt
+        from your previous installation. Here is a list of those other files
+        you may have customized in your old installation.
+      </p>
+      <ul>
+        <li>conf/web.xml</li>
+        <li>conf/context.xml</li>
+        <li>conf/tomcat-users.xml</li>
+        <li>conf/logging.properties</li>
+        <li>bin/setenv.sh (if it exists)</li>
+        <li>conf/catalina.properties</li>
+        <li>conf/catalina.policy</li>
+        <li>conf/jaspic-providers.xml</li>
+      </ul>
+      <p>
+        If you are unsure, you can use the same technique shown above to check
+        for any differences between your installation and a stock Apache Tomcat
+        configuration file.
+      </p>
+    </div></div>
+  </div><h3 id="Minor_Upgrades">Minor Upgrades</h3><div class="text">
+    <p>
+      Often, minor upgrades are very simple and you can use the same
+      configuration files as the previous version with no changes.
+    </p>
+
+    <div class="subsection"><h4 id="Minor_Upgrades/Read_the_Migration_Guide">Read the Migration Guide</h4><div class="text">
+      <p>
+        It is still important to read the <a href="migration.html">Migration
+        Guide</a> for the major version you are using, specifically the
+        "upgrading" section.
+      </p>
+      <p>
+        The Migration Guide also contains an "Noteable Changes" section which
+        includes changes within the major version &ndash; that is, a minor version
+        within a major version's revision numbers &ndash; which contains a very
+        important change. These kinds of changes include the the introduction
+        of new defaults, new requirements (usually for security), or breaking
+        changes from previous versions (also usually for security).
+      </p>
+      <p>
+        Finally, the Migration Guide has a section that allows you to compare the
+        stock configuration files between minor versions to see if any important
+        changes have been made between those versions. It's easy to use: simply
+        choose your old-version and new-version from the drop-down boxes on the
+        Migration Guide page and then "View Differences".
+      </p>
+    </div></div>
+  </div><h3 id="Split_Configurations">Split Configurations</h3><div class="text">
+    <p>
+      In <code>RUNNING.txt</code>, there is a section titled <i>Advanced
+      Configuration - Multiple Tomcat Instances</i>. It is intended to describe
+      how a single Apache Tomcat installation can be used to run multiple
+      separate server instances. This technique can be used to help simplify
+      upgrades.
+    </p>
+    <p>
+      There is a presentation available which will walk you through the process
+      of splitting your installation, and then describes how to perform an
+      upgrade.
+    </p>
+    <p>
+      <a href="presentations.html#latest-split-installation"><i>Split your Tomcat Installation for Easier Upgrades</i></a>
+    </p>
+  </div></div></div></div></main><footer id="footer">
+    Copyright &copy; 1999-2023, The Apache Software Foundation
+    <br>
+    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
+    project logo are either registered trademarks or trademarks of the Apache
+    Software Foundation.
+  </footer></div><script src="res/js/tomcat.js"></script></body></html>
