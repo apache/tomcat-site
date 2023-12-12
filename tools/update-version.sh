@@ -43,7 +43,6 @@ fi
 
 MINOR_RELEASE=$( expr "${NEW_RELEASE}" : '^\([0-9]*\.[0-9]*\)' )
 MAJOR_RELEASE=$( expr "${NEW_RELEASE}" : '^\([0-9]*\)' )
-exit
 
 if [ "$DEBUG" = "1" ] ; then
   echo major=$MAJOR_RELEASE
