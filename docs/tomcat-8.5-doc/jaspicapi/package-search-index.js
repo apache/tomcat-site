@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"javax.security.auth.message"},{"l":"javax.security.auth.message.callback"},{"l":"javax.security.auth.message.config"},{"l":"javax.security.auth.message.module"}]
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"javax.security.auth.message"},{"l":"javax.security.auth.message.callback"},{"l":"javax.security.auth.message.config"},{"l":"javax.security.auth.message.module"}];updateSearchResults();

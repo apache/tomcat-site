@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"javax.websocket"},{"l":"javax.websocket.server"}]
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"javax.websocket"},{"l":"javax.websocket.server"}];updateSearchResults();
