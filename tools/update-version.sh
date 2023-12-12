@@ -68,7 +68,7 @@ else
 fi
 
 # Check to see if the release artifacts are available from the download site...
-found=$( curl -Isi https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ | grep ^HTTP | awk '{print $2}' )
+found=$( curl -Isiw '%{http_code}' -o /dev/null https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ )
 
 if [ "200" '!=' "$found" ] ; then
   echo It appears that the release artifacts for release ${NEW_RELEASE} are not yet
