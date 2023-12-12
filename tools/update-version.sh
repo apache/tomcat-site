@@ -81,23 +81,37 @@ if [ "200" '!=' "$found" ] ; then
   exit
 fi
 
+osinfo="$( uname -a )"
+
+if [ "0" != "$( expr "$osinfo" : ".*Linux" )" ] ; then
+  OS=Linux
+
+  SED_IN_PLACE_ARG="--in-place"
+elif [ "0" '!=' "$( expr "$osinfo" : ".*Darwin" )" ] ; then
+  OS=MacOS
+  SED_IN_PLACE_ARG="-i ''"
+else
+  OS=Unknown
+  SED_IN_PLACE_ARG="-i ''"
+fi
+
 # build.properties.default
 # Set the current minor release to point to the new release
 # e.g. tomcat10.0=10.0.27
 echo "Patching build.properties.default..."
-sed -i '' -e "s/tomcat${MINOR_RELEASE}=.*/tomcat${MINOR_RELEASE}=$NEW_RELEASE/" build.properties.default
+sed ${SED_IN_PLACE_ARG} -e "s/tomcat${MINOR_RELEASE}=.*/tomcat${MINOR_RELEASE}=$NEW_RELEASE/" build.properties.default
 
 # Download file
 # set the version number to the latest
 # e.g. [define v]8.5.87[end]
 echo "Patching ${DOWNLOAD_FILENAME}..."
-sed -i '' -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
+sed ${SED_IN_PLACE_ARG} -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
 
 # whichversion.xml
 # set the current point-release version 
 # e.g. <td>10.1.7</td>
 echo "Patching xdocs/whichversion.xml..."
-sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
+sed ${SED_IN_PLACE_ARG} -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
 
 # CHANGELOG
 #
@@ -106,8 +120,9 @@ sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "x
 # Set the release date.
 # e.g. <span id="Tomcat_8.5.87_(schultz)_rtext" style="float: right;">2023-03-03</span>
 CHANGELOG_FILENAME=docs/tomcat-${MINOR_RELEASE}-doc/changelog.html
+svn update "${CHANGELOG_FILENAME}"
 echo "Patching ${CHANGELOG_FILENAME}..."
-sed -i '' -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RELEASE_DATE}/" "${CHANGELOG_FILENAME}"
+sed ${SED_IN_PLACE_ARG} -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RELEASE_DATE}/" "${CHANGELOG_FILENAME}"
 
 # Migration file
 # Add new entries for the old and new releases like this:
@@ -135,7 +150,7 @@ if [ "0" = "$?" ] ; then
   echo Just search the template for TODO.
   echo
   echo Press ENTER to edit xdocs/index.xml...
-  read
+  read dummy
 
   "${EDITOR}" xdocs/index.xml
 else
@@ -146,7 +161,7 @@ else
   echo and add the ${NEW_RELEASE} release announcement to xdocs/index.xml.
   echo
   echo "Press ENTER to continue..."
-  read
+  read dummy
 
   "${EDITOR}" xdocs/index.xml xdocs/oldnews.xml
 fi
@@ -163,7 +178,7 @@ fi
 #
 # This is difficult/impossible to do with just sed. This is also difficult to do
 # with XSLT as it will re-format the file in some ways that make it less readable.
-# sed -i '' -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
+# sed ${SED_IN_PLACE_ARG} -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
 #
 # We will do it in Perl
 echo "Patching xdocs/doap_Tomcat.rdf..."
