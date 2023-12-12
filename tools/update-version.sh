@@ -67,6 +67,8 @@ else
   MIGRATION_FILENAME=xdocs/migration-${MINOR_RELEASE}.xml
 fi
 
+osinfo="$( uname -a )"
+
 # Check to see if the release artifacts are available from the download site...
 found=$( curl -Isiw '%{http_code}' -o /dev/null https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ )
 
@@ -81,37 +83,43 @@ if [ "200" '!=' "$found" ] ; then
   exit
 fi
 
-osinfo="$( uname -a )"
-
 if [ "0" != "$( expr "$osinfo" : ".*Linux" )" ] ; then
   OS=Linux
-
-  SED_IN_PLACE_ARG="--in-place"
 elif [ "0" '!=' "$( expr "$osinfo" : ".*Darwin" )" ] ; then
   OS=MacOS
-  SED_IN_PLACE_ARG="-i ''"
 else
   OS=Unknown
-  SED_IN_PLACE_ARG="-i ''"
 fi
 
 # build.properties.default
 # Set the current minor release to point to the new release
 # e.g. tomcat10.0=10.0.27
 echo "Patching build.properties.default..."
-sed ${SED_IN_PLACE_ARG} -e "s/tomcat${MINOR_RELEASE}=.*/tomcat${MINOR_RELEASE}=$NEW_RELEASE/" build.properties.default
+if [ "$OS" = "Linux" ] ; then
+  sed --in-place -e "s/tomcat${MINOR_RELEASE}=.*/tomcat${MINOR_RELEASE}=$NEW_RELEASE/" build.properties.default
+else
+  sed -i '' -e "s/tomcat${MINOR_RELEASE}=.*/tomcat${MINOR_RELEASE}=$NEW_RELEASE/" build.properties.default
+fi
 
 # Download file
 # set the version number to the latest
 # e.g. [define v]8.5.87[end]
 echo "Patching ${DOWNLOAD_FILENAME}..."
-sed ${SED_IN_PLACE_ARG} -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
+if [ "$OS" = "Linux" ] ; then
+  sed --in-place -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
+else
+  sed -i '' -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
+fi
 
 # whichversion.xml
 # set the current point-release version 
 # e.g. <td>10.1.7</td>
 echo "Patching xdocs/whichversion.xml..."
-sed ${SED_IN_PLACE_ARG} -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
+if [ "$OS" = "Linux" ] ; then
+  sed --in-place -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
+else
+  sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
+if
 
 # CHANGELOG
 #
@@ -122,7 +130,11 @@ sed ${SED_IN_PLACE_ARG} -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEA
 CHANGELOG_FILENAME=docs/tomcat-${MINOR_RELEASE}-doc/changelog.html
 svn update "${CHANGELOG_FILENAME}"
 echo "Patching ${CHANGELOG_FILENAME}..."
-sed ${SED_IN_PLACE_ARG} -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RELEASE_DATE}/" "${CHANGELOG_FILENAME}"
+if [ "$OS" = "Linux" ] ; then
+  sed --in-place -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RELEASE_DATE}/" "${CHANGELOG_FILENAME}"
+else
+  sed -i '' -e "s/\(<span id=\"Tomcat_${NEW_RELEASE}.*_rtext\"[^>]*>\)[^<]*/\1${RELEASE_DATE}/" "${CHANGELOG_FILENAME}"
+fi
 
 # Migration file
 # Add new entries for the old and new releases like this:
@@ -178,7 +190,7 @@ fi
 #
 # This is difficult/impossible to do with just sed. This is also difficult to do
 # with XSLT as it will re-format the file in some ways that make it less readable.
-# sed ${SED_IN_PLACE_ARG} -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
+# sed --in-place -e "s/<revision>${MINOR_RELEASE}\.[0-9]*<\/revision>/<revision>${NEW_RELEASE}<\/revision>/" "xdocs/doap_Tomcat.rdf"
 #
 # We will do it in Perl
 echo "Patching xdocs/doap_Tomcat.rdf..."
