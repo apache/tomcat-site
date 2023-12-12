@@ -119,7 +119,7 @@ if [ "$OS" = "Linux" ] ; then
   sed --in-place -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
 else
   sed -i '' -e "s/<td>${MINOR_RELEASE}\.[0-9]*<\/td>/<td>${NEW_RELEASE}<\/td>/" "xdocs/whichversion.xml"
-if
+fi
 
 # CHANGELOG
 #
