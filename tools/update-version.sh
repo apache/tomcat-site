@@ -69,6 +69,44 @@ fi
 
 osinfo="$( uname -a )"
 
+if [ "email" = "$5" ] ; then
+  export NEW_RELEASE
+  export OLD_RELEASE
+  export RELEASE_MANAGER
+
+  if [ "" = "$( command -v xpath )" ] ; then
+    export CHANGELOG="===\nTODO Enter several changelog entries\n===\n"
+  else
+    export CHANGELOG=$( xpath  -q -e "/document/body/section[@name = 'Tomcat ${NEW_RELEASE} Released']/ul/li" xdocs/index.xml | sed -e 's/<li>/ - /' -e 's/<\/li>//' )
+  fi
+
+  if [ "0" '!=' "$( expr "$osinfo" : '.*Darwin' )" ] ; then
+    # We are on MacOS and have a bunch of useful utilities available.
+
+    if [ "" = "$( command -v envsubst )" ] ; then
+      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | sed -e "s/\${NEW_RELEASE}/${NEW_RELEASE}/g" -e "s/\${OLD_RELEASE}/${OLD_RELEASE}/g" -e "s/\${RELEASE_MANAGER}/${RELEASE_MANAGER}/g" )&from=${RELEASE_MANAGER}@apache.org"
+    else
+      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | envsubst )&from=${RELEASE_MANAGER}@apache.org"
+    fi
+  else
+    echo Email template:
+    echo
+    echo "From: ${RELEASE_MANAGER}@apache.org"
+    echo "To: Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org"
+    echo "Reply-To: Tomcat Developers List <dev@tomcat.apache.org>"
+    echo
+    if [ "" '!=' "$( command -v envsubst )" ] ; then
+      cat tools/email-template-${MINOR_RELEASE}.txt | envsubst
+    else
+      cat tools/email-template-${MINOR_RELEASE}.txt | sed -e "s/\${NEW_RELEASE}/${NEW_RELEASE}/g" -e "s/\${OLD_RELEASE}/${OLD_RELEASE}/g" -e "s/\${RELEASE_MANAGER}/${RELEASE_MANAGER}/g"
+#  -e "s/\${CHANGELOG}/${CHANGELOG}/g"
+    fi
+    echo
+  fi
+
+  exit
+fi
+
 # Check to see if the release artifacts are available from the download site...
 found=$( curl -Isiw '%{http_code}' -o /dev/null https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ )
 
