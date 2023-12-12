@@ -67,6 +67,20 @@ else
   MIGRATION_FILENAME=xdocs/migration-${MINOR_RELEASE}.xml
 fi
 
+# Check to see if the release artifacts are available from the download site...
+found=$( curl -Isi https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ | grep ^HTTP | awk '{print $2}' )
+
+if [ "200" '!=' "$found" ] ; then
+  echo It appears that the release artifacts for release ${NEW_RELEASE} are not yet
+  echo available from the primary download site:
+  echo
+  echo https://downloads.apache.org/tomcat/tomcat-${MAJOR_RELEASE}/v${NEW_RELEASE}/ 
+  echo
+  echo Please wait until those artifacts are available and then re-run this script.
+
+  exit
+fi
+
 # build.properties.default
 # Set the current minor release to point to the new release
 # e.g. tomcat10.0=10.0.27
