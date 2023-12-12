@@ -54,6 +54,41 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 10.1.17 Released" rtext="2023-12-12">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.17
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Background processes for a Container no longer execute while lifecycle
+      operations are in progress for that Container.</li>
+
+  <li>Correct unintended escaping of XML in some WebDAV responses.</li>
+
+  <li>Use a 408 status code if a read timeout occurs during HTTP
+      HTTP request processing instead of an HTTP 400 status.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.17_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 8.5.97 Released" rtext="2023-12-12">
 <p> 
 The Apache Tomcat Project is proud to announce the release of version 8.5.97
@@ -109,39 +144,6 @@ changelog</a>.
 </p>
 </section>
 
-<section name="Tomcat 10.1.16 Released" rtext="2023-11-14">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.16
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Fix reloading TLS configuration could cause the Connector to
-      refuse new connections or the JVM to crash.</li>
-
-  <li>Ensure that an IOException during the reading of the request
-      triggers always error handling, regardless of whether the
-      application swallows the exception.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.16_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat 11.0.0-M14 Released" rtext="2023-11-15">
 <p>
