@@ -60,6 +60,7 @@ changelog</a>.
 <a href="download-10.cgi">Download</a>
 </p>
 </section>
+
 <section name="Tomcat 8.5.96 Released" rtext="2023-11-13">
 <p> 
 The Apache Tomcat Project is proud to announce the release of version 8.5.96
@@ -88,6 +89,48 @@ reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
 
 <p style="text-align: center;">
 <a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+<section name="Tomcat 11.0.0-M14 Released" rtext="2023-11-15">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M14
+(alpha) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add OpenSSL integration using the FFM API rather than Tomcat Native. OpenSSL
+    support may be enabled by adding the
+    <code>org.apache.catalina.core.OpenSSLLifecycleListener</code> listener on 
+    the Server element when using Java 22 or later.</li>
+<li>Fix reloading TLS configuration could cause the Connector to refuse new
+    connections or the JVM to crash.</li>
+<li>Ensure that an IOException during the reading of the request triggers always
+    error handling, regardless of whether the application swallows the
+    exception.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M12_(markt)">Tomcat 11
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p><strong>Note:</strong> There are known regressions:
+with jdbc-pool (see bug <bug>67664</bug>) and
+with Connector configurations when <code>compression</code> is enabled
+(see bug <bug>67670</bug>). They will be fixed in the next release.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
 </p>
 </section>
 
