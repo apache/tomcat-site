@@ -69,6 +69,7 @@ while(<NEWS>) {
 
     while(<ANNOUNCEMENT_TEMPLATE>) {
       s/\{NEW_RELEASE\}/$new_release/g;
+      s/\{OLD_RELEASE\}/$old_release/g;
       s/\{RELEASE_DATE\}/$release_date/g;
       s/\{RELEASE_MANAGER\}/$release_manager/g;
       print NEWS_NEW;
