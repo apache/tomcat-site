@@ -148,9 +148,9 @@
   <footer id="footer">
     Copyright © 1999-2023, The Apache Software Foundation
     <br/>
-    Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
-    project logo are either registered trademarks or trademarks of the Apache
-    Software Foundation.
+    Apache Tomcat, Tomcat, Apache, the Apache Tomcat logo and the Apache logo
+    are either registered trademarks or trademarks of the Apache Software
+    Foundation.
   </footer>
 </div>
 <script src="res/js/tomcat.js"></script>
