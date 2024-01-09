@@ -84,9 +84,9 @@ if [ "email" = "$5" ] ; then
     # We are on MacOS and have a bunch of useful utilities available.
 
     if [ "" = "$( command -v envsubst )" ] ; then
-      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | sed -e "s/\${NEW_RELEASE}/${NEW_RELEASE}/g" -e "s/\${OLD_RELEASE}/${OLD_RELEASE}/g" -e "s/\${RELEASE_MANAGER}/${RELEASE_MANAGER}/g" )&from=${RELEASE_MANAGER}@apache.org"
+      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=%5BANN%5D%20Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | sed -e "s/\${NEW_RELEASE}/${NEW_RELEASE}/g" -e "s/\${OLD_RELEASE}/${OLD_RELEASE}/g" -e "s/\${RELEASE_MANAGER}/${RELEASE_MANAGER}/g" )&from=${RELEASE_MANAGER}@apache.org"
     else
-      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | envsubst )&from=${RELEASE_MANAGER}@apache.org"
+      open "mailto:Tomcat Developers List <dev@tomcat.apache.org>,Tomcat Users List <users@tomcat.apache.org>, announce@tomcat.apache.org, announce@apache.org?subject=%5BANN%5D%20Apache%20Tomcat%20${NEW_RELEASE}%20Available&body=$( cat tools/email-template-${MINOR_RELEASE}.txt | envsubst )&from=${RELEASE_MANAGER}@apache.org"
     fi
   else
     echo Email template:
