@@ -143,7 +143,6 @@ relevant Tomcat components are fully present in your working copy.
    svn up --set-depth infinity docs/connectors-doc
    svn up --set-depth infinity docs/native-doc
    svn up --set-depth infinity docs/native-1.2-doc
-   svn up --set-depth infinity docs/native-1.1-doc
 
 One way to update documentation is to:
 
