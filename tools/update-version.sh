@@ -22,21 +22,31 @@ fail_migration_patch() {
 }
 
 if [ \( "$1" = '-h' \) -o \( "$1" = "--help" \) ] ; then
-  echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
+  echo "Usage: $0 oldrelease newrelease [release date] [release manager] [email]"
   echo
   echo e.g. $0 8.5.86 8.5.87 2023-03-03 asfuser
   echo
   echo The release date will default to "today" in your current time zone.
   echo "The release-manager will default to your current username (${USER})"
   echo
+  echo "If you add the \"email\" parameter at the end of the command,"
+  echo "this script will build a release-announcement email message for you,"
+  echo "(hopefully) including the short changelog extracted from the website"
+  echo "news posting for the release."
+  echo
   exit 0
 fi
 if [ \( "" = "$NEW_RELEASE" \) -o \( "" = "$OLD_RELEASE" \) ] ; then
   >&2 echo "You must specify both new and old release numbers"
   >&2 echo
-  >&2 echo "Usage: $0 oldrelease newrelease [release date] [release manager]"
+  >&2 echo "Usage: $0 oldrelease newrelease [release date] [release manager] [email]"
   >&2 echo
   >&2 echo e.g. $0 8.5.85 8.5.86 2023-03-03 asfuser
+  >&2 echo
+  >&2 echo "If you add the \"email\" parameter at the end of the command,"
+  >&2 echo "this script will build a release-announcement email message for you,"
+  >&2 echo "(hopefully) including the short changelog extracted from the website"
+  >&2 echo "news posting for the release."
   >&2 echo
   exit 1
 fi
