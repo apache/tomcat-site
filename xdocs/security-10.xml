@@ -56,6 +56,39 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.19" rtext="2024-02-19">
+  
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2024-23672</cve></p>
+
+    <p>It was possible for a WebSocket client to keep a WebSocket connection
+       open leading to increased resource consumption.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="0052b374684b613b0c849899b325ebe334ac6501"/>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 17 January 2024.
+       The issue was made public on 13 March 2024.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.18</p>
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2024-24549</cve></p>
+
+    <p>When processing an HTTP/2 request, if the request exceeded any of the
+       configured limits for headers, the associated HTTP/2 stream was not reset
+       until after all of the headers had been processed.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="d07c82194edb69d99b438828fe2cbfadbb207843"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 24 January 2024. The
+       issue was made public on 13 March 2024.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.18</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.16" rtext="2023-11-14">
 
     <p><strong>Important: Request smuggling</strong>
