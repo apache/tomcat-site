@@ -54,6 +54,41 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 8.5.100 Released" rtext="2024-03-25">
+<p> 
+The Apache Tomcat Project is proud to announce the release of version 8.5.100
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 7 platform. The notable changes compared to 8.5.99 include:
+</p>
+<ul>
+  <li>Fix regression when reloading TLS configuration and files.</li>
+
+  <li>When restoring a saved POST request after a successful FORM
+      authentication, ensure that neither the URI, the query string no
+      the protocol are corrupted when restoring the request body.</li>
+
+  <li>Align error handling for Writer and OutputStream. Ensure use of either
+      once the response has been recycled triggers a NullPointerException
+      provided that discardFacades is configured with the default value of
+      true.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.100_(schultz)">Tomcat 8
+changelog</a>.
+</p>
+
+<p style="font-weight:bold">Please note that Apache Tomcat 8.5.x will
+reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
+(EOL) on 31 March 2024. Apache Tomcat 8.5.100 is likely to be the final release
+of Apache Tomcat 8.5.</p>
+
+<p style="text-align: center;">
+<a href="download-80.cgi">Download</a>
+</p>
+</section>
+
+
 
 <section name="Tomcat 9.0.87 Released" rtext="2024-03-14">
 <p>
@@ -115,37 +150,6 @@ Full details of these changes, and all the other changes, are available in the
 
 <p style="text-align: center;">
 <a href="download-11.cgi">Download</a>
-</p>
-</section>
-<section name="Tomcat 8.5.99 Released" rtext="2024-02-19">
-<p> 
-The Apache Tomcat Project is proud to announce the release of version 8.5.99
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 7 platform. The notable changes compared to 8.5.98 include:
-</p>
-<ul>
-  <li>Add improvements to the CSRF prevention filter including the ability
-      to skip adding nonces for resource name and subtree URL patterns.</li>
-
-  <li>Add support for user provided SSLContext instances configured on
-      SSLHostConfigCertificate instances. Based on pull request #673
-      provided by Hakan Altındağ.</li>
-
-  <li>Review usage of debug logging and downgrade trace or data dumping
-      operations from debug level to trace.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-8.5-doc/changelog.html#Tomcat_8.5.99_(schultz)">Tomcat 8
-changelog</a>.
-</p>
-
-<p style="font-weight:bold">Please note that Apache Tomcat 8.5.x will
-reach <a href="https://tomcat.apache.org/tomcat-85-eol.html">End-of-life</a>
-(EOL) on 31 March 2024.</p>
-
-<p style="text-align: center;">
-<a href="download-80.cgi">Download</a>
 </p>
 </section>
 
