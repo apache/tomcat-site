@@ -28,6 +28,42 @@
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
 </section>
+
+<section name="Tomcat 11.0.0-M18 Released" rtext="2024-03-14">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M18
+(alpha) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Reduce minimum Java version to Java 17</li>
+<li>When restoring a saved POST request after a successful FORM
+    authentication, ensure that neither the URI, the query string no
+    the protocol are corrupted when restoring the request body.</li>
+<li>Align error handling for Writer and OutputStream. Ensure use of either
+    once the response has been recycled triggers a NullPointerException
+    provided that discardFacades is configured with the default value of
+    true.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M18_(markt)">Tomcat 11
+<strong>(alpha)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 10.1.19 Released" rtext="2024-02-19">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.19
