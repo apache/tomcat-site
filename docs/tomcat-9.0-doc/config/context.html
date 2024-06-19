@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.89) - The Context Container</title><meta name="author" content="Craig R. McClanahan"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
-            Version 9.0.89,
-            <time datetime="2024-05-03">May 3 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Context Container</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.90) - The Context Container</title><meta name="author" content="Craig R. McClanahan"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+            Version 9.0.90,
+            <time datetime="2024-06-14">Jun 14 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Context Container</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a><ol><li><a href="#Parallel_deployment">Parallel deployment</a></li><li><a href="#Naming">Naming</a></li><li><a href="#Defining_a_context">Defining a context</a></li></ol></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#Logging">Logging</a></li><li><a href="#Access_Logs">Access Logs</a></li><li><a href="#Automatic_Context_Configuration">Automatic Context Configuration</a></li><li><a href="#Context_Parameters">Context Parameters</a></li><li><a href="#Environment_Entries">Environment Entries</a></li><li><a href="#Lifecycle_Listeners">Lifecycle Listeners</a></li><li><a href="#Request_Filters">Request Filters</a></li><li><a href="#Resource_Definitions">Resource Definitions</a></li><li><a href="#Resource_Links">Resource Links</a></li><li><a href="#Transaction">Transaction</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -232,7 +232,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">allowCasualMultipartParsing</code></td><td>
+        </th></tr><tr id="Attributes_Common Attributes_allowCasualMultipartParsing"><td><code class="attributeName">allowCasualMultipartParsing</code></td><td>
         <p>Set to <code>true</code> if Tomcat should automatically parse
         multipart/form-data request bodies when HttpServletRequest.getPart*
         or HttpServletRequest.getParameter* is called, even when the
@@ -241,7 +241,7 @@
         Note that any setting other than <code>false</code> causes Tomcat
         to behave in a way that is not technically spec-compliant.
         The default is <code>false</code>.</p>
-      </td></tr><tr><td><code class="attributeName">allowMultipleLeadingForwardSlashInPath</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_allowMultipleLeadingForwardSlashInPath"><td><code class="attributeName">allowMultipleLeadingForwardSlashInPath</code></td><td>
         <p>Tomcat normalises sequences of multiple <code>/</code> characters in
         a URI to a single <code>/</code>. This is for consistency with the
         behaviour of file systems as URIs are often translated to file system
@@ -257,11 +257,11 @@
         <code>/</code>. This attribute has a default value of <code>false</code>
         which enables the collapsing of multiple <code>/</code> characters. To
         disable this behaviour, set this attribute to <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">altDDName</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_altDDName"><td><code class="attributeName">altDDName</code></td><td>
         <p>The absolute path to the alternative deployment descriptor for this
         context. This overrides the default deployment descriptor located at
         <code>/WEB-INF/web.xml</code>.</p>
-      </td></tr><tr><td><code class="attributeName">backgroundProcessorDelay</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_backgroundProcessorDelay"><td><code class="attributeName">backgroundProcessorDelay</code></td><td>
         <p>This value represents the delay in seconds between the
         invocation of the backgroundProcess method on this context and
         its child containers, including all wrappers.
@@ -275,36 +275,36 @@
         reloading. If not specified, the default value for this attribute is
         -1, which means the context will rely on the background processing
         thread of its parent host.</p>
-      </td></tr><tr><td><code class="attributeName">className</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_className"><td><code class="attributeName">className</code></td><td>
         <p>Java class name of the implementation to use.  This class must
         implement the <code>org.apache.catalina.Context</code> interface.
         If not specified, the standard value (defined below) will be used.</p>
-      </td></tr><tr><td><code class="attributeName">containerSciFilter</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_containerSciFilter"><td><code class="attributeName">containerSciFilter</code></td><td>
         <p>The regular expression that specifies which container provided SCIs
         should be filtered out and not used for this context. Matching uses
         <code>java.util.regex.Matcher.find()</code> so the regular expression
         only has to match a sub-string of the fully qualified class name of the
         container provided SCI for it to be filtered out. If not specified,
         no filtering will be applied.</p>
-      </td></tr><tr><td><code class="attributeName">cookies</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_cookies"><td><code class="attributeName">cookies</code></td><td>
         <p>Set to <code>true</code> if you want cookies to be used for
         session identifier communication if supported by the client (this
         is the default).  Set to <code>false</code> if you want to disable
         the use of cookies for session identifier communication, and rely
         only on URL rewriting by the application.</p>
-      </td></tr><tr><td><code class="attributeName">createUploadTargets</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_createUploadTargets"><td><code class="attributeName">createUploadTargets</code></td><td>
         <p>Set to <code>true</code> if Tomcat should attempt to create the
         temporary upload location specified in the <code>MultipartConfig</code>
         for a Servlet if the location does not already exist. If not specified,
         the default value of <code>false</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">crossContext</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_crossContext"><td><code class="attributeName">crossContext</code></td><td>
         <p>Set to <code>true</code> if you want calls within this application
         to <code>ServletContext.getContext()</code> to successfully return a
         request dispatcher for other web applications running on this virtual
         host.  Set to <code>false</code> (the default) in security
         conscious environments, to make <code>getContext()</code> always
         return <code>null</code>.</p>
-      </td></tr><tr><td><strong><code class="attributeName">docBase</code></strong></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_docBase"><td><strong><code class="attributeName">docBase</code></strong></td><td>
         <p>The <em>Document Base</em> (also known as the <em>Context
         Root</em>) directory for this web application, or the pathname
         to the web application archive file (if this web application is
@@ -319,57 +319,57 @@
         the symbolic link will only be effective after a Tomcat restart or
         by undeploying and redeploying the context. A context reload is not
         sufficient.</p>
-      </td></tr><tr><td><code class="attributeName">dispatchersUseEncodedPaths</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_dispatchersUseEncodedPaths"><td><code class="attributeName">dispatchersUseEncodedPaths</code></td><td>
         <p>Controls whether paths used in calls to obtain a request dispatcher
         ares expected to be encoded. This affects both how Tomcat handles calls
         to obtain a request dispatcher as well as how Tomcat generates paths
         used to obtain request dispatchers internally. If not specified, the
         default value of <code>true</code> is used. When encoding/decoding paths
         for a request dispatcher, UTF-8 is always used.</p>
-      </td></tr><tr><td><code class="attributeName">failCtxIfServletStartFails</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_failCtxIfServletStartFails"><td><code class="attributeName">failCtxIfServletStartFails</code></td><td>
         <p>Set to <code>true</code> to have the context fail its startup if any
         servlet that has load-on-startup &gt;=0 fails its own startup.</p>
         <p>If not specified, the attribute of the same name in the parent Host
         configuration is used if specified. Otherwise the default value of
         <code>false</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">fireRequestListenersOnForwards</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_fireRequestListenersOnForwards"><td><code class="attributeName">fireRequestListenersOnForwards</code></td><td>
         <p>Set to <code>true</code> to fire any configured
         ServletRequestListeners  when Tomcat forwards a request. This is
         primarily of use to users of CDI frameworks that use
         ServletRequestListeners to configure the necessary environment for a
         request. If not specified, the default value of <code>false</code> is
         used.</p>
-      </td></tr><tr><td><code class="attributeName">logEffectiveWebXml</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_logEffectiveWebXml"><td><code class="attributeName">logEffectiveWebXml</code></td><td>
         <p>Set to <code>true</code> if you want the effective web.xml used for a
         web application to be logged (at INFO level) when the application
         starts. The effective web.xml is the result of combining the
         application's web.xml with any defaults configured by Tomcat and any
         web-fragment.xml files and annotations discovered. If not specified, the
         default value of <code>false</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">mapperContextRootRedirectEnabled</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_mapperContextRootRedirectEnabled"><td><code class="attributeName">mapperContextRootRedirectEnabled</code></td><td>
         <p>If enabled, requests for a web application context root will be
         redirected (adding a trailing slash) if necessary by the Mapper rather
         than the default Servlet. This is more efficient but has the side effect
         of confirming that the context path exists. If not specified, the
         default value of <code>true</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">mapperDirectoryRedirectEnabled</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_mapperDirectoryRedirectEnabled"><td><code class="attributeName">mapperDirectoryRedirectEnabled</code></td><td>
         <p>If enabled, requests for a web application directory will be
         redirected (adding a trailing slash) if necessary by the Mapper rather
         than the default Servlet. This is more efficient but has the side effect
         of confirming that the directory is exists. If not specified, the
         default value of <code>false</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">override</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_override"><td><code class="attributeName">override</code></td><td>
         <p>Set to <code>true</code> to ignore any settings in both the global
         or <a href="host.html">Host</a> default contexts.  By default, settings
         from a default context will be used but may be overridden by a setting
         the same attribute explicitly for the Context.</p>
-      </td></tr><tr><td><code class="attributeName">parallelAnnotationScanning</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_parallelAnnotationScanning"><td><code class="attributeName">parallelAnnotationScanning</code></td><td>
         <p>When set to <code>true</code> annotation scanning will be performed
         using the utility executor. It will allow processing scanning in
         parallel which may improve deployment type at the expense of higher
         server load. If not specified, the default of <code>false</code> is
         used.</p>
-      </td></tr><tr><td><code class="attributeName">path</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_path"><td><code class="attributeName">path</code></td><td>
         <p>The <em>context path</em> of this web application, which is
         matched against the beginning of each request URI to select the
         appropriate web application for processing.  All of the context paths
@@ -388,7 +388,7 @@
         both <code>deployOnStartup</code> and <code>autoDeploy</code> are
         <code>false</code>. If this rule is not followed, double deployment is
         likely to result.</p>
-      </td></tr><tr><td><code class="attributeName">preemptiveAuthentication</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_preemptiveAuthentication"><td><code class="attributeName">preemptiveAuthentication</code></td><td>
         <p>When set to <code>true</code> and the user presents credentials for a
         resource that is not protected by a security constraint, if the
         authenticator supports preemptive authentication (the standard
@@ -396,7 +396,7 @@
         will be processed. If not specified, the default of <code>false</code> is
         used.
         </p>
-      </td></tr><tr><td><code class="attributeName">privileged</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_privileged"><td><code class="attributeName">privileged</code></td><td>
         <p>Set to <code>true</code> to allow this context to use container
         servlets, like the manager servlet. Use of the <code>privileged</code>
         attribute will change the context's parent class loader to be the
@@ -404,7 +404,7 @@
         loader. Note that in a default installation, the <em>Common</em> class
         loader is used for both the <em>Server</em> and the <em>Shared</em>
         class loaders.</p>
-      </td></tr><tr><td><code class="attributeName">reloadable</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_reloadable"><td><code class="attributeName">reloadable</code></td><td>
         <p>Set to <code>true</code> if you want Catalina to monitor classes in
         <code>/WEB-INF/classes/</code> and <code>/WEB-INF/lib</code> for
         changes, and automatically reload the web application if a change
@@ -415,7 +415,7 @@
         can use the <a href="../manager-howto.html">Manager</a> web
         application, however, to trigger reloads of deployed applications
         on demand.</p>
-      </td></tr><tr><td><code class="attributeName">resourceOnlyServlets</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_resourceOnlyServlets"><td><code class="attributeName">resourceOnlyServlets</code></td><td>
         <p>Comma separated list of Servlet names (as used in
         <code>/WEB-INF/web.xml</code>) that expect a resource to be present.
         Ensures that welcome files associated with Servlets that expect a
@@ -427,24 +427,24 @@
         <a href="systemprops.html">system property</a> is set to
         <code>true</code>, the default value of this attribute will be the empty
         string, else the default value will be <code>jsp</code>.</p>
-      </td></tr><tr><td><code class="attributeName">sendRedirectBody</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_sendRedirectBody"><td><code class="attributeName">sendRedirectBody</code></td><td>
         <p>If <code>true</code>, redirect responses will include a short
         response body that includes details of the redirect as recommended by
         RFC 2616. This is disabled by default since including a response body
         may cause problems for some application component such as compression
         filters.</p>
-      </td></tr><tr><td><code class="attributeName">sessionCookieDomain</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_sessionCookieDomain"><td><code class="attributeName">sessionCookieDomain</code></td><td>
         <p>The domain to be used for all session cookies created for this
         context. If set, this overrides any domain set by the web application.
         If not set, the value specified by the web application, if any, will be
         used.</p>
-      </td></tr><tr><td><code class="attributeName">sessionCookieName</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_sessionCookieName"><td><code class="attributeName">sessionCookieName</code></td><td>
         <p>The name to be used for all session cookies created for this
         context. If set, this overrides any name set by the web application.
         If not set, the value specified by the web application, if any, will be
         used, or the name <code>JSESSIONID</code> if the web application does
         not explicitly set one.</p>
-      </td></tr><tr><td><code class="attributeName">sessionCookiePath</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_sessionCookiePath"><td><code class="attributeName">sessionCookiePath</code></td><td>
         <p>The path to be used for all session cookies created for this
         context. If set, this overrides any path set by the web application.
         If not set, the value specified by the web application will be used, or
@@ -461,7 +461,7 @@
         and a new one created. This makes session fixation protection more
         difficult and requires custom, Tomcat specific code to change the
         session ID shared by the multiple applications.</p>
-      </td></tr><tr><td><code class="attributeName">sessionCookiePathUsesTrailingSlash</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_sessionCookiePathUsesTrailingSlash"><td><code class="attributeName">sessionCookiePathUsesTrailingSlash</code></td><td>
         <p>Some browsers, such as Internet Explorer, Safari and Edge, will send
         a session cookie for a context with a path of <code>/foo</code> with a
         request to <code>/foobar</code> in violation of RFC6265. This could
@@ -479,7 +479,7 @@
         servlet mapped to /*. In this case this attribute will need to be set to
         <code>false</code> to disable this feature. The default value for this
         attribute is <code>false</code>.</p>
-      </td></tr><tr><td><code class="attributeName">swallowAbortedUploads</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_swallowAbortedUploads"><td><code class="attributeName">swallowAbortedUploads</code></td><td>
         <p>Set to <code>false</code> if Tomcat should <b>not</b> read any
         additional request body data for aborted uploads and instead abort the
         client connection. This setting is used in the following situations:
@@ -501,12 +501,12 @@
         a 5xx response, any unread request data will always be ignored and the
         client connection will be closed once the error response has been
         written.</p>
-      </td></tr><tr><td><code class="attributeName">swallowOutput</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_swallowOutput"><td><code class="attributeName">swallowOutput</code></td><td>
         <p>If the value of this flag is <code>true</code>, the bytes output to
         System.out and System.err by the web application will be redirected to
         the web application logger. If not specified, the default value
         of the flag is <code>false</code>.</p>
-      </td></tr><tr><td><code class="attributeName">tldValidation</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_tldValidation"><td><code class="attributeName">tldValidation</code></td><td>
         <p>If the value of this flag is <code>true</code>, the TLD files
         will be XML validated on context startup. If the
         <code>org.apache.catalina.STRICT_SERVLET_COMPLIANCE</code>
@@ -515,7 +515,7 @@
         <code>true</code>, else the default value will be <code>false</code>.
         Setting this attribute to <code>true</code> will incur a performance
         penalty.</p>
-      </td></tr><tr><td><code class="attributeName">useBloomFilterForArchives</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_useBloomFilterForArchives"><td><code class="attributeName">useBloomFilterForArchives</code></td><td>
         <p>DEPRECATED: If this is <code>true</code> then a bloom filter will be
         used to speed up archive lookups. This can be beneficial to the deployment
         speed to web applications that contain very large amount of JARs.</p>
@@ -523,11 +523,11 @@
         used.</p>
         <p>This value can be overridden by archiveIndexStrategy in
         <a href="resources.html">Resources</a></p>
-      </td></tr><tr><td><code class="attributeName">useHttpOnly</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_useHttpOnly"><td><code class="attributeName">useHttpOnly</code></td><td>
        <p>Should the HttpOnly flag be set on session cookies to prevent client
           side script from accessing the session ID? Defaults to
           <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">useRelativeRedirects</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_useRelativeRedirects"><td><code class="attributeName">useRelativeRedirects</code></td><td>
         <p>Controls whether HTTP 1.1 and later location headers generated by a
         call to
         <code>javax.servlet.http.HttpServletResponse#sendRedirect(String)</code>
@@ -544,7 +544,7 @@
         <code>true</code>, the default value of this attribute will be
         <code>false</code>, else the default value will be <code>true</code>.
         </p>
-      </td></tr><tr><td><code class="attributeName">validateClientProvidedNewSessionId</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_validateClientProvidedNewSessionId"><td><code class="attributeName">validateClientProvidedNewSessionId</code></td><td>
         <p>When a client provides the ID for a new session, this attribute
         controls whether that ID is validated. The only use case for using a
         client provided session ID is to have a common session ID across
@@ -560,18 +560,18 @@
         </ul>
         <p>If not specified, the default value of <code>true</code> will be
         used.</p>
-      </td></tr><tr><td><code class="attributeName">wrapperClass</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_wrapperClass"><td><code class="attributeName">wrapperClass</code></td><td>
         <p>Java class name of the <code>org.apache.catalina.Wrapper</code>
         implementation class that will be used for servlets managed by this
         Context.  If not specified, a standard default value will be used.</p>
-      </td></tr><tr><td><code class="attributeName">xmlBlockExternal</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_xmlBlockExternal"><td><code class="attributeName">xmlBlockExternal</code></td><td>
         <p>If the value of this flag is <code>true</code>, the parsing of
         <code>web.xml</code>, <code>web-fragment.xml</code>,
         <code>tomcat-web.xml</code>, <code>*.tld</code>, <code>*.jspx</code>,
         <code>*.tagx</code> and <code>tagPlugins.xml</code> files for this web
         application will not permit external entities to be loaded. If not
         specified, the default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">xmlNamespaceAware</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_xmlNamespaceAware"><td><code class="attributeName">xmlNamespaceAware</code></td><td>
         <p>If the value of this flag is <code>true</code>, the parsing of
         <code>web.xml</code>, <code>web-fragment.xml</code> and
         <code>tomcat-web.xml</code> files for this web application will be
@@ -586,7 +586,7 @@
         <code>true</code>, else the default value will be <code>false</code>.
         Setting this attribute to <code>true</code> will incur a performance
         penalty.</p>
-      </td></tr><tr><td><code class="attributeName">xmlValidation</code></td><td>
+      </td></tr><tr id="Attributes_Common Attributes_xmlValidation"><td><code class="attributeName">xmlValidation</code></td><td>
         <p>If the value of this flag is <code>true</code>, the parsing of
         <code>web.xml</code>, <code>web-fragment.xml</code> and
         <code>tomcat-web.xml</code> files for this web application will use a
@@ -613,7 +613,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">addWebinfClassesResources</code></td><td>
+        </th></tr><tr id="Attributes_Standard Implementation_addWebinfClassesResources"><td><code class="attributeName">addWebinfClassesResources</code></td><td>
         <p>This attribute controls if, in addition to static resources being
         served from <code>META-INF/resources</code> inside web application JAR
         files, static resources are also served from
@@ -622,7 +622,7 @@
         proprietary extension to the Servlet 3 specification, it is disabled by
         default. To enable this feature, set the attribute to <code>true</code>.
         </p>
-      </td></tr><tr><td><code class="attributeName">antiResourceLocking</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_antiResourceLocking"><td><code class="attributeName">antiResourceLocking</code></td><td>
         <p>If <code>true</code>, Tomcat will prevent any file locking.
         This will significantly impact startup time of applications,
         but allows full webapp hot deploy and undeploy on platforms
@@ -640,7 +640,7 @@
         be <strong>deleted</strong> on Tomcat shutdown.  You probably don't want
         to do this, so think twice before setting antiResourceLocking=true on a
         webapp that's outside the <code>appBase</code> for its Host.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesHttpClientKeepAliveThread</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesHttpClientKeepAliveThread"><td><code class="attributeName">clearReferencesHttpClientKeepAliveThread</code></td><td>
         <p>If <code>true</code> and an <code>sun.net.www.http.HttpClient</code>
         keep-alive timer thread has been started by this web application and is
         still running, Tomcat will change the context class loader for that
@@ -649,7 +649,7 @@
         keep-alive timer thread will stop on its own once the keep-alives all
         expire however, on a busy system that might not happen for some time. If
         not specified, the default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesObjectStreamClassCaches</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesObjectStreamClassCaches"><td><code class="attributeName">clearReferencesObjectStreamClassCaches</code></td><td>
         <p>If <code>true</code>, when the web application is stopped Tomcat
         looks for <code>SoftReference</code>s to classes loaded by the web
         application in the <code>ObjectStreamClass</code> class used for
@@ -663,7 +663,7 @@
         been fixed in Java 19 onwards, Java 17.0.4 onwards and Java 11.0.16
         onwards. The check will be disabled when running on a version
         of Java that contains the fix.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesRmiTargets</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesRmiTargets"><td><code class="attributeName">clearReferencesRmiTargets</code></td><td>
         <p>If <code>true</code>, Tomcat looks for memory leaks associated with
         RMI Targets and clears any it finds. This feature uses reflection to
         identify the leaks and therefore requires that the command line option
@@ -671,7 +671,7 @@
         when running on Java 9 and above. Applications without memory leaks
         should operate correctly with this attribute set to <code>false</code>.
         If not specified, the default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesStopThreads</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesStopThreads"><td><code class="attributeName">clearReferencesStopThreads</code></td><td>
         <p>If <code>true</code>, Tomcat attempts to terminate threads that have
         been started by the web application. Stopping threads is performed via
         the deprecated (for good reason) <code>Thread.stop()</code> method and
@@ -682,18 +682,18 @@
         enabled, web applications may take up to two seconds longer to stop as
         executor threads are given up to two seconds to stop gracefully before
         <code>Thread.stop()</code> is called on any remaining threads.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesStopTimerThreads</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesStopTimerThreads"><td><code class="attributeName">clearReferencesStopTimerThreads</code></td><td>
         <p>If <code>true</code>, Tomcat attempts to terminate
         <code>java.util.Timer</code> threads that have been started by the web
         application. Unlike standard threads, timer threads can be stopped
         safely although there may still be side-effects for the application. If
         not specified, the default value of <code>false</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">clearReferencesThreadLocals</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_clearReferencesThreadLocals"><td><code class="attributeName">clearReferencesThreadLocals</code></td><td>
         <p>If <code>true</code>, Tomcat attempts to clear
         <code>java.lang.ThreadLocal</code> variables that have been populated
         with classes loaded by the web application. If not specified, the
         default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">copyXML</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_copyXML"><td><code class="attributeName">copyXML</code></td><td>
         <p>Set to <code>true</code> if you want a context XML descriptor
         embedded inside the application (located at
         <code>/META-INF/context.xml</code>) to be copied to the owning
@@ -707,7 +707,7 @@
         <strong>copyXML</strong> attribute of the owning
         <a href="host.html">Host</a> is <code>true</code>, this attribute will
         have no effect.</p>
-      </td></tr><tr><td><code class="attributeName">jndiExceptionOnFailedWrite</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_jndiExceptionOnFailedWrite"><td><code class="attributeName">jndiExceptionOnFailedWrite</code></td><td>
         <p>If <code>true</code>, any attempt by an application to modify the
         provided JNDI context with a call to bind(), unbind(),
         createSubContext(), destroySubContext() or close() will trigger a
@@ -718,7 +718,7 @@
         any changes and methods that return values will return
         <code>null</code>. If not specified, the specification compliant default
         of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">renewThreadsWhenStoppingContext</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_renewThreadsWhenStoppingContext"><td><code class="attributeName">renewThreadsWhenStoppingContext</code></td><td>
         <p>If <code>true</code>, when this context is stopped, Tomcat renews all
         the threads from the thread pool that was used to serve this context.
         This also requires that the
@@ -726,27 +726,27 @@
         <code>server.xml</code> and that the <code>threadRenewalDelay</code>
         property of the <code>Executor</code> be &gt;=0. If not specified, the
         default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">skipMemoryLeakChecksOnJvmShutdown</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_skipMemoryLeakChecksOnJvmShutdown"><td><code class="attributeName">skipMemoryLeakChecksOnJvmShutdown</code></td><td>
         <p>If <code>true</code>, Tomcat will not perform the usual memory leak
         checks when the web application is stopped if that web application is
         stopped as part of a JVM shutdown. If not specified, the default value
         of <code>false</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">unloadDelay</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_unloadDelay"><td><code class="attributeName">unloadDelay</code></td><td>
         <p>Number of ms that the container will wait for servlets to unload.
         If not specified, the default value is <code>2000</code> ms.</p>
-      </td></tr><tr><td><code class="attributeName">unpackWAR</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_unpackWAR"><td><code class="attributeName">unpackWAR</code></td><td>
         <p>If <code>false</code>, the <strong>unpackWARs</strong> attribute of
         the owning <a href="host.html">Host</a> will be overridden and the WAR
         file will not be unpacked. If <code>true</code>, the value of the owning
         <a href="host.html">Host</a>'s <strong>unpackWARs</strong>
         attribute will determine if the WAR is unpacked. If not specified, the
         default value is <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">useNaming</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_useNaming"><td><code class="attributeName">useNaming</code></td><td>
         <p>Set to <code>true</code> (the default) to have Catalina enable a
         JNDI <code>InitialContext</code> for this web application that is
         compatible with Java2 Enterprise Edition (J2EE) platform
         conventions.</p>
-      </td></tr><tr><td><code class="attributeName">workDir</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_workDir"><td><code class="attributeName">workDir</code></td><td>
         <p>Pathname to a scratch directory to be provided by this Context
         for temporary read-write use by servlets within the associated web
         application.  This directory will be made visible to servlets in the
@@ -905,17 +905,17 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">description</code></td><td>
+        </th></tr><tr id="Special Features_Context Parameters_description"><td><code class="attributeName">description</code></td><td>
         <p>Optional, human-readable description of this context
         initialization parameter.</p>
-      </td></tr><tr><td><strong><code class="attributeName">name</code></strong></td><td>
+      </td></tr><tr id="Special Features_Context Parameters_name"><td><strong><code class="attributeName">name</code></strong></td><td>
         <p>The name of the context initialization parameter to be created.</p>
-      </td></tr><tr><td><code class="attributeName">override</code></td><td>
+      </td></tr><tr id="Special Features_Context Parameters_override"><td><code class="attributeName">override</code></td><td>
         <p>Set this to <code>false</code> if you do <strong>not</strong> want
         a <code>&lt;context-param&gt;</code> for the same parameter name,
         found in the web application deployment descriptor, to override the
         value specified here.  By default, overrides are allowed.</p>
-      </td></tr><tr><td><strong><code class="attributeName">value</code></strong></td><td>
+      </td></tr><tr id="Special Features_Context Parameters_value"><td><strong><code class="attributeName">value</code></strong></td><td>
         <p>The parameter value that will be presented to the application
         when requested by calling
         <code>ServletContext.getInitParameter()</code>.</p>
@@ -955,22 +955,22 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">description</code></td><td>
+        </th></tr><tr id="Special Features_Environment Entries_description"><td><code class="attributeName">description</code></td><td>
         <p>Optional, human-readable description of this environment entry.</p>
-      </td></tr><tr><td><strong><code class="attributeName">name</code></strong></td><td>
+      </td></tr><tr id="Special Features_Environment Entries_name"><td><strong><code class="attributeName">name</code></strong></td><td>
         <p>The name of the environment entry to be created, relative to the
         <code>java:comp/env</code> context.</p>
-      </td></tr><tr><td><code class="attributeName">override</code></td><td>
+      </td></tr><tr id="Special Features_Environment Entries_override"><td><code class="attributeName">override</code></td><td>
         <p>Set this to <code>false</code> if you do <strong>not</strong> want
         an <code>&lt;env-entry&gt;</code> for the same environment entry name,
         found in the web application deployment descriptor, to override the
         value specified here.  By default, overrides are allowed.</p>
-      </td></tr><tr><td><strong><code class="attributeName">type</code></strong></td><td>
+      </td></tr><tr id="Special Features_Environment Entries_type"><td><strong><code class="attributeName">type</code></strong></td><td>
         <p>The fully qualified Java class name expected by the web application
         for this environment entry.  Must be a legal value for
         <code>&lt;env-entry-type&gt;</code> in the web application deployment
         descriptor.</p>
-      </td></tr><tr><td><strong><code class="attributeName">value</code></strong></td><td>
+      </td></tr><tr id="Special Features_Environment Entries_value"><td><strong><code class="attributeName">value</code></strong></td><td>
         <p>The parameter value that will be presented to the application
         when requested from the JNDI context.  This value must be convertible
         to the Java type defined by the <code>type</code> attribute.</p>
@@ -1071,7 +1071,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">auth</code></td><td>
+        </th></tr><tr id="Special Features_Resource Definitions_auth"><td><code class="attributeName">auth</code></td><td>
         <p>Specify whether the web Application code signs on to the
         corresponding resource manager programmatically, or whether the
         Container will sign on to the resource manager on behalf of the
@@ -1081,7 +1081,7 @@
         will use a <code>&lt;resource-ref&gt;</code> element in the web
         application deployment descriptor, but is optional if the
         application uses a <code>&lt;resource-env-ref&gt;</code> instead.</p>
-      </td></tr><tr><td><code class="attributeName">closeMethod</code></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_closeMethod"><td><code class="attributeName">closeMethod</code></td><td>
         <p>Name of the zero-argument method to call on a singleton resource when
         it is no longer required. This is intended to speed up clean-up of
         resources that would otherwise happen as part of garbage collection.
@@ -1094,17 +1094,17 @@
         <code>close</code>. This may be disabled by setting the attribute to the
         empty string. For all other resource types no default is defined and no
         close method will be called by default.</p>
-      </td></tr><tr><td><code class="attributeName">description</code></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_description"><td><code class="attributeName">description</code></td><td>
         <p>Optional, human-readable description of this resource.</p>
-      </td></tr><tr><td><strong><code class="attributeName">name</code></strong></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_name"><td><strong><code class="attributeName">name</code></strong></td><td>
         <p>The name of the resource to be created, relative to the
         <code>java:comp/env</code> context.</p>
-      </td></tr><tr><td><code class="attributeName">scope</code></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_scope"><td><code class="attributeName">scope</code></td><td>
         <p>Specify whether connections obtained through this resource
         manager can be shared.  The value of this attribute must be
         <code>Shareable</code> or <code>Unshareable</code>.  By default,
         connections are assumed to be shareable.</p>
-      </td></tr><tr><td><code class="attributeName">singleton</code></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_singleton"><td><code class="attributeName">singleton</code></td><td>
         <p>Specify whether this resource definition is for a singleton resource,
         i.e. one where there is only a single instance of the resource. If this
         attribute is <code>true</code>, multiple JNDI lookups for this resource
@@ -1115,7 +1115,7 @@
         of the DataSource. The value of this attribute must be <code>true</code>
         or <code>false</code>. By default, this attribute is <code>true</code>.
         </p>
-      </td></tr><tr><td><strong><code class="attributeName">type</code></strong></td><td>
+      </td></tr><tr id="Special Features_Resource Definitions_type"><td><strong><code class="attributeName">type</code></strong></td><td>
         <p>The fully qualified Java class name expected by the web
         application when it performs a lookup for this resource.</p>
       </td></tr></table>
@@ -1146,16 +1146,16 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><strong><code class="attributeName">global</code></strong></td><td>
+        </th></tr><tr id="Special Features_Resource Links_global"><td><strong><code class="attributeName">global</code></strong></td><td>
         <p>The name of the linked global resource in the
         global JNDI context.</p>
-      </td></tr><tr><td><strong><code class="attributeName">name</code></strong></td><td>
+      </td></tr><tr id="Special Features_Resource Links_name"><td><strong><code class="attributeName">name</code></strong></td><td>
         <p>The name of the resource link to be created, relative to the
         <code>java:comp/env</code> context.</p>
-      </td></tr><tr><td><strong><code class="attributeName">type</code></strong></td><td>
+      </td></tr><tr id="Special Features_Resource Links_type"><td><strong><code class="attributeName">type</code></strong></td><td>
         <p>The fully qualified Java class name expected by the web
         application when it performs a lookup for this resource link.</p>
-      </td></tr><tr><td><code class="attributeName">factory</code></td><td>
+      </td></tr><tr id="Special Features_Resource Links_factory"><td><code class="attributeName">factory</code></td><td>
         <p>The fully qualified Java class name for the class creating these objects.
         This class should implement the <code>javax.naming.spi.ObjectFactory</code> interface.</p>
       </td></tr></table>
@@ -1173,11 +1173,11 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">username</code></td><td>
+        </th></tr><tr id="Special Features_Resource Links_username"><td><code class="attributeName">username</code></td><td>
         <p><code>username</code> value for the <code>getConnection(username, password)</code>
            call on the linked global DataSource.
         </p>
-      </td></tr><tr><td><code class="attributeName">password</code></td><td>
+      </td></tr><tr id="Special Features_Resource Links_password"><td><code class="attributeName">password</code></td><td>
         <p><code>password</code> value for the <code>getConnection(username, password)</code>
            call on the linked global DataSource.
         </p>
@@ -1246,7 +1246,7 @@ for details.</p>
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><strong><code class="attributeName">factory</code></strong></td><td>
+        </th></tr><tr id="Special Features_Transaction_factory"><td><strong><code class="attributeName">factory</code></strong></td><td>
         <p>The class name for the JNDI object factory.</p>
       </td></tr></table>
 
