@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.24) - Container Provided Filters</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
-            Version 10.1.24,
-            <time datetime="2024-05-09">May 9 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Container Provided Filters</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.25) - Container Provided Filters</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
+            Version 10.1.25,
+            <time datetime="2024-06-14">Jun 14 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Container Provided Filters</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter">Add Default Character Set Filter</a><ol><li><a href="#Add_Default_Character_Set_Filter/Introduction">Introduction</a></li><li><a href="#Add_Default_Character_Set_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Add_Default_Character_Set_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CORS_Filter">CORS Filter</a><ol><li><a href="#CORS_Filter/Introduction">Introduction</a></li><li><a href="#CORS_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CORS_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#CORS_Filter_and_HttpServletRequest_attributes">CORS Filter and HttpServletRequest attributes</a></li></ol></li><li><a href="#CSRF_Prevention_Filter">CSRF Prevention Filter</a><ol><li><a href="#CSRF_Prevention_Filter/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs">CSRF Prevention Filter for REST APIs</a><ol><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Introduction">Introduction</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#RestCsrfPreventionFilter_and_HttpServletRequest_parameters">RestCsrfPreventionFilter and HttpServletRequest parameters</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Filter_Class_Name">Filter Class Name</a></li><li><a href="#CSRF_Prevention_Filter_for_REST_APIs/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Expires_Filter">Expires Filter</a><ol><li><a href="#Expires_Filter/Introduction">Introduction</a></li><li><a href="#Expires_Filter/Basic_configuration_sample">Basic configuration sample</a></li><li><a href="#Alternate_Syntax">Alternate Syntax</a></li><li><a href="#Expiration_headers_generation_eligibility">Expiration headers generation eligibility</a></li><li><a href="#Expiration_configuration_selection">Expiration configuration selection</a></li><li><a href="#Expires_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Expires_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Troubleshooting">Troubleshooting</a></li></ol></li><li><a href="#Failed_Request_Filter">Failed Request Filter</a><ol><li><a href="#Failed_Request_Filter/Introduction">Introduction</a></li><li><a href="#Failed_Request_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Failed_Request_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#HTTP_Header_Security_Filter">HTTP Header Security Filter</a><ol><li><a href="#HTTP_Header_Security_Filter/Introduction">Introduction</a></li><li><a href="#HTTP_Header_Security_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#HTTP_Header_Security_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Rate_Limit_Filter">Rate Limit Filter</a><ol><li><a href="#Rate_Limit_Filter/Introduction">Introduction</a></li><li><a href="#Rate_Limit_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Rate_Limit_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Rate_Limit_Filter/Example">Example</a></li></ol></li><li><a href="#Remote_Address_Filter">Remote Address Filter</a><ol><li><a href="#Remote_Address_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Address_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Address_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Remote_Address_Filter/Example">Example</a></li></ol></li><li><a href="#Remote_Host_Filter">Remote Host Filter</a><ol><li><a href="#Remote_Host_Filter/Introduction">Introduction</a></li><li><a href="#Remote_Host_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_Host_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Remote_CIDR_Filter">Remote CIDR Filter</a><ol><li><a href="#Remote_CIDR_Filter/Introduction">Introduction</a></li><li><a href="#Remote_CIDR_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Remote_CIDR_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Remote_CIDR_Filter/Example">Example</a></li></ol></li><li><a href="#Remote_IP_Filter">Remote IP Filter</a><ol><li><a href="#Remote_IP_Filter/Introduction">Introduction</a></li><li><a href="#Remote_IP_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'">Basic configuration to handle 'x-forwarded-for'</a></li><li><a href="#Basic_configuration_to_handle_'x-forwarded-for'_and_'x-forwarded-proto'">Basic configuration to handle 'x-forwarded-for' and 'x-forwarded-proto'</a></li><li><a href="#Advanced_configuration_with_internal_proxies">Advanced configuration with internal proxies</a></li><li><a href="#Advanced_configuration_with_trusted_proxies">Advanced configuration with trusted proxies</a></li><li><a href="#Advanced_configuration_with_internal_and_trusted_proxies">Advanced configuration with internal and trusted proxies</a></li><li><a href="#Advanced_configuration_with_an_untrusted_proxy">Advanced configuration with an untrusted proxy</a></li><li><a href="#Remote_IP_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#Request_Dumper_Filter">Request Dumper Filter</a><ol><li><a href="#Request_Dumper_Filter/Introduction">Introduction</a></li><li><a href="#Request_Dumper_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Request_Dumper_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Request_Dumper_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Session_Initializer_Filter">Session Initializer Filter</a><ol><li><a href="#Session_Initializer_Filter/Introduction">Introduction</a></li><li><a href="#Session_Initializer_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Session_Initializer_Filter/Initialisation_parameters">Initialisation parameters</a></li><li><a href="#Session_Initializer_Filter/Sample_Configuration">Sample Configuration</a></li></ol></li><li><a href="#Set_Character_Encoding_Filter">Set Character Encoding Filter</a><ol><li><a href="#Set_Character_Encoding_Filter/Introduction">Introduction</a></li><li><a href="#Set_Character_Encoding_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#Set_Character_Encoding_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li><li><a href="#WebDAV_Fix_Filter">WebDAV Fix Filter</a><ol><li><a href="#WebDAV_Fix_Filter/Introduction">Introduction</a></li><li><a href="#WebDAV_Fix_Filter/Filter_Class_Name">Filter Class Name</a></li><li><a href="#WebDAV_Fix_Filter/Initialisation_parameters">Initialisation parameters</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -52,7 +52,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">encoding</code></td><td>
+        </th></tr><tr id="Add Default Character Set Filter_Initialisation parameters_encoding"><td><code class="attributeName">encoding</code></td><td>
         <p>Name of the character set which should be set, if no other character set
         was set explicitly by a Servlet. This parameter has two special values
         <code>default</code> and <code>system</code>. A value of <code>system</code>
@@ -102,7 +102,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">cors.allowed.origins</code></td><td>
+        </th></tr><tr id="CORS Filter_Initialisation parameters_cors.allowed.origins"><td><code class="attributeName">cors.allowed.origins</code></td><td>
         <p>A list of <a href="https://tools.ietf.org/html/rfc6454">origins</a>
         that are allowed to access the resource. A <code>*</code> can be
         specified to enable access to resource from any origin. Otherwise, an
@@ -110,20 +110,20 @@
         https://www.w3.org, https://www.apache.org</code>.
         <strong>Defaults:</strong> The empty String. (No origin is allowed to
         access the resource).</p>
-      </td></tr><tr><td><code class="attributeName">cors.allowed.methods</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.allowed.methods"><td><code class="attributeName">cors.allowed.methods</code></td><td>
         <p>A comma separated list of HTTP methods that can be used to access the
         resource, using cross-origin requests. These are the methods which will
         also be included as part of <code>Access-Control-Allow-Methods</code>
         header in pre-flight response. Eg: <code>GET, POST</code>.
         <strong>Defaults:</strong> <code>GET, POST, HEAD, OPTIONS</code></p>
-      </td></tr><tr><td><code class="attributeName">cors.allowed.headers</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.allowed.headers"><td><code class="attributeName">cors.allowed.headers</code></td><td>
         <p>A comma separated list of request headers that can be used when
         making an actual request. These headers will also be returned as part
         of <code>Access-Control-Allow-Headers</code> header in a pre-flight
         response. Eg: <code>Origin,Accept</code>. <strong>Defaults:</strong>
         <code>Origin, Accept, X-Requested-With, Content-Type,
         Access-Control-Request-Method, Access-Control-Request-Headers</code></p>
-      </td></tr><tr><td><code class="attributeName">cors.exposed.headers</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.exposed.headers"><td><code class="attributeName">cors.exposed.headers</code></td><td>
         <p>A comma separated list of headers other than simple response headers
         that browsers are allowed to access. These are the headers which will
         also be included as part of <code>Access-Control-Expose-Headers</code>
@@ -131,21 +131,21 @@
         <code>X-CUSTOM-HEADER-PING,X-CUSTOM-HEADER-PONG</code>.
         <strong>Default:</strong> None. Non-simple headers are not exposed by
         default.</p>
-      </td></tr><tr><td><code class="attributeName">cors.preflight.maxage</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.preflight.maxage"><td><code class="attributeName">cors.preflight.maxage</code></td><td>
         <p>The amount of seconds, browser is allowed to cache the result of the
         pre-flight request. This will be included as part of
         <code>Access-Control-Max-Age</code> header in the pre-flight response.
         A negative value will prevent CORS Filter from adding this response
         header to pre-flight response. <strong>Defaults:</strong>
         <code>1800</code></p>
-      </td></tr><tr><td><code class="attributeName">cors.support.credentials</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.support.credentials"><td><code class="attributeName">cors.support.credentials</code></td><td>
         <p>A flag that indicates whether the resource supports user credentials.
         This flag is exposed as part of
         <code>Access-Control-Allow-Credentials</code> header in a pre-flight
         response. It helps browser determine whether or not an actual request
         can be made using credentials. <strong>Defaults:</strong>
         <code>false</code></p>
-      </td></tr><tr><td><code class="attributeName">cors.request.decorate</code></td><td>
+      </td></tr><tr id="CORS Filter_Initialisation parameters_cors.request.decorate"><td><code class="attributeName">cors.request.decorate</code></td><td>
         <p>A flag to control if CORS specific attributes should be added to
         HttpServletRequest object or not. <strong>Defaults:</strong>
         <code>true</code></p>
@@ -248,35 +248,35 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">denyStatus</code></td><td>
+        </th></tr><tr id="CSRF Prevention Filter_Initialisation parameters_denyStatus"><td><code class="attributeName">denyStatus</code></td><td>
         <p>HTTP response status code that is used when rejecting denied
         request. The default value is <code>403</code>.</p>
-      </td></tr><tr><td><code class="attributeName">enforce</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_enforce"><td><code class="attributeName">enforce</code></td><td>
         <p>A flag to enable or disable enforcement. When enforcement is
         disabled, the CsrfPreventionFilter will <i>allow all requests</i> and
         log CSRF failures as DEBUG messages. The default is <b>true</b>,
         enabling the enforcement of CSRF protection.</p>
-      </td></tr><tr><td><code class="attributeName">entryPoints</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_entryPoints"><td><code class="attributeName">entryPoints</code></td><td>
         <p>A comma separated list of URLs that will not be tested for the
         presence of a valid nonce. They are used to provide a way to navigate
         back to a protected application after having navigated away from it.
         Entry points will be limited to HTTP GET requests and should not trigger
         any security sensitive actions.</p>
-      </td></tr><tr><td><code class="attributeName">nonceCacheSize</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_nonceCacheSize"><td><code class="attributeName">nonceCacheSize</code></td><td>
         <p>The number of previously issued nonces that will be cached on a LRU
         basis to support parallel requests, limited use of the refresh and back
         in the browser and similar behaviors that may result in the submission
         of a previous nonce rather than the current one. If not set, the default
         value of 5 will be used.</p>
-      </td></tr><tr><td><code class="attributeName">nonceRequestParameterName</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_nonceRequestParameterName"><td><code class="attributeName">nonceRequestParameterName</code></td><td>
         <p>The name of the request parameter used for the nonce. If not set, the
         default value of <code>org.apache.catalina.filters.CSRF_NONCE</code>
         will be used.</p>
-      </td></tr><tr><td><code class="attributeName">randomClass</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_randomClass"><td><code class="attributeName">randomClass</code></td><td>
         <p>The name of the class to use to generate nonces. The class must be an
         instance of <code>java.util.Random</code>. If not set, the default value
         of <code>java.security.SecureRandom</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">noNonceURLPatterns</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter_Initialisation parameters_noNonceURLPatterns"><td><code class="attributeName">noNonceURLPatterns</code></td><td>
         <p>A list of URL patterns that will <i>not</i> have CSRF nonces added
         to them. You may not want to add nonces to certain URLs to avoid
         creating unique URLs which may defeat resource caching, etc.</p>
@@ -444,10 +444,10 @@ HTTP/1.1 200 OK
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">denyStatus</code></td><td>
+        </th></tr><tr id="CSRF Prevention Filter for REST APIs_Initialisation parameters_denyStatus"><td><code class="attributeName">denyStatus</code></td><td>
         <p>HTTP response status code that is used when rejecting denied
         request. The default value is <code>403</code>.</p>
-      </td></tr><tr><td><code class="attributeName">pathsAcceptingParams</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter for REST APIs_Initialisation parameters_pathsAcceptingParams"><td><code class="attributeName">pathsAcceptingParams</code></td><td>
         <p>A comma separated list of URLs that can accept nonces via request
         parameter <code>X-CSRF-Token</code>. For use cases when a nonce information cannot
         be provided via header, one can provide it via request parameters. If
@@ -455,7 +455,7 @@ HTTP/1.1 200 OK
         any parameter with the same name in the request. Request parameters
         cannot be used to fetch new nonce, only header can be used to request a
         new nonce.</p>
-      </td></tr><tr><td><code class="attributeName">randomClass</code></td><td>
+      </td></tr><tr id="CSRF Prevention Filter for REST APIs_Initialisation parameters_randomClass"><td><code class="attributeName">randomClass</code></td><td>
         <p>The name of the class to use to generate nonces. The class must be an
         instance of <code>java.util.Random</code>. If not set, the default value
         of <code>java.security.SecureRandom</code> will be used.</p>
@@ -665,7 +665,7 @@ The expiry time can be fine-tuned by adding several
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">ExpiresExcludedResponseStatusCodes</code></td><td>
+        </th></tr><tr id="Expires Filter_Initialisation parameters_ExpiresExcludedResponseStatusCodes"><td><code class="attributeName">ExpiresExcludedResponseStatusCodes</code></td><td>
          <p>
          This directive defines the http response status codes for which the
          <code>ExpiresFilter</code> will not generate expiration headers. By default, the
@@ -680,7 +680,7 @@ The expiry time can be fine-tuned by adding several
          understand.
          </p>
          <p><i>See sample below the table</i></p>
-      </td></tr><tr><td><code class="attributeName">ExpiresByType &lt;content-type&gt;</code></td><td>
+      </td></tr><tr id="Expires Filter_Initialisation parameters_ExpiresByType <content-type>"><td><code class="attributeName">ExpiresByType &lt;content-type&gt;</code></td><td>
          <p>
          This directive defines the value of the <code>Expires</code> header and the
          <code>max-age</code> directive of the <code>Cache-Control</code> header generated for
@@ -726,7 +726,7 @@ The expiry time can be fine-tuned by adding several
          You can also specify the expiration time calculation using an alternate
          syntax, described earlier in this document.
          </p>
-      </td></tr><tr><td><code class="attributeName">ExpiresDefault</code></td><td>
+      </td></tr><tr id="Expires Filter_Initialisation parameters_ExpiresDefault"><td><code class="attributeName">ExpiresDefault</code></td><td>
          <p>
          This directive sets the default algorithm for calculating the
          expiration time for all documents in the affected realm. It can be
@@ -869,46 +869,46 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">hstsEnabled</code></td><td>
+        </th></tr><tr id="HTTP Header Security Filter_Initialisation parameters_hstsEnabled"><td><code class="attributeName">hstsEnabled</code></td><td>
         <p>Will an HTTP Strict Transport Security (HSTS) header
         (<code>Strict-Transport-Security</code>) be set on the response for
         secure requests. Any HSTS header already present will be replaced. See
         <a href="https://tools.ietf.org/html/rfc6797">RFC 6797</a> for further
         details of HSTS. If not specified, the default value of
         <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">hstsMaxAgeSeconds</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_hstsMaxAgeSeconds"><td><code class="attributeName">hstsMaxAgeSeconds</code></td><td>
         <p>The max age value that should be used in the HSTS header. Negative
         values will be treated as zero. If not specified, the default value of
         <code>0</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">hstsIncludeSubDomains</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_hstsIncludeSubDomains"><td><code class="attributeName">hstsIncludeSubDomains</code></td><td>
         <p>Should the includeSubDomains parameter be included in the HSTS
         header. If not specified, the default value of <code>false</code> will
         be used.</p>
-      </td></tr><tr><td><code class="attributeName">hstsPreload</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_hstsPreload"><td><code class="attributeName">hstsPreload</code></td><td>
         <p>Should the preload parameter be included in the HSTS header. If not
         specified, the default value of <code>false</code> will be used. See
         <a href="https://hstspreload.org/">https://hstspreload.org</a> for
         important information about this parameter.</p>
-      </td></tr><tr><td><code class="attributeName">antiClickJackingEnabled</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_antiClickJackingEnabled"><td><code class="attributeName">antiClickJackingEnabled</code></td><td>
         <p>Should the anti click-jacking header (<code>X-Frame-Options</code>)
         be set on the response. Any anti click-jacking header already present
         will be replaced. If not specified, the default value of
         <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">antiClickJackingOption</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_antiClickJackingOption"><td><code class="attributeName">antiClickJackingOption</code></td><td>
         <p>What value should be used for the anticlick-jacking header? Must be
         one of <code>DENY</code>, <code>SAMEORIGIN</code>,
         <code>ALLOW-FROM </code> (case-insensitive). If not specified, the
         default value of <code>DENY</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">antiClickJackingUri</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_antiClickJackingUri"><td><code class="attributeName">antiClickJackingUri</code></td><td>
         <p>If ALLOW-FROM is used for <strong>antiClickJackingOption</strong>,
         what URI should be allowed? If not specified, the default value of an
         empty string will be used.</p>
-      </td></tr><tr><td><code class="attributeName">blockContentTypeSniffingEnabled</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_blockContentTypeSniffingEnabled"><td><code class="attributeName">blockContentTypeSniffingEnabled</code></td><td>
         <p>Should the header that blocks content type sniffing
         (<code>X-Content-Type-Options</code>) be set on every response. If
         already present, the header will be replaced. If not specified, the
         default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">xssProtectionEnabled</code></td><td>
+      </td></tr><tr id="HTTP Header Security Filter_Initialisation parameters_xssProtectionEnabled"><td><code class="attributeName">xssProtectionEnabled</code></td><td>
         <p><strong>Note: This setting is deprecated as support for the HTTP
         header has been removed from all major browsers. The setting has been
         removed in Tomcat 11.0.x onwards.</strong></p>
@@ -984,22 +984,22 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">bucketDuration</code></td><td>
+        </th></tr><tr id="Rate Limit Filter_Initialisation parameters_bucketDuration"><td><code class="attributeName">bucketDuration</code></td><td>
         <p>The number of seconds in a time bucket. Default is <code>60</code>.</p>
-      </td></tr><tr><td><code class="attributeName">bucketRequests</code></td><td>
+      </td></tr><tr id="Rate Limit Filter_Initialisation parameters_bucketRequests"><td><code class="attributeName">bucketRequests</code></td><td>
         <p>The number of requests that are allowed in a time bucket.
         Default is <code>300</code>.</p>
-      </td></tr><tr><td><code class="attributeName">enforce</code></td><td>
+      </td></tr><tr id="Rate Limit Filter_Initialisation parameters_enforce"><td><code class="attributeName">enforce</code></td><td>
         <p>Set to false to allow requests through even when they exceed
         the maximum allowed per time window. Your application code can
         still inspect the Request Attribute
         org.apache.catalina.filters.RateLimitFilter.Count to retrieve
         the number of Requests made from that IP within the time window.
         Default is <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">statusCode</code></td><td>
+      </td></tr><tr id="Rate Limit Filter_Initialisation parameters_statusCode"><td><code class="attributeName">statusCode</code></td><td>
         <p>The status code to return when a request is dropped.
         Default is <code>429</code>.</p>
-      </td></tr><tr><td><code class="attributeName">statusMessage</code></td><td>
+      </td></tr><tr id="Rate Limit Filter_Initialisation parameters_statusMessage"><td><code class="attributeName">statusMessage</code></td><td>
         <p>The status message to return when a request is dropped.
         Default is "Too many requests".</p>
       </td></tr></table>
@@ -1077,20 +1077,20 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">allow</code></td><td>
+        </th></tr><tr id="Remote Address Filter_Initialisation parameters_allow"><td><code class="attributeName">allow</code></td><td>
         <p>A regular expression (using <code>java.util.regex</code>) that the
         remote client's IP address is compared to.  If this attribute
         is specified, the remote address MUST match for this request to be
         accepted.  If this attribute is not specified, all requests will be
         accepted UNLESS the remote address matches a <code>deny</code>
         pattern.</p>
-      </td></tr><tr><td><code class="attributeName">deny</code></td><td>
+      </td></tr><tr id="Remote Address Filter_Initialisation parameters_deny"><td><code class="attributeName">deny</code></td><td>
         <p>A regular expression (using <code>java.util.regex</code>) that the
         remote client's IP address is compared to.  If this attribute
         is specified, the remote address MUST NOT match for this request to be
         accepted.  If this attribute is not specified, request acceptance is
         governed solely by the <code>accept</code> attribute.</p>
-      </td></tr><tr><td><code class="attributeName">denyStatus</code></td><td>
+      </td></tr><tr id="Remote Address Filter_Initialisation parameters_denyStatus"><td><code class="attributeName">denyStatus</code></td><td>
         <p>HTTP response status code that is used when rejecting denied
         request. The default value is <code>403</code>. For example,
         it can be set to the value <code>404</code>.</p>
@@ -1154,20 +1154,20 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">allow</code></td><td>
+        </th></tr><tr id="Remote Host Filter_Initialisation parameters_allow"><td><code class="attributeName">allow</code></td><td>
         <p>A regular expression (using <code>java.util.regex</code>) that the
         remote client's hostname is compared to.  If this attribute
         is specified, the remote hostname MUST match for this request to be
         accepted.  If this attribute is not specified, all requests will be
         accepted UNLESS the remote hostname matches a <code>deny</code>
         pattern.</p>
-      </td></tr><tr><td><code class="attributeName">deny</code></td><td>
+      </td></tr><tr id="Remote Host Filter_Initialisation parameters_deny"><td><code class="attributeName">deny</code></td><td>
         <p>A regular expression (using <code>java.util.regex</code>) that the
         remote client's hostname is compared to.  If this attribute
         is specified, the remote hostname MUST NOT match for this request to be
         accepted.  If this attribute is not specified, request acceptance is
         governed solely by the <code>accept</code> attribute.</p>
-      </td></tr><tr><td><code class="attributeName">denyStatus</code></td><td>
+      </td></tr><tr id="Remote Host Filter_Initialisation parameters_denyStatus"><td><code class="attributeName">denyStatus</code></td><td>
         <p>HTTP response status code that is used when rejecting denied
         request. The default value is <code>403</code>. For example,
         it can be set to the value <code>404</code>.</p>
@@ -1236,7 +1236,7 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">allow</code></td><td>
+        </th></tr><tr id="Remote CIDR Filter_Initialisation parameters_allow"><td><code class="attributeName">allow</code></td><td>
         <p>A comma-separated list of IPv4 or IPv6 netmasks or addresses
           that the remote client's IP address is matched against.
           If this attribute is specified, the remote address MUST match
@@ -1244,7 +1244,7 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           all requests will be accepted UNLESS the remote IP is matched by a
           netmask in the <code>deny</code> attribute.
         </p>
-      </td></tr><tr><td><code class="attributeName">deny</code></td><td>
+      </td></tr><tr id="Remote CIDR Filter_Initialisation parameters_deny"><td><code class="attributeName">deny</code></td><td>
         <p>A comma-separated list of IPv4 or IPv6 netmasks or addresses
           that the remote client's IP address is matched against.
           If this attribute is specified, the remote address MUST NOT match
@@ -1614,15 +1614,15 @@ FINE: Request "/docs/config/manager.html" with response status "200"
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">enableLookups</code></td><td>
+        </th></tr><tr id="Remote IP Filter_Initialisation parameters_enableLookups"><td><code class="attributeName">enableLookups</code></td><td>
         <p>Should a DNS lookup be performed to provide a host name when calling
         <code>ServletRequest#getRemoteHost()</code>. If not specified, the
         default of <code>false</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">remoteIpHeader</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_remoteIpHeader"><td><code class="attributeName">remoteIpHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the list of
         traversed IP addresses starting from the requesting client. If not
         specified, the default of <code>x-forwarded-for</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">internalProxies</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_internalProxies"><td><code class="attributeName">internalProxies</code></td><td>
         <p>Regular expression (using <code>java.util.regex</code>) that a
         proxy's IP address must match to be considered an internal proxy.
         Internal proxies that appear in the <strong>remoteIpHeader</strong> will
@@ -1630,56 +1630,56 @@ FINE: Request "/docs/config/manager.html" with response status "200"
         value. If not specified the default value of <code>
         10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|100\.6[4-9]{1}\.\d{1,3}\.\d{1,3}|100\.[7-9]{1}\d{1}\.\d{1,3}\.\d{1,3}|100\.1[0-1]{1}\d{1}\.\d{1,3}\.\d{1,3}|100\.12[0-7]{1}\.\d{1,3}\.\d{1,3}|172\.1[6-9]{1}\.\d{1,3}\.\d{1,3}|172\.2[0-9]{1}\.\d{1,3}\.\d{1,3}|172\.3[0-1]{1}\.\d{1,3}\.\d{1,3}|0:0:0:0:0:0:0:1
         </code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">proxiesHeader</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_proxiesHeader"><td><code class="attributeName">proxiesHeader</code></td><td>
         <p>Name of the HTTP header created by this valve to hold the list of
         proxies that have been processed in the incoming
         <strong>remoteIpHeader</strong>. If not specified, the default of
         <code>x-forwarded-by</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">requestAttributesEnabled</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_requestAttributesEnabled"><td><code class="attributeName">requestAttributesEnabled</code></td><td>
         <p>Set to <code>true</code> to set the request attributes used by
         AccessLog implementations to override the values returned by the
         request for remote address, remote host, server port and protocol.
         Request attributes are also used to enable the forwarded remote address
         to be displayed on the status page of the Manager web application.
         If not set, the default value of <code>true</code> will be used.</p>
-      </td></tr><tr><td><code class="attributeName">trustedProxies</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_trustedProxies"><td><code class="attributeName">trustedProxies</code></td><td>
         <p>Regular expression (using <code>java.util.regex</code>) that a
         proxy's IP address must match to be considered an trusted proxy.
         Trusted proxies that appear in the <strong>remoteIpHeader</strong> will
         be trusted and will appear in the <strong>proxiesHeader</strong> value.
         If not specified, no proxies will be trusted.</p>
-      </td></tr><tr><td><code class="attributeName">protocolHeader</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_protocolHeader"><td><code class="attributeName">protocolHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the protocol
         used by the client to connect to the proxy. If not specified, the
         default of <code>X-Forwarded-Proto</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">hostHeader</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_hostHeader"><td><code class="attributeName">hostHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the host
         used by the client to connect to the proxy. If not specified, the
         default of <code>null</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">portHeader</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_portHeader"><td><code class="attributeName">portHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the port
         used by the client to connect to the proxy. If not specified, the
         default of <code>null</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">protocolHeaderHttpsValue</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_protocolHeaderHttpsValue"><td><code class="attributeName">protocolHeaderHttpsValue</code></td><td>
         <p>Value of the <strong>protocolHeader</strong> to indicate that it is
         an HTTPS request. If not specified, the default of <code>https</code> is
         used.</p>
-      </td></tr><tr><td><code class="attributeName">httpServerPort</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_httpServerPort"><td><code class="attributeName">httpServerPort</code></td><td>
         <p>Value returned by <code>ServletRequest.getServerPort()</code>
         when the <strong>protocolHeader</strong> indicates <code>http</code>
         protocol and no <strong>portHeader</strong> is present. If not
         specified, the default of <code>80</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">httpsServerPort</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_httpsServerPort"><td><code class="attributeName">httpsServerPort</code></td><td>
         <p>Value returned by <code>ServletRequest.getServerPort()</code>
         when the <strong>protocolHeader</strong> indicates <code>https</code>
         protocol and no <strong>portHeader</strong> is present. If not
         specified, the default of <code>443</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">changeLocalName</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_changeLocalName"><td><code class="attributeName">changeLocalName</code></td><td>
         <p>If <code>true</code>, the value returned by
         <code>ServletRequest.getLocalName()</code> and
         <code>ServletRequest.getServerName()</code> is modified by the this
         filter. If not specified, the default of <code>false</code> is used.</p>
-      </td></tr><tr><td><code class="attributeName">changeLocalPort</code></td><td>
+      </td></tr><tr id="Remote IP Filter_Initialisation parameters_changeLocalPort"><td><code class="attributeName">changeLocalPort</code></td><td>
         <p>If <code>true</code>, the value returned by
         <code>ServletRequest.getLocalPort()</code> and
         <code>ServletRequest.getServerPort()</code> is modified by the this
@@ -1828,9 +1828,9 @@ org.apache.catalina.filters.RequestDumperFilter.handlers = \
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><strong><code class="attributeName">encoding</code></strong></td><td>
+        </th></tr><tr id="Set Character Encoding Filter_Initialisation parameters_encoding"><td><strong><code class="attributeName">encoding</code></strong></td><td>
         <p>Name of the character encoding which should be set.</p>
-      </td></tr><tr><td><code class="attributeName">ignore</code></td><td>
+      </td></tr><tr id="Set Character Encoding Filter_Initialisation parameters_ignore"><td><code class="attributeName">ignore</code></td><td>
         <p>Determines if any character encoding specified by the user agent is
         ignored. If this attribute is <code>true</code>, any value provided by
         the user agent is ignored. If <code>false</code>, the encoding is only
@@ -1844,12 +1844,12 @@ org.apache.catalina.filters.RequestDumperFilter.handlers = \
 
   <div class="subsection"><h4 id="WebDAV_Fix_Filter/Introduction">Introduction</h4><div class="text">
 
-    <p>Microsoft operating systems have two WebDAV clients. One is used with
-    port 80, the other is used for all other ports. The implementation used with
-    port 80 does not adhere to the WebDAV specification and fails when trying to
-    communicate with the Tomcat WebDAV Servlet. This Filter provides a fix for
-    this by forcing the use of the WebDAV implementation that works, even when
-    connecting via port 80.</p>
+    <p>This filter was written for Windows NT era Microsoft operating systems
+    that shipped with WebDAV clients that were not compliant with the RFC. This
+    filter is no longer required for current WebDAV clients provided by current
+    (Windows 10 / Windows Server 2012 onwards) Windows operating systems. It has
+    been deprecated and will be removed in Tomcat 11 onwards.
+    </p>
 
   </div></div>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.1.24) - JNDI Resources How-To</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
-            Version 10.1.24,
-            <time datetime="2024-05-09">May 9 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.1 Javadocs</a></li><li><a href="elapi/index.html">EL 5.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.1 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>JNDI Resources How-To</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.1.25) - JNDI Resources How-To</title><meta name="author" content="Craig R. McClanahan"><meta name="author" content="Yoav Shapira"></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
+            Version 10.1.25,
+            <time datetime="2024-06-14">Jun 14 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.1 Javadocs</a></li><li><a href="elapi/index.html">EL 5.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.1 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>JNDI Resources How-To</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#web.xml_configuration">web.xml configuration</a></li><li><a href="#context.xml_configuration">context.xml configuration</a></li><li><a href="#Global_configuration">Global configuration</a></li><li><a href="#Using_resources">Using resources</a></li><li><a href="#Tomcat_Standard_Resource_Factories">Tomcat Standard Resource Factories</a><ol><li><a href="#Generic_JavaBean_Resources">Generic JavaBean Resources</a></li><li><a href="#Memory_UserDatabase_Resources">Memory UserDatabase Resources</a></li><li><a href="#DataSource_UserDatabase_Resources">DataSource UserDatabase Resources</a></li><li><a href="#Jakarta_Mail_Sessions">Jakarta Mail Sessions</a></li><li><a href="#JDBC_Data_Sources">JDBC Data Sources</a></li></ol></li><li><a href="#Adding_Custom_Resource_Factories">Adding Custom Resource Factories</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -485,61 +485,61 @@ create table user_roles (
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><strong><code class="attributeName">dataSourceName</code></strong></td><td>
+        </th></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_dataSourceName"><td><strong><code class="attributeName">dataSourceName</code></strong></td><td>
         <p>The name of the JNDI JDBC DataSource for this UserDatabase.</p>
-      </td></tr><tr><td><code class="attributeName">groupNameCol</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_groupNameCol"><td><code class="attributeName">groupNameCol</code></td><td>
         <p>Name of the column, in the "groups", "group roles" and "user groups"
         tables, that contains the group's name.</p>
-      </td></tr><tr><td><code class="attributeName">groupRoleTable</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_groupRoleTable"><td><code class="attributeName">groupRoleTable</code></td><td>
         <p>Name of the "group roles" table, which must contain columns
         named by the <code>groupNameCol</code> and <code>roleNameCol</code>
         attributes.</p>
-      </td></tr><tr><td><code class="attributeName">groupTable</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_groupTable"><td><code class="attributeName">groupTable</code></td><td>
         <p>Name of the "groups" table, which must contain columns named
         by the <code>groupNameCol</code> attribute.</p>
-      </td></tr><tr><td><code class="attributeName">readonly</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_readonly"><td><code class="attributeName">readonly</code></td><td>
         <p>If this is set to <code>true</code>, then changes to the
         <code>UserDatabase</code> can be persisted to the
         <code>DataSource</code> by using the <code>save</code> method.
         The default value is <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">roleAndGroupDescriptionCol</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_roleAndGroupDescriptionCol"><td><code class="attributeName">roleAndGroupDescriptionCol</code></td><td>
         <p>Name of the column, in the "roles" and "groups" tables, that contains
         the description for the roles and groups.</p>
-      </td></tr><tr><td><code class="attributeName">roleNameCol</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_roleNameCol"><td><code class="attributeName">roleNameCol</code></td><td>
         <p>Name of the column, in the "roles", "user roles" and "group roles"
         tables, which contains a role name assigned to the corresponding
         user.</p>
         <p>This attribute is <strong>required</strong> in majority of
         configurations. See <strong>allRolesMode</strong> attribute of the
         associated realm for a rare case when it can be omitted.</p>
-      </td></tr><tr><td><code class="attributeName">roleTable</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_roleTable"><td><code class="attributeName">roleTable</code></td><td>
         <p>Name of the "roles" table, which must contain columns named
         by the <code>roleNameCol</code> attribute.</p>
-      </td></tr><tr><td><strong><code class="attributeName">userCredCol</code></strong></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userCredCol"><td><strong><code class="attributeName">userCredCol</code></strong></td><td>
         <p>Name of the column, in the "users" table, which contains
         the user's credentials (i.e. password).  If a
         <code>CredentialHandler</code> is specified, this component
         will assume that the passwords have been encoded with the
         specified algorithm.  Otherwise, they will be assumed to be
         in clear text.</p>
-      </td></tr><tr><td><code class="attributeName">userGroupTable</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userGroupTable"><td><code class="attributeName">userGroupTable</code></td><td>
         <p>Name of the "user groups" table, which must contain columns
         named by the <code>userNameCol</code> and <code>groupNameCol</code>
         attributes.</p>
-      </td></tr><tr><td><strong><code class="attributeName">userNameCol</code></strong></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userNameCol"><td><strong><code class="attributeName">userNameCol</code></strong></td><td>
         <p>Name of the column, in the "users", "user groups" and "user roles"
         tables, that contains the user's username.</p>
-      </td></tr><tr><td><code class="attributeName">userFullNameCol</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userFullNameCol"><td><code class="attributeName">userFullNameCol</code></td><td>
         <p>Name of the column, in the "users" table, that contains the user's
         full name.</p>
-      </td></tr><tr><td><code class="attributeName">userRoleTable</code></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userRoleTable"><td><code class="attributeName">userRoleTable</code></td><td>
         <p>Name of the "user roles" table, which must contain columns
         named by the <code>userNameCol</code> and <code>roleNameCol</code>
         attributes.</p>
         <p>This attribute is <strong>required</strong> in majority of
         configurations. See <strong>allRolesMode</strong> attribute of the
         associated realm for a rare case when it can be omitted.</p>
-      </td></tr><tr><td><strong><code class="attributeName">userTable</code></strong></td><td>
+      </td></tr><tr id="Tomcat Standard Resource Factories_DataSource UserDatabase Resources_userTable"><td><strong><code class="attributeName">userTable</code></strong></td><td>
         <p>Name of the "users" table, which must contain columns named
         by the <code>userNameCol</code> and <code>userCredCol</code>
         attributes.</p>

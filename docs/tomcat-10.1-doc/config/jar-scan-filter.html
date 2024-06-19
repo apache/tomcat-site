@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.24) - The Jar Scan Filter Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
-            Version 10.1.24,
-            <time datetime="2024-05-09">May 9 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Jar Scan Filter Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.25) - The Jar Scan Filter Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
+            Version 10.1.25,
+            <time datetime="2024-06-14">Jun 14 2024</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Jar Scan Filter Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -41,7 +41,7 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">className</code></td><td>
+        </th></tr><tr id="Attributes_Common Attributes_className"><td><code class="attributeName">className</code></td><td>
         <p>Java class name of the implementation to use.  This class must
         implement the <code>org.apache.tomcat.JarScanFilter</code> interface.
         If not specified, the standard value (defined below) will be used.</p>
@@ -81,19 +81,19 @@
           Attribute
         </th><th style="width: 85%;">
           Description
-        </th></tr><tr><td><code class="attributeName">pluggabilitySkip</code></td><td>
+        </th></tr><tr id="Attributes_Standard Implementation_pluggabilitySkip"><td><code class="attributeName">pluggabilitySkip</code></td><td>
        <p>The comma separated list of JAR file name patterns
        to skip when scanning for pluggable features introduced by Servlet 3.0
        specification. If not specified, the default is obtained from the
        <code>tomcat.util.scan.StandardJarScanFilter.jarsToSkip</code> system
        property.</p>
-      </td></tr><tr><td><code class="attributeName">pluggabilityScan</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_pluggabilityScan"><td><code class="attributeName">pluggabilityScan</code></td><td>
        <p>The comma separated list of JAR file name patterns
        to scan when scanning for pluggable features introduced by Servlet 3.0
        specification. If not specified, the default is obtained from the
        <code>tomcat.util.scan.StandardJarScanFilter.jarsToScan</code> system
        property.</p>
-      </td></tr><tr><td><code class="attributeName">defaultPluggabilityScan</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_defaultPluggabilityScan"><td><code class="attributeName">defaultPluggabilityScan</code></td><td>
        <p>Controls if JARs are scanned or skipped by default when scanning
        for the pluggable features.
        If <code>true</code>, a JAR is scanned when its name either matches
@@ -103,19 +103,19 @@
        any of <strong>pluggabilityScan</strong> patterns and
        none of <strong>pluggabilitySkip</strong> patterns.
        If not specified, the default value is <code>true</code>.</p>
-      </td></tr><tr><td><code class="attributeName">tldSkip</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_tldSkip"><td><code class="attributeName">tldSkip</code></td><td>
        <p>The comma separated list of JAR file name patterns
        to skip when scanning for tag libraries (TLDs).
        If not specified, the default is obtained
        from the <code>tomcat.util.scan.StandardJarScanFilter.jarsToSkip</code>
        system property.</p>
-      </td></tr><tr><td><code class="attributeName">tldScan</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_tldScan"><td><code class="attributeName">tldScan</code></td><td>
        <p>The comma separated list of JAR file name patterns
        to scan when scanning for tag libraries (TLDs).
        If not specified, the default is obtained
        from the <code>tomcat.util.scan.StandardJarScanFilter.jarsToScan</code>
        system property.</p>
-      </td></tr><tr><td><code class="attributeName">defaultTldScan</code></td><td>
+      </td></tr><tr id="Attributes_Standard Implementation_defaultTldScan"><td><code class="attributeName">defaultTldScan</code></td><td>
        <p>Controls if JARs are scanned or skipped by default when scanning
        for TLDs.
        If <code>true</code>, a JAR is scanned when its name either matches
