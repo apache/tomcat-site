@@ -73,8 +73,8 @@ reflected on the live tomcat.apache.org site. This happens almost
 immediately, so go to http://tomcat.apache.org/ and have fun.
 
 
-To update the documentation for Tomcat 8.5.x, 9.0.x, 10.1.x or 11.0.x:
-======================================================================
+To update the documentation for Tomcat 9.0.x, 10.1.x or 11.0.x:
+===============================================================
 
 1. If you are using the "sparse" checkout feature, make sure that
    subdirectories in the docs/ directory for the relevant Tomcat versions
@@ -83,7 +83,6 @@ To update the documentation for Tomcat 8.5.x, 9.0.x, 10.1.x or 11.0.x:
    The commands are:
 
    cd tomcat-site
-   svn up --set-depth infinity docs/tomcat-8.5-doc
    svn up --set-depth infinity docs/tomcat-9.0-doc
    svn up --set-depth infinity docs/tomcat-10.1-doc
    svn up --set-depth infinity docs/tomcat-11.0-doc
@@ -105,7 +104,6 @@ To update the documentation for Tomcat 8.5.x, 9.0.x, 10.1.x or 11.0.x:
    The commands are:
 
    cd tomcat-site
-   ant release-8.5
    ant release-9.0
    ant release-10.1
    ant release-11.0

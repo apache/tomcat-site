@@ -24,7 +24,7 @@ fail_migration_patch() {
 if [ \( "$1" = '-h' \) -o \( "$1" = "--help" \) ] ; then
   echo "Usage: $0 oldrelease newrelease [release date] [release manager] [email]"
   echo
-  echo e.g. $0 8.5.86 8.5.87 2023-03-03 asfuser
+  echo e.g. $0 10.1.14 10.1.15 2023-03-03 asfuser
   echo
   echo The release date will default to "today" in your current time zone.
   echo "The release-manager will default to your current username (${USER})"
@@ -41,7 +41,7 @@ if [ \( "" = "$NEW_RELEASE" \) -o \( "" = "$OLD_RELEASE" \) ] ; then
   >&2 echo
   >&2 echo "Usage: $0 oldrelease newrelease [release date] [release manager] [email]"
   >&2 echo
-  >&2 echo e.g. $0 8.5.85 8.5.86 2023-03-03 asfuser
+  >&2 echo e.g. $0 10.1.14 10.1.15 2023-03-03 asfuser
   >&2 echo
   >&2 echo "If you add the \"email\" parameter at the end of the command,"
   >&2 echo "this script will build a release-announcement email message for you,"
@@ -61,17 +61,13 @@ if [ "$DEBUG" = "1" ] ; then
   echo RELEASE_DATE=$RELEASE_DATE
 fi
 
-if [ "8" = "${MAJOR_RELEASE}" ] ; then
-  DOWNLOAD_FILENAME=xdocs/download-80.xml
-elif [ "9" = "${MAJOR_RELEASE}" ] ; then
+if [ "9" = "${MAJOR_RELEASE}" ] ; then
   DOWNLOAD_FILENAME=xdocs/download-90.xml
 else
   DOWNLOAD_FILENAME=xdocs/download-${MAJOR_RELEASE}.xml
 fi
 
-if [ "8.5" = "${MINOR_RELEASE}" ] ; then 
-  MIGRATION_FILENAME=xdocs/migration-85.xml
-elif [ "9.0" = "${MINOR_RELEASE}" ] ; then
+if [ "9.0" = "${MINOR_RELEASE}" ] ; then
   MIGRATION_FILENAME=xdocs/migration-90.xml
 else
   MIGRATION_FILENAME=xdocs/migration-${MINOR_RELEASE}.xml
@@ -151,7 +147,7 @@ fi
 
 # Download file
 # set the version number to the latest
-# e.g. [define v]8.5.87[end]
+# e.g. [define v]10.1.15[end]
 echo "Patching ${DOWNLOAD_FILENAME}..."
 if [ "$OS" = "Linux" ] ; then
   sed --in-place -e "s/\[define v]${MINOR_RELEASE}.*\[end\]/[define v]${NEW_RELEASE}[end]/" "${DOWNLOAD_FILENAME}"
@@ -174,7 +170,7 @@ fi
 # The changelog needs to be merged AFTER the javadocs have been built.
 #
 # Set the release date.
-# e.g. <span id="Tomcat_8.5.87_(schultz)_rtext" style="float: right;">2023-03-03</span>
+# e.g. <span id="Tomcat_10.1.15_(schultz)_rtext" style="float: right;">2023-03-03</span>
 CHANGELOG_FILENAME=docs/tomcat-${MINOR_RELEASE}-doc/changelog.html
 svn update "${CHANGELOG_FILENAME}"
 echo "Patching ${CHANGELOG_FILENAME}..."
@@ -230,9 +226,9 @@ fi
 # Set the release date and revision number e.g.
 #    <release>
 #      <Version>
-#        <name>Latest Stable 8.5.x Release</name>
+#        <name>Latest Stable 10.1.x Release</name>
 #        <created>2023-03-03</created>
-#        <revision>8.5.88</revision>
+#        <revision>10.1.15</revision>
 #      </Version>
 #    </release>
 #
