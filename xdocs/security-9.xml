@@ -50,6 +50,27 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.90" rtext="2024-06-19">
+
+    <p><strong>Important: Denial of Service</strong>
+       <cve>CVE-2024-34750</cve></p>
+
+    <p>When processing an HTTP/2 stream, Tomcat did not handle some cases of
+       excessive HTTP headers correctly. This led to a miscounting of active
+       HTTP/2 streams which in turn led to the use of an incorrect infinite
+       timeout which allowed connections to remain open which should have been
+       closed.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="9fec9a82887853402833a80b584e3762c7423f5f"/>.</p>
+
+    <p>This issue was reported to the Tomcat Security Team on 4 May 2024. The
+       issue was made public on 3 July 2024.</p>
+
+    <p>Affects: 9.0.0-M1 to 9.0.89</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.86" rtext="2024-02-19">
   
     <p><strong>Important: Denial of Service</strong>
