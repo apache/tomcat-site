@@ -34,6 +34,39 @@ wiki page.</p>
 <p>Apache Tomcat, Tomcat, Apache, the Apache feather, and the Apache Tomcat
 project logo are trademarks of the Apache Software Foundation.</p>
 
+</div><h3 id="Tomcat_11.0.0-M22_Released"><span class="pull-right">2024-07-05</span> Tomcat 11.0.0-M22 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M22
+(beta) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Move OpenSSL support using FFM to a separate JAR named
+    tomcat-coyote-ffm.jar that advertises Java 22 in its manifest.</li>
+<li>When using include directives in a tag file packaged in a JAR file,
+    ensure that the include directives are processed correctly.</li>
+<li>Expand the implementation of the filter value of the Authenticator
+    attribute allowCorsPreflight, so that it applies to all requests that
+    match the configured URL patterns for the CORS filter, rather than
+    only applying if the CORS filter is mapped to /*</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M22_(markt)">Tomcat 11
+<strong>(beta)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-11.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_10.1.25_Released"><span class="pull-right">2024-06-19</span> Tomcat 10.1.25 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.25
@@ -87,37 +120,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-90.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_11.0.0-M21_Released"><span class="pull-right">2024-06-18</span> Tomcat 11.0.0-M21 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.0-M21
-(beta) of Apache Tomcat. This release is a milestone release and is targeted at
-Jakarta EE 11.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Ensure that static resources deployed via a JAR file remain accessible
-    when the context is configured to use a bloom filter. Based on a pull
-    request provided by bergander.</li>
-<li>Add task queue size configuration on the Connector element, similar to the
-    Executor element, for consistency.</li>
-<li>Update to Commons Daemon 1.4.0</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M21_(markt)">Tomcat 11
-<strong>(beta)</strong> changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-11.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_1.3.0_Released"><span class="pull-right">2024-02-12</span> Tomcat Native 1.3.0 Released</h3><div class="text">
 <p>
