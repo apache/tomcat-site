@@ -55,6 +55,34 @@ project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
 
+<section name="Tomcat 9.0.93 Released" rtext="2024-08-06">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.93
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.91 include:</p>
+<ul>
+<li>Align HTTP/2 with HTTP/1.1 and recycle the container internal request
+    and response processing objects by default. This behaviour can be
+    controlled via the new discardRequestsAndResponses attribute on the
+    HTTP/2 upgrade protocol.</li>
+<li>Add OpenSSL support for FFM. Using this feature requires Java 22
+    or newer.</li>
+<li>Add support for RFC 8297 (Early Hints). Applications can use this
+    feature by casting the HttpServletResponse to
+    org.apache.catalina.connector.Reponse and then calling the method
+    void sendEarlyHints().</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.93_(remm)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat Native 2.0.8 Released" rtext="2024-07-24">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 2.0.8 of
@@ -129,32 +157,6 @@ changelog</a>.
 </p>
 </section>
 
-
-<section name="Tomcat 9.0.91 Released" rtext="2024-07-08">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.90
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 8 platform. The notable changes compared to 9.0.89 include:</p>
-<ul>
-<li>When using include directives in a tag file packaged in a JAR file,
-    ensure that the include directives are processed correctly.</li>
-<li>Expand the implementation of the filter value of the Authenticator
-    attribute allowCorsPreflight, so that it applies to all requests that
-    match the configured URL patterns for the CORS filter, rather than
-    only applying if the CORS filter is mapped to /*</li>
-<li>Add test-only build target to allow running only the testsuite, supporting
-    Java versions down to the minimum supported to run Tomcat.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.91_(remm)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat 11.0.0-M22 Released" rtext="2024-07-05">
 <p>
