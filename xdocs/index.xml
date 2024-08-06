@@ -54,6 +54,47 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 10.1.28 Released" rtext="2024-08-06">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.28
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Add support for RFC 8297 (Early Hints). Applications can use this
+      feature by casting the HttpServletResponse to
+      org.apache.catalina.connector.Reponse and then calling the method
+      void sendEarlyHints()</li>
+
+  <li>Align HTTP/2 with HTTP/1.1 and recycle the container internal request
+      and response processing objects by default. This behaviour can be
+      controlled via the new discardRequestsAndResponses attribute on the
+      HTTP/2 upgrade protocol.</li>
+
+  <li>Ensure statements returned from Statement methods executeQuery(),
+      getResultSet() and getGeneratedKeys() are correctly wrapped before
+      being returned to the caller.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.28_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 
 <section name="Tomcat 11.0.0-M24 Released" rtext="2024-08-06">
 <p>
@@ -155,43 +196,6 @@ Tomcat Native. The notable changes compared to 1.3.0 include:
 </p>
 </section>
 
-<section name="Tomcat 10.1.26 Released" rtext="2024-07-12">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.26
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Move OpenSSL support using FFM to a separate JAR named
-      tomcat-coyote-ffm.jar that advertises Java 22 in its manifest.</li>
-
-  <li>When using include directives in a tag file packaged in a JAR file,
-      ensure that the include directives are processed correctly.</li>
-
-  <li>Expand the implementation of the filter value of the Authenticator
-      attribute allowCorsPreflight, so that it applies to all requests that
-      match the configured URL patterns for the CORS filter, rather than
-      only applying if the CORS filter is mapped to /*</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.26_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
 
 
 <section name="Tomcat Migration Tool for Jakarta EE 1.0.8 Released" rtext="2024-02-06">
