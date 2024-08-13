@@ -25,9 +25,9 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
   <p>This section lists all the known changes between 10.1.x and 11.0.x
   which may cause backwards compatibility problems when upgrading.</p>
 
-  <subsection name="Java 21 required">
+  <subsection name="Java 17 required">
 
-    <p>Apache Tomcat 11.0.x requires Java 21 or later. Apache Tomcat 10.1.x
+    <p>Apache Tomcat 11.0.x requires Java 17 or later. Apache Tomcat 10.1.x
     required Java 11.</p>
 
     <p>The <code>SecurityManager</code> has been deprecated in Java 17 onwards
@@ -39,9 +39,9 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
 
   <subsection name="Specification APIs">
 
-    <p>Apache Tomcat 11.0 supports the Jakarta Servlet 6.1,
-    Jakarta Pages 4.0, Jakarta Expression Language 6.0,
-    JakartaWebSocket 2.2 and Jakarta Authentication 3.1
+    <p>Apache Tomcat 11.0 supports the Jakarta Servlet 6.1, Jakarta Pages 4.0,
+    Jakarta Expression Language 6.0, JakartaWebSocket 2.2,
+    Jakarta Authentication 3.1 and Jakarta Annotations 3.0 
     <a href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications">specifications</a>.
     </p>
 
@@ -49,8 +49,25 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
   
   <subsection name="Servlet 6.1 API">
 
-    <p>No changes.</p>
-    
+    <p>The expected behaviour for adding and setting HTTP headers with
+    <code>null</code> or the empty string has been clarified.</p>
+
+    <p>The meaning of "write operation" in the context of the Javadoc for
+    <code>ServletOutputStream.isReady()</code> has been clarified.</p>
+
+    <p><code>ServletRequest.getParameter()</code> and the other parameter
+    methods are now documented to throw a runtime exception if the call triggers
+    parsing of the parameters and an error is encountered during that
+    parsing.</p>
+
+    <p>Support for HTTP/2 sever push is now optional and has been removed from
+    Tomcat.</p>
+
+    <p>Clarify the behaviour of <code>Cookie.setAttribute(String,String)</code>
+    and <code>Cookie.getAttribute(String)</code> with cookie attributes such as
+    <code>HttpOnly</code>, <code>Secure</code> and <code>Partitioned</code> that
+    do not have a value.</p>
+
   </subsection>
 
   <subsection name="Pages 4.0">
@@ -70,17 +87,23 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
 
   </subsection>
 
-  <subsection name="WebSocket TBD">
+  <subsection name="WebSocket 2.2">
 
     <p>Support for running under a <code>SecurityManager</code> has been
     removed.</p>
 
   </subsection>
 
-  <subsection name="Authentication TBD">
+  <subsection name="Authentication 3.1">
   
     <p>Support for running under a <code>SecurityManager</code> has been
     removed.</p>
+
+  </subsection>
+
+  <subsection name="Annotations 3.0">
+  
+    <p>None.</p>
 
   </subsection>
 
@@ -96,6 +119,11 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
       <li>All code marked as deprecated in 10.1.x has been removed.</li>
       <li>Conversions from bytes to characters now throw an exception if the
           conversion fails.</li>
+      <li>Support for using the ^ character to separate the WAR file and WAR
+          contents in Tomcat's custom WAR URL handler has been removed. The
+          current default separator character of * remains unchanged.</li>
+      <li>Cookie parsing and handling now treats the quotes in a quoted cookie
+          value as part of the value as required by RFC 6265.</li>
     </ul>
 
   </subsection>
