@@ -1,0 +1,18 @@
+- mod_jk documentation is hidden underneath "Tomcat Connectors". Don't use docs from other sites.
+
+- mod_proxy is much better prepared to do URL rewriting because of the pre-cooked Proxy directives. Doing the same with mod_headers is hard to get right. You indirectly mentioned that.
+
+- sometime the /foo -> /bar mapping actually is of the form / -> /bar because marketing wants to strip the first URL segment. Since URL rewriting is so bad, admins should try to convince marketing, that a simple redirect from / to /bar solves the most important problem, namely a simple start page. Of course when using the app, the /bar gets visible, but the simple start URL can be publishd without getting into the nasty business of doing rewrites for every request etc.
+
+- you talked about complex rules for balancing could be done easier with mod_rewrite. When using mod_jk, you can set either the env var JK_WORKER_NAME to the name of the worker you want the request to be sent to, or when using a balancer use env var JK_ROUTE to dictate which of the balanced worker should handle a request. It is documented at the end of the page http://tomcat.apache.org/connectors-doc/reference/apache.html. Setting the env var could be done using mod_setenvif or mod_rewrite but you can keep the worker definitions etc. separate from the complex routing rule.
+
+- management, monitoring: In my opinion the jk status worker is much better than the current proxy GUI.
+
+- default balancer algorithm: the default request counting algorithm that the proxy balancer uses was thrown out of mod_jk some years ago, because it doesn't behave nicely once a worker was not getting load due to being disabled or on error. When it comes back, things behave strangely. We were talking here about probably reüplacing that algorithm in mod_proxy_balancer as well (only Apache 2.4 or beyond).
+
+- we already talked about the https and persistant connections/handshake stuff. Suggestion would be to always use persistant connections then and tune the connector keep alive settings on the tomcat side.
+
+- mod_sed and friends: you mentioned correctly that they are not easy to configure, one could stress the fact that often the config is a maintenance nightmare, ie. whenever the backend application gets updated there is a chance, that you have to adjust rules.
+
+- the thread sizing problem: it really gets bad if we talk about a bigger farm of Apache instances in front of Tomcat. Apart from using NIO/APR one can also try to reduce the needed thread count by using preferences between Apache instances and tomcat instances (declare some Tomcats for each Apache to be closer using the distance attribute). This will keep most traffic in a smaller group, but still allow Apache to contact each Tomcat in case the close ones are down or a load balancer in front did a misrouting of a request, so Apache has to correct it by sending the request to a Tomcat further away. Then the connections to the close Tomcats will be reused very frequently, and the ones to the Tomcats with higher "distance" will have evry little reuse. Next use more threads per Apache process, then the likelihood, that those threads will only need very few connections to the Tomcat with higher difference increases (connections request gets better). Finally use a relatively small idle connection timeout for the Tomcats with higher difference. Not perfect, but helps. Downside: Currently new sessions will always be created on the Tomcats with smales distance, even if only one of theose is remaining. A threshold to control, after how many failed instances mod_jk already uses the next level of distance is not yet implemented.
+
