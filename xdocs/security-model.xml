@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Security Model</title>
+  </properties>
+
+<body>
+  <section name="Security model for Apache Tomcat">
+
+    <p>This security model is currently in DRAFT from.</p>
+
+    <p>The Apache Tomcat<sup>&#174;</sup> Security Team reviews reported
+       vulnerabilities against the following security model:</p>
+
+    <ul>
+      <li>Users with the ability to modify Tomcat and/or application
+          configuration files and/or binaries are trusted.</li>
+      <li>Deployed web applications are trusted.</li>
+      <li>Vulnerabilities in deployed web applications are application
+          vulnerabilities, not Tomcat vulnerabilities.</li>
+      <li>Data received by an HTTP connector is untrusted.</li>
+      <li>Data received by an AJP connector is trusted.</li>
+      <li>JMX is an administrative interface and users with access to it are
+          trusted.</li>
+      <li>The Manager and Host manager web applications are administrative
+          interfaces and users with access to either of them are considered to
+          be trusted.</li>
+      <li>Cluster traffic requires a trusted network unless the
+          EncryptInterceptor is used in which case confidentiality and integrity
+          but not availability will be protected.</li>
+      <li>Multi-cast cluster membership always requires a trusted network.</li>
+      <li>Security sensitive information will not be logged with the default
+          configuration apart from anything included in the request URI.</li>
+      <li>Security sensitive information may be logged with modified logging
+          configurations, particularly if debug logging is enabled.</li>
+    </ul>
+
+  </section>
+
+</body>
+</document>
+
