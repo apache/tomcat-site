@@ -21,7 +21,13 @@
       <li>Vulnerabilities in deployed web applications are application
           vulnerabilities, not Tomcat vulnerabilities.</li>
       <li>Data received by an HTTP connector is untrusted.</li>
-      <li>Data received by an AJP connector is trusted.</li>
+      <li>Data received by an AJP connector is untrusted apart from:
+        <ul>
+          <li>The standard request attributes and any arbitrary request
+              attributes permitted by
+              <code>allowedRequestAttributesPattern</code></li>
+        </ul>
+      </li>
       <li>JMX is an administrative interface and users with access to it are
           trusted.</li>
       <li>The Manager and Host manager web applications are administrative
