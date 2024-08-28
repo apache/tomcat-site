@@ -20,9 +20,9 @@
 
     <subsection name="Administrative users">
 
-      <p>Administrative users are always considered to be trusted. Reports that
-         require attacker access to and/or control of any of the following to
-         succeed will be rejected:</p>
+      <p>Administrative users are always considered to be trusted. Reports for
+         vulnerabilities where an attacker already has access to or control over
+         any of the following will be rejected:</p>
 
       <ul>
         <li>The Manager or Host Manager applications provided with Tomcat</li>
@@ -37,13 +37,14 @@
     <subsection name="Web applications">
 
       <p>Web applications deployed to Tomcat are considered to be trusted.
-         Vulnerabilities in user provided web applications are application
+         Vulnerabilities in user-provided web applications are application
          vulnerabilities, not Tomcat vulnerabilities.</p>
 
       <p>Reports of vulnerabilities in the web applications included with
-         Tomcat will be accepted. Reporters should review the comments about
-         each of the provided applications in the security considerations
-         section of the documentation for the version under test.</p>
+         standard Tomcat distributions will be accepted. Reporters should
+         review the comments about each of the provided applications in the
+         security considerations section of the documentation for the version
+         under test.</p>
 
     </subsection>
 
@@ -58,7 +59,7 @@
             connector</li>
         <li>HTTP headers processed by a <code>RemoteIpValve</code>,
             <code>SSLValve</code>, equivalent filters or any similar
-            functionality.</li>
+            functionality</li>
       </ul>
 
     </subsection>
@@ -75,10 +76,10 @@
 
     <subsection name="Logging">
 
-      <p>Security sensitive information will not be logged with the default
+      <p>Security-sensitive information will not be logged with the default
          configuration apart from anything included in the request URI.</p>
 
-      <p>Security sensitive information may be logged with modified logging
+      <p>Security-sensitive information may be logged with modified logging
          configurations, particularly if debug logging is enabled.</p>
 
     </subsection>
