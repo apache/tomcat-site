@@ -9,39 +9,79 @@
 <body>
   <section name="Security model for Apache Tomcat">
 
-    <p>This security model is currently in DRAFT from.</p>
+    <subsection name="Introduction">
 
-    <p>The Apache Tomcat<sup>&#174;</sup> Security Team reviews reported
-       vulnerabilities against the following security model:</p>
+      <p>This security model is currently in DRAFT from.</p>
 
-    <ul>
-      <li>Users with the ability to modify Tomcat and/or application
-          configuration files and/or binaries are trusted.</li>
-      <li>Deployed web applications are trusted.</li>
-      <li>Vulnerabilities in deployed web applications are application
-          vulnerabilities, not Tomcat vulnerabilities.</li>
-      <li>Data received by an HTTP connector is untrusted.</li>
-      <li>Data received by an AJP connector is untrusted apart from:
-        <ul>
-          <li>The standard request attributes and any arbitrary request
-              attributes permitted by
-              <code>allowedRequestAttributesPattern</code></li>
-        </ul>
-      </li>
-      <li>JMX is an administrative interface and users with access to it are
-          trusted.</li>
-      <li>The Manager and Host manager web applications are administrative
-          interfaces and users with access to either of them are considered to
-          be trusted.</li>
-      <li>Cluster traffic requires a trusted network unless the
-          EncryptInterceptor is used in which case confidentiality and integrity
-          but not availability will be protected.</li>
-      <li>Multi-cast cluster membership always requires a trusted network.</li>
-      <li>Security sensitive information will not be logged with the default
-          configuration apart from anything included in the request URI.</li>
-      <li>Security sensitive information may be logged with modified logging
-          configurations, particularly if debug logging is enabled.</li>
-    </ul>
+      <p>The Apache Tomcat<sup>&#174;</sup> Security Team reviews reported
+         vulnerabilities against the following security model:</p>
+
+    </subsection>
+
+    <subsection name="Administrative users">
+
+      <p>Administrative users are always considered to be trusted. Reports that
+         require attacker access to and/or control of any of the following to
+         succeed will be rejected:</p>
+
+      <ul>
+        <li>The Manager or Host Manager applications provided with Tomcat</li>
+        <li>Tomcat configuration files</li>
+        <li>Tomcat binaries and/or scripts</li>
+        <li>The JMX API (local or remote)</li>
+        <li>The Java Attach API or any other debugging interface</li>
+      </ul>
+
+    </subsection>
+
+    <subsection name="Web applications">
+
+      <p>Web applications deployed to Tomcat are considered to be trusted.
+         Vulnerabilities in user provided web applications are application
+         vulnerabilities, not Tomcat vulnerabilities.</p>
+
+      <p>Reports of vulnerabilities in the web applications included with
+         Tomcat will be accepted. Reporters should review the comments about
+         each of the provided applications in the security considerations
+         section of the documentation for the version under test.</p>
+
+    </subsection>
+
+    <subsection name="Connectors">
+
+      <p>Data received via a Connector, regardless of protocol, is considered to
+         be untrusted apart from:</p>
+
+      <ul>
+        <li>The standard request attributes and any arbitrary request attributes
+            permitted by <code>allowedRequestAttributesPattern</code> for an AJP
+            connector</li>
+        <li>HTTP headers processed by a <code>RemoteIpValve</code>,
+            <code>SSLValve</code>, equivalent filters or any similar
+            functionality.</li>
+      </ul>
+
+    </subsection>
+
+    <subsection name="Clustering">
+
+      <p>Cluster traffic requires a trusted network unless the
+         <code>EncryptInterceptor</code> is used in which case confidentiality
+         and integrity will be protected but not availability.</p>
+
+      <p>Multicast cluster membership always requires a trusted network.</p>
+
+    </subsection>
+
+    <subsection name="Logging">
+
+      <p>Security sensitive information will not be logged with the default
+         configuration apart from anything included in the request URI.</p>
+
+      <p>Security sensitive information may be logged with modified logging
+         configurations, particularly if debug logging is enabled.</p>
+
+    </subsection>
 
   </section>
 
