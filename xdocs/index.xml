@@ -54,7 +54,34 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
-<section name="Tomcat 11.0.0-M25 Released" rtext="markt">
+
+<section name="Tomcat 9.0.93 Released" rtext="2024-09-10">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.94
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.93 include:</p>
+<ul>
+<li>If an HTTP/2 client resets a stream before the request body is fully
+    written, ensure that any ReadListener is notified via a call to
+    ReadListener.onErrror()</li>
+<li>An Exception being thrown during WebSocket message processing (e.g. in
+    a method annotated with @onMessage) should not automatically cause the
+    connection to close. The application should handle the exception and
+    make the decision whether or not to close the connection.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.94_(remm)">Tomcat 9
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+</section>
+
+
+<section name="Tomcat 11.0.0-M25 Released" rtext="2024-09-10">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.0-M25
 (beta) of Apache Tomcat. This release is a milestone release and is targeted at
@@ -142,36 +169,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="download-10.cgi">Download</a>
-</p>
-</section>
-
-
-
-<section name="Tomcat 9.0.93 Released" rtext="2024-08-06">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.93
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 8 platform. The notable changes compared to 9.0.91 include:</p>
-<ul>
-<li>Align HTTP/2 with HTTP/1.1 and recycle the container internal request
-    and response processing objects by default. This behaviour can be
-    controlled via the new discardRequestsAndResponses attribute on the
-    HTTP/2 upgrade protocol.</li>
-<li>Add OpenSSL support for FFM. Using this feature requires Java 22
-    or newer.</li>
-<li>Add support for RFC 8297 (Early Hints). Applications can use this
-    feature by casting the HttpServletResponse to
-    org.apache.catalina.connector.Reponse and then calling the method
-    void sendEarlyHints().</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.93_(remm)">Tomcat 9
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
 </p>
 </section>
 
