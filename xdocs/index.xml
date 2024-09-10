@@ -54,6 +54,43 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 11.0.0-M25 Released" rtext="markt">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M25
+(beta) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Implement the recent clarification from the Jakarta Servlet project
+    that if a content length is declared then once that many bytes have
+    been written to the response, further writes should trigger an
+    IOException</li>
+<li>If an HTTP/2 client resets a stream before the request body is fully
+    written, ensure that any ReadListener is notified via a call to
+    ReadListener.onErrror()</li>
+<li>An Exception being thrown during WebSocket message processing (e.g. in
+    a method annotated with @onMessage) should not automatically cause the
+    connection to close. The application should handle the exception and
+    make the decision whether or not to close the connection.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M25_(email)">Tomcat 11
+<strong>(beta)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 
 <section name="Tomcat Connectors 1.2.50 Released" rtext="2023-08-12">
 <p>
@@ -109,41 +146,6 @@ changelog</a>.
 </section>
 
 
-<section name="Tomcat 11.0.0-M24 Released" rtext="2024-08-06">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.0-M24
-(beta) of Apache Tomcat. This release is a milestone release and is targeted at
-Jakarta EE 11.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Align HTTP/2 with HTTP/1.1 and recycle the container internal request
-    and response processing objects by default. This behaviour can be
-    controlled via the new discardRequestsAndResponses attribute on the
-    HTTP/2 upgrade protocol.</li>
-<li>Add FFM compatibility methods for LibreSSL and BoringSSL support.</li>
-<li>Add support for RFC 8297 (Early Hints). Applications can use this
-    feature by casting the HttpServletResponse to
-    org.apache.catalina.connector.Reponse and then calling the method
-    void sendEarlyHints().</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M24_(markt)">Tomcat 11
-<strong>(beta)</strong> changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat 9.0.93 Released" rtext="2024-08-06">
 <p>

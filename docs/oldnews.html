@@ -18,6 +18,40 @@
   <li><a href="oldnews-2011.html">year 2011</a></li>
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
+</div><h3 id="Tomcat_11.0.0-M24_Released"><span class="pull-right">2024-08-06</span> Tomcat 11.0.0-M24 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.0-M24
+(beta) of Apache Tomcat. This release is a milestone release and is targeted at
+Jakarta EE 11.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Align HTTP/2 with HTTP/1.1 and recycle the container internal request
+    and response processing objects by default. This behaviour can be
+    controlled via the new discardRequestsAndResponses attribute on the
+    HTTP/2 upgrade protocol.</li>
+<li>Add FFM compatibility methods for LibreSSL and BoringSSL support.</li>
+<li>Add support for RFC 8297 (Early Hints). Applications can use this
+    feature by casting the HttpServletResponse to
+    org.apache.catalina.connector.Reponse and then calling the method
+    void sendEarlyHints().</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.0-M24_(markt)">Tomcat 11
+<strong>(beta)</strong> changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-11.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_10.1.26_Released"><span class="pull-right">2024-07-12</span> Tomcat 10.1.26 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.26
