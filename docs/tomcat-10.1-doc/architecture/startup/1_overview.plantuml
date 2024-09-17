@@ -23,22 +23,17 @@ Bootstrap -> Bootstrap: initClassLoaders()
 
 Bootstrap -->> Catalina ** : newInstance()
 
-Bootstrap -> Catalina: setParentClassLoader()
-activate Catalina
+Bootstrap -> Catalina ++: setParentClassLoader()
 |||
-Bootstrap <<-- Catalina:
-deactivate Catalina
+return
 
-Bootstrap -> Catalina: start()
-activate Catalina
+Bootstrap -> Catalina ++: start()
 
-Catalina -> Catalina: load()
-activate Catalina
+Catalina -> Catalina ++: load()
 
 Catalina -> Catalina: initNaming()
 
-Catalina -> Catalina: parseServerXml()
-activate Catalina
+Catalina -> Catalina ++: parseServerXml()
 
 Catalina -->> Digester ** :
 note right of Digester
@@ -49,57 +44,54 @@ note right of Digester
   simplicity
 end note
 
-Catalina -> Digester: parse()
-activate Digester
-|||
+Catalina -> Digester ++: parse()
 
 Digester -->> Server ** :
 
-Catalina <<-- Digester:
-deactivate Digester
+return
 
-Catalina -->> Catalina:
-deactivate Catalina
+return
 
+|||
 Catalina -> Catalina: initStream()
 
-Catalina -> Server: init()
-activate Server
+group More detail in diagram 2
+Catalina -> Server ++: init()
 |||
-Catalina <<-- Server:
-deactivate Server
+return
+end
 
-Catalina -->> Catalina:
-deactivate Catalina
+return
 
-Catalina -> Server: start()
-activate Server
-Catalina <<-- Server:
+|||
+group More detail in diagram 3
+Catalina -> Server ++: start()
+|||
+return
+end
 
-Catalina -> Catalina: await()
-activate Catalina
+|||
+Catalina -> Catalina ++: await()
 note right of Catalina
   This is where Tomcat spends
   time serving requests
 end note
-Catalina -->> Catalina:
-deactivate Catalina
+return
 
-Catalina -> Catalina: stop()
-activate Catalina
+|||
+Catalina -> Catalina ++: stop()
 
-Catalina -> Server: stop()
-Catalina <<-- Server:
+Catalina -> Server ++: stop()
+|||
+return
 
-Catalina -> Server: destroy()
-Catalina <<-- Server:
-deactivate Server
+Catalina -> Server ++: destroy()
+|||
+return
 
-Catalina -->> Catalina:
-deactivate Catalina
+return
 
-Bootstrap <<-- Catalina:
-deactivate Catalina
+return
 
 deactivate Bootstrap
 @enduml

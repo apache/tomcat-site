@@ -54,6 +54,35 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 10.1.30 Released" rtext="2024-09-17">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.30
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Fix the regression in HTTP/2 support introduced in 10.1.29.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.30_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 <section name="Tomcat 11.0.0-M26 Released" rtext="2024-09-16">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.0-M26
@@ -79,47 +108,6 @@ Full details of these changes, and all the other changes, are available in the
 
 <p style="text-align: center;">
 <a href="download-11.cgi">Download</a>
-</p>
-</section>
-<section name="Tomcat 10.1.29 Released" rtext="2024-09-10">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.29
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>If an HTTP/2 client resets a stream before the request body is fully
-      written, ensure that any ReadListener is notified via a call to
-      ReadListener.onErrror().</li>
-
-  <li>An Exception being thrown during WebSocket message processing (e.g. in
-      a method annotated with @onMessage) should not automatically cause the
-      connection to close. The application should handle the exception and
-      make the decision whether or not to close the connection.</li>
-
-  <li>Correct a regression in the fix for non-blocking reads of chunked
-      request bodies that caused <code>InputStream.available()</code> to
-      return a non-zero value when there was no data to read. In some
-      circumstances this could cause a blocking read to block waiting for
-      more data rather than return the data it had already received.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.29_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
 </p>
 </section>
 
