@@ -28,6 +28,26 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat JK Connector 1.2.50">
+    <p><strong>Moderate: Information disclosure / Denial of service</strong>
+       <cve>CVE-2024-46544</cve></p>
+
+    <p>Incorrect default permissions for the memory mapped file configured by
+       the <code>JkShmFile</code> directive on Unix like systems allows local
+       users to view and/or modify the contents of the shared memory containing
+       mod_jk configuration and status information. This could result in
+       information disclosure and/or denial of service.</p>
+
+    <p>This was fixed with commit
+       <connectorshashlink hash="d55706e92b65018c2e4c7ab14014a996b0174966"/>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 6 August 2024.
+       The issue was made public on 23 September 2024.</p>
+
+    <p>Affects: JK 1.2.9-1.2.49 (mod_jk on Unix like platforms only)</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat JK Connector 1.2.49">
     <p><strong>Important: Information disclosure</strong>
        <cve>CVE-2023-41081</cve></p>
