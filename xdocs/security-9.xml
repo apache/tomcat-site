@@ -50,6 +50,24 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.97" rtext="2024-11-09">
+
+    <p><strong>Important: XSS in generated JSPs</strong>
+       <cve>CVE-2024-52318</cve></p>
+
+    <p>The fix for improvement <bug>69333</bug> caused pooled JSP tags not to be
+       released after use which in turn could cause output of some tags not to
+       escaped as expected. This unescaped output could lead to XSS.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="9813c5dd3259183f659bbb83312a5cf673cc1ebf"/>.</p>
+
+    <p>The issue was made public on 18 November 2024.</p>
+
+    <p>Affects: 9.0.96</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.96" rtext="2024-10-09">
 
     <p><strong>Important: Request and/or response mix-up</strong>

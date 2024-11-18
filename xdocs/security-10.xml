@@ -56,6 +56,30 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.33" rtext="2024-11-11">
+
+    <p><i>Note: The issue below was fixed in Apache Tomcat 10.1.32 but the
+       release vote for the 10.1.32 release candidate did not pass. Therefore,
+       although users must download 10.1.33 to obtain a version that includes a
+       fix for these issues, version 10.1.32 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: XSS in generated JSPs</strong>
+       <cve>CVE-2024-52318</cve></p>
+
+    <p>The fix for improvement <bug>69333</bug> caused pooled JSP tags not to be
+       released after use which in turn could cause output of some tags not to
+       escaped as expected. This unescaped output could lead to XSS.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="be8e32143a3159e78fe5463d09bb8e1b33bf2b1f"/>.</p>
+
+    <p>The issue was made public on 18 November 2024.</p>
+
+    <p>Affects: 10.1.31</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.31" rtext="2024-10-09">
 
     <p><strong>Important: Request and/or response mix-up</strong>
