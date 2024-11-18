@@ -56,6 +56,42 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.31" rtext="2024-10-09">
+
+    <p><strong>Important: Request and/or response mix-up</strong>
+       <cve>CVE-2024-52317</cve></p>
+
+    <p>Incorrect recycling of the request and response used by HTTP/2 requests
+       could lead to request and/or response mix-up between users.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="146f94f87ea398fb592c7a20a5ccbef95e9dd72b"/>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 1 October 2024.
+       The issue was made public on 18 November 2024.</p>
+
+    <p>Affects: 10.1.27 to 10.1.30</p>
+
+    <p><strong>Low: Authentication Bypass</strong>
+       <cve>CVE-2024-52316</cve></p>
+
+    <p>If Tomcat was configured to use a custom Jakarta Authentication (formerly
+       JASPIC) ServerAuthContext component which may throw an exception during
+       the authentication process without explicitly setting an HTTP status to
+       indicate failure, the authentication may not have failed, allowing the
+       user to bypass the authentication process. There are no known Jakarta
+       Authentication components that behave in this way.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="acc2f01395f895980f5d8a64573fcc1bade13369"/>.</p>
+
+    <p>This issue was identified by the Tomcat Security Team on 19 September
+       2024. The issue was made public on 18 November 2024.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.30</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.25" rtext="2024-06-19">
 
     <p><strong>Important: Denial of Service</strong>
