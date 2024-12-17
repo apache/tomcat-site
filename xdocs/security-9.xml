@@ -50,6 +50,51 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.98" rtext="2024-12-09">
+  
+    <p><strong>Low: DoS in examples web application</strong>
+
+       <cve>CVE-2024-54677</cve></p>
+
+    <p>Numerous examples in the examples web application did not place limits on
+       uploaded data enabling an OutOfMemoryError to be triggered causing a
+       denial of service.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="1d88dd3ffaed76188dd4ee32ce77709ce6e153cd"/>,
+       <hashlink hash="721544ea28e92549824b106be954a9f411867a1c"/>,
+       <hashlink hash="84065e26ca4555e63a922bb29b13b0a1c86b7654"/>,
+       <hashlink hash="3315a9027a7eaab18f42625b97b569940ff1365d"/>,
+       <hashlink hash="c2f7ce21c3fb12caefee87c517a8bb4f80700044"/>,
+       <hashlink hash="75ff7e8622edcc024b268677aa789ee8f0880ecc"/>,
+       <hashlink hash="4d5cc6538d91386f950373ac8120e98c2c78ed3a"/>,
+       <hashlink hash="84c4af76e7a10fc7f8630ce62e6a46632ea4a90e"/> and
+       <hashlink hash="9ffd23fc27f5d1fc95bf97e5cea175c8968f4533"/>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.97</p>
+
+    <p><strong>Important: Remote Code Execution via write enabled Default Servlet</strong>
+       <cve>CVE-2024-50379</cve></p>
+
+    <p>If the default servlet is write enabled (<code>readonly</code>
+       initialisation parameter set to the non-default value of
+       <code>false</code>) for a case insensitive file system, concurrent read
+       and upload under load of the same file can bypass Tomcat's case
+       sensitivity checks and cause an uploaded file to be treated as a JSP
+       leading to remote code execution.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="43b507ebac9d268b1ea3d908e296cc6e46795c00"/> and
+       <hashlink hash="631500b0c9b2a2a2abb707e3de2e10a5936e5d41"/>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.97</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.97" rtext="2024-11-09">
 
     <p><strong>Important: XSS in generated JSPs</strong>

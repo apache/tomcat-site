@@ -50,6 +50,49 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 11.0.2" rtext="2024-12-09">
+  
+    <p><strong>Low: DoS in examples web application</strong>
+
+       <cve>CVE-2024-54677</cve></p>
+
+    <p>Numerous examples in the examples web application did not place limits on
+       uploaded data enabling an OutOfMemoryError to be triggered causing a
+       denial of service.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="4f0236606961176257b883213e1621b1859ed746"/>,
+       <hashlink hash="c0a23927ea5e061ca3fdff695138464179fe674a"/>,
+       <hashlink hash="b1f65728b37d7d227a0764344473b7e261a13408"/>,
+       <hashlink hash="a95bf2b0303442a2c9a1ac364b0e63b56049e33a"/>,
+       <hashlink hash="4a335c6dcba8d6f8a54629eda392a50da267bdf4"/>,
+       <hashlink hash="722814668708c42a61b0c1e340b15bc2b785c0d1"/> and
+       <hashlink hash="cb1707685472994e9d924746f8c91cb116fa5213"/>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.1</p>
+  
+    <p><strong>Important: Remote Code Execution via write enabled Default Servlet</strong>
+       <cve>CVE-2024-50379</cve></p>
+
+    <p>If the default servlet is write enabled (<code>readonly</code>
+       initialisation parameter set to the non-default value of
+       <code>false</code>) for a case insensitive file system, concurrent read
+       and upload under load of the same file can bypass Tomcat's case
+       sensitivity checks and cause an uploaded file to be treated as a JSP
+       leading to remote code execution.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="cc7a98b57c6dc1df21979fcff94a36e068f4456c"/> and
+       <hashlink hash="684247ae85fa633b9197b32391de59fc54703842"/>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.1</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 11.0.1" rtext="2024-11-10">
 
     <p><strong>Important: XSS in generated JSPs</strong>

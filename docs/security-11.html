@@ -36,7 +36,48 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.2"><span class="pull-right">2024-12-09</span> Fixed in Apache Tomcat 11.0.2</h3><div class="text">
+  
+    <p><strong>Low: DoS in examples web application</strong>
+
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54677" rel="nofollow">CVE-2024-54677</a></p>
+
+    <p>Numerous examples in the examples web application did not place limits on
+       uploaded data enabling an OutOfMemoryError to be triggered causing a
+       denial of service.</p>
+
+    <p>This was fixed with commits
+       <a href="https://github.com/apache/tomcat/commit/4f0236606961176257b883213e1621b1859ed746">4f023660</a>,
+       <a href="https://github.com/apache/tomcat/commit/c0a23927ea5e061ca3fdff695138464179fe674a">c0a23927</a>,
+       <a href="https://github.com/apache/tomcat/commit/b1f65728b37d7d227a0764344473b7e261a13408">b1f65728</a>,
+       <a href="https://github.com/apache/tomcat/commit/a95bf2b0303442a2c9a1ac364b0e63b56049e33a">a95bf2b0</a>,
+       <a href="https://github.com/apache/tomcat/commit/4a335c6dcba8d6f8a54629eda392a50da267bdf4">4a335c6d</a>,
+       <a href="https://github.com/apache/tomcat/commit/722814668708c42a61b0c1e340b15bc2b785c0d1">72281466</a> and
+       <a href="https://github.com/apache/tomcat/commit/cb1707685472994e9d924746f8c91cb116fa5213">cb170768</a>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.1</p>
+  
+    <p><strong>Important: Remote Code Execution via write enabled Default Servlet</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50379" rel="nofollow">CVE-2024-50379</a></p>
+
+    <p>If the default servlet is write enabled (<code>readonly</code>
+       initialisation parameter set to the non-default value of
+       <code>false</code>) for a case insensitive file system, concurrent read
+       and upload under load of the same file can bypass Tomcat's case
+       sensitivity checks and cause an uploaded file to be treated as a JSP
+       leading to remote code execution.</p>
+
+    <p>This was fixed with commits
+       <a href="https://github.com/apache/tomcat/commit/cc7a98b57c6dc1df21979fcff94a36e068f4456c">cc7a98b5</a> and
+       <a href="https://github.com/apache/tomcat/commit/684247ae85fa633b9197b32391de59fc54703842">684247ae</a>.</p>
+
+    <p>The issue was made public on 17 December 2024.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.1</p>
+  
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.1"><span class="pull-right">2024-11-10</span> Fixed in Apache Tomcat 11.0.1</h3><div class="text">
 
     <p><strong>Important: XSS in generated JSPs</strong>
