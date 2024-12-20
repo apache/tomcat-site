@@ -52,8 +52,30 @@
 
   <section name="Fixed in Apache Tomcat 9.0.98" rtext="2024-12-09">
   
-    <p><strong>Low: DoS in examples web application</strong>
+    <p><strong>Important: Remote Code Execution via write enabled Default
+       Servlet. Mitigation for CVE-2024-50379 was incomplete - </strong>
+       <cve>CVE-2024-56337</cve></p>
 
+    <p>The previous mitigation for <cve>CVE-2024-50379</cve> was incomplete. In
+       addition to upgrading to 9.0.98 or later, users running Tomcat on a case
+       insensitive file system with the default servlet write enabled may need
+       additional configuration depending on the version of Java being used:
+       <ul>
+       <li>running on Java 8 or Java 11: the system property
+           <code>sun.io.useCanonCaches</code> must be explicitly set to
+           <code>false</code> (it defaults to <code>true</code>)</li>
+       <li>running on Java 17: the system property
+           <code>sun.io.useCanonCaches</code>, if set, must be set to
+           <code>false</code> (it defaults to <code>false</code>)</li>
+       <li>running on Java 21 onwards: no further configuration is required (the
+           system property and the problematic cache have been removed)</li>
+       </ul></p>
+
+    <p>The issue was made public on 20 December 2024.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.97</p>
+    
+    <p><strong>Low: DoS in examples web application</strong>
        <cve>CVE-2024-54677</cve></p>
 
     <p>Numerous examples in the examples web application did not place limits on
