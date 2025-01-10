@@ -6,15 +6,16 @@
 <title>PooledConnection (Apache Tomcat 10.0.27 API Documentation)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -151,7 +152,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 <ul class="blockList">
 <li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="field.summary">
 <!--   -->
@@ -228,7 +229,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 </ul>
 </section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.summary">
 <!--   -->
@@ -252,7 +253,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -468,7 +469,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reconnect()">reconnect</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Issues a call to <a href="#disconnect(boolean)"><code>disconnect(boolean)</code></a> with the argument false followed by a call to
+<div class="block">Issues a call to <code>disconnect(boolean)</code> with the argument false followed by a call to
  <a href="#connect()"><code>connect()</code></a></div>
 </td>
 </tr>
@@ -478,7 +479,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 <td class="colLast">
 <div class="block">This method is called if (Now - timeCheckedIn &gt; getReleaseTime())
  This method disconnects the connection, logs an error in debug mode if it happens
- then sets the <a href="#released"><code>released</code></a> flag to false.</div>
+ then sets the <code>released</code> flag to false.</div>
 </td>
 </tr>
 <tr id="i34" class="altColor">
@@ -583,7 +584,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 <ul class="blockList">
 <li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="field.detail">
 <!--   -->
@@ -705,7 +706,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 </ul>
 </section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="constructor.detail">
 <!--   -->
@@ -731,7 +732,7 @@ implements <a href="PooledConnectionMBean.html" title="interface in org.apache.t
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
@@ -881,7 +882,7 @@ public&nbsp;boolean&nbsp;checkUser&#8203;(java.lang.String&nbsp;username,
 <h4>reconnect</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;reconnect()
                throws java.sql.SQLException</pre>
-<div class="block">Issues a call to <a href="#disconnect(boolean)"><code>disconnect(boolean)</code></a> with the argument false followed by a call to
+<div class="block">Issues a call to <code>disconnect(boolean)</code> with the argument false followed by a call to
  <a href="#connect()"><code>connect()</code></a></div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -969,7 +970,7 @@ public&nbsp;boolean&nbsp;checkUser&#8203;(java.lang.String&nbsp;username,
 <pre class="methodSignature">public&nbsp;boolean&nbsp;release()</pre>
 <div class="block">This method is called if (Now - timeCheckedIn &gt; getReleaseTime())
  This method disconnects the connection, logs an error in debug mode if it happens
- then sets the <a href="#released"><code>released</code></a> flag to false. Any attempts to connect this cached object again
+ then sets the <code>released</code> flag to false. Any attempts to connect this cached object again
  will fail per <a href="#connect()"><code>connect()</code></a>
  The connection pool uses the atomic return value to decrement the pool size counter.</div>
 <dl>
@@ -1121,7 +1122,7 @@ public&nbsp;boolean&nbsp;checkUser&#8203;(java.lang.String&nbsp;username,
 <dd><code><a href="PooledConnectionMBean.html#isDiscarded()">isDiscarded</a></code>&nbsp;in interface&nbsp;<code><a href="PooledConnectionMBean.html" title="interface in org.apache.tomcat.jdbc.pool">PooledConnectionMBean</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the discarded flag. If the value is true,
- either <a href="#disconnect(boolean)"><code>disconnect(boolean)</code></a> has been called or it will be called when the connection is returned to the pool.</dd>
+ either <code>disconnect(boolean)</code> has been called or it will be called when the connection is returned to the pool.</dd>
 </dl>
 </li>
 </ul>
