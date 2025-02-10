@@ -28,6 +28,39 @@
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
 </section>
+<section name="Tomcat 11.0.2 Released" rtext="2024-12-09">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.2
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add strong ETag support for the WebDAV and default servlet, which can
+    be enabled by using the useStrongETags init parameter with a value set
+    to true. The ETag generated will be a SHA-1 checksum of the resource
+    content.</li>
+<li>Add support for RateLimit header fields for HTTP (RFC draft) in the
+    RateLimitFilter. Based on pull request #775 provided by Chenjp.</li>
+<li>Update Tomcat's fork of Commons DBCP to 2.13.0.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.2_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 
 <section name="Tomcat 9.0.98 Released" rtext="2024-12-09">
 <p>
