@@ -54,6 +54,45 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 10.1.35 Released" rtext="2025-02-10">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.35
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Allow readOnly attribute configuration on the Resources element and
+      allow configuration of the readOnly attribute value of the main
+      resources. The attribute value will also be used by the default and
+      WebDAV Servlets.</li>
+
+  <li>Correct a regression in the fix for bug 69382 that broke JSP
+      include actions if both the page attribute and the body contained
+      parameters. Pull request #803 provided by Chenjp.</li>
+
+  <li>Expand the options for handling encoded '/' and '\' characters in
+      URLs both in the Connector and when using a RequestDispatcher.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.35_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 
 
 <section name="Tomcat Migration Tool for Jakarta EE 1.0.9 Released" rtext="2025-01-21">
@@ -80,42 +119,6 @@ Full details of these changes, and all the other changes, are available in the
 </section>
 
 
-<section name="Tomcat 10.1.34 Released" rtext="2024-12-09">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.34
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Add strong ETag support for the WebDAV and default servlet, which can
-      be enabled by using the useStrongETags init parameter with a value set
-      to true. The ETag generated will be a SHA-1 checksum of the resource
-      content.</li>
-
-  <li>Add support for RateLimit header fields for HTTP (RFC draft) in the
-       RateLimitFilter. Based on pull request #775 provided by Chenjp</li>
-
-  <li>Update Tomcat's fork of Commons DBCP to 2.13.0.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.34_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
 
 
 <section name="Tomcat 9.0.98 Released" rtext="2024-12-09">
