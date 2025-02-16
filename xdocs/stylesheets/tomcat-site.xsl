@@ -146,7 +146,7 @@
 
   <!-- Footer -->
   <footer id="footer">
-    Copyright © 1999-2024, The Apache Software Foundation
+    Copyright © 1999-2025, The Apache Software Foundation
     <br/>
     Apache Tomcat, Tomcat, Apache, the Apache Tomcat logo and the Apache logo
     are either registered trademarks or trademarks of the Apache Software
