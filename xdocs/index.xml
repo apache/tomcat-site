@@ -54,9 +54,9 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
-<section name="Tomcat 11.0.3 Released" rtext="2025-02-10">
+<section name="Tomcat 11.0.4 Released" rtext="2025-02-17">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.3
+The Apache Tomcat Project is proud to announce the release of version 11.0.4
 of Apache Tomcat. This release implements specifications that are part of the
 Jakarta EE 11 platform.</p>
 <p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
@@ -69,18 +69,13 @@ to Tomcat 10 and later. A
 tool</a> is available to aid this process.</p>
 <p>The notable changes in this release are:</p>
 <ul>
-<li>Allow readOnly attribute configuration on the Resources element and allow
-    configuration of the readOnly attribute value of the main resources. The
-    attribute value will also be used by the default and WebDAV Servlets.</li>
-<li>Correct a regression in the fix for bug 69382 that broke JSP include actions
-    if both the page attribute and the body contained parameters. Pull request
-    #803 provided by Chenjp</li>
-<li>Expand the options for handling encoded '/' and '\' characters in URLs both
-    in the Connector and when using a RequestDispatcher. </li>
+<li>Fix a regression in 11.0.3 and add a catch for
+    <code>InaccessibleObjectException</code> to avoid users of embedded Tomcat
+    having to add an additional <code>--add-opens</code>.</li>
 </ul>
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.3_(markt)">Tomcat 11
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.4_(markt)">Tomcat 11
 changelog</a>.
 </p>
 
