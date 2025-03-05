@@ -54,6 +54,40 @@ wiki page.</p>
 project logo are trademarks of the Apache Software Foundation.</p>
 
 </section>
+<section name="Tomcat 11.0.5 Released" rtext="2025-03-05">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.5
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Improve the checks for exposure to and protection against
+    CVE-2024-56337 so that reflection is not used unless required. The
+    checks for whether the file system is case sensitive or not have been
+    removed.</li>
+<li>Use Transfer-Encoding for compression rather than Content-Encoding if
+    the client submits a TE header containing gzip.</li>
+<li>Add makensis as an option for building the Installer for Windows on
+    non-Windows platforms.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.5_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 <section name="Tomcat 10.1.36 Released" rtext="2025-02-18">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.36
@@ -109,35 +143,6 @@ changelog</a>.
 </section>
 
 
-<section name="Tomcat 11.0.4 Released" rtext="2025-02-17">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.4
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 11 platform.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Fix a regression in 11.0.3 and add a catch for
-    <code>InaccessibleObjectException</code> to avoid users of embedded Tomcat
-    having to add an additional <code>--add-opens</code>.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.4_(markt)">Tomcat 11
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
-</p>
-</section>
 
 
 
