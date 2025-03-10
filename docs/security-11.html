@@ -36,7 +36,49 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.3"><span class="pull-right">2025-02-10</span> Fixed in Apache Tomcat 11.0.3</h3><div class="text">
+  
+    <p><strong>Important: Remote Code Execution and/or Information disclosure
+       and/or malicious content added to uploaded files via write enabled
+       Default Servlet - </strong> <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-24813" rel="nofollow">CVE-2025-24813</a></p>
+
+    <p>The original implementation of partial PUT used a temporary file based on
+       the user provided file name and path with the path separator replaced by
+       ".".</p>
+
+    <p>If all of the following were true, a malicious user was able to view
+       security sensitive files and/or inject content into those files:</p>
+
+    <ul>
+      <li>writes enabled for the default servlet (disabled by default)</li>
+      <li>support for partial PUT (enabled by default)</li>
+      <li>a target URL for security sensitive uploads that is a sub-directory of
+          a target URL for public uploads</li>
+      <li>attacker knowledge of the names of security sensitive files being
+          uploaded</li>
+      <li>the security sensitive files also being uploaded via partial PUT</li>
+    </ul>
+
+    <p>If all of the following were true, a malicious user was able to perform
+       remote code execution:</p>
+
+    <ul>
+      <li>writes enabled for the default servlet (disabled by default)</li>
+      <li>support for partial PUT (enabled by default)</li>
+      <li>application was using Tomcat's file based session persistence with the
+          default storage location</li>
+      <li>application included a library that may be leveraged in a
+          deserialization attack</li>
+    </ul>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/0a668e0c27f2b7ca0cc7c6eea32253b9b5ecb29c">0a668e0c</a>.</p>
+
+    <p>The issue was made public on 10 March 2025.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.2</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.2"><span class="pull-right">2024-12-09</span> Fixed in Apache Tomcat 11.0.2</h3><div class="text">
   
     <p><strong>Important: Remote Code Execution via write enabled Default

@@ -50,6 +50,50 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.99" rtext="2025-02-10">
+  
+    <p><strong>Important: Remote Code Execution and/or Information disclosure
+       and/or malicious content added to uploaded files via write enabled
+       Default Servlet - </strong> <cve>CVE-2025-24813</cve></p>
+
+    <p>The original implementation of partial PUT used a temporary file based on
+       the user provided file name and path with the path separator replaced by
+       ".".</p>
+
+    <p>If all of the following were true, a malicious user was able to view
+       security sensitive files and/or inject content into those files:</p>
+
+    <ul>
+      <li>writes enabled for the default servlet (disabled by default)</li>
+      <li>support for partial PUT (enabled by default)</li>
+      <li>a target URL for security sensitive uploads that is a sub-directory of
+          a target URL for public uploads</li>
+      <li>attacker knowledge of the names of security sensitive files being
+          uploaded</li>
+      <li>the security sensitive files also being uploaded via partial PUT</li>
+    </ul>
+
+    <p>If all of the following were true, a malicious user was able to perform
+       remote code execution:</p>
+
+    <ul>
+      <li>writes enabled for the default servlet (disabled by default)</li>
+      <li>support for partial PUT (enabled by default)</li>
+      <li>application was using Tomcat's file based session persistence with the
+          default storage location</li>
+      <li>application included a library that may be leveraged in a
+          deserialization attack</li>
+    </ul>
+
+    <p>This was fixed with commit
+       <hashlink hash="eb61aade8f8daccaecabf07d428b877975622f72"/>.</p>
+
+    <p>The issue was made public on 10 March 2025.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.98</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.98" rtext="2024-12-09">
   
     <p><strong>Important: Remote Code Execution via write enabled Default
