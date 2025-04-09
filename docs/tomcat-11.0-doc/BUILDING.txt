@@ -320,6 +320,7 @@ in build.xml and the default property values in build.properties.default.
         # Code signing of Windows installer
         do.codesigning=true
         codesigning.storepass=request-via-pmc
+        codesigning.keypass=request-via-pmc
 
     Release managers will be provided with the necessary credentials by the PMC.
 
@@ -327,36 +328,47 @@ in build.xml and the default property values in build.properties.default.
     you can use the detached signatures provided in the official releases.
     In this case you have to use the sources from the source release
     archive, which contains these signatures. You also have to build
-    on Windows, or use Wine, or use a special build of makensis to
-    create a reproducible installer, that fits the signature files.
+    on Windows, use Wine, or use a special build of makensis to create
+    a reproducible installer, that fits the signature files.
 
  5. Using a special "makensis" build on non-Windows (optional)
 
     If you want to build a reproducible installer on non-Windows
     by using "makensis" instead of "Wine", you need to build
-    "makensis" from a source download yourself using the following
-    recipe. To build makensis, you need python, scons and a C compiler.
+    "makensis" from a source download yourself. To build "makensis",
+    you need python, scons and a C compiler. You can build "makensis"
+    via an Ant target:
+
+    ant local-makensis
+
+    or you can build it manually using the following recipe.
 
     First detect the needed version by looking for nsis.version
     in build.properties.default.
 
     Download and extract NSIS for Windows by running "ant download-dist". Note
-    the NSIS installation PATH from the output or by checking "nsis.home" in
-    build.properties.default. For example:
-    /home/myuser/tomcat-build-libs/nsis-3.10
+    the NSIS installation path from the output or by checking "nsis.bin.home" in
+    build.properties.default. For example by default:
+    nsis.bin.home=${base.path}/nsis-${nsis.version}
 
-    Download the correct sources from the same site and run the
-    following command in the extracted source directory:
+    The corresponding sources will be downloaded to "nsis.src.home" in
+    build.properties.default. For example by default:
+    nsis.src.home=${base.path}/nsis-${nsis.version}-src
 
-        scons UNICODE=yes PREFIX=/home/myuser/tomcat-build-libs/nsis-3.10/Bin SKIPPLUGINS=all SKIPUTILS=all SKIPMISC=all NSIS_CONFIG_CONST_DATA_PATH=no VERSION=3.10 install-compiler
+    Install the scons Python software construction tool.
+
+    Run the following command in the extracted NSIS source directory:
+
+        scons UNICODE=yes PREFIX=${base.path}/nsis-${nsis.version}/Bin SKIPPLUGINS=all SKIPUTILS=all SKIPMISC=all NSIS_CONFIG_CONST_DATA_PATH=no VERSION=${nsis.version} install-compiler
 
     You need to specify the correct value in VERSION (this ends up in the installer binary
-    so it needs to match). The PREFIX needs to be the bin directory of the NSIS
-    binary distribution that "ant download-dist" installed.
+    so it needs to match). The PREFIX is not important, but you need to make sure
+    that the created binary "makensis" gets finally put into the "Bin" directory of
+    the NSIS binary distribution that "ant download-dist" installed. When using
+    "NSIS_CONFIG_CONST_DATA_PATH=no" the binary is independent of the value of "PREFIX".
 
-    Use this "makensis" binary by making sure, that it gets found by setting
-    an appropriate PATH environment variable. In addition set the ant property
-    "nsis.tool" to "makensis" in build.properties.
+    In addition set the ant property "nsis.tool" to "makensis" in
+    build.properties.
 
  6. Build the release:
 
