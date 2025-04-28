@@ -56,6 +56,41 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.40" rtext="2025-04-08">
+
+    <p><strong>Low: Rewrite rule bypass</strong> <cve>CVE-2025-31651</cve></p>
+
+    <p>For a subset of unlikely rewrite rule configurations, it was possible for
+       a specially crafted request to bypass some rewrite rules. If those
+       rewrite rules effectively enforced security constraints, those
+       constraints could be bypassed.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="066bf6b6a15a4e7e0941d4acf096841165b97098"/>.</p>
+
+    <p>The issue was made public on 28 April 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.39</p>
+
+    <p><strong>Important: Denial of Service via invalid HTTP priority
+       header</strong> <cve>CVE-2025-31650</cve></p>
+
+    <p>Incorrect error handling for some invalid HTTP priority headers resulted
+       in incomplete clean-up of the failed request which created a memory leak.
+       A large number of such requests could trigger an
+       OutOfMemoryException resulting in a denial of service.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="cba1a0fe1289ee7f5dd46c61c38d1e1ac5437bff"/>,
+       <hashlink hash="1eef1dc459c45f1e421d8bd25ef340fc1cc34edc"/> and
+       <hashlink hash="8cc3b8fb3f2d8d4d6a757e014f19d1fafa948a60"/>.</p>
+
+    <p>The issue was made public on 28 April 2025.</p>
+
+    <p>Affects: 10.1.10 to 10.1.39</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.35" rtext="2025-02-10">
   
     <p><strong>Important: Remote Code Execution and/or Information disclosure

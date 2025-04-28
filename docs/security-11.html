@@ -36,7 +36,40 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.6">Fixed in Apache Tomcat 11.0.6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.6"><span class="pull-right">2025-04-09</span> Fixed in Apache Tomcat 11.0.6</h3><div class="text">
+
+    <p><strong>Low: Rewrite rule bypass</strong> <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-31651" rel="nofollow">CVE-2025-31651</a></p>
+
+    <p>For a subset of unlikely rewrite rule configurations, it was possible for
+       a specially crafted request to bypass some rewrite rules. If those
+       rewrite rules effectively enforced security constraints, those
+       constraints could be bypassed.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/fbecc915a10c5a3d634c5e2c6ced4ff479ce9953">fbecc915</a>.</p>
+
+    <p>The issue was made public on 28 April 2025.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.5</p>
+
+    <p><strong>Important: Denial of Service via invalid HTTP priority
+       header</strong> <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-31650" rel="nofollow">CVE-2025-31650</a></p>
+
+    <p>Incorrect error handling for some invalid HTTP priority headers resulted
+       in incomplete clean-up of the failed request which created a memory leak.
+       A large number of such requests could trigger an
+       OutOfMemoryException resulting in a denial of service.</p>
+
+    <p>This was fixed with commits
+       <a href="https://github.com/apache/tomcat/commit/75554da2fc5574862510ae6f0d7b3d78937f1d40">75554da2</a>,
+       <a href="https://github.com/apache/tomcat/commit/f619e6a05029538886d5a9d987925d573b5bb8c2">f619e6a0</a> and
+       <a href="https://github.com/apache/tomcat/commit/ded0285b96b4d3f5560dfc8856ad5ec4a9b50ba9">ded0285b</a>.</p>
+
+    <p>The issue was made public on 28 April 2025.</p>
+
+    <p>Affects: 11.0.0-M2 to 11.0.5</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.3"><span class="pull-right">2025-02-10</span> Fixed in Apache Tomcat 11.0.3</h3><div class="text">
   
     <p><strong>Important: Remote Code Execution and/or Information disclosure
