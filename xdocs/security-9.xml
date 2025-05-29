@@ -50,6 +50,26 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.105" rtext="2025-05-12">
+
+    <p><strong>Low: CGI security constraint bypass</strong>
+       <cve>CVE-2025-46701</cve></p>
+
+    <p>When running on a case insensitive file system with security constraints
+       configured for the <code>pathInfo</code> component of a URL that mapped
+       to the CGI servlet, it was possible to bypass those security constraints
+       with a specially crafted URL.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="8df00018a252baa9497615d6420fb6c10466fa74"/> and
+       <hashlink hash="8cb95ff03221067c511b3fa66d4f745bc4b0a605"/>.</p>
+
+    <p>The issue was made public on 29 May 2025.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.104</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.104" rtext="2025-04-08">
 
     <p><i>Note: The issues below were fixed in Apache Tomcat 9.0.103 but the
