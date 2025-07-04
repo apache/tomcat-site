@@ -1,8 +1,8 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.1.42) - Security Considerations</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
-            Version 10.1.42,
-            <time datetime="2025-06-05">Jun 5 2025</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.1 Javadocs</a></li><li><a href="elapi/index.html">EL 5.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.1 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Security Considerations</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Non-Tomcat_settings">Non-Tomcat settings</a><ol><li><a href="#JMX">JMX</a></li></ol></li><li><a href="#Default_web_applications">Default web applications</a><ol><li><a href="#Default_web_applications/General">General</a></li><li><a href="#ROOT">ROOT</a></li><li><a href="#Documentation">Documentation</a></li><li><a href="#Examples">Examples</a></li><li><a href="#Default_web_applications/Manager">Manager</a></li><li><a href="#Host_Manager">Host Manager</a></li><li><a href="#Securing_Management_Applications">Securing Management Applications</a></li></ol></li><li><a href="#Security_manager">Security manager</a></li><li><a href="#server.xml">server.xml</a><ol><li><a href="#server.xml/General">General</a></li><li><a href="#Server">Server</a></li><li><a href="#Listeners">Listeners</a></li><li><a href="#Connectors">Connectors</a></li><li><a href="#Host">Host</a></li><li><a href="#Context">Context</a></li><li><a href="#Valves">Valves</a></li><li><a href="#Realms">Realms</a></li><li><a href="#server.xml/Manager">Manager</a></li><li><a href="#Cluster">Cluster</a></li></ol></li><li><a href="#web.xml">web.xml</a></li><li><a href="#Embedded_Tomcat">Embedded Tomcat</a></li><li><a href="#General">General</a></li></ul>
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 (10.1.43) - Security Considerations</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10</h1><div class="versionInfo">
+            Version 10.1.43,
+            <time datetime="2025-07-01">Jul 1 2025</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 6.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 3.1 Javadocs</a></li><li><a href="elapi/index.html">EL 5.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 2.1 Javadocs</a></li><li><a href="jaspicapi/index.html">Authentication 3.0 Javadocs</a></li><li><a href="annotationapi/index.html">Annotations 2.1 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>Security Considerations</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Non-Tomcat_settings">Non-Tomcat settings</a><ol><li><a href="#JMX">JMX</a></li></ol></li><li><a href="#Default_web_applications">Default web applications</a><ol><li><a href="#Default_web_applications/General">General</a></li><li><a href="#ROOT">ROOT</a></li><li><a href="#Documentation">Documentation</a></li><li><a href="#Examples">Examples</a></li><li><a href="#Default_web_applications/Manager">Manager</a></li><li><a href="#Host_Manager">Host Manager</a></li><li><a href="#Securing_Management_Applications">Securing Management Applications</a></li></ol></li><li><a href="#User_web_applications">User web applications</a></li><li><a href="#Security_manager">Security manager</a></li><li><a href="#server.xml">server.xml</a><ol><li><a href="#server.xml/General">General</a></li><li><a href="#Server">Server</a></li><li><a href="#Listeners">Listeners</a></li><li><a href="#Connectors">Connectors</a></li><li><a href="#Host">Host</a></li><li><a href="#Context">Context</a></li><li><a href="#Valves">Valves</a></li><li><a href="#Realms">Realms</a></li><li><a href="#server.xml/Manager">Manager</a></li><li><a href="#Cluster">Cluster</a></li></ol></li><li><a href="#web.xml">web.xml</a></li><li><a href="#Embedded_Tomcat">Embedded Tomcat</a></li><li><a href="#Reverse_Proxies">Reverse Proxies</a></li><li><a href="#General">General</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
     <p>Tomcat is configured to be reasonably secure for most use cases by
     default. Some environments may require more, or less, secure configurations.
@@ -142,6 +142,17 @@
            this valve.</li>
      </ul>
    </div></div>
+  </div><h3 id="User_web_applications">User web applications</h3><div class="text">
+    <p>Web applications are assumed to be trusted. It is not safe to deploy web
+    applications from untrusted sources.</p>
+
+    <p>Any application functionality that permits the modification of a web
+    application (WebDAV, HTTP PUT requests etc.) may impact the security of
+    either the web application or the Tomcat instance on which it is running.
+    Such functionality should either be restricted to trusted users or
+    limited in scope (e.g. via security constraints) such that users with access
+    to the functionality are unable to imapct the security of either the web
+    application or the Tomcat instance on which it is running.</p>
   </div><h3 id="Security_manager">Security manager</h3><div class="text">
     <p>Enabling the security manager causes web applications to be run in a
     sandbox, significantly limiting a web application's ability to perform
@@ -253,10 +264,27 @@
       will interpret as UTF-7 a response containing characters that are safe for
       ISO-8859-1 but trigger an XSS vulnerability if interpreted as UTF-7.</p>
 
+      <p>The <strong>maxParameterCount</strong> attribute controls the maximum
+      total number of request parameters (including uploaded files) obtained
+      from the query string and, for POST requests, the request body if the
+      content type is <code>application/x-www-form-urlencoded</code> or
+      <code>multipart/form-data</code>. Excessive parameters are ignored. If you
+      want to reject such requests, configure a
+      <a href="config/filter.html">FailedRequestFilter</a>.</p>
+
+      <p>The <strong>maxPartCount</strong> attribute controls the maximum number
+      of parts supported for a multipart request. This is limited to 50 by
+      default to reduce exposure to a DoS attack. The documentation for
+      <strong>maxPartCount</strong> provides more details on the memory
+      requirements for processing multipart requests. Excessive parts may be
+      ignored depending on how the application processes the request. If you
+      want to always reject such requests, configure a
+      <a href="config/filter.html">FailedRequestFilter</a>.</p>
+
       <p>The <strong>maxPostSize</strong> attribute controls the maximum size
       of a POST request that will be parsed for parameters. The parameters are
       cached for the duration of the request so this is limited to 2 MiB by
-      default to reduce exposure to a DOS attack.</p>
+      default to reduce exposure to a DoS attack.</p>
 
       <p>The <strong>maxSavePostSize</strong> attribute controls the saving of
       the request body during FORM and CLIENT-CERT authentication and HTTP/1.1
@@ -270,22 +298,9 @@
       the <a href="config/valve.html#Form_Authenticator_Valve">FORM
       authenticator</a>.</p>
 
-      <p>The <strong>maxParameterCount</strong> attribute controls the maximum
-      total number of request parameters (including uploaded files) obtained
-      from the query string and, for POST requests, the request body if the
-      content type is <code>application/x-www-form-urlencoded</code> or
-      <code>multipart/form-data</code>. Excessive parameters are ignored. If you
-      want to reject such requests, configure a
-      <a href="config/filter.html">FailedRequestFilter</a>.</p>
-
-      <p>The <strong>xpoweredBy</strong> attribute controls whether or not the
-      X-Powered-By HTTP header is sent with each request. If sent, the value of
-      the header contains the Servlet and JSP specification versions, the full
-      Tomcat version (e.g. Apache Tomcat/10.1), the name of
-      the JVM vendor and
-      the version of the JVM. This header is disabled by default. This header
-      can provide useful information to both legitimate clients and attackers.
-      </p>
+      <p>The <strong>requiredSecret</strong> attribute in AJP connectors
+      configures shared secret between Tomcat and reverse proxy in front of
+      Tomcat. It is used to prevent unauthorized connections over AJP protocol.</p>
 
       <p>The <strong>server</strong> attribute controls the value of the Server
       HTTP header. The default value of this header for Tomcat 4.1.x to
@@ -313,9 +328,14 @@
       proxy (the authenticated user name is passed to Tomcat as part of the AJP
       protocol) with the option for Tomcat to still perform authorization.</p>
 
-      <p>The <strong>requiredSecret</strong> attribute in AJP connectors
-      configures shared secret between Tomcat and reverse proxy in front of
-      Tomcat. It is used to prevent unauthorized connections over AJP protocol.</p>
+      <p>The <strong>xpoweredBy</strong> attribute controls whether or not the
+      X-Powered-By HTTP header is sent with each request. If sent, the value of
+      the header contains the Servlet and JSP specification versions, the full
+      Tomcat version (e.g. Apache Tomcat/10.1), the name of
+      the JVM vendor and
+      the version of the JVM. This header is disabled by default. This header
+      can provide useful information to both legitimate clients and attackers.
+      </p>
     </div></div>
 
     <div class="subsection"><h4 id="Host">Host</h4><div class="text">
@@ -556,6 +576,21 @@
       Consider setting the <code>java.io.tmpdir</code> system property to an
       appropriately secured directory.</li>
     </ul>
+  </div><h3 id="Reverse_Proxies">Reverse Proxies</h3><div class="text">
+    <p>All clients, including reverse proxies, are responsible for the
+    consequences of the data they present to Tomcat.</p>
+
+    <p>The servlet specification removes path parameters when normalizing
+    requests. HTTP servers do not normally do this. This creates the possibility
+    of a client using a <code>/..;a=b/</code> type sequence in a URI to bypass a
+    security constraint implemented in the reverse proxy. This possibility can
+    be avoided with appropriate configuration such as using the setting
+    <code>mapping=servlet</code> with httpd's mod_proxy.</p>
+
+    <p>If Tomcat is deployed behind a reverse proxy and that reverse proxy
+    implements one or more security constraints, it is recommended a defense in
+    depth approach is taken and Tomcat is secured as if the reverse proxy was
+    not in use.</p>
   </div><h3 id="General">General</h3><div class="text">
     <p>BASIC and FORM authentication pass user names and passwords in clear
     text. Web applications using these authentication mechanisms with clients
