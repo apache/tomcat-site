@@ -56,6 +56,37 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.43" rtext="2025-07-04">
+
+    <p><strong>Low: DoS due to overflow in file upload limit</strong>
+       <cve>CVE-2025-52520</cve></p>
+
+    <p>For some unlikely configurations of multipart upload, an Integer Overflow
+       vulnerability could lead to a DoS via bypassing of size limits.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="fc42bbccb9041fafd194fbfdf3eab1d44cb5c45c"/>.</p>
+
+    <p>The issue was made public on 10 July 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.42</p>
+
+    <p><strong>Important: DoS via excessive HTTP/2 streams</strong>
+       <cve>CVE-2025-53506</cve></p>
+
+    <p>An uncontrolled resource consumption vulnerability if an HTTP/2 client
+       did not acknowledge the initial settings frame that reduces the maximum
+       permitted concurrent streams could result in a DoS.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="2aa6261276ebe50b99276953591e3a2be7898bdb"/>.</p>
+
+    <p>The issue was made public on 10 July 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.42</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.42" rtext="2025-06-09">
   
     <p><strong>Moderate: Security constraint bypass for PreResources and

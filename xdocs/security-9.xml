@@ -50,41 +50,46 @@
     <toc/>
   </section>
 
-  <section name="Fixed in Apache Tomcat 9.0.107" rtext="2025-07-XXX">
+  <section name="Fixed in Apache Tomcat 9.0.107" rtext="2025-07-04">
 
-    <p><strong>Important: Dos with HTTP/2 and APR/Native</strong>
+    <p><strong>Important: APR/Native Connector crash leading to DoS</strong>
        <cve>CVE-2025-52434</cve></p>
 
-    <p></p>
+    <p>A race condition on connection close could trigger a JVM crash when using
+       the APR/Native connector leading to a DoS. This was particularly
+       noticeable with client initiated closes of HTTP/2 connections.</p>
 
     <p>This was fixed with commit
        <hashlink hash="8a83c3c42d20762782678932c14005cd3397a018"/>.</p>
 
-    <p>The issue was made public on XXX July 2025.</p>
+    <p>The issue was made public on 10 July 2025.</p>
 
     <p>Affects: 9.0.0.M1 to 9.0.106</p>
 
-    <p><strong>Important: DoS due to overflow in file upload limit</strong>
+    <p><strong>Low: DoS due to overflow in file upload limit</strong>
        <cve>CVE-2025-52520</cve></p>
 
-    <p></p>
+    <p>For some unlikely configurations of multipart upload, an Integer Overflow
+       vulnerability could lead to a DoS via bypassing of size limits.</p>
 
     <p>This was fixed with commit
        <hashlink hash="927d66fbc294cb65242102b817a45fd80834e040"/>.</p>
 
-    <p>The issue was made public on XXX July 2025.</p>
+    <p>The issue was made public on 10 July 2025.</p>
 
     <p>Affects: 9.0.0.M1 to 9.0.106</p>
 
     <p><strong>Important: DoS via excessive HTTP/2 streams</strong>
        <cve>CVE-2025-53506</cve></p>
 
-    <p></p>
+    <p>An uncontrolled resource consumption vulnerability if an HTTP/2 client
+       did not acknowledge the initial settings frame that reduces the maximum
+       permitted concurrent streams could result in a DoS.</p>
 
     <p>This was fixed with commit
        <hashlink hash="434772930f362145516dd60681134e7f0cf8115b"/>.</p>
 
-    <p>The issue was made public on XXX July 2025.</p>
+    <p>The issue was made public on 10 July 2025.</p>
 
     <p>Affects: 9.0.0.M1 to 9.0.106</p>
 
