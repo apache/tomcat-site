@@ -116,6 +116,21 @@
   
   <section name="Fixed in Apache Tomcat 9.0.106" rtext="2025-06-10">
   
+    <p><strong>Moderate: Session fixation possible via rewrite valve</strong>
+       <cve>CVE-2025-55668</cve></p>
+
+    <p>If the rewrite valve was enabled for a web application, an attacker was
+       able to craft a URL that, if a victim clicked on it, would cause the
+       victim's interaction with that resource to occur in the context of the
+       attacker's session.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="9c3673ba04009377cb0c81ccb6cf5078aec1aa95"/>.</p>
+
+    <p>The issue was made public on 13 August 2025.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.105</p>
+
     <p><strong>Moderate: Security constraint bypass for PreResources and
        PostResources</strong>
        <cve>CVE-2025-49125</cve></p>
