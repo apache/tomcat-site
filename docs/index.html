@@ -31,6 +31,42 @@ these users and their stories are listed on the
 <a href="https://cwiki.apache.org/confluence/display/TOMCAT/PoweredBy">PoweredBy</a>
 wiki page.</p>
 
+</div><h3 id="Tomcat_10.1.45_Released"><span class="pull-right">2025-09-08</span> Tomcat 10.1.45 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.45
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Fix concurrent access issues in the session FileStore implementation
+  that were causing lost sessions when the store was used with the
+  PersistentValve. Based on pull request #882 by Aaron Ogburn.</li>
+
+  <li>Fix handling of QSA and QSD flags in RewriteValve.</li>
+
+  <li>Ensure keys are handed out to OpenSSL even if PEMFile fails to process
+  it, with appropriate logging.</li>
+
+  <li>Add escaping to log formatters to align with JSON formatter.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.45_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_9.0.109_Released"><span class="pull-right">2025-09-05</span> Tomcat 9.0.109 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 9.0.109
@@ -85,41 +121,6 @@ changelog</a>.
 
 <p style="text-align: center;">
 <a href="https://tomcat.apache.org/download-11.cgi">Download</a>
-</p>
-</div><h3 id="Tomcat_10.1.44_Released"><span class="pull-right">2025-08-07</span> Tomcat 10.1.44 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.44
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Fix bloom filter population for archive indexing when using a
-      packed WAR containing one or more JAR files.</li>
-
-  <li>Add missing call to set keep-alive timeout when using HTTP/1.1
-      following an async request, which was present for AJP.</li>
-
-  <li>Update the HTTP/2 overhead documentation - particularly the code
-      comments - to reflect the deprecation of the PRIORITY frame and
-      clarify that a stream reset always triggers an overhead increase.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.44_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
 </p>
 </div><h3 id="Tomcat_Native_2.0.9_Released"><span class="pull-right">2025-05-29</span> Tomcat Native 2.0.9 Released</h3><div class="text">
 <p>
