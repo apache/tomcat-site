@@ -40,7 +40,7 @@
   <!-- Defined parameters (overrideable) -->
   <xsl:param    name="relative-path" select="'.'"/>
   <xsl:param    name="home-logo"     select="'res/images/tomcat.png'"/>
-  <xsl:param    name="asf-logo"      select="'res/images/asf_logo.svg'"/>
+  <xsl:param    name="asf-logo"      select="'res/images/asf_logo_wide.svg'"/>
   <xsl:param    name="buglink"       select="'https://bz.apache.org/bugzilla/show_bug.cgi?id='"/>
   <xsl:param    name="revlink"       select="'https://svn.apache.org/viewvc?view=rev&amp;rev='"/>
   <xsl:param    name="hashlink"      select="'https://github.com/apache/tomcat/commit/'"/>
