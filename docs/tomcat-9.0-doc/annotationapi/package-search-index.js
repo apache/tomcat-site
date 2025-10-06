@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"javax.annotation"},{"l":"javax.annotation.security"},{"l":"javax.annotation.sql"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"javax.annotation"},{"l":"javax.annotation.security"},{"l":"javax.annotation.sql"}];updateSearchResults();

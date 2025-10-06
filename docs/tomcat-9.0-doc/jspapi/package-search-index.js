@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"javax.servlet.jsp"},{"l":"javax.servlet.jsp.el"},{"l":"javax.servlet.jsp.tagext"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"javax.servlet.jsp"},{"l":"javax.servlet.jsp.el"},{"l":"javax.servlet.jsp.tagext"}];updateSearchResults();

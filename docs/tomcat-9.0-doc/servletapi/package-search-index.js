@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"javax.servlet"},{"l":"javax.servlet.annotation"},{"l":"javax.servlet.descriptor"},{"l":"javax.servlet.http"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"javax.servlet"},{"l":"javax.servlet.annotation"},{"l":"javax.servlet.descriptor"},{"l":"javax.servlet.http"}];updateSearchResults();
