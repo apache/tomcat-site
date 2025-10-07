@@ -51,6 +51,39 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
+<section name="Tomcat 11.0.12 Released" rtext="2025-10-07">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.12
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add specific certificate selection code for TLS 1.3 supporting post
+    quantum cryptography. Certificates defined with type MLDSA will be
+    selected depending on the TLS client hello.</li>
+<li>Add groups attribute on SSLHostConfig allowing to restrict which
+    groups can be enabled on the SSL engine.</li>
+<li>Store HTTP/1.1 request headers using the original case for the header
+    name rather than forcing it to lower case.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.12_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 <section name="Tomcat 10.1.47 Released" rtext="2025-10-07">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.47
@@ -66,7 +99,7 @@ migration tool for Jakarta EE tool</a> which is also available as a separate
 <a href="download-migration.cgi">download</a> for off-line use.</p>
 <p>The notable changes in this release are:</p>
 <ul>
-  <li>Add specific certificate selection code for TLS 1.3 supporting post
+<li>Add specific certificate selection code for TLS 1.3 supporting post
       quantum cryptography. Certificates defined with type MLDSA will be
       selected depending on the TLS client hello.</li>
 
@@ -117,39 +150,6 @@ changelog</a>.
 
 
 
-<section name="Tomcat 11.0.11 Released" rtext="2025-09-05">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.11
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 11 platform.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Fix concurrent access issues in the session FileStore implementation
-    that were causing lost sessions when the store was used with the
-    PersistentValve. Based on pull request #882 by Aaron Ogburn.</li>
-<li>Fix handling of QSA and QSD flags in RewriteValve.</li>
-<li>Ensure keys are handed out to OpenSSL even if PEMFile fails to process
-    it, with appropriate logging.</li>
-<li>Add escaping to log formatters to align with JSON formatter.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.11_(markt)">Tomcat 11
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
-</p>
-</section>
 
 
 <section name="Tomcat Native 2.0.9 Released" rtext="2025-05-29">
