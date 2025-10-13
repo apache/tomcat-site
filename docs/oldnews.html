@@ -19,6 +19,44 @@
   <li><a href="oldnews-2011.html">year 2011</a></li>
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
+</div><h3 id="Tomcat_11.0.12_Released"><span class="pull-right">2025-10-07</span> Tomcat 11.0.12 Released</h3><div class="text">
+<p><b>
+This release contains a breaking bug for users of AJP where HTTP DELETE and
+HTTP PROPFIND requests are re-written as HTTP OPTIONS and HTTP TRACE
+on the origin server. If you use AJP to connect your web servers to your
+Tomcat servers, please wait for the next release.
+</b></p>
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.12
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add specific certificate selection code for TLS 1.3 supporting post
+    quantum cryptography. Certificates defined with type MLDSA will be
+    selected depending on the TLS client hello.</li>
+<li>Add groups attribute on SSLHostConfig allowing to restrict which
+    groups can be enabled on the SSL engine.</li>
+<li>Store HTTP/1.1 request headers using the original case for the header
+    name rather than forcing it to lower case.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.12_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-11.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_11.0.11_Released"><span class="pull-right">2025-09-05</span> Tomcat 11.0.11 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.11
