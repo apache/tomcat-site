@@ -56,6 +56,75 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.47" rtext="2025-10-07">
+
+    <p><strong>Low: Delayed cleaning of multipart upload temporary files may
+       lead to DoS</strong>
+       <cve>CVE-2025-61795</cve></p>
+
+    <p>If an error occurred (including exceeding limits) during the processing
+       of a multipart upload, temporary copies of the uploaded parts written to
+       local storage were not cleaned up immediately but left for the garbage
+       collection process to delete. Depending on JVM settings, application
+       memory usage and application load, it was possible that space for the
+       temporary copies of uploaded parts would be filled faster than GC cleared
+       it, leading to a DoS.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="af6e9181620304c0d818121c29c074e1330610d0"/>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.46</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 10.1.45" rtext="2025-09-08">
+
+    <p><strong>Low: Console manipulation via escape sequences in log
+       messages</strong>
+       <cve>CVE-2025-55754</cve></p>
+
+    <p>Tomcat did not escape ANSI escape sequences in log messages. If Tomcat
+       was running in a console on a Windows operating system, and the console
+       supported ANSI escape sequences, it was possible for an attacker to use a
+       specially crafted URL to inject ANSI escape sequences to manipulate the
+       console and the clipboard and attempt to trick an administrator into
+       running an attacker controlled command. While no attack vector was found,
+       it may have been possible to mount this attack on other operating
+       systems.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="138d7f5cfaae683078948303333c080e6faa75d2"/>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.44</p>
+
+    <p><strong>Important: Directory traversal via Rewrite Valve with possible
+       remote code execution if PUT is enabled</strong>
+       <cve>CVE-2025-55752</cve></p>
+
+    <p>The fix for bug <bug>60013</bug> introduced a regression where the
+       rewritten URL was normalized before it was decoded. This introduced the
+       possibility that, for rewrite rules that rewrite query parameters to the
+       URL, an attacker could manipulate the request URI to bypass security
+       constraints including the protection for <code>/WEB-INF/</code> and
+       <code>/META-INF/</code>. If PUT requests were also enabled then malicious
+       files could be uploaded leading to remote code execution. PUT requests
+       are normally limited to trusted users and it is considered unlikely that
+       PUT requests would be enabled in conjunction with a rewrite that
+       manipulated the URI.</p>
+       
+    <p>This was fixed with commit
+       <hashlink hash="130d36d8492ef9e4eb22952c17c92423cb35fd06"/>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.44</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 10.1.44" rtext="2025-08-07">
 
     <p><strong>Important: DoS in HTTP/2 due to client triggered stream

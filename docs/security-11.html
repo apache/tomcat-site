@@ -36,7 +36,72 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.10">Fixed in Apache Tomcat 11.0.10</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.9">Fixed in Apache Tomcat 11.0.9</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.8">Fixed in Apache Tomcat 11.0.8</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.7">Fixed in Apache Tomcat 11.0.7</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.6">Fixed in Apache Tomcat 11.0.6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.12">Fixed in Apache Tomcat 11.0.12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.11">Fixed in Apache Tomcat 11.0.11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.10">Fixed in Apache Tomcat 11.0.10</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.9">Fixed in Apache Tomcat 11.0.9</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.8">Fixed in Apache Tomcat 11.0.8</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.7">Fixed in Apache Tomcat 11.0.7</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.6">Fixed in Apache Tomcat 11.0.6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.12"><span class="pull-right">2025-10-07</span> Fixed in Apache Tomcat 11.0.12</h3><div class="text">
+
+    <p><strong>Low: Delayed cleaning of multipart upload temporary files may
+       lead to DoS</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-61795" rel="nofollow">CVE-2025-61795</a></p>
+
+    <p>If an error occurred (including exceeding limits) during the processing
+       of a multipart upload, temporary copies of the uploaded parts written to
+       disc were not cleaned up immediately but left for the garbage collection
+       process to delete. Depending on JVM settings, application memory usage
+       and application load, it was possible that space for the temporary copies
+       of uploaded parts would be filled faster than GC cleared it, leading to a
+       DoS.</p>
+       
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/1cdf5f730ede75a0759492f179ac21ca4ff68e06">1cdf5f73</a>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.11</p>
+
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.11"><span class="pull-right">2025-09-05</span> Fixed in Apache Tomcat 11.0.11</h3><div class="text">
+
+    <p><strong>Low: Console manipulation via escape sequences in log
+       messages</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-55754" rel="nofollow">CVE-2025-55754</a></p>
+
+    <p>Tomcat did not escape ANSI escape sequences in log messages. If Tomcat
+       was running in a console on a Windows operating system, and the console
+       supported ANSI escape sequences, it was possible for an attacker to use a
+       specially crafted URL to inject ANSI escape sequences to manipulate the
+       console and the clip-board and attempt to trick an administrator into
+       running an attacker controlled command. While no attack vector was found,
+       it may have been possible to mount this attack on other operating
+       systems.</p>
+       
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/5a3db092982c0c58d4855304167ee757fe5e79bb">5a3db092</a>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.10</p>
+
+    <p><strong>Important: Directory traversal via Rewrite Valve with possible
+       remote code execution if PUT is enabled</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-55752" rel="nofollow">CVE-2025-55752</a></p>
+
+    <p>The fix for bug <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=60013">60013</a> introduced a regression where the
+       rewritten URL was normalized before it was decoded. This introduced the
+       possibility that, for rewrite rules that rewrite query parameters to the
+       URL, an attacker could manipulate the request URI to bypass security
+       constraints including the protection for <code>/WEB-INF/</code> and
+       <code>/META-INF/</code>. If PUT requests were also enabled then malicious
+       files could be uploaded leading to remote code execution. PUT requests
+       are normally limited to trusted users and it is considered unlikely that
+       PUT requests would be enabled in conjunction with a rewrite that
+       manipulated the URI.</p>
+       
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/fec06c610ed7466b401e29cc567a58aee5ed826a">fec06c61</a>.</p>
+
+    <p>The issue was made public on 27 October 2025.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.10</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.10"><span class="pull-right">2025-08-06</span> Fixed in Apache Tomcat 11.0.10</h3><div class="text">
 
     <p><strong>Important: DoS in HTTP/2 due to client triggered stream
