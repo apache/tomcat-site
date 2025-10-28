@@ -45,11 +45,11 @@
 
     <p>If an error occurred (including exceeding limits) during the processing
        of a multipart upload, temporary copies of the uploaded parts written to
-       disc were not cleaned up immediately but left for the garbage collection
-       process to delete. Depending on JVM settings, application memory usage
-       and application load, it was possible that space for the temporary copies
-       of uploaded parts would be filled faster than GC cleared it, leading to a
-       DoS.</p>
+       local storage were not cleaned up immediately but left for the garbage
+       collection process to delete. Depending on JVM settings, application
+       memory usage and application load, it was possible that space for the
+       temporary copies of uploaded parts would be filled faster than GC cleared
+       it, leading to a DoS.</p>
        
     <p>This was fixed with commit
        <a href="https://github.com/apache/tomcat/commit/1cdf5f730ede75a0759492f179ac21ca4ff68e06">1cdf5f73</a>.</p>
@@ -68,7 +68,7 @@
        was running in a console on a Windows operating system, and the console
        supported ANSI escape sequences, it was possible for an attacker to use a
        specially crafted URL to inject ANSI escape sequences to manipulate the
-       console and the clip-board and attempt to trick an administrator into
+       console and the clipboard and attempt to trick an administrator into
        running an attacker controlled command. While no attack vector was found,
        it may have been possible to mount this attack on other operating
        systems.</p>
