@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.113) - The Valve Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
-            Version 9.0.113,
-            <time datetime="2025-12-02">Dec 2 2025</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.115) - The Valve Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+            Version 9.0.115,
+            <time datetime="2026-01-21">Jan 21 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Access_Logging">Access Logging</a><ol><li><a href="#Access_Log_Valve">Access Log Valve</a><ol><li><a href="#Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Extended_Access_Log_Valve">Extended Access Log Valve</a><ol><li><a href="#Extended_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Extended_Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#JSON_Access_Log_Valve">JSON Access Log Valve</a><ol><li><a href="#JSON_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#JSON_Access_Log_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Access_Control">Access Control</a><ol><li><a href="#Remote_Address_Valve">Remote Address Valve</a><ol><li><a href="#Remote_Address_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Address_Valve/Attributes">Attributes</a></li><li><a href="#Remote_Address_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_Address_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_Address_Valve/Example_port_auth">Example 3</a></li></ol></li><li><a href="#Remote_Host_Valve">Remote Host Valve</a><ol><li><a href="#Remote_Host_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Host_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_CIDR_Valve">Remote CIDR Valve</a><ol><li><a href="#Remote_CIDR_Valve/Introduction">Introduction</a></li><li><a href="#Remote_CIDR_Valve/Attributes">Attributes</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_CIDR_Valve/Example_port_auth">Example 3</a></li></ol></li></ol></li><li><a href="#Proxies_Support">Proxies Support</a><ol><li><a href="#Load_Balancer_Draining_Valve">Load Balancer Draining Valve</a><ol><li><a href="#Load_Balancer_Draining_Valve/Introduction">Introduction</a></li><li><a href="#Load_Balancer_Draining_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_IP_Valve">Remote IP Valve</a><ol><li><a href="#Remote_IP_Valve/Introduction">Introduction</a></li><li><a href="#Remote_IP_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Valve">SSL Valve</a><ol><li><a href="#SSL_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Single_Sign_On_Valve">Single Sign On Valve</a><ol><li><a href="#Single_Sign_On_Valve/Introduction">Introduction</a></li><li><a href="#Single_Sign_On_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Authentication">Authentication</a><ol><li><a href="#Basic_Authenticator_Valve">Basic Authenticator Valve</a><ol><li><a href="#Basic_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Basic_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Digest_Authenticator_Valve">Digest Authenticator Valve</a><ol><li><a href="#Digest_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Digest_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Form_Authenticator_Valve">Form Authenticator Valve</a><ol><li><a href="#Form_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Form_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Authenticator_Valve">SSL Authenticator Valve</a><ol><li><a href="#SSL_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SPNEGO_Valve">SPNEGO Valve</a><ol><li><a href="#SPNEGO_Valve/Introduction">Introduction</a></li><li><a href="#SPNEGO_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Error_Report_Valve">Error Report Valve</a><ol><li><a href="#Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Json_Error_Report_Valve">Json Error Report Valve</a><ol><li><a href="#Json_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Json_Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Proxy_Error_Report_Valve">Proxy Error Report Valve</a><ol><li><a href="#Proxy_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Proxy_Error_Report_Valve/Attributes">Attributes</a></li><li><a href="#Configuration">Configuration</a></li></ol></li><li><a href="#Crawler_Session_Manager_Valve">Crawler Session Manager Valve</a><ol><li><a href="#Crawler_Session_Manager_Valve/Introduction">Introduction</a></li><li><a href="#Crawler_Session_Manager_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Stuck_Thread_Detection_Valve">Stuck Thread Detection Valve</a><ol><li><a href="#Stuck_Thread_Detection_Valve/Introduction">Introduction</a></li><li><a href="#Stuck_Thread_Detection_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Semaphore_Valve">Semaphore Valve</a><ol><li><a href="#Semaphore_Valve/Introduction">Introduction</a></li><li><a href="#Semaphore_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Health_Check_Valve">Health Check Valve</a><ol><li><a href="#Health_Check_Valve/Introduction">Introduction</a></li><li><a href="#Health_Check_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Persistent_Valve">Persistent Valve</a><ol><li><a href="#Persistent_Valve/Introduction">Introduction</a></li><li><a href="#Persistent_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Parameter_Limit_Valve">Parameter Limit Valve</a><ol><li><a href="#Parameter_Limit_Valve/Introduction">Introduction</a></li><li><a href="#Parameter_Limit_Valve/Attributes">Attributes</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -1390,6 +1390,26 @@
         <code>remote-user</code> and <code>auth-type</code> to a reverse proxy.
         This is useful, e.g., for access log consistency or other decisions to make.
         If not specified, the default value is <code>false</code>.</p>
+      </td></tr><tr id="Basic Authenticator Valve_Attributes_ssoReauthenticationMode"><td><code class="attributeName">ssoReauthenticationMode</code></td><td>
+        <p>Provides a per Authenicator override of the SSO Valve attribute
+        <code>requireReauthentication</code>. It has the following options:</p>
+        <dl>
+          <dt>default</dt>
+          <dd>Reauthentication behaviour depends on the SSO Valve configuration
+              and the authentictaor type.</dd>
+          <dt>principal</dt>
+          <dd>The authenticator will look first for a cached Principal. If none
+              is found, the authenticator will look for a cached user name and
+              password and attempt to use them to reauthenticate. If that fails,
+              a normal authentication will be performed.</dd>
+          <dt>password</dt>
+          <dd>The authenticator will look for a cached user name and password
+              and attempt to use them to reauthenticate. If that fails, a normal
+              authentication will be performed.</dd>
+          <dt>full</dt>
+          <dd>Only a normal authentication will be performed. The SSO Valve is
+              effectively ignored.</dd>
+        </dl>
       </td></tr><tr id="Basic Authenticator Valve_Attributes_trimCredentials"><td><code class="attributeName">trimCredentials</code></td><td>
         <p>Controls whether leading and/or trailing whitespace is removed from
         the parsed credentials. If not specified, the default value is
@@ -1544,6 +1564,26 @@
         <code>remote-user</code> and <code>auth-type</code> to a reverse proxy.
         This is useful, e.g., for access log consistency or other decisions to make.
         If not specified, the default value is <code>false</code>.</p>
+      </td></tr><tr id="Digest Authenticator Valve_Attributes_ssoReauthenticationMode"><td><code class="attributeName">ssoReauthenticationMode</code></td><td>
+        <p>Provides a per Authenicator override of the SSO Valve attribute
+        <code>requireReauthentication</code>. It has the following options:</p>
+        <dl>
+          <dt>default</dt>
+          <dd>Reauthentication behaviour depends on the SSO Valve configuration
+              and the authentictaor type.</dd>
+          <dt>principal</dt>
+          <dd>The authenticator will look first for a cached Principal. If none
+              is found, the authenticator will look for a cached user name and
+              password and attempt to use them to reauthenticate. If that fails,
+              a normal authentication will be performed.</dd>
+          <dt>password</dt>
+          <dd>The authenticator will look for a cached user name and password
+              and attempt to use them to reauthenticate. If that fails, a normal
+              authentication will be performed.</dd>
+          <dt>full</dt>
+          <dd>Only a normal authentication will be performed. The SSO Valve is
+              effectively ignored.</dd>
+        </dl>
       </td></tr><tr id="Digest Authenticator Valve_Attributes_validateUri"><td><code class="attributeName">validateUri</code></td><td>
         <p>Should the URI be validated as required by RFC2617? If not specified,
         the default value of <code>true</code> will be used. This should
@@ -1675,6 +1715,26 @@
         <code>remote-user</code> and <code>auth-type</code> to a reverse proxy.
         This is useful, e.g., for access log consistency or other decisions to make.
         If not specified, the default value is <code>false</code>.</p>
+      </td></tr><tr id="Form Authenticator Valve_Attributes_ssoReauthenticationMode"><td><code class="attributeName">ssoReauthenticationMode</code></td><td>
+        <p>Provides a per Authenicator override of the SSO Valve attribute
+        <code>requireReauthentication</code>. It has the following options:</p>
+        <dl>
+          <dt>default</dt>
+          <dd>Reauthentication behaviour depends on the SSO Valve configuration
+              and the authentictaor type.</dd>
+          <dt>principal</dt>
+          <dd>The authenticator will look first for a cached Principal. If none
+              is found, the authenticator will look for a cached user name and
+              password and attempt to use them to reauthenticate. If that fails,
+              a normal authentication will be performed.</dd>
+          <dt>password</dt>
+          <dd>The authenticator will look for a cached user name and password
+              and attempt to use them to reauthenticate. If that fails, a normal
+              authentication will be performed.</dd>
+          <dt>full</dt>
+          <dd>Only a normal authentication will be performed. The SSO Valve is
+              effectively ignored.</dd>
+        </dl>
       </td></tr></table>
 
   </div></div>
@@ -1773,6 +1833,26 @@
         session IDs. If an invalid algorithm and/or provider is specified, the
         platform default provider and the default algorithm will be used. If not
         specified, the platform default provider will be used.</p>
+      </td></tr><tr id="SSL Authenticator Valve_Attributes_ssoReauthenticationMode"><td><code class="attributeName">ssoReauthenticationMode</code></td><td>
+        <p>Provides a per Authenicator override of the SSO Valve attribute
+        <code>requireReauthentication</code>. It has the following options:</p>
+        <dl>
+          <dt>default</dt>
+          <dd>Reauthentication behaviour depends on the SSO Valve configuration
+              and the authentictaor type.</dd>
+          <dt>principal</dt>
+          <dd>The authenticator will look first for a cached Principal. If none
+              is found, the authenticator will look for a cached user name and
+              password and attempt to use them to reauthenticate. If that fails,
+              a normal authentication will be performed.</dd>
+          <dt>password</dt>
+          <dd>The authenticator will look for a cached user name and password
+              and attempt to use them to reauthenticate. If that fails, a normal
+              authentication will be performed.</dd>
+          <dt>full</dt>
+          <dd>Only a normal authentication will be performed. The SSO Valve is
+              effectively ignored.</dd>
+        </dl>
       </td></tr></table>
 
   </div></div>
@@ -1923,6 +2003,26 @@
         <code>remote-user</code> and <code>auth-type</code> to a reverse proxy.
         This is useful, e.g., for access log consistency or other decisions to make.
         If not specified, the default value is <code>false</code>.</p>
+      </td></tr><tr id="SPNEGO Valve_Attributes_ssoReauthenticationMode"><td><code class="attributeName">ssoReauthenticationMode</code></td><td>
+        <p>Provides a per Authenicator override of the SSO Valve attribute
+        <code>requireReauthentication</code>. It has the following options:</p>
+        <dl>
+          <dt>default</dt>
+          <dd>Reauthentication behaviour depends on the SSO Valve configuration
+              and the authentictaor type.</dd>
+          <dt>principal</dt>
+          <dd>The authenticator will look first for a cached Principal. If none
+              is found, the authenticator will look for a cached user name and
+              password and attempt to use them to reauthenticate. If that fails,
+              a normal authentication will be performed.</dd>
+          <dt>password</dt>
+          <dd>The authenticator will look for a cached user name and password
+              and attempt to use them to reauthenticate. If that fails, a normal
+              authentication will be performed.</dd>
+          <dt>full</dt>
+          <dd>Only a normal authentication will be performed. The SSO Valve is
+              effectively ignored.</dd>
+        </dl>
       </td></tr><tr id="SPNEGO Valve_Attributes_storeDelegatedCredential"><td><code class="attributeName">storeDelegatedCredential</code></td><td>
         <p>Controls if the user' delegated credential will be stored in
         the user Principal. If available, the delegated credential will be
@@ -2375,7 +2475,7 @@
   </div></div>
 
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2025, The Apache Software Foundation
+    Copyright &copy; 1999-2026, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache Tomcat logo and the Apache logo
     are either registered trademarks or trademarks of the Apache Software
