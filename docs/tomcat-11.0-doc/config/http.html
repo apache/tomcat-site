@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 Configuration Reference (11.0.15) - The HTTP Connector</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11 Configuration Reference</h1><div class="versionInfo">
-            Version 11.0.15,
-            <time datetime="2025-12-02">Dec 2 2025</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 Configuration Reference (11.0.18) - The HTTP Connector</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11 Configuration Reference</h1><div class="versionInfo">
+            Version 11.0.18,
+            <time datetime="2026-01-23">Jan 23 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#HTTP/2_Support">HTTP/2 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#Unix_Domain_Socket_Support">Unix Domain Socket Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#SSL_Support_-_OpenSSL's_SSL_CONF_API">SSL Support - OpenSSL's SSL_CONF API</a></li><li><a href="#Key_store_types">Key store types</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -1008,12 +1008,23 @@
   attributes to the values <code>https</code> and <code>true</code>
   respectively, to pass correct information to the servlets.</p>
 
-  <p>The NIO and NIO2 connectors use either the JSSE Java SSL implementation or
-  an OpenSSL implementation. As far as possible, common configuration attributes
-  are used for both JSSE and OpenSSL. You cannot mix JSSE specific configuration
-  attributes and OpenSSL specific configuration attributes on the same
-  connector. However, you may use either the JSSE or the OpenSSL configuration
-  style with either the JSSE and OpenSSL implementations.</p>
+  <p>The NIO and NIO2 connectors may be configured to use either the JSSE Java SSL
+  implementation or an OpenSSL implementation. As far as possible, common
+  configuration attributes are used for both JSSE and OpenSSL. For each
+  Connector, you must use a consistent configuration style (JSSE specific
+  attributes or OpenSSL specfic attributes) for each of the following groups of
+  configuration attributes but you may use a different configuration style for
+  each group:</p>
+  <ul>
+    <li>trust attributes</li>
+    <li>all other attributes</li>
+  </ul>
+  <p>The implementation used (JSSE or OpenSSL) is independent of the
+  configuration style used.</p>
+
+  <p>Any <code>OpenSSLConf</code> settings are only used with an OpenSSL
+  implementation and may override attributes set via <code>SSLHostConfig</code>
+  or <code>Certificate</code> elements.</p>
 
   <p>Each secure connector must define at least one
   <strong>SSLHostConfig</strong>. The names of the
@@ -1082,10 +1093,11 @@
       <p>Name of the directory that contains the certificates for the trusted
       certificate authorities. The format is PEM-encoded.</p>
     </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_ciphers"><td><code class="attributeName">ciphers</code></td><td>
-      <p>The ciphers to enable using the OpenSSL syntax. (See the OpenSSL
-      documentation for the list of ciphers supported and the syntax).
-      Alternatively, a comma separated list of ciphers using the standard
-      OpenSSL cipher names or the standard JSSE cipher names may be used.</p>
+      <p>The TLSv1.2 and below ciphers to enable using the OpenSSL syntax. (See
+      the OpenSSL documentation for the list of ciphers supported and the
+      syntax). Alternatively, a comma separated list of TLS v1.2 and below
+      ciphers using the standard OpenSSL cipher names or the standard JSSE
+      cipher names may be used.</p>
       <p>Different versions of OpenSSL may interpret the same cipher string
       differently. For example, the <code>CCM8</code> ciphers were moved from
       <code>HIGH</code> to <code>MEDIUM</code> in OpenSSL 3.2. Regardless of
@@ -1093,17 +1105,38 @@
       value to a list of ciphers in a manner consistent with the latest OpenSSL
       development branch. This list of ciphers is then passed to the SSL
       implementation.</p>
-      <p>Only the ciphers that are supported by the SSL implementation will be
-      used. Any ciphers in the list derived from a non-default cipher string
-      that are not supported by the SSL implementation will be logged in a
+      <p>Only the TLSv1.2 and below ciphers that are supported by the SSL
+      implementation will be used. Any ciphers in the list derived from a
+      non-default cipher string that are not supported by the SSL implementation
+      or are TLSv1.3 cipher suites will be ignored and logged in a
       <code>WARNING</code> message when the Connector starts. The warning can be
-      avoided by providing an explicit list of ciphers that are supported by the
-      configured SSL implementation.</p>
+      avoided by providing an explicit list of TLSv1.2 and below ciphers that
+      are supported by the configured SSL implementation.</p>
       <p>If not specified, a default (using the OpenSSL notation) of
-      <code>HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA</code> will be
-      used.</p>
+      <code>HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256</code>
+      will be used.</p>
       <p>Note that, by default, the order in which ciphers are defined is
-      treated as an order of preference. See <code>honorCipherOrder</code>.</p>
+      not treated as an order of preference. See
+      <code>honorCipherOrder</code>.</p>
+      <p>For JSSE (which - unlike OpenSSL - uses a single configuration setting
+      for both ciphers and cipher suites) the cipher suites attribute will be
+      prepended to the ciphers attribute before the combined value is used to
+      configure the JSSE implementation.</p>
+    </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_cipherSuites"><td><code class="attributeName">cipherSuites</code></td><td>
+      <p>The TLSv1.3 cipher suites to enable using either the OpenSSL syntax
+      (colon separated list) or the JSSE syntax (comma separated list) using the
+      standard TLSv1.3 cipher suite names.</p>
+      <p>Only TLSv1.3 cipher suites will be used. Any other entries in the list
+      will be ignored and logged in a <code>WARNING</code> message when the
+      Connector starts. The warning can be avoided by providing an explicit list
+      of TLSv1.3 cipher suites.</p>
+      <p>If not specified, a default (using the OpenSSL notation) of
+      <code>TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256</code>
+      will be used.</p>
+      <p>For JSSE (which - unlike OpenSSL - uses a single configuration setting
+      for both ciphers and cipher suites) the cipher suites attribute will be
+      prepended to the ciphers attribute before the combined value is used to
+      configure the JSSE implementation.</p>
     </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_disableCompression"><td><code class="attributeName">disableCompression</code></td><td>
       <p>OpenSSL only.</p>
       <p>Configures if compression is disabled. The default is
@@ -1147,6 +1180,26 @@
       <code>SunX509</code> for Sun JVMs. IBM JVMs return
       <code>IbmX509</code>. For other vendors, consult the JVM
       documentation for the default value.</p>
+    </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_ocspEnabled"><td><code class="attributeName">ocspEnabled</code></td><td>
+      <p>If enabled, client certificates with an OCSP responder URI in the
+      Authority Information Access extension will be validated using that OCSP
+      responder.</p>
+      <p>If not specified, the default value of <code>false</code> will be
+      used.</p>
+    </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_ocspSoftFail"><td><code class="attributeName">ocspSoftFail</code></td><td>
+      <p>By default, if an OCSP check fails for any reason the associated TLS
+      handhskae will also fail and a TLS connection will not be established. If
+      this attribute is set to <code>true</code>, OCSP checks that fail but do
+      not return an explicit failure status to Tomcat (e.g. the OCSP check times
+      out) will not cause the TLS handshake to fail.</p>
+      <p>If not specified, the default value of <code>false</code> will be
+      used.</p>
+    </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_ocspVerify"><td><code class="attributeName">ocspVerify</code></td><td>
+      <p>Configures the verification flags passed to
+      <code>OCSP_basic_verify</code> when using OCSP checks with an OpenSSL
+      based TLS implementation. This attribute has no effect if a JSSE based TLS
+      implementation is used.</p>
+      <p>If not specified, the default value of <code>0</code> will be used.</p>
     </td></tr><tr id="Special Features_SSL Support - SSLHostConfig_protocols"><td><code class="attributeName">protocols</code></td><td>
       <p>The names of the protocols to support when communicating with clients.
       This should be a list of any combination of the following:
@@ -1557,7 +1610,7 @@
 
   </div></div>
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2025, The Apache Software Foundation
+    Copyright &copy; 1999-2026, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache Tomcat logo and the Apache logo
     are either registered trademarks or trademarks of the Apache Software

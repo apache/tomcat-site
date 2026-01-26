@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 Configuration Reference (11.0.15) - The ClusterManager object</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11 Configuration Reference</h1><div class="versionInfo">
-            Version 11.0.15,
-            <time datetime="2025-12-02">Dec 2 2025</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The ClusterManager object</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 11 Configuration Reference (11.0.18) - The ClusterManager object</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 11 Configuration Reference</h1><div class="versionInfo">
+            Version 11.0.18,
+            <time datetime="2026-01-23">Jan 23 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The ClusterManager object</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#The_<Manager>">The &lt;Manager&gt;</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#org.apache.catalina.ha.session.DeltaManager_Attributes">org.apache.catalina.ha.session.DeltaManager Attributes</a></li><li><a href="#org.apache.catalina.ha.session.BackupManager_Attributes">org.apache.catalina.ha.session.BackupManager Attributes</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
   <p>A cluster manager is an extension to Tomcat's session manager interface,
@@ -164,12 +164,47 @@
         </th><th style="width: 85%;">
           Description
         </th></tr><tr id="Attributes_org.apache.catalina.ha.session.BackupManager Attributes_mapSendOptions"><td><code class="attributeName">mapSendOptions</code></td><td>
-        The backup manager uses a replicated map, this map is sending and
-        receiving messages. You can setup the flag for how this map is sending
-        messages, the default value is <code>6</code>(synchronous).<br>
-        Note that if you use asynchronous messaging it is possible for update
-        messages for a session to be processed by the receiving node in a
-        different order to the order in which they were sent.
+        <p>The backup manager uses a replicated map. This map sends and receives
+        messages internally. You can configure the flag that controls how this
+        map sends messages.</p>
+        <p>The value may be specified either as an integer (add values to use
+        multiple flags) or using a comma-separate list of the human-readable
+        option names. Human-readable names are translated to their integer
+        values on startup.</p>
+        <p>The different values offer a tradeoff between throughput on the
+        sending node and the reliability of replication should the sending or
+        receiving node(s) fail.</p>
+        <p>The supported values are:</p>
+        <dl>
+          <dt><code>byte_message</code>, <code>byte</code> or
+              <code>1</code></dt>
+          <dd>The message is a pure byte message and no marshaling or
+              unmarshalling will be performed</dd>
+          <dt><code>use_ack</code> or <code>2</code></dt>
+          <dd>The message is sent and an ACK is received when the message has
+              been received by the recipient. If no ack is received, the message
+              is not considered successful.</dd>
+          <dt><code>synchronized_ack</code>, <code>sync</code> or
+              <code>4</code></dt>
+          <dd>Has no effect unless <code>use_ack</code> is set. The message is
+              sent and an ACK is received when the message has been received and
+              processed by the recipient. If no ack is received, the message is
+              not considered successful.</dd>
+          <dt><code>asynchronous</code>, <code>async</code> or
+              <code>8</code></dt>
+          <dd>The message will be placed on a queue and sent by a separate
+              thread. It is possible for update messages for a session to be
+              processed by the receiving node in a different order to the order
+              in which they were sent.</dd>
+          <dt><code>secure</code> or <code>16</code></dt>
+          <dd>Not implemented. Has no effect if used.</dd>
+          <dt><code>udp</code> or <code>32</code></dt>
+          <dd>The message will be sent using UDP instead of TCP.</dd>
+          <dt><code>multicast</code> or <code>64</code></dt>
+          <dd>Not implemented. Messages will not be sent if used.</dd>
+        </dl>
+        <p>The default value is <code>6</code> (<code>use_ack</code> with
+        <code>sync</code>).</p>
       </td></tr><tr id="Attributes_org.apache.catalina.ha.session.BackupManager Attributes_maxActiveSessions"><td><code class="attributeName">maxActiveSessions</code></td><td>
         The maximum number of active sessions that will be created by this
         Manager, or -1 (the default) for no limit. For this manager, only
@@ -234,7 +269,7 @@
       </p>
     </td></tr></table>
 </div></div></div></div></div><footer><div id="footer">
-    Copyright &copy; 1999-2025, The Apache Software Foundation
+    Copyright &copy; 1999-2026, The Apache Software Foundation
     <br>
     Apache Tomcat, Tomcat, Apache, the Apache Tomcat logo and the Apache logo
     are either registered trademarks or trademarks of the Apache Software
