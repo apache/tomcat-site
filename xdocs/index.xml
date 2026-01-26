@@ -48,6 +48,43 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
+<section name="Tomcat 11.0.18 Released" rtext="2026-01-26">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.18
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>For configuration consistency between OpenSSL and JSSE TLS
+  implementations, TLSv1.3 cipher suites included in the ciphers
+  attribute of an SSLHostConfig are now always ignored (previously
+  they would be ignored with OpenSSL implementations and used with
+  JSSE implementations) and a warning is logged that the cipher
+  suite has been ignored.</li>
+  <li>Expand OCSP support to JSSE based connections and expand OCSP
+  configuration options.</li>
+  <li>Update Commons Daemon to 1.5.1.</li>
+  <li>Update Tomcat Native to 2.0.12 and increase the minimum version to
+  2.0.12 / 1.3.4.</li> 
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.18_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 
 <section name="Tomcat 9.0.115 Released" rtext="2026-01-23">
 <p>
@@ -152,40 +189,6 @@ changelog</a>.
 </p>
 </section>
 
-<section name="Tomcat 11.0.15 Released" rtext="2025-12-08">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.15
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 11 platform.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Add strictSni attribute on the Connector to allow matching the
-  SSLHostConfig configuration associated with the SNI host name to the
-  SSLHostConfig configuration matched from the HTTP protocol host name.
-  Non-matching configurations will cause the request to be rejected. The
-  attribute default value is true, enabling the matching.</li>
-  <li>Correct a regression introduced in 11.0.11 that broke some clustering
-  configurations.</li>
-  <li>Update Commons Daemon to 1.5.0.</li> 
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.15_(markt)">Tomcat 11
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat Migration Tool for Jakarta EE 1.0.10 Released" rtext="2025-11-24">
 <p>
