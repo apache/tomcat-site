@@ -149,6 +149,18 @@ versions of Apache Tomcat<sup>&#174;</sup>.</p>
        upgrading.</p>
     <ul>
       <li>
+        The <code>FailedRequestFilter</code> has been removed. This filter is
+        no longer necessary, as the Jakarta EE APIs have been updated to allow
+        checked exceptions to be thrown from methods which process request
+        parameters. Those functions used to silently ignore parsing errors
+        and over-configured-limits errors, placing an attribute in the request
+        attributes. This filter would look for that attribute and return
+        an appropriate error response to the client. Now that the APIs
+        have been updated to allow checked exceptions, the Filter is
+        completely unnecessary. You can simply remove any references to it in
+        your application.
+      </li>
+      <li>
         In 11.0.0-M5 onwards, the default value for the Connector attribute
         <code>maxParameterCount</code> has been reduced from 10,000 to 1,000.
       </li>
