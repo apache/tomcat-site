@@ -31,51 +31,90 @@ versions of Apache Tomcat<sup>&reg;</sup>.</p>
   
   <div class="subsection"><h4 id="Servlet_6.2">Servlet 6.2</h4><div class="text">
 
-    <p>TBD.</p>
+    <p>None.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="Pages_4.1">Pages 4.1</h4><div class="text">
 
-    <p>TBD.</p>
+    <p>None.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="Expression_Language_6.1">Expression Language 6.1</h4><div class="text">
   
-    <p>TBD.</p>
+    <p>None.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="WebSocket_2.3">WebSocket 2.3</h4><div class="text">
 
-    <p>TBD.</p>
+    <p><code>ClientEndpointConfig.Configurator.afterResponse()</code> is now
+       called after every WebSocket handshake regardless of whether the
+       handshake is successful or not.</p>
+
+    <p>When attempting to write a message via a WebSocket session that has been
+       closed, an <code>IOException</code> rather than an
+       <code>IllegalStateExcpetion</code> is thrown for consistency with
+       <code>Writer</code> and <code>OutputStream</code>.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="Authentication_3.2">Authentication 3.2</h4><div class="text">
   
-    <p>TBD.</p>
+    <p>None.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="Annotations_3.1">Annotations 3.1</h4><div class="text">
   
-    <p>TBD.</p>
+    <p>None.</p>
 
   </div></div>
 
   <div class="subsection"><h4 id="Internal_APIs">Internal APIs</h4><div class="text">
   
-    <p>Whilst the Tomcat 12.0 internal API is broadly compatible with Tomcat 11.0
-    there have been many changes at the detail level and they are not binary
-    compatible. Developers of custom components that interact with Tomcat's
-    internals should review the JavaDoc for the relevant API.</p>
+    <p>Whilst the Tomcat 12.0 internal API is broadly compatible with Tomcat
+    11.0 there have been many changes at the detail level and they are not
+    binary compatible. Developers of custom components that interact with
+    Tomcat's internals should review the JavaDoc for the relevant API.</p>
 
     <p>Of particular note are:</p>
     <ul>
       <li>All code marked as deprecated in 11.0.x has been removed.</li>
-      <li>TBD.</li>
+      <li>The <code>useAcceptRanges</code> initialisation parameter for the
+          default servlet has been removed. It is now effectively hard coded to
+          <code>true</code></li>
+      <li>The default for the <code>encodedSolidusHandling</code> attribute of
+          a <strong>Context</strong> has changed from <code>decode</code> to
+          <code>reject</code>.</li>
+      <li>When searching the web application class loader for a resource or
+          resources by name, align the behaviour with the JRE class loaders and
+          always return <code>null</code> if the provided name starts with
+          <code>/</code>.</li>
+      <li>The default value for the <code>allowPostAsGet</code> initialisation
+          parameter of the Default servlet has been updated from
+          <code>true</code> to <code>false</code>. This means a direct request
+          (i.e. not a forward or an include) for a static resource using the
+          POST method will be rejected by default.</li>
+      <li>Calls to <code>HttpServletRequest.getContextPath()</code> now return
+          the canonical context path for the web application rather than the
+          component of the request URI presented by the user agent that maps to
+          the context path.</li>
+      <li>The default value of the <code>archiveIndexStrategy</code> attribute
+          of the <code>Resources</code> element has been changed from
+          <code>simple</code> to <code>bloom</code> to improve web application
+          class loading performance.</li>
+      <li>The default for the <code>digestInRfc3112Order</code> attribute of
+          <code>MessageDigestCredentialHandler</code> has been changed from
+          <code>false</code> to <code>true</code>.</li>
+      <li>The default value of the <code>cookiesWithoutEquals</code> attribute
+          of the <code>Rfc6265CookieProcessor</code> has been changed from
+          <code>name</code> to <code>ignore</code>.</li>
+      <li>The default password value (was <code>changeit</code>) for the
+          <code>certificateKeystorePassword</code> attribute of a certificate
+          has been removed.</li>
+      <li>Support for HTTP/0.9 has been removed.</li>
     </ul>
 
   </div></div>
