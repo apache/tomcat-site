@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+
+  <properties>
+    <author>Apache Tomcat Project</author>
+    <title>Migration Guide - Tomcat 12.0.x</title>
+  </properties>
+
+<body>
+
+<section name="Table of Contents">
+<toc/>
+</section>
+
+<section name="General">
+
+<p>Please read the general <a href="migration.html">Migration Guide page</a>
+first, for common considerations that apply to migration or upgrade between
+versions of Apache Tomcat<sup>&#174;</sup>.</p>
+
+</section>
+
+<section name="Migrating from 11.0.x to 12.0.x">
+
+  <p>This section lists all the known changes between 11.0.x and 12.0.x
+  which may cause backwards compatibility problems when upgrading.</p>
+
+  <subsection name="Java 21 required">
+
+    <p>Apache Tomcat 12.0.x requires Java 21 or later. Apache Tomcat 11.0.x
+    required Java 17.</p>
+
+  </subsection>
+
+  <subsection name="Specification APIs">
+
+    <p>Apache Tomcat 12.0 supports the Jakarta Servlet 6.2, Jakarta Pages 4.1,
+    Jakarta Expression Language 6.1, JakartaWebSocket 2.3,
+    Jakarta Authentication 3.2 and Jakarta Annotations 3.1 
+    <a href="https://cwiki.apache.org/confluence/display/TOMCAT/Specifications">specifications</a>.
+    </p>
+
+  </subsection>
+  
+  <subsection name="Servlet 6.2">
+
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="Pages 4.1">
+
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="Expression Language 6.1">
+  
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="WebSocket 2.3">
+
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="Authentication 3.2">
+  
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="Annotations 3.1">
+  
+    <p>TBD.</p>
+
+  </subsection>
+
+  <subsection name="Internal APIs">
+  
+    <p>Whilst the Tomcat 12.0 internal API is broadly compatible with Tomcat 11.0
+    there have been many changes at the detail level and they are not binary
+    compatible. Developers of custom components that interact with Tomcat&apos;s
+    internals should review the JavaDoc for the relevant API.</p>
+
+    <p>Of particular note are:</p>
+    <ul>
+      <li>All code marked as deprecated in 11.0.x has been removed.</li>
+      <li>TBD.</li>
+    </ul>
+
+  </subsection>
+
+</section>
+
+<section name="Upgrading 12.0.x">
+
+  <p>When upgrading instances of Apache Tomcat from one version of Tomcat 12.0
+  to another, particularly when using separate locations for $CATALINA_HOME and
+  $CATALINA_BASE, it is necessary to ensure that any changes in the
+  configuration files such as new attributes and changes to defaults are applied
+  as part of the upgrade. To assist with the identification of these changes,
+  the form below may be used to view the differences between the configuration
+  files in different versions of Tomcat 12.0.</p>
+
+  <subsection name="Tomcat 12.0.x noteable changes">
+    <p>The Tomcat developers aim for each stable patch release to be fully
+       backwards compatible with the previous release.  Occasionally, it is
+       necessary to break backwards compatibility in order to fix a bug. In most
+       cases, these changes will go unnoticed. This section lists changes that
+       are not fully backwards compatible and might cause breakage when
+       upgrading.</p>
+    <ul>
+      <li>
+        None.
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection name="Tomcat 12.0.x configuration file differences">
+
+    <p>Select a configuration file, old version and new version from the boxes
+    below and then click &quot;View differences&quot; to see the differences.
+    The differences will be shown in a new tab/window.</p>
+
+    <p><b>Note:</b> If there are no differences you will see an error page.</p>
+
+    <form action="https://gitbox.apache.org/filediff"
+          method="get"
+          target="_blank">
+
+    <input type="hidden" name="repo" value="tomcat.git"/>
+
+    <p><label>Configuration file:
+    <select name="file">
+    <option value="conf" selected="selected">All configuration files</option>
+    <option value="conf/catalina.policy">catalina.policy</option>
+    <option value="conf/catalina.properties">catalina.properties</option>
+    <option value="conf/context.xml">context.xml</option>
+    <option value="conf/logging.properties">logging.properties</option>
+    <option value="conf/server.xml">server.xml</option>
+    <option value="conf/tomcat-users.xml">tomcat-users.xml</option>
+    <option value="conf/web.xml">web.xml</option>
+    </select></label>
+    </p>
+    <p><label>Old version:
+    <select name="origin">
+    <option value="12.0.0-M1" selected="selected">12.0.0-M1</option>
+    </select>,</label> <label>new version:
+    <select name="target">
+    <option value="12.0.0-M1" selected="selected">12.0.0-M1</option>
+    <option value="HEAD">trunk (unreleased)</option>
+    </select></label>
+    </p>
+
+    <p>
+    <button>View Differences</button>
+    </p>
+    </form>
+    <p>You can also use a Git command similar to the following from within a
+       working copy:</p>
+    <source>git diff 12.0.0-M1 12.0.0-M2 -- conf/</source>
+  </subsection>
+  
+</section>
+
+</body>
+</document>
