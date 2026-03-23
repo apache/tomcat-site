@@ -48,6 +48,44 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
+<section name="Tomcat 10.1.53 Released" rtext="2026-03-23">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.53
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Relax HTTP/2 header validation and respond to invalid requests with
+  a stream reset or a 400 response as appropriate rather then with a
+  connection reset.</li>
+
+  <li>Fix bug 69964: Respect the configured cipher order, which was no
+  longer respected following the addition of TLS 1.3 specific cipher
+  configuration. TLS 1.3 ciphers will always be first in the list.</li>
+
+  <li>Update Tomcat Native to 2.0.14 and increase the recommended version to
+  2.0.14.</li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.53_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-10.cgi">Download</a>
+</p>
+</section>
+
 
 <section name="Tomcat 9.0.116 Released" rtext="2026-03-20">
 <p>
@@ -156,46 +194,6 @@ Tomcat Native. The notable changes compared to 1.3.6 include:
 <a href="tomcat-native-1.3.x-eos.html">announced</a> as 31 March 2027.</p>
 </section>
 
-<section name="Tomcat 10.1.52 Released" rtext="2026-01-27">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.52
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Fix regression in request-end time in access logging which would
-  instead log the request start-time.</li>
-
-  <li>Fix regression where ClassLoader.getResource().getContent() failed
-  under certain circumstances.</li>
-
-  <li>Update Tomcat Native to 2.0.12 and increase the minimum version to
-  2.0.12 / 1.3.4.</li>
-
-  <li>Expand OCSP support to JSSE-based connections and expand OCSP
-  configuration options.</li>
-
-  <li>Update Commons Daemon to 1.5.1.</li>
-</ul>
-
-<p>
-  Full details of these changes, and all the other changes, are available in the
-  <a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.52_(schultz)">Tomcat 10.1
-  changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-10.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat Migration Tool for Jakarta EE 1.0.10 Released" rtext="2025-11-24">
 <p>
