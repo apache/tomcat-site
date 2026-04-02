@@ -48,9 +48,9 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
-<section name="Tomcat 10.1.53 Released" rtext="2026-03-23">
+<section name="Tomcat 10.1.54 Released" rtext="2026-04-02">
 <p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.53
+The Apache Tomcat Project is proud to announce the release of version 10.1.54
 of Apache Tomcat. This release implements specifications that are part of the
 Jakarta EE 10 platform.</p>
 <p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
@@ -63,21 +63,18 @@ migration tool for Jakarta EE tool</a> which is also available as a separate
 <a href="download-migration.cgi">download</a> for off-line use.</p>
 <p>The notable changes in this release are:</p>
 <ul>
-  <li>Relax HTTP/2 header validation and respond to invalid requests with
-  a stream reset or a 400 response as appropriate rather then with a
-  connection reset.</li>
+  <li>Fix a bug in the non-blocking flushing code for NIO+TLS that meant
+      that a response may not have been fully written until the connection
+      was closed. Pull request 966 provided by Phil Clay.</li>
 
-  <li>Fix bug 69964: Respect the configured cipher order, which was no
-  longer respected following the addition of TLS 1.3 specific cipher
-  configuration. TLS 1.3 ciphers will always be first in the list.</li>
+  <li>Improved HTTP/2 error handling.</li>
 
-  <li>Update Tomcat Native to 2.0.14 and increase the recommended version to
-  2.0.14.</li>
+  <li>Better error handling for the EncryptInterceptor.</li>
 </ul>
 
 <p>
 Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.53_(schultz)">Tomcat 10.1
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.54_(schultz)">Tomcat 10.1
 changelog</a>.
 </p>
 
@@ -85,6 +82,7 @@ changelog</a>.
 <a href="download-10.cgi">Download</a>
 </p>
 </section>
+
 
 
 <section name="Tomcat 9.0.116 Released" rtext="2026-03-20">
