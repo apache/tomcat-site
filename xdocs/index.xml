@@ -48,6 +48,37 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
+<section name="Tomcat 11.0.21 Released" rtext="2026-04-04">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.21
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Fix a bug in the non-blocking flushing code for NIO+TLS that meant
+    that a response may not have been fully written until the connection
+    was closed. Pull request 966 provided by Phil Clay.</li>
+<li>Improved HTTP/2 error handling</li>
+<li>Better error handling for the EncryptInterceptor</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.21_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-11.cgi">Download</a>
+</p>
+</section>
 
 <section name="Tomcat 9.0.117 Released" rtext="2026-04-03">
 <p>
@@ -110,40 +141,6 @@ changelog</a>.
 </section>
 
 
-<section name="Tomcat 11.0.20 Released" rtext="2026-03-20">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 11.0.20
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 11 platform.</p>
-<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
-Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
-Foundation, the primary package for all implemented APIs has changed from
-<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
-require code changes to enable applications to migrate from Tomcat 9 and earlier
-to Tomcat 10 and later. A
-<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
-tool</a> is available to aid this process.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-<li>Relax HTTP/2 header validation and respond to invalid requests with
-    a stream reset or a 400 response as appropriate rather then with a
-    connection reset.</li>
-<li>Fix bug 69964: Respect the configured cipher order, which was no
-    longer respected following the addition of TLS 1.3 specific cipher
-    configuration. TLS 1.3 ciphers will always be first in the list.</li>
-<li>Update Tomcat Native to 2.0.14 and increase the recommended version to
-    2.0.14.</li>
-</ul>
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.20_(markt)">Tomcat 11
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-11.cgi">Download</a>
-</p>
-</section>
 
 <section name="Tomcat Native 2.0.14 Released" rtext="2026-03-10">
 <p>
