@@ -32,6 +32,28 @@
 
   </section>
 
+  <section name="Fixed in Apache Tomcat Native Connector 2.0.14 / 1.3.7">
+
+    <p><strong>Moderate: OCSP checks sometimes soft-fail even when soft-fail is
+       disabled</strong>
+       <cve>CVE-2026-29145</cve></p>
+
+    <p>CLIENT_CERT authentication did not fail OCSP checks as expected for some
+       scenarios when soft fail was disabled.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat-native/commit/bcea0ac214cae14fd1c2517d759a72465cfc62d3">bcea0ac2</a>
+       ()2.0.x) and
+       <a href="https://github.com/apache/tomcat-native/commit/204f7f8a09adffce7ad02998dbc902f2b8c87253">204f7f8a</a>
+       (1.3.x).</p>
+
+    <p>This issue was reported to the Tomcat security team on 26 February 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 1.3.0 to 1.3.6 and 2.0.0 to 2.0.13</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat Native Connector 2.0.12 / 1.3.5">
 
     <p><strong>Moderate: Incomplete OCSP verification checks</strong>

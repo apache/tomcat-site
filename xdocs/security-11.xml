@@ -50,6 +50,171 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 11.0.21" rtext="2026-04-04">
+
+    <p><strong>Moderate: OCSP checks sometimes soft-fail with FFM even when
+       soft-fail is disabled</strong>
+       <cve>CVE-2026-34500</cve></p>
+
+    <p>CLIENT_CERT authentication did not fail as expected for some scenarios
+       when soft fail was disabled and FFM was used.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="c13e60e732ea6d07087293a41ad1866c20848271"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 25 March 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M14 to 11.0.20</p>
+
+    <p><strong>Low: Cloud membership for clustering component exposed the
+       Kubernetes bearer token</strong>
+       <cve>CVE-2026-34487</cve></p>
+
+    <p>The cloud membership for clustering component exposed the Kubernetes
+       bearer token in log messages.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="301bc6efbf72feb14dacfdfa3f50372182736150"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 25 March 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.20</p>
+
+    <p><strong>Important: The fix for <cve>CVE-2026-29146</cve> allowed the
+       bypass of the EncryptInterceptor</strong>
+       <cve>CVE-2026-34486</cve></p>
+
+    <p>An error in the fix for <cve>CVE-2026-29146</cve> allowed the
+       EncryptInterceptor to be bypassed.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="1fab40ccc752e22639eccfe290d5624afad7eccd"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 26 March 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.20</p>
+
+    <p><strong>Low: Incomplete escaping of JSON access logs</strong>
+       <cve>CVE-2026-34483</cve></p>
+
+    <p>Incomplete escaping when non-default values were used for the Connector
+       attributes relaxedPathChars and/or relaxedQueryChars allowed the
+       injection of arbitrary JSON into the JSON access log.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="f9ddc24fcfcdfaea4a6953198d8636aca3e957bc"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 25 March 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.20</p>
+
+  </section>
+  
+  <section name="Fixed in Apache Tomcat 11.0.20" rtext="2026-03-20">
+  
+    <p><strong>Moderate: The fix for <cve>CVE-2025-66614</cve> was
+       incomplete</strong>
+       <cve>CVE-2026-32990</cve></p>
+
+    <p>The validation of SNI name and host name did not take account of possible
+       differences in case allowing the strict SNI checks to be bypassed.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="021d1f833e38b683a44688f7b28f1f27e8e37c36"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 March 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.15 to 11.0.19</p>
+
+    <p><i>Note: The issues below were fixed in Apache Tomcat 11.0.19 but the
+       release vote for the 11.0.19 release candidate did not pass. Therefore,
+       although users must download 11.0.20 to obtain a version that includes
+       a fix for these issues, version 11.0.19 is not included in the list of 
+       affected versions.</i></p>
+
+    <p><strong>Important: EncryptInterceptor vulnerable to padding oracle attack
+       by default</strong>
+       <cve>CVE-2026-29146</cve></p>
+
+    <p>The EncryptInterceptor used CBC by default which is vulnerable to a
+       padding Oracle attack.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6d955cceca841f2eabf2d6c46b59a8c7e1cd6eaa"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 22 February 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.18</p>
+
+    <p><strong>Moderate: OCSP checks sometimes soft-fail even when soft-fail is
+       disabled</strong>
+       <cve>CVE-2026-29145</cve></p>
+
+    <p>CLIENT_CERT authentication did not fail OCSP checks as expected for some
+       scenarios when soft fail was disabled.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="721591f7bff424c693f26adc18ae9b9abac3655b"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 26 February 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.18</p>
+
+    <p><strong>Low: Configured TLS cipher preference order not preserved</strong>
+       <cve>CVE-2026-29129</cve></p>
+
+    <p>The additional of the ability to configure TLS 1.3 cipher suites did not
+       preserve the order of the configured cipher suites and ciphers.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="5cfa876d73f1ff5f4dc8309c4320f684cbeff74e"/>.</p>
+
+    <p>This was reported as a bug on 20 February 026 and the security
+       implications identified by the Tomcat security team the same day.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.16 to 11.0.18</p>
+
+    <p><strong>Low: Occasionally open redirect</strong>
+       <cve>CVE-2026-25854</cve></p>
+
+    <p>When a Tomcat node in a cluster with the LoadBalancerDrainingValve was in
+       the disabled (draining) state, a specially crafted URL could be used to
+       trigger a redirect to a URI of the attackers choice.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="4c5d306001b780c9316aea5ff6502c524fb20695"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 30 January 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.18</p>
+
+    <p><strong>Low: Request smuggling via invalid chunk extension</strong>
+       <cve>CVE-2026-24880</cve></p>
+
+    <p>Tomcat did not validate that contents of HTTP/1.1 chunk extensions. This
+       enabled a request smuggling attack if a reverse proxy in front of Tomcat
+       allowed CRLF sequences in an otherwise valid chunk extension.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="fde1a8235fb73125217bd41e162aa0a113f33552"/> and
+       <hashlink hash="2cb06c34f661ca42f7570bbcc21e99806184bcc5"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 19 January 2026.
+       The issue was made public on 9 April 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.18</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 11.0.18" rtext="2026-01-26">
 
     <p><strong>Moderate: Incomplete OCSP verification checks</strong>
