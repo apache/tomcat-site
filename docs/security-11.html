@@ -36,7 +36,117 @@
     </p>
 
   </div><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.21">Fixed in Apache Tomcat 11.0.21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.20">Fixed in Apache Tomcat 11.0.20</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.18">Fixed in Apache Tomcat 11.0.18</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.15">Fixed in Apache Tomcat 11.0.15</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.12">Fixed in Apache Tomcat 11.0.12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.11">Fixed in Apache Tomcat 11.0.11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.10">Fixed in Apache Tomcat 11.0.10</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.9">Fixed in Apache Tomcat 11.0.9</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.8">Fixed in Apache Tomcat 11.0.8</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.7">Fixed in Apache Tomcat 11.0.7</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.6">Fixed in Apache Tomcat 11.0.6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+    <ul><li><a href="#Fixed_in_Apache_Tomcat_11.0.22">Fixed in Apache Tomcat 11.0.22</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.21">Fixed in Apache Tomcat 11.0.21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.20">Fixed in Apache Tomcat 11.0.20</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.18">Fixed in Apache Tomcat 11.0.18</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.15">Fixed in Apache Tomcat 11.0.15</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.12">Fixed in Apache Tomcat 11.0.12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.11">Fixed in Apache Tomcat 11.0.11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.10">Fixed in Apache Tomcat 11.0.10</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.9">Fixed in Apache Tomcat 11.0.9</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.8">Fixed in Apache Tomcat 11.0.8</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.7">Fixed in Apache Tomcat 11.0.7</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.6">Fixed in Apache Tomcat 11.0.6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.3">Fixed in Apache Tomcat 11.0.3</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.2">Fixed in Apache Tomcat 11.0.2</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.1">Fixed in Apache Tomcat 11.0.1</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0">Fixed in Apache Tomcat 11.0.0</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M21">Fixed in Apache Tomcat 11.0.0-M21</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M17">Fixed in Apache Tomcat 11.0.0-M17</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M12">Fixed in Apache Tomcat 11.0.0-M12</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M11">Fixed in Apache Tomcat 11.0.0-M11</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M6">Fixed in Apache Tomcat 11.0.0-M6</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M5">Fixed in Apache Tomcat 11.0.0-M5</a></li><li><a href="#Fixed_in_Apache_Tomcat_11.0.0-M3">Fixed in Apache Tomcat 11.0.0-M3</a></li></ul>
+  </div><h3 id="Fixed_in_Apache_Tomcat_11.0.22"><span class="pull-right">2026-05-05</span> Fixed in Apache Tomcat 11.0.22</h3><div class="text">
+
+    <p><strong>Moderate: Security constraints not correctly applied</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-43515" rel="nofollow">CVE-2026-43515</a></p>
+
+    <p>When multiple security constraints defined an HTTP method constraint for
+       the same extension pattern, only the first method constraint was
+       applied.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/276087d9c7abbcecc6c4fb4e4b08cf64780c6e36">276087d9</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Low: AJP secret compared in non-constant time</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-43514" rel="nofollow">CVE-2026-43514</a></p>
+
+    <p>The AJP secret was compared in non-constant time allowing an attacker on
+       the local network to mount a timing attack to determine the AJP
+       secret.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/d35d9d23263c8e4af561f615c960c91697ff200e">d35d9d23</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Low: LockOutRealm treats user names as case-sensitive</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-43513" rel="nofollow">CVE-2026-43513</a></p>
+
+    <p>The LockOut Realm treated user names as case sensitive meaning that, for
+       Realms where the user name was case insensitive, the LockOut Realm was
+       not as effective at blocking brute force attacks against a user's
+       password.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/83f3e51df7b87f5f6e626951c575ded1a512e8ef">83f3e51d</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Moderate: Digest authenticator will authenticate any unknown user</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-43512" rel="nofollow">CVE-2026-43512</a></p>
+
+    <p>When DIGEST authentication was configured, any user not known to the
+       configured Realm would be authenticated if they presented the password
+       "null".</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/a99c355e8199adbfd67c9a1fffbd85b810b196cd">a99c355e</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Low: WebSocket authentication header exposure</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-42498" rel="nofollow">CVE-2026-42498</a></p>
+
+    <p>If a WebSocket request was redirected after authentication, Tomcat's
+       WebSocket client would present the most recent authentication header to
+       the redirect target host.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/b7b173694d588ddcfa432f079baf763cbbbaa5c4">b7b17369</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 21 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Low: HTTP/2 request headers not validated</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-41293" rel="nofollow">CVE-2026-41293</a></p>
+
+    <p>HTTP/2 request headers were not validated which may have triggered
+       unexpected application behaviour if the application (quite reasonably)
+       assumed that header value exposed through the Servlet API would be
+       specification compliant.</p>
+
+    <p>This was fixed with commits
+       <a href="https://github.com/apache/tomcat/commit/e5cef9618c3f4fd31bd6fb1e83f0f18022280dac">e5cef961</a>,
+       <a href="https://github.com/apache/tomcat/commit/3915fd27e6810b14ccd21e3d900bd8faef44d3df">3915fd27</a> and
+       <a href="https://github.com/apache/tomcat/commit/c2925554c677da57390f940d856871e18daaacab">c2925554</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 15 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
+    <p><strong>Low: Unbounded read in WebDAV LOCK and PROPFIND handling</strong>
+       <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-41284" rel="nofollow">CVE-2026-41284</a></p>
+
+    <p>No limit was enforced on the request body for WebDAV LOCK or PROPFIND
+       requests which were available to unauthenticated users.</p>
+
+    <p>This was fixed with commit
+       <a href="https://github.com/apache/tomcat/commit/a96fffd18487a29c0a30d36f00cb2b2d91f6d42c">a96fffd1</a>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 11 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 11.0.0-M1 to 11.0.21</p>
+
   </div><h3 id="Fixed_in_Apache_Tomcat_11.0.21"><span class="pull-right">2026-04-04</span> Fixed in Apache Tomcat 11.0.21</h3><div class="text">
 
     <p><strong>Moderate: OCSP checks sometimes soft-fail with FFM even when

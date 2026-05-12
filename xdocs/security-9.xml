@@ -50,6 +50,118 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.118" rtext="2026-05-10">
+
+    <p><strong>Moderate: Security constraints not correctly applied</strong>
+       <cve>CVE-2026-43515</cve></p>
+
+    <p>When multiple security constraints defined an HTTP method constraint for
+       the same extension pattern, only the first method constraint was
+       applied.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="db919ff9912b4d61d1b702a1342b8bde39270031"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+    <p><strong>Low: AJP secret compared in non-constant time</strong>
+       <cve>CVE-2026-43514</cve></p>
+
+    <p>The AJP secret was compared in non-constant time allowing an attacker on
+       the local network to mount a timing attack to determine the AJP
+       secret.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="933dcdbf2515972280002929e7e597dead2e9ffa"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+    <p><strong>Low: LockOutRealm treats user names as case-sensitive</strong>
+       <cve>CVE-2026-43513</cve></p>
+
+    <p>The LockOut Realm treated user names as case sensitive meaning that, for
+       Realms where the user name was case insensitive, the LockOut Realm was
+       not as effective at blocking brute force attacks against a user's
+       password.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6dd75beb55bd42fc5f78e929596b25018cd17717"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+    <p><strong>Moderate: Digest authenticator will authenticate any unknown user</strong>
+       <cve>CVE-2026-43512</cve></p>
+
+    <p>When DIGEST authentication was configured, any user not known to the
+       configured Realm would be authenticated if they presented the password
+       "null".</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6565a6cb6499e56fe2f34457cec99f9d1c4f39e9"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+    <p><strong>Low: WebSocket authentication header exposure</strong>
+       <cve>CVE-2026-42498</cve></p>
+
+    <p>If a WebSocket request was redirected after authentication, Tomcat's
+       WebSocket client would present the most recent authentication header to
+       the redirect target host.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="169d725788ea6aec217ecac70fe4161c837ba423"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 21 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.2 to 9.0.117</p>
+
+    <p><strong>Low: HTTP/2 request headers not validated</strong>
+       <cve>CVE-2026-41293</cve></p>
+
+    <p>HTTP/2 request headers were not validated which may have triggered
+       unexpected application behaviour if the application (quite reasonably)
+       assumed that header value exposed through the Servlet API would be
+       specification compliant.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="cf9452443bcbf3b1a4b435ef7d624364f1b65ca3"/>,
+       <hashlink hash="1c70480466572c9192ed412ebefcd43fc63137fd"/> and
+       <hashlink hash="57c2b3bfd62792631e1df24cf4237b990a0b36fa"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 15 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+    <p><strong>Low: Unbounded read in WebDAV LOCK and PROPFIND handling</strong>
+       <cve>CVE-2026-41284</cve></p>
+
+    <p>No limit was enforced on the request body for WebDAV LOCK or PROPFIND
+       requests which were available to unauthenticated users.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="17dacd9aa48628da2eba37a9ab743c0b6c71685c"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 11 April 2026.
+       The issue was made public on 12 May 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.117</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.117" rtext="2026-04-03">
 
     <p><strong>Moderate: OCSP checks sometimes soft-fail with FFM even when
