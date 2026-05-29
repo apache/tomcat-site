@@ -29,6 +29,7 @@
         <li>The temp directory (by default <code>$CATALINA_BASE/temp</code>)</li>
         <li>Web application working directories (by default
             <code>$CATALINA_BASE/work</code>)</li>
+        <li>The persisted session store.</li>
         <li>The Manager or Host Manager web applications provided with Tomcat.</li>
         <li>The JMX API (local or remote).</li>
         <li>The Java Attach API or any other debugging interface.</li>
@@ -120,6 +121,10 @@
     <ol>
       <li>Any report that depends on deserialisation within the clustering code
           when the EcryptInterceptor has not been configured.</li>
+
+      <li>Any report that depends on modification of persisted session data
+          where the mechanism to modify the persisted session data is not
+          accessible to a non-administrative user.</li>
 
       <li>Any report that depends on write access to an application's 
           <code>docBase</code>.</li>
