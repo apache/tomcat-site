@@ -110,7 +110,12 @@
     
     <ol>
       <li>Any report that depends on deserialisation within the clustering code
-          when the EcryptInterceptor has not been configured.</li>
+          (<code>org.apache.catalina.ha</code>
+          <code>org.apache.catalina.tribes</code> and all sub-packages) when the
+          EcryptInterceptor has not been configured.</li>
+
+      <li>Any report that depends on an attacker controlling a node within a
+          cluster.</li>
 
       <li>Any report that depends on modification of persisted session data
           where the mechanism to modify the persisted session data is not
