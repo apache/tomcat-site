@@ -149,6 +149,16 @@ versions of Apache Tomcat<sup>&reg;</sup>.</p>
         In 10.1.51 onwards, the minimum Tomcat Native version is 1.3.4 for
         Tomcat Native 1.3.x and 2.0.12 for Tomcat Native 2.0.x.
       </li>
+      <li>
+        Tomcat 10.1.56 introduces a <b>breaking change</b> for users of the
+        <code>EncryptInterceptor</code> in their clustering configuration.
+        Migration from prior-to-Tomcat-10.1.56 to after-Tomcat-10.1.56
+        will require that <i>all</i> cluster nodes are stopped and restarted
+        to perform the migration. There is an additional, required, piece of
+        data that is being introduced into the cluster data stream for
+        <code>EncryptInterceptor</code> and nodes running any older versions
+        will fail to send or receive cluster messages.
+      </li>
     </ul>
   </div></div>
 
