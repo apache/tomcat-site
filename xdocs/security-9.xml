@@ -50,6 +50,99 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.119" rtext="2026-06-23">
+
+    <p><strong>Moderate: Security constraints for default servlet ignored
+       method</strong>
+       <cve>CVE-2026-55956</cve></p>
+
+    <p>If security constraints were specified for the default servlet, any
+       method or method omission configured as part of the constraint was
+       ignored.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="a0374c450970760efafbd8806a1db278830ba7bd"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 15 June 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.118</p>
+
+    <p><strong>Low: EncryptInterceptor not protected against replay
+       attacks</strong>
+       <cve>CVE-2026-55955</cve></p>
+
+    <p>Contrary to the documentation, the EncryptInterceptor was not protected
+       against replay attacks.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="6a7a432cd7fb4ef358dc12e8da99cf3ab320f3fe"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 17 June 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.13 to 9.0.118</p>
+
+    <p><strong>Low: Logged effective web.xml is incomplete</strong>
+       <cve>CVE-2026-55276</cve></p>
+
+    <p>Logic errors in the effective web.xml generation meant that neither
+    special roles nor empty authorization constraints were included in the
+    logged effective web.xml.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="3ca8cae5fd3796b1bd9759e11b0e238161e7a39c"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 16 June 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.118</p>
+
+    <p><strong>Low: Invalid CRL configuration doesn't trigger failure for FFM
+       Connector</strong>
+       <cve>CVE-2026-53434</cve></p>
+
+    <p>If an FFM connector was configured with invalid CRLs, the invalid CRLs
+       were ignored meaning invalid certificates could be accepted.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="c48ac39c27f4494f8c96b9d56a487253e362d276"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 8 June 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.83 to 9.0.118</p>
+
+    <p><strong>Low: Bad ornext processing in RewriteValve</strong>
+       <cve>CVE-2026-53404</cve></p>
+
+    <p>If a request matched the first condition in an OR chain, subsequent
+    non-OR conditions were skipped and the rewrite succeeded.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="fe06ae8a71997061596f54189dae1b1b5da75430"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 28 May 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.118</p>
+
+    <p><strong>Low: XXS in number guess example</strong>
+       <cve>CVE-2026-50229</cve></p>
+
+    <p>The use of wild card property mapping resulted in some properties, that
+       were intended to be internal only, being exposed to clients allowing an
+       XSS attack.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="de5a950415fc67713f17fab63d0c7809e0fca80b"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 11 May 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.118</p>
+
+  </section>
   <section name="Fixed in Apache Tomcat 9.0.118" rtext="2026-05-10">
 
     <p><strong>Moderate: Security constraints not correctly applied</strong>
@@ -673,6 +766,26 @@
        bug tracker on 13 March 2025. The CVE was published on 28 April 2025.</p>
 
     <p>Affects: 9.0.76 to 9.0.102</p>
+
+  </section>
+
+  <section name="Fixed in Apache Tomcat 9.0.102" rtext="2025-03-06">
+
+    <p><strong>Important: Authentication bypass with JNDIRealm and GSSAPI
+       authenticated bind</strong>
+       <cve>CVE-2026-55957</cve></p>
+
+    <p>When the JNDIRealm was configured to authenticate binds using GSSAPI, an
+       attacker was able authenticate without providing the correct
+       password.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="c32bbd37ea9ee0aaab848af4ee1c9a76e84240ea"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 14 June 2026.
+       The issue was made public on 29 June 2026.</p>
+
+    <p>Affects: 9.0.0-M1 to 9.0.100</p>
 
   </section>
 
