@@ -50,6 +50,28 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.121" rtext="not yet released">
+
+    <p><strong>Low: DoS in WebSocket chat example</strong>
+       <cve>CVE-2026-66299</cve></p>
+
+    <p>The WebSocket chat example provided an unbounded buffer for undelivered
+       messages. A maliciously slow client could cause the buffer to grow
+       continuously, eventually leading to an memory exhaustion and failure of
+       the Tomcat process.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="f6dda658e4eda2190de96219c182b9a75d27ab06"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 28 July 2026.</p>
+
+    <p>Affects: 9.0.89 to 9.0.120<br/>
+       Users who followed the security guidance to remove the examples web
+       application are not affected.</p>
+
+  </section>
+  
   <section name="Fixed in Apache Tomcat 9.0.120" rtext="2026-07-07">
 
     <p><strong>Low: EncryptInterceptor requirements not clearly
