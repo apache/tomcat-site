@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.120) - The HTTP Connector</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
-            Version 9.0.120,
-            <time datetime="2026-07-03">Jul 3 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 Configuration Reference (9.0.121) - The HTTP Connector</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9 Configuration Reference</h1><div class="versionInfo">
+            Version 9.0.121,
+            <time datetime="2026-08-12">Aug 12 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">JASPIC</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The HTTP Connector</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
 <ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Attributes">Attributes</a><ol><li><a href="#Common_Attributes">Common Attributes</a></li><li><a href="#Standard_Implementation">Standard Implementation</a></li><li><a href="#Java_TCP_socket_attributes">Java TCP socket attributes</a></li><li><a href="#NIO_specific_configuration">NIO specific configuration</a></li><li><a href="#NIO2_specific_configuration">NIO2 specific configuration</a></li><li><a href="#APR/native_specific_configuration">APR/native specific configuration</a></li></ol></li><li><a href="#Nested_Components">Nested Components</a></li><li><a href="#Special_Features">Special Features</a><ol><li><a href="#HTTP/1.1_and_HTTP/1.0_Support">HTTP/1.1 and HTTP/1.0 Support</a></li><li><a href="#HTTP/2_Support">HTTP/2 Support</a></li><li><a href="#Proxy_Support">Proxy Support</a></li><li><a href="#Unix_Domain_Socket_Support">Unix Domain Socket Support</a></li><li><a href="#SSL_Support">SSL Support</a></li><li><a href="#SSL_Support_-_SSLHostConfig">SSL Support - SSLHostConfig</a></li><li><a href="#SSL_Support_-_Certificate">SSL Support - Certificate</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2">SSL Support - Connector - NIO and NIO2</a></li><li><a href="#SSL_Support_-_OpenSSL's_SSL_CONF_API">SSL Support - OpenSSL's SSL_CONF API</a></li><li><a href="#Key_store_types">Key store types</a></li><li><a href="#SSL_Support_-_Connector_-_NIO_and_NIO2_(deprecated)">SSL Support - Connector - NIO and NIO2 (deprecated)</a></li><li><a href="#SSL_Support_-_Connector_-_APR/Native_(deprecated)">SSL Support - Connector - APR/Native (deprecated)</a></li><li><a href="#Connector_Comparison">Connector Comparison</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
@@ -81,8 +81,9 @@
       <code>passthrough</code> request paths containing a <code>%5c</code>
       sequence will be processed with the <code>%5c</code> sequence unchanged.
       </p>
-      <p>When set to <code>decoded</code>, the <strong>allowBackslash</strong>
-      attribute will be applied after decoding.
+      <p>When set to <code>decoded</code>, the
+      <code>org.apache.catalina.connector.CoyoteAdapter.ALLOW_BACKSLASH</code>
+      system property will be applied after decoding.
       </p>
       <p>If <code>passthrough</code> is used then it is the application's
       responsibility to perform any further <code>%nn</code> decoding required.
@@ -566,11 +567,10 @@
       where it will be hard-coded to <code>true</code>.</p>
     </td></tr><tr id="Attributes_Standard Implementation_noCompressionUserAgents"><td><code class="attributeName">noCompressionUserAgents</code></td><td>
       <p>The value is a regular expression (using <code>java.util.regex</code>)
-      matching the <code>user-agent</code> header of HTTP clients for which
-      compression should not be used,
-      because these clients, although they do advertise support for the
-      feature, have a broken implementation.
-      The default value is an empty String (regexp matching disabled).</p>
+      matching the entire <code>user-agent</code> header of HTTP clients for
+      which compression should not be used, because these clients, although they
+      do advertise support for the feature, have a broken implementation. The
+      default value is an empty String (regexp matching disabled).</p>
     </td></tr><tr id="Attributes_Standard Implementation_processorCache"><td><code class="attributeName">processorCache</code></td><td>
       <p>The protocol handler caches Processor objects to speed up performance.
       This setting dictates how many of these objects get cached.
@@ -620,10 +620,10 @@
       present in the value will be ignored.</p>
     </td></tr><tr id="Attributes_Standard Implementation_restrictedUserAgents"><td><code class="attributeName">restrictedUserAgents</code></td><td>
       <p>The value is a regular expression (using <code>java.util.regex</code>)
-      matching the <code>user-agent</code> header of HTTP clients for which
-      HTTP/1.1 or HTTP/1.0 keep alive should not be used, even if the clients
-      advertise support for these features.
-      The default value is an empty String (regexp matching disabled).</p>
+      matching the entire <code>user-agent</code> header of HTTP clients for
+      which HTTP/1.1 or HTTP/1.0 keep alive should not be used, even if the
+      clients advertise support for these features. The default value is an
+      empty String (regexp matching disabled).</p>
     </td></tr><tr id="Attributes_Standard Implementation_server"><td><code class="attributeName">server</code></td><td>
       <p>Overrides the Server header for the http response. If set, the value
       for this attribute overrides any Server header set by a web application.
@@ -867,12 +867,40 @@
         attribute may be omitted.</p>
       </td></tr><tr id="Attributes_NIO specific configuration_unixDomainSocketPathPermissions"><td><code class="attributeName">unixDomainSocketPathPermissions</code></td><td>
         <p>Where supported, the posix permissions that will be applied to the
-        to the Unix Domain Socket specified with
-        <code>unixDomainSocketPath</code> above. The
-        permissions are specified as a string of nine characters, in three sets
-        of three: (r)ead, (w)rite and e(x)ecute for owner, group and others
-        respectively. If a permission is not granted, a hyphen is used. If
-        unspecified, the permissions default to <code>rw-rw-rw-</code>.</p>
+        Unix Domain Socket specified with <code>unixDomainSocketPath</code>
+        above.  If the Unix Domain Socket is required to be created securely,
+        these permissions should be selected as to limit access to trusted
+        users.</p>
+        <p>The permissions are specified as a string of nine characters, in
+        three sets of three: (r)ead, (w)rite and e(x)ecute for owner, group and
+        others respectively. If a permission is not granted, a hyphen is
+        used.</p>
+        <p>If unspecified, no permissions are explicitly set meaning that the
+        resulting permissions will be determined by the current umask.</p>
+      </td></tr><tr id="Attributes_NIO specific configuration_unixDomainSocketParentOwner"><td><code class="attributeName">unixDomainSocketParentOwner</code></td><td>
+        <p>The expected ownership of the directory where the Unix Domain Socket
+        will be created. The directory must be owned either by this user or the
+        current user associated with the Tomcat process.</p>
+        <p>This attribute is ignored if
+        <code>unixDomainSocketParentPermissions</code> are skipped. If not
+        ignored, the ownership checks on the parent directory, can be skipped by
+        setting this attribute to the empty string.</p>
+        <p>If unspecified, the default value is unset.</p>
+      </td></tr><tr id="Attributes_NIO specific configuration_unixDomainSocketParentPermissions"><td><code class="attributeName">unixDomainSocketParentPermissions</code></td><td>
+        <p>Where supported, the posix permissions that will be checked on /
+        applied to the directory where the Unix Domain Socket will be created.
+        If the Unix Domain Socket is required to be created securely, these
+        permissions should be selected as to limit access to trusted users.</p>
+        <p>To skip the permission checks on the parent directory, set this
+        attribute to the empty string.</p>
+        <p>The permissions are specified as a string of nine characters, in
+        three sets of three: (r)ead, (w)rite and e(x)ecute for owner, group and
+        others respectively. If a permission is not granted, a hyphen is used.
+        If unspecified, the value of
+        <code>unixDomainSocketPathPermissions</code> is used with the addition
+        of the appropriate execute permission for every read and/or write
+        permission that is specified and the removal of group and other write
+        permissions if present.</p>
       </td></tr><tr id="Attributes_NIO specific configuration_useInheritedChannel"><td><code class="attributeName">useInheritedChannel</code></td><td>
         <p>(bool)Defines if this connector should inherit an inetd/systemd network socket.
         Only one connector can inherit a network socket. This can option can be
@@ -1100,12 +1128,12 @@
   Apache Portable Runtime v1.6 and higher.
   </p>
 
-  <p>The socket path is created with read and write permissions for all
-  users. To protect this socket, place it in a directory with suitable
-  permissions appropriately configured to restrict access as required.
-  Alternatively, on platforms that support posix permissions, the
-  permissions on the socket can be set directly with the
-  <code>unixDomainSocketPathPermissions</code> option.
+  <p>By default, the socket path is created with the current umask. To protect
+  this socket, place it in a directory with suitable permissions appropriately
+  configured to restrict access as required. Alternatively, on platforms that
+  support posix permissions, the permissions for the containing folder can be
+  set with <code>unixDomainSocketParentPermissions</code> and the permissions
+  for the socket can be set with <code>unixDomainSocketPathPermissions</code>.
   </p>
 
   <p>Tomcat will automatically remove the socket on server shutdown. If the
