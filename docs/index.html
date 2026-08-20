@@ -31,6 +31,44 @@ these users and their stories are listed on the
 <a href="https://cwiki.apache.org/confluence/display/TOMCAT/PoweredBy">PoweredBy</a>
 wiki page.</p>
 
+</div><h3 id="Tomcat_10.1.59_Released"><span class="pull-right">2026-08-20</span> Tomcat 10.1.59 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 10.1.59
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 10 platform.</p>
+<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
+without changes. Java EE based applications designed for Tomcat 9 and earlier
+may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
+Tomcat will automatically convert them to Jakarta EE and copy them to the
+webapps directory. This conversion is performed using the
+<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
+migration tool for Jakarta EE tool</a> which is also available as a separate
+<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+  <li>Add a new attribute to the Context, urlPatternsProvidedInDecodedForm.
+  This attribute controls whether URLs and URL patterns provided in the
+  deployment descriptor (web.xml), annotations and/or their programmatic
+  equivalents are treated as being provided in URL-encoded form (i.e.
+  using %nn encoding) or in decoded form.</li>
+
+  <li>Require every HTTP/2 request to provide an authority (either an
+  :authority pseudo header or a Host header).</li>
+
+  <li>Change the default encryptionAlgorithm for the EncryptInterceptor to
+  AES/GCM/NoPadding. <b>This is a breaking change for the
+  EncryptInterceptor.</b></li>
+</ul>
+
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.59_(schultz)">Tomcat 10.1
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_11.0.25_Released"><span class="pull-right">2026-08-18</span> Tomcat 11.0.25 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.25
@@ -110,38 +148,6 @@ Java EE 8 platform. The notable changes compared to 9.0.120 include:</p>
 </p>
 <p>Note: End of support for Tomcat 9.0.x has been
 <a href="tomcat-9.0.x-eos.html">announced</a> as 31 March 2027.</p>
-</div><h3 id="Tomcat_10.1.57_Released"><span class="pull-right">2026-07-07</span> Tomcat 10.1.57 Released</h3><div class="text">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 10.1.57
-of Apache Tomcat. This release implements specifications that are part of the
-Jakarta EE 10 platform.</p>
-<p>Applications that run on Tomcat 9 and earlier will not run on Tomcat 10
-without changes. Java EE based applications designed for Tomcat 9 and earlier
-may be placed in the <code>$CATALINA_BASE/webapps-javaee</code> directory and
-Tomcat will automatically convert them to Jakarta EE and copy them to the
-webapps directory. This conversion is performed using the
-<a href="https://github.com/apache/tomcat-jakartaee-migration">Apache Tomcat
-migration tool for Jakarta EE tool</a> which is also available as a separate
-<a href="https://tomcat.apache.org/download-migration.cgi">download</a> for off-line use.</p>
-<p>The notable changes in this release are:</p>
-<ul>
-  <li>Correct a regression that broke integration with jsvc.</li>
-
-  <li>Correct a regression that broke re-use of tag files.</li>
-
-  <li>Align DIGEST authentication with RFC 7616 and require clients to
-      provide a valid qop parameter.</li>
-</ul>
-
-<p>
-Full details of these changes, and all the other changes, are available in the
-<a href="tomcat-10.1-doc/changelog.html#Tomcat_10.1.57_(schultz)">Tomcat 10.1
-changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="https://tomcat.apache.org/download-10.cgi">Download</a>
-</p>
 </div><h3 id="Tomcat_Native_2.0.15_Released"><span class="pull-right">2026-06-15</span> Tomcat Native 2.0.15 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 2.0.14 of
