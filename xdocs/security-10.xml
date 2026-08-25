@@ -64,6 +64,85 @@
        fix for these issues, version 10.1.58 is not included in the list of 
        affected versions.</i></p>
 
+    <p><strong>Low: Authenticated WebSocket session survives end of HTTP
+       session</strong>
+       <cve>CVE-2026-73180</cve></p>
+
+    <p>If the session ID for an authenticated HTTP session was changed after a
+       WebSocket connection had been established under that authenticated HTTP
+       session, the WebSokcet session would not be closed as required by the
+       Jakarta WebSocket specification when the HTTP session ended.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="83427cbdb92ca41244dc3d242ca4308ed8ade7d3"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 30 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Important: DoS via allocation leak in HTTP/2 backlog tracking
+       when a stream is reset</strong>
+       <cve>CVE-2026-68763</cve></p>
+
+    <p>An allocation leak in the HTTP/2 backlog tracking when a stream was reset
+       could be manipulated to trigger a denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="19d40615620fe145e88536e2bd63c5f01077c253"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 16 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Important: Principal lookup could fail open in some
+       cases</strong>
+       <cve>CVE-2026-68569</cve></p>
+
+    <p>For some authentication methods (e.g. CLIENT-CERT, SPNEGO), a user would
+       be authenticated even if the user did not exist in the
+       DataSourceRealm.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="3ff06ceb984edc2a3c9e0161b01e833c5e50ed4f"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 16 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Low: Redirect after FORM authentication may bypass method
+       specific constraints</strong>
+       <cve>CVE-2026-68525</cve></p>
+
+    <p>The FORM authentication process allowed the bypassing of a security
+       constraint that limited user access to a resource POST but not GET.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="58123aa468a20e2a079b7e0c68a4009e2475c098"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 15 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Low: Servlet role references can bypass declarative role
+       constraints</strong>
+       <cve>CVE-2026-66422</cve></p>
+
+    <p><code>security-role-ref</code> definitions were incorrectly used as role
+       aliases within the Realm in additional to the correct usage with
+       <code>Request.isUserInRole()</code>.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="49506f6d5ad7cdef211ce1a4026a29183b3df5c7"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
     <p><strong>Low: DoS in WebSocket chat example</strong>
        <cve>CVE-2026-66299</cve></p>
 
@@ -81,6 +160,84 @@
     <p>Affects: 10.1.24 to 10.1.57<br/>
        Users who followed the security guidance to remove the examples web
        application are not affected.</p>
+
+    <p><strong>Important: RewriteValve [N] restarts at the second rule and may
+       bypass access control</strong>
+       <cve>CVE-2026-65927</cve></p>
+
+    <p>An off-by-one error impacting the [N] flag on the rewrite valves caused
+       rewrite processing to restart at the second rule rather than the first
+       rule.</p>
+
+    <p>This was fixed with commits
+       <hashlink hash="3097902177a041a93476a036b9c8419b25d5cc0d"/> and
+       <hashlink hash="7d2ae3952a39db5790dcfd36e5d79c75570a20ee"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Low: Limited replay attack possible with DIGEST
+       authentication</strong>
+       <cve>CVE-2026-65905</cve></p>
+
+    <p>If, before windowSize requests had been made, a client made a DIGEST
+       authenticated request with a nonceCount on the upper boundary of the
+       replay window then that request was replayable once only while the
+       associated nonceCount remained within the replay window.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="1c1a583ba57092206f77c375f45da12c99fb141d"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Moderate: HTTP/2 no-authority bypass of strict SNI
+       validation</strong>
+       <cve>CVE-2026-65637</cve></p>
+
+    <p>The fix for <cve>CVE-2026-32990</cve> was incomplete.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="40012414df828a56126f76a7339669c7c919aae7"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.53 to 10.1.57</p>
+
+    <p><strong>Low: TOCTOU when setting specific permissions for Unix Domain
+       Sockets</strong>
+       <cve>CVE-2026-65183</cve></p>
+
+    <p>A race condition when creating a Unix Domain Socket allowed an
+       unauthorised local user to access the Unix Domain Socket.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="d8bcec9a30788fd887f33890b77ae1b8cd5f1f7e"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 3 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
+
+    <p><strong>Important: Security constraint bypass</strong>
+       <cve>CVE-2026-65182</cve></p>
+
+    <p>The security constraint processing enabled a security constraint bypass
+       if a constraint for a longer path was specified before a more restrictive
+       constraint for a shorter sub-path.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="b79752d2a8578d94743e2a95c50af297f780c0df"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 July 2026.
+       The issue was made public on 25 August 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.57</p>
 
   </section>
   
