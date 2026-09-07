@@ -4,6 +4,70 @@
   This is the Changelog for Apache Tomcat Native 2.0.x. The Tomcat Native 2.0.x
   branch started from the 1.2.33 tag.
   </p>
+</div><h3 id="2.0.16"><span style="float: right;">2026-09-07</span> 2.0.16</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Code: " class="icon" src="../images/code.gif">
+      Remove call to ERR_remove_thread_state() from Windows specific code to
+      allow building with OpenSSL 4.0.x. ERR_remove_thread_state() is a no-op
+      in OpenSSL 1.1+ and got removed in OpenSSL 4. (rjung)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Remove support for Windows build on IA64 architecture (Itanium). (rjung)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Make x64 the default architecture for Windows build. (rjung)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Make Windows 10 / 11 the default target version for Windows builds. (rjung)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix a potential crash when negotiating ALPN. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      If ALPN negotiation fails and failure is configured to use the last server
+      protocol in the list, use it rather than the last protocol offered by the
+      client. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Add support for the extended range of options available from OpenSSL
+      3.0.x. The options flag is now a 64-bit unsigned int (represented by a
+      Java long) rather than a 32-bit unsigned int (represented by a Java int). 
+      (markt)
+    </li>
+    <li><img alt="Code: " class="icon" src="../images/code.gif">
+      Remove unused code. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Ensure that per connection changes to certificate verification settings,
+      e.g. to support client certificate authentication, do not modify the
+      certificate verification settings for other connections. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Fix a potential crash when configuring raw certificates. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Avoid a potential crash with very long ALPN protocol names. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Make the call to a CertificateVerifier more robust. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Avoid a potential crash when processing OCSP URLs. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Make the processing of OCSP responses more robust. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Stricter OCSP handling when soft-fail is disabled. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Harden against the mis-use of <code>Buffer.address(ByteBuffer)</code>.
+      (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Harden against the mis-use of <code>Pool.destroy(long)</code>. (markt)
+    </li>
+  </ul>
 </div><h3 id="2.0.15"><span style="float: right;">2026-06-15</span> 2.0.15</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Fix: " class="icon" src="../images/fix.gif">
