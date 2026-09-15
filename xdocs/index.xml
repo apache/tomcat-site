@@ -48,6 +48,33 @@ these users and their stories are listed on the
 wiki page.</p>
 
 </section>
+
+<section name="Tomcat 9.0.122 Released" rtext="2026-09-15">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 9.0.122
+of Apache Tomcat. This release implements specifications that are part of the
+Java EE 8 platform. The notable changes compared to 9.0.121 include:</p>
+<ul>
+  <li>Update Tomcat Native to 1.3.9 (built with OpenSSL 3.5.8 for Windows)
+   and make it the minimum required version.</li>
+  <li>Various improvements to the RewriteValve.</li>
+  <li>Various TLS improvements including more robust OCSP and ALPN handling.</li>
+  <li>Ensure that WebSocket write timeouts apply to the complete message and
+   are not lost if two writes have the same timeout.</li>
+</ul>
+<p>
+  Full details of these changes, and all the other changes, are available in the
+  <a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.122_(remm)">Tomcat 9
+  changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="download-90.cgi">Download</a>
+</p>
+<p>Note: End of support for Tomcat 9.0.x has been
+<a href="tomcat-9.0.x-eos.html">announced</a> as 31 March 2027.</p>
+</section>
+
 <section name="Tomcat 11.0.26 Released" rtext="2026-09-15">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 11.0.26
@@ -172,45 +199,6 @@ Tomcat Native. The notable changes compared to 1.3.8 include:
 </section>
 
 
-
-<section name="Tomcat 9.0.121 Released" rtext="2026-08-18">
-<p>
-The Apache Tomcat Project is proud to announce the release of version 9.0.121
-of Apache Tomcat. This release implements specifications that are part of the
-Java EE 8 platform. The notable changes compared to 9.0.120 include:</p>
-<ul>
-<li>Add a new attribute to the Context, urlPatternsProvidedInDecodedForm.
-   This attribute controls whether URLs and URL patterns provided in the
-   deployment descriptor (web.xml), annotations and/or their programmatic
-   equivalents are treated as being provided in URL-encoded form (i.e.
-   using %nn encoding) or in decoded form. The Servlet specification
-   requires that they are provided in decoded form. However, Tomcat has
-   historically treated them as if they are provided in encoded form. In
-   Tomcat 12, they will always be treated as if they are provided in
-   decoded form. This setting enables migration from encoded form to
-   decoded form on an application by application basis. This attribute
-   will be removed in Tomcat 12 where it will effectively be hard-coded
-   to true.</li>
-
-  <li>Require every HTTP/2 request to provide an authority (either an
-   :authority pseudo header or a Host header)</li>
-
-  <li>Change the default encryptionAlgorithm for the EncryptInterceptor to
-   AES/GCM/NoPadding. This is a breaking change for the
-   EncryptInterceptor.</li>
-</ul>
-<p>
-  Full details of these changes, and all the other changes, are available in the
-  <a href="tomcat-9.0-doc/changelog.html#Tomcat_9.0.121_(remm)">Tomcat 9
-  changelog</a>.
-</p>
-
-<p style="text-align: center;">
-<a href="download-90.cgi">Download</a>
-</p>
-<p>Note: End of support for Tomcat 9.0.x has been
-<a href="tomcat-9.0.x-eos.html">announced</a> as 31 March 2027.</p>
-</section>
 
 <section name="Tomcat Migration Tool for Jakarta EE 1.0.12 Released" rtext="2025-06-04">
 <p>
