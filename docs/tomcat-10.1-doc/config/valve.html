@@ -1,8 +1,8 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.59) - The Valve Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
-            Version 10.1.59,
-            <time datetime="2026-08-13">Aug 13 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
-<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Access_Logging">Access Logging</a><ol><li><a href="#Access_Log_Valve">Access Log Valve</a><ol><li><a href="#Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Extended_Access_Log_Valve">Extended Access Log Valve</a><ol><li><a href="#Extended_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Extended_Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#JSON_Access_Log_Valve">JSON Access Log Valve</a><ol><li><a href="#JSON_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#JSON_Access_Log_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Access_Control">Access Control</a><ol><li><a href="#Remote_Address_Valve">Remote Address Valve</a><ol><li><a href="#Remote_Address_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Address_Valve/Attributes">Attributes</a></li><li><a href="#Remote_Address_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_Address_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_Address_Valve/Example_port_auth">Example 3</a></li></ol></li><li><a href="#Remote_Host_Valve">Remote Host Valve</a><ol><li><a href="#Remote_Host_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Host_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_CIDR_Valve">Remote CIDR Valve</a><ol><li><a href="#Remote_CIDR_Valve/Introduction">Introduction</a></li><li><a href="#Remote_CIDR_Valve/Attributes">Attributes</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_CIDR_Valve/Example_port_auth">Example 3</a></li></ol></li></ol></li><li><a href="#Proxies_Support">Proxies Support</a><ol><li><a href="#Load_Balancer_Draining_Valve">Load Balancer Draining Valve</a><ol><li><a href="#Load_Balancer_Draining_Valve/Introduction">Introduction</a></li><li><a href="#Load_Balancer_Draining_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_IP_Valve">Remote IP Valve</a><ol><li><a href="#Remote_IP_Valve/Introduction">Introduction</a></li><li><a href="#Remote_IP_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Valve">SSL Valve</a><ol><li><a href="#SSL_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Single_Sign_On_Valve">Single Sign On Valve</a><ol><li><a href="#Single_Sign_On_Valve/Introduction">Introduction</a></li><li><a href="#Single_Sign_On_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Authentication">Authentication</a><ol><li><a href="#Basic_Authenticator_Valve">Basic Authenticator Valve</a><ol><li><a href="#Basic_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Basic_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Digest_Authenticator_Valve">Digest Authenticator Valve</a><ol><li><a href="#Digest_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Digest_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Form_Authenticator_Valve">Form Authenticator Valve</a><ol><li><a href="#Form_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Form_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Authenticator_Valve">SSL Authenticator Valve</a><ol><li><a href="#SSL_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SPNEGO_Valve">SPNEGO Valve</a><ol><li><a href="#SPNEGO_Valve/Introduction">Introduction</a></li><li><a href="#SPNEGO_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Error_Report_Valve">Error Report Valve</a><ol><li><a href="#Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Json_Error_Report_Valve">Json Error Report Valve</a><ol><li><a href="#Json_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Json_Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Proxy_Error_Report_Valve">Proxy Error Report Valve</a><ol><li><a href="#Proxy_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Proxy_Error_Report_Valve/Attributes">Attributes</a></li><li><a href="#Configuration">Configuration</a></li></ol></li><li><a href="#Crawler_Session_Manager_Valve">Crawler Session Manager Valve</a><ol><li><a href="#Crawler_Session_Manager_Valve/Introduction">Introduction</a></li><li><a href="#Crawler_Session_Manager_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Stuck_Thread_Detection_Valve">Stuck Thread Detection Valve</a><ol><li><a href="#Stuck_Thread_Detection_Valve/Introduction">Introduction</a></li><li><a href="#Stuck_Thread_Detection_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Semaphore_Valve">Semaphore Valve</a><ol><li><a href="#Semaphore_Valve/Introduction">Introduction</a></li><li><a href="#Semaphore_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Health_Check_Valve">Health Check Valve</a><ol><li><a href="#Health_Check_Valve/Introduction">Introduction</a></li><li><a href="#Health_Check_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Persistent_Valve">Persistent Valve</a><ol><li><a href="#Persistent_Valve/Introduction">Introduction</a></li><li><a href="#Persistent_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Parameter_Limit_Valve">Parameter Limit Valve</a><ol><li><a href="#Parameter_Limit_Valve/Introduction">Introduction</a></li><li><a href="#Parameter_Limit_Valve/Attributes">Attributes</a></li></ol></li></ul>
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 10 Configuration Reference (10.1.60) - The Valve Component</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="../images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="../images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 10 Configuration Reference</h1><div class="versionInfo">
+            Version 10.1.60,
+            <time datetime="2026-09-09">Sep 9 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="../index.html">Docs Home</a></li><li><a href="index.html">Config Ref. Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li><li><a href="#comments_section">User Comments</a></li></ul></div><div><h2>Top Level Elements</h2><ul><li><a href="server.html">Server</a></li><li><a href="service.html">Service</a></li></ul></div><div><h2>Executors</h2><ul><li><a href="executor.html">Executor</a></li></ul></div><div><h2>Connectors</h2><ul><li><a href="http.html">HTTP/1.1</a></li><li><a href="http2.html">HTTP/2</a></li><li><a href="ajp.html">AJP</a></li></ul></div><div><h2>Containers</h2><ul><li><a href="context.html">Context</a></li><li><a href="engine.html">Engine</a></li><li><a href="host.html">Host</a></li><li><a href="cluster.html">Cluster</a></li></ul></div><div><h2>Nested Components</h2><ul><li><a href="cookie-processor.html">CookieProcessor</a></li><li><a href="credentialhandler.html">CredentialHandler</a></li><li><a href="globalresources.html">Global Resources</a></li><li><a href="jar-scanner.html">JarScanner</a></li><li><a href="jar-scan-filter.html">JarScanFilter</a></li><li><a href="listeners.html">Listeners</a></li><li><a href="loader.html">Loader</a></li><li><a href="manager.html">Manager</a></li><li><a href="realm.html">Realm</a></li><li><a href="resources.html">Resources</a></li><li><a href="sessionidgenerator.html">SessionIdGenerator</a></li><li><a href="valve.html">Valve</a></li></ul></div><div><h2>Cluster Elements</h2><ul><li><a href="cluster.html">Cluster</a></li><li><a href="cluster-manager.html">Manager</a></li><li><a href="cluster-channel.html">Channel</a></li><li><a href="cluster-membership.html">Channel/Membership</a></li><li><a href="cluster-sender.html">Channel/Sender</a></li><li><a href="cluster-receiver.html">Channel/Receiver</a></li><li><a href="cluster-interceptor.html">Channel/Interceptor</a></li><li><a href="cluster-valve.html">Valve</a></li><li><a href="cluster-deployer.html">Deployer</a></li><li><a href="cluster-listener.html">ClusterListener</a></li></ul></div><div><h2>web.xml</h2><ul><li><a href="filter.html">Filter</a></li></ul></div><div><h2>Other</h2><ul><li><a href="runtime-attributes.html">Runtime attributes</a></li><li><a href="systemprops.html">System properties</a></li><li><a href="jaspic.html">Jakarta Authentication</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Valve Component</h2><h3 id="Table_of_Contents">Table of Contents</h3><div class="text">
+<ul><li><a href="#Introduction">Introduction</a></li><li><a href="#Access_Logging">Access Logging</a><ol><li><a href="#Access_Log_Valve">Access Log Valve</a><ol><li><a href="#Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Extended_Access_Log_Valve">Extended Access Log Valve</a><ol><li><a href="#Extended_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#Extended_Access_Log_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#JSON_Access_Log_Valve">JSON Access Log Valve</a><ol><li><a href="#JSON_Access_Log_Valve/Introduction">Introduction</a></li><li><a href="#JSON_Access_Log_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Access_Control">Access Control</a><ol><li><a href="#Remote_Address_Valve">Remote Address Valve</a><ol><li><a href="#Remote_Address_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Address_Valve/Attributes">Attributes</a></li><li><a href="#Remote_Address_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_Address_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_Address_Valve/Example_port_auth">Example 3</a></li></ol></li><li><a href="#Remote_Host_Valve">Remote Host Valve</a><ol><li><a href="#Remote_Host_Valve/Introduction">Introduction</a></li><li><a href="#Remote_Host_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_CIDR_Valve">Remote CIDR Valve</a><ol><li><a href="#Remote_CIDR_Valve/Introduction">Introduction</a></li><li><a href="#Remote_CIDR_Valve/Attributes">Attributes</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost">Example 1</a></li><li><a href="#Remote_CIDR_Valve/Example_localhost_port">Example 2</a></li><li><a href="#Remote_CIDR_Valve/Example_port_auth">Example 3</a></li></ol></li></ol></li><li><a href="#Proxies_Support">Proxies Support</a><ol><li><a href="#Load_Balancer_Draining_Valve">Load Balancer Draining Valve</a><ol><li><a href="#Load_Balancer_Draining_Valve/Introduction">Introduction</a></li><li><a href="#Load_Balancer_Draining_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Remote_IP_Valve">Remote IP Valve</a><ol><li><a href="#Remote_IP_Valve/Introduction">Introduction</a></li><li><a href="#Security">Security</a></li><li><a href="#Remote_IP_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Valve">SSL Valve</a><ol><li><a href="#SSL_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Single_Sign_On_Valve">Single Sign On Valve</a><ol><li><a href="#Single_Sign_On_Valve/Introduction">Introduction</a></li><li><a href="#Single_Sign_On_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Authentication">Authentication</a><ol><li><a href="#Basic_Authenticator_Valve">Basic Authenticator Valve</a><ol><li><a href="#Basic_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Basic_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Digest_Authenticator_Valve">Digest Authenticator Valve</a><ol><li><a href="#Digest_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Digest_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Form_Authenticator_Valve">Form Authenticator Valve</a><ol><li><a href="#Form_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#Form_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SSL_Authenticator_Valve">SSL Authenticator Valve</a><ol><li><a href="#SSL_Authenticator_Valve/Introduction">Introduction</a></li><li><a href="#SSL_Authenticator_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#SPNEGO_Valve">SPNEGO Valve</a><ol><li><a href="#SPNEGO_Valve/Introduction">Introduction</a></li><li><a href="#SPNEGO_Valve/Attributes">Attributes</a></li></ol></li></ol></li><li><a href="#Error_Report_Valve">Error Report Valve</a><ol><li><a href="#Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Json_Error_Report_Valve">Json Error Report Valve</a><ol><li><a href="#Json_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Json_Error_Report_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Proxy_Error_Report_Valve">Proxy Error Report Valve</a><ol><li><a href="#Proxy_Error_Report_Valve/Introduction">Introduction</a></li><li><a href="#Proxy_Error_Report_Valve/Attributes">Attributes</a></li><li><a href="#Configuration">Configuration</a></li></ol></li><li><a href="#Crawler_Session_Manager_Valve">Crawler Session Manager Valve</a><ol><li><a href="#Crawler_Session_Manager_Valve/Introduction">Introduction</a></li><li><a href="#Crawler_Session_Manager_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Stuck_Thread_Detection_Valve">Stuck Thread Detection Valve</a><ol><li><a href="#Stuck_Thread_Detection_Valve/Introduction">Introduction</a></li><li><a href="#Stuck_Thread_Detection_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Semaphore_Valve">Semaphore Valve</a><ol><li><a href="#Semaphore_Valve/Introduction">Introduction</a></li><li><a href="#Semaphore_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Health_Check_Valve">Health Check Valve</a><ol><li><a href="#Health_Check_Valve/Introduction">Introduction</a></li><li><a href="#Health_Check_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Persistent_Valve">Persistent Valve</a><ol><li><a href="#Persistent_Valve/Introduction">Introduction</a></li><li><a href="#Persistent_Valve/Attributes">Attributes</a></li></ol></li><li><a href="#Parameter_Limit_Valve">Parameter Limit Valve</a><ol><li><a href="#Parameter_Limit_Valve/Introduction">Introduction</a></li><li><a href="#Parameter_Limit_Valve/Attributes">Attributes</a></li></ol></li></ul>
 </div><h3 id="Introduction">Introduction</h3><div class="text">
 
   <p>A <strong>Valve</strong> element represents a component that will be
@@ -25,7 +25,7 @@
 
 <div class="subsection"><h4 id="Access_Log_Valve">Access Log Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Access_Log_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Access_Log_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Access Log Valve</strong> creates log files in the
     same format as those created by standard web servers.  These logs
@@ -74,7 +74,7 @@
     </p>
   </div></div>
 
-  <div class="subsection"><h4 id="Access_Log_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Access_Log_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Access Log Valve</strong> supports the following
     configuration attributes:</p>
@@ -338,7 +338,7 @@
 
 <div class="subsection"><h4 id="Extended_Access_Log_Valve">Extended Access Log Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Extended_Access_Log_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Extended_Access_Log_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Extended Access Log Valve</strong> extends the
     <a href="#Access_Log_Valve">Access Log Valve</a> class, and so
@@ -352,7 +352,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Extended_Access_Log_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Extended_Access_Log_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Extended Access Log Valve</strong> supports all
     configuration attributes of the standard
@@ -444,7 +444,7 @@
 
 <div class="subsection"><h4 id="JSON_Access_Log_Valve">JSON Access Log Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="JSON_Access_Log_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="JSON_Access_Log_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>JSON Access Log Valve</strong> extends the
     <a href="#Access_Log_Valve">Access Log Valve</a>, and so
@@ -457,7 +457,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="JSON_Access_Log_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="JSON_Access_Log_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>JSON Access Log Valve</strong> supports all
     configuration attributes of the standard
@@ -546,7 +546,7 @@
 
 <div class="subsection"><h4 id="Remote_Address_Valve">Remote Address Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Remote_Address_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Address_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Remote Address Valve</strong> allows you to compare the
     IP address of the client that submitted this request against one or more
@@ -601,7 +601,7 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Address_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Remote Address Valve</strong> supports the following
     configuration attributes:</p>
@@ -656,13 +656,13 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Valve/Example_localhost">Example 1</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Address_Valve/Example_localhost">Example 1</h5><div class="text">
     <p>To allow access only for the clients connecting from localhost:</p>
     <div class="codeBox"><pre><code>&lt;Valve className="org.apache.catalina.valves.RemoteAddrValve"
    allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1"/&gt;</code></pre></div>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Valve/Example_localhost_port">Example 2</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Address_Valve/Example_localhost_port">Example 2</h5><div class="text">
     <p>To allow unrestricted access for the clients connecting from localhost
     but for all other clients only to port 8443:</p>
     <div class="codeBox"><pre><code>&lt;Valve className="org.apache.catalina.valves.RemoteAddrValve"
@@ -670,7 +670,7 @@
    allow="127\.\d+\.\d+\.\d+;\d*|::1;\d*|0:0:0:0:0:0:0:1;\d*|.*;8443"/&gt;</code></pre></div>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Address_Valve/Example_port_auth">Example 3</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Address_Valve/Example_port_auth">Example 3</h5><div class="text">
     <p>To allow unrestricted access to port 8009, but trigger basic
     authentication if the application is accessed on another port:</p>
 <div class="codeBox"><pre><code>&lt;Context&gt;
@@ -689,7 +689,7 @@
 
 <div class="subsection"><h4 id="Remote_Host_Valve">Remote Host Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Remote_Host_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Host_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Remote Host Valve</strong> allows you to compare the
     hostname of the client that submitted this request against one or more
@@ -730,7 +730,7 @@
     <a href="http.html">HTTP Connector</a> configuration.</p>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_Host_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_Host_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Remote Host Valve</strong> supports the following
     configuration attributes:</p>
@@ -784,7 +784,7 @@
 
 <div class="subsection"><h4 id="Remote_CIDR_Valve">Remote CIDR Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Remote_CIDR_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_CIDR_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Remote CIDR Valve</strong> allows you to compare the
       IP address of the client that submitted this request against one or more
@@ -854,7 +854,7 @@
     <a href="http.html">HTTP Connector</a> configuration.</p>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_CIDR_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_CIDR_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Remote CIDR Valve</strong> supports the following
       configuration attributes:</p>
@@ -912,13 +912,13 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_CIDR_Valve/Example_localhost">Example 1</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_CIDR_Valve/Example_localhost">Example 1</h5><div class="text">
     <p>To allow access only for the clients connecting from localhost:</p>
     <div class="codeBox"><pre><code>&lt;Valve className="org.apache.catalina.valves.RemoteCIDRValve"
    allow="127.0.0.1, ::1"/&gt;</code></pre></div>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_CIDR_Valve/Example_localhost_port">Example 2</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_CIDR_Valve/Example_localhost_port">Example 2</h5><div class="text">
     <p>To allow unrestricted access for the clients connecting from the local network
     but for all clients in network 10. only to port 8443:</p>
     <div class="codeBox"><pre><code>&lt;Valve className="org.apache.catalina.valves.RemoteCIDRValve"
@@ -926,7 +926,7 @@
    allow="127.0.0.1;\d*|::1;\d*|10.0.0.0/8;8443"/&gt;</code></pre></div>
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_CIDR_Valve/Example_port_auth">Example 3</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_CIDR_Valve/Example_port_auth">Example 3</h5><div class="text">
     <p>To allow access to port 8009 from network 10., but trigger basic
     authentication if the application is accessed on another port:</p>
 <div class="codeBox"><pre><code>&lt;Context&gt;
@@ -944,7 +944,7 @@
 
 </div><h3 id="Proxies_Support">Proxies Support</h3><div class="text">
   <div class="subsection"><h4 id="Load_Balancer_Draining_Valve">Load Balancer Draining Valve</h4><div class="text">
-    <div class="subsection"><h4 id="Load_Balancer_Draining_Valve/Introduction">Introduction</h4><div class="text">
+    <div class="subsection"><h5 id="Load_Balancer_Draining_Valve/Introduction">Introduction</h5><div class="text">
       <p>
         When using mod_jk or mod_proxy_ajp, the client's session id is used to
         determine which back-end server will be used to serve the request. If the
@@ -985,7 +985,7 @@
       </p>
     </div></div>
 
-    <div class="subsection"><h4 id="Load_Balancer_Draining_Valve/Attributes">Attributes</h4><div class="text">
+    <div class="subsection"><h5 id="Load_Balancer_Draining_Valve/Attributes">Attributes</h5><div class="text">
       <p>The <strong>Load Balancer Draining Valve</strong> supports the
       following configuration attributes:</p>
 
@@ -1017,7 +1017,7 @@
 
 <div class="subsection"><h4 id="Remote_IP_Valve">Remote IP Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Remote_IP_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Remote_IP_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>Tomcat port of
     <a href="https://httpd.apache.org/docs/trunk/mod/mod_remoteip.html">mod_remoteip</a>,
@@ -1062,7 +1062,33 @@
 
   </div></div>
 
-  <div class="subsection"><h4 id="Remote_IP_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Security">Security</h5><div class="text">
+
+    <p>The valve changes security sensitive properties of the request based on
+       values provided in HTTP headers. It is essential that Tomcat is able to
+       trust these values for secure operation. Therefore, the first proxy
+       (trusted or internal) must ensure that any of the HTTP headers used by
+       the valve are removed from the untrusted request received.</p>
+    <p>Only the HTTP headers used by the valve need to be removed. The names of
+       those headers will vary depending on configuration. Assuming default
+       header names (adjust as necessary if non-default header names are used),
+       the headers that need to be removed are:</p>
+       <ul>
+         <li><code>x-forwarded-for</code></li>
+         <li><code>x-forwarded-by</code></li>
+         <li><code>x-forwarded-proto</code></li>
+         <li><code>x-forwarded-host</code></li>
+         <li><code>x-forwarded-port</code></li>
+       </ul>
+     <p>Note that HTTP header names are case-insensitive.</p>
+
+     <p>The default value for <code>internalProxies</code> assumes that all
+        local networks are trusted. If this is not the case, adjust the value
+        accordingly.</p>
+
+  </div></div>
+
+  <div class="subsection"><h5 id="Remote_IP_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Remote IP Valve</strong> supports the
     following configuration attributes:</p>
@@ -1106,8 +1132,13 @@
         If not specified, no proxies will be trusted.</p>
       </td></tr><tr id="Remote IP Valve_Attributes_protocolHeader"><td><code class="attributeName">protocolHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the protocol
-        used by the client to connect to the proxy. If not specified, the
-        default of <code>X-Forwarded-Proto</code> is used.</p>
+        used by the client to connect to the proxy. Multiple headers with the
+        same name will be merged as per RFC 9110, section 5.2. If multiple
+        values are present they must all match
+        <code>protocolHeaderHttpsValue</code> for the request to be treated as
+        an HTTPS request else it will be treated as HTTP. If not specified, the
+        default of <code>X-Forwarded-Proto</code> is used. To disable this
+        feature set the value to the empty string.</p>
       </td></tr><tr id="Remote IP Valve_Attributes_hostHeader"><td><code class="attributeName">hostHeader</code></td><td>
         <p>Name of the HTTP Header read by this valve that holds the host
         used by the client to connect to the proxy. If not specified, the
@@ -1149,7 +1180,7 @@
 
 <div class="subsection"><h4 id="SSL_Valve">SSL Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="SSL_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="SSL_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>When using mod_proxy_http, the client SSL information is not included in
     the protocol (unlike mod_jk and mod_proxy_ajp). To make the client SSL
@@ -1180,7 +1211,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="SSL_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="SSL_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>SSL Valve</strong> supports the following configuration
     attribute:</p>
@@ -1285,7 +1316,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
 <div class="subsection"><h4 id="Basic_Authenticator_Valve">Basic Authenticator Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Basic_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Basic_Authenticator_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Basic Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use BASIC
@@ -1297,7 +1328,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="Basic_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Basic_Authenticator_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Basic Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -1440,7 +1471,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
 <div class="subsection"><h4 id="Digest_Authenticator_Valve">Digest Authenticator Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Digest_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Digest_Authenticator_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Digest Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use DIGEST
@@ -1452,7 +1483,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="Digest_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Digest_Authenticator_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Digest Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -1614,7 +1645,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
 <div class="subsection"><h4 id="Form_Authenticator_Valve">Form Authenticator Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="Form_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="Form_Authenticator_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>Form Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use FORM
@@ -1626,7 +1657,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="Form_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="Form_Authenticator_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>Form Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -1759,7 +1790,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
 <div class="subsection"><h4 id="SSL_Authenticator_Valve">SSL Authenticator Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="SSL_Authenticator_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="SSL_Authenticator_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>SSL Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use SSL
@@ -1771,7 +1802,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="SSL_Authenticator_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="SSL_Authenticator_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>SSL Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -1877,7 +1908,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
 <div class="subsection"><h4 id="SPNEGO_Valve">SPNEGO Valve</h4><div class="text">
 
-  <div class="subsection"><h4 id="SPNEGO_Valve/Introduction">Introduction</h4><div class="text">
+  <div class="subsection"><h5 id="SPNEGO_Valve/Introduction">Introduction</h5><div class="text">
 
     <p>The <strong>SPNEGO Authenticator Valve</strong> is automatically added to
     any <a href="context.html">Context</a> that is configured to use SPNEGO
@@ -1889,7 +1920,7 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
 
   </div></div>
 
-  <div class="subsection"><h4 id="SPNEGO_Valve/Attributes">Attributes</h4><div class="text">
+  <div class="subsection"><h5 id="SPNEGO_Valve/Attributes">Attributes</h5><div class="text">
 
     <p>The <strong>SPNEGO Authenticator Valve</strong> supports the following
     configuration attributes:</p>
@@ -2234,6 +2265,12 @@ RequestHeader unset SSL_CLIENT_ESCAPED_CERT</code></pre></div>
     <p>If used in conjunction with Remote IP valve then the Remote IP valve
     should be defined before this valve to ensure that the correct client IP
     address is presented to this valve.</p>
+
+    <p>Care should be taken when configuring this Valve to ensure that crawlers
+    are not associated with the authenticated session of a genuine user. In
+    particular, the <code>crawlerUserAgents</code> must be chosen with care. The
+    Valve will attempt (but does NOT guarantee) to detect this situation and
+    will expire the authenticated session if detected.</p>
 
   </div></div>
 
