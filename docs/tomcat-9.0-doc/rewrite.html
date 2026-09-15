@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.121) - The rewrite Valve</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
-            Version 9.0.121,
-            <time datetime="2026-08-12">Aug 12 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 4.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.1 Javadocs</a></li><li><a href="jaspicapi/index.html">JASPIC 1.1 Javadocs</a></li><li><a href="annotationapi/index.html">Common Annotations 1.3 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The rewrite Valve</h2><h3 id="Introduction">Introduction</h3><div class="text">
+<html lang="en"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./images/docs-stylesheet.css" rel="stylesheet" type="text/css"><title>Apache Tomcat 9 (9.0.122) - The Rewrite Valve</title></head><body><div id="wrapper"><header><div id="header"><div><div><div class="logo noPrint"><a href="https://tomcat.apache.org/"><img alt="Tomcat Home" src="./images/tomcat.png"></a></div><div style="height: 1px;"></div><div class="asfLogo noPrint"><a href="https://www.apache.org/" target="_blank"><img src="./images/asf-logo.svg" alt="The Apache Software Foundation" style="width: 266px; height: 83px;"></a></div><h1>Apache Tomcat 9</h1><div class="versionInfo">
+            Version 9.0.122,
+            <time datetime="2026-09-10">Sep 10 2026</time></div><div style="height: 1px;"></div><div style="clear: left;"></div></div></div></div></header><div id="middle"><div><div id="mainLeft" class="noprint"><div><nav><div><h2>Links</h2><ul><li><a href="index.html">Docs Home</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/FAQ">FAQ</a></li></ul></div><div><h2>User Guide</h2><ul><li><a href="introduction.html">1) Introduction</a></li><li><a href="setup.html">2) Setup</a></li><li><a href="appdev/index.html">3) First webapp</a></li><li><a href="deployer-howto.html">4) Deployer</a></li><li><a href="manager-howto.html">5) Manager</a></li><li><a href="host-manager-howto.html">6) Host Manager</a></li><li><a href="realm-howto.html">7) Realms and AAA</a></li><li><a href="security-manager-howto.html">8) Security Manager</a></li><li><a href="jndi-resources-howto.html">9) JNDI Resources</a></li><li><a href="jndi-datasource-examples-howto.html">10) JDBC DataSources</a></li><li><a href="class-loader-howto.html">11) Classloading</a></li><li><a href="jasper-howto.html">12) JSPs</a></li><li><a href="ssl-howto.html">13) SSL/TLS</a></li><li><a href="ssi-howto.html">14) SSI</a></li><li><a href="cgi-howto.html">15) CGI</a></li><li><a href="proxy-howto.html">16) Proxy Support</a></li><li><a href="mbeans-descriptors-howto.html">17) MBeans Descriptors</a></li><li><a href="default-servlet.html">18) Default Servlet</a></li><li><a href="cluster-howto.html">19) Clustering</a></li><li><a href="balancer-howto.html">20) Load Balancer</a></li><li><a href="connectors.html">21) Connectors</a></li><li><a href="monitoring.html">22) Monitoring and Management</a></li><li><a href="logging.html">23) Logging</a></li><li><a href="apr.html">24) APR/Native</a></li><li><a href="virtual-hosting-howto.html">25) Virtual Hosting</a></li><li><a href="aio.html">26) Advanced IO</a></li><li><a href="maven-jars.html">27) Mavenized</a></li><li><a href="security-howto.html">28) Security Considerations</a></li><li><a href="windows-service-howto.html">29) Windows Service</a></li><li><a href="windows-auth-howto.html">30) Windows Authentication</a></li><li><a href="jdbc-pool.html">31) Tomcat's JDBC Pool</a></li><li><a href="web-socket-howto.html">32) WebSocket</a></li><li><a href="rewrite.html">33) Rewrite</a></li><li><a href="cdi.html">34) CDI 2 and JAX-RS</a></li><li><a href="graal.html">35) AOT/GraalVM Support</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="RELEASE-NOTES.txt">Release Notes</a></li><li><a href="config/index.html">Configuration</a></li><li><a href="api/index.html">Tomcat Javadocs</a></li><li><a href="servletapi/index.html">Servlet 4.0 Javadocs</a></li><li><a href="jspapi/index.html">JSP 2.3 Javadocs</a></li><li><a href="elapi/index.html">EL 3.0 Javadocs</a></li><li><a href="websocketapi/index.html">WebSocket 1.1 Javadocs</a></li><li><a href="jaspicapi/index.html">JASPIC 1.1 Javadocs</a></li><li><a href="annotationapi/index.html">Common Annotations 1.3 Javadocs</a></li><li><a href="https://tomcat.apache.org/connectors-doc/">JK 1.2 Documentation</a></li></ul></div><div><h2>Apache Tomcat Development</h2><ul><li><a href="building.html">Building</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="https://cwiki.apache.org/confluence/display/TOMCAT/Tomcat+Versions">Status</a></li><li><a href="developers.html">Developers</a></li><li><a href="architecture/index.html">Architecture</a></li><li><a href="tribes/introduction.html">Tribes</a></li></ul></div></nav></div></div><div id="mainRight"><div id="content"><h2>The Rewrite Valve</h2><h3 id="Introduction">Introduction</h3><div class="text">
 
   <p>The rewrite valve implements URL rewrite functionality in a way that is
   very similar to mod_rewrite from Apache HTTP Server.</p>
@@ -11,17 +11,13 @@
   <p>The rewrite valve is configured as a valve using the <code>org.apache.catalina.valves.rewrite.RewriteValve</code>
   class name.</p>
 
-  <p>The rewrite valve can be configured as a valve added in a Host.
-     See <a href="config/host.html">virtual-server</a> documentation for
-     information on how to configure it. It will use a <code>rewrite.config</code> file
-     containing the rewrite directives, it must be placed in the Host configuration
-     folder.
-  </p>
+  <p>The rewrite valve can be configured as a valve added in a Host. See the <a href="config/host.html">Host</a>
+  documentation for information on how to configure it. The <code>rewrite.config</code> file containing the rewrite
+  directives must be placed in the Host configuration folder.</p>
 
-  <p>It can also be in the context.xml of a webapp.
-  The valve will then use a <code>rewrite.config</code> file containing the
-  rewrite directives, it must be placed in the WEB-INF folder of the web application
-  </p>
+  <p>The Valve can also be configured as a Valve added in a Context. The Valve must be added in the context.xml of a
+  webapp. The valve will then use the <code>rewrite.config</code> file containing the rewrite directives found in the
+  WEB-INF folder of the web application.</p>
 
 </div><h3 id="Using_rewrite_rules_with_special_characters">Using rewrite rules with special characters</h3><div class="text">
 
@@ -72,7 +68,7 @@
           (0 &lt;= N &lt;= 9), which provide access to the grouped
           parts (in parentheses) of the pattern, from the
           <code>RewriteRule</code> which is subject to the current
-          set of <code>RewriteCond</code> conditions..
+          set of <code>RewriteCond</code> conditions.
         </li>
         <li>
           <strong>RewriteCond backreferences</strong>: These are
@@ -162,45 +158,53 @@
           </li>
           </ul>
 
-                <p>These variables all
-                correspond to the similarly named HTTP
-                MIME-headers and Servlet API methods.
-                Most are documented elsewhere in the Manual or in
-                the CGI specification. Those that are special to
-                the rewrite valve include those below.</p>
+                <p>These variables correspond to the similarly named HTTP MIME-headers and Servlet API methods. Most are
+                documented in the Servlet API in the CGI specification. Those that are special to the rewrite valve
+                include those below.</p>
 
                 <dl>
 
                   <dt><code>REQUEST_PATH</code></dt>
 
-                  <dd>Corresponds to the full path that is used for mapping.</dd>
+                  <dd>Corresponds to the decoded, normalized path (excluding the context path) that is used for
+                  mapping.</dd>
 
                   <dt><code>CONTEXT_PATH</code></dt>
 
-                  <dd>Corresponds to the path of the mapped context.</dd>
+                  <dd>Corresponds to the canonical (decoded and normalized) path of the mapped context.</dd>
 
                   <dt><code>SERVLET_PATH</code></dt>
 
-                  <dd>Corresponds to the servlet path.</dd>
+                  <dd>Corresponds to <code>HttpServletRequest.getServletPath()</code>. The value is decoded and
+                  normalized.</dd>
+
+                  <dt><code>PATH_INFO</code></dt>
+
+                  <dd>Corresponds to <code>HttpServletRequest.getPathInfo()</code>. The value is decoded and
+                  normalized.</dd>
 
                   <dt><code>THE_REQUEST</code></dt>
 
-                  <dd>The full HTTP request line sent by the
-                  browser to the server (e.g., "<code>GET
-                  /index.html HTTP/1.1</code>"). This does not
-                  include any additional headers sent by the
-                  browser.</dd>
+                  <dd>The full HTTP request line sent by the browser to the server (e.g., "<code>GET /index.html
+                  HTTP/1.1</code>"). This does not include any additional headers sent by the browser.</dd>
 
                   <dt><code>REQUEST_URI</code></dt>
 
-                  <dd>The resource requested in the HTTP request
-                  line. (In the example above, this would be
-                  "/index.html".)</dd>
+                  <dd>The resource requested in the HTTP request line. (In the example above, this would be
+                  "/index.html".) Corresponds to <code>HttpServletRequest.getRequestURI()</code>. This is the original,
+                  non-decoded, non-normalized value and as such may not be suitable for many rewrite use cases. In most
+                  cases <code>%{CONTEXT_PATH}%{REQUEST_PATH}</code> will be more suitable than
+                  <code>%{REQUEST_URI}</code> </dd>
+
+                  <dt><code>SCRIPT_FILENAME</code></dt>
+
+                  <dd>The full local file system path to the file or script matching the request servlet path. The exact
+                  value returned is <code>ServletContext.getRealPath(HttpServletRequest.getServletPath()).</code></dd>
 
                   <dt><code>REQUEST_FILENAME</code></dt>
 
-                  <dd>The full local file system path to the file or
-                  script matching the request.</dd>
+                  <dd>The full local file system path to the file or script matching the request path info. The exact
+                  value returned is <code>ServletContext.getRealPath(HttpServletRequest.getPathInfo()).</code></dd>
 
                   <dt><code>HTTPS</code></dt>
 
@@ -215,15 +219,6 @@
       <p>Other things you should be aware of:</p>
 
       <ol>
-        <li>The variables SCRIPT_FILENAME and REQUEST_FILENAME
-        contain the same value - the value of the
-        <code>filename</code> field of the internal
-        <code>request_rec</code> structure of the Apache server.
-        The first name is the commonly known CGI variable name
-        while the second is the appropriate counterpart of
-        REQUEST_URI (which contains the value of the
-        <code>uri</code> field of <code>request_rec</code>).</li>
-
         <li>
         <code>%{ENV:variable}</code>, where <em>variable</em> can be
         any Java system property, is also available.</li>
@@ -492,33 +487,38 @@ RewriteRule ^/(.*)$ ${uc:$1}
       <p>Some hints on the syntax of regular
       expressions:</p>
 
-
-<pre>
-<strong>Text:</strong>
-  <strong><code>.</code></strong>           Any single character
-  <strong><code>[</code></strong>chars<strong><code>]</code></strong>     Character class: Any character of the class 'chars'
-  <strong><code>[^</code></strong>chars<strong><code>]</code></strong>    Character class: Not a character of the class 'chars'
-  text1<strong><code>|</code></strong>text2 Alternative: text1 or text2
-
-<strong>Quantifiers:</strong>
-  <strong><code>?</code></strong>           0 or 1 occurrences of the preceding text
-  <strong><code>*</code></strong>           0 or N occurrences of the preceding text (N &gt; 0)
-  <strong><code>+</code></strong>           1 or N occurrences of the preceding text (N &gt; 1)
-
-<strong>Grouping:</strong>
-  <strong><code>(</code></strong>text<strong><code>)</code></strong>      Grouping of text
-              (used either to set the borders of an alternative as above, or
-              to make backreferences, where the <strong>N</strong>th group can
-              be referred to on the RHS of a RewriteRule as <code>$</code><strong>N</strong>)
-
-<strong>Anchors:</strong>
-  <strong><code>^</code></strong>           Start-of-line anchor
-  <strong><code>$</code></strong>           End-of-line anchor
-
-<strong>Escaping:</strong>
-  <strong><code>\</code></strong>char       escape the given char
-              (for instance, to specify the chars "<code>.[]()</code>" <em>etc.</em>)
-</pre>
+      <table class="defaultTable">
+        <tr><th colspan="2">Text</th></tr>
+        <tr><td><code>.</code></td>
+          <td>Any single character</td></tr>
+        <tr><td><code>[chars]</code></td>
+          <td>Character class: Any character of the class 'chars'</td></tr>
+        <tr><td><code>[^chars]</code></td>
+          <td>Character class: Not a character of the class 'chars'</td></tr>
+        <tr><td><code>text1|text2</code></td>
+          <td>Alternative: text1 or text2</td></tr>
+        <tr><th colspan="2">Quantifiers</th></tr>
+        <tr><td><code>?</code></td>
+          <td>0 or 1 occurrences of the preceding text</td></tr>
+        <tr><td><code>*</code></td>
+          <td>0 or N occurrences of the preceding text (N &gt; 0)</td></tr>
+        <tr><td><code>+</code></td>
+          <td>1 or N occurrences of the preceding text (N &gt; 1)</td></tr>
+        <tr><th colspan="2">Grouping</th></tr>
+        <tr><td><code>(text)</code></td>
+          <td>Grouping of text (used either to set the borders of an
+            alternative as above, or to make backreferences, where the Nth
+            group can be referred to on the RHS of a RewriteRule as $N)</td></tr>
+        <tr><th colspan="2">Anchors</th></tr>
+        <tr><td><code>^</code></td>
+          <td>Start-of-line anchor</td></tr>
+        <tr><td><code>$</code></td>
+          <td>End-of-line anchor</td></tr>
+        <tr><th colspan="2">Escaping</th></tr>
+        <tr><td><code>\char</code></td>
+          <td>Escape the given char (for instance, to specify the chars
+            ".[]()" <em>etc.</em>)</td></tr>
+      </table>
 
       <p>For more information about regular expressions, have a look at the
       perl regular expression manpage ("<a href="https://perldoc.perl.org/perlre.html">perldoc
