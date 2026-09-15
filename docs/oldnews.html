@@ -20,6 +20,48 @@
   <li><a href="oldnews-2011.html">year 2011</a></li>
   <li><a href="oldnews-2010.html">year 2010</a></li>
 </ul>
+</div><h3 id="Tomcat_11.0.25_Released"><span class="pull-right">2026-08-18</span> Tomcat 11.0.25 Released</h3><div class="text">
+<p>
+The Apache Tomcat Project is proud to announce the release of version 11.0.25
+of Apache Tomcat. This release implements specifications that are part of the
+Jakarta EE 11 platform.</p>
+<p>Users of Tomcat 10 onwards should be aware that, as a result of the move from
+Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse
+Foundation, the primary package for all implemented APIs has changed from
+<code>javax.*</code> to <code>jakarta.*</code>. This will almost certainly
+require code changes to enable applications to migrate from Tomcat 9 and earlier
+to Tomcat 10 and later. A
+<a href="https://github.com/apache/tomcat-jakartaee-migration">migration
+tool</a> is available to aid this process.</p>
+<p>The notable changes in this release are:</p>
+<ul>
+<li>Add a new attribute to the Context, urlPatternsProvidedInDecodedForm.
+    This attribute controls whether URLs and URL patterns provided in the
+    deployment descriptor (web.xml), annotations and/or their programmatic
+    equivalents are treated as being provided in URL-encoded form (i.e.
+    using %nn encoding) or in decoded form. The Servlet specification
+    requires that they are provided in decoded form. However, Tomcat has
+    historically treated them as if they are provided in encoded form. In
+    Tomcat 12, they will always be treated as if they are provided in
+    decoded form. This setting enables migration from encoded form to
+    decoded form on an application by application basis. This attribute
+    will be removed in Tomcat 12 where it will effectively be hard-coded
+    to true.</li>
+<li>Require every HTTP/2 request to provide an authority (either an
+    <code>:authority</code> pseudo header or a <code>Host</code> header)</li>
+<li>Change the default encryptionAlgorithm for the EncryptInterceptor to
+    AES/GCM/NoPadding. This is a breaking change for the
+    EncryptInterceptor.</li>
+</ul>
+<p>
+Full details of these changes, and all the other changes, are available in the
+<a href="tomcat-11.0-doc/changelog.html#Tomcat_11.0.25_(markt)">Tomcat 11
+changelog</a>.
+</p>
+
+<p style="text-align: center;">
+<a href="https://tomcat.apache.org/download-11.cgi">Download</a>
+</p>
 </div><h3 id="Tomcat_10.1.59_Released"><span class="pull-right">2026-08-20</span> Tomcat 10.1.59 Released</h3><div class="text">
 <p>
 The Apache Tomcat Project is proud to announce the release of version 10.1.59
