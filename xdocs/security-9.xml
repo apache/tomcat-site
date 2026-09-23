@@ -50,6 +50,189 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.122" rtext="2026-09-15">
+
+    <p><strong>Low: WebSocket message smuggling with
+       per-message-deflate</strong>
+       <cve>CVE-2026-87022</cve></p>
+
+    <p>Improper handling of length parameter allows WebSocket message smuggling
+       when per-message-deflate is used.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="959a52a227cc35101b92dae35b722546167594d6"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 7 September 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.121</p>
+
+    <p><strong>Important: Regression in fix for CVE-2026-41293 can trigger
+       request header mix-up</strong>
+       <cve>CVE-2026-86350</cve></p>
+
+    <p>Inconsistent interpretation of HTTP/2 requests caused by a regression in
+       fix for CVE-2026-41293 can trigger request header mix-up.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="5adadc4ef413d5050f664d40800bbff74bd5d5ed"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 28 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.118 to 9.0.121</p>
+
+    <p><strong>Moderate: Fix for CVE-2026-34500 was incomplete. OCSP checks
+       sometimes soft-fail with FFM even when soft-fail is disabled</strong>
+       <cve>CVE-2026-86248</cve></p>
+
+    <p>CLIENT_CERT authentication does not fail as expected for some scenarios
+       when OCSP soft fail is disabled.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="fc41d82e0e383e4d6e88ad321d245dafdc17d26d"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 28 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.92 to 9.0.121</p>
+
+    <p><strong>Moderate: WebSocket DoS due to lost asynchronous write
+       timeout</strong>
+       <cve>CVE-2026-79677</cve></p>
+
+    <p>Due to a concurrency bug, an attacker could trigger a denial of service
+       as a result of lost time outs for asynchronous WebSocket writes.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="c8fa5430233bca5b209c593dd446f88fda9d543e"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 25 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.121</p>
+
+    <p><strong>Low: HTTP/2 DoS via malformed request</strong>
+       <cve>CVE-2026-78437</cve></p>
+
+    <p>A malformed HTTP/2 request could potentially (depends on timing) cause
+       one request from another user to fail.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="a28c35055ab11d35929ad564beb1a23a67b39546"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 24 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.116 to 9.0.121</p>
+
+    <p><strong>Important: AJP DoS via missing request body</strong>
+       <cve>CVE-2026-78383</cve></p>
+
+    <p>If the end user did not provide a request body, that could pin an AJP
+       processing thread leading to denial of service.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="265bdc0a58b1447ff5d8f8b96ea81de58cb74c8c"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 24 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.121</p>
+
+    <p><strong>Important: DoS via busy wait during WebSocket close</strong>
+       <cve>CVE-2026-77791</cve></p>
+
+    <p>A busy wait during sending of WebSocket close message enabled a DoS
+       attack.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="7a5945f1de1d3310214234dfbbd7c569af52d058"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 21 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.74 to 9.0.121</p>
+
+    <p><strong>Low: Stale HPACK emitter injects trailers into recycled pooled
+       Request</strong>
+       <cve>CVE-2026-77762</cve></p>
+
+    <p>A race condition allowed an attacker to inject trailer fields into
+       another HTTP/2 request.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="71f27c2e84810930beda468b5ba732dcd0ef2652"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 21 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.39 to 9.0.121</p>
+
+    <p><strong>Low: Transfer-Encoding honored for HTTP/1.0 requests</strong>
+       <cve>CVE-2026-77756</cve></p>
+
+    <p>Processing the transfer-encoding header for an HTTP/1.0 request may allow
+       an attacker to cause one request from another user to fail when Tomcat is
+       located behind a reverse proxy.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="e590588ab7649c93d49b0eb7b3152700a977880d"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 20 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.47 to 9.0.121</p>
+
+    <p><strong>Important: Bypass of security constraints for WebSocket
+       endpoints</strong>
+       <cve>CVE-2026-76183</cve></p>
+
+    <p>Request paths were incorrectly parsed as endpoint templates allowing the
+       bypass of security constraints for WebSocket endpoints.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="a93a60a33f4cc202542eb6a0b87b7142d7db311c"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 17 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.121</p>
+
+    <p><strong>Low: Cross-context authentication mix-up with Jakarta
+       Authentication configured</strong>
+       <cve>CVE-2026-75973</cve></p>
+
+    <p>When Jakarta Authentication was configured with SimpleAuthConfigProvider
+       as the default provider and multiple web application used that provider,
+       the realm for the first web application to authenticate a request would
+       be used for all web applications.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="043115414a39127cad015e9d285296e59c18bb41"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M4 to 9.0.121</p>
+
+    <p><strong>Moderate: OpenSSL and OpenSSL-FFM TLS implementations ignore CRLs
+       when certificate uses a keystore</strong>
+       <cve>CVE-2026-73581</cve></p>
+
+    <p>Both the OpenSSL and OpenSSL-FFM TLS implementations ignored CRLs when
+       certificate used a keystore.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="2dce8f26b3ba6a89c8f172b94fa41a5fa2dcc361"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 11 August 2026.
+       The issue was made public on 23 September 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.121</p>
+
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.121" rtext="2026-08-18">
 
     <p><strong>Low: Authenticated WebSocket session survives end of HTTP
