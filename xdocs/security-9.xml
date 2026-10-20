@@ -50,6 +50,118 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 9.0.123" rtext="2026-10-12">
+
+    <p><strong>Important: HTTP/2 request/response mix-up after error during
+       async processing</strong>
+       <cve>CVE-2026-101356</cve></p>
+
+    <p>Incorrect object recycling and re-use affecting HTTP/2 processing of
+       asynchronous servlets can trigger request and/or response mix-up between
+       users.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="4b1eb9a1664b10471f5740279d9f2e2259c5d108"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 16 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.118 to 9.0.122</p>
+  
+    <p><strong>Important: JNDIRealm bind credential validation fails open for
+       non-GSSAPI SASL mechanisms</strong>
+       <cve>CVE-2026-101296</cve></p>
+
+    <p>A missing critical step in authentication vulnerability in Apache Tomcat
+       when the JNDI realm was configured with with a non GSSAPI SASL
+       authentication mechanism allowed attackers to authenticate without
+       providing the correct password.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="42827afa4d073ac3d9f8b3cc81b857aa455bf1e6"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 14 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.122</p>
+  
+    <p><strong>Low: Possible TLS 1.3 connection failures</strong>
+       <cve>CVE-2026-93446</cve></p>
+
+    <p>Incomplete cleanup vulnerability in Apache Tomcat could cause TLS 1.3
+       connections to fail intermittently.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="02166d1c7c32973685734ef132e56eb232605cc5"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 9 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.90 to 9.0.122</p>
+  
+    <p><strong>Low: HTTP/2 trailer header cross-contamination</strong>
+       <cve>CVE-2026-88041</cve></p>
+
+    <p>Incomplete cleanup vulnerability in Apache Tomcat allowed an trailer
+       information from a previous request to leak into a subsequent
+       request.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="885985272887e9a5d47245cec240a5d1d0e39b5b"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 7 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.92 to 9.0.122</p>
+  
+    <p><strong>Low: TOCTOU when setting specific permissions for Unix Domain
+       Sockets - Fix for CVE-2026-65183 did not address APR connector</strong>
+       <cve>CVE-2026-80353</cve></p>
+
+    <p>A race condition when creating a Unix Domain Socket allowed an
+       unauthorised local user to access the Unix Domain Socket.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="894158fd49679a6bd48d9689905829e1fdc45cb2"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 26 August 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.47 to 9.0.122</p>
+
+    <p><strong>Low: Jasper JSTL &lt;c:redirect&gt; plug-in implementation omits
+       page abort (SKIP_PAGE)</strong>
+       <cve>CVE-2026-74049</cve></p>
+
+    <p>The Jasper JSTL plug-in replacement for the &lt;c:redirect&gt; does not
+       immediately end processing, allowing the rest of the page to be processed
+       despite the redirect.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6cd2ec7f60b13f8bd93290993401958502c33211"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 August 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.0.M1 to 9.0.122</p>
+  
+    <p><strong>Low: OpenSSL-FFM FIPS failure does not prevent start-up</strong>
+       <cve>CVE-2026-74048</cve></p>
+
+    <p>If the OpenSSLLifecycleListener is configured to use FIPS mode but FIPS
+       activation fails, Tomcat logs and error but continues to use JSSE in
+       non-FIPS mode with the provided configuration.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="25714916ca36205f63f3c3d0da419981ed9d83c2"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 August 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 9.0.92 to 9.0.122</p>
+  
+  </section>
+
   <section name="Fixed in Apache Tomcat 9.0.122" rtext="2026-09-15">
 
     <p><strong>Low: WebSocket message smuggling with

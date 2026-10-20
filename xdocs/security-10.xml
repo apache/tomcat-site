@@ -56,6 +56,103 @@
     <toc/>
   </section>
 
+  <section name="Fixed in Apache Tomcat 10.1.61" rtext="2026-10-12">
+
+    <p><strong>Important: HTTP/2 request/response mix-up after error during
+       async processing</strong>
+       <cve>CVE-2026-101356</cve></p>
+
+    <p>Incorrect object recycling and re-use affecting HTTP/2 processing of
+       asynchronous servlets can trigger request and/or response mix-up between
+       users.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="6c7da60893bd186d6cb2df7330299d7e70e68279"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 16 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.55 to 10.1.60</p>
+  
+    <p><strong>Important: JNDIRealm bind credential validation fails open for
+       non-GSSAPI SASL mechanisms</strong>
+       <cve>CVE-2026-101296</cve></p>
+
+    <p>A missing critical step in authentication vulnerability in Apache Tomcat
+       when the JNDI realm was configured with with a non GSSAPI SASL
+       authentication mechanism allowed attackers to authenticate without
+       providing the correct password.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="8fafc6f263311b7a0b7ce67477822175d1adf7ce"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 14 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.60</p>
+  
+    <p><strong>Low: Possible TLS 1.3 connection failures</strong>
+       <cve>CVE-2026-93446</cve></p>
+
+    <p>Incomplete cleanup vulnerability in Apache Tomcat could cause TLS 1.3
+       connections to fail intermittently.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="ccbe01a52a9b255ad98e71b5bed76ed10a099503"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 9 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.25 to 10.1.60</p>
+  
+    <p><strong>Low: HTTP/2 trailer header cross-contamination</strong>
+       <cve>CVE-2026-88041</cve></p>
+
+    <p>Incomplete cleanup vulnerability in Apache Tomcat allowed an trailer
+       information from a previous request to leak into a subsequent
+       request.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="395bcafcfcf2e1cff451a5785361679931b49a79"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 7 September 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.27 to 10.1.60</p>
+  
+    <p><strong>Low: Jasper JSTL &lt;c:redirect&gt; plug-in implementation omits
+       page abort (SKIP_PAGE)</strong>
+       <cve>CVE-2026-74049</cve></p>
+
+    <p>The Jasper JSTL plug-in replacement for the &lt;c:redirect&gt; does not
+       immediately end processing, allowing the rest of the page to be processed
+       despite the redirect.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="f8023d833675f00968b89b45639210d3c7dcc95d"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 August 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.0-M1 to 10.1.60</p>
+  
+    <p><strong>Low: OpenSSL-FFM FIPS failure does not prevent start-up</strong>
+       <cve>CVE-2026-74048</cve></p>
+
+    <p>If the OpenSSLLifecycleListener is configured to use FIPS mode but FIPS
+       activation fails, Tomcat logs and error but continues to use JSSE in
+       non-FIPS mode with the provided configuration.</p>
+
+    <p>This was fixed with commit
+       <hashlink hash="5561032ca9d2bf32fafd8a8a417692c9826e30fe"/>.</p>
+
+    <p>This issue was reported to the Tomcat security team on 13 August 2026.
+       The issue was made public on 20 October 2026.</p>
+
+    <p>Affects: 10.1.22 to 10.1.60</p>
+  
+  </section>
+  
   <section name="Fixed in Apache Tomcat 10.1.60" rtext="2026-09-15">
 
     <p><strong>Low: WebSocket message smuggling with
