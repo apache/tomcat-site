@@ -4,6 +4,34 @@
   This is the Changelog for Apache Tomcat Native 2.0.x. The Tomcat Native 2.0.x
   branch started from the 1.2.33 tag.
   </p>
+</div><h3 id="2.0.17"><span style="float: right;">2026-10-29</span> 2.0.17</h3><div class="text">
+  <ul class="changelog">
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add support for configuring server-side TLSv1.2 and TLSv1.3 pre-shared
+      key callbacks. (markt)
+    </li>
+    <li><img alt="Add: " class="icon" src="../images/add.gif">
+      Add support for configuring client-side TLSv1.2 and TLSv1.3 pre-shared
+      key callbacks. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Align the OCSP checking performed by <code>ssl_verify_OCSP()</code> with
+      the behaviour of Tomcat's JSSE based <code>SSLEngine</code>
+      implementation so that a certificate that is itself a trust anchor
+      (whether a self-signed root or a certificate trusted directly via the
+      configured trust store) is not subject to OCSP checking. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Limit read and write access to a newly created <code>SSLKEYLOGFILE</code>
+      (if any) to the user under which Tomcat Native is running. (markt)
+    </li>
+    <li><img alt="Update: " class="icon" src="../images/update.gif">
+      Update the recommended minimum version of OpenSSL to 3.5.9. (markt)
+    </li>
+    <li><img alt="Fix: " class="icon" src="../images/fix.gif">
+      Generate the HTML changelog as UTF-8. (markt)
+    </li>
+  </ul>
 </div><h3 id="2.0.16"><span style="float: right;">2026-09-07</span> 2.0.16</h3><div class="text">
   <ul class="changelog">
     <li><img alt="Code: " class="icon" src="../images/code.gif">
